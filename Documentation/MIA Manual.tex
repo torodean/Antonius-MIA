@@ -1,0 +1,42 @@
+ \documentclass[openany,a4paper,11pt]{book}
+
+\include{./TeX_files/packages}
+\include{./TeX_files/settings}
+
+\title{Multiple Integrated Applications (MIA) \\  Manual \& Programming Documentation \\ Version -- 0.001 \\ (Document continuously under development) \\ \vspace{1cm}  \includegraphics[scale=1]{./Images/logo.png}}
+\author{Developer: Antonius Torode \\ Michigan State University \\ Department of Physics \& Astronomy}
+\date{Latest update: \today}
+
+\begin{document}
+
+\frontmatter
+\maketitle
+\include{./TeX_files/frontmatter}
+\tableofcontents
+\newpage
+\vspace*{\fill}
+\begin{center}
+	\textit{This page intentionally left blank.}
+\end{center}
+\vspace*{\fill}
+
+\mainmatter
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[RO, LE]{\thepage}
+
+
+\fancypagestyle{plain}{%
+	%\fancyhf{} % clear all header and footer fields
+	\fancyhead[RO, LE]{\thepage}
+	\renewcommand{\headrulewidth}{0pt}
+	\renewcommand{\footrulewidth}{0pt}}
+
+\include{./TeX_files/MIAconcept}
+\include{./TeX_files/MIAcommands}
+
+\backmatter
+\include{./TeX_files/AppendixI}
+\include{./TeX_files/references}
+
+\end{document}
