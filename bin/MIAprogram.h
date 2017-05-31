@@ -17,7 +17,10 @@ class Program{
 	public:
 		Program();
 		~Program();
+		void terminal();
 		void splash();
+		void intro();
+		void standby();
 		std::string getMIAVersion();
 };
 #endif

@@ -11,7 +11,7 @@ useful coding functions I've created in one place for easy accessibility.
 
 2) Place the MIA directory in Cygwin64/home/username/Antonius-MIA
 
-3) cd /home/username/Antonius-MIA/bin
+3) cd ../Antonius-MIA/bin
 
 4) compile an exe using g++ -Wall MIAmain.cpp MIAprogram.cpp -o MIA
 
@@ -20,3 +20,6 @@ useful coding functions I've created in one place for easy accessibility.
 6) git works from within the Cygwin terminal so once you are in the 
 /Antonius-MIA directory all of the same git functions can be used.
 
+7) To see what dll's are required by the program for making it portable,
+execute objdump -p hello.exe | grep "DLL Name" while in the 
+../Antonius-MIA/bin and then copy those dll's to the folder with the .exe

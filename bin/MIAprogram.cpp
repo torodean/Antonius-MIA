@@ -34,6 +34,22 @@ void Program::splash(){
 	std::cout << ".........................................................." << std::endl;
 }
 
+//Displays an introductory greeting to the user.
+void intro(){
+	
+}
+
+//Displays the Standy screen that informs the user of the help feature.
+coid standby(){
+	
+}
+
+//Main user interface for MIA.
+void Program::terminal(){
+	splash();
+	
+}
+
 std::string Program::getMIAVersion(){
 	return VERSION;
 }
