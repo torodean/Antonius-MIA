@@ -13,10 +13,10 @@ useful coding functions I've created in one place for easy accessibility.
 
 3) cd /home/username/Antonius-MIA/bin
 
-4) compile an exe using g++ -std=c++14 MIAmain.cpp
+4) compile an exe using g++ -Wall MIAmain.cpp MIAprogram.cpp -o MIA
 
-5) run using ./a.exe or rename a.exe to MIA.exe then use ./MIA.exe 
-while in the bin directory.
+5) run using ./MIA.exe while in the bin directory.
 
 6) git works from within the Cygwin terminal so once you are in the 
 /Antonius-MIA directory all of the same git functions can be used.
+

@@ -1,0 +1,23 @@
+//============================================================================
+// Name        : MIAprogram.h
+// Author      : Antonius Torode
+// Copyright   : This file can be used under the conditions of Antonius' 
+//				 General Purpose License (AGPL).
+// Description : MIA settings and functions related to the MIA program.
+//============================================================================
+
+#ifndef __CSHAPE_H__
+#define __CSHAPE_H__
+
+#include <string>
+
+class Program{
+	private:
+		const std::string VERSION;
+	public:
+		Program();
+		~Program();
+		void splash();
+		std::string getMIAVersion();
+};
+#endif
