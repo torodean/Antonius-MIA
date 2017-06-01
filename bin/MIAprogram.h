@@ -18,9 +18,12 @@ class Program{
 		Program();
 		~Program();
 		void terminal();
+		void blankDots();
 		void splash();
 		void intro();
 		void standby();
+		void helpMessage();
+		void blankLine();
 		std::string getMIAVersion();
 };
 #endif
