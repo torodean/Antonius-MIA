@@ -1,0 +1,73 @@
+//==========================================\\
+||============== INSTRUCTIONS ==============||
+\\==========================================//
+
+Select the instructions below based on the Operating system you are using. If you are unsure which operating system you are using read the below information.
+
+A) You are using microsoft windows if you see the windows logo on the screen (4 colored logo) when turning on your machine.
+
+B) You are using a Mac if you see an apple logo with a bite out of it when turning on your machine.
+
+C) If you are using Linux you will know.
+
+//=============================\\
+||== Microsoft Windows Users ==||
+\\=============================//
+
+1) unzip 'd0sag3' to your desktop or other desired location (If you extract files to a location other than your desktop than the below will be slighty different than the example.
+
+2) Open the command prompt using one of the following methods.
+
+	a) Press and Hold the 'windows' key then press the 'r' key while holding down the 'windows' key.
+	b) Go to Start > Run. A box should appear in which you should type "cmd", then press enter.
+
+3) Tell the command prompt which directory the file is located in. To do this type "cd " and then the directory the file is in. For example "cd C:\\Users\default\desktop\". If you do not know the directory, you can right click the file, go ot properties, and it should say. You can copy and paste the directory from there.
+
+4) once the directory is set, you should just be able to type 'd0sag3' into the command prompt and the program will run. Note: The '0' in d0sag3 is a zero, not a letter.
+
+If properly running, the start of the program should look like this:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~ d0sag3 Command Initialized ~~~~~~
+~~~~~~~~~~~~ Version: #.### ~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~Type 'help' for a list of commands~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Enter Command: 
+
+//=============================\\
+||======== Linux Users ========||
+\\=============================//
+
+1) unzip the Linux folder to your desktop or other desired location (If you extract files to a location other than your desktop than the below will be slighty different than the example.
+
+2) Open the Terminal by pressing Ctrl-Alt+t
+
+3) Tell the command prompt which directory the file is located in. To do this type "cd " and then the directory of the Linux folder. For example "cd /home/USERNAME/Desktop/Linux", where USERNAME is the name of the user account. If you do not know the directory, you can right click the file, go ot properties, and it should say. You can copy and paste the directory from there.
+
+once the directory is set, type './d0sag3' into the command prompt and the program will run. Note: The '0' in d0sag3 is a zero, not a letter.
+
+If properly running, the start of the program should look like this:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~ d0sag3 Command Initialized ~~~~~~
+~~~~~~~~~~~~ Version: #.### ~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~Type 'help' for a list of commands~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Enter Command: 
+
+//=============================\\
+||========= Mac Users =========||
+\\=============================//
+
+I don't have a Mac so...
+
+1) Buy a PC.
+
+2) Install Linux.
+
+3) Follow the above instructions.
+
