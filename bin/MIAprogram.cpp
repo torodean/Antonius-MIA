@@ -70,7 +70,7 @@ void Program::helpMessage(){
 }
 
 //Prints a blank line.
-void blankLine(){
+void Program::blankLine(){
 	std::cout << std::endl;
 }
 
