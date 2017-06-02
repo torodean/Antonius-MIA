@@ -25,5 +25,8 @@ class Program{
 		void helpMessage();
 		void blankLine();
 		std::string getMIAVersion();
+		void performCommand(std::string input);
+		int commandToInputVar(std::string input);
+		void help();
 };
 #endif

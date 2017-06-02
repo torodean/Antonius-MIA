@@ -8,12 +8,15 @@
 
 #include <iostream>
 #include <string>
+#include <cctype>
 #include "MIAprogram.h"
 
+//Main program constructor.
 Program::Program() : VERSION("0.002"){
 	
 }
 
+//Main program deconstructor.
 Program::~Program(){
 	
 }
@@ -49,15 +52,49 @@ void Program::intro(){
 void Program::standby(){
 	std::string input = "";
 	bool exit = false;
+	helpMessage();
 	while(exit == false){
-		helpMessage();
 		getline(std::cin,input);
-		std::cout << "You entered: " << input << " ...gg!" << std::endl;
+		blankLine();
 		if(input == "exit"){
 			exit = true;
+		} else{
+			performCommand(input);
 		}
+		helpMessage();
 	} 
+}
+
+//Takes the user input as a string and converts it to a corresponding integer to be used in the switch case.
+int Program::commandToInputVar(std::string input){
+	int output=31415;
 	
+	if(input == "help"){
+		output = 0;
+	} 
+	return output;
+}
+
+//Displays a list of valid commands and what they do to the user.
+void Program::help(){
+	std::cout << "... A list of valid commands and a brief summary.      ..." << std::endl;
+}
+
+//Takes the input command by the user and runs the corresponding feature.
+void Program::performCommand(std::string input){
+	for(int i=0; input[i]; i++){
+		input[i] = std::tolower(input[i]);
+	}
+	int in = commandToInputVar(input);
+	
+	switch( in ){
+		case 0: //corresponds to the help command
+			help();
+			break;		
+		default:
+			std::cout << "... Invalid Command Entered.                           ..." << std::endl;
+			break;
+	}
 }
 
 //Informs the user of the help feature and asks for a command.
