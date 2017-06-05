@@ -6,8 +6,8 @@
 // Description : MIA settings and functions related to the MIA program.
 //============================================================================
 
-#ifndef __CSHAPE_H__
-#define __CSHAPE_H__
+#ifndef __MIAPROGRAM_H__
+#define __MIAPROGRAM_H__
 
 #include <string>
 

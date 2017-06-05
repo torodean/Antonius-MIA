@@ -14,7 +14,8 @@ http://preshing.com/20141108/how-to-install-the-latest-gcc-on-windows/
 
 3) cd ../Antonius-MIA/bin
 
-4) compile an exe using g++ -Wall MIAmain.cpp MIAprogram.cpp -o MIA
+4) compile an exe using 
+g++ -Wall MIAmain.cpp MIAprogram.cpp MIAcommands.cpp D3CEncrypt.cpp D3CEncryptPW.cpp -o MIA
 
 5) run using ./MIA.exe while in the bin directory.
 

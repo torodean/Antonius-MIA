@@ -10,6 +10,8 @@
 #include <string>
 #include <cctype>
 #include "MIAprogram.h"
+#include "D3CEncrypt.h"
+#include "MIAcommands.h"
 
 //Main program constructor.
 Program::Program() : VERSION("0.002"){
@@ -71,13 +73,28 @@ int Program::commandToInputVar(std::string input){
 	
 	if(input == "help"){
 		output = 0;
-	} 
+	} else if (input == "crypt -d0s1"){
+		output = 1;
+	} else if (input == "decrypt -d0s1"){
+		output = 2;
+	}else if (input == "crypt -d0s2"){
+		output = 3;
+	} else if (input == "decrypt -d0s2"){
+		output = 4;
+	}
 	return output;
 }
 
 //Displays a list of valid commands and what they do to the user.
 void Program::help(){
 	std::cout << "... A list of valid commands and a brief summary.      ..." << std::endl;
+	blankDots();
+	std::cout << "...help          | Displays a valid lists of commands. " << std::endl;
+	std::cout << "...crypt -d0s1   | Encrypts a string using the d0s1 algorithm. " << std::endl;
+	std::cout << "...crypt -d0s2   | Encrypts a string using the d0s2 algorithm. " << std::endl;
+	std::cout << "...decrypt -d0s1 | De-crypts a string using the d0s1 algorithm. " << std::endl;
+	std::cout << "...decrypt -d0s2 | De-crypts a string using the d0s2 algorithm. " << std::endl;
+	std::cout << "...exit          | Quits MIA. " << std::endl;
 }
 
 //Takes the input command by the user and runs the corresponding feature.
@@ -87,10 +104,25 @@ void Program::performCommand(std::string input){
 	}
 	int in = commandToInputVar(input);
 	
+	//Loads in the commands class which contains all of the individual command runners.
+	Commands cmd;
+	
 	switch( in ){
 		case 0: //corresponds to the help command
 			help();
-			break;		
+			break;	
+		case 1:		
+			cmd.d0s1CryptRunner();
+			break;
+		case 2:		
+			cmd.d0s1DeCryptRunner();
+			break;
+		case 3:		
+			cmd.d0s2CryptRunner();
+			break;
+		case 4:		
+			cmd.d0s2DeCryptRunner();
+			break;
 		default:
 			std::cout << "... Invalid Command Entered.                           ..." << std::endl;
 			break;
