@@ -14,7 +14,7 @@
 #include "MIAcommands.h"
 
 //Main program constructor.
-Program::Program() : VERSION("0.002"){
+Program::Program() : VERSION("0.021"){
 	
 }
 
@@ -25,28 +25,28 @@ Program::~Program(){
 
 //Displays the MIA splash screen.
 void Program::splash(){
-	std::cout << "     .................................................................." << std::endl;
-	std::cout << "    ... //         |||      |||  ||||||||||      ||||     TM      \\\\ ..." << std::endl;
-	std::cout << "   ... //          ||||    ||||      ||         ||  ||             \\\\ ..." << std::endl;
-	std::cout << "  ... //           || ||  || ||      ||        ||||||||             \\\\ ..." << std::endl;
-	std::cout << " ... //            ||  ||||  ||      ||       ||      ||             \\\\ ..." << std::endl;
-	std::cout << "... //             ||   ||   ||  ||||||||||  ||        ||             \\\\ ..." << std::endl;
-	std::cout << "............................................................................" << std::endl;
-	std::cout << "............................ TERMINAL INTERFACE ............................" << std::endl;
-	std::cout << "............ Multiple Integrated Applications -- Version: " + VERSION + " ............" << std::endl;
-	std::cout << "...................     Programmer: Antonius Torode      ..................." << std::endl;
-	std::cout << "............................................................................" << std::endl;
+	std::cout << "     ...................................................................." << std::endl;
+	std::cout << "    ... //  ~~      |||      |||  ||||||||||      ||||     TM   ~~  \\\\ ..." << std::endl;
+	std::cout << "   ... //  ~~       ||||    ||||      ||         ||  ||          ~~  \\\\ ..." << std::endl;
+	std::cout << "  ... //  ~~        || ||  || ||      ||        ||||||||          ~~  \\\\ ..." << std::endl;
+	std::cout << " ... //  ~~         ||  ||||  ||      ||       ||      ||          ~~  \\\\ ..." << std::endl;
+	std::cout << "... //  ~~          ||   ||   ||  ||||||||||  ||        ||          ~~  \\\\ ..." << std::endl;
+	std::cout << ".............................................................................." << std::endl;
+	std::cout << "............................. TERMINAL INTERFACE ............................." << std::endl;
+	std::cout << "............. Multiple Integrated Applications -- Version: " + VERSION + " ............." << std::endl;
+	std::cout << "....................     Programmer: Antonius Torode      ...................." << std::endl;
+	std::cout << ".............................................................................." << std::endl;
 }
 
 //Displays a blank line surrounded by dots - used for formatting.
 void Program::blankDots(){
-	std::cout << "...                                                                      ..." << std::endl;
+	std::cout << "...                                                                        ..." << std::endl;
 }
 
 //Displays an introductory greeting to the user.
 void Program::intro(){
 	blankDots();
-	std::cout << "... Greetings! I am MIA.                                                 ..." << std::endl;
+	std::cout << "... Greetings! I am MIA.                                                   ..." << std::endl;
 }
 
 //The standby screen while waiting for a user input.
@@ -68,7 +68,7 @@ void Program::standby(){
 
 //Takes the user input as a string and converts it to a corresponding integer to be used in the switch case.
 int Program::commandToInputVar(std::string input){
-	int output=31415;
+	int output=3141592;
 	
 	if(input == "help"){
 		output = 0;
@@ -86,8 +86,8 @@ int Program::commandToInputVar(std::string input){
 
 //Displays a list of valid commands and what they do to the user.
 void Program::help(){
-	std::cout << "... A list of valid commands and a brief summary.                        ..." << std::endl;
-	std::cout << "... Commands are NOT case sensitive.                                     ..." << std::endl;
+	std::cout << "... A list of valid commands and a brief summary.                          ..." << std::endl;
+	std::cout << "... Commands are NOT case sensitive.                                       ..." << std::endl;
 	blankDots();
 	std::cout << "... help          | Displays a valid lists of commands. " << std::endl;
 	std::cout << "... crypt -d0s1   | Encrypts a string using the d0s1 algorithm. " << std::endl;
@@ -124,7 +124,7 @@ void Program::performCommand(std::string input){
 			cmd.d0s2DeCryptRunner();
 			break;
 		default:
-			std::cout << "... Invalid Command Entered.                                             ..." << std::endl;
+			std::cout << "... Invalid Command Entered.                                               ..." << std::endl;
 			break;
 	}
 }
@@ -132,8 +132,8 @@ void Program::performCommand(std::string input){
 //Informs the user of the help feature and asks for a command.
 void Program::helpMessage(){
 	blankDots();
-	std::cout << "... You can type 'help' for a list of valid commands.                    ..." << std::endl;
-	std::cout << "... Please enter a command.                                              ..." << std::endl;
+	std::cout << "... You can type 'help' for a list of valid commands.                      ..." << std::endl;
+	std::cout << "... Please enter a command.                                                ..." << std::endl;
 	blankDots();
 	blankLine();
 }
