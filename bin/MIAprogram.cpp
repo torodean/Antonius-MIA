@@ -25,29 +25,28 @@ Program::~Program(){
 
 //Displays the MIA splash screen.
 void Program::splash(){
-	std::cout << "" << std::endl;
-	std::cout << ".........................................................." << std::endl;
-	std::cout << "...       |||      |||  ||||||||||      ||||     TM    ..." << std::endl;
-	std::cout << "...       ||||    ||||      ||         ||  ||          ..." << std::endl;
-	std::cout << "...       || ||  || ||      ||        ||||||||         ..." << std::endl;
-	std::cout << "...       ||  ||||  ||      ||       ||      ||        ..." << std::endl;
-	std::cout << "...       ||   ||   ||  ||||||||||  ||        ||       ..." << std::endl;
-	std::cout << ".........................................................." << std::endl;
-	std::cout << "................... TERMINAL INTERFACE ..................." << std::endl;
-	std::cout << "... Multiple Integrated Applications -- Version: " + VERSION + " ..." << std::endl;
-	std::cout << "..........     Programmer: Antonius Torode      .........." << std::endl;
-	std::cout << ".........................................................." << std::endl;
+	std::cout << "     .................................................................." << std::endl;
+	std::cout << "    ... //         |||      |||  ||||||||||      ||||     TM      \\\\ ..." << std::endl;
+	std::cout << "   ... //          ||||    ||||      ||         ||  ||             \\\\ ..." << std::endl;
+	std::cout << "  ... //           || ||  || ||      ||        ||||||||             \\\\ ..." << std::endl;
+	std::cout << " ... //            ||  ||||  ||      ||       ||      ||             \\\\ ..." << std::endl;
+	std::cout << "... //             ||   ||   ||  ||||||||||  ||        ||             \\\\ ..." << std::endl;
+	std::cout << "............................................................................" << std::endl;
+	std::cout << "............................ TERMINAL INTERFACE ............................" << std::endl;
+	std::cout << "............ Multiple Integrated Applications -- Version: " + VERSION + " ............" << std::endl;
+	std::cout << "...................     Programmer: Antonius Torode      ..................." << std::endl;
+	std::cout << "............................................................................" << std::endl;
 }
 
 //Displays a blank line surrounded by dots - used for formatting.
 void Program::blankDots(){
-	std::cout << "...                                                    ..." << std::endl;
+	std::cout << "...                                                                      ..." << std::endl;
 }
 
 //Displays an introductory greeting to the user.
 void Program::intro(){
 	blankDots();
-	std::cout << "... Greetings! I am MIA.                               ..." << std::endl;
+	std::cout << "... Greetings! I am MIA.                                                 ..." << std::endl;
 }
 
 //The standby screen while waiting for a user input.
@@ -87,14 +86,15 @@ int Program::commandToInputVar(std::string input){
 
 //Displays a list of valid commands and what they do to the user.
 void Program::help(){
-	std::cout << "... A list of valid commands and a brief summary.      ..." << std::endl;
+	std::cout << "... A list of valid commands and a brief summary.                        ..." << std::endl;
+	std::cout << "... Commands are NOT case sensitive.                                     ..." << std::endl;
 	blankDots();
-	std::cout << "...help          | Displays a valid lists of commands. " << std::endl;
-	std::cout << "...crypt -d0s1   | Encrypts a string using the d0s1 algorithm. " << std::endl;
-	std::cout << "...crypt -d0s2   | Encrypts a string using the d0s2 algorithm. " << std::endl;
-	std::cout << "...decrypt -d0s1 | De-crypts a string using the d0s1 algorithm. " << std::endl;
-	std::cout << "...decrypt -d0s2 | De-crypts a string using the d0s2 algorithm. " << std::endl;
-	std::cout << "...exit          | Quits MIA. " << std::endl;
+	std::cout << "... help          | Displays a valid lists of commands. " << std::endl;
+	std::cout << "... crypt -d0s1   | Encrypts a string using the d0s1 algorithm. " << std::endl;
+	std::cout << "... crypt -d0s2   | Encrypts a string using the d0s2 algorithm. " << std::endl;
+	std::cout << "... decrypt -d0s1 | De-crypts a string using the d0s1 algorithm. " << std::endl;
+	std::cout << "... decrypt -d0s2 | De-crypts a string using the d0s2 algorithm. " << std::endl;
+	std::cout << "... exit          | Quits MIA. " << std::endl;
 }
 
 //Takes the input command by the user and runs the corresponding feature.
@@ -124,7 +124,7 @@ void Program::performCommand(std::string input){
 			cmd.d0s2DeCryptRunner();
 			break;
 		default:
-			std::cout << "... Invalid Command Entered.                           ..." << std::endl;
+			std::cout << "... Invalid Command Entered.                                             ..." << std::endl;
 			break;
 	}
 }
@@ -132,8 +132,8 @@ void Program::performCommand(std::string input){
 //Informs the user of the help feature and asks for a command.
 void Program::helpMessage(){
 	blankDots();
-	std::cout << "... You can type 'help' for a list of valid commands.  ..." << std::endl;
-	std::cout << "... Please enter a command.                            ..." << std::endl;
+	std::cout << "... You can type 'help' for a list of valid commands.                    ..." << std::endl;
+	std::cout << "... Please enter a command.                                              ..." << std::endl;
 	blankDots();
 	blankLine();
 }

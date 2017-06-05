@@ -1,9 +1,3 @@
-/*
- * D3CMath.h
- *
- *  Created on: Oct 5, 2014
- *      Author: Antonius Torode
- */
 
 #include <vector>
 #include <string>

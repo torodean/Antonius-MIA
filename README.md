@@ -25,3 +25,5 @@ g++ -Wall MIAmain.cpp MIAprogram.cpp MIAcommands.cpp D3CEncrypt.cpp D3CEncryptPW
 7) To see what dll's are required by the program for making it portable,
 execute objdump -p hello.exe | grep "DLL Name" while in the 
 ../Antonius-MIA/bin and then copy those dll's to the folder with the .exe
+
+8) With the correct cygwin dll's in the exe folder, the program can be ran as standalone.
