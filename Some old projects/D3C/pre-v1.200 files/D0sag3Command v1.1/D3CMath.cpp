@@ -20,7 +20,8 @@ D3CMath::D3CMath() {
     // TODO Auto-generated constructor stub
 }
 
-bool D3CMath::isPrime(long number) {  //determines if a number is prime or not
+//determines if a number is prime or not
+bool D3CMath::isPrime(long number) {  
     int Counter = 0;   //P is a counter for how many numbers can divide evenly into x
     if (number == 0 || number == 1 || number == 4) {
         return false;
@@ -38,7 +39,8 @@ bool D3CMath::isPrime(long number) {  //determines if a number is prime or not
     return true;
 }
 
-bool D3CMath::isPalindrome(long number) {  //determines if a number is a palindrome.
+//determines if a number is a palindrome.
+bool D3CMath::isPalindrome(long number) {  
     int size = log10(number) + 1;
     int n[size];
     for (int i = 0; i < size; i++) {
@@ -55,7 +57,8 @@ bool D3CMath::isPalindrome(long number) {  //determines if a number is a palindr
     return true;
 }
 
-long D3CMath::sumOfDigits(string number) { //returns the sum of the digits (as an int) within a number (entered as a string).
+//returns the sum of the digits (as an int) within a number (entered as a string).
+long D3CMath::sumOfDigits(string number) { 
     int size = number.size(), sum = 0;
     int n[size];
     for (int i = 0; i < size; i++) {
@@ -67,7 +70,8 @@ long D3CMath::sumOfDigits(string number) { //returns the sum of the digits (as a
     return sum;
 }
 
-int D3CMath::numberOfFactors(long x) { //returns the number of factors in a number
+//returns the number of factors in a number
+int D3CMath::numberOfFactors(long x) { 
     int num = 0;
     for (long i = 1; i <= x; i++) {
         if (x % i == 0) {
@@ -89,10 +93,10 @@ bool D3CMath::isTriangleNumber(long x) {
     return false;
 }
 
-int D3CMath::numOfDigitsString(string x) { //returns the number of digits in a string
+//returns the number of digits in a string
+int D3CMath::numOfDigitsString(string x) { 
     return x.size();
 }
-
 
 istream& ignoreline(ifstream& in, ifstream::pos_type& pos){
     pos = in.tellg();
@@ -184,7 +188,9 @@ long seperateFileEnd(string line){
     return lineEnd;
 }
 
-void D3CMath::primeNumberNpopulate() { // populates all prime numbers, this can be used to populate a list of all primes to increase the efficiency of primeNumberN(); Up to a maximum number of 2147483647.
+//populates all prime numbers, this can be used to populate a list of all primes 
+//to increase the efficiency of primeNumberN(); Up to a maximum number of 2147483647.
+void D3CMath::primeNumberNpopulate() { 
 
     D3CWindow window;
     ofstream myfile;
@@ -240,7 +246,9 @@ void D3CMath::primeNumberNerase(){
     myfile.close();
 }
 
-long D3CMath::primeNumberN(long n) { //calculates the n'th prime number, starting with 2 as prime number one. Up to a maximum number of 2147483647.
+//calculates the n'th prime number, starting with 2 as prime number one. 
+//Up to a maximum number of 2147483647.
+long D3CMath::primeNumberN(long n) { 
     long max = 2147483647;
     long largePrime = 0, primeCount = 0;
 
@@ -300,7 +308,10 @@ long D3CMath::primeNumberN(long n) { //calculates the n'th prime number, startin
     return largePrime;
 }
 
-int D3CMath::numOfDigitsInt(int x){ //returns the number of digits within a non-zero integer. Negative values neglect the negative sign when given the number of digits. If the value of the input is 0 or a string of 0's the output will be zero.
+//returns the number of digits within a non-zero integer. 
+//Negative values neglect the negative sign when given the number of digits. 
+//If the value of the input is 0 or a string of 0's the output will be zero.
+int D3CMath::numOfDigitsInt(int x){ 
     int count;
     if(x>0){
         count = log10(x)+1;
@@ -323,7 +334,8 @@ int D3CMath::setLargerInt(int One, int Two) {
     return largerInt;
 }
 
-string D3CMath::zeroString(int length) { //Creates a string of all zero's of a certain length.
+//Creates a string of all zero's of a certain length.
+string D3CMath::zeroString(int length) { 
     string Total;
     Total.resize(length);
     for (int i = 0; i < length; i++) { //sets all of the numbers in Total to zero.
@@ -332,7 +344,8 @@ string D3CMath::zeroString(int length) { //Creates a string of all zero's of a c
     return Total;
 }
 
-vector<int> D3CMath::stringToVector(string a) { //Converts a string to a vector
+//Converts a string to a vector
+vector<int> D3CMath::stringToVector(string a) { 
     int length = a.size();
     vector<int> vector(length);
     for (int i = 0; i < length; i++) { //converts string one into an array of integers.
@@ -341,7 +354,8 @@ vector<int> D3CMath::stringToVector(string a) { //Converts a string to a vector
     return vector;
 }
 
-string D3CMath::vectorToString(vector<int> a) { //converts a vector of numbers to a string and removes the preceding zeros.
+//converts a vector of numbers to a string and removes the preceding zeros.
+string D3CMath::vectorToString(vector<int> a) { 
 
     bool lastDigitZero = false;
     int lengthTotal = a.size(), count = 0;
@@ -370,7 +384,9 @@ string D3CMath::vectorToString(vector<int> a) { //converts a vector of numbers t
     return Total;
 }
 
-string D3CMath::resizeString(string a, string b) { //resizes a smaller string to be the same as a second string by placing zero's in front of it until it is the same length as the second string. The larger string is inputed first (a) and the smaller string to be resized is inputed as the second string (b).
+//resizes a smaller string to be the same as a second string by placing zero's in front of it until it is the same length as the second string. 
+//The larger string is inputed first (a) and the smaller string to be resized is inputed as the second string (b).
+string D3CMath::resizeString(string a, string b) { 
     int lengthOne = a.size(), lengthTwo = b.size(), origlengthTwo = lengthTwo,
             temp = 0;
     int difference = lengthOne - lengthTwo; //finds the difference in size of the two strings so we know how much one needs stretched by.
@@ -397,7 +413,8 @@ string D3CMath::addNegativeSign(string Total){
     return Totality;
 }
 
-string D3CMath::addTwoStrings(string stringOne, string stringTwo) { //adds 2 strings together and returns their sum as a string.
+//adds 2 strings together and returns their sum as a string.
+string D3CMath::addTwoStrings(string stringOne, string stringTwo) { 
     int lengthOne = stringOne.size(), lengthTwo = stringTwo.size(),
             largerLength = setLargerInt(lengthOne, lengthTwo), lengthTotal,
             number, var; //largerLength is now the length of the largest string.
@@ -460,7 +477,8 @@ string D3CMath::addTwoStrings(string stringOne, string stringTwo) { //adds 2 str
     return Total; //returns the Total of the two strings.
 }
 
-string D3CMath::subtractTwoStrings(string stringOne, string stringTwo) { //subtracts 2 strings together and returns their sum as a string.
+//subtracts 2 strings together and returns their sum as a string.
+string D3CMath::subtractTwoStrings(string stringOne, string stringTwo) { 
 
     int lengthOne = stringOne.size(), lengthTwo = stringTwo.size(), largerLength = setLargerInt(lengthOne, lengthTwo), lengthTotal; //largerLength is now the length of the largest string.
     bool isPositive = NULL, sameLength = NULL;
@@ -535,7 +553,8 @@ string D3CMath::subtractTwoStrings(string stringOne, string stringTwo) { //subtr
     return Difference; //returns the Difference two strings.
 }
 
-string D3CMath::multiplyTwoStrings(string stringOne, string stringTwo) { //multiplies two strings of numbers of any length together.
+//multiplies two strings of numbers of any length together.
+string D3CMath::multiplyTwoStrings(string stringOne, string stringTwo) { 
 
     if(stringOne == "0" || stringTwo == "0"){
         return "0";
@@ -625,7 +644,8 @@ string D3CMath::multiplyTwoStrings(string stringOne, string stringTwo) { //multi
     return Total;
 }
 
-long D3CMath::largestProductOfXConsecutiveNumbers(string string, long x) { // finds the largest product of x consecutive numbers in a string of numbers that is of length sL.
+// finds the largest product of x consecutive numbers in a string of numbers that is of length sL.
+long D3CMath::largestProductOfXConsecutiveNumbers(string string, long x) { 
 
     int sL = string.size(), temp = 0;
     long max = 0;
@@ -667,7 +687,8 @@ string D3CMath::productCollatzSequence(long n){
 return sequence;
 }
 
-long D3CMath::latticePathsOfSquare(long x, long y){ //determines the amount of lattice paths to the bottom right corner of a square grid of size s x s
+//determines the amount of lattice paths to the bottom right corner of a square grid of size s x s
+long D3CMath::latticePathsOfSquare(long x, long y){ 
     long space[x + 1][y + 1];
     for (int i = 0; i <= x; i++) {
         for (int j = 0; j <= y; j++) {
