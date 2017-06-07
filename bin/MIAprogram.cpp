@@ -14,7 +14,7 @@
 #include "MIAcommands.h"
 
 //Main program constructor.
-Program::Program() : VERSION("0.021"){
+Program::Program() : VERSION("0.022"){
 	
 }
 
@@ -154,3 +154,11 @@ void Program::terminal(){
 std::string Program::getMIAVersion(){
 	return VERSION;
 }
+
+//Writes a string of data to a file.
+void Program::writeToFile(std::string data, std::string folder, std::string filename){
+	
+}
+
+
+
