@@ -14,7 +14,7 @@
 #include "MIAcommands.h"
 
 //Main program constructor.
-Program::Program() : VERSION("0.022"){
+Program::Program() : VERSION("0.023"){
 	
 }
 
@@ -80,21 +80,18 @@ int Program::commandToInputVar(std::string input){
 		output = 3;
 	} else if (input == "decrypt -d0s2"){
 		output = 4;
+	} else if (input == "collatz"){
+		output = 5;
+	} else if (input == "add"){
+		output = 6;
+	} else if (input == "multiply"){
+		output = 7;
+	} else if (input == ""){
+		output = 8;
+	} else if (input == ""){
+		output = 9;
 	}
 	return output;
-}
-
-//Displays a list of valid commands and what they do to the user.
-void Program::help(){
-	std::cout << "... A list of valid commands and a brief summary.                          ..." << std::endl;
-	std::cout << "... Commands are NOT case sensitive.                                       ..." << std::endl;
-	blankDots();
-	std::cout << "... help          | Displays a valid lists of commands. " << std::endl;
-	std::cout << "... crypt -d0s1   | Encrypts a string using the d0s1 algorithm. " << std::endl;
-	std::cout << "... crypt -d0s2   | Encrypts a string using the d0s2 algorithm. " << std::endl;
-	std::cout << "... decrypt -d0s1 | De-crypts a string using the d0s1 algorithm. " << std::endl;
-	std::cout << "... decrypt -d0s2 | De-crypts a string using the d0s2 algorithm. " << std::endl;
-	std::cout << "... exit          | Quits MIA. " << std::endl;
 }
 
 //Takes the input command by the user and runs the corresponding feature.
@@ -111,22 +108,49 @@ void Program::performCommand(std::string input){
 		case 0: //corresponds to the help command
 			help();
 			break;	
-		case 1:		
+		case 1:	//corresponds to the crypt -d0s1 command
 			cmd.d0s1CryptRunner();
 			break;
-		case 2:		
+		case 2:	//corresponds to the decrypt -d0s1 command
 			cmd.d0s1DeCryptRunner();
 			break;
-		case 3:		
+		case 3:	//corresponds to the crypt -d0s2 command
 			cmd.d0s2CryptRunner();
 			break;
-		case 4:		
+		case 4:	//corresponds to the decrypt -d0s2 command
 			cmd.d0s2DeCryptRunner();
 			break;
-		default:
+		case 5:	//corresponds to the collatz command
+			cmd.collatzRunner();
+			break;
+		case 6:	//corresponds to the add command
+			cmd.stringAdditionRunner();
+			break;
+		case 7:	//corresponds to the multiply command
+			cmd.stringMultiplyRunner();
+			break;
+		case 8:	//corresponds to the  command
+			
+		default: //defaults to an unrecognized command
 			std::cout << "... Invalid Command Entered.                                               ..." << std::endl;
 			break;
 	}
+}
+
+//Displays a list of valid commands and what they do to the user.
+void Program::help(){
+	std::cout << "... A list of valid commands and a brief summary.                          ..." << std::endl;
+	std::cout << "... Commands are NOT case sensitive.                                       ..." << std::endl;
+	blankDots();
+	std::cout << "... help          | Displays a valid lists of commands. " << std::endl;
+	std::cout << "... add           | Adds two positive integers of any length. " << std::endl;
+	std::cout << "... crypt -d0s1   | Encrypts a string using the d0s1 algorithm. " << std::endl;
+	std::cout << "... crypt -d0s2   | Encrypts a string using the d0s2 algorithm. " << std::endl;
+	std::cout << "... decrypt -d0s1 | De-crypts a string using the d0s1 algorithm. " << std::endl;
+	std::cout << "... decrypt -d0s2 | De-crypts a string using the d0s2 algorithm. " << std::endl;
+	std::cout << "... collatz       | Produces a collatz sequence based on a specified starting integer." << std::endl;
+	std::cout << "... multiply      | Multiplies two integers of any length." << std::endl;
+	std::cout << "... exit          | Quits MIA. " << std::endl;
 }
 
 //Informs the user of the help feature and asks for a command.

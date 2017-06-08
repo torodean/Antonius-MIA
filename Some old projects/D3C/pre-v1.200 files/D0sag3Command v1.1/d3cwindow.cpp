@@ -348,7 +348,7 @@ void D3CWindow::on_D3CPromptEnter_clicked(){
     }
 
     switch( variable ){
-    case 1:
+    case 1: //cryptingMessage
     {
         if(!cryptingMessage){
             ui->D3CPromptText->insertPlainText("\nEnter message to Crypt: ");
@@ -361,7 +361,7 @@ void D3CWindow::on_D3CPromptEnter_clicked(){
         }
         break;
     }
-    case 2:
+    case 2: //decryptingMessage
     {
         if(!decryptingMessage){
             ui->D3CPromptText->insertPlainText("\nEnter message to Crypt: ");
@@ -374,7 +374,7 @@ void D3CWindow::on_D3CPromptEnter_clicked(){
         }
         break;
     }
-    case 3:
+    case 3: //multiplication || multiplication2
     {
         if(!multiplication){
             ui->D3CPromptText->insertPlainText("\n--Multiplication of Integers of any size--\nEnter first integer to multiply: ");
@@ -394,7 +394,7 @@ void D3CWindow::on_D3CPromptEnter_clicked(){
         }
         break;
     }
-    case 4:
+    case 4: //addition || addition2
     {
         if(!addition){
             ui->D3CPromptText->insertPlainText("\n--Addition of integers of any size--\nEnter first integer to add: ");
@@ -439,7 +439,7 @@ void D3CWindow::on_D3CPromptEnter_clicked(){
 //        D3CConvert.convertRunner();
         break;
     }
-    case 9:
+    case 9: //subtraction || subtraction2
     {
         if(!subtraction){
             ui->D3CPromptText->insertPlainText("\n--Subtraction of Integers of any size--\nEnter first Integer: ");
@@ -486,7 +486,7 @@ void D3CWindow::on_D3CPromptEnter_clicked(){
         ui->D3CPromptText->insertPlainText("\nEnter Command:");
         break;
     }
-    case 12:
+    case 12: //palindrome
     {
         if(!palindrome){
             ui->D3CPromptText->insertPlainText("\nEnter a positive integer: ");
@@ -504,7 +504,7 @@ void D3CWindow::on_D3CPromptEnter_clicked(){
         }
         break;
     }
-    case 13:
+    case 13: //digitSum
     {
         if(!digitSum){
             ui->D3CPromptText->insertPlainText("\nEnter a positive Integer of any length: ");
@@ -537,7 +537,7 @@ void D3CWindow::on_D3CPromptEnter_clicked(){
         }
         break;
     }
-    case 15:
+    case 15: //isTriangleNumber
     {
         if(!isTriangleNumber){
             ui->D3CPromptText->insertPlainText("\nEnter a positive Integer: ");
@@ -619,7 +619,7 @@ void D3CWindow::on_D3CPromptEnter_clicked(){
         }
         break;
     }
-    case 21:
+    case 21: //collatz
         {
           if(!collatz){
                 ui->D3CPromptText->insertPlainText("\nEnter a starting number (positive integer): ");
