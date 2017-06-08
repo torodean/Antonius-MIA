@@ -86,7 +86,7 @@ int Program::commandToInputVar(std::string input){
 		output = 6;
 	} else if (input == "multiply"){
 		output = 7;
-	} else if (input == ""){
+	} else if (input == "subtract"){
 		output = 8;
 	} else if (input == ""){
 		output = 9;
@@ -129,8 +129,8 @@ void Program::performCommand(std::string input){
 		case 7:	//corresponds to the multiply command
 			cmd.stringMultiplyRunner();
 			break;
-		case 8:	//corresponds to the  command
-			
+		case 8:	//corresponds to the subtract command
+			cmd.stringSubtractionRunner();
 		default: //defaults to an unrecognized command
 			std::cout << "... Invalid Command Entered.                                               ..." << std::endl;
 			break;
@@ -150,6 +150,7 @@ void Program::help(){
 	std::cout << "... decrypt -d0s2 | De-crypts a string using the d0s2 algorithm. " << std::endl;
 	std::cout << "... collatz       | Produces a collatz sequence based on a specified starting integer." << std::endl;
 	std::cout << "... multiply      | Multiplies two integers of any length." << std::endl;
+	std::cout << "... subtract      | Finds the difference between two integers of any length." << std::endl;
 	std::cout << "... exit          | Quits MIA. " << std::endl;
 }
 

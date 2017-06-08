@@ -21,5 +21,6 @@ class Commands{
 		void collatzRunner();
 		void stringAdditionRunner();
 		void stringMultiplyRunner();
+		void stringSubtractionRunner();
 };
 #endif

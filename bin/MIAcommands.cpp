@@ -174,4 +174,25 @@ void Commands::stringMultiplyRunner(){
 	std::cout << "Integer product: " << output << std::endl;        
 }
 
+//Main UI runner for the D3CMath subtractTwoStrings() function.
+void Commands::stringSubtractionRunner(){
+	Program prog;
+	std::D3CMath math;
+	std::string intOne, intTwo, output;
+	
+	std::cout << "...Subtraction of two integers of any size." << std::endl << "...Enter first integer: " << std::endl;
+	prog.blankLine();
+	getline(std::cin, intOne);
+	prog.blankLine();
+
+	std::cout << "...Enter second integer to subtract: " << std::endl;
+	prog.blankLine();
+	getline(std::cin, intTwo);
+	prog.blankLine();
+
+	output = math.subtractTwoStrings(intOne, intTwo);
+
+	std::cout << "Integer difference: " << output << std::endl;        
+}
+
 

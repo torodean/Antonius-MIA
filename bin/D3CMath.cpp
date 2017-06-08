@@ -479,7 +479,6 @@ string D3CMath::subtractTwoStrings(string stringOne, string stringTwo) {
 
     if (lengthOne > lengthTwo) {
         stringTwo = resizeString(stringOne, stringTwo);
-        cout << "stringTwo: " << stringTwo << endl;
         lengthTwo = stringTwo.size();
         sameLength = false;
         isPositive = true;
@@ -495,17 +494,15 @@ string D3CMath::subtractTwoStrings(string stringOne, string stringTwo) {
     vector<int> tempArray, TotalArray = stringToVector(Difference), stringOneArray = stringToVector(stringOne), stringTwoArray = stringToVector(stringTwo); //creates an int array for each string to be converted to and then converts the, to an array of integers using a vector.
 
     if(sameLength){
-        while((isPositive != true) || (isPositive != false)){
-            for(int i=0;i<lengthOne;i++){
-                 if(stringOneArray[i] > stringTwoArray[i]){
-                    isPositive = true;
-                    break;
-                }else if(stringOneArray[i] < stringTwoArray[i]){
-                    isPositive = false;
-                    break;
-                }
-            }
-        }
+		for(int i=0;i<lengthOne;i++){
+			 if(stringOneArray[i] > stringTwoArray[i]){
+				isPositive = true;
+				break;
+			}else if(stringOneArray[i] < stringTwoArray[i]){
+				isPositive = false;
+				break;
+			}
+		}
     }
 
     if(isPositive == false){
@@ -535,6 +532,7 @@ string D3CMath::subtractTwoStrings(string stringOne, string stringTwo) {
     Difference = vectorToString(TotalArray);
 
     if(isPositive == false){
+		Difference = addTwoStrings(Difference, "1");
         Difference = addNegativeSign(Difference);
     }
 
