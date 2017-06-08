@@ -459,7 +459,7 @@ void D3CWindow::on_D3CPromptEnter_clicked(){
         }
         break;
     }
-    case 10:
+    case 10: //isPrime
     {
         if(!isPrime){
             ui->D3CPromptText->insertPlainText("\nEnter a positive Integer: ");
@@ -477,7 +477,7 @@ void D3CWindow::on_D3CPromptEnter_clicked(){
         }
         break;
     }
-    case 11:
+    case 11: /help extended
     {
         std::D3CHelp help;
         output = help.helpRunnerExtended();

@@ -88,8 +88,12 @@ int Program::commandToInputVar(std::string input){
 		output = 7;
 	} else if (input == "subtract"){
 		output = 8;
-	} else if (input == ""){
+	} else if (input == "prime"){
 		output = 9;
+	} else if (input == "palindrome"){
+		output = 10;
+	} else if (input == "digitsum"){
+		output = 11;
 	}
 	return output;
 }
@@ -131,6 +135,16 @@ void Program::performCommand(std::string input){
 			break;
 		case 8:	//corresponds to the subtract command
 			cmd.stringSubtractionRunner();
+			break;
+		case 9:	//corresponds to the Prime command
+			cmd.isPrimeRunner();
+			break;
+		case 10: //corresponds to the palindrome command
+			cmd.isPalindromeRunner();
+			break;
+		case 11: //corresponds to the digitsum command
+			cmd.sumOfDigitsRunner();
+			break;
 		default: //defaults to an unrecognized command
 			std::cout << "... Invalid Command Entered.                                               ..." << std::endl;
 			break;
@@ -148,8 +162,11 @@ void Program::help(){
 	std::cout << "... crypt -d0s2   | Encrypts a string using the d0s2 algorithm. " << std::endl;
 	std::cout << "... decrypt -d0s1 | De-crypts a string using the d0s1 algorithm. " << std::endl;
 	std::cout << "... decrypt -d0s2 | De-crypts a string using the d0s2 algorithm. " << std::endl;
+	std::cout << "... digitsum      | Returns the sum of the digits within an integer of any size. " << std::endl;
 	std::cout << "... collatz       | Produces a collatz sequence based on a specified starting integer." << std::endl;
 	std::cout << "... multiply      | Multiplies two integers of any length." << std::endl;
+	std::cout << "... palindrome    | Determines if a positive integer is palindrome." << std::endl;
+	std::cout << "... prime         | Determines if a positive integer is prime or not." << std::endl;
 	std::cout << "... subtract      | Finds the difference between two integers of any length." << std::endl;
 	std::cout << "... exit          | Quits MIA. " << std::endl;
 }

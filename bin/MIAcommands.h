@@ -22,5 +22,8 @@ class Commands{
 		void stringAdditionRunner();
 		void stringMultiplyRunner();
 		void stringSubtractionRunner();
+		void isPrimeRunner();
+		void isPalindromeRunner();
+		void sumOfDigitsRunner();
 };
 #endif

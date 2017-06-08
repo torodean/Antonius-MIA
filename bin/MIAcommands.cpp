@@ -130,6 +130,7 @@ void Commands::collatzRunner(){
 	std::cout << "collatz: " << output << std::endl;
 	prog.blankLine();
 	std::cout << "...Collatz sequence complete." << std::endl;
+	prog.blankLine();
 }
 
 //Main UI runner for the D3CMath addTwoStrings() function.
@@ -150,7 +151,8 @@ void Commands::stringAdditionRunner(){
 
 	output = math.addTwoStrings(intOne, intTwo);
 
-	std::cout << "Integer sum: " << output << std::endl;        
+	std::cout << "Integer sum: " << output << std::endl;
+	prog.blankLine();
 }
 
 //Main UI runner for the D3CMath multiplyTwoStrings() function.
@@ -171,7 +173,8 @@ void Commands::stringMultiplyRunner(){
 
 	output = math.multiplyTwoStrings(intOne, intTwo);
 
-	std::cout << "Integer product: " << output << std::endl;        
+	std::cout << "Integer product: " << output << std::endl;
+	prog.blankLine();	
 }
 
 //Main UI runner for the D3CMath subtractTwoStrings() function.
@@ -192,7 +195,65 @@ void Commands::stringSubtractionRunner(){
 
 	output = math.subtractTwoStrings(intOne, intTwo);
 
-	std::cout << "Integer difference: " << output << std::endl;        
+	std::cout << "Integer difference: " << output << std::endl;
+	prog.blankLine();
 }
 
+//Main UI runner for the D3CMath isPrime() function.
+void Commands::isPrimeRunner(){
+	Program prog;
+	std::D3CMath math;
+	std::string input;
 
+	std::cout << "...Enter a positive Integer: " << std::endl;
+	prog.blankLine();
+	getline(std::cin, input);
+	prog.blankLine();
+	
+	long longInput = std::atol(input.c_str());
+	
+	if(math.isPrime(longInput)){
+		std::cout << "...The number you entered is prime. " << std::endl;
+	}else{
+		std::cout << "...The number you entered is NOT prime. " << std::endl;
+	}
+	prog.blankLine();
+}
+
+//Main UI runner for the D3CMath isPalindrome() function.
+void Commands::isPalindromeRunner(){
+	Program prog;
+	std::D3CMath math;
+	std::string input;
+
+	std::cout << "...Enter a positive Integer: " << std::endl;
+	prog.blankLine();
+	getline(std::cin, input);
+	prog.blankLine();
+	
+	long longInput = std::atol(input.c_str());
+	
+	if(math.isPalindrome(longInput)){
+		std::cout << "...The number you entered is a palindrome. " << std::endl;
+	}else{
+		std::cout << "...The number you entered is NOT a palindrome. " << std::endl;
+	}
+	prog.blankLine();
+}
+
+//Main UI runner for the D3CMath sumOfDigits() function.
+void Commands::sumOfDigitsRunner(){
+	Program prog;
+	std::D3CMath math;
+	std::string input;
+
+	std::cout << "...Enter a positive Integer of any length " << std::endl;
+	prog.blankLine();
+	getline(std::cin, input);
+	prog.blankLine();
+	
+	long output = math.sumOfDigits(input);
+	
+	std::cout << "Sum of Digits: " << output << std::endl;        
+	prog.blankLine();
+}
