@@ -16,12 +16,12 @@
 
 //Main commands constructor.
 Commands::Commands(){
-	
+	//Chuck Norris writes code that optimizes itself. Be like chuck Norris.
 }
 
 //Main commands deconstructor.
 Commands::~Commands(){
-	
+	//Chuck Norris can write infinite recursion functions... and have them return.
 }
 
 //Main UI runner for the D3CEncrypt (d0s1) program feature. Encryption
@@ -325,7 +325,13 @@ void Commands::latticePathsRunner(){
 	Program prog;
 	std::D3CMath math;
 	std::string n, m;
-
+	
+	prog.blankLine();
+	std::cout << "...IMPORTANT: This feature depends on the c++ long. " << std::endl;
+	std::cout << "...Therefore if the lattice paths exceed 2147483647,  " << std::endl;
+	std::cout << "...the answers will no longer be reliable. " << std::endl;
+	prog.blankLine();
+	
 	std::cout << "...Enter grid size in horizontal direction: : " << std::endl;
 	prog.blankLine();
 	getline(std::cin, n);
@@ -369,6 +375,7 @@ void Commands::primeNumberNpopulateRunner(){
 	prog.blankLine();
 	std::cout << "...PrimeNumberList.txt now being written to: " << math.returnPrimeNlocation() << std::endl;
 	std::cout << "...This file will increase the efficiency of the 'prime -n' command." << std::endl;
+	std::cout << "...This may take some time..." << std::endl;
 	prog.blankLine();
 	
 	math.primeNumberNpopulate();

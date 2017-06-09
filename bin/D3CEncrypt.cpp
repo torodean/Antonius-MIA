@@ -18,7 +18,12 @@ namespace std {
 //Constructor for the D3CEncrypt class.
 D3CEncrypt::D3CEncrypt() : stringLength (0), vectorSize (0), digit (0), powerofDigit (0), 
 		powerofTen (0), devise (0), random7bitNum (0), random7bitbinary (0), encodedVec (0){
-    // TODO Auto-generated constructor stub
+    //Chuck Norris doesn’t use web standards as the web will conform to him.
+}
+
+//Deconstructor for D3CEncrypt class.
+D3CEncrypt::~D3CEncrypt() {
+    //Chuck Norris finished World of Warcraft.
 }
 
 //Converts a string to a vector.
@@ -500,11 +505,6 @@ string D3CEncrypt::DeCrypt(string input){
     deCryptedVector = intVectorToString(deCryptedIntVector);
 
     return deCryptedVector;
-}
-
-//Deconstructor for D3CEncrypt class.
-D3CEncrypt::~D3CEncrypt() {
-    // TODO Auto-generated destructor stub
 }
 
 }/* namespace std */

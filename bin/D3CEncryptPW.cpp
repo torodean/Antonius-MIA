@@ -16,8 +16,14 @@
 
 using namespace std;
 
-D3CEncryptPW::D3CEncryptPW()
-{
+//Main Constructor for the D3CEncryptPW class.
+D3CEncryptPW::D3CEncryptPW(){
+	//Chuck Norris's beard can type 140 wpm.
+}
+
+//Deconstructor for D3CEncryptPW class.
+D3CEncryptPW::~D3CEncryptPW() {
+    //All arrays Chuck Norris declares are of infinite size, because Chuck Norris knows no bounds.
 }
 
 vector<int> D3CEncryptPW::stringToVector(string a){

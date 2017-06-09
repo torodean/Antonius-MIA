@@ -16,6 +16,7 @@
 class D3CEncryptPW{
 	public:
 		D3CEncryptPW();
+		~D3CEncryptPW();
 		std::string EncryptPW(std::string message, std::string password);
 		std::string DecryptPW(std::string message, std::string password);
 		std::vector<int> stringToVector(std::string a);

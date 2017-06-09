@@ -15,12 +15,12 @@
 
 //Main program constructor.
 Program::Program() : VERSION("0.023"){
-	
+	//Chuck Norris can take a screenshot of his blue screen.
 }
 
 //Main program deconstructor.
 Program::~Program(){
-	
+	//When Chuck Norris throws exceptions, it's across the room.
 }
 
 //Displays the MIA splash screen.

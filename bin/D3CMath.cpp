@@ -18,8 +18,13 @@
 namespace std {
 
 D3CMath::D3CMath() : primeNlocation("../bin/PrimeNumberList.txt") {
-    // TODO Auto-generated constructor stub
+    //Chuck Norris's keyboard doesn't have a Ctrl key because nothing controls Chuck Norris.
 }
+
+D3CMath::~D3CMath() {
+    //Chuck Norris can delete the Recycling Bin.
+}
+
 
 //determines if a number is prime or not
 bool D3CMath::isPrime(long number) {  
@@ -692,10 +697,6 @@ long D3CMath::latticePathsOfSquare(long x, long y){
 
 string D3CMath::returnPrimeNlocation(){
 	return primeNlocation;
-}
-
-D3CMath::~D3CMath() {
-    // TODO Auto-generated destructor stub
 }
 
 } /* namespace std */
