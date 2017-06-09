@@ -247,7 +247,7 @@ void Commands::sumOfDigitsRunner(){
 	std::D3CMath math;
 	std::string input;
 
-	std::cout << "...Enter a positive Integer of any length " << std::endl;
+	std::cout << "...Enter a positive Integer of any length: " << std::endl;
 	prog.blankLine();
 	getline(std::cin, input);
 	prog.blankLine();
@@ -257,3 +257,133 @@ void Commands::sumOfDigitsRunner(){
 	std::cout << "Sum of Digits: " << output << std::endl;        
 	prog.blankLine();
 }
+
+//Main UI runner for the D3CMath primeFactors() function.
+void Commands::primeFactorsRunner(){
+	Program prog;
+	std::D3CMath math;
+	std::string input;
+
+	std::cout << "...Enter a positive Integer: " << std::endl;
+	prog.blankLine();
+	getline(std::cin, input);
+	prog.blankLine();
+	
+	long longInput = std::atol(input.c_str());
+
+	std::cout << "...The prime factors are: ";
+	for (long i = 1; i <= (longInput + 1) / 2; i++) {
+		if (math.isPrime(i) == true && longInput % i == 0){
+			std::cout << i << " ";
+		}
+	}
+	prog.blankLine();
+}
+
+//Main UI runner for the D3CMath numberOfFactors() function.
+void Commands::numberOfFactorsRunner(){
+	Program prog;
+	std::D3CMath math;
+	std::string input;
+
+	std::cout << "...Enter a positive Integer: " << std::endl;
+	prog.blankLine();
+	getline(std::cin, input);
+	prog.blankLine();
+	
+	long longInput = std::atol(input.c_str());
+	
+	int factors = math.numberOfFactors(longInput);
+
+	std::cout << "...The number of factors are: " << factors << std::endl;
+	prog.blankLine();
+}
+
+//Main UI runner for the D3CMath isTriangleNumber() function.
+void Commands::isTriangleNumberRunner(){
+	Program prog;
+	std::D3CMath math;
+	std::string input;
+
+	std::cout << "...Enter a positive Integer: " << std::endl;
+	prog.blankLine();
+	getline(std::cin, input);
+	prog.blankLine();
+	
+	long longInput = std::atol(input.c_str());
+	
+	if(math.isTriangleNumber(longInput)){
+		std::cout << "...The number you entered is a triangle number." << std::endl;
+	}else{
+		std::cout << "...The number you entered is NOT a triangle number." << std::endl;
+	}
+	prog.blankLine();
+}
+
+//Main UI runner for the D3CMath latticePaths() function.
+void Commands::latticePathsRunner(){
+	Program prog;
+	std::D3CMath math;
+	std::string n, m;
+
+	std::cout << "...Enter grid size in horizontal direction: : " << std::endl;
+	prog.blankLine();
+	getline(std::cin, n);
+	prog.blankLine();
+	std::cout << "...Enter grid size in vertical direction: : " << std::endl;
+	prog.blankLine();
+	getline(std::cin, m);
+	prog.blankLine();
+	
+	long intOne = std::atol(n.c_str());
+	long intTwo = std::atol(m.c_str());
+    long output = math.latticePathsOfSquare(intOne, intTwo);
+	
+	std::cout << "...The total lattice paths are: " << output << std::endl;
+	prog.blankLine();
+}
+
+//Main UI runner for the D3CMath primeN() function.
+void Commands::primeNRunner(){
+	Program prog;
+	std::D3CMath math;
+	std::string input;
+
+	std::cout << "...Enter a positive integer: " << std::endl;
+	prog.blankLine();
+	getline(std::cin, input);
+	prog.blankLine();
+	
+	long longInput = std::atol(input.c_str());
+    long output = math.primeNumberN(longInput);
+	
+	std::cout << "...Prime number " << input << ": " << output << std::endl;
+	prog.blankLine();
+}
+
+//Main UI runner for the D3CMath primeNPopulate() function.
+void Commands::primeNumberNpopulateRunner(){
+	Program prog;
+	std::D3CMath math;
+	
+	prog.blankLine();
+	std::cout << "...PrimeNumberList.txt now being written to: " << math.returnPrimeNlocation() << std::endl;
+	std::cout << "...This file will increase the efficiency of the 'prime -n' command." << std::endl;
+	prog.blankLine();
+	
+	math.primeNumberNpopulate();
+}
+
+//Main UI runner for the D3CMath primeNerase() function.
+void Commands::primeNumberNeraseRunner(){
+	std::D3CMath math;
+	math.primeNumberNerase();
+}
+
+
+
+
+
+
+
+

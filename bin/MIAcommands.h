@@ -25,5 +25,12 @@ class Commands{
 		void isPrimeRunner();
 		void isPalindromeRunner();
 		void sumOfDigitsRunner();
+		void primeFactorsRunner();
+		void numberOfFactorsRunner();
+		void isTriangleNumberRunner();
+		void latticePathsRunner();
+		void primeNRunner();
+		void primeNumberNpopulateRunner();
+		void primeNumberNeraseRunner();
 };
 #endif

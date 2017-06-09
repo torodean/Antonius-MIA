@@ -15,8 +15,11 @@
 namespace std {
 
 class D3CMath {
+private:
+	string primeNlocation;
 public:
     D3CMath();
+	string returnPrimeNlocation();
     bool isPrime(long number);
     bool isPalindrome(long number);
     long sumOfDigits(string number);

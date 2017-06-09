@@ -477,7 +477,7 @@ void D3CWindow::on_D3CPromptEnter_clicked(){
         }
         break;
     }
-    case 11: /help extended
+    case 11: //help extended
     {
         std::D3CHelp help;
         output = help.helpRunnerExtended();
@@ -517,7 +517,7 @@ void D3CWindow::on_D3CPromptEnter_clicked(){
         }
         break;
     }
-    case 14:
+    case 14: //numberOfFactors
     {
         if(!numberOfFactors){
             ui->D3CPromptText->insertPlainText("\nEnter a positive Integer: ");
@@ -555,7 +555,7 @@ void D3CWindow::on_D3CPromptEnter_clicked(){
         }
         break;
     }
-    case 16:
+    case 16: //primeN
     {
         if(!primeN){
             ui->D3CPromptText->insertPlainText("\nEnter a positive integer: ");
@@ -570,17 +570,18 @@ void D3CWindow::on_D3CPromptEnter_clicked(){
         }
         break;
     }
-    case 17:
+    case 17: //primeNpopulate
     {
         ui->D3CPromptText->insertPlainText("May cause a program crash, fix not yet programmed.");
         math.primeNumberNpopulate();
         break;
     }
-    case 18:{
+    case 18: //primeNerase
+	{
         math.primeNumberNerase();
         break;
     }
-    case 19:
+    case 19: //prime factors
     {
         if(!primeFactors){
             ui->D3CPromptText->insertPlainText("\nEnter a positive integer: ");
@@ -620,7 +621,8 @@ void D3CWindow::on_D3CPromptEnter_clicked(){
         break;
     }
     case 21: //collatz
-        {
+	{
+		{
           if(!collatz){
                 ui->D3CPromptText->insertPlainText("\nEnter a starting number (positive integer): ");
                 collatz = true;
@@ -636,7 +638,8 @@ void D3CWindow::on_D3CPromptEnter_clicked(){
             }
         }
         break;
-    case 22:
+	}
+    case 22: //latticePaths
     {
         if(!latticePaths){
             ui->D3CPromptText->insertPlainText("\nEnter grid size in horizontal direction: ");

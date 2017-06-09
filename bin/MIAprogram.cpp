@@ -94,6 +94,20 @@ int Program::commandToInputVar(std::string input){
 		output = 10;
 	} else if (input == "digitsum"){
 		output = 11;
+	} else if (input == "prime -f"){
+		output = 12;
+	} else if (input == "factors"){
+		output = 13;
+	} else if (input == "triangle"){
+		output = 14;
+	} else if (input == "lattice"){
+		output = 15;
+	} else if (input == "prime -n"){
+		output = 16;
+	} else if (input == "prime -n -p"){
+		output = 17;
+	} else if (input == "prime -n -c"){
+		output = 18;
 	}
 	return output;
 }
@@ -109,43 +123,64 @@ void Program::performCommand(std::string input){
 	Commands cmd;
 	
 	switch( in ){
-		case 0: //corresponds to the help command
+		case 0: //corresponds to the help command.
 			help();
 			break;	
-		case 1:	//corresponds to the crypt -d0s1 command
+		case 1:	//corresponds to the crypt -d0s1 command.
 			cmd.d0s1CryptRunner();
 			break;
-		case 2:	//corresponds to the decrypt -d0s1 command
+		case 2:	//corresponds to the decrypt -d0s1 command.
 			cmd.d0s1DeCryptRunner();
 			break;
-		case 3:	//corresponds to the crypt -d0s2 command
+		case 3:	//corresponds to the crypt -d0s2 command.
 			cmd.d0s2CryptRunner();
 			break;
-		case 4:	//corresponds to the decrypt -d0s2 command
+		case 4:	//corresponds to the decrypt -d0s2 command.
 			cmd.d0s2DeCryptRunner();
 			break;
-		case 5:	//corresponds to the collatz command
+		case 5:	//corresponds to the collatz command.
 			cmd.collatzRunner();
 			break;
-		case 6:	//corresponds to the add command
+		case 6:	//corresponds to the add command.
 			cmd.stringAdditionRunner();
 			break;
-		case 7:	//corresponds to the multiply command
+		case 7:	//corresponds to the multiply command.
 			cmd.stringMultiplyRunner();
 			break;
-		case 8:	//corresponds to the subtract command
+		case 8:	//corresponds to the subtract command.
 			cmd.stringSubtractionRunner();
 			break;
-		case 9:	//corresponds to the Prime command
+		case 9:	//corresponds to the prime command.
 			cmd.isPrimeRunner();
 			break;
-		case 10: //corresponds to the palindrome command
+		case 10: //corresponds to the palindrome command.
 			cmd.isPalindromeRunner();
 			break;
-		case 11: //corresponds to the digitsum command
+		case 11: //corresponds to the digitsum command.
 			cmd.sumOfDigitsRunner();
 			break;
-		default: //defaults to an unrecognized command
+		case 12: //corresponds to the prime -f command.
+			cmd.primeFactorsRunner();
+			break;
+		case 13: //corresponds to the factors command.
+			cmd.numberOfFactorsRunner();
+			break;
+		case 14: //corresponds to the triangle command.
+			cmd.isTriangleNumberRunner();
+			break;
+		case 15: //corresponds to the lattice command.
+			cmd.latticePathsRunner();
+			break;
+		case 16: //corresponds to the prime -n command.
+			cmd.primeNRunner();
+			break;
+		case 17: //corresponds to the prime -n -p command.
+			cmd.primeNumberNpopulateRunner();
+			break;
+		case 18: //corresponds to the prime -n -c command.
+			cmd.primeNumberNeraseRunner();
+			break;
+		default: //defaults to an unrecognized command.
 			std::cout << "... Invalid Command Entered.                                               ..." << std::endl;
 			break;
 	}
@@ -156,18 +191,25 @@ void Program::help(){
 	std::cout << "... A list of valid commands and a brief summary.                          ..." << std::endl;
 	std::cout << "... Commands are NOT case sensitive.                                       ..." << std::endl;
 	blankDots();
-	std::cout << "... help          | Displays a valid lists of commands. " << std::endl;
+	std::cout << "... help          | Displays a valid lists of commands." << std::endl;
 	std::cout << "... add           | Adds two positive integers of any length. " << std::endl;
-	std::cout << "... crypt -d0s1   | Encrypts a string using the d0s1 algorithm. " << std::endl;
-	std::cout << "... crypt -d0s2   | Encrypts a string using the d0s2 algorithm. " << std::endl;
-	std::cout << "... decrypt -d0s1 | De-crypts a string using the d0s1 algorithm. " << std::endl;
-	std::cout << "... decrypt -d0s2 | De-crypts a string using the d0s2 algorithm. " << std::endl;
-	std::cout << "... digitsum      | Returns the sum of the digits within an integer of any size. " << std::endl;
 	std::cout << "... collatz       | Produces a collatz sequence based on a specified starting integer." << std::endl;
+	std::cout << "... crypt -d0s1   | Encrypts a string using the d0s1 algorithm." << std::endl;
+	std::cout << "... crypt -d0s2   | Encrypts a string using the d0s2 algorithm." << std::endl;
+	std::cout << "... decrypt -d0s1 | De-crypts a string using the d0s1 algorithm." << std::endl;
+	std::cout << "... decrypt -d0s2 | De-crypts a string using the d0s2 algorithm." << std::endl;
+	std::cout << "... digitsum      | Returns the sum of the digits within an integer of any size." << std::endl;
+	std::cout << "... factors       | Returns the number of factors within an integer." << std::endl;
+	std::cout << "... lattice       | Returns total lattice paths to the bottom right corner of an n x m grid." << std::endl;
 	std::cout << "... multiply      | Multiplies two integers of any length." << std::endl;
 	std::cout << "... palindrome    | Determines if a positive integer is palindrome." << std::endl;
 	std::cout << "... prime         | Determines if a positive integer is prime or not." << std::endl;
+	std::cout << "... prime -f      | Determines all of the prime factors of a positive integer." << std::endl;
+	std::cout << "... prime -n      | Calculates the n'th prime number up to a maximum number of 2147483647." << std::endl;
+	std::cout << "... prime -n -p   | Creates a file of all prime numbers up to a maximum number of 2147483647." << std::endl;
+	std::cout << "... prime -n -c   | Clears the file created by 'prime -n -p'." << std::endl;
 	std::cout << "... subtract      | Finds the difference between two integers of any length." << std::endl;
+	std::cout << "... triangle      | Determines if a number is a triangle number or not." << std::endl;
 	std::cout << "... exit          | Quits MIA. " << std::endl;
 }
 

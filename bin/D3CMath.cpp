@@ -17,7 +17,7 @@
 
 namespace std {
 
-D3CMath::D3CMath() {
+D3CMath::D3CMath() : primeNlocation("../bin/PrimeNumberList.txt") {
     // TODO Auto-generated constructor stub
 }
 
@@ -195,7 +195,7 @@ void D3CMath::primeNumberNpopulate() {
 
     ofstream myfile;
     string line;
-    ifstream myfilein("../PrimeNumberList.txt");
+    ifstream myfilein(primeNlocation);
     long max = 2147483647;
 
     if (myfilein.is_open()) {
@@ -203,7 +203,7 @@ void D3CMath::primeNumberNpopulate() {
     }
     myfilein.close();
 
-    myfile.open("../PrimeNumberList.txt", ios::app);
+    myfile.open(primeNlocation, ios::app);
 
     if (line.empty()) {
         myfile << "~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
@@ -236,7 +236,7 @@ void D3CMath::primeNumberNpopulate() {
 
 void D3CMath::primeNumberNerase(){
     ofstream myfile;
-    myfile.open("../build-D0sag3Command-Desktop_Qt_5_3_MinGW_32bit-Release/PrimeNumberList.txt");
+    myfile.open(primeNlocation);
     myfile.clear();
     myfile.close();
 }
@@ -248,7 +248,7 @@ long D3CMath::primeNumberN(long n) {
     long largePrime = 0, primeCount = 0;
 
     string line;
-    ifstream myfilein("../PrimeNumberList.txt");
+    ifstream myfilein(primeNlocation);
     if (myfilein.is_open()) {
         line = getLastLine(myfilein);
     }
@@ -282,7 +282,7 @@ long D3CMath::primeNumberN(long n) {
     }else if(primeCount > n){
         long lineNumber = 1;
         long requestedLineNumber = n+5;
-        ifstream myfilein("../PrimeNumberList.txt");
+        ifstream myfilein(primeNlocation);
         while (getline(myfilein, line)){
                 if (lineNumber == requestedLineNumber){
                         break;
@@ -690,8 +690,14 @@ long D3CMath::latticePathsOfSquare(long x, long y){
     return space[x][y];
 }
 
+string D3CMath::returnPrimeNlocation(){
+	return primeNlocation;
+}
+
 D3CMath::~D3CMath() {
     // TODO Auto-generated destructor stub
 }
 
 } /* namespace std */
+
+
