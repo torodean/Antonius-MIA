@@ -1,4 +1,4 @@
- //============================================================================
+//============================================================================
 // Name        : D3CMath.cpp
 // Author      : Antonius Torode
 // Copyright   : This file can be used under the conditions of Antonius' 

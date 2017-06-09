@@ -14,7 +14,7 @@
 #include "MIAcommands.h"
 
 //Main program constructor.
-Program::Program() : VERSION("0.023"){
+Program::Program() : VERSION("0.025"){
 	//Chuck Norris can take a screenshot of his blue screen.
 }
 

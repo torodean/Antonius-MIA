@@ -14,6 +14,8 @@ class Commands{
 	public:
 		Commands();
 		~Commands();
+		
+		//Functions adapted to work from old D3C Program.
 		void d0s1CryptRunner();
 		void d0s1DeCryptRunner();
 		void d0s2CryptRunner();
