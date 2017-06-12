@@ -17,7 +17,7 @@
 
 namespace std {
 
-D3CMath::D3CMath() : primeNlocation("../bin/PrimeNumberList.txt") {
+D3CMath::D3CMath() : primeNlocation("../bin/Resources/PrimeNumberList.txt") {
     //Chuck Norris's keyboard doesn't have a Ctrl key because nothing controls Chuck Norris.
 }
 

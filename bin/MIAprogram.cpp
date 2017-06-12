@@ -9,6 +9,8 @@
 #include <iostream>
 #include <string>
 #include <cctype>
+#include <time.h>
+#include <fstream>
 #include "MIAprogram.h"
 #include "D3CEncrypt.h"
 #include "MIAcommands.h"
@@ -181,7 +183,10 @@ void Program::performCommand(std::string input){
 			cmd.primeNumberNeraseRunner();
 			break;
 		default: //defaults to an unrecognized command.
-			std::cout << "... Invalid Command Entered.                                               ..." << std::endl;
+			if(excuse()){
+			} else{
+				std::cout << "... Invalid Command Entered.                                               ..." << std::endl;
+			}
 			break;
 	}
 }
@@ -211,6 +216,35 @@ void Program::help(){
 	std::cout << "... subtract      | Finds the difference between two integers of any length." << std::endl;
 	std::cout << "... triangle      | Determines if a number is a triangle number or not." << std::endl;
 	std::cout << "... exit          | Quits MIA. " << std::endl;
+}
+
+//Prints a random excuse 50% of the time.
+bool Program::excuse(){
+	int totalExcuses = 100;
+	int random = randomInt(1,totalExcuses);
+	int counter = 0;
+	std::string txt;
+	if (random >= totalExcuses/2){
+		
+		blankLine();
+		std::cout << "...Sorry, I can't do that, " << std::endl;
+		
+		random = randomInt(1,100);
+		std::ifstream file;
+		file.open("../bin/Resources/Excuses.txt");
+		if (file.is_open()){
+			while (file.good()){
+				counter++;
+				getline(file, txt);
+				if(counter == random){
+					std::cout << "..." << txt << std::endl;
+					return true;
+				}
+			}
+		}
+		blankLine();
+	}
+	return false;
 }
 
 //Informs the user of the help feature and asks for a command.
@@ -243,6 +277,15 @@ std::string Program::getMIAVersion(){
 void Program::writeToFile(std::string data, std::string folder, std::string filename){
 	
 }
+
+//Returns a random integer between min and max.
+int Program::randomInt(int min, int max){
+	srand((unsigned)time(0)); 
+	int random = min + (rand() % static_cast<int>(max - min + 1));
+	return random;
+}
+
+
 
 
 
