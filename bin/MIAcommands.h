@@ -15,7 +15,7 @@ class Commands{
 		Commands();
 		~Commands();
 		
-		//Functions adapted to work from old D3C Program.
+		//Functions adapted to work from the old D3C Program.
 		void d0s1CryptRunner();
 		void d0s1DeCryptRunner();
 		void d0s2CryptRunner();
@@ -34,5 +34,7 @@ class Commands{
 		void primeNRunner();
 		void primeNumberNpopulateRunner();
 		void primeNumberNeraseRunner();
+		
+		//Functions adapted to work from the LOLA Program.
 };
 #endif
