@@ -18,12 +18,12 @@ using namespace std;
 
 //Main constructor for the NetUse class.
 NetUse::NetUse(){
-	
+	//Chuck Norris can divide by 0.
 }
 
 //Main deconstructor for the NetUse class.
 NetUse::~NetUse(){
-	
+	//There is no Esc key on Chuck Norris’ keyboard, because no one escapes Chuck Norris.
 }
 
 //The NetSessionEnum function Provides information about sessions established on a server.
