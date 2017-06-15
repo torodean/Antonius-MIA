@@ -220,31 +220,42 @@ void Program::help(){
 
 //Prints a random excuse 50% of the time.
 bool Program::excuse(){
-	int totalExcuses = 100;
-	int random = randomInt(1,totalExcuses);
-	int counter = 0;
+	int random = randomInt(1,100);
 	std::string txt;
-	if (random >= totalExcuses/2){
-		
+	
+	if (random >= 40){	
 		blankLine();
 		std::cout << "...Sorry, I can't do that, " << std::endl;
 		
-		random = randomInt(1,100);
-		std::ifstream file;
-		file.open("../bin/Resources/Excuses.txt");
-		if (file.is_open()){
-			while (file.good()){
-				counter++;
-				getline(file, txt);
-				if(counter == random){
-					std::cout << "..." << txt << std::endl;
-					return true;
-				}
-			}
-		}
-		blankLine();
+		txt = getRandomLineOfFile("../bin/Resources/Excuses.txt");
+		std::cout << "..." << txt << std::endl;
+		return true;		
 	}
 	return false;
+}
+
+//Returns the random line of a specified text file.
+std::string Program::getRandomLineOfFile(std::string fileName){
+	int counter = 0;
+	std::string output;
+	std::ifstream file(fileName);
+	
+	while (getline(file, output)){
+		counter++;			
+	}
+	file.close();
+	
+	std::ifstream file2(fileName);
+	int random = randomInt(1,counter);
+	counter = 0;
+	
+	while (getline(file2, output)){
+		counter++;
+		if(counter == random){		
+			return output;
+		}
+	}
+	return "ERROR";
 }
 
 //Informs the user of the help feature and asks for a command.

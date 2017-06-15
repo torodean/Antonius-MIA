@@ -31,5 +31,6 @@ class Program{
 		void help();
 		bool excuse();
 		int randomInt(int start, int end);
+		std::string getRandomLineOfFile(std::string fileName);
 };
 #endif
