@@ -14,6 +14,16 @@ useful coding functions I've created in one place for easy accessibility.
 For a list of commands see the MIA manual.
 
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+||       - Compiling Instructions with Cygwin on Linux -         ||
+|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+1) via terminal:  cd ../Antonius-MIA/bin
+
+2) compile using g++ -Wall -std=c++14 MIAmain.cpp MIAprogram.cpp MIAcommands.cpp D3CEncrypt.cpp D3CEncryptPW.cpp D3CMath.cpp -o MIA
+
+3) Run using ./MIA
+
+|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 ||      - Compiling Instructions with Cygwin on Windows -        ||
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
@@ -37,3 +47,11 @@ execute objdump -p hello.exe | grep "DLL Name" while in the
 ../Antonius-MIA/bin and then copy those dll's to the folder with the .exe
 
 8) With the correct cygwin dll's in the exe folder, the program can be ran as standalone.
+
+|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+||      - Compiling Instructions with Cygwin on Mac OS -         ||
+|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+1) Install Linux
+
+2) See instructions for Linux.
