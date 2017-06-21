@@ -110,6 +110,8 @@ int Program::commandToInputVar(std::string input){
 		output = 17;
 	} else if (input == "prime -n -c"){
 		output = 18;
+	} else if (input == "test"){
+		output = 999999;
 	}
 	return output;
 }
@@ -182,6 +184,11 @@ void Program::performCommand(std::string input){
 		case 18: //corresponds to the prime -n -c command.
 			cmd.primeNumberNeraseRunner();
 			break;
+			
+		case 999999:
+			std::cout << "...No test function set. " << std:: endl;
+			break;			
+			
 		default: //defaults to an unrecognized command.
 			if(excuse()){
 			} else{
@@ -284,7 +291,7 @@ std::string Program::getMIAVersion(){
 	return VERSION;
 }
 
-//Writes a string of data to a file.
+//Writes a string of data to a file. NOT YET PROGRAMMED.
 void Program::writeToFile(std::string data, std::string folder, std::string filename){
 	
 }
@@ -295,8 +302,5 @@ int Program::randomInt(int min, int max){
 	int random = min + (rand() % static_cast<int>(max - min + 1));
 	return random;
 }
-
-
-
 
 
