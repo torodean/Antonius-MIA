@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.5.16)  23 JUN 2017 09:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.5.16)  23 JUN 2017 10:05
 entering extended mode
-**"./MIA Manual.tex"
-("MIA Manual.tex"
+**./MIAManual.tex
+(MIAManual.tex
 LaTeX2e <2017/01/01> patch level 1
 Babel <3.9r> and hyphenation patterns for 75 language(s) loaded.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\book.cls"
@@ -650,11 +650,10 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 (TeX_files/settings.tex
 ("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstlang1.sty"
 File: lstlang1.sty 2015/06/04 1.6 listings language file
-))
-("MIA Manual.aux" (TeX_files/Copywrite.aux) (TeX_files/MIAconcept.aux)
+)) (MIAManual.aux (TeX_files/Copywrite.aux) (TeX_files/MIAconcept.aux)
 (TeX_files/MIAcommands.aux) (TeX_files/D3CIntegration.aux)
 (TeX_files/AppendixI.aux) (TeX_files/references.aux))
-\openout1 = `"MIA Manual.aux"'.
+\openout1 = `MIAManual.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
 LaTeX Font Info:    ... okay on input line 10.
@@ -746,12 +745,12 @@ LaTeX Info: Redefining \ref on input line 10.
 LaTeX Info: Redefining \pageref on input line 10.
 LaTeX Info: Redefining \nameref on input line 10.
 
-("MIA Manual.out") ("MIA Manual.out")
+(MIAManual.out) (MIAManual.out)
 \@outlinefile=\write3
-\openout3 = `"MIA Manual.out"'.
+\openout3 = `MIAManual.out'.
 
 
-<./Images/MIA_cropped_Inverted.png, id=15, 549.55313pt x 126.4725pt>
+<./Images/MIA_cropped_Inverted.png, id=23, 549.55313pt x 126.4725pt>
 File: ./Images/MIA_cropped_Inverted.png Graphic file (type png)
 
 <use ./Images/MIA_cropped_Inverted.png>
@@ -795,9 +794,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 28--34
 
 [2
 
-]) ("MIA Manual.toc")
+]) (MIAManual.toc
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <10.95> on input line 3.
+)
 \tf@toc=\write4
-\openout4 = `"MIA Manual.toc"'.
+\openout4 = `MIAManual.toc'.
 
  [3
 
@@ -824,16 +826,16 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
  (TeX_files/MIAcommands.tex
  2.
-) [2
+[2
 
 
 
-]
+]) [3]
 \openout2 = `./TeX_files/D3CIntegration.aux'.
 
  (TeX_files/D3CIntegration.tex
  3.
-) [3
+) [4
 
 
 
@@ -843,7 +845,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  (TeX_files/AppendixI.tex)
 \openout2 = `./TeX_files/references.aux'.
 
- (TeX_files/references.tex) [4
+ (TeX_files/references.tex) [5
 
 
 
@@ -853,23 +855,24 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 ]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 43.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 43.
- ("MIA Manual.aux" (TeX_files/Copywrite.aux) (TeX_files/MIAconcept.aux)
-(TeX_files/MIAcommands.aux) (TeX_files/D3CIntegration.aux)
-(TeX_files/AppendixI.aux) (TeX_files/references.aux))
+ (MIAManual.aux
+(TeX_files/Copywrite.aux) (TeX_files/MIAconcept.aux) (TeX_files/MIAcommands.aux
+) (TeX_files/D3CIntegration.aux) (TeX_files/AppendixI.aux)
+(TeX_files/references.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 43.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 43.
-Package rerunfilecheck Info: File `"MIA Manual".out' has not changed.
-(rerunfilecheck)             Checksum: DB48D1947C3511DBC3A4252E6D6F2F9D;198.
+Package rerunfilecheck Info: File `MIAManual.out' has not changed.
+(rerunfilecheck)             Checksum: FBE8D12B5FD23AF3DA6FBAD5A4AAEFE2;347.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 43.
  ) 
 Here is how much of TeX's memory you used:
- 8582 strings out of 493333
- 121592 string characters out of 3139185
- 344233 words of memory out of 3000000
- 11950 multiletter control sequences out of 15000+200000
- 8848 words of font info for 31 fonts, out of 3000000 for 9000
+ 9003 strings out of 493333
+ 125422 string characters out of 3139185
+ 355233 words of memory out of 3000000
+ 12328 multiletter control sequences out of 15000+200000
+ 10069 words of font info for 35 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 33i,11n,49p,650b,342s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 33i,11n,49p,647b,1129s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Fi
 les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTe
@@ -878,9 +881,9 @@ ts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
 public/amsfonts/cm/cmr9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
 fonts/cm/cmsy9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
 cmti10.pfb>
-Output written on "MIA Manual.pdf" (8 pages, 124927 bytes).
+Output written on MIAManual.pdf (9 pages, 143786 bytes).
 PDF statistics:
- 96 PDF objects out of 1000 (max. 8388607)
- 15 named destinations out of 1000 (max. 500000)
- 30 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 163 PDF objects out of 1000 (max. 8388607)
+ 58 named destinations out of 1000 (max. 500000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
 
