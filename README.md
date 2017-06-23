@@ -1,12 +1,10 @@
-     ....................................................................
-    ... //  ~~      |||      |||  ||||||||||      ||||     TM   ~~  \\ ...
-   ... //  ~~       ||||    ||||      ||         ||  ||          ~~  \\ ...
-  ... //  ~~        || ||  || ||      ||        ||||||||          ~~  \\ ...
- ... //  ~~         ||  ||||  ||      ||       ||      ||          ~~  \\ ...
-... //  ~~          ||   ||   ||  ||||||||||  ||        ||          ~~  \\ ...
-..............................................................................
-....................     Programmer: Antonius Torode      ....................
-..............................................................................
+ 
+|||      |||  ||||||||||      ||||     TM
+||||    ||||      ||         ||  ||
+|| ||  || ||      ||        ||||||||
+||  ||||  ||      ||       ||      ||
+||   ||   ||  ||||||||||  ||        ||
+
 
 MIA (Multiple Integrated Applications) is a program where I can store 
 useful coding functions I've created in one place for easy accessibility.
@@ -14,7 +12,7 @@ useful coding functions I've created in one place for easy accessibility.
 For a list of commands see the MIA manual.
 
 
-~~~~~ Compiling Instructions with Cygwin on Linux ~~~~~
+ ~~~~~~~~~~~~ Compiling Instructions with Cygwin on Linux ~~~~~~~~~~~~
 
 1) via terminal:  cd ../Antonius-MIA/bin
 
@@ -23,7 +21,7 @@ For a list of commands see the MIA manual.
 3) Run using ./MIA
 
 
-~~~~~ Compiling Instructions with Cygwin on Windows ~~~~~
+ ~~~~~~~~~~~~ Compiling Instructions with Cygwin on Windows ~~~~~~~~~~~~
 
 1) Install Cygwin using the tutorial here: 
 http://preshing.com/20141108/how-to-install-the-latest-gcc-on-windows/
@@ -46,7 +44,7 @@ execute objdump -p hello.exe | grep "DLL Name" while in the
 
 8) With the correct cygwin dll's in the exe folder, the program can be ran as standalone.
 
-~~~~~ Compiling Instructions with Cygwin on Mac OS ~~~~~
+ ~~~~~~~~~~~~ Compiling Instructions with Cygwin on Mac OS ~~~~~~~~~~~~
 
 1) Install Linux
 
