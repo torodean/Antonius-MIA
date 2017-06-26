@@ -14,6 +14,8 @@
 #include "MIAprogram.h"
 #include "D3CEncrypt.h"
 #include "MIAcommands.h"
+#include <vector>
+//#include <windows.h>
 
 //Main program constructor.
 Program::Program() : VERSION("0.025"){
@@ -186,6 +188,7 @@ void Program::performCommand(std::string input){
 			break;
 			
 		case 999999:
+			//testRandom();
 			std::cout << "...No test function set. " << std:: endl;
 			break;			
 			
@@ -302,5 +305,30 @@ int Program::randomInt(int min, int max){
 	int random = min + (rand() % static_cast<int>(max - min + 1));
 	return random;
 }
+
+/* //function for testing the random feature. Requires <Windows.h>
+void Program::testRandom(){
+	std::cout << "Enter min: ";
+	std::string smin = "";
+	getline(std::cin, smin);
+	std::cout << "Enter max: ";
+	std::string smax = "";
+	getline(std::cin, smax);
+	int min = stoi( smin );
+	int max = stoi( smax );
+	
+	std::vector<int> counter(max+1, 0);
+	int temp = 0;
+	
+	for(int i=0; i<500; i++){
+		temp = randomInt(min, max);
+		Sleep(500);
+		counter[temp]++;
+	}	
+	for(int i=min; i<=max; i++){
+		std::cout << i << ": " << counter[i] << std::endl;
+	}
+}
+*/
 
 
