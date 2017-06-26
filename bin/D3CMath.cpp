@@ -40,7 +40,6 @@ bool D3CMath::isPrime(long number) {
             }
         } else {
             return false;
-            break;
         }
     }
     return true;
@@ -58,7 +57,6 @@ bool D3CMath::isPalindrome(long number) {
         if (n[q] == n[size - 1 - q]) {
         } else {
             return false;
-            break;
         }
     }
     return true;
@@ -88,6 +86,7 @@ int D3CMath::numberOfFactors(long x) {
     return num;
 }
 
+//determines if an input long is a triangle number or not.
 bool D3CMath::isTriangleNumber(long x) {
     int num = 0;
     for (int i = 1; i < x; i++) {
@@ -134,18 +133,15 @@ void D3CMath::primeFactors(long x){
         }
 }
 
+//Converts a string to a long.
 long stringToLong(string input){
-//	cout << "input: " << input << endl;
     long output=0;
     int size = input.size();
     int temp[size];
-//	cout << "temp[i]: ";
     for(int i=0;i < size;i++){
         temp[i] = input[i]-48;
-//		cout << temp[i];
         output += temp[i]*pow(10, size-i-1);
     }
-//	cout << endl;
     return output;
 }
 
@@ -184,14 +180,10 @@ long seperateFileEnd(string line){
     lineEndString.resize(lineLength - position-2);
     lineEndString.reserve(lineLength - position-2);
 
-//	cout << "lineEndString[x]: ";
     for(int x=0;x<lineLength-(position+2);x++){
         lineEndString[x] = line[x+position+2];
-//		cout << lineEndString[x];
     }
-//	cout << endl << lineEndString << endl;;
     lineEnd = stringToLong(lineEndString);
-//	cout << "lineEnd: " << lineEnd << endl;
     return lineEnd;
 }
 
@@ -240,6 +232,7 @@ void D3CMath::primeNumberNpopulate() {
     myfile.close();
 }
 
+//Clears the primeNumber.txt file
 void D3CMath::primeNumberNerase(){
     ofstream myfile;
     myfile.open(primeNlocation);
@@ -318,6 +311,7 @@ int D3CMath::numOfDigitsInt(int x){
     return count;
 }
 
+//Returns the larger of two integers.
 int D3CMath::setLargerInt(int One, int Two) {
     int largerInt;
     if (One >= Two) { //sets the variable of largerInt to the length of the larger of the 2 ints.
