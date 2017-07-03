@@ -18,8 +18,6 @@ For a list of commands see the MIA manual.
 
 2) compile using g++ -Wall -std=c++14 MIAmain.cpp MIAprogram.cpp MIAcommands.cpp D3CEncrypt.cpp D3CEncryptPW.cpp D3CMath.cpp -o MIA
 
-2.5) In some situations the above command may throw exceptions depending on the GCC std versions and locations that exist. You can remedy this by changing the -std=c++14 version to a prior version, perhaps -std=c++1y.
-
 3) Run using ./MIA
 
 
