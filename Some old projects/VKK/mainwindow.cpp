@@ -24,6 +24,7 @@ MainWindow::~MainWindow(){
     delete ui;
 }
 
+//Cleared input values for a WoW tournament fee calculation
 void MainWindow::clearBoxes(){
     ui->lineEdit->clear();
     ui->lineEdit_2->clear();
@@ -37,6 +38,7 @@ void MainWindow::clearBoxes(){
     ui->lineEdit_10->clear();
 }
 
+//Button Spam - took two parameters (button, amount)
 void MainWindow::on_pushButton_3_clicked(){
     Sleep(5000);
     QString character = ui->lineEdit_2->text();
@@ -49,6 +51,7 @@ void MainWindow::on_pushButton_3_clicked(){
         }
 }
 
+//This Function was used for a World of Warcraft tournament fee calculations
 void MainWindow::on_pushButton_5_clicked(){
     long achievement = ui->lineEdit_6->text().toLong();
     long pets = ui->lineEdit_7->text().toLong();
@@ -68,6 +71,7 @@ void MainWindow::on_pushButton_5_clicked(){
 
 }
 
+//an old world of warcraft function for duplicating a letter
 void MainWindow::on_pushButton_2_clicked(){
     Sleep(5000);
     int copies = ui->lineEdit->text().toInt();
@@ -88,6 +92,7 @@ void MainWindow::on_pushButton_2_clicked(){
     }
 }
 
+//an old WoW function for mass mailing a letter to a list of people.
 void MainWindow::on_pushButton_clicked(){
     Sleep(5000);
     std::cout << "Mass Mailing started" << endl;
@@ -125,6 +130,7 @@ void MainWindow::on_pushButton_clicked(){
     myFile.close();
 }
 
+//exited app
 void MainWindow::on_actionExit_triggered(){
     qApp->quit();
 }
@@ -135,6 +141,7 @@ void MainWindow::on_actionClear_triggered(){
 
 //myfile.open("../build-D0sag3Command-Desktop_Qt_5_3_MinGW_32bit-Release/D3CCL.txt");
 
+//Corresponding to a "minecraft dig" button. This was for perpetual minecraft digging motions.
 void MainWindow::on_pushButton_4_clicked()
 {
     Sleep(4000);
@@ -166,6 +173,7 @@ void MainWindow::on_pushButton_4_clicked()
     SendInput(1, &ip, sizeof(INPUT));
 }
 
+//Performed some math. I literally have zero idea what I made this for but it must have done something important.
 void MainWindow::on_pushButton_6_clicked()
 {
     std::cout << "start" << std::endl;
