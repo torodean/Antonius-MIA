@@ -15,10 +15,9 @@
 #include "D3CEncrypt.h"
 #include "MIAcommands.h"
 #include <vector>
-//#include <windows.h>
 
 //Main program constructor.
-Program::Program() : VERSION("0.025"){
+Program::Program() : VERSION("0.027"){
 	//Chuck Norris can take a screenshot of his blue screen.
 }
 
@@ -112,6 +111,10 @@ int Program::commandToInputVar(std::string input){
 		output = 17;
 	} else if (input == "prime -n -c"){
 		output = 18;
+	} else if (input == "dig"){
+		output = 19;
+	} else if (input == "button spam"){
+		output = 20;
 	} else if (input == "test"){
 		output = 999999;
 	}
@@ -186,9 +189,14 @@ void Program::performCommand(std::string input){
 		case 18: //corresponds to the prime -n -c command.
 			cmd.primeNumberNeraseRunner();
 			break;
-			
+		case 19: //corresponds to the dig command.
+			//cmd.minecraftDigRunner(); 
+			break;
+		case 20: //corresponds to the button spam command.
+			//cmd.buttonSpamRunner();
+			break;
 		case 999999:
-			//testRandom();
+			test();
 			std::cout << "...No test function set. " << std:: endl;
 			break;			
 			
@@ -306,29 +314,11 @@ int Program::randomInt(int min, int max){
 	return random;
 }
 
-/* //function for testing the random feature. Requires <Windows.h>
-void Program::testRandom(){
-	std::cout << "Enter min: ";
-	std::string smin = "";
-	getline(std::cin, smin);
-	std::cout << "Enter max: ";
-	std::string smax = "";
-	getline(std::cin, smax);
-	int min = stoi( smin );
-	int max = stoi( smax );
+void Program::test(){
+	std::cout << "start" << std::endl;
+    //TODO CODE HERE
 	
-	std::vector<int> counter(max+1, 0);
-	int temp = 0;
-	
-	for(int i=0; i<500; i++){
-		temp = randomInt(min, max);
-		Sleep(500);
-		counter[temp]++;
-	}	
-	for(int i=min; i<=max; i++){
-		std::cout << i << ": " << counter[i] << std::endl;
-	}
+    std::cout << "finished." << std::endl;
 }
-*/
 
 

@@ -8,6 +8,7 @@
 
 #ifndef __COMMANDS_H__
 #define __COMMANDS_H__
+#include <string>
 
 class Commands{
 	private:
@@ -36,5 +37,13 @@ class Commands{
 		void primeNumberNeraseRunner();
 		
 		//Functions adapted to work from the LOLA Program.
+			//Not yet added.
+		
+		//Functions adapted to work from the old VKK program.
+		
+		/* CURRENTLY ONLY WORKS ON WINDOWS
+		void minecraftDigRunner();
+		void buttonSpamRunner();
+		*/
 };
 #endif

@@ -62,6 +62,8 @@ public:
     void type(std::string word);
     void paste();
     void leftclick();
+	void minecraftDig(int time);
+	void buttonSpam(std::string button, int amount);
 };
 
 #endif // KEYS_H

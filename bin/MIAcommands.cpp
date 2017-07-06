@@ -6,6 +6,7 @@
 // Description : MIA commands and their respective runners.
 //============================================================================
 
+//#include <windows.h>
 #include <iostream>
 #include <string>
 #include "MIAprogram.h"
@@ -13,6 +14,9 @@
 #include "D3CEncryptPW.h"
 #include "MIAcommands.h"
 #include "D3CMath.h"
+/* CURRENTLY ONLY WORKS ON WINDOWS
+#include "Keys.h"
+*/
 
 //Main commands constructor.
 Commands::Commands(){
@@ -387,7 +391,52 @@ void Commands::primeNumberNeraseRunner(){
 	math.primeNumberNerase();
 }
 
+/* CURRENTLY ONLY WORKS ON WINDOWS
 
+//Spams a button a specific number of times.
+void Commands::buttonSpamRunner(){
+	Program prog;
+	Keys key;
+	
+	std::string button;
+
+	std::cout << "...Enter a button you would like spammed: ";
+	getline(std::cin, button);
+	prog.blankLine();
+	
+	std::string amountStr;
+
+	std::cout << "...How many times would you like it spammed? ";
+	getline(std::cin, amountStr);
+	prog.blankLine();
+	
+	int amount = std::atoi(amountStr.c_str());
+	
+	std::cout << "...Preparing to spam " << button << " " << amountStr << " times." << std::endl;
+	std::cout << "...Beginning in 5 seconds." << std::endl;
+	prog.blankLine();
+
+	key.buttonSpam(button, amount);
+}
+
+//performs a sequence to perpetually dig as you would in minecraft.
+void Commands::minecraftDigRunner(){
+	Program prog;
+	Keys key;
+	
+	std::string input;
+
+	std::cout << "...How long would you like to dig for (in seconds)? ";
+	getline(std::cin, input);
+	prog.blankLine();
+	
+	int time = std::atoi(input.c_str());
+	
+	std::cout << "...Beginning in 5 seconds." << std::endl;
+	key.minecraftDig(time);
+}
+
+*/ 
 
 
 
