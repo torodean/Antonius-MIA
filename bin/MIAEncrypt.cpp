@@ -9,9 +9,10 @@
 //============================================================================
 
 #include "MIAEncrypt.h"
+#include <vector>
 
 //Main constructor for the MIAEncrypt algorithm.
-MIAEncrypt::MIAEncrypt(){
+MIAEncrypt::MIAEncrypt(): cube(4, std::vector<int>(4,0)), combination(16, "default"){
 	//When Chuck Norris's code fails to compile, the computer apologizes.
 }
 
