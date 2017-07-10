@@ -7,6 +7,7 @@
 // Description : A old encryption program (d0s1) re-adapted for use with MIA.
 //============================================================================
 
+#include <iostream> //for troubleshooting.
 #include <vector>
 #include <sstream>
 #include <cstdlib>
@@ -327,6 +328,10 @@ string D3CEncrypt::Crypt(string input){
     inputVector = stringToVector(input);
     baseTwoVector = binaryVector(inputVector);
     cryptedVector = cryptChars(baseTwoVector);
+	
+	//cout << cryptedVector << endl << endl;
+	
+	//cryptedVector = squish(cryptedVector);
 
     return cryptedVector;
 }
@@ -505,6 +510,189 @@ string D3CEncrypt::DeCrypt(string input){
     deCryptedVector = intVectorToString(deCryptedIntVector);
 
     return deCryptedVector;
+}
+
+//Shortens the encrypted message created by the d0s1 encryption.
+string D3CEncrypt::squish(string input){
+	string output = "";
+	long size = input.size();
+	int loopCount = 0;
+	string loopString = "";
+	
+	for (long i=0; i<size ; i++){
+		loopCount = loopString.size();
+		if(loopCount <4){
+			loopString += input[i];
+			cout << i << "(" << loopCount << ")" << ": " << loopString << endl; //for troubleshooting.
+		} else{
+			loopCount = 0;
+			if(loopString == "0000"){
+				output += "q";
+			} else if(loopString == "0001"){
+				output += "p";
+			} else if(loopString == "0002"){
+				output += "M";
+			} else if(loopString == "0010"){
+				output += "U";
+			} else if(loopString == "0011"){
+				output += "o";
+			} else if(loopString == "0012"){
+				output += "s";
+			} else if(loopString == "0020"){
+				output += "r";
+			} else if(loopString == "0021"){
+				output += "L";
+			} else if(loopString == "0022"){
+				output += "T";
+			} else if(loopString == "0100"){
+				output += "a";
+			} else if(loopString == "0101"){
+				output += "N";
+			} else if(loopString == "0102"){
+				output += "n";
+			} else if(loopString == "0110"){
+				output += "x";
+			} else if(loopString == "0111"){
+				output += "#";
+			} else if(loopString == "0112"){
+				output += "f";
+			} else if(loopString == "0120"){
+				output += "c";
+			} else if(loopString == "0121"){
+				output += "w";
+			} else if(loopString == "0122"){
+				output += "V";
+			} else if(loopString == "0200"){
+				output += "v";
+			} else if(loopString == "0201"){
+				output += "E";
+			} else if(loopString == "0202"){
+				output += "D";
+			} else if(loopString == "0210"){
+				output += "m";
+			} else if(loopString == "0211"){
+				output += "e";
+			} else if(loopString == "0212"){
+				output += "u";
+			} else if(loopString == "0220"){
+				output += "$";
+			} else if(loopString == "0221"){
+				output += "b";
+			} else if(loopString == "0222"){
+				output += "@";
+			} else if(loopString == "1000"){
+				output += "K";
+			} else if(loopString == "1001"){
+				output += "t";
+			} else if(loopString == "1002"){
+				output += "l";
+			} else if(loopString == "1010"){
+				output += "W";
+			} else if(loopString == "1011"){
+				output += "P";
+			} else if(loopString == "1012"){
+				output += "J";
+			} else if(loopString == "1020"){
+				output += "I";
+			} else if(loopString == "1021"){
+				output += "y";
+			} else if(loopString == "1022"){
+				output += "d";
+			} else if(loopString == "1100"){
+				output += "!";
+			} else if(loopString == "1101"){
+				output += "k";
+			} else if(loopString == "1102"){
+				output += "C";
+			} else if(loopString == "1110"){
+				output += "z";
+			} else if(loopString == "1111"){
+				output += "O";
+			} else if(loopString == "1112"){
+				output += "g";
+			} else if(loopString == "1120"){
+				output += "F";
+			} else if(loopString == "1121"){
+				output += "j";
+			} else if(loopString == "1122"){
+				output += "Z";
+			} else if(loopString == "1200"){
+				output += "G";
+			} else if(loopString == "1201"){
+				output += "X";
+			} else if(loopString == "1202"){
+				output += "H";
+			} else if(loopString == "1210"){
+				output += "h";
+			} else if(loopString == "1211"){
+				output += "Q";
+			} else if(loopString == "1212"){
+				output += "R";
+			} else if(loopString == "1220"){
+				output += "S";
+			} else if(loopString == "1221"){
+				output += "i";
+			} else if(loopString == "1222"){
+				output += "Y";
+			} else if(loopString == "2000"){
+				output += "K";
+			} else if(loopString == "2001"){
+				output += "%";
+			} else if(loopString == "2002"){
+				output += "^";
+			} else if(loopString == "2010"){
+				output += "&";
+			} else if(loopString == "2011"){
+				output += "*";
+			} else if(loopString == "2012"){
+				output += "(";
+			} else if(loopString == "2020"){
+				output += ")";
+			} else if(loopString == "2021"){
+				output += "-";
+			} else if(loopString == "2022"){
+				output += "_";
+			} else if(loopString == "2100"){
+				output += "=";
+			} else if(loopString == "2101"){
+				output += "+";
+			} else if(loopString == "2102"){
+				output += "[";
+			} else if(loopString == "2110"){
+				output += "]";
+			} else if(loopString == "2111"){
+				output += ":";
+			} else if(loopString == "2112"){
+				output += "'";
+			} else if(loopString == "2120"){
+				output += ";";
+			} else if(loopString == "2121"){
+				output += "<";
+			} else if(loopString == "2122"){
+				output += ",";
+			} else if(loopString == "2200"){
+				output += ">";
+			} else if(loopString == "2201"){
+				output += ".";
+			} else if(loopString == "2202"){
+				output += "/";
+			} else if(loopString == "2210"){
+				output += "?";
+			} else if(loopString == "2211"){
+				output += "|";
+			} else if(loopString == "2212"){
+				output += "~";
+			} else {
+				output += loopString[0];
+				i -= 3;
+			}
+			cout << output << endl; //for troubleshooting.
+
+			loopString = "";
+		}
+	}
+	
+	return output;
 }
 
 }/* namespace std */

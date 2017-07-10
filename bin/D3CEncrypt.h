@@ -19,6 +19,8 @@ class D3CEncrypt {
 	private:
 		int stringLength, vectorSize, digit, powerofDigit, powerofTen, devise, random7bitNum, random7bitbinary, encodedVec;
 	public:
+	
+		//Functions from original program.
 		D3CEncrypt();
 		vector<int> stringToVector(string a);
 		vector<int> binaryVector(vector<int> inputVector);
@@ -42,6 +44,9 @@ class D3CEncrypt {
 		string intVectorToString(vector<int> a);
 		string DeCrypt(string input);
 		virtual ~D3CEncrypt();
+		
+		//Added functions after MIA implimentation.
+		string squish(string input);
 };
 
 }/* namespace std */
