@@ -310,7 +310,7 @@ string D3CEncrypt::cryptChars(vector<int> inputVector){
 }
 
 //Encrypts a string.
-string D3CEncrypt::CryptNoRand(string input){ 
+string D3CEncrypt::CryptNoRand(string input, bool toSquish){ 
     string cryptedVector;
     vector<int> baseTwoVector, inputVector;
 
@@ -318,21 +318,27 @@ string D3CEncrypt::CryptNoRand(string input){
     baseTwoVector = binaryVector(inputVector);
     cryptedVector = cryptCharsNoRand(baseTwoVector);
 
+	if(toSquish){
+		//cryptedVector = squish(cryptedVector);
+	}
+	
     return cryptedVector;
 }
 
 //Encrypts a string.
-string D3CEncrypt::Crypt(string input){ 
+string D3CEncrypt::Crypt(string input, bool toSquish){ 
     string cryptedVector;
     vector<int> baseTwoVector, inputVector;
     inputVector = stringToVector(input);
     baseTwoVector = binaryVector(inputVector);
     cryptedVector = cryptChars(baseTwoVector);
 	
-	//cout << cryptedVector << endl << endl;
+	cout << cryptedVector << endl << endl;
 	
-	//cryptedVector = squish(cryptedVector);
-
+	if(toSquish){
+		//cryptedVector = squish(cryptedVector);
+	}
+	
     return cryptedVector;
 }
 
@@ -495,8 +501,13 @@ string D3CEncrypt::intVectorToString(vector<int> a){
 }
 
 //Decrypts a string encrypted with D3Crypt.
-string D3CEncrypt::DeCrypt(string input){
+string D3CEncrypt::DeCrypt(string input, bool squish){
     string deCryptedVector;
+	
+	if(squish){
+		input = expand(input);
+	}
+	
     vector<string> inputVector, seperatedRandomVector;
     vector<int> seperatedcharacterVector, baseTenRandomVector, randomVector, randomBinaryVector,deCryptedBinaryVector, deCryptedIntVector;
     inputVector = cryptedStringToVector(input);
@@ -516,180 +527,349 @@ string D3CEncrypt::DeCrypt(string input){
 string D3CEncrypt::squish(string input){
 	string output = "";
 	long size = input.size();
-	int loopCount = 0;
 	string loopString = "";
 	
 	for (long i=0; i<size ; i++){
-		loopCount = loopString.size();
-		if(loopCount <4){
-			loopString += input[i];
-			cout << i << "(" << loopCount << ")" << ": " << loopString << endl; //for troubleshooting.
-		} else{
-			loopCount = 0;
-			if(loopString == "0000"){
-				output += "q";
-			} else if(loopString == "0001"){
-				output += "p";
-			} else if(loopString == "0002"){
-				output += "M";
-			} else if(loopString == "0010"){
-				output += "U";
-			} else if(loopString == "0011"){
-				output += "o";
-			} else if(loopString == "0012"){
-				output += "s";
-			} else if(loopString == "0020"){
-				output += "r";
-			} else if(loopString == "0021"){
-				output += "L";
-			} else if(loopString == "0022"){
-				output += "T";
-			} else if(loopString == "0100"){
-				output += "a";
-			} else if(loopString == "0101"){
-				output += "N";
-			} else if(loopString == "0102"){
-				output += "n";
-			} else if(loopString == "0110"){
-				output += "x";
-			} else if(loopString == "0111"){
-				output += "#";
-			} else if(loopString == "0112"){
-				output += "f";
-			} else if(loopString == "0120"){
-				output += "c";
-			} else if(loopString == "0121"){
-				output += "w";
-			} else if(loopString == "0122"){
-				output += "V";
-			} else if(loopString == "0200"){
-				output += "v";
-			} else if(loopString == "0201"){
-				output += "E";
-			} else if(loopString == "0202"){
-				output += "D";
-			} else if(loopString == "0210"){
-				output += "m";
-			} else if(loopString == "0211"){
-				output += "e";
-			} else if(loopString == "0212"){
-				output += "u";
-			} else if(loopString == "0220"){
-				output += "$";
-			} else if(loopString == "0221"){
-				output += "b";
-			} else if(loopString == "0222"){
-				output += "@";
-			} else if(loopString == "1000"){
-				output += "K";
-			} else if(loopString == "1001"){
-				output += "t";
-			} else if(loopString == "1002"){
-				output += "l";
-			} else if(loopString == "1010"){
-				output += "W";
-			} else if(loopString == "1011"){
-				output += "P";
-			} else if(loopString == "1012"){
-				output += "J";
-			} else if(loopString == "1020"){
-				output += "I";
-			} else if(loopString == "1021"){
-				output += "y";
-			} else if(loopString == "1022"){
-				output += "d";
-			} else if(loopString == "1100"){
-				output += "!";
-			} else if(loopString == "1101"){
-				output += "k";
-			} else if(loopString == "1102"){
-				output += "C";
-			} else if(loopString == "1110"){
-				output += "z";
-			} else if(loopString == "1111"){
-				output += "O";
-			} else if(loopString == "1112"){
-				output += "g";
-			} else if(loopString == "1120"){
-				output += "F";
-			} else if(loopString == "1121"){
-				output += "j";
-			} else if(loopString == "1122"){
-				output += "Z";
-			} else if(loopString == "1200"){
-				output += "G";
-			} else if(loopString == "1201"){
-				output += "X";
-			} else if(loopString == "1202"){
-				output += "H";
-			} else if(loopString == "1210"){
-				output += "h";
-			} else if(loopString == "1211"){
-				output += "Q";
-			} else if(loopString == "1212"){
-				output += "R";
-			} else if(loopString == "1220"){
-				output += "S";
-			} else if(loopString == "1221"){
-				output += "i";
-			} else if(loopString == "1222"){
-				output += "Y";
-			} else if(loopString == "2000"){
-				output += "K";
-			} else if(loopString == "2001"){
-				output += "%";
-			} else if(loopString == "2002"){
-				output += "^";
-			} else if(loopString == "2010"){
-				output += "&";
-			} else if(loopString == "2011"){
-				output += "*";
-			} else if(loopString == "2012"){
-				output += "(";
-			} else if(loopString == "2020"){
-				output += ")";
-			} else if(loopString == "2021"){
-				output += "-";
-			} else if(loopString == "2022"){
-				output += "_";
-			} else if(loopString == "2100"){
-				output += "=";
-			} else if(loopString == "2101"){
-				output += "+";
-			} else if(loopString == "2102"){
-				output += "[";
-			} else if(loopString == "2110"){
-				output += "]";
-			} else if(loopString == "2111"){
-				output += ":";
-			} else if(loopString == "2112"){
-				output += "'";
-			} else if(loopString == "2120"){
-				output += ";";
-			} else if(loopString == "2121"){
-				output += "<";
-			} else if(loopString == "2122"){
-				output += ",";
-			} else if(loopString == "2200"){
-				output += ">";
-			} else if(loopString == "2201"){
-				output += ".";
-			} else if(loopString == "2202"){
-				output += "/";
-			} else if(loopString == "2210"){
-				output += "?";
-			} else if(loopString == "2211"){
-				output += "|";
-			} else if(loopString == "2212"){
-				output += "~";
-			} else {
-				output += loopString[0];
-				i -= 3;
-			}
-			cout << output << endl; //for troubleshooting.
-
-			loopString = "";
+		for(int j=0;j<3;j++){
+			loopString += input[i+j];
+			//cout << i << "(" << j << ")" << ": " << loopString << endl; //for troubleshooting.
 		}
+		
+		if(loopString == "000"){
+			output += "q";
+		} else if(loopString == "001"){
+			output += "p";
+		} else if(loopString == "002"){
+			output += "M";
+		} else if(loopString == "010"){
+			output += "U";
+		} else if(loopString == "011"){
+			output += "o";
+		} else if(loopString == "012"){
+			output += "s";
+		} else if(loopString == "020"){
+			output += "r";
+		} else if(loopString == "021"){
+			output += "L";
+		} else if(loopString == "022"){
+			output += "T";
+		} else if(loopString == "100"){
+			output += "a";
+		} else if(loopString == "101"){
+			output += "N";
+		} else if(loopString == "102"){
+			output += "n";
+		} else if(loopString == "110"){
+			output += "x";
+		} else if(loopString == "111"){
+			output += "#";
+		} else if(loopString == "112"){
+			output += "f";
+		} else if(loopString == "120"){
+			output += "c";
+		} else if(loopString == "121"){
+			output += "w";
+		} else if(loopString == "122"){
+			output += "V";
+		} else if(loopString == "200"){
+			output += "v";
+		} else if(loopString == "201"){
+			output += "E";
+		} else if(loopString == "202"){
+			output += "D";
+		} else if(loopString == "210"){
+			output += "m";
+		} else if(loopString == "211"){
+			output += "e";
+		} else if(loopString == "212"){
+			output += "u";
+		} else if(loopString == "220"){
+			output += "$";
+		} else if(loopString == "221"){
+			output += "b";
+		} else if(loopString == "222"){
+			output += "@";
+		} else if(loopString == "003"){
+			output += "K";
+		} else if(loopString == "013"){
+			output += "t";
+		} else if(loopString == "023"){
+			output += "l";
+		} else if(loopString == "033"){
+			output += "W";
+		} else if(loopString == "103"){
+			output += "P";
+		} else if(loopString == "113"){
+			output += "J";
+		} else if(loopString == "123"){
+			output += "I";
+		} else if(loopString == "133"){
+			output += "y";
+		} else if(loopString == "203"){
+			output += "d";
+		} else if(loopString == "213"){
+			output += "!";
+		} else if(loopString == "223"){
+			output += "k";
+		} else if(loopString == "233"){
+			output += "C";
+		} else if(loopString == "303"){
+			output += "z";
+		} else if(loopString == "313"){
+			output += "O";
+		} else if(loopString == "323"){
+			output += "g";
+		} else if(loopString == "333"){
+			output += "F";
+		} else if(loopString == "004"){
+			output += "j";
+		} else if(loopString == "014"){
+			output += "Z";
+		} else if(loopString == "024"){
+			output += "G";
+		} else if(loopString == "034"){
+			output += "X";
+		} else if(loopString == "044"){
+			output += "H";
+		} else if(loopString == "104"){
+			output += "h";
+		} else if(loopString == "114"){
+			output += "Q";
+		} else if(loopString == "124"){
+			output += "R";
+		} else if(loopString == "134"){
+			output += "S";
+		} else if(loopString == "144"){
+			output += "i";
+		} else if(loopString == "204"){
+			output += "Y";
+		} else if(loopString == "214"){
+			output += "K";
+		} else if(loopString == "224"){
+			output += "%";
+		} else if(loopString == "234"){
+			output += "^";
+		} else if(loopString == "244"){
+			output += "&";
+		} else if(loopString == "304"){
+			output += "*";
+		} else if(loopString == "314"){
+			output += "(";
+		} else if(loopString == "324"){
+			output += ")";
+		} else if(loopString == "334"){
+			output += "-";
+		} else if(loopString == "344"){
+			output += "_";
+		} else if(loopString == "404"){
+			output += "=";
+		} else if(loopString == "414"){
+			output += "+";
+		} else if(loopString == "424"){
+			output += "[";
+		} else if(loopString == "434"){
+			output += "]";
+		} else if(loopString == "444"){
+			output += ":";
+		} else if(loopString == "005"){
+			output += "'";
+		} else if(loopString == "015"){
+			output += ";";
+		} else if(loopString == "025"){
+			output += "<";
+		} else if(loopString == "035"){
+			output += ",";
+		} else if(loopString == "045"){
+			output += ">";
+		} else if(loopString == "055"){
+			output += ".";
+		} else if(loopString == "505"){
+			output += "/";
+		} else if(loopString == "515"){
+			output += "?";
+		} else if(loopString == "525"){
+			output += "|";
+		} else if(loopString == "535"){
+			output += "~";
+		} else {
+			output += loopString[0];
+			i-=2;
+		}
+		
+		//cout << output << endl; //for troubleshooting.	
+		loopString = "";
+		i+=2;
+	}
+	
+	return output;
+}
+
+//Shortens the encrypted message created by the d0s1 encryption.
+string D3CEncrypt::expand(string input){
+	string output = "";
+	long size = input.size();
+	
+	for (long i=0; i<size ; i++){		
+		if(input[i] =='q'){
+			output += "000";
+		} else if(input[i] == 'p'){
+			output += "001";
+		} else if(input[i] == 'M'){
+			output += "002";
+		} else if(input[i] == 'U'){
+			output += "010";
+		} else if(input[i] == 'o'){
+			output += "011";
+		} else if(input[i] == 's'){
+			output += "012";
+		} else if(input[i] == 'r'){
+			output += "020";
+		} else if(input[i] == 'L'){
+			output += "021";
+		} else if(input[i] == 'T'){
+			output += "022";
+		} else if(input[i] == 'a'){
+			output += "100";
+		} else if(input[i] == 'N'){
+			output += "101";
+		} else if(input[i] == 'n'){
+			output += "102";
+		} else if(input[i] == 'x'){
+			output += "110";
+		} else if(input[i] == '#'){
+			output += "111";
+		} else if(input[i] == 'f'){
+			output += "112";
+		} else if(input[i] == 'c'){
+			output += "120";
+		} else if(input[i] == 'w'){
+			output += "121";
+		} else if(input[i] == 'V'){
+			output += "122";
+		} else if(input[i] == 'v'){
+			output += "200";
+		} else if(input[i] == 'E'){
+			output += "201";
+		} else if(input[i] == 'D'){
+			output += "202";
+		} else if(input[i] == 'm'){
+			output += "210";
+		} else if(input[i] == 'e'){
+			output += "211";
+		} else if(input[i] == 'u'){
+			output += "212";
+		} else if(input[i] == '$'){
+			output += "220";
+		} else if(input[i] == 'b'){
+			output += "221";
+		} else if(input[i] == '@'){
+			output += "222";
+		} else if(input[i] == 'K'){
+			output += "003";
+		} else if(input[i] == 't'){
+			output += "013";
+		} else if(input[i] == 'l'){
+			output += "023";
+		} else if(input[i] == 'W'){
+			output += "033";
+		} else if(input[i] == 'p'){
+			output += "103";
+		} else if(input[i] == 'J'){
+			output += "113";
+		} else if(input[i] == 'I'){
+			output += "123";
+		} else if(input[i] == 'y'){
+			output += "133";
+		} else if(input[i] == 'd'){
+			output += "203";
+		} else if(input[i] == '!'){
+			output += "213";
+		} else if(input[i] == 'k'){
+			output += "223";
+		} else if(input[i] == 'C'){
+			output += "233";
+		} else if(input[i] == 'z'){
+			output += "303";
+		} else if(input[i] == 'O'){
+			output += "313";
+		} else if(input[i] == 'g'){
+			output += "323";
+		} else if(input[i] == 'F'){
+			output += "333";
+		} else if(input[i] == 'j'){
+			output += "004";
+		} else if(input[i] == 'Z'){
+			output += "014";
+		} else if(input[i] == 'G'){
+			output += "024";
+		} else if(input[i] == 'X'){
+			output += "034";
+		} else if(input[i] == 'H'){
+			output += "044";
+		} else if(input[i] == 'h'){
+			output += "104";
+		} else if(input[i] == 'Q'){
+			output += "114";
+		} else if(input[i] == 'R'){
+			output += "124";
+		} else if(input[i] == 'S'){
+			output += "134";
+		} else if(input[i] == 'i'){
+			output += "144";
+		} else if(input[i] == 'Y'){
+			output += "204";
+		} else if(input[i] == 'K'){
+			output += "214";
+		} else if(input[i] == '%'){
+			output += "224";
+		} else if(input[i] == '^'){
+			output += "234";
+		} else if(input[i] == '&'){
+			output += "244";
+		} else if(input[i] == '*'){
+			output += "304";
+		} else if(input[i] == '('){
+			output += "314";
+		} else if(input[i] == ')'){
+			output += "324";
+		} else if(input[i] == '-'){
+			output += "334";
+		} else if(input[i] == '_'){
+			output += "344";
+		} else if(input[i] == '='){
+			output += "404";
+		} else if(input[i] == '+'){
+			output += "414";
+		} else if(input[i] == '['){
+			output += "424";
+		} else if(input[i] == ']'){
+			output += "434";
+		} else if(input[i] == ':'){
+			output += "444";
+		} else if(input[i] == '\''){
+			output += "005";
+		} else if(input[i] == ';'){
+			output += "015";
+		} else if(input[i] == '<'){
+			output += "025";
+		} else if(input[i] == ','){
+			output += "035";
+		} else if(input[i] == '>'){
+			output += "045";
+		} else if(input[i] == '.'){
+			output += "055";
+		} else if(input[i] == '/'){
+			output += "505";
+		} else if(input[i] == '?'){
+			output += "515";
+		} else if(input[i] == '|'){
+			output += "525";
+		} else if(input[i] == '~'){
+			output += "535";
+		}else {
+			output += input[i];
+		}
+		//cout << output << endl; //for troubleshooting.	
 	}
 	
 	return output;

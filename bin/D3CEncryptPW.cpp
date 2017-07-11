@@ -244,6 +244,11 @@ string D3CEncryptPW::invertString(string str){
     string output;
 
     int strSize = str.length();
+	
+	if(strSize == 0){
+		return "$@d0sag3_EmptyPW.fail_error555$$&**&()";
+	}
+	
     output.resize(strSize);
     for(int i=0;i<strSize;i++){
         output[i] = str[strSize -1 - i];
@@ -268,25 +273,30 @@ string D3CEncryptPW::EncryptPW(string message, string PW){
 
     //does a regular d0s crypt if the password field is left blank.
     if (PW == "$@d0sag3_EmptyPW.fail_error555$$&**&()"){
-        return crypt.Crypt(message);
+        return crypt.Crypt(message, true);
     }
 
     string PWRepeated = PWRepeat(PW, PWNeeded, PWRemainder);
 
     //converts the message and PWRepeated strings to a crpyted form of the strings, using the original crypt function.
-    message = crypt.Crypt(message);
-    PW = crypt.CryptNoRand(PWRepeated);
+    message = crypt.Crypt(message, false);
+    PW = crypt.CryptNoRand(PWRepeated, false);
 
     //combines the password with the message.
     CM = PWmessageCombine(message, PW);
 
+	//CM = crypt.squish(CM);
+	
     return CM;
 }
 
 //message is the original message and PW is the password used.
-string D3CEncryptPW::DecryptPW(string message, string PW){  
+string D3CEncryptPW::DecryptPW(string message, string PW){  	
     D3CEncrypt crypt;
     PW = invertString(PW);
+	
+	//message = crypt.expand(message);
+	cout << message << endl;
 	
 	//DM stands for decrypted message, which is the string that will be returned by the function.
     string DM; 
@@ -298,15 +308,15 @@ string D3CEncryptPW::DecryptPW(string message, string PW){
 
     //does a regular d0s DeCrypt if the password field is left blank.
     if (PW == "$@d0sag3_EmptyPW.fail_error555$$&**&()"){
-        return crypt.DeCrypt(message);
+        return crypt.DeCrypt(message, true);
     }
 
     string PWRepeated = PWRepeat(PW, PWNeeded, PWRemainder);
 
-    PW = crypt.CryptNoRand(PWRepeated);
+    PW = crypt.CryptNoRand(PWRepeated, false);
 
     DM = PWmessageUnCombine(message, PW);
-    DM = crypt.DeCrypt(DM);
+    DM = crypt.DeCrypt(DM, false);
 
     return DM;
 }

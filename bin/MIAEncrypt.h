@@ -30,26 +30,26 @@ class MIAEncrypt{
 		void setCube();
 		
 		//Get Private Variables.
-		std::vector< std::vector<int>> getCube();
+		std::vector< std::vector< std::vector<int>>> getCube();
 		std::vector<std::string> getCombination();
 		
 		//Scramble and Unscramble algorithms.
-		std::vector< std::vector<int>> scrambledCube(std::vector< std::vector<int>> cube, std::vector<std::string> combination);
-		std::vector< std::vector<int>> unscrambledCube(std::vector< std::vector<int>> cube, std::vector<std::string> combination);
+		std::vector< std::vector< std::vector<int>>> scrambledCube(std::vector< std::vector< std::vector<int>>> cube, std::vector<std::string> combination);
+		std::vector< std::vector< std::vector<int>>> unscrambledCube(std::vector< std::vector< std::vector<int>>> cube, std::vector<std::string> combination);
 		
 		//Combinatorial rotations.
-		std::vector< std::vector<int>> front_CC(std::vector< std::vector<int>> cube);
-		std::vector< std::vector<int>> front_CCW(std::vector< std::vector<int>> cube);
-		std::vector< std::vector<int>> back_CC(std::vector< std::vector<int>> cube);
-		std::vector< std::vector<int>> back_CCW(std::vector< std::vector<int>> cube);
-		std::vector< std::vector<int>> top_CC(std::vector< std::vector<int>> cube);
-		std::vector< std::vector<int>> top_CCW(std::vector< std::vector<int>> cube);
-		std::vector< std::vector<int>> bottom_CC(std::vector< std::vector<int>> cube);
-		std::vector< std::vector<int>> bottom_CCW(std::vector< std::vector<int>> cube);
-		std::vector< std::vector<int>> left_CC(std::vector< std::vector<int>> cube);
-		std::vector< std::vector<int>> left_CCW(std::vector< std::vector<int>> cube);
-		std::vector< std::vector<int>> right_CC(std::vector< std::vector<int>> cube);
-		std::vector< std::vector<int>> right_CCW(std::vector< std::vector<int>> cube);
+		std::vector< std::vector< std::vector<int>>> front_CC(std::vector< std::vector< std::vector<int>>> cube);
+		std::vector< std::vector< std::vector<int>>> front_CCW(std::vector< std::vector< std::vector<int>>> cube);
+		std::vector< std::vector< std::vector<int>>> back_CC(std::vector< std::vector< std::vector<int>>> cube);
+		std::vector< std::vector< std::vector<int>>> back_CCW(std::vector< std::vector< std::vector<int>>> cube);
+		std::vector< std::vector< std::vector<int>>> top_CC(std::vector< std::vector< std::vector<int>>> cube);
+		std::vector< std::vector< std::vector<int>>> top_CCW(std::vector< std::vector< std::vector<int>>> cube);
+		std::vector< std::vector< std::vector<int>>> bottom_CC(std::vector< std::vector< std::vector<int>>> cube);
+		std::vector< std::vector< std::vector<int>>> bottom_CCW(std::vector< std::vector< std::vector<int>>> cube);
+		std::vector< std::vector< std::vector<int>>> left_CC(std::vector< std::vector< std::vector<int>>> cube);
+		std::vector< std::vector< std::vector<int>>> left_CCW(std::vector< std::vector< std::vector<int>>> cube);
+		std::vector< std::vector< std::vector<int>>> right_CC(std::vector< std::vector< std::vector<int>>> cube);
+		std::vector< std::vector< std::vector<int>>> right_CCW(std::vector< std::vector< std::vector<int>>> cube);
 };
 
 #endif // MIAENCRYPT_H

@@ -30,8 +30,8 @@ class D3CEncrypt {
 		string stringVectorToString(vector<string> a);
 		string cryptChars(vector<int> inputVector);
 		string cryptCharsNoRand(vector<int> inputVector);
-		string Crypt(string input);
-		string CryptNoRand(string input);
+		string Crypt(string input, bool toSquish);
+		string CryptNoRand(string input, bool toSquish);
 		vector<string> cryptedStringToVector(string a);
 		vector<string> seperateRandom(vector<string> input);
 		vector<int> vectorStringToInt(vector<string> a);
@@ -42,11 +42,12 @@ class D3CEncrypt {
 		vector<int> DeCryptChars(vector<int> a, vector<int> b);
 		vector<int> binaryVectorToASCII(vector<int> a);
 		string intVectorToString(vector<int> a);
-		string DeCrypt(string input);
+		string DeCrypt(string input, bool toSquish);
 		virtual ~D3CEncrypt();
 		
 		//Added functions after MIA implimentation.
 		string squish(string input);
+		string expand(string input);
 };
 
 }/* namespace std */

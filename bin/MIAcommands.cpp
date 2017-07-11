@@ -39,7 +39,7 @@ void Commands::d0s1CryptRunner(){
 	
 	std::string input, output;
 	getline(std::cin,input);
-	output = crypt.Crypt(input);
+	output = crypt.Crypt(input, true);
 	
 	prog.blankLine();
 	std::cout << "...The encrypted output is: " << std::endl;
@@ -58,7 +58,7 @@ void Commands::d0s1DeCryptRunner(){
 	
 	std::string input, output;
 	getline(std::cin,input);
-	output = crypt.DeCrypt(input);
+	output = crypt.DeCrypt(input, true);
 	
 	prog.blankLine();
 	std::cout << "...The de-crypted output is: " << std::endl;
