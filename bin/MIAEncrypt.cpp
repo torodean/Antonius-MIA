@@ -170,29 +170,64 @@ std::vector< std::vector< std::vector<int>>>> MIAEncrypt::top_CCW(std::vector< s
 std::vector< std::vector< std::vector<int>>>> MIAEncrypt::bottom_CW(std::vector< std::vector< std::vector<int>>> cube){
 	std::vector< std::vector< std::vector<int>>> cube_New = cube;
 	
+	//Performs the moves.
+	for(int j=0; j<4; j++){
+		for(int k=0; k<4; k++){
+			cubeNew[0][j][k] = cube[0][3-j][k];
+		}
+	}
+
 	return cube_New;
 }
 
 std::vector< std::vector< std::vector<int>>>> MIAEncrypt::bottom_CCW(std::vector< std::vector< std::vector<int>>> cube){
 	std::vector< std::vector< std::vector<int>>> cube_New = cube;
 	
+	//Performs the moves.
+	for(int j=0; j<4; j++){
+		for(int k=0; k<4; k++){
+			cubeNew[0][j][k] = cube[0][j][3-k];
+		}
+	}
+
 	return cube_New;
 }
 
 std::vector< std::vector< std::vector<int>>>> MIAEncrypt::left_CW(std::vector< std::vector< std::vector<int>>> cube){
 	std::vector< std::vector< std::vector<int>>> cube_New = cube;
 	
+	//Performs the moves.
+	for(int i=0; i<4; i++){
+		for(int k=0; k<4; k++){
+			cubeNew[i][0][k] = cube[i][0][3-k];
+		}
+	}
+
 	return cube_New;
 }
 
 std::vector< std::vector< std::vector<int>>>> MIAEncrypt::left_CCW(std::vector< std::vector< std::vector<int>>> cube){
 	std::vector< std::vector< std::vector<int>>> cube_New = cube;
 	
+	//Performs the moves.
+	for(int i=0; i<4; i++){
+		for(int k=0; k<4; k++){
+			cubeNew[i][0][k] = cube[3-i][0][k];
+		}
+	}
+
 	return cube_New;
 }
 
 std::vector< std::vector< std::vector<int>>>> MIAEncrypt::right_CW(std::vector< std::vector< std::vector<int>>> cube){
 	std::vector< std::vector< std::vector<int>>> cube_New = cube;
+
+	//Performs the moves.
+	for(int i=0; i<4; i++){
+		for(int k=0; k<4; k++){
+			cubeNew[i][3][k] = cube[i][3][3-k];
+		}
+	}
 	
 	return cube_New;
 }
@@ -200,6 +235,13 @@ std::vector< std::vector< std::vector<int>>>> MIAEncrypt::right_CW(std::vector< 
 std::vector< std::vector< std::vector<int>>>> MIAEncrypt::right_CCW(std::vector< std::vector< std::vector<int>>> cube){
 	std::vector< std::vector< std::vector<int>>> cube_New = cube;
 	
+	//Performs the moves.
+	for(int i=0; i<4; i++){
+		for(int k=0; k<4; k++){
+			cubeNew[i][3][k] = cube[3-i][3][k];
+		}
+	}
+
 	return cube_New;
 }
 
@@ -262,29 +304,64 @@ std::vector< std::vector< std::vector<int>>> MIAEncrypt::middle_back_CCW(std::ve
 std::vector< std::vector< std::vector<int>>> MIAEncrypt::middle_top_CW(std::vector< std::vector< std::vector<int>>> cube){
 	std::vector< std::vector< std::vector<int>>> cube_New = cube;
 	
+	//Performs the moves.
+	for(int j=0; j<4; j++){
+		for(int k=0; k<4; k++){
+			cubeNew[2][j][k] = cube[2][3-j][k];
+		}
+	}
+
 	return cube_New;
 }
 
 std::vector< std::vector< std::vector<int>>> MIAEncrypt::middle_top_CCW(std::vector< std::vector< std::vector<int>>> cube){
 	std::vector< std::vector< std::vector<int>>> cube_New = cube;
 	
+	//Performs the moves.
+	for(int j=0; j<4; j++){
+		for(int k=0; k<4; k++){
+			cubeNew[2][j][k] = cube[2][j][3-k];
+		}
+	}
+
 	return cube_New;
 }
 
 std::vector< std::vector< std::vector<int>>> MIAEncrypt::middle_bottom_CW(std::vector< std::vector< std::vector<int>>> cube){
 	std::vector< std::vector< std::vector<int>>> cube_New = cube;
 	
+	//Performs the moves.
+	for(int j=0; j<4; j++){
+		for(int k=0; k<4; k++){
+			cubeNew[1][j][k] = cube[1][3-j][k];
+		}
+	}
+
 	return cube_New;
 }
 
 std::vector< std::vector< std::vector<int>>> MIAEncrypt::middle_bottom_CCW(std::vector< std::vector< std::vector<int>>> cube){
 	std::vector< std::vector< std::vector<int>>> cube_New = cube;
+
+	//Performs the moves.
+	for(int j=0; j<4; j++){
+		for(int k=0; k<4; k++){
+			cubeNew[1][j][k] = cube[1][j][3-k];
+		}
+	}
 	
 	return cube_New;
 }
 
 std::vector< std::vector< std::vector<int>>> MIAEncrypt::middle_left_CW(std::vector< std::vector< std::vector<int>>> cube){
 	std::vector< std::vector< std::vector<int>>> cube_New = cube;
+
+	//Performs the moves.
+	for(int i=0; i<4; i++){
+		for(int k=0; k<4; k++){
+			cubeNew[i][1][k] = cube[i][1][3-k];
+		}
+	}
 	
 	return cube_New;
 }
@@ -292,11 +369,25 @@ std::vector< std::vector< std::vector<int>>> MIAEncrypt::middle_left_CW(std::vec
 std::vector< std::vector< std::vector<int>>> MIAEncrypt::middle_left_CCW(std::vector< std::vector< std::vector<int>>> cube){
 	std::vector< std::vector< std::vector<int>>> cube_New = cube;
 	
+	//Performs the moves.
+	for(int i=0; i<4; i++){
+		for(int k=0; k<4; k++){
+			cubeNew[i][1][k] = cube[3-i][1][k];
+		}
+	}
+
 	return cube_New;
 }
 
 std::vector< std::vector< std::vector<int>>> MIAEncrypt::middle_right_CW(std::vector< std::vector< std::vector<int>>> cube){
 	std::vector< std::vector< std::vector<int>>> cube_New = cube;
+
+	//Performs the moves.
+	for(int i=0; i<4; i++){
+		for(int k=0; k<4; k++){
+			cubeNew[i][2][k] = cube[i][2][3-k];
+		}
+	}	
 	
 	return cube_New;
 }
@@ -304,5 +395,12 @@ std::vector< std::vector< std::vector<int>>> MIAEncrypt::middle_right_CW(std::ve
 std::vector< std::vector< std::vector<int>>> MIAEncrypt::middle_right_CCW(std::vector< std::vector< std::vector<int>>> cube){
 	std::vector< std::vector< std::vector<int>>> cube_New = cube;
 	
+	//Performs the moves.
+	for(int i=0; i<4; i++){
+		for(int k=0; k<4; k++){
+			cubeNew[i][2][k] = cube[3-i][2][k];
+		}
+	}
+		
 	return cube_New;
 }
