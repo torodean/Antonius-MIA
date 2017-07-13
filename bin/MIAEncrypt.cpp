@@ -9,6 +9,7 @@
 //============================================================================
 
 #include "MIAEncrypt.h"
+#include <iostream>
 #include <vector>
 
 //Main constructor for the MIAEncrypt algorithm.
@@ -27,12 +28,24 @@ MIAEncrypt::~MIAEncrypt(){
 //===== Combinatorial rotations =====
 //===================================
 
-std::vector< std::vector< std::vector<int>>>> MIAEncrypt::rotate(std::vector< std::vector< std::vector<int>>> cube, char side, int  position, bool CW){
+std::vector< std::vector< std::vector<int> > > MIAEncrypt::rotate(std::vector< std::vector< std::vector<int>>> cube, char side, int  position, bool CW){
 	
 }
 
+void MIAEncrypt::test(){
+  std::vector< std::vector< std::vector<int>>> cube( CUBE_SIZE, std::vector<int>( CUBE_SIZE,std::vector<int>(CUBE_SIZE,0) ) );
+  for(int i=0;i<4;i++){
+    for(int j=0;j<4;j++){
+      for(int k=0;k<4;k++){
+	cube[i][j][k]=i+10*j+100*k;
+      }      
+    }    
+  }
+  printCube(cube);
+}
+
 //Rotates the front of the cube in a CW direction and re-orients all of the pieces.
-std::vector< std::vector< std::vector<int>>>> MIAEncrypt::front_CC(std::vector< std::vector< std::vector<int>>> cube){
+std::vector< std::vector< std::vector<int>>> MIAEncrypt::front_CC(std::vector< std::vector< std::vector<int>>> cube){
 	std::vector< std::vector< std::vector<int>>> cube_New = cube;
 	
 	//Performs the moves.
@@ -46,7 +59,7 @@ std::vector< std::vector< std::vector<int>>>> MIAEncrypt::front_CC(std::vector< 
 }
 
 //Rotates the front of the cube in a CCW direction and re-orients all of the pieces.
-std::vector< std::vector< std::vector<int>>>> MIAEncrypt::front_CCW(std::vector< std::vector< std::vector<int>>> cube){
+std::vector< std::vector< std::vector<int>>> MIAEncrypt::front_CCW(std::vector< std::vector< std::vector<int>>> cube){
 	std::vector< std::vector< std::vector<int>>> cube_New = cube;
 	
 	//Performs the moves.
@@ -60,7 +73,7 @@ std::vector< std::vector< std::vector<int>>>> MIAEncrypt::front_CCW(std::vector<
 }
 
 //Rotates the back of the cube in a CW direction and re-orients all of the pieces.
-std::vector< std::vector< std::vector<int>>>> MIAEncrypt::back_CW(std::vector< std::vector< std::vector<int>>> cube){
+std::vector< std::vector< std::vector<int>>> MIAEncrypt::back_CW(std::vector< std::vector< std::vector<int>>> cube){
 	std::vector< std::vector< std::vector<int>>> cube_New = cube;
 	
 	//Performs the moves.
@@ -74,7 +87,7 @@ std::vector< std::vector< std::vector<int>>>> MIAEncrypt::back_CW(std::vector< s
 }
 
 //Rotates the back of the cube in a CCW direction and re-orients all of the pieces.
-std::vector< std::vector< std::vector<int>>>> MIAEncrypt::back_CCW(std::vector< std::vector< std::vector<int>>> cube){
+std::vector< std::vector< std::vector<int>>> MIAEncrypt::back_CCW(std::vector< std::vector< std::vector<int>>> cube){
 	std::vector< std::vector< std::vector<int>>> cube_New = cube;
 	
 	//Performs the moves.
@@ -88,9 +101,9 @@ std::vector< std::vector< std::vector<int>>>> MIAEncrypt::back_CCW(std::vector< 
 }
 
 //Rotates the top of the cube in a CW direction and re-orients all of the pieces.
-std::vector< std::vector< std::vector<int>>>> MIAEncrypt::top_CW(std::vector< std::vector< std::vector<int>>> cube){
+std::vector< std::vector< std::vector<int>>> MIAEncrypt::top_CW(std::vector< std::vector< std::vector<int>>> cube){
 	std::vector< std::vector< std::vector<int>>> cube_New = cube;
-	
+
 	//Performs the moves.
 	for(int j=0; j<4; j++){
 		for(int k=0; k<4; k++){
@@ -102,7 +115,7 @@ std::vector< std::vector< std::vector<int>>>> MIAEncrypt::top_CW(std::vector< st
 }
 
 //Rotates the top of the cube in a CCW direction and re-orients all of the pieces.
-std::vector< std::vector< std::vector<int>>>> MIAEncrypt::top_CCW(std::vector< std::vector< std::vector<int>>> cube){
+std::vector< std::vector< std::vector<int>>> MIAEncrypt::top_CCW(std::vector< std::vector< std::vector<int>>> cube){
 	std::vector< std::vector< std::vector<int>>> cube_New = cube;
 	
 	//Performs the moves.
@@ -116,7 +129,7 @@ std::vector< std::vector< std::vector<int>>>> MIAEncrypt::top_CCW(std::vector< s
 }
 
 //Rotates the bottom of the cube in a CW direction and re-orients all of the pieces.
-std::vector< std::vector< std::vector<int>>>> MIAEncrypt::bottom_CW(std::vector< std::vector< std::vector<int>>> cube){
+std::vector< std::vector< std::vector<int>>> MIAEncrypt::bottom_CW(std::vector< std::vector< std::vector<int>>> cube){
 	std::vector< std::vector< std::vector<int>>> cube_New = cube;
 	
 	//Performs the moves.
@@ -130,7 +143,7 @@ std::vector< std::vector< std::vector<int>>>> MIAEncrypt::bottom_CW(std::vector<
 }
 
 //Rotates the bottom of the cube in a CCW direction and re-orients all of the pieces.
-std::vector< std::vector< std::vector<int>>>> MIAEncrypt::bottom_CCW(std::vector< std::vector< std::vector<int>>> cube){
+std::vector< std::vector< std::vector<int>>> MIAEncrypt::bottom_CCW(std::vector< std::vector< std::vector<int>>> cube){
 	std::vector< std::vector< std::vector<int>>> cube_New = cube;
 	
 	//Performs the moves.
@@ -144,7 +157,7 @@ std::vector< std::vector< std::vector<int>>>> MIAEncrypt::bottom_CCW(std::vector
 }
 
 //Rotates the left of the cube in a CW direction and re-orients all of the pieces.
-std::vector< std::vector< std::vector<int>>>> MIAEncrypt::left_CW(std::vector< std::vector< std::vector<int>>> cube){
+std::vector< std::vector< std::vector<int>>> MIAEncrypt::left_CW(std::vector< std::vector< std::vector<int>>> cube){
 	std::vector< std::vector< std::vector<int>>> cube_New = cube;
 	
 	//Performs the moves.
@@ -158,7 +171,7 @@ std::vector< std::vector< std::vector<int>>>> MIAEncrypt::left_CW(std::vector< s
 }
 
 //Rotates the left of the cube in a CCW direction and re-orients all of the pieces.
-std::vector< std::vector< std::vector<int>>>> MIAEncrypt::left_CCW(std::vector< std::vector< std::vector<int>>> cube){
+std::vector< std::vector< std::vector<int>>> MIAEncrypt::left_CCW(std::vector< std::vector< std::vector<int>>> cube){
 	std::vector< std::vector< std::vector<int>>> cube_New = cube;
 	
 	//Performs the moves.
@@ -172,7 +185,7 @@ std::vector< std::vector< std::vector<int>>>> MIAEncrypt::left_CCW(std::vector< 
 }
 
 //Rotates the right of the cube in a CW direction and re-orients all of the pieces.
-std::vector< std::vector< std::vector<int>>>> MIAEncrypt::right_CW(std::vector< std::vector< std::vector<int>>> cube){
+std::vector< std::vector< std::vector<int>>> MIAEncrypt::right_CW(std::vector< std::vector< std::vector<int>>> cube){
 	std::vector< std::vector< std::vector<int>>> cube_New = cube;
 
 	//Performs the moves.
@@ -186,7 +199,7 @@ std::vector< std::vector< std::vector<int>>>> MIAEncrypt::right_CW(std::vector< 
 }
 
 //Rotates the right of the cube in a CCW direction and re-orients all of the pieces.
-std::vector< std::vector< std::vector<int>>>> MIAEncrypt::right_CCW(std::vector< std::vector< std::vector<int>>> cube){
+std::vector< std::vector< std::vector<int>>> MIAEncrypt::right_CCW(std::vector< std::vector< std::vector<int>>> cube){
 	std::vector< std::vector< std::vector<int>>> cube_New = cube;
 	
 	//Performs the moves.
@@ -370,23 +383,24 @@ std::vector< std::vector< std::vector<int>>> MIAEncrypt::middle_right_CCW(std::v
 //Prints the components of a cube in a format assuming each element has the same length.
 void MIAEncrypt::printCube(std::vector< std::vector< std::vector<int>>> cube){
 	std::cout << "            /------------------/" << endl;
-	std::cout << "           /" << cube[0][3][3] << cube[1][3][3] << cube[2][3][3] << cube[3][3][3] << "   /" << endl;		std::cout << "          / " << cube[0][2][3] << cube[1][2][3] << cube[2][2][3] << cube[3][2][3] << "  /" << endl;
-	std::cout << "         /  " << cube[0][1][3] << cube[1][1][3] << cube[2][1][3] << cube[3][1][3] << " /" << endl;
-	std::cout << "        /   " << cube[0][0][3] << cube[1][0][3] << cube[2][0][3] << cube[3][0][3] << "/" << endl;
+	std::cout << "           /" << cube[0][3][3] << cube[1][3][3] << cube[2][3][3] << cube[3][3][3] << "   /" << std::endl;
+	std::cout << "          / " << cube[0][2][3] << cube[1][2][3] << cube[2][2][3] << cube[3][2][3] << "  /" << std::endl;
+	std::cout << "         /  " << cube[0][1][3] << cube[1][1][3] << cube[2][1][3] << cube[3][1][3] << " /" << std::endl;
+	std::cout << "        /   " << cube[0][0][3] << cube[1][0][3] << cube[2][0][3] << cube[3][0][3] << "/" << std::endl;
 	
-	std::cout << "       /" << cube[0][3][2] << cube[1][3][2] << cube[2][3][2] << cube[3][3][2] << "   /" << endl;
-	std::cout << "      / " << cube[0][2][2] << cube[1][2][2] << cube[2][2][2] << cube[3][2][2] << "  /" << endl;
-	std::cout << "     /  " << cube[0][1][2] << cube[1][1][2] << cube[2][1][2] << cube[3][1][2] << " /" << endl;
-	std::cout << "    /   " << cube[0][0][2] << cube[1][0][2] << cube[2][0][2] << cube[3][0][2] << "/" << endl;
+	std::cout << "       /" << cube[0][3][2] << cube[1][3][2] << cube[2][3][2] << cube[3][3][2] << "   /" << std::endl;
+	std::cout << "      / " << cube[0][2][2] << cube[1][2][2] << cube[2][2][2] << cube[3][2][2] << "  /" << std::endl;
+	std::cout << "     /  " << cube[0][1][2] << cube[1][1][2] << cube[2][1][2] << cube[3][1][2] << " /" << std::endl;
+	std::cout << "    /   " << cube[0][0][2] << cube[1][0][2] << cube[2][0][2] << cube[3][0][2] << "/" << std::endl;
 	
-	std::cout << "   /" << cube[0][3][1] << cube[1][3][1] << cube[2][3][1] << cube[3][3][1] << "   /" << endl;
-	std::cout << "  / " << cube[0][2][1] << cube[1][2][1] << cube[2][2][1] << cube[3][2][1] << "  /" << endl;
-	std::cout << " /  " << cube[0][1][1] << cube[1][1][1] << cube[2][1][1] << cube[3][1][1] << " /" << endl;
-	std::cout << "/   " << cube[0][0][1] << cube[1][0][1] << cube[2][0][1] << cube[3][0][1] << "/" << endl;
+	std::cout << "   /" << cube[0][3][1] << cube[1][3][1] << cube[2][3][1] << cube[3][3][1] << "   /" << std::endl;
+	std::cout << "  / " << cube[0][2][1] << cube[1][2][1] << cube[2][2][1] << cube[3][2][1] << "  /" << std::endl;
+	std::cout << " /  " << cube[0][1][1] << cube[1][1][1] << cube[2][1][1] << cube[3][1][1] << " /" << std::endl;
+	std::cout << "/   " << cube[0][0][1] << cube[1][0][1] << cube[2][0][1] << cube[3][0][1] << "/" << std::endl;
 	
-	std::cout << cube[0][3][0] << cube[1][3][0] << cube[2][3][0] << cube[3][3][0] << "   /" << endl;
-	std::cout << cube[0][2][0] << cube[1][2][0] << cube[2][2][0] << cube[3][2][0] << "  /" << endl;
-	std::cout << cube[0][1][0] << cube[1][1][0] << cube[2][1][0] << cube[3][1][0] << " /" << endl;
-	std::cout << cube[0][0][0] << cube[1][0][0] << cube[2][0][0] << cube[3][0][0] << "/" << endl;
-	std::cout << "--------------/" << endl;
+	std::cout << cube[0][3][0] << cube[1][3][0] << cube[2][3][0] << cube[3][3][0] << "   /" << std::endl;
+	std::cout << cube[0][2][0] << cube[1][2][0] << cube[2][2][0] << cube[3][2][0] << "  /" << std::endl;
+	std::cout << cube[0][1][0] << cube[1][1][0] << cube[2][1][0] << cube[3][1][0] << " /" << std::endl;
+	std::cout << cube[0][0][0] << cube[1][0][0] << cube[2][0][0] << cube[3][0][0] << "/" << std::endl;
+	std::cout << "--------------/" << std::endl;
 }

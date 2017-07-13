@@ -30,6 +30,7 @@ class MIAEncrypt{
 		void setCombination();
 		void setCube();
 		void printCube(std::vector< std::vector< std::vector<int>>> cube);
+		void test();
 		
 		//Get Private Variables.
 		std::vector< std::vector< std::vector<int>>> getCube();
@@ -66,7 +67,7 @@ class MIAEncrypt{
 		std::vector< std::vector< std::vector<int>>> middle_bottom_CCW(std::vector< std::vector< std::vector<int>>> cube);
 		
 		//All of them in one function.
-		std::vector< std::vector< std::vector<int>>>> rotate(std::vector< std::vector< std::vector<int>>> cube, char side, int position, bool CW);
+		std::vector< std::vector< std::vector<int>>> rotate(std::vector< std::vector< std::vector<int>>> cube, char side, int position, bool CW);
 };
 
 #endif // MIAENCRYPT_H
