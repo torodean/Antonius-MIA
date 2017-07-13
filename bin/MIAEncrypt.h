@@ -17,6 +17,7 @@ class MIAEncrypt{
 	private:
 		std::vector< std::vector<int>> cube;
 		std::vector<std::string> combination;
+		int CUBE_SIZE = 4;
 		
 	public:
 		MIAEncrypt();
@@ -28,6 +29,7 @@ class MIAEncrypt{
 		std::vector<std::string> passphraseToCombination(std::string passphrase);
 		void setCombination();
 		void setCube();
+		void printCube(std::vector< std::vector< std::vector<int>>> cube);
 		
 		//Get Private Variables.
 		std::vector< std::vector< std::vector<int>>> getCube();
@@ -37,7 +39,7 @@ class MIAEncrypt{
 		std::vector< std::vector< std::vector<int>>> scrambledCube(std::vector< std::vector< std::vector<int>>> cube, std::vector<std::string> combination);
 		std::vector< std::vector< std::vector<int>>> unscrambledCube(std::vector< std::vector< std::vector<int>>> cube, std::vector<std::string> combination);
 		
-		//Combinatorial rotations.
+		//Combinatorial rotations.		
 		std::vector< std::vector< std::vector<int>>> front_CW(std::vector< std::vector< std::vector<int>>> cube);
 		std::vector< std::vector< std::vector<int>>> front_CCW(std::vector< std::vector< std::vector<int>>> cube);
 		std::vector< std::vector< std::vector<int>>> back_CW(std::vector< std::vector< std::vector<int>>> cube);
@@ -62,6 +64,9 @@ class MIAEncrypt{
 		std::vector< std::vector< std::vector<int>>> middle_top_CCW(std::vector< std::vector< std::vector<int>>> cube);
 		std::vector< std::vector< std::vector<int>>> middle_bottom_CW(std::vector< std::vector< std::vector<int>>> cube);
 		std::vector< std::vector< std::vector<int>>> middle_bottom_CCW(std::vector< std::vector< std::vector<int>>> cube);
+		
+		//All of them in one function.
+		std::vector< std::vector< std::vector<int>>>> rotate(std::vector< std::vector< std::vector<int>>> cube, char side, int position, bool CW);
 };
 
 #endif // MIAENCRYPT_H
