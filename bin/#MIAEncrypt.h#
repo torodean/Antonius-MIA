@@ -15,7 +15,7 @@
 
 class MIAEncrypt{
 	private:
-                std::vector< std::vector< std::vector<int> > > cube;
+		std::vector< std::vector<int>> cube;
 		std::vector<std::string> combination;
 		int CUBE_SIZE;
 		

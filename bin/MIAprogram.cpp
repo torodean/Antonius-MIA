@@ -14,6 +14,7 @@
 #include "MIAprogram.h"
 #include "D3CEncrypt.h"
 #include "MIAcommands.h"
+#include "MIAEncrypt.h"
 #include <vector>
 
 //Main program constructor.
@@ -315,9 +316,12 @@ int Program::randomInt(int min, int max){
 }
 
 void Program::test(){
-	std::cout << "start" << std::endl;
+    std::cout << "start" << std::endl;
     //TODO CODE HERE
-	
+
+    MIAEncrypt crypt(4);
+    crypt.test();
+    
     std::cout << "finished." << std::endl;
 }
 
