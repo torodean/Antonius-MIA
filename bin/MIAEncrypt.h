@@ -41,30 +41,14 @@ class MIAEncrypt{
 		std::vector< std::vector< std::vector<int>>> unscrambledCube(std::vector< std::vector< std::vector<int>>> cube, std::vector<std::string> combination);
 		
 		//Combinatorial rotations.		
-		std::vector< std::vector< std::vector<int>>> front_CW(std::vector< std::vector< std::vector<int>>> cube);
-		std::vector< std::vector< std::vector<int>>> front_CCW(std::vector< std::vector< std::vector<int>>> cube);
-		std::vector< std::vector< std::vector<int>>> back_CW(std::vector< std::vector< std::vector<int>>> cube);
-		std::vector< std::vector< std::vector<int>>> back_CCW(std::vector< std::vector< std::vector<int>>> cube);
-		std::vector< std::vector< std::vector<int>>> top_CW(std::vector< std::vector< std::vector<int>>> cube);
-		std::vector< std::vector< std::vector<int>>> top_CCW(std::vector< std::vector< std::vector<int>>> cube);
-		std::vector< std::vector< std::vector<int>>> bottom_CW(std::vector< std::vector< std::vector<int>>> cube);
-		std::vector< std::vector< std::vector<int>>> bottom_CCW(std::vector< std::vector< std::vector<int>>> cube);
-		std::vector< std::vector< std::vector<int>>> left_CW(std::vector< std::vector< std::vector<int>>> cube);
-		std::vector< std::vector< std::vector<int>>> left_CCW(std::vector< std::vector< std::vector<int>>> cube);
-		std::vector< std::vector< std::vector<int>>> right_CW(std::vector< std::vector< std::vector<int>>> cube);
-		std::vector< std::vector< std::vector<int>>> right_CCW(std::vector< std::vector< std::vector<int>>> cube);
-		std::vector< std::vector< std::vector<int>>> middle_left_CW(std::vector< std::vector< std::vector<int>>> cube);
-		std::vector< std::vector< std::vector<int>>> middle_left_CCW(std::vector< std::vector< std::vector<int>>> cube);
-		std::vector< std::vector< std::vector<int>>> middle_right_CW(std::vector< std::vector< std::vector<int>>> cube);
-		std::vector< std::vector< std::vector<int>>> middle_right_CCW(std::vector< std::vector< std::vector<int>>> cube);
-		std::vector< std::vector< std::vector<int>>> middle_front_CW(std::vector< std::vector< std::vector<int>>> cube);
-		std::vector< std::vector< std::vector<int>>> middle_front_CCW(std::vector< std::vector< std::vector<int>>> cube);
-		std::vector< std::vector< std::vector<int>>> middle_back_CW(std::vector< std::vector< std::vector<int>>> cube);
-		std::vector< std::vector< std::vector<int>>> middle_back_CCW(std::vector< std::vector< std::vector<int>>> cube);
-		std::vector< std::vector< std::vector<int>>> middle_top_CW(std::vector< std::vector< std::vector<int>>> cube);
-		std::vector< std::vector< std::vector<int>>> middle_top_CCW(std::vector< std::vector< std::vector<int>>> cube);
-		std::vector< std::vector< std::vector<int>>> middle_bottom_CW(std::vector< std::vector< std::vector<int>>> cube);
-		std::vector< std::vector< std::vector<int>>> middle_bottom_CCW(std::vector< std::vector< std::vector<int>>> cube);
+		std::vector< std::vector< std::vector<int>>> z_CW(std::vector< std::vector< std::vector<int>>> cube, int index);
+		std::vector< std::vector< std::vector<int>>> z_CCW(std::vector< std::vector< std::vector<int>>> cube, int index);	
+		
+		std::vector< std::vector< std::vector<int>>> y_CW(std::vector< std::vector< std::vector<int>>> cube, int index);
+		std::vector< std::vector< std::vector<int>>> y_CCW(std::vector< std::vector< std::vector<int>>> cube, int index);
+		
+		std::vector< std::vector< std::vector<int>>> x_CW(std::vector< std::vector< std::vector<int>>> cube, int index);
+		std::vector< std::vector< std::vector<int>>> x_CCW(std::vector< std::vector< std::vector<int>>> cube, int index);
 		
 		//All of them in one function.
 		std::vector< std::vector< std::vector<int>>> rotate(std::vector< std::vector< std::vector<int>>> cube, char side, int position, bool CW);
