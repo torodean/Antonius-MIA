@@ -15,12 +15,12 @@
 
 class MIAEncrypt{
 	private:
-                std::vector< std::vector< std::vector<int> > > cube;
-		std::vector<std::string> combination;
-		int CUBE_SIZE;
+		int cubeSize;
+        std::vector< std::vector< std::vector<int> > > cube;
+		std::vector<std::string> combination;		
 		
 	public:
-		MIAEncrypt(int CUBE_SIZE);
+		MIAEncrypt(int cSize);
 		~MIAEncrypt();
 	
 		//Miscellaneous Actions.
@@ -40,18 +40,8 @@ class MIAEncrypt{
 		std::vector< std::vector< std::vector<int>>> scrambledCube(std::vector< std::vector< std::vector<int>>> cube, std::vector<std::string> combination);
 		std::vector< std::vector< std::vector<int>>> unscrambledCube(std::vector< std::vector< std::vector<int>>> cube, std::vector<std::string> combination);
 		
-		//Combinatorial rotations.		
-		std::vector< std::vector< std::vector<int>>> z_CW(std::vector< std::vector< std::vector<int>>> cube, int index);
-		std::vector< std::vector< std::vector<int>>> z_CCW(std::vector< std::vector< std::vector<int>>> cube, int index);	
-		
-		std::vector< std::vector< std::vector<int>>> y_CW(std::vector< std::vector< std::vector<int>>> cube, int index);
-		std::vector< std::vector< std::vector<int>>> y_CCW(std::vector< std::vector< std::vector<int>>> cube, int index);
-		
-		std::vector< std::vector< std::vector<int>>> x_CW(std::vector< std::vector< std::vector<int>>> cube, int index);
-		std::vector< std::vector< std::vector<int>>> x_CCW(std::vector< std::vector< std::vector<int>>> cube, int index);
-		
-		//All of them in one function.
-		std::vector< std::vector< std::vector<int>>> rotate(std::vector< std::vector< std::vector<int>>> cube, char side, int position, bool CW);
+		//Combinatorial rotations.				
+		std::vector< std::vector< std::vector<int>>> rotation(std::vector< std::vector< std::vector<int>>> cube,char side, int index, bool CW);
 };
 
 #endif // MIAENCRYPT_H

@@ -303,11 +303,6 @@ std::string Program::getMIAVersion(){
 	return VERSION;
 }
 
-//Writes a string of data to a file. NOT YET PROGRAMMED.
-void Program::writeToFile(std::string data, std::string folder, std::string filename){
-	
-}
-
 //Returns a random integer between min and max.
 int Program::randomInt(int min, int max){
 	srand((unsigned)time(0)); 

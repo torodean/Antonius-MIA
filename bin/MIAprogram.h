@@ -27,7 +27,6 @@ class Program{
 		std::string getMIAVersion();
 		void performCommand(std::string input);
 		int commandToInputVar(std::string input);
-		void writeToFile(std::string data, std::string folder, std::string filename);
 		void help();
 		bool excuse();
 		int randomInt(int start, int end);
