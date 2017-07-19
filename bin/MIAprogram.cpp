@@ -314,7 +314,7 @@ void Program::test(){
     std::cout << "start" << std::endl;
     //TODO CODE HERE
 
-    MIAEncrypt crypt(4);
+    MIAEncrypt crypt(6);
     crypt.test();
     
     std::cout << "finished." << std::endl;

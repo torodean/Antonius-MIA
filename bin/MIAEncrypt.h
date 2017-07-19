@@ -17,7 +17,9 @@ class MIAEncrypt{
 	private:
 		int cubeSize;
         std::vector< std::vector< std::vector<int> > > cube;
-		std::vector<std::string> combination;		
+		std::vector< std::vector< std::vector< std::vector<int> > > > tesseract;
+		int totalRotations;
+		std::vector<int> combination;		
 		
 	public:
 		MIAEncrypt(int cSize);
@@ -26,9 +28,7 @@ class MIAEncrypt{
 		//Miscellaneous Actions.
 		std::ofstream encryptFile(std::ofstream file);
 		std::string encryptString(std::string text);
-		std::vector<std::string> passphraseToCombination(std::string passphrase);
-		void setCombination();
-		void setCube();
+		std::vector<int> passphraseToCombination(std::string passphrase);
 		void printCube(std::vector< std::vector< std::vector<int>>> cube);
 		void test();
 		
@@ -37,10 +37,10 @@ class MIAEncrypt{
 		std::vector<std::string> getCombination();
 		
 		//Scramble and Unscramble algorithms.
-		std::vector< std::vector< std::vector<int>>> scrambledCube(std::vector< std::vector< std::vector<int>>> cube, std::vector<std::string> combination);
-		std::vector< std::vector< std::vector<int>>> unscrambledCube(std::vector< std::vector< std::vector<int>>> cube, std::vector<std::string> combination);
+		std::vector< std::vector< std::vector<int>>> scrambleCube(std::vector< std::vector< std::vector<int>>> cube, std::vector<int> combination);
+		std::vector< std::vector< std::vector<int>>> unscrambleCube(std::vector< std::vector< std::vector<int>>> cube, std::vector<int> combination);
 		
-		//Combinatorial rotations.				
+		//N*N*N cuboidal Combinatorial rotations.	
 		std::vector< std::vector< std::vector<int>>> rotation(std::vector< std::vector< std::vector<int>>> cube,char side, int index, bool CW);
 };
 

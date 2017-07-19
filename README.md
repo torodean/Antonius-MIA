@@ -16,7 +16,8 @@ For a list of commands see the MIA manual.
 
 1) via terminal:  cd ../Antonius-MIA/bin
 
-2) compile using g++ -Wall -std=c++14 MIAmain.cpp MIAprogram.cpp MIAcommands.cpp D3CEncrypt.cpp D3CEncryptPW.cpp D3CMath.cpp -o MIA
+2) compile using 
+g++ -Wall -std=c++14 MIAmain.cpp MIAprogram.cpp MIAcommands.cpp D3CEncrypt.cpp D3CEncryptPW.cpp D3CMath.cpp MIAEncrypt.cpp -o MIA
 
 2.5) In some situations the above command may throw exceptions depending on the GCC std versions and locations that exist. You can remedy this by changing the -std=c++14 version to a prior version, perhaps -std=c++1y.
 
@@ -33,7 +34,7 @@ http://preshing.com/20141108/how-to-install-the-latest-gcc-on-windows/
 3) cd ../Antonius-MIA/bin
 
 4) compile an exe using 
-g++ -Wall -std=c++14 MIAmain.cpp MIAprogram.cpp MIAcommands.cpp D3CEncrypt.cpp D3CEncryptPW.cpp D3CMath.cpp -o MIA
+g++ -Wall -std=c++14 MIAmain.cpp MIAprogram.cpp MIAcommands.cpp D3CEncrypt.cpp D3CEncryptPW.cpp D3CMath.cpp MIAEncrypt.cpp -o MIA
 
 5) run using ./MIA.exe while in the bin directory.
 
