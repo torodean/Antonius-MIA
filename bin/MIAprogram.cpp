@@ -239,7 +239,7 @@ void Program::help(){
 
 //Prints a random excuse 50% of the time.
 bool Program::excuse(){
-	int random = randomInt(1,100);
+	int random = randomInt(1,100, 0);
 	std::string txt;
 	
 	if (random >= 40){	
@@ -265,7 +265,7 @@ std::string Program::getRandomLineOfFile(std::string fileName){
 	file.close();
 	
 	std::ifstream file2(fileName);
-	int random = randomInt(1,counter);
+	int random = randomInt(1,counter, 0);
 	counter = 0;
 	
 	while (getline(file2, output)){
@@ -304,8 +304,12 @@ std::string Program::getMIAVersion(){
 }
 
 //Returns a random integer between min and max.
-int Program::randomInt(int min, int max){
-	srand((unsigned)time(0)); 
+int Program::randomInt(int min, int max, int seed){
+	if(seed == 0){
+		srand((unsigned)time(0)); 
+	} else {
+		srand(seed);
+	}
 	int random = min + (rand() % static_cast<int>(max - min + 1));
 	return random;
 }

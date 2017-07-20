@@ -19,7 +19,7 @@ class MIAEncrypt{
         std::vector< std::vector< std::vector<int> > > cube;
 		std::vector< std::vector< std::vector< std::vector<int> > > > tesseract;
 		int totalRotations;
-		std::vector<int> combination;		
+		std::vector<int> combination;
 		
 	public:
 		MIAEncrypt(int cSize);

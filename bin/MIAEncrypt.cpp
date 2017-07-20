@@ -9,6 +9,7 @@
 //============================================================================
 
 #include "MIAEncrypt.h"
+#include "MIAprogram.h"
 #include <iostream>
 #include <vector>
 
@@ -129,6 +130,8 @@ void MIAEncrypt::test(){
 	}
 	*/ //All works!
 	
+	passphraseToCombination("Hello World!");
+	
 	std::cout << "Finished... " << std::endl;
 }
 
@@ -243,14 +246,77 @@ std::vector< std::vector< std::vector<int>>> MIAEncrypt::scrambleCube(std::vecto
 
 //Un-crambles a cube According to the combination entered.
 std::vector< std::vector< std::vector<int>>> MIAEncrypt::unscrambleCube(std::vector< std::vector< std::vector<int>>> cube, std::vector<int> combination){
-	std::vector< std::vector< std::vector<int>>> cubeNew = cube;
-	int rotations = combination.size();
-		
+	//initializes and sets the defauly rotation values. 	
+	char side = 'x';
+	bool CW = 1;
+	int index = 0;
+	int temp = 0;
 	
+	for(int n=totalRotations-1; n>=0; n--){		
+		//determines the side of the cube to rotate.
+		if(combination[n] >= 2*totalRotations/3){
+			side = 'z';
+		} else if(combination[n] >= totalRotations/3){
+			side = 'y';
+		} else {
+			side = 'x';
+		}
 		
+		//determines the direction of the cube to rotate.
+		if (combination[n]%2 != 0){
+			CW = true;
+		} else {
+			CW = false;
+		}
+		
+		//determines the index.
+		if (cubeSize%2 == 0){
+			if(combination[n]%(2*cubeSize) > combination[n]%cubeSize){
+				temp = (combination[n]%(2*cubeSize))-cubeSize;
+				index = (combination[n]%(2*cubeSize))-2*temp-1;
+			} else {
+				index = combination[n]%cubeSize;
+			}
+		} else {
+			index = combination[n]%cubeSize;
+		}
+	}
+	
+	std::vector< std::vector< std::vector<int>>> cubeNew = rotation(cube, side, index, CW);
+	
 	return cubeNew;
 }
 
+//Converts a string passphrase to a vector of integers.
+std::vector<int> MIAEncrypt::passphraseToCombination(std::string passphrase){
+	long total = 0;
+	int size = passphrase.size();
+	MIAprogram prog;
+	
+	//sets the value of total.
+	for(int n=0; n<size; n++){
+		total += int(passphrase[n]);
+		//std::cout << int(passphrase[n]) << std::endl;
+	}
+	//std::cout << total << std::endl;
+
+	//for larger passphrases, increase the rotations.
+	if(size > totalRotations){
+		totalRotations = size;
+	}
+	
+	//set's the first few moves to that of the passphrase.
+	for(int n=0; n<size; n++){
+		combination[n] = (int(passphrase[n])+total) % totalRotations;
+	}
+	
+	//set's the remaining combination slots.
+	for(int n=size;n<totalRotations; n++){
+		combination[n] = (prog.randomInt(0, 1000000, total*total)) % totalRotations;
+	}
+	
+	return combination;
+}
 
 
 
