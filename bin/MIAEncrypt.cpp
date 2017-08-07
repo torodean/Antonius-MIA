@@ -291,7 +291,7 @@ std::vector< std::vector< std::vector<int>>> MIAEncrypt::unscrambleCube(std::vec
 std::vector<int> MIAEncrypt::passphraseToCombination(std::string passphrase){
 	long total = 0;
 	int size = passphrase.size();
-	MIAprogram prog;
+	Program prog;
 	
 	//sets the value of total.
 	for(int n=0; n<size; n++){

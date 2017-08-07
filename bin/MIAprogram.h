@@ -29,7 +29,7 @@ class Program{
 		int commandToInputVar(std::string input);
 		void help();
 		bool excuse();
-		int randomInt(int start, int end);
+		int randomInt(int start, int end, int seed);
 		std::string getRandomLineOfFile(std::string fileName);
 		void test();
 };

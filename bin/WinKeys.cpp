@@ -1,10 +1,10 @@
 //============================================================================
-// Name        : Keys.cpp
+// Name        : WinKeys.cpp
 // Author      : Antonius Torode
 // Copyright   : This file can be used under the conditions of Antonius' 
 //				 General Purpose License (AGPL).
 // Created on  : 2015 (Original) -- July 5, 2017 (MIA)
-// Description : The Keys Functions from the VKK program adapted for use with MIA.
+// Description : The WinKeys Functions from the VKK program adapted for use with MIA.
 //				 The key presses in this file were originally designed to work with Windows.
 //============================================================================
 
@@ -15,13 +15,14 @@
 #include <chrono>
 #include <iostream>
 #include <string>
-#include "Keys.h"
+#include "WinKeys.h"
 
 using namespace std;
 
 INPUT ip;
+int globalSleep = 50;
 
-Keys::Keys(){
+WinKeys::WinKeys(){
 
     // Set up a generic keyboard event.
     ip.type = INPUT_KEYBOARD;
@@ -30,7 +31,7 @@ Keys::Keys(){
     ip.ki.dwExtraInfo = 0;
 }
 
-void Keys::space(){
+void WinKeys::space(){
     // Press the "space" key
     ip.ki.wVk = VK_SPACE; // virtual-key code for the "space" key
     ip.ki.dwFlags = 0; // 0 for key press
@@ -40,10 +41,10 @@ void Keys::space(){
     ip.ki.wVk = VK_SPACE; // virtual-key code for the "space" key
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
     SendInput(1, &ip, sizeof(INPUT));
-    std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    std::this_thread::sleep_for(std::chrono::milliseconds(globalSleep));
 }
 
-void Keys::one(){
+void WinKeys::one(){
     // Press the "1" key
     ip.ki.wVk = 0x31; // virtual-key code for the "1" key
     ip.ki.dwFlags = 0; // 0 for key press
@@ -53,10 +54,10 @@ void Keys::one(){
     ip.ki.wVk = 0x31; // virtual-key code for the "1" key
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
     SendInput(1, &ip, sizeof(INPUT));
-    std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    std::this_thread::sleep_for(std::chrono::milliseconds(globalSleep));
 }
 
-void Keys::two(){
+void WinKeys::two(){
     // Press the "2" key
     ip.ki.wVk = 0x32; // virtual-key code for the "2" key
     ip.ki.dwFlags = 0; // 0 for key press
@@ -65,10 +66,10 @@ void Keys::two(){
     // Release the "2" key
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
     SendInput(1, &ip, sizeof(INPUT));
-    std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    std::this_thread::sleep_for(std::chrono::milliseconds(globalSleep));
 }
 
-void Keys::three(){
+void WinKeys::three(){
     // Press the "3" key
     ip.ki.wVk = 0x33; // virtual-key code for the "3" key
     ip.ki.dwFlags = 0; // 0 for key press
@@ -78,10 +79,10 @@ void Keys::three(){
     ip.ki.wVk = 0x33; // virtual-key code for the "3" key
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
     SendInput(1, &ip, sizeof(INPUT));
-    std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    std::this_thread::sleep_for(std::chrono::milliseconds(globalSleep));
 }
 
-void Keys::four(){
+void WinKeys::four(){
     // Press the "4" key
     ip.ki.wVk = 0x34; // virtual-key code for the "4" key
     ip.ki.dwFlags = 0; // 0 for key press
@@ -90,10 +91,10 @@ void Keys::four(){
     // Release the "4" key
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
     SendInput(1, &ip, sizeof(INPUT));
-    std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    std::this_thread::sleep_for(std::chrono::milliseconds(globalSleep));
 }
 
-void Keys::five(){
+void WinKeys::five(){
     // Press the "5" key
     ip.ki.wVk = 0x35; // virtual-key code for the "5" key
     ip.ki.dwFlags = 0; // 0 for key press
@@ -102,10 +103,10 @@ void Keys::five(){
     // Release the "5" key
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
     SendInput(1, &ip, sizeof(INPUT));
-    std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    std::this_thread::sleep_for(std::chrono::milliseconds(globalSleep));
 }
 
-void Keys::six(){
+void WinKeys::six(){
     // Press the "6" key
     ip.ki.wVk = 0x36; // virtual-key code for the "6" key
     ip.ki.dwFlags = 0; // 0 for key press
@@ -115,10 +116,10 @@ void Keys::six(){
     ip.ki.wVk = 0x36; // virtual-key code for the "6" key
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
     SendInput(1, &ip, sizeof(INPUT));
-    std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    std::this_thread::sleep_for(std::chrono::milliseconds(globalSleep));
 }
 
-void Keys::seven(){
+void WinKeys::seven(){
     // Press the "7" key
     ip.ki.wVk = 0x37; // virtual-key code for the "7" key
     ip.ki.dwFlags = 0; // 0 for key press
@@ -127,10 +128,10 @@ void Keys::seven(){
     // Release the "7" key
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
     SendInput(1, &ip, sizeof(INPUT));
-    std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    std::this_thread::sleep_for(std::chrono::milliseconds(globalSleep));
 }
 
-void Keys::eight(){
+void WinKeys::eight(){
     // Press the "8" key
     ip.ki.wVk = 0x38; // virtual-key code for the "8" key
     ip.ki.dwFlags = 0; // 0 for key press
@@ -139,10 +140,10 @@ void Keys::eight(){
     // Release the "8" key
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
     SendInput(1, &ip, sizeof(INPUT));
-    std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    std::this_thread::sleep_for(std::chrono::milliseconds(globalSleep));
 }
 
-void Keys::nine(){
+void WinKeys::nine(){
     // Press the "9" key
     ip.ki.wVk = 0x39; // virtual-key code for the "9" key
     ip.ki.dwFlags = 0; // 0 for key press
@@ -151,10 +152,10 @@ void Keys::nine(){
     // Release the "9" key
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
     SendInput(1, &ip, sizeof(INPUT));
-    std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    std::this_thread::sleep_for(std::chrono::milliseconds(globalSleep));
 }
 
-void Keys::zero(){
+void WinKeys::zero(){
     // Press the "0" key
     ip.ki.wVk = 0x30; // virtual-key code for the "0" key
     ip.ki.dwFlags = 0; // 0 for key press
@@ -163,10 +164,10 @@ void Keys::zero(){
     // Release the "0" key
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
     SendInput(1, &ip, sizeof(INPUT));
-    std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    std::this_thread::sleep_for(std::chrono::milliseconds(globalSleep));
 }
 
-void Keys::dash(){
+void WinKeys::dash(){
     // Press the "-" key
     ip.ki.wVk = VK_OEM_MINUS; // virtual-key code for the "-" key
     ip.ki.dwFlags = 0; // 0 for key press
@@ -175,10 +176,10 @@ void Keys::dash(){
     // Release the "-" key
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
     SendInput(1, &ip, sizeof(INPUT));
-    std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    std::this_thread::sleep_for(std::chrono::milliseconds(globalSleep));
 }
 
-void Keys::equal(){
+void WinKeys::equal(){
     // Press the "=" key
     ip.ki.wVk = VK_OEM_PLUS; // virtual-key code for the "=" key
     ip.ki.dwFlags = 0; // 0 for key press
@@ -187,10 +188,10 @@ void Keys::equal(){
     // Release the "=" key
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
     SendInput(1, &ip, sizeof(INPUT));
-    std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    std::this_thread::sleep_for(std::chrono::milliseconds(globalSleep));
 }
 
-void Keys::tab(){
+void WinKeys::tab(){
     // Press the "tab" key
     ip.ki.wVk = VK_TAB; // virtual-key code for the "tab" key
     ip.ki.dwFlags = 0; // 0 for key press
@@ -199,10 +200,10 @@ void Keys::tab(){
     // Release the "tab" key
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
     SendInput(1, &ip, sizeof(INPUT));
-    std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    std::this_thread::sleep_for(std::chrono::milliseconds(globalSleep));
 }
 
-void Keys::a(){
+void WinKeys::a(){
     // Press the "a" key
     ip.ki.wVk = 0x41; // virtual-key code for the "a" key
     ip.ki.dwFlags = 0; // 0 for key press
@@ -212,10 +213,10 @@ void Keys::a(){
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
     SendInput(1, &ip, sizeof(INPUT));
 
-    std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    std::this_thread::sleep_for(std::chrono::milliseconds(globalSleep));
 }
 
-void Keys::b(){
+void WinKeys::b(){
     // Press the "b" key
     ip.ki.wVk = 0x42; // virtual-key code for the "b" key
     ip.ki.dwFlags = 0; // 0 for key press
@@ -225,10 +226,10 @@ void Keys::b(){
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
     SendInput(1, &ip, sizeof(INPUT));
 
-    std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    std::this_thread::sleep_for(std::chrono::milliseconds(globalSleep));
 }
 
-void Keys::c(){
+void WinKeys::c(){
     // Press the "c" key
     ip.ki.wVk = 0x43; // virtual-key code for the "c" key
     ip.ki.dwFlags = 0; // 0 for key press
@@ -238,10 +239,10 @@ void Keys::c(){
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
     SendInput(1, &ip, sizeof(INPUT));
 
-    std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    std::this_thread::sleep_for(std::chrono::milliseconds(globalSleep));
 }
 
-void Keys::d(){
+void WinKeys::d(){
     // Press the "d" key
     ip.ki.wVk = 0x44; // virtual-key code for the "d" key
     ip.ki.dwFlags = 0; // 0 for key press
@@ -251,10 +252,10 @@ void Keys::d(){
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
     SendInput(1, &ip, sizeof(INPUT));
 
-    std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    std::this_thread::sleep_for(std::chrono::milliseconds(globalSleep));
 }
 
-void Keys::e(){
+void WinKeys::e(){
     // Press the "e" key
     ip.ki.wVk = 0x45; // virtual-key code for the "e" key
     ip.ki.dwFlags = 0; // 0 for key press
@@ -264,10 +265,10 @@ void Keys::e(){
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
     SendInput(1, &ip, sizeof(INPUT));
 
-    std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    std::this_thread::sleep_for(std::chrono::milliseconds(globalSleep));
 }
 
-void Keys::f(){
+void WinKeys::f(){
     // Press the "f" key
     ip.ki.wVk = 0x46; // virtual-key code for the "f" key
     ip.ki.dwFlags = 0; // 0 for key press
@@ -277,10 +278,10 @@ void Keys::f(){
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
     SendInput(1, &ip, sizeof(INPUT));
 
-    std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    std::this_thread::sleep_for(std::chrono::milliseconds(globalSleep));
 }
 
-void Keys::g(){
+void WinKeys::g(){
     // Press the "g" key
     ip.ki.wVk = 0x47; // virtual-key code for the "g" key
     ip.ki.dwFlags = 0; // 0 for key press
@@ -290,10 +291,10 @@ void Keys::g(){
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
     SendInput(1, &ip, sizeof(INPUT));
 
-    std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    std::this_thread::sleep_for(std::chrono::milliseconds(globalSleep));
 }
 
-void Keys::h(){
+void WinKeys::h(){
     // Press the "h" key
     ip.ki.wVk = 0x48; // virtual-key code for the "h" key
     ip.ki.dwFlags = 0; // 0 for key press
@@ -303,10 +304,10 @@ void Keys::h(){
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
     SendInput(1, &ip, sizeof(INPUT));
 
-    std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    std::this_thread::sleep_for(std::chrono::milliseconds(globalSleep));
 }
 
-void Keys::i(){
+void WinKeys::i(){
     // Press the "i" key
     ip.ki.wVk = 0x49; // virtual-key code for the "i" key
     ip.ki.dwFlags = 0; // 0 for key press
@@ -316,10 +317,10 @@ void Keys::i(){
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
     SendInput(1, &ip, sizeof(INPUT));
 
-    std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    std::this_thread::sleep_for(std::chrono::milliseconds(globalSleep));
 }
 
-void Keys::j(){
+void WinKeys::j(){
     // Press the "j" key
     ip.ki.wVk = 0x4A; // virtual-key code for the "j" key
     ip.ki.dwFlags = 0; // 0 for key press
@@ -329,10 +330,10 @@ void Keys::j(){
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
     SendInput(1, &ip, sizeof(INPUT));
 
-    std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    std::this_thread::sleep_for(std::chrono::milliseconds(globalSleep));
 }
 
-void Keys::k(){
+void WinKeys::k(){
     // Press the "k" key
     ip.ki.wVk = 0x4B; // virtual-key code for the "k" key
     ip.ki.dwFlags = 0; // 0 for key press
@@ -342,10 +343,10 @@ void Keys::k(){
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
     SendInput(1, &ip, sizeof(INPUT));
 
-    std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    std::this_thread::sleep_for(std::chrono::milliseconds(globalSleep));
 }
 
-void Keys::l(){
+void WinKeys::l(){
     // Press the "l" key
     ip.ki.wVk = 0x4C; // virtual-key code for the "l" key
     ip.ki.dwFlags = 0; // 0 for key press
@@ -355,10 +356,10 @@ void Keys::l(){
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
     SendInput(1, &ip, sizeof(INPUT));
 
-    std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    std::this_thread::sleep_for(std::chrono::milliseconds(globalSleep));
 }
 
-void Keys::m(){
+void WinKeys::m(){
     // Press the "m" key
     ip.ki.wVk = 0x4D; // virtual-key code for the "m" key
     ip.ki.dwFlags = 0; // 0 for key press
@@ -368,10 +369,10 @@ void Keys::m(){
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
     SendInput(1, &ip, sizeof(INPUT));
 
-    std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    std::this_thread::sleep_for(std::chrono::milliseconds(globalSleep));
 }
 
-void Keys::n(){
+void WinKeys::n(){
     // Press the "n" key
     ip.ki.wVk = 0x4E; // virtual-key code for the "n" key
     ip.ki.dwFlags = 0; // 0 for key press
@@ -381,10 +382,10 @@ void Keys::n(){
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
     SendInput(1, &ip, sizeof(INPUT));
 
-    std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    std::this_thread::sleep_for(std::chrono::milliseconds(globalSleep));
 }
 
-void Keys::o(){
+void WinKeys::o(){
     // Press the "o" key
     ip.ki.wVk = 0x4F; // virtual-key code for the "o" key
     ip.ki.dwFlags = 0; // 0 for key press
@@ -394,10 +395,10 @@ void Keys::o(){
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
     SendInput(1, &ip, sizeof(INPUT));
 
-    std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    std::this_thread::sleep_for(std::chrono::milliseconds(globalSleep));
 }
 
-void Keys::p(){
+void WinKeys::p(){
     // Press the "p" key
     ip.ki.wVk = 0x50; // virtual-key code for the "p" key
     ip.ki.dwFlags = 0; // 0 for key press
@@ -407,10 +408,10 @@ void Keys::p(){
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
     SendInput(1, &ip, sizeof(INPUT));
 
-    std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    std::this_thread::sleep_for(std::chrono::milliseconds(globalSleep));
 }
 
-void Keys::q(){
+void WinKeys::q(){
     // Press the "q" key
     ip.ki.wVk = 0x51; // virtual-key code for the "q" key
     ip.ki.dwFlags = 0; // 0 for key press
@@ -420,10 +421,10 @@ void Keys::q(){
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
     SendInput(1, &ip, sizeof(INPUT));
 
-    std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    std::this_thread::sleep_for(std::chrono::milliseconds(globalSleep));
 }
 
-void Keys::r(){
+void WinKeys::r(){
     // Press the "r" key
     ip.ki.wVk = 0x52; // virtual-key code for the "r" key
     ip.ki.dwFlags = 0; // 0 for key press
@@ -433,10 +434,10 @@ void Keys::r(){
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
     SendInput(1, &ip, sizeof(INPUT));
 
-    std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    std::this_thread::sleep_for(std::chrono::milliseconds(globalSleep));
 }
 
-void Keys::s(){
+void WinKeys::s(){
     // Press the "s" key
     ip.ki.wVk = 0x53; // virtual-key code for the "s" key
     ip.ki.dwFlags = 0; // 0 for key press
@@ -446,10 +447,10 @@ void Keys::s(){
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
     SendInput(1, &ip, sizeof(INPUT));
 
-    std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    std::this_thread::sleep_for(std::chrono::milliseconds(globalSleep));
 }
 
-void Keys::t(){
+void WinKeys::t(){
     // Press the "t" key
     ip.ki.wVk = 0x54; // virtual-key code for the "t" key
     ip.ki.dwFlags = 0; // 0 for key press
@@ -459,10 +460,10 @@ void Keys::t(){
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
     SendInput(1, &ip, sizeof(INPUT));
 
-    std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    std::this_thread::sleep_for(std::chrono::milliseconds(globalSleep));
 }
 
-void Keys::u(){
+void WinKeys::u(){
     // Press the "u" key
     ip.ki.wVk = 0x55; // virtual-key code for the "u" key
     ip.ki.dwFlags = 0; // 0 for key press
@@ -472,10 +473,10 @@ void Keys::u(){
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
     SendInput(1, &ip, sizeof(INPUT));
 
-    std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    std::this_thread::sleep_for(std::chrono::milliseconds(globalSleep));
 }
 
-void Keys::v(){
+void WinKeys::v(){
     // Press the "v" key
     ip.ki.wVk = 0x56; // virtual-key code for the "v" key
     ip.ki.dwFlags = 0; // 0 for key press
@@ -485,10 +486,10 @@ void Keys::v(){
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
     SendInput(1, &ip, sizeof(INPUT));
 
-    std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    std::this_thread::sleep_for(std::chrono::milliseconds(globalSleep));
 }
 
-void Keys::w(){
+void WinKeys::w(){
     // Press the "w" key
     ip.ki.wVk = 0x57; // virtual-key code for the "w" key
     ip.ki.dwFlags = 0; // 0 for key press
@@ -498,10 +499,10 @@ void Keys::w(){
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
     SendInput(1, &ip, sizeof(INPUT));
 
-    std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    std::this_thread::sleep_for(std::chrono::milliseconds(globalSleep));
 }
 
-void Keys::x(){
+void WinKeys::x(){
     // Press the "x" key
     ip.ki.wVk = 0x58; // virtual-key code for the "x" key
     ip.ki.dwFlags = 0; // 0 for key press
@@ -511,10 +512,10 @@ void Keys::x(){
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
     SendInput(1, &ip, sizeof(INPUT));
 
-    std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    std::this_thread::sleep_for(std::chrono::milliseconds(globalSleep));
 }
 
-void Keys::y(){
+void WinKeys::y(){
     // Press the "y" key
     ip.ki.wVk = 0x59; // virtual-key code for the "y" key
     ip.ki.dwFlags = 0; // 0 for key press
@@ -524,10 +525,10 @@ void Keys::y(){
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
     SendInput(1, &ip, sizeof(INPUT));
 
-    std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    std::this_thread::sleep_for(std::chrono::milliseconds(globalSleep));
 }
 
-void Keys::z(){
+void WinKeys::z(){
     // Press the "z" key
     ip.ki.wVk = 0x5A; // virtual-key code for the "z" key
     ip.ki.dwFlags = 0; // 0 for key press
@@ -537,10 +538,10 @@ void Keys::z(){
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
     SendInput(1, &ip, sizeof(INPUT));
 
-    std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    std::this_thread::sleep_for(std::chrono::milliseconds(globalSleep));
 }
 
-void Keys::alt0248(){
+void WinKeys::alt0248(){
     // Press the "alt" key
     ip.ki.wVk = VK_LMENU; // virtual-key code for the "alt" key
     ip.ki.dwFlags = 0; // 0 for key press
@@ -556,10 +557,10 @@ void Keys::alt0248(){
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
     SendInput(1, &ip, sizeof(INPUT));
 
-    std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    std::this_thread::sleep_for(std::chrono::milliseconds(globalSleep));
 }
 
-void Keys::alt136(){
+void WinKeys::alt136(){
     // Press the "alt" key
     ip.ki.wVk = VK_MENU; // virtual-key code for the "alt" key
     ip.ki.dwFlags = 0; // 0 for key press
@@ -575,10 +576,10 @@ void Keys::alt136(){
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
     SendInput(1, &ip, sizeof(INPUT));
 
-    std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    std::this_thread::sleep_for(std::chrono::milliseconds(globalSleep));
 }
 
-void Keys::press(std::string character){
+void WinKeys::press(std::string character){
     if(character == "1"){
         one();
     } else if(character == "2"){
@@ -653,14 +654,18 @@ void Keys::press(std::string character){
         z();
     } else if(character == " "){
         space();
-    }else if(character == "-"){
+    } else if(character == "-"){
         dash();
-    }else if(character == "LC"){
+    } else if(character == "LC"){
         leftclick();
-    }
+    } else if (character == "/"){
+		slash();
+	} else if (character == "ENTER"){
+		enter();
+	}
 }
 
-void Keys::type(std::string word){
+void WinKeys::type(std::string word){
     int size = word.size();
     for(int i=0;i<size;i++){
         std::string letter(1,  word[i]);
@@ -668,7 +673,7 @@ void Keys::type(std::string word){
     }
 }
 
-void Keys::paste(){
+void WinKeys::paste(){
     // Press the "ctrl" key
     ip.ki.wVk = VK_CONTROL; // virtual-key code for the "ctrl" key
     ip.ki.dwFlags = 0; // 0 for key press
@@ -681,11 +686,11 @@ void Keys::paste(){
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
     SendInput(1, &ip, sizeof(INPUT));
 
-    std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    std::this_thread::sleep_for(std::chrono::milliseconds(globalSleep));
 
 }
 
-void Keys::leftclick(){
+void WinKeys::leftclick(){
   INPUT    Input={0};
   // left down
   Input.type      = INPUT_MOUSE;
@@ -697,11 +702,11 @@ void Keys::leftclick(){
   Input.type      = INPUT_MOUSE;
   Input.mi.dwFlags  = MOUSEEVENTF_LEFTUP;
   SendInput(1,&Input,sizeof(INPUT));
-  std::this_thread::sleep_for(std::chrono::milliseconds(100));
+  std::this_thread::sleep_for(std::chrono::milliseconds(2*globalSleep));
 }
 
 //Spams a button a specific number of times.
-void Keys::buttonSpam(std::string button, int amount){
+void WinKeys::buttonSpam(std::string button, int amount){
 	std::this_thread::sleep_for(std::chrono::milliseconds(5000)); //Waits 5 seconds before beginning.
 	
 	for (int i=0;i<amount;i++){
@@ -711,7 +716,7 @@ void Keys::buttonSpam(std::string button, int amount){
 }
 
 //performs a sequence to perpetually dig as you would in minecraft.
-void Keys::minecraftDig(int time){
+void WinKeys::minecraftDig(int time){
 	std::this_thread::sleep_for(std::chrono::milliseconds(5000)); //Waits 5 seconds before beginning.
 	
     // Set up a generic keyboard event.
@@ -741,6 +746,39 @@ void Keys::minecraftDig(int time){
     // Release the "w" key
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
     SendInput(1, &ip, sizeof(INPUT));
+}
+
+//Tells the program to sleep for some time in milliseconds.
+void WinKeys::waitTime(int input){
+	    std::this_thread::sleep_for(std::chrono::milliseconds(input));
+}
+
+// Press the "ENTER" key
+void WinKeys::enter(){
+	// Press the "ENTER" key
+    ip.ki.wVk = 0x0D; // virtual-key code for the "ENTER" key
+    ip.ki.dwFlags = 0; // 0 for key press
+    SendInput(1, &ip, sizeof(INPUT));
+
+    // Release the "ENTER" key
+    ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
+    SendInput(1, &ip, sizeof(INPUT));
+
+    std::this_thread::sleep_for(std::chrono::milliseconds(globalSleep));
+}
+
+// Press the "/" key
+void WinKeys::slash(){
+	// Press the "/" key
+    ip.ki.wVk = 0xE2; // virtual-key code for the "/" key
+    ip.ki.dwFlags = 0; // 0 for key press
+    SendInput(1, &ip, sizeof(INPUT));
+
+    // Release the "/" key
+    ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
+    SendInput(1, &ip, sizeof(INPUT));
+
+    std::this_thread::sleep_for(std::chrono::milliseconds(globalSleep));
 }
 
 

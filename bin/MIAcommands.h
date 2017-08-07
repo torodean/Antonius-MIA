@@ -41,9 +41,9 @@ class Commands{
 		
 		//Functions adapted to work from the old VKK program.
 		
-		/* CURRENTLY ONLY WORKS ON WINDOWS
+		/* CURRENTLY ONLY WORKS ON WINDOWS */
 		void minecraftDigRunner();
 		void buttonSpamRunner();
-		*/
+		void exploreMinecraft();
 };
 #endif

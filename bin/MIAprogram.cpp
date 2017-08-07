@@ -18,7 +18,7 @@
 #include <vector>
 
 //Main program constructor.
-Program::Program() : VERSION("0.027"){
+Program::Program() : VERSION("0.028"){
 	//Chuck Norris can take a screenshot of his blue screen.
 }
 
@@ -116,6 +116,8 @@ int Program::commandToInputVar(std::string input){
 		output = 19;
 	} else if (input == "button spam"){
 		output = 20;
+	} else if (input == "mc explore"){
+		output = 21;
 	} else if (input == "test"){
 		output = 999999;
 	}
@@ -191,10 +193,13 @@ void Program::performCommand(std::string input){
 			cmd.primeNumberNeraseRunner();
 			break;
 		case 19: //corresponds to the dig command.
-			//cmd.minecraftDigRunner(); 
+			cmd.minecraftDigRunner(); 
 			break;
 		case 20: //corresponds to the button spam command.
-			//cmd.buttonSpamRunner();
+			cmd.buttonSpamRunner();
+			break;
+		case 21: //corresponds to the button spam command.
+			cmd.exploreMinecraft();
 			break;
 		case 999999:
 			test();

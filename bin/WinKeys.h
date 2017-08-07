@@ -1,18 +1,18 @@
 //============================================================================
-// Name        : Keys.h
+// Name        : WinKeys.h
 // Author      : Antonius Torode
 // Copyright   : This file can be used under the conditions of Antonius' 
 //				 General Purpose License (AGPL).
 // Created on  : 2015 (Original) -- July 5, 2017 (MIA)
-// Description : The header file corresponding to the Keys.cpp file.
+// Description : The header file corresponding to the WinKeys.cpp file.
 //============================================================================
 
-#ifndef VKKEYS_H
-#define VKKEYS_H
+#ifndef WINKEYS_H
+#define WINKEYS_H
 
-class Keys{
+class WinKeys{
 	public:
-		Keys();
+		WinKeys();
 		void one();
 		void two();
 		void three();
@@ -60,9 +60,11 @@ class Keys{
 		void press(std::string character);
 		void type(std::string word);
 		void paste();
+		void slash();
 		void leftclick();
 		void minecraftDig(int time);
 		void buttonSpam(std::string button, int amount);
+		void waitTime(int input);
 };
 
-#endif // KEYS_H
+#endif // WINKEYS_H

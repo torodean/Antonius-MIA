@@ -6,7 +6,7 @@
 // Description : MIA commands and their respective runners.
 //============================================================================
 
-//#include <windows.h>
+#include <windows.h>
 #include <iostream>
 #include <string>
 #include "MIAprogram.h"
@@ -14,9 +14,10 @@
 #include "D3CEncryptPW.h"
 #include "MIAcommands.h"
 #include "D3CMath.h"
-/* CURRENTLY ONLY WORKS ON WINDOWS
-#include "Keys.h"
-*/
+
+/* CURRENTLY ONLY WORKS ON WINDOWS */
+#include "WinKeys.h"
+
 
 //Main commands constructor.
 Commands::Commands(){
@@ -391,12 +392,12 @@ void Commands::primeNumberNeraseRunner(){
 	math.primeNumberNerase();
 }
 
-/* CURRENTLY ONLY WORKS ON WINDOWS
+/* CURRENTLY ONLY WORKS ON WINDOWS */
 
 //Spams a button a specific number of times.
 void Commands::buttonSpamRunner(){
 	Program prog;
-	Keys key;
+	WinKeys key;
 	
 	std::string button;
 
@@ -422,7 +423,7 @@ void Commands::buttonSpamRunner(){
 //performs a sequence to perpetually dig as you would in minecraft.
 void Commands::minecraftDigRunner(){
 	Program prog;
-	Keys key;
+	WinKeys key;
 	
 	std::string input;
 
@@ -436,7 +437,77 @@ void Commands::minecraftDigRunner(){
 	key.minecraftDig(time);
 }
 
-*/ 
+//used to explore a minecraft map given that the user is gamemode 1.
+void Commands::exploreMinecraft(){
+	Program prog;
+	WinKeys key;
+	
+	int stepSize = 125, delayStartTime = 5000, breakTime = 1000;
+	double percentComplete = 0.0,  counter = 0.0;
+	
+	int startx, startz, stopx, stopz;
+	
+	std::cout << "...Please enter the lower numbers as the starting values." << std::endl;
+	prog.blankLine();
+	
+	std::cout << "...Enter a starting X coordinate (integer): ";
+	std::cin >> startx;
+	prog.blankLine();
+	
+	std::cout << "...Enter an ending X coordinate (integer): ";
+	std::cin >> stopx;
+	prog.blankLine();
+	
+	std::cout << "...Enter a starting Z coordinate (integer): ";
+	std::cin >> startz;
+	prog.blankLine();
+	
+	std::cout << "...Enter an ending Z coordinate (integer): ";
+	std::cin >> stopz;
+	prog.blankLine();
+	
+	double totalSteps = ((stopx-startx)*1.0/(stepSize*1.0)+1)*((stopz-startz)*1.0/(stepSize*1.0)+1);
+	std::cout << "totalSteps: " << totalSteps << std::endl;
+	
+	std::cout << "...Beginning in " << delayStartTime << " milliseconds." << std::endl;
+	prog.blankLine();
+	
+	key.waitTime(delayStartTime);
+	
+	std::cout << "...Sleeping between each loop for " << breakTime << " milliseconds." << std::endl;
+
+	
+	for(int x=startx; x <= stopx; x++){
+		for(int z=startz; z <= stopz; z++){
+			
+			key.type("t");
+			key.waitTime(100);
+			
+			key.slash();
+			key.type("tp");
+			key.space();
+			
+			key.type(std::to_string(x));
+			key.space();
+			
+			key.type("90");
+			key.space();
+			
+			key.type(std::to_string(z));
+			key.space();
+
+			key.enter();
+			
+			counter += 1.0;
+			percentComplete = counter*100.0/totalSteps;
+			std::cout << "...Percentage Complete: " << percentComplete << " %" << std::endl;
+			key.waitTime(breakTime);
+			
+			z+=stepSize-1;
+		}		
+		x+=stepSize-1;
+	}
+}
 
 
 
