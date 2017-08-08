@@ -442,8 +442,9 @@ void Commands::exploreMinecraft(){
 	Program prog;
 	WinKeys key;
 	
-	int stepSize = 125, delayStartTime = 5000, breakTime = 1000;
+	int stepSize = 125, delayStartTime = 5000;
 	double percentComplete = 0.0,  counter = 0.0;
+	int breakTime;
 	
 	int startx, startz, stopx, stopz;
 	
@@ -464,6 +465,10 @@ void Commands::exploreMinecraft(){
 	
 	std::cout << "...Enter an ending Z coordinate (integer): ";
 	std::cin >> stopz;
+	prog.blankLine();
+	
+	std::cout << "...Enter the intermidiate time between steps in milliseconds (integer): ";
+	std::cin >> breakTime;
 	prog.blankLine();
 	
 	double totalSteps = ((stopx-startx)*1.0/(stepSize*1.0)+1)*((stopz-startz)*1.0/(stepSize*1.0)+1);
