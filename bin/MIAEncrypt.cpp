@@ -29,6 +29,15 @@ MIAEncrypt::~MIAEncrypt(){
 //==================================================
 
 void MIAEncrypt::test(){
+	std::vector< std::vector< std::vector<int>>> testCube = cube;
+	for(int i=0;i<cubeSize;i++){
+		for(int j=0;j<cubeSize;j++){
+			  for(int k=0;k<cubeSize;k++){
+					testCube[i][j][k]=100*(i+1)+10*(j+1)+(k+1);
+			  }      
+		}    
+	}
+	printCube(testCube);
 		
 	/* Tests the rotations. //All work!
 	
@@ -132,24 +141,32 @@ void MIAEncrypt::test(){
 	
 	passphraseToCombination("Hello World!");
 	
+	testCube = scrambleCube(testCube, combination);
+	
+	printCube(testCube);
+	
+	testCube = unscrambleCube(testCube, combination);
+
+	printCube(testCube);
+	
 	//std::cout << "Finished... " << std::endl;
 }
 
 //Rotates part of a cube (side length n) while keeping one side constant in either a clockwize or counterclockwise direction.
-std::vector< std::vector< std::vector<int>>> MIAEncrypt::rotation(std::vector< std::vector< std::vector<int>>> cube, char side, int index, bool CW){
-	std::vector< std::vector< std::vector<int>>> cubeNew = cube;
+std::vector< std::vector< std::vector<int>>> MIAEncrypt::rotation(std::vector< std::vector< std::vector<int>>> inputCube, char side, int index, bool CW){
+	std::vector< std::vector< std::vector<int>>> cubeNew = inputCube;
 
 	if (side == 'x'){ //keep the x coordinate the same.
 		if(CW){ //clockwise.
 			for(int j=0; j<cubeSize; j++){
 				for(int k=0; k<cubeSize; k++){
-					cubeNew[index][j][k] = cube[index][cubeSize-1-k][j];
+					cubeNew[index][j][k] = inputCube[index][cubeSize-1-k][j];
 				}
 			}
 		} else { //counter-clockwise.
 			for(int j=0; j<cubeSize; j++){
 				for(int k=0; k<cubeSize; k++){
-					cubeNew[index][j][k] = cube[index][k][cubeSize-1-j];
+					cubeNew[index][j][k] = inputCube[index][k][cubeSize-1-j];
 				}
 			}
 		}		
@@ -157,13 +174,13 @@ std::vector< std::vector< std::vector<int>>> MIAEncrypt::rotation(std::vector< s
 		if(CW){ //clockwise.
 			for(int i=0; i<cubeSize; i++){
 				for(int k=0; k<cubeSize; k++){
-					cubeNew[i][index][k] = cube[k][index][cubeSize-1-i];
+					cubeNew[i][index][k] = inputCube[k][index][cubeSize-1-i];
 				}
 			}
 		} else { //counter-clockwise.
 			for(int i=0; i<cubeSize; i++){
 				for(int k=0; k<cubeSize; k++){
-					cubeNew[i][index][k] = cube[cubeSize-1-k][index][i];
+					cubeNew[i][index][k] = inputCube[cubeSize-1-k][index][i];
 				}
 			}
 		}
@@ -171,13 +188,13 @@ std::vector< std::vector< std::vector<int>>> MIAEncrypt::rotation(std::vector< s
 		if(CW){ //clockwise.
 			for(int i=0; i<cubeSize; i++){
 				for(int j=0; j<cubeSize; j++){
-					cubeNew[i][j][index] = cube[cubeSize-1-j][i][index];
+					cubeNew[i][j][index] = inputCube[cubeSize-1-j][i][index];
 				}
 			}
 		} else { //counter-clockwise.
 			for(int i=0; i<cubeSize; i++){
 				for(int j=0; j<cubeSize; j++){
-					cubeNew[i][j][index] = cube[j][cubeSize-1-i][index];
+					cubeNew[i][j][index] = inputCube[j][cubeSize-1-i][index];
 				}
 			}
 		}
@@ -187,28 +204,32 @@ std::vector< std::vector< std::vector<int>>> MIAEncrypt::rotation(std::vector< s
 }
 
 //Prints the components of a cube in a format assuming each element has the same length.
-void MIAEncrypt::printCube(std::vector< std::vector< std::vector<int>>> cube){	
+void MIAEncrypt::printCube(std::vector< std::vector< std::vector<int>>> inputCube){	
+	std::cout << std::endl;
 	for(int k=cubeSize-1; k>=0; k--){
 		for(int j=cubeSize-1; j>=0; j--){
 			for(int s=0; s<k; s++){ //s determines the number of spacing between each cube.
 				std::cout << "   ";
 			}
 			for(int i=0; i<cubeSize; i++){
-				std::cout << " " << cube[i][j][k] << " ";
+				std::cout << " " << inputCube[i][j][k] << " ";
 			}
 			std::cout << std::endl;
 		}
 	}
+	std::cout << std::endl;
 }
 
 //Scrambles a cube According to the combination integer entered.
-std::vector< std::vector< std::vector<int>>> MIAEncrypt::scrambleCube(std::vector< std::vector< std::vector<int>>> cube, std::vector<int> combination){	
+std::vector< std::vector< std::vector<int>>> MIAEncrypt::scrambleCube(std::vector< std::vector< std::vector<int>>> inputCube, std::vector<int> combination){	
 	//initializes and sets the defauly rotation values. 	
 	char side = 'x';
 	bool CW = 1;
 	int index = 0;
 	int temp = 0;
 	
+	std::vector< std::vector< std::vector<int>>> cubeNew = inputCube;
+
 	for(int n=0; n<totalRotations; n++){		
 		//determines the side of the cube to rotate.
 		if(combination[n] >= 2*totalRotations/3){
@@ -237,20 +258,22 @@ std::vector< std::vector< std::vector<int>>> MIAEncrypt::scrambleCube(std::vecto
 		} else {
 			index = combination[n]%cubeSize;
 		}
+		
+		cubeNew = rotation(cubeNew, side, index, CW);
 	}
-	
-	std::vector< std::vector< std::vector<int>>> cubeNew = rotation(cube, side, index, CW);
 	
 	return cubeNew;
 }
 
 //Un-crambles a cube According to the combination entered.
-std::vector< std::vector< std::vector<int>>> MIAEncrypt::unscrambleCube(std::vector< std::vector< std::vector<int>>> cube, std::vector<int> combination){
+std::vector< std::vector< std::vector<int>>> MIAEncrypt::unscrambleCube(std::vector< std::vector< std::vector<int>>> inputCube, std::vector<int> combination){
 	//initializes and sets the defauly rotation values. 	
 	char side = 'x';
 	bool CW = 1;
 	int index = 0;
 	int temp = 0;
+	
+	std::vector< std::vector< std::vector<int>>> cubeNew = inputCube;
 	
 	for(int n=totalRotations-1; n>=0; n--){		
 		//determines the side of the cube to rotate.
@@ -280,9 +303,9 @@ std::vector< std::vector< std::vector<int>>> MIAEncrypt::unscrambleCube(std::vec
 		} else {
 			index = combination[n]%cubeSize;
 		}
+		
+		cubeNew = rotation(cubeNew, side, index, CW);
 	}
-	
-	std::vector< std::vector< std::vector<int>>> cubeNew = rotation(cube, side, index, CW);
 	
 	return cubeNew;
 }
@@ -313,6 +336,7 @@ void MIAEncrypt::passphraseToCombination(std::string passphrase){
 	//set's the remaining combination slots.
 	for(int n=size;n<totalRotations; n++){
 		combination[n] = (prog.randomInt(0, 1000000, total*total)) % totalRotations;
+		std::cout << combination[n] << " ";
 	}
 }
 

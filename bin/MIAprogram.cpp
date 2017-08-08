@@ -323,7 +323,7 @@ void Program::test(){
     std::cout << "start" << std::endl;
     //TODO CODE HERE
 
-    MIAEncrypt crypt(6);
+    MIAEncrypt crypt(4);
     crypt.test();
     
     std::cout << "finished." << std::endl;
