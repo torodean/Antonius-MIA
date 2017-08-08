@@ -132,7 +132,7 @@ void MIAEncrypt::test(){
 	
 	passphraseToCombination("Hello World!");
 	
-	std::cout << "Finished... " << std::endl;
+	//std::cout << "Finished... " << std::endl;
 }
 
 //Rotates part of a cube (side length n) while keeping one side constant in either a clockwize or counterclockwise direction.
@@ -288,7 +288,7 @@ std::vector< std::vector< std::vector<int>>> MIAEncrypt::unscrambleCube(std::vec
 }
 
 //Converts a string passphrase to a vector of integers.
-std::vector<int> MIAEncrypt::passphraseToCombination(std::string passphrase){
+void MIAEncrypt::passphraseToCombination(std::string passphrase){
 	long total = 0;
 	int size = passphrase.size();
 	Program prog;
@@ -314,8 +314,6 @@ std::vector<int> MIAEncrypt::passphraseToCombination(std::string passphrase){
 	for(int n=size;n<totalRotations; n++){
 		combination[n] = (prog.randomInt(0, 1000000, total*total)) % totalRotations;
 	}
-	
-	return combination;
 }
 
 

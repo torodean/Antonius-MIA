@@ -112,7 +112,7 @@ int Program::commandToInputVar(std::string input){
 		output = 17;
 	} else if (input == "prime -n -c"){
 		output = 18;
-	} else if (input == "dig"){
+	} else if (input == "mc dig"){
 		output = 19;
 	} else if (input == "button spam"){
 		output = 20;

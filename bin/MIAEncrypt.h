@@ -28,7 +28,7 @@ class MIAEncrypt{
 		//Miscellaneous Actions.
 		std::ofstream encryptFile(std::ofstream file);
 		std::string encryptString(std::string text);
-		std::vector<int> passphraseToCombination(std::string passphrase);
+		void passphraseToCombination(std::string passphrase);
 		void printCube(std::vector< std::vector< std::vector<int>>> cube);
 		void test();
 		
