@@ -60,6 +60,7 @@ class WinKeys{
 		void press(std::string character);
 		void type(std::string word);
 		void paste();
+		void backslash();
 		void slash();
 		void leftclick();
 		void minecraftDig(int time);

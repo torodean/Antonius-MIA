@@ -658,7 +658,9 @@ void WinKeys::press(std::string character){
         dash();
     } else if(character == "LC"){
         leftclick();
-    } else if (character == "/"){
+    } else if (character == "\\"){
+		backslash();
+	} else if (character == "/"){
 		slash();
 	} else if (character == "ENTER"){
 		enter();
@@ -767,10 +769,24 @@ void WinKeys::enter(){
     std::this_thread::sleep_for(std::chrono::milliseconds(globalSleep));
 }
 
+// Press the "\" key
+void WinKeys::backslash(){
+	// Press the "\" key
+    ip.ki.wVk = 0xE2; // virtual-key code for the "\" key
+    ip.ki.dwFlags = 0; // 0 for key press
+    SendInput(1, &ip, sizeof(INPUT));
+
+    // Release the "/" key
+    ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
+    SendInput(1, &ip, sizeof(INPUT));
+
+    std::this_thread::sleep_for(std::chrono::milliseconds(globalSleep));
+}
+
 // Press the "/" key
 void WinKeys::slash(){
 	// Press the "/" key
-    ip.ki.wVk = 0xE2; // virtual-key code for the "/" key
+    ip.ki.wVk = 0x6F; // virtual-key code for the "/" key
     ip.ki.dwFlags = 0; // 0 for key press
     SendInput(1, &ip, sizeof(INPUT));
 
