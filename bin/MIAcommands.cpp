@@ -6,7 +6,6 @@
 // Description : MIA commands and their respective runners.
 //============================================================================
 
-#include <windows.h>
 #include <iostream>
 #include <string>
 #include "MIAprogram.h"
@@ -16,7 +15,11 @@
 #include "D3CMath.h"
 
 /* CURRENTLY ONLY WORKS ON WINDOWS */
+#if  defined _WIN32 || defined _WIN64
+#include <windows.h>
 #include "WinKeys.h"
+#endif
+
 
 
 //Main commands constructor.
@@ -394,8 +397,11 @@ void Commands::primeNumberNeraseRunner(){
 
 /* CURRENTLY ONLY WORKS ON WINDOWS */
 
+
+
 //Spams a button a specific number of times.
 void Commands::buttonSpamRunner(){
+	#if defined _WIN32 || defined _WIN64
 	Program prog;
 	WinKeys key;
 	
@@ -418,10 +424,15 @@ void Commands::buttonSpamRunner(){
 	prog.blankLine();
 
 	key.buttonSpam(button, amount);
+	
+	#else
+	std::cout<< "This feature is currently only programmed for Windows." << std:: endl;
+	#endif
 }
 
 //performs a sequence to perpetually dig as you would in minecraft.
 void Commands::minecraftDigRunner(){
+	#if defined _WIN32 || defined _WIN64
 	Program prog;
 	WinKeys key;
 	
@@ -435,10 +446,15 @@ void Commands::minecraftDigRunner(){
 	
 	std::cout << "...Beginning in 5 seconds." << std::endl;
 	key.minecraftDig(time);
+	
+	#else
+	std::cout<< "This feature is currently only programmed for Windows." << std:: endl;
+	#endif
 }
 
 //used to explore a minecraft map given that the user is gamemode 1.
 void Commands::exploreMinecraft(){
+	#if defined _WIN32 || defined _WIN64
 	Program prog;
 	WinKeys key;
 	
@@ -512,6 +528,10 @@ void Commands::exploreMinecraft(){
 		}		
 		x+=stepSize-1;
 	}
+	
+	#else
+	std::cout<< "This feature is currently only programmed for Windows." << std:: endl;
+	#endif
 }
 
 
