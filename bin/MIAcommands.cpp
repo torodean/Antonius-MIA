@@ -15,7 +15,7 @@
 #include "D3CMath.h"
 
 /* CURRENTLY ONLY WORKS ON WINDOWS */
-#if  defined _WIN32 || defined _WIN64
+#if  defined _WIN32 || defined _WIN64 || defined __CYGWIN__
 #include <windows.h>
 #include "WinKeys.h"
 #endif
@@ -401,7 +401,7 @@ void Commands::primeNumberNeraseRunner(){
 
 //Spams a button a specific number of times.
 void Commands::buttonSpamRunner(){
-	#if defined _WIN32 || defined _WIN64
+	#if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
 	Program prog;
 	WinKeys key;
 	
@@ -432,7 +432,7 @@ void Commands::buttonSpamRunner(){
 
 //performs a sequence to perpetually dig as you would in minecraft.
 void Commands::minecraftDigRunner(){
-	#if defined _WIN32 || defined _WIN64
+	#if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
 	Program prog;
 	WinKeys key;
 	
@@ -454,7 +454,7 @@ void Commands::minecraftDigRunner(){
 
 //used to explore a minecraft map given that the user is gamemode 1.
 void Commands::exploreMinecraft(){
-	#if defined _WIN32 || defined _WIN64
+	#if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
 	Program prog;
 	WinKeys key;
 	
