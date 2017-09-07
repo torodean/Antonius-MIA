@@ -28,6 +28,7 @@ class Program{
 		void performCommand(std::string input);
 		int commandToInputVar(std::string input);
 		void help();
+		void helpPrime();
 		bool excuse();
 		int randomInt(int start, int end, int seed);
 		std::string getRandomLineOfFile(std::string fileName);

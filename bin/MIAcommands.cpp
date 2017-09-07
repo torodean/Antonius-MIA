@@ -426,7 +426,7 @@ void Commands::buttonSpamRunner(){
 	key.buttonSpam(button, amount);
 	
 	#else
-	std::cout<< "This feature is currently only programmed for Windows." << std:: endl;
+	std::cout<< "ERROR: This feature is currently only programmed for Windows." << std:: endl;
 	#endif
 }
 
@@ -448,7 +448,7 @@ void Commands::minecraftDigRunner(){
 	key.minecraftDig(time);
 	
 	#else
-	std::cout<< "This feature is currently only programmed for Windows." << std:: endl;
+	std::cout<< "ERROR: This feature is currently only programmed for Windows." << std:: endl;
 	#endif
 }
 
@@ -530,7 +530,7 @@ void Commands::exploreMinecraft(){
 	}
 	
 	#else
-	std::cout<< "This feature is currently only programmed for Windows." << std:: endl;
+	std::cout<< "ERROR: This feature is currently only programmed for Windows." << std:: endl;
 	#endif
 }
 

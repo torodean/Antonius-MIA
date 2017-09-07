@@ -118,6 +118,8 @@ int Program::commandToInputVar(std::string input){
 		output = 20;
 	} else if (input == "mc explore"){
 		output = 21;
+	} else if (input == "prime -help" || input == "prime --help"){
+		output = 22;
 	} else if (input == "test"){
 		output = 999999;
 	}
@@ -192,15 +194,19 @@ void Program::performCommand(std::string input){
 		case 18: //corresponds to the prime -n -c command.
 			cmd.primeNumberNeraseRunner();
 			break;
-		case 19: //corresponds to the dig command.
+		case 19: //corresponds to the mc dig command.
 			cmd.minecraftDigRunner(); 
 			break;
 		case 20: //corresponds to the button spam command.
 			cmd.buttonSpamRunner();
 			break;
-		case 21: //corresponds to the button spam command.
+		case 21: //corresponds to the mc explore command.
 			cmd.exploreMinecraft();
 			break;
+		case 22: //corresponds to the prime -help command.
+			helpPrime();
+			break;
+			
 		case 999999:
 			test();
 			std::cout << "...No test function set. " << std:: endl;
@@ -222,24 +228,34 @@ void Program::help(){
 	blankDots();
 	std::cout << "... help          | Displays a valid lists of commands." << std::endl;
 	std::cout << "... add           | Adds two positive integers of any length. " << std::endl;
-	std::cout << "... collatz       | Produces a collatz sequence based on a specified starting integer." << std::endl;
+	std::cout << "... button spam   | Spams a specified button (key press)." << std::endl;
+	std::cout << "... collatz       | Produces a collatz sequence based on a starting integer." << std::endl;
 	std::cout << "... crypt -d0s1   | Encrypts a string using the d0s1 algorithm." << std::endl;
 	std::cout << "... crypt -d0s2   | Encrypts a string using the d0s2 algorithm." << std::endl;
 	std::cout << "... decrypt -d0s1 | De-crypts a string using the d0s1 algorithm." << std::endl;
 	std::cout << "... decrypt -d0s2 | De-crypts a string using the d0s2 algorithm." << std::endl;
 	std::cout << "... digitsum      | Returns the sum of the digits within an integer of any size." << std::endl;
 	std::cout << "... factors       | Returns the number of factors within an integer." << std::endl;
-	std::cout << "... lattice       | Returns total lattice paths to the bottom right corner of an n x m grid." << std::endl;
+	std::cout << "... lattice       | Returns lattice paths to the farthest corner of an NxM grid." << std::endl;
+	std::cout << "... mc dig        | Simulates key strokes for continuous Minecraft diggigg." << std::endl;
+	std::cout << "... mc explore    | Explores a Minecraft map using /tp" << std::endl;
 	std::cout << "... multiply      | Multiplies two integers of any length." << std::endl;
 	std::cout << "... palindrome    | Determines if a positive integer is palindrome." << std::endl;
-	std::cout << "... prime         | Determines if a positive integer is prime or not." << std::endl;
-	std::cout << "... prime -f      | Determines all of the prime factors of a positive integer." << std::endl;
-	std::cout << "... prime -n      | Calculates the n'th prime number up to a maximum number of 2147483647." << std::endl;
-	std::cout << "... prime -n -p   | Creates a file of all prime numbers up to a maximum number of 2147483647." << std::endl;
-	std::cout << "... prime -n -c   | Clears the file created by 'prime -n -p'." << std::endl;
+	std::cout << "... prime -help   | Displays help defailts for prime functions." << std::endl;
 	std::cout << "... subtract      | Finds the difference between two integers of any length." << std::endl;
 	std::cout << "... triangle      | Determines if a number is a triangle number or not." << std::endl;
 	std::cout << "... exit          | Quits MIA. " << std::endl;
+}
+
+void Program::helpPrime(){
+	std::cout << "... A list of valid commands and a brief summary.                          ..." << std::endl;
+	std::cout << "... Commands are NOT case sensitive.                                       ..." << std::endl;
+	blankDots();
+	std::cout << "... prime         | Determines if a positive integer is prime or not." << std::endl;
+	std::cout << "... prime -f      | Determines all of the prime factors of a positive integer." << std::endl;
+	std::cout << "... prime -n      | Calculates the n'th prime number up to a max of 2147483647." << std::endl;
+	std::cout << "... prime -n -p   | Creates a file of prime #'s up to a max of 2147483647." << std::endl;
+	std::cout << "... prime -n -c   | Clears the file created by 'prime -n -p'." << std::endl;
 }
 
 //Prints a random excuse 50% of the time.
@@ -249,7 +265,7 @@ bool Program::excuse(){
 	
 	if (random >= 40){	
 		blankLine();
-		std::cout << "...Sorry, I can't do that, " << std::endl;
+		std::cout << "...Sorry, I can't do that (Invalid command entered). " << std::endl;
 		
 		txt = getRandomLineOfFile("../bin/Resources/Excuses.txt");
 		std::cout << "..." << txt << std::endl;
