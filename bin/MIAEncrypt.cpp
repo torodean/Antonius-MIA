@@ -139,6 +139,7 @@ void MIAEncrypt::test(){
 	}
 	*/ //All works!
 	
+	/* Tests the passphrase -> combination -> scramble -> unscramble process. //All works!
 	passphraseToCombination("Hello World!");
 	
 	testCube = scrambleCube(testCube, combination);
@@ -148,6 +149,7 @@ void MIAEncrypt::test(){
 	testCube = unscrambleCube(testCube, combination);
 
 	printCube(testCube);
+	*/ //All works!
 	
 	//std::cout << "Finished... " << std::endl;
 }
