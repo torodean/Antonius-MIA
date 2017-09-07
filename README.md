@@ -16,8 +16,6 @@ For a list of commands see the MIA manual.
 
 1) via terminal:  cd ../Antonius-MIA/bin
 
-**NOTE** There are currently some features of MIA that work on Windows ONLY. Therefore these will have to be commented out to compile on linux.
-
 2) compile using 
 g++ -Wall -std=c++14 MIAmain.cpp MIAprogram.cpp MIAcommands.cpp D3CEncrypt.cpp D3CEncryptPW.cpp D3CMath.cpp MIAEncrypt.cpp -o MIA
 
