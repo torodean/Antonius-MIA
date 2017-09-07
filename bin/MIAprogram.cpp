@@ -208,8 +208,7 @@ void Program::performCommand(std::string input){
 			break;
 			
 		case 999999:
-			test();
-			std::cout << "...No test function set. " << std:: endl;
+			test();			
 			break;			
 			
 		default: //defaults to an unrecognized command.
@@ -336,13 +335,14 @@ int Program::randomInt(int min, int max, int seed){
 }
 
 void Program::test(){
-    std::cout << "start" << std::endl;
+    std::cout << "Starting test." << std::endl;
     //TODO CODE HERE
 
     MIAEncrypt crypt(4);
     crypt.test();
+	//std::cout << "...No test function set. " << std:: endl;
     
-    std::cout << "finished." << std::endl;
+    std::cout << "Finished test." << std::endl;
 }
 
 
