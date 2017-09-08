@@ -11,7 +11,6 @@
 #define MIAENCRYPT_H
 #include <string>
 #include <vector>
-#include <fstream>
 
 class MIAEncrypt{
 	private:
@@ -26,7 +25,7 @@ class MIAEncrypt{
 		~MIAEncrypt();
 	
 		//Miscellaneous Actions.
-		std::ofstream encryptFile(std::ofstream file);
+		void encryptFile(std::string file, std::string fileName);
 		std::string encryptString(std::string text);
 		void passphraseToCombination(std::string passphrase);
 		void printCube(std::vector< std::vector< std::vector<int>>> cube);

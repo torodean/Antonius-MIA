@@ -13,6 +13,7 @@
 #include "D3CEncryptPW.h"
 #include "MIAcommands.h"
 #include "D3CMath.h"
+#include "MIAEncrypt.h"
 
 /* CURRENTLY ONLY WORKS ON WINDOWS */
 #if  defined _WIN32 || defined _WIN64 || defined __CYGWIN__
@@ -395,10 +396,6 @@ void Commands::primeNumberNeraseRunner(){
 	math.primeNumberNerase();
 }
 
-/* CURRENTLY ONLY WORKS ON WINDOWS */
-
-
-
 //Spams a button a specific number of times.
 void Commands::buttonSpamRunner(){
 	#if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
@@ -534,6 +531,23 @@ void Commands::exploreMinecraft(){
 	#endif
 }
 
+
+void Commands::d0s3CryptRunner(){
+	Program prog;
+	MIAEncrypt crypt(3);
+	
+	std::string inputFile;
+	
+	std::cout << "...Please enter a file (including a full path) to be encrypted: " << std::endl;
+	prog.blankLine();
+	getline(std::cin, inputFile);
+	
+	crypt.encryptFile(inputFile, "OutputFile");
+}
+		
+void Commands::d0s3DeCryptRunner(){
+	
+}
 
 
 

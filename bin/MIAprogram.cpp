@@ -120,6 +120,10 @@ int Program::commandToInputVar(std::string input){
 		output = 21;
 	} else if (input == "prime -help" || input == "prime --help"){
 		output = 22;
+	} else if (input == "crypt -d0s3"){
+		output = 23;
+	} else if (input == "decrypt -d0s3"){
+		output = 24;
 	} else if (input == "test"){
 		output = 999999;
 	}
@@ -205,6 +209,12 @@ void Program::performCommand(std::string input){
 			break;
 		case 22: //corresponds to the prime -help command.
 			helpPrime();
+			break;
+		case 23:	//corresponds to the crypt -d0s3 command.
+			cmd.d0s3CryptRunner();
+			break;
+		case 24:	//corresponds to the decrypt -d0s3 command.
+			cmd.d0s3DeCryptRunner();
 			break;
 			
 		case 999999:
@@ -339,7 +349,8 @@ void Program::test(){
     //TODO CODE HERE
 
     MIAEncrypt crypt(4);
-    crypt.test();
+    //crypt.test();
+	crypt.encryptFile("C:\\Users\\torodean\\test.txt", "OutputFile");
 	//std::cout << "...No test function set. " << std:: endl;
     
     std::cout << "Finished test." << std::endl;

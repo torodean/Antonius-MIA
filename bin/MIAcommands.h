@@ -21,6 +21,8 @@ class Commands{
 		void d0s1DeCryptRunner();
 		void d0s2CryptRunner();
 		void d0s2DeCryptRunner();
+		void d0s3CryptRunner();
+		void d0s3DeCryptRunner();
 		void collatzRunner();
 		void stringAdditionRunner();
 		void stringMultiplyRunner();

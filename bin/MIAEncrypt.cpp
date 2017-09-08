@@ -12,6 +12,7 @@
 #include "MIAprogram.h"
 #include <iostream>
 #include <vector>
+#include <fstream>
 
 //Main constructor for the MIAEncrypt algorithm.
 MIAEncrypt::MIAEncrypt(int cSize): cubeSize(cSize), cube(cubeSize, std::vector<std::vector<int>>(cubeSize, std::vector<int>(cubeSize, 0) ) ), 
@@ -346,6 +347,44 @@ void MIAEncrypt::passphraseToCombination(std::string passphrase){
 		std::cout << combination[n] << std::endl;
 	}
 }
+
+//Encrypts a file. NOT YET WORKING/FINISED.
+void MIAEncrypt::encryptFile(std::string file, std::string fileName){
+	std::string path = "../bin/Resources/EncryptedFiles/";
+	std::string outputFile = path + fileName + ".d0s3";
+	
+	std::ifstream input( file, std::ios::binary );
+	std::ofstream output( outputFile, std::ios::binary );
+	
+	/* Copy's a file to the output file - same file but different name.
+	std::copy(std::istreambuf_iterator<char>(input), 
+			  std::istreambuf_iterator<char>( ),
+			  std::ostreambuf_iterator<char>(output));
+	*/	
+		
+	std::vector<char> buffer((std::istreambuf_iterator<char>(input)), 
+							 (std::istreambuf_iterator<char>()));
+	int size = buffer.size();
+	
+	/* Prints the data from the file. */	
+	for(int i = 0; i < size; i++){
+		std::cout << buffer[i];
+	}
+	std::cout << std::endl;
+	
+	std::string bufferString = "";
+	for(int i=0; i<size; i++){
+		bufferString += buffer[i];
+	}
+	std::cout << bufferString << std::endl;
+}
+
+
+
+
+
+
+
 
 
 
