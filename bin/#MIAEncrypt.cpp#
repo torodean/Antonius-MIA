@@ -10,6 +10,7 @@
 
 #include "MIAEncrypt.h"
 #include "MIAprogram.h"
+#include "D3CEncrypt.h"
 #include <iostream>
 #include <vector>
 #include <fstream>
@@ -350,6 +351,9 @@ void MIAEncrypt::passphraseToCombination(std::string passphrase){
 
 //Encrypts a file. NOT YET WORKING/FINISED.
 void MIAEncrypt::encryptFile(std::string file, std::string fileName){
+        D3CEncrypt crypt;
+
+	
 	std::string path = "../bin/Resources/EncryptedFiles/";
 	std::string outputFile = path + fileName + ".d0s3";
 	
