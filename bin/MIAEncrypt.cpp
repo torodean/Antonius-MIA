@@ -366,7 +366,7 @@ void MIAEncrypt::encryptFile(std::string file, std::string fileName){
 				 (std::istreambuf_iterator<char>()));
 	int size = buffer.size();
 	
-	/* Prints the data from the file. */	
+	/* Prints the data from the file. */
 	for(int i = 0; i < size; i++){
 		std::cout << buffer[i];
 	}

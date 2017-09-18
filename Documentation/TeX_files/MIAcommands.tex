@@ -10,80 +10,144 @@ MIA is designed to be used similar to a terminal or command prompt. One enters c
 \begin{lstlisting}
 help
 \end{lstlisting}
-Displays a valid lists of commands and a brief description to go along with each.
+\begin{enumerate}
+	\item[] Displays a valid lists of commands and a brief description to go along with each.
+\end{enumerate}
 \begin{lstlisting} 
 add   
 \end{lstlisting}
-Adds two positive integers of any length. This adds two strings together using a similar algorithm one would when adding large numbers by hand. It is possible to get results by entering non-number entries but will serve no significance due to the way MIA internally converts strings to integers by shifting the ASCII values.
+\begin{enumerate}
+	\item[] Adds two positive integers of any length. This adds two strings together using a similar algorithm one would when adding large numbers by hand. It is possible to get results by entering non-number entries but will serve no significance due to the way MIA internally converts strings to integers by shifting the ASCII values.
+\end{enumerate}
+\begin{lstlisting} 
+button spam
+\end{lstlisting}
+\begin{enumerate}
+	\item[] Spams a specified button (key press). This function asks for a key input as well as asks for a number of times the user would like the button spammed. Not all keys are programmed in and the time between button spamming is currently fixed (this will be updated at a later time). This function currently only works on Windows OS.
+\end{enumerate}
 \begin{lstlisting} 
 collatz   
 \end{lstlisting}
-Produces a collatz sequence based on a specified starting integer. This method uses the logn data type which means if a number of the sequence extends the storage of a long, the results will become untrustworthy. 
+\begin{enumerate}
+	\item[] Produces a collatz sequence based on a specified starting integer. This method uses the logn data type which means if a number of the sequence extends the storage of a long, the results will become untrustworthy. 
+\end{enumerate}
 \begin{lstlisting} 
 crypt -d0s1   
 \end{lstlisting}
-Encrypts a string using the d0s1 algorithm. This is explained more in chapter \ref{D3C}.
+\begin{enumerate}
+	\item[] Encrypts a string using the d0s1 algorithm. This is explained more in chapter \ref{D3C}.
+\end{enumerate}
 \begin{lstlisting} 
 crypt -d0s2  
 \end{lstlisting}
-Encrypts a string using the d0s2 algorithm. This is explained more in chapter \ref{D3C}.
+\begin{enumerate}
+	\item[] Encrypts a string using the d0s2 algorithm. This is explained more in chapter \ref{D3C}.
+\end{enumerate}
 \begin{lstlisting} 
 decrypt -d0s1   
 \end{lstlisting}
-De-crypts a string using the d0s1 algorithm. This is explained more in chapter \ref{D3C}.
+\begin{enumerate}
+	\item[] De-crypts a string using the d0s1 algorithm. This is explained more in chapter \ref{D3C}.
+\end{enumerate}
 \begin{lstlisting} 
 decrypt -d0s2   
 \end{lstlisting}
-De-crypts a string using the d0s2 algorithm. This is explained more in chapter \ref{D3C}.
+\begin{enumerate}
+	\item[] De-crypts a string using the d0s2 algorithm. This is explained more in chapter \ref{D3C}.
+\end{enumerate}
 \begin{lstlisting} 
 digitsum 
 \end{lstlisting}
-Returns the sum of the digits within an integer of any size. Similar to the add command, this converts a string to an array of integers using ASCII shifting and then sums the values together. Due to this, you can also find values for entering non-numerical strings.
+\begin{enumerate}
+	\item[] Returns the sum of the digits within an integer of any size. Similar to the add command, this converts a string to an array of integers using ASCII shifting and then sums the values together. Due to this, you can also find values for entering non-numerical strings.
+\end{enumerate}
 \begin{lstlisting} 
 factors   
 \end{lstlisting}
-Returns the number of factors within an integer. The integer must be smaller than C++'s internal storage for the long data type.
+\begin{enumerate}
+	\item[] Returns the number of factors within an integer. The integer must be smaller than C++'s internal storage for the long data type.
+\end{enumerate}
 \begin{lstlisting} 
 lattice   
 \end{lstlisting}
-Returns total lattice paths to the bottom right corner of an n x m grid. This function is only valid for situations in which the answer will not exceed the internal storage of a long data type.
+\begin{enumerate}
+	\item[] Returns total lattice paths to the bottom right corner of an n x m grid. This function is only valid for situations in which the answer will not exceed the internal storage of a long data type.
+\end{enumerate}
+\begin{lstlisting} 
+mc dig
+\end{lstlisting}
+\begin{enumerate}
+	\item[] Simulates key strokes for continuous Minecraft diggigg. This function will press and hold the w key and the left mouse button for forward momentum whilst digging in Minecraft. This function currently only works on Windows OS.
+\end{enumerate}
+\begin{lstlisting} 
+mc explore
+\end{lstlisting}
+\begin{enumerate}
+\item[]  Explores a Minecraft map using /tp. This is for server exploration given someone with /tp power and creative mode. You can enter a range of coordinates and MIA will emulate the keystrokes to /tp over a large area in order to generate the map. This is handy when using mc server plugins such as dynmap which will display explored map areas via a web browser. This function also asks for the user to specify a time between each /tp so that it can be adapted for use on both fast and slow servers/computers. This function currently only works on Windows OS.
+\end{enumerate}
 \begin{lstlisting} 
 multiply  
 \end{lstlisting}
-Multiplies two integers of any length. Similar to add, this multiplies two strings together using a similar algorithm one would when multiplying large numbers by hand. It is possible to get results by entering non-number entries but will serve no significance due to the way MIA internally converts strings to integers by shifting the ASCII values.
+\begin{enumerate}
+	\item[] Multiplies two integers of any length. Similar to add, this multiplies two strings together using a similar algorithm one would when multiplying large numbers by hand. It is possible to get results by entering non-number entries but will serve no significance due to the way MIA internally converts strings to integers by shifting the ASCII values.
+\end{enumerate}
 \begin{lstlisting} 
 palindrome   
 \end{lstlisting}
-Determines if a positive integer is palindrome. The integer must be smaller than C++'s internal storage for the long data type.
+\begin{enumerate}
+	\item[] Determines if a positive integer is palindrome. The integer must be smaller than C++'s internal storage for the long data type.
+\end{enumerate}
 \begin{lstlisting} 
 prime   
 \end{lstlisting}
-Determines if a positive integer is prime or not. The integer must be smaller than C++'s internal storage for the long data type.
+\begin{enumerate}
+	\item[] Determines if a positive integer is prime or not. The integer must be smaller than C++'s internal storage for the long data type.
+\end{enumerate}
+\begin{lstlisting} 
+prime -help
+\end{lstlisting}
+\begin{enumerate}
+	\item[]  Displays help defailts for prime functions.
+\end{enumerate}
 \begin{lstlisting} 
 prime -f   
 \end{lstlisting}
-Determines all of the prime factors of a positive integer. The integer must be smaller than C++'s internal storage for the long data type.
+\begin{enumerate}
+	\item[] Determines all of the prime factors of a positive integer. The integer must be smaller than C++'s internal storage for the long data type.
+\end{enumerate}
 \begin{lstlisting} 
 prime -n  
 \end{lstlisting}
-Calculates the n'th prime number up to a maximum number of 2147483647.
+\begin{enumerate}
+	\item[] Calculates the n'th prime number up to a maximum number of 2147483647.
+\end{enumerate}
 \begin{lstlisting} 
 prime -n -p   
 \end{lstlisting}
-Creates a file of all prime numbers up to a maximum number of 2147483647.
+\begin{enumerate}
+	\item[] Creates a file of all prime numbers up to a maximum number of 2147483647.
+\end{enumerate}
 \begin{lstlisting} 
 prime -n -c   
 \end{lstlisting}
-Clears the file created by 'prime -n -p'.
+\begin{enumerate}
+	\item[] Clears the file created by 'prime -n -p'.
+\end{enumerate}
 \begin{lstlisting} 
 subtract   
 \end{lstlisting}
-Finds the difference between two integers of any length. Similar to add, this subtracts two strings together using a similar algorithm one would when subtracting large numbers by hand. It is possible to get results by entering non-number entries but will serve no significance due to the way MIA internally converts strings to integers by shifting the ASCII values.
+\begin{enumerate}
+	\item[] Finds the difference between two integers of any length. Similar to add, this subtracts two strings together using a similar algorithm one would when subtracting large numbers by hand. It is possible to get results by entering non-number entries but will serve no significance due to the way MIA internally converts strings to integers by shifting the ASCII values.
+\end{enumerate}
 \begin{lstlisting} 
 triangle   
 \end{lstlisting}
-Determines if a number is a triangle number or not. The integer must be smaller than C++'s internal storage for the long data type.
+\begin{enumerate}
+	\item[] Determines if a number is a triangle number or not. The integer must be smaller than C++'s internal storage for the long data type.
+\end{enumerate}
 \begin{lstlisting} 
 exit  
 \end{lstlisting}
-Quits MIA. 
+\begin{enumerate}
+	\item[] Quits MIA. 
+\end{enumerate}

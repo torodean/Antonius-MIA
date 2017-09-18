@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.11.14)  11 SEP 2017 11:16
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.11.14)  18 SEP 2017 10:45
 entering extended mode
 **MIAManual.tex
 (C:\cygwin64\home\torodean\Antonius-MIA\Documentation\MIAManual.tex
@@ -705,7 +705,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
 ] [4]
 (C:\cygwin64\home\torodean\Antonius-MIA\Documentation\TeX_files\MIAconcept.tex
- 1.
+Chapter 1.
 )
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -719,23 +719,23 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 ]
 (C:\cygwin64\home\torodean\Antonius-MIA\Documentation\TeX_files\MIAcommands.tex
- 2.
+Chapter 2.
 [2
 
 
 
-]) [3]
+] [3]) [4]
 (C:\cygwin64\home\torodean\Antonius-MIA\Documentation\TeX_files\D3CIntegration.
 tex
- 3.
-) [4
+Chapter 3.
+) [5
 
 
 
 ]
 (C:\cygwin64\home\torodean\Antonius-MIA\Documentation\TeX_files\AppendixI.tex)
 (C:\cygwin64\home\torodean\Antonius-MIA\Documentation\TeX_files\references.tex)
-[5
+[6
 
 
 
@@ -763,11 +763,11 @@ Package rerunfilecheck Info: File `MIAManual.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 43.
  ) 
 Here is how much of TeX's memory you used:
- 8765 strings out of 493921
- 125133 string characters out of 3147272
- 349329 words of memory out of 3000000
- 11862 multiletter control sequences out of 15000+200000
- 10069 words of font info for 35 fonts, out of 3000000 for 9000
+ 8780 strings out of 493921
+ 125338 string characters out of 3147272
+ 350388 words of memory out of 3000000
+ 11868 multiletter control sequences out of 15000+200000
+ 10974 words of font info for 38 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  33i,11n,49p,645b,1129s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pr
@@ -778,9 +778,9 @@ ts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
 public/amsfonts/cm/cmr9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
 fonts/cm/cmsy9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
 cmti10.pfb>
-Output written on MIAManual.pdf (9 pages, 142679 bytes).
+Output written on MIAManual.pdf (10 pages, 147371 bytes).
 PDF statistics:
- 163 PDF objects out of 1000 (max. 8388607)
- 58 named destinations out of 1000 (max. 500000)
+ 177 PDF objects out of 1000 (max. 8388607)
+ 67 named destinations out of 1000 (max. 500000)
  46 words of extra memory for PDF output out of 10000 (max. 10000000)
 
