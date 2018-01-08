@@ -45,7 +45,7 @@ class Commands{
 		
 		/* CURRENTLY ONLY WORKS ON WINDOWS */
 		void minecraftDigRunner();
-		void buttonSpamRunner();
+		void buttonSpamRunner(bool enableTab);
 		void exploreMinecraft();
 };
 #endif

@@ -397,7 +397,7 @@ void Commands::primeNumberNeraseRunner(){
 }
 
 //Spams a button a specific number of times.
-void Commands::buttonSpamRunner(){
+void Commands::buttonSpamRunner(bool enableTab){
 	#if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
 	Program prog;
 	WinKeys key;
@@ -414,13 +414,23 @@ void Commands::buttonSpamRunner(){
 	getline(std::cin, amountStr);
 	prog.blankLine();
 	
+	int pause;
+	
+	std::cout << "...How long between each key press (in ms)? ";
+	std::cin >> pause;
+	prog.blankLine();
+	
 	int amount = std::atoi(amountStr.c_str());
 	
 	std::cout << "...Preparing to spam " << button << " " << amountStr << " times." << std::endl;
 	std::cout << "...Beginning in 5 seconds." << std::endl;
 	prog.blankLine();
 
-	key.buttonSpam(button, amount);
+	if (enableTab){
+		key.buttonSpamTab(button, amount, pause);
+	} else {
+		key.buttonSpam(button, amount, pause);
+	}
 	
 	#else
 	std::cout<< "ERROR: This feature is currently only programmed for Windows." << std:: endl;

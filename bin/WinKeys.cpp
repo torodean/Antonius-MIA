@@ -10,7 +10,7 @@
 
 
 #define WINVER 0x0500
-#include <windows.h>  //Need to replace the dependance on this (basically re-write file).
+#include <windows.h>
 #include <thread>
 #include <chrono>
 #include <iostream>
@@ -708,12 +708,24 @@ void WinKeys::leftclick(){
 }
 
 //Spams a button a specific number of times.
-void WinKeys::buttonSpam(std::string button, int amount){
+void WinKeys::buttonSpam(std::string button, int amount, int pause){
 	std::this_thread::sleep_for(std::chrono::milliseconds(5000)); //Waits 5 seconds before beginning.
 	
 	for (int i=0;i<amount;i++){
 		press(button);
-		std::this_thread::sleep_for(std::chrono::milliseconds(500));
+		std::this_thread::sleep_for(std::chrono::milliseconds(pause));
+	}
+}
+
+//Spams a button a specific number of times.
+void WinKeys::buttonSpamTab(std::string button, int amount, int pause){
+	std::this_thread::sleep_for(std::chrono::milliseconds(5000)); //Waits 5 seconds before beginning.
+	
+	for (int i=0;i<amount;i++){
+		press(button);
+		std::this_thread::sleep_for(std::chrono::milliseconds(50));
+		tab();
+		std::this_thread::sleep_for(std::chrono::milliseconds(pause));
 	}
 }
 

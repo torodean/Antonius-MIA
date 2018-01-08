@@ -64,7 +64,8 @@ class WinKeys{
 		void slash();
 		void leftclick();
 		void minecraftDig(int time);
-		void buttonSpam(std::string button, int amount);
+		void buttonSpam(std::string button, int amount, int pause);
+		void buttonSpamTab(std::string button, int amount, int pause);
 		void waitTime(int input);
 };
 

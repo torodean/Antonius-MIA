@@ -124,7 +124,9 @@ int Program::commandToInputVar(std::string input){
 		output = 23;
 	} else if (input == "decrypt -d0s3"){
 		output = 24;
-	} else if (input == "test"){
+	} else if (input == "button spam -t"){
+		output = 25;
+	}else if (input == "test"){
 		output = 999999;
 	}
 	return output;
@@ -202,7 +204,7 @@ void Program::performCommand(std::string input){
 			cmd.minecraftDigRunner(); 
 			break;
 		case 20: //corresponds to the button spam command.
-			cmd.buttonSpamRunner();
+			cmd.buttonSpamRunner(false);
 			break;
 		case 21: //corresponds to the mc explore command.
 			cmd.exploreMinecraft();
@@ -215,6 +217,9 @@ void Program::performCommand(std::string input){
 			break;
 		case 24:	//corresponds to the decrypt -d0s3 command.
 			cmd.d0s3DeCryptRunner();
+			break;
+		case 25:	//corresponds to the button spam -t command.
+			cmd.buttonSpamRunner(true);
 			break;
 			
 		case 999999:
@@ -238,6 +243,7 @@ void Program::help(){
 	std::cout << "... help          | Displays a valid lists of commands." << std::endl;
 	std::cout << "... add           | Adds two positive integers of any length. " << std::endl;
 	std::cout << "... button spam   | Spams a specified button (key press)." << std::endl;
+	std::cout << "... button spam -t| Spams a specified button (key press) separated by tabs." << std::endl;
 	std::cout << "... collatz       | Produces a collatz sequence based on a starting integer." << std::endl;
 	std::cout << "... crypt -d0s1   | Encrypts a string using the d0s1 algorithm." << std::endl;
 	std::cout << "... crypt -d0s2   | Encrypts a string using the d0s2 algorithm." << std::endl;
