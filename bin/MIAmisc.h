@@ -7,13 +7,14 @@
 // Description : This header file corresponding to the MIAmisc.cpp file.
 //============================================================================
 
+#ifndef __MIAMISC_H__
+#define __MIAMISC_H__
 
-//Main constructor for the Misc class.
-Misc::Misc(){
-	
-}
-
-//Main deconstructor for the Misc class.
-Misc::~Misc(){
-	
-}
+class Misc {
+	private:
+	public:
+		Misc();
+		~Misc();
+		void printRandomLinesFromFile(std::string file, int numberOfLines);
+};
+#endif

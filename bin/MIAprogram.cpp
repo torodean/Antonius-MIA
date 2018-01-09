@@ -14,7 +14,7 @@
 #include "MIAprogram.h"
 #include "D3CEncrypt.h"
 #include "MIAcommands.h"
-#include "MIAEncrypt.h"
+#include "MIAencrypt.h"
 #include <vector>
 
 //Main program constructor.
@@ -354,8 +354,8 @@ void Program::test(){
     std::cout << "Starting test." << std::endl;
     //TODO CODE HERE
 
-    MIAEncrypt crypt(4);
-    //crypt.test();
+    MIAencrypt crypt(4);
+    crypt.test();
 	crypt.encryptFile("C:\\Users\\torodean\\test.txt", "OutputFile");
 	//std::cout << "...No test function set. " << std:: endl;
     

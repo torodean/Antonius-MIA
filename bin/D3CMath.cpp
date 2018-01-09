@@ -12,6 +12,7 @@
 #include <iostream>
 #include <sstream>
 #include <fstream>
+#include <bitset>
 #include <limits>
 #include "D3CMath.h"
 
@@ -692,6 +693,17 @@ long D3CMath::latticePathsOfSquare(long x, long y){
 
 string D3CMath::returnPrimeNlocation(){
 	return primeNlocation;
+}
+
+
+std::string intToBinaryStr(int input, int bits){
+	std::string binary = std::bitset<bits>(input).to_string(); //to binary.
+	return binary;
+}
+
+unsigned long binaryStrToInt(std::string input, int bits){
+    unsigned long decimal = std::bitset<bits>(input).to_ulong //to decimal.
+	return decimal;
 }
 
 } /* namespace std */

@@ -7,11 +7,21 @@
 // Description : This file is for miscellaneous functions in hte MIA program that don't belong elsewhere.
 //============================================================================
 
-#ifndef __MIAMISC_H__
-#define __MIAMISC_H__
+#include <string>
+#include "MIAmisc.h"
 
-class Misc {
-	private:
-	public:
-};
-#endif
+
+//Main constructor for the Misc class.
+Misc::Misc(){
+	//Chuck Norris can read all encrypted data, because nothing can hide from Chuck Norris.
+}
+
+//Main de-constructor for the Misc class.
+Misc::~Misc(){
+	//Chuck Norris can write to ROM.
+}
+
+//Takes a file as an input and prints an input number of random lines from it.
+void Misc::printRandomLinesFromFile(std::string file, int numberOfLines){
+	
+}

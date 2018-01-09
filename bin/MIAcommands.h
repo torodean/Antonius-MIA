@@ -37,6 +37,7 @@ class Commands{
 		void primeNRunner();
 		void primeNumberNpopulateRunner();
 		void primeNumberNeraseRunner();
+		void printRandomLinesFromFileRunner();
 		
 		//Functions adapted to work from the LOLA Program.
 			//Not yet added.

@@ -13,7 +13,7 @@
 #include "D3CEncryptPW.h"
 #include "MIAcommands.h"
 #include "D3CMath.h"
-#include "MIAEncrypt.h"
+#include "MIAencrypt.h"
 
 /* CURRENTLY ONLY WORKS ON WINDOWS */
 #if  defined _WIN32 || defined _WIN64 || defined __CYGWIN__
@@ -544,10 +544,12 @@ void Commands::exploreMinecraft(){
 
 void Commands::d0s3CryptRunner(){
 	Program prog;
-	MIAEncrypt crypt(3);
+	MIAencrypt crypt(3);
 	
 	std::string inputFile;
 	
+	std::cout << "...ERROR: Function still in Development." << std::endl;
+
 	std::cout << "...Please enter a file (including a full path) to be encrypted: " << std::endl;
 	prog.blankLine();
 	getline(std::cin, inputFile);
@@ -556,9 +558,13 @@ void Commands::d0s3CryptRunner(){
 }
 		
 void Commands::d0s3DeCryptRunner(){
-	
+	std::cout << "...ERROR: Function still in Development." << std::endl;
 }
 
+//In progress
+void Commands::printRandomLinesFromFileRunner(){
+	std::cout << "...ERROR: Function still in Development." << std::endl;
+}
 
 
 
