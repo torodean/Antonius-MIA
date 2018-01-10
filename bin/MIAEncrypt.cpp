@@ -424,7 +424,7 @@ std::vector<int> MIAencrypt::charVecToIntVec(std::vector<char> charVec){
 std::vector<bool> MIAencrypt::intVecToBoolVec(std::vector<int> intVec){
 	std::vector<bool> boolVec;
 	
-	intVecSize = intVec.size();
+	int intVecSize = intVec.size();
 	for(int i=0; i<intVecSize; i++){
 		
 	}

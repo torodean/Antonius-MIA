@@ -18,8 +18,8 @@
 #include <vector>
 
 //Main program constructor.
-Program::Program() : VERSION("0.028"){
-	//Chuck Norris can take a screenshot of his blue screen.
+Program::Program() : VERSION("0.029"){
+	//Chuck Norris can take a screen shot of his blue screen.
 }
 
 //Main program deconstructor.
@@ -126,7 +126,9 @@ int Program::commandToInputVar(std::string input){
 		output = 24;
 	} else if (input == "button spam -t"){
 		output = 25;
-	}else if (input == "test"){
+	} else if (input == "randfromfile"){
+		output = 26;
+	} else if (input == "test"){
 		output = 999999;
 	}
 	return output;
@@ -221,6 +223,9 @@ void Program::performCommand(std::string input){
 		case 25:	//corresponds to the button spam -t command.
 			cmd.buttonSpamRunner(true);
 			break;
+		case 26: //corresponds to the randfromfile command.
+			cmd.printRandomLinesFromFileRunner();
+			break;
 			
 		case 999999:
 			test();			
@@ -257,6 +262,7 @@ void Program::help(){
 	std::cout << "... multiply      | Multiplies two integers of any length." << std::endl;
 	std::cout << "... palindrome    | Determines if a positive integer is palindrome." << std::endl;
 	std::cout << "... prime -help   | Displays help defailts for prime functions." << std::endl;
+	std::cout << "... randfromfile  | Prints a number of random lines from a text file." << std::endl;
 	std::cout << "... subtract      | Finds the difference between two integers of any length." << std::endl;
 	std::cout << "... triangle      | Determines if a number is a triangle number or not." << std::endl;
 	std::cout << "... exit          | Quits MIA. " << std::endl;
@@ -350,6 +356,7 @@ int Program::randomInt(int min, int max, int seed){
 	return random;
 }
 
+//A function used for testing.
 void Program::test(){
     std::cout << "Starting test." << std::endl;
     //TODO CODE HERE
@@ -361,5 +368,16 @@ void Program::test(){
     
     std::cout << "Finished test." << std::endl;
 }
+
+//A function used to determine if an answer is equivalent to yes.
+bool Program::formOfYes(std::string input){
+	if (input == "y" || input == "Y" || input == "yes" || input == "Yes" || input == "YES"){
+		return true;
+	} else {
+		return false;
+	}
+}
+
+
 
 

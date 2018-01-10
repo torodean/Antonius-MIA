@@ -6,6 +6,7 @@
 // Description : MIA settings and functions related to the MIA program.
 //============================================================================
 
+#include <string>
 #ifndef __MIAPROGRAM_H__
 #define __MIAPROGRAM_H__
 
@@ -18,6 +19,7 @@ class Program{
 		Program();
 		~Program();
 		void terminal();
+		bool formOfYes(std::string input);
 		void blankDots();
 		void splash();
 		void intro();

@@ -695,17 +695,17 @@ string D3CMath::returnPrimeNlocation(){
 	return primeNlocation;
 }
 
-
-std::string intToBinaryStr(int input, int bits){
-	std::string binary = std::bitset<bits>(input).to_string(); //to binary.
+/* Still working on these.
+string intToBinaryStr(int input, int bits){
+	string binary = bitset<8>(input).to_string(); //to binary.
 	return binary;
 }
 
-unsigned long binaryStrToInt(std::string input, int bits){
-    unsigned long decimal = std::bitset<bits>(input).to_ulong //to decimal.
+unsigned long binaryStrToInt(string input, int bits){
+    unsigned long decimal = bitset<8>(input).to_ulong //to decimal.
 	return decimal;
 }
-
+*/
 } /* namespace std */
 
 

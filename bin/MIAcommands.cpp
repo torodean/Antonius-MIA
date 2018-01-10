@@ -14,6 +14,7 @@
 #include "MIAcommands.h"
 #include "D3CMath.h"
 #include "MIAencrypt.h"
+#include "MIAmisc.h"
 
 /* CURRENTLY ONLY WORKS ON WINDOWS */
 #if  defined _WIN32 || defined _WIN64 || defined __CYGWIN__
@@ -459,7 +460,7 @@ void Commands::minecraftDigRunner(){
 	#endif
 }
 
-//used to explore a minecraft map given that the user is gamemode 1.
+//used to explore a minecraft map given that the user is gamemode=1.
 void Commands::exploreMinecraft(){
 	#if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
 	Program prog;
@@ -548,9 +549,9 @@ void Commands::d0s3CryptRunner(){
 	
 	std::string inputFile;
 	
-	std::cout << "...ERROR: Function still in Development." << std::endl;
+	std::cout << "...ERROR 31415: Function still in Development." << std::endl;
 
-	std::cout << "...Please enter a file (including a full path) to be encrypted: " << std::endl;
+	std::cout << "...Please enter a file (using default file path) to be encrypted: " << std::endl;
 	prog.blankLine();
 	getline(std::cin, inputFile);
 	
@@ -558,12 +559,30 @@ void Commands::d0s3CryptRunner(){
 }
 		
 void Commands::d0s3DeCryptRunner(){
-	std::cout << "...ERROR: Function still in Development." << std::endl;
+	std::cout << "...ERROR 31415: Function still in Development." << std::endl;
 }
 
 //In progress
-void Commands::printRandomLinesFromFileRunner(){
-	std::cout << "...ERROR: Function still in Development." << std::endl;
+void Commands::printRandomLinesFromFileRunner(){	
+	Program prog;
+	Misc misc;
+	
+	int lines;
+	std::cout << "...How many random lines would you like to print from a file? ";
+	std::cin >> lines;
+	std::cin.ignore();
+	prog.blankLine();
+
+	std::string answer;
+	std::cout << "...Would you like to use default input file path? (y/n): ";
+	getline(std::cin, answer);
+	prog.blankLine();
+	
+	if(prog.formOfYes(answer)){
+		misc.printRandomLinesFromFile(true, lines);
+	} else {
+		misc.printRandomLinesFromFile(false, lines);
+	}
 }
 
 

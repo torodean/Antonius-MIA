@@ -45,8 +45,8 @@ public:
     string productCollatzSequence(long n);
     long latticePathsOfSquare(long x, long y);
 	
-	std::string intToBinaryStr(int input, int bits);
-	unsigned long binaryStrToInt(std::string input, int bits);
+	//std::string intToBinaryStr(int input, int bits);
+	//unsigned long binaryStrToInt(std::string input, int bits);
     virtual ~D3CMath();
 };
 

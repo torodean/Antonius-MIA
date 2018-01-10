@@ -7,14 +7,16 @@
 // Description : This header file corresponding to the MIAmisc.cpp file.
 //============================================================================
 
+#include <string>
 #ifndef __MIAMISC_H__
 #define __MIAMISC_H__
 
 class Misc {
 	private:
+		std::string defaultInputFilePath = "../bin/Resources/InputFiles/";
 	public:
 		Misc();
 		~Misc();
-		void printRandomLinesFromFile(std::string file, int numberOfLines);
+		void printRandomLinesFromFile(bool useFefaultPath, int numberOfLines);
 };
 #endif
