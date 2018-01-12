@@ -1,0 +1,17 @@
+#============================================================================
+# Name        : Settings.txt
+# Author      : Antonius Torode
+# Date        : 1/10/18
+# Copyright   : This file can be used under the conditions of Antonius' 
+#				 General Purpose License (AGPL).
+# Description : MIA settings for program initialization.
+#============================================================================
+
+# Create a commented line using the '#' character.
+# This file must be of the proper format to work with MIA.
+# Create a setting parameter using 'settingVariable=value'.
+# Do not include spaces unless within a string variable. 
+# This means, do not do variable= text unless you intend to have " text" be the variable value.
+
+defaultInputFilePath=../bin/Resources/InputFiles/
+defaultCryptFilePath=../bin/Resources/EncryptedFiles/

@@ -1,6 +1,7 @@
 //============================================================================
 // Name        : MIAcommands.h
 // Author      : Antonius Torode
+// Date        : 2017
 // Copyright   : This file can be used under the conditions of Antonius' 
 //				 General Purpose License (AGPL).
 // Description : Header file for MIAcommands.cpp
@@ -43,10 +44,10 @@ class Commands{
 			//Not yet added.
 		
 		//Functions adapted to work from the old VKK program.
-		
-		/* CURRENTLY ONLY WORKS ON WINDOWS */
+		//Currently only useful on Windows.
 		void minecraftDigRunner();
 		void buttonSpamRunner(bool enableTab);
 		void exploreMinecraft();
+		void duplicateLetterRunner();
 };
 #endif

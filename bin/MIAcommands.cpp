@@ -1,6 +1,7 @@
 //============================================================================
 // Name        : MIAcommands.cpp
 // Author      : Antonius Torode
+// Date        : 2017
 // Copyright   : This file can be used under the conditions of Antonius' 
 //				 General Purpose License (AGPL).
 // Description : MIA commands and their respective runners.
@@ -434,7 +435,7 @@ void Commands::buttonSpamRunner(bool enableTab){
 	}
 	
 	#else
-	std::cout<< "ERROR: This feature is currently only programmed for Windows." << std:: endl;
+	prog.returnError(31416);
 	#endif
 }
 
@@ -456,7 +457,7 @@ void Commands::minecraftDigRunner(){
 	key.minecraftDig(time);
 	
 	#else
-	std::cout<< "ERROR: This feature is currently only programmed for Windows." << std:: endl;
+	prog.returnError(31416);
 	#endif
 }
 
@@ -538,18 +539,51 @@ void Commands::exploreMinecraft(){
 	}
 	
 	#else
-	std::cout<< "ERROR: This feature is currently only programmed for Windows." << std:: endl;
+	prog.returnError(31416);
 	#endif
 }
 
+//Runs the duplicate letter function which is useful for World of Warcraft.
+void Commands::duplicateLetterRunner(){
+	#if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
+	Program prog;
+	WinKeys keys;
+	
+	std::cout << "...INSTRUCTIONS: Please have the contents of the letter copied to your clipboard." << std::endl;
+	std::cout << "...INSTRUCTIONS: After entering final parameters, move mouse curser to the WoW 'send' button." << std::endl;
 
+	prog.blankLine();
+	
+	int copies;
+	std::cout << "...Please enter the number of letters you want duplicated: ";
+	std::cin >> copies;
+	std::cin.ignore();
+	prog.blankLine();
+	
+	std::string recipient;
+	std::cout << "...Please enter the recipient you want the letters sent to: ";
+	std::getline(std::cin, recipient);
+	prog.blankLine();
+	
+	std::cout << "...Beginning in 5000 milliseconds (5s)." << std::endl;
+	prog.blankLine();
+	keys.duplicateLetter(copies, recipient);
+	
+	std::cout << "...Finished duplicating letters." << std::endl;
+	
+	#else
+	prog.returnError(31416);
+	#endif
+}
+
+//Runs d0s3 encryption
 void Commands::d0s3CryptRunner(){
 	Program prog;
 	MIAencrypt crypt(3);
 	
 	std::string inputFile;
 	
-	std::cout << "...ERROR 31415: Function still in Development." << std::endl;
+	prog.returnError(31415);
 
 	std::cout << "...Please enter a file (using default file path) to be encrypted: " << std::endl;
 	prog.blankLine();
@@ -557,12 +591,14 @@ void Commands::d0s3CryptRunner(){
 	
 	crypt.encryptFile(inputFile, "OutputFile");
 }
-		
+	
+//runs d0s3 decryption.	
 void Commands::d0s3DeCryptRunner(){
-	std::cout << "...ERROR 31415: Function still in Development." << std::endl;
+	Program prog;
+	prog.returnError(31415);
 }
 
-//In progress
+//Prints a number of random lines from a text file. The user specifies the file and number of lines.
 void Commands::printRandomLinesFromFileRunner(){	
 	Program prog;
 	Misc misc;

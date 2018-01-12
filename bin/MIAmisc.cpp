@@ -20,12 +20,12 @@ Misc::Misc(){
 	//Chuck Norris can read all encrypted data, because nothing can hide from Chuck Norris.
 }
 
-//Main de-constructor for the Misc class.
+//Main deconstructor for the Misc class.
 Misc::~Misc(){
 	//Chuck Norris can write to ROM.
 }
 
-//Takes a file as an input and prints an input number of random lines from it. Still in Development. 
+//Takes a file as an input and prints an input number of random lines from it. 
 void Misc::printRandomLinesFromFile(bool useDefaultPath, int numberOfLines){
 	Program prog;
 	
@@ -36,7 +36,7 @@ void Misc::printRandomLinesFromFile(bool useDefaultPath, int numberOfLines){
 	if (useDefaultPath){
 		std::cout << "...Please enter an input file: ";
 		getline(std::cin, fileName);
-		fullPath = defaultInputFilePath + fileName;
+		fullPath = prog.getDefaultInputFilePath() + fileName;
 		prog.blankLine();
 	} else {
 		std::cout << "...Please enter an input file (full path included): ";

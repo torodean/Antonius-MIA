@@ -13,10 +13,11 @@
 
 class Misc {
 	private:
-		std::string defaultInputFilePath = "../bin/Resources/InputFiles/";
 	public:
 		Misc();
 		~Misc();
+		
+		//Misc functions.
 		void printRandomLinesFromFile(bool useFefaultPath, int numberOfLines);
 };
 #endif

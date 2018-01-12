@@ -1,6 +1,7 @@
 //============================================================================
 // Name        : MIAprogram.cpp
 // Author      : Antonius Torode
+// Date        : 2017
 // Copyright   : This file can be used under the conditions of Antonius' 
 //				 General Purpose License (AGPL).
 // Description : MIA settings and functions related to the MIA program.
@@ -25,6 +26,40 @@ Program::Program() : VERSION("0.029"){
 //Main program deconstructor.
 Program::~Program(){
 	//When Chuck Norris throws exceptions, it's across the room.
+}
+
+//This function is for loading in the settings file. Still in Development.
+void Program::initializeSettings(bool printSettings){
+	//grabs the MIAsettings file.
+	std::string fileName = "../bin/Resources/MIAsettings.txt";
+	std::ifstream file(fileName,std::ifstream::in);
+	
+	//Checks if the file exists and runs the code.
+	if (file.good()){
+		std::string line;
+		std::vector<std::string> lines;
+
+		if (printSettings){
+			std::cout << std::endl << "Settings file output: " << std::endl;
+		}
+		while(std::getline(file,line)){
+			if (line[0] != '#' && line != "" && !line.empty() && line.size()>2){
+				if(printSettings){
+					std::cout << line << std::endl;
+				}
+			}
+			lines.push_back(line);
+		}
+		if(printSettings){
+			std::cout << std::endl;
+		}
+		int size = lines.size();
+		for (int i=0; i<size;i++){
+			
+		}
+	} else {
+		std::cout << "ERROR 404: MIAsettings file not found." << std::endl;
+	}
 }
 
 //Displays the MIA splash screen.
@@ -128,6 +163,8 @@ int Program::commandToInputVar(std::string input){
 		output = 25;
 	} else if (input == "randfromfile"){
 		output = 26;
+	} else if (input == "wow dup letter"){
+		output = 27;
 	} else if (input == "test"){
 		output = 999999;
 	}
@@ -226,6 +263,9 @@ void Program::performCommand(std::string input){
 		case 26: //corresponds to the randfromfile command.
 			cmd.printRandomLinesFromFileRunner();
 			break;
+		case 27: //corresponds to the wow dup letter command.
+			cmd.duplicateLetterRunner();
+			break;
 			
 		case 999999:
 			test();			
@@ -265,6 +305,7 @@ void Program::help(){
 	std::cout << "... randfromfile  | Prints a number of random lines from a text file." << std::endl;
 	std::cout << "... subtract      | Finds the difference between two integers of any length." << std::endl;
 	std::cout << "... triangle      | Determines if a number is a triangle number or not." << std::endl;
+	std::cout << "... wow dup letter| Duplicates a letter in WoW a specified number of times." << std::endl;
 	std::cout << "... exit          | Quits MIA. " << std::endl;
 }
 
@@ -284,7 +325,7 @@ bool Program::excuse(){
 	int random = randomInt(1,100, 0);
 	std::string txt;
 	
-	if (random >= 40){	
+	if (random >= 20){	
 		blankLine();
 		std::cout << "...Sorry, I can't do that (Invalid command entered). " << std::endl;
 		
@@ -335,6 +376,7 @@ void Program::blankLine(){
 
 //Main user interface for MIA.
 void Program::terminal(){
+	initializeSettings(false);
 	splash();
 	intro();
 	standby();
@@ -375,6 +417,31 @@ bool Program::formOfYes(std::string input){
 		return true;
 	} else {
 		return false;
+	}
+}
+
+//Returns defaultInputFilePath.
+std::string Program::getDefaultInputFilePath(){
+	return defaultInputFilePath;
+}
+
+//Returns defaultCryptFilePath.
+std::string Program::getDefaultCryptFilePath(){
+	return defaultCryptFilePath;
+}
+
+//Function used for displaying error information.
+void Program::returnError(int errorCode){
+	switch(errorCode){
+		case 404: 
+			std::cout << "...ERROR 404: File not found." << std::endl;
+			break;
+		case 31415:
+			std::cout << "...ERROR 31415: Function still in Development." << std::endl;
+			break;
+		case 31416:
+			std::cout << "...ERROR 31416: This feature is currently only programmed for Windows." << std:: endl;
+			break;
 	}
 }
 

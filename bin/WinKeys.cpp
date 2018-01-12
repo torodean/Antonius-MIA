@@ -20,7 +20,6 @@
 using namespace std;
 
 INPUT ip;
-int globalSleep = 50;
 
 WinKeys::WinKeys(){
 
@@ -807,6 +806,25 @@ void WinKeys::slash(){
     SendInput(1, &ip, sizeof(INPUT));
 
     std::this_thread::sleep_for(std::chrono::milliseconds(globalSleep));
+}
+
+//Used for duplicating a letter in WoW. Useful for creating RP events.
+void WinKeys::duplicateLetter(int copies, std::string recipient){
+    std::this_thread::sleep_for(std::chrono::milliseconds(5000));
+    for(int i=0;i<copies;i++){
+        type(recipient);
+        Sleep(200);
+        tab();
+        Sleep(200);
+        type("subject");
+        Sleep(200);
+        tab();
+        Sleep(200);
+        paste();
+        Sleep(200);
+        leftclick();
+        Sleep(1500);
+    }
 }
 
 

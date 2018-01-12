@@ -11,8 +11,12 @@
 #define WINKEYS_H
 
 class WinKeys{
+	private:
+		int globalSleep = 50;
 	public:
 		WinKeys();
+		
+		//Keys.
 		void one();
 		void two();
 		void three();
@@ -63,9 +67,18 @@ class WinKeys{
 		void backslash();
 		void slash();
 		void leftclick();
-		void minecraftDig(int time);
+		
+		//Functions using the key presses.
 		void buttonSpam(std::string button, int amount, int pause);
 		void buttonSpamTab(std::string button, int amount, int pause);
+		
+		//functions relating to minecraft.
+		void minecraftDig(int time);
+		
+		//functions relating to World of Warcraft
+		void duplicateLetter(int copies, std::string recipient);
+		
+		//Other useful functions.
 		void waitTime(int input);
 };
 

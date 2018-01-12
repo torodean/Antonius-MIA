@@ -114,7 +114,7 @@ void Mage::normalRotation(){
 //=========================== MAGE SPELLS ==============================//
 //======================================================================//
 
-void Mage::castFrostBolt(){ //represented by teh 3 key.
+void Mage::castFrostBolt(){ //represented by the 3 key.
     // Press the "3" key
     ip.ki.wVk = 0x33; // virtual-key code for the "3" key
     ip.ki.dwFlags = 0; // 0 for key press

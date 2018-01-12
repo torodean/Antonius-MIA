@@ -357,9 +357,10 @@ void MIAencrypt::passphraseToCombination(std::string passphrase){
 
 //Encrypts a file. NOT YET WORKING/FINISED.
 void MIAencrypt::encryptFile(std::string file, std::string fileName){
-	std::string outputFile = cryptPath + fileName + ".d0s3";
+	Program prog;
+	std::string outputFile = prog.getDefaultCryptFilePath() + fileName + ".d0s3";
 	
-	std::ifstream input( cryptPath  + file, std::ios::binary );
+	std::ifstream input( prog.getDefaultCryptFilePath()  + file, std::ios::binary );
 	std::ofstream output( outputFile, std::ios::binary );
 	
 	/* Copy's a file to the output file - same file but different name.
@@ -387,7 +388,9 @@ void MIAencrypt::encryptFile(std::string file, std::string fileName){
 
 //Converts a text file to a vector of characters.
 std::vector<char> MIAencrypt::fileToCharVec(std::string file){
-	std::ifstream input( cryptPath  + file, std::ios::binary );
+	Program prog;
+	
+	std::ifstream input( prog.getDefaultCryptFilePath()  + file, std::ios::binary );
 	
 	std::vector<char> charVec((std::istreambuf_iterator<char>(input)), (std::istreambuf_iterator<char>()));
 	

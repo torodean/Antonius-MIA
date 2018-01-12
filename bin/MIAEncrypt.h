@@ -17,7 +17,6 @@ class MIAencrypt{
 		int cubeSize;
         std::vector< std::vector< std::vector<int> > > intCube;
 		std::vector< std::vector< std::vector< std::vector<int> > > > tesseract;
-		std::string cryptPath = "../bin/Resources/EncryptedFiles/";
 		int totalRotations;
 		std::vector<int> combination;
 		

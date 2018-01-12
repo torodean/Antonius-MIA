@@ -187,7 +187,8 @@ void MainWindow::on_pushButton_6_clicked()
                 if(7*m*x-35*m*y+3*x-26*y==0 && 35*m+26-x*n1 == 0 && 7*m+3-y*n2==0 ){
 					std::cout << "m: " << m << ", ";
 					std::cout << "x: " << x << ", ";
-					std::cout << "y: " << y << std::endl; std::cout << "n1: " << n1 << ", " << "n2: " << n2 << std::endl;
+					std::cout << "y: " << y << std::endl; 
+					std::cout << "n1: " << n1 << ", " << "n2: " << n2 << std::endl;
                 }
                 m=-m;
                 n1=(35*m+26)/x;
@@ -195,7 +196,8 @@ void MainWindow::on_pushButton_6_clicked()
                 if(7*m*x-35*m*y+3*x-26*y==0 && 35*m+26-x*n1 == 0 && 7*m+3-y*n2==0 ){
 					std::cout << "m: " << m << ", ";
 					std::cout << "x: " << x << ", ";
-					std::cout << "y: " << y << std::endl; std::cout << "n1: " << n1 << ", " << "n2: " << n2 << std::endl;
+					std::cout << "y: " << y << std::endl; 
+					std::cout << "n1: " << n1 << ", " << "n2: " << n2 << std::endl;
                 }
                 x=-x;
                 n1=(35*m+26)/x;
@@ -203,7 +205,8 @@ void MainWindow::on_pushButton_6_clicked()
                 if(7*m*x-35*m*y+3*x-26*y==0 && 35*m+26-x*n1 == 0 && 7*m+3-y*n2==0 ){
 					std::cout << "m: " << m << ", ";
 					std::cout << "x: " << x << ", ";
-					std::cout << "y: " << y << std::endl; std::cout << "n1: " << n1 << ", " << "n2: " << n2 << std::endl;
+					std::cout << "y: " << y << std::endl; 
+					std::cout << "n1: " << n1 << ", " << "n2: " << n2 << std::endl;
                 }
                 y=-y;
                 n1=(35*m+26)/x;
@@ -211,7 +214,8 @@ void MainWindow::on_pushButton_6_clicked()
                 if(7*m*x-35*m*y+3*x-26*y==0 && 35*m+26-x*n1 == 0 && 7*m+3-y*n2==0 ){
 					std::cout << "m: " << m << ", ";
 					std::cout << "x: " << x << ", ";
-					std::cout << "y: " << y << std::endl; std::cout << "n1: " << n1 << ", " << "n2: " << n2 << std::endl;
+					std::cout << "y: " << y << std::endl; 
+					std::cout << "n1: " << n1 << ", " << "n2: " << n2 << std::endl;
                 }
                 x=-x;
                 n1=(35*m+26)/x;
@@ -219,7 +223,8 @@ void MainWindow::on_pushButton_6_clicked()
                 if(7*m*x-35*m*y+3*x-26*y==0 && 35*m+26-x*n1 == 0 && 7*m+3-y*n2==0 ){
 					std::cout << "m: " << m << ", ";
 					std::cout << "x: " << x << ", ";
-					std::cout << "y: " << y << std::endl; std::cout << "n1: " << n1 << ", " << "n2: " << n2 << std::endl;
+					std::cout << "y: " << y << std::endl; 
+					std::cout << "n1: " << n1 << ", " << "n2: " << n2 << std::endl;
                 }
                 m=-m; x=-x; y=-y;
                 n1=(35*m+26)/x;
@@ -227,7 +232,8 @@ void MainWindow::on_pushButton_6_clicked()
                 if(7*m*x-35*m*y+3*x-26*y==0 && 35*m+26-x*n1 == 0 && 7*m+3-y*n2==0 ){
 					std::cout << "m: " << m << ", ";
 					std::cout << "x: " << x << ", ";
-					std::cout << "y: " << y << std::endl; std::cout << "n1: " << n1 << ", " << "n2: " << n2 << std::endl;
+					std::cout << "y: " << y << std::endl; 
+					std::cout << "n1: " << n1 << ", " << "n2: " << n2 << std::endl;
                 }
                 y=-y;
                 n1=(35*m+26)/x;
@@ -235,7 +241,8 @@ void MainWindow::on_pushButton_6_clicked()
                 if(7*m*x-35*m*y+3*x-26*y==0 && 35*m+26-x*n1 == 0 && 7*m+3-y*n2==0 ){
 					std::cout << "m: " << m << ", ";
 					std::cout << "x: " << x << ", ";
-					std::cout << "y: " << y << std::endl; std::cout << "n1: " << n1 << ", " << "n2: " << n2 << std::endl;
+					std::cout << "y: " << y << std::endl; 
+					std::cout << "n1: " << n1 << ", " << "n2: " << n2 << std::endl;
                 }
                 x=-x;
                 n1=(35*m+26)/x;
@@ -243,7 +250,8 @@ void MainWindow::on_pushButton_6_clicked()
                 if(7*m*x-35*m*y+3*x-26*y==0 && 35*m+26-x*n1 == 0 && 7*m+3-y*n2==0 ){
 					std::cout << "m: " << m << ", ";
 					std::cout << "x: " << x << ", ";
-					std::cout << "y: " << y << std::endl; std::cout << "n1: " << n1 << ", " << "n2: " << n2 << std::endl;
+					std::cout << "y: " << y << std::endl; 
+					std::cout << "n1: " << n1 << ", " << "n2: " << n2 << std::endl;
                 }
                 y=-y;
             }
