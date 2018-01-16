@@ -52,8 +52,8 @@ MIAMisc.o: MIAMisc.cpp MIAMisc.h
 
 #make clean - removes object files.
 clean:
-	rm -f *o MIA
+	rm -f *o MIA*
 
 #make obj_clean - For removing only the object files but keeping the executable.
-obj_clean:
-	rm -f *o
+cleanup:
+	rm -f *o MIA.exe.*
