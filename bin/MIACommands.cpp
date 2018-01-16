@@ -646,5 +646,9 @@ void Commands::solveQuadraticFormulaRunner(){
 	std::cout << "...The solution is: " << ans << std::endl;
 }
 
-
+void Commands::pranjal(){
+	Misc misc;
+	std::string output = misc.shuffleString("pranjal");
+	std::cout << "Did you mean " << output << "?" << std::endl;
+}
 

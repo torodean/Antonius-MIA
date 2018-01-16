@@ -50,5 +50,8 @@ class Commands{
 		void buttonSpamRunner(bool enableTab);
 		void exploreMinecraft();
 		void duplicateLetterRunner();
+		
+		//Misc functions
+		void pranjal();
 };
 #endif

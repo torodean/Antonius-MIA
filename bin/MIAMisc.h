@@ -19,5 +19,6 @@ class Misc {
 		
 		//Misc functions.
 		void printRandomLinesFromFile(bool useFefaultPath, int numberOfLines);
+		std::string shuffleString(std::string input);
 };
 #endif

@@ -168,7 +168,9 @@ int Program::commandToInputVar(std::string input){
 		output = 27;
 	} else if (input == "quadratic form"){
 		output = 28;
-	} else if (input == "test"){
+	} else if (input == "pranjal"){
+		output = 29;
+	}else if (input == "test"){
 		output = 999999;
 	}
 	return output;
@@ -271,6 +273,9 @@ void Program::performCommand(std::string input){
 			break;
 		case 28: //corresponds to the wow dup letter command.
 			cmd.solveQuadraticFormulaRunner();
+			break;
+		case 29: //corresponds to the pranjal command.
+			cmd.pranjal();
 			break;
 			
 		case 999999:

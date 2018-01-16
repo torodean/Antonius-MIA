@@ -7,6 +7,7 @@
 // Description : This file is for miscellaneous functions in hte MIA program that don't belong elsewhere.
 //============================================================================
 
+#include <algorithm>
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -69,4 +70,11 @@ void Misc::printRandomLinesFromFile(bool useDefaultPath, int numberOfLines){
 	} else {
 		std::cout << "ERROR 404: File not found." << std::endl;
 	}
+}
+
+//Returns a shuffled string.
+std::string Misc::shuffleString(std::string input){
+	std::string output = input;
+	std::random_shuffle(output.begin(), output.end());
+	return output;
 }
