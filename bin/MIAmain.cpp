@@ -1,12 +1,12 @@
 //============================================================================
-// Name        : MIAmain.cpp
+// Name        : MIAMain.cpp
 // Author      : Antonius Torode
 // Copyright   : This file can be used under the conditions of Antonius' 
 //				 General Purpose License (AGPL).
 // Description : MIA main Program Interface and Runner.
 //============================================================================
 
-#include "MIAprogram.h"
+#include "MIAProgram.h"
 
 //Runs the main MIA program.
 int main(){

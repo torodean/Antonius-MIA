@@ -1,5 +1,5 @@
 //============================================================================
-// Name        : MIAprogram.cpp
+// Name        : MIAProgram.cpp
 // Author      : Antonius Torode
 // Date        : 2017
 // Copyright   : This file can be used under the conditions of Antonius' 
@@ -12,11 +12,11 @@
 #include <cctype>
 #include <time.h>
 #include <fstream>
-#include "MIAprogram.h"
+#include "MIAProgram.h"
 #include "D3CEncrypt.h"
 #include "D3CMath.h"
-#include "MIAcommands.h"
-#include "MIAencrypt.h"
+#include "MIACommands.h"
+#include "MIAEncrypt.h"
 #include <vector>
 
 //Main program constructor.

@@ -1,5 +1,5 @@
 //============================================================================
-// Name        : MIAprogram.h
+// Name        : MIAProgram.h
 // Author      : Antonius Torode
 // Date        : 2017
 // Copyright   : This file can be used under the conditions of Antonius' 

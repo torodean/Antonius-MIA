@@ -16,40 +16,40 @@ CFLAGS=-c -Wall -std=c++14
 all: MIA 
 
 #make the object files
-MIA: MIAmain.o MIAprogram.o MIAcommands.o D3CEncrypt.o D3CEncryptPW.o D3CMath.o MIAencrypt.o MIAmisc.o WinKeys.o
-	$(CC) MIAmain.o MIAprogram.o MIAcommands.o D3CEncrypt.o D3CEncryptPW.o D3CMath.o MIAencrypt.o MIAmisc.o WinKeys.o  -o MIA
-	
-MIAmain.o: MIAmain.cpp MIAprogram.h
-	$(CC) $(CFLAGS) MIAmain.cpp
-	
-MIAprogram.o: MIAprogram.cpp MIAprogram.h D3CEncrypt.h MIAcommands.h MIAencrypt.h
-	$(CC) $(CFLAGS) MIAprogram.cpp
-	
-MIAcommands.o: MIAcommands.cpp MIAprogram.h D3CEncrypt.h D3CEncryptPW.h MIAcommands.h D3CMath.h MIAencrypt.h
-	$(CC) $(CFLAGS) MIAcommands.cpp
-	
+MIA: MIAMain.o MIAProgram.o MIACommands.o D3CEncrypt.o D3CEncryptPW.o D3CMath.o MIAEncrypt.o MIAMisc.o WinKeys.o
+	$(CC) MIAMain.o MIAProgram.o MIACommands.o D3CEncrypt.o D3CEncryptPW.o D3CMath.o MIAEncrypt.o MIAMisc.o WinKeys.o  -o MIA
+
+MIAMain.o: MIAMain.cpp MIAProgram.h
+	$(CC) $(CFLAGS) MIAMain.cpp
+
+MIAProgram.o: MIAProgram.cpp MIAProgram.h D3CEncrypt.h MIACommands.h MIAEncrypt.h
+	$(CC) $(CFLAGS) MIAProgram.cpp
+
+MIACommands.o: MIACommands.cpp MIAProgram.h D3CEncrypt.h D3CEncryptPW.h MIACommands.h D3CMath.h MIAEncrypt.h
+	$(CC) $(CFLAGS) MIACommands.cpp
+
 D3CEncrypt.o: D3CEncrypt.cpp D3CEncrypt.h
 	$(CC) $(CFLAGS) D3CEncrypt.cpp
-	
+
 D3CEncryptPW.o: D3CEncryptPW.cpp D3CEncrypt.h D3CEncryptPW.h
 	$(CC) $(CFLAGS) D3CEncryptPW.cpp
-	
+
 D3CMath.o: D3CMath.cpp D3CMath.h
 	$(CC) $(CFLAGS) D3CMath.cpp
-	
-MIAencrypt.o: MIAencrypt.cpp MIAencrypt.h MIAprogram.h
-	$(CC) $(CFLAGS) MIAencrypt.cpp
-	
+
+MIAEncrypt.o: MIAEncrypt.cpp MIAEncrypt.h MIAProgram.h
+	$(CC) $(CFLAGS) MIAEncrypt.cpp
+
 WinKeys.o: WinKeys.cpp WinKeys.h
 	$(CC) $(CFLAGS) WinKeys.cpp
-	
-MIAmisc.o: MIAmisc.cpp MIAmisc.h
-	$(CC) $(CFLAGS) MIAmisc.cpp
-	
+
+MIAMisc.o: MIAMisc.cpp MIAMisc.h
+	$(CC) $(CFLAGS) MIAMisc.cpp
+
 #make clean - removes object files.
 clean:
 	rm -f *o MIA
-	
+
 #make obj_clean - For removing only the object files but keeping the executable.
 obj_clean:
 	rm -f *o

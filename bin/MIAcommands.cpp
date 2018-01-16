@@ -1,5 +1,5 @@
 //============================================================================
-// Name        : MIAcommands.cpp
+// Name        : MIACommands.cpp
 // Author      : Antonius Torode
 // Date        : 2017
 // Copyright   : This file can be used under the conditions of Antonius' 
@@ -12,10 +12,10 @@
 #include "MIAprogram.h"
 #include "D3CEncrypt.h"
 #include "D3CEncryptPW.h"
-#include "MIAcommands.h"
+#include "MIACommands.h"
 #include "D3CMath.h"
-#include "MIAencrypt.h"
-#include "MIAmisc.h"
+#include "MIAEncrypt.h"
+#include "MIAMisc.h"
 
 /* CURRENTLY ONLY WORKS ON WINDOWS */
 #if  defined _WIN32 || defined _WIN64 || defined __CYGWIN__
@@ -579,7 +579,7 @@ void Commands::duplicateLetterRunner(){
 //Runs d0s3 encryption
 void Commands::d0s3CryptRunner(){
 	Program prog;
-	MIAencrypt crypt(3);
+	MIAEncrypt crypt(3);
 	
 	std::string inputFile;
 	

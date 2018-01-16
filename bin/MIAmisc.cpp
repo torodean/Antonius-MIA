@@ -11,8 +11,8 @@
 #include <fstream>
 #include <string>
 #include <vector>
-#include "MIAmisc.h"
-#include "MIAprogram.h"
+#include "MIAMisc.h"
+#include "MIAProgram.h"
 
 
 //Main constructor for the Misc class.

@@ -1,5 +1,5 @@
 //============================================================================
-// Name        : MIAencrypt.h
+// Name        : MIAEncrypt.h
 // Author      : Antonius Torode
 // Copyright   : This file can be used under the conditions of Antonius' 
 //				 General Purpose License (AGPL).
@@ -12,7 +12,7 @@
 #include <string>
 #include <vector>
 
-class MIAencrypt{
+class MIAEncrypt{
 	private:
 		int cubeSize;
         std::vector< std::vector< std::vector<int> > > intCube;
@@ -21,8 +21,8 @@ class MIAencrypt{
 		std::vector<int> combination;
 		
 	public:
-		MIAencrypt(int cSize);
-		~MIAencrypt();
+		MIAEncrypt(int cSize);
+		~MIAEncrypt();
 	
 		//Miscellaneous Actions.
 		void encryptFile(std::string file, std::string fileName);

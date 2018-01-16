@@ -1,5 +1,5 @@
 //============================================================================
-// Name        : MIAmisc.h
+// Name        : MIAMisc.h
 // Author      : Antonius Torode
 // Copyright   : This file can be used under the conditions of Antonius' 
 //				 General Purpose License (AGPL).

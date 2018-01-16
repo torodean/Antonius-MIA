@@ -1,5 +1,5 @@
 //============================================================================
-// Name        : MIAencrypt.cpp
+// Name        : MIAEncrypt.cpp
 // Author      : Antonius Torode
 // Copyright   : This file can be used under the conditions of Antonius' 
 //				 General Purpose License (AGPL).
@@ -8,20 +8,20 @@
 //				 encryption algorithm. It Is made to encrypt any file.
 //============================================================================
 
-#include "MIAencrypt.h"
-#include "MIAprogram.h"
+#include "MIAEncrypt.h"
+#include "MIAProgram.h"
 #include <iostream>
 #include <vector>
 #include <fstream>
 
-//Main constructor for the MIAencrypt algorithm.
-MIAencrypt::MIAencrypt(int cSize): cubeSize(cSize), intCube(cubeSize, std::vector<std::vector<int>>(cubeSize, std::vector<int>(cubeSize, 0) ) ), 
+//Main constructor for the MIAEncrypt algorithm.
+MIAEncrypt::MIAEncrypt(int cSize): cubeSize(cSize), intCube(cubeSize, std::vector<std::vector<int>>(cubeSize, std::vector<int>(cubeSize, 0) ) ), 
 		tesseract(8, intCube), totalRotations(3*2*cubeSize), combination(totalRotations, 0){
 	//When Chuck Norris's code fails to compile, the computer apologizes.
 }
 
-//Main de-onstructor for the MIAencrypt algorithm.
-MIAencrypt::~MIAencrypt(){
+//Main de-onstructor for the MIAEncrypt algorithm.
+MIAEncrypt::~MIAEncrypt(){
 	//Chuck Norris can stop an infinite loop just by thinking about it.
 }
 
@@ -29,7 +29,7 @@ MIAencrypt::~MIAencrypt(){
 //===== N*N*N Cuboidal Combinatorial rotations =====
 //==================================================
 
-void MIAencrypt::test(){
+void MIAEncrypt::test(){
 	std::vector< std::vector< std::vector<int>>> testCube = intCube;
 	for(int i=0;i<cubeSize;i++){
 		for(int j=0;j<cubeSize;j++){
@@ -163,7 +163,7 @@ void MIAencrypt::test(){
 }
 
 //Rotates part of a intCube (side length n) while keeping one side constant in either a clockwize or counterclockwise direction.
-std::vector< std::vector< std::vector<int>>> MIAencrypt::rotation(std::vector< std::vector< std::vector<int>>> inputCube, char side, int index, bool CW){
+std::vector< std::vector< std::vector<int>>> MIAEncrypt::rotation(std::vector< std::vector< std::vector<int>>> inputCube, char side, int index, bool CW){
 	std::vector< std::vector< std::vector<int>>> cubeNew = inputCube;
 
 	if (side == 'x'){ //keep the x coordinate the same.
@@ -214,7 +214,7 @@ std::vector< std::vector< std::vector<int>>> MIAencrypt::rotation(std::vector< s
 }
 
 //Prints the components of a intCube in a format assuming each element has the same length.
-void MIAencrypt::printCube(std::vector< std::vector< std::vector<int>>> inputCube){	
+void MIAEncrypt::printCube(std::vector< std::vector< std::vector<int>>> inputCube){	
 	std::cout << std::endl;
 	for(int k=cubeSize-1; k>=0; k--){
 		for(int j=cubeSize-1; j>=0; j--){
@@ -231,7 +231,7 @@ void MIAencrypt::printCube(std::vector< std::vector< std::vector<int>>> inputCub
 }
 
 //Scrambles a intCube According to the combination integer entered.
-std::vector< std::vector< std::vector<int>>> MIAencrypt::scrambleCube(std::vector< std::vector< std::vector<int>>> inputCube, std::vector<int> combination){	
+std::vector< std::vector< std::vector<int>>> MIAEncrypt::scrambleCube(std::vector< std::vector< std::vector<int>>> inputCube, std::vector<int> combination){	
 	//initializes and sets the defauly rotation values. 	
 	char side = 'x';
 	bool CW = 1;
@@ -276,7 +276,7 @@ std::vector< std::vector< std::vector<int>>> MIAencrypt::scrambleCube(std::vecto
 }
 
 //Un-crambles a intCube According to the combination entered.
-std::vector< std::vector< std::vector<int>>> MIAencrypt::unscrambleCube(std::vector< std::vector< std::vector<int>>> inputCube, std::vector<int> combination){
+std::vector< std::vector< std::vector<int>>> MIAEncrypt::unscrambleCube(std::vector< std::vector< std::vector<int>>> inputCube, std::vector<int> combination){
 	//initializes and sets the defauly rotation values. 	
 	char side = 'x';
 	bool CW = 1;
@@ -321,7 +321,7 @@ std::vector< std::vector< std::vector<int>>> MIAencrypt::unscrambleCube(std::vec
 }
 
 //Converts a string passphrase to a vector of integers.
-void MIAencrypt::passphraseToCombination(std::string passphrase){
+void MIAEncrypt::passphraseToCombination(std::string passphrase){
 	long total = 0;
 	int size = passphrase.size();
 	Program prog;
@@ -356,7 +356,7 @@ void MIAencrypt::passphraseToCombination(std::string passphrase){
 }
 
 //Encrypts a file. NOT YET WORKING/FINISED.
-void MIAencrypt::encryptFile(std::string file, std::string fileName){
+void MIAEncrypt::encryptFile(std::string file, std::string fileName){
 	Program prog;
 	std::string outputFile = prog.getDefaultCryptFilePath() + fileName + ".d0s3";
 	
@@ -387,7 +387,7 @@ void MIAencrypt::encryptFile(std::string file, std::string fileName){
 }
 
 //Converts a text file to a vector of characters.
-std::vector<char> MIAencrypt::fileToCharVec(std::string file){
+std::vector<char> MIAEncrypt::fileToCharVec(std::string file){
 	Program prog;
 	
 	std::ifstream input( prog.getDefaultCryptFilePath()  + file, std::ios::binary );
@@ -405,7 +405,7 @@ std::vector<char> MIAencrypt::fileToCharVec(std::string file){
 }
 
 //Converts a vector of characters to a vector of integers.
-std::vector<int> MIAencrypt::charVecToIntVec(std::vector<char> charVec){
+std::vector<int> MIAEncrypt::charVecToIntVec(std::vector<char> charVec){
 	std::vector<int> intVec;
 	int charVecSize = charVec.size();
 	intVec.reserve(charVecSize);
@@ -424,7 +424,7 @@ std::vector<int> MIAencrypt::charVecToIntVec(std::vector<char> charVec){
 }
 
 //In development. 
-std::vector<bool> MIAencrypt::intVecToBoolVec(std::vector<int> intVec){
+std::vector<bool> MIAEncrypt::intVecToBoolVec(std::vector<int> intVec){
 	std::vector<bool> boolVec;
 	
 	int intVecSize = intVec.size();
@@ -437,7 +437,7 @@ std::vector<bool> MIAencrypt::intVecToBoolVec(std::vector<int> intVec){
 }
 
 //In development. 
-std::vector< std::vector< std::vector<bool> > >	MIAencrypt::boolVecToBoolCube(std::vector<bool> boolVec){
+std::vector< std::vector< std::vector<bool> > >	MIAEncrypt::boolVecToBoolCube(std::vector<bool> boolVec){
 	std::vector< std::vector< std::vector<bool> > > boolCube;
 	return boolCube;
 }
