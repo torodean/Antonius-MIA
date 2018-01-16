@@ -9,7 +9,7 @@
 
 #include <iostream>
 #include <string>
-#include "MIAprogram.h"
+#include "MIAProgram.h"
 #include "D3CEncrypt.h"
 #include "D3CEncryptPW.h"
 #include "MIACommands.h"
