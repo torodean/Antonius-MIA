@@ -621,6 +621,26 @@ void Commands::printRandomLinesFromFileRunner(){
 	}
 }
 
+//Runner for the solveQuadraticFormula function.
+void Commands::solveQuadraticFormulaRunner(){
+	Program prog;
+	std::D3CMath math;
+	
+	double a,b,c;
+	std::cout << "...This is a solver for equations of the form a*x^2+b*x+c=0." << std::endl;
+	std::cout << "...Please Enter a: ";
+	std::cin >> a;
+	std::cout << "...Please Enter b: ";
+	std::cin >> b;
+	std::cout << "...Please Enter c: ";
+	std::cin >> c;	
+	std::cin.ignore();
+	prog.blankLine();
+	
+	std::string ans = math.solveQuadraticFormula(a,b,c);
+	prog.blankLine();
+	std::cout << "...The solution is: " << ans << std::endl;
+}
 
 
 

@@ -14,12 +14,13 @@
 #include <fstream>
 #include "MIAprogram.h"
 #include "D3CEncrypt.h"
+#include "D3CMath.h"
 #include "MIAcommands.h"
 #include "MIAencrypt.h"
 #include <vector>
 
 //Main program constructor.
-Program::Program() : VERSION("0.029"){
+Program::Program(){
 	//Chuck Norris can take a screen shot of his blue screen.
 }
 
@@ -165,6 +166,8 @@ int Program::commandToInputVar(std::string input){
 		output = 26;
 	} else if (input == "wow dup letter"){
 		output = 27;
+	} else if (input == "quadratic form"){
+		output = 28;
 	} else if (input == "test"){
 		output = 999999;
 	}
@@ -266,6 +269,9 @@ void Program::performCommand(std::string input){
 		case 27: //corresponds to the wow dup letter command.
 			cmd.duplicateLetterRunner();
 			break;
+		case 28: //corresponds to the wow dup letter command.
+			cmd.solveQuadraticFormulaRunner();
+			break;
 			
 		case 999999:
 			test();			
@@ -301,7 +307,8 @@ void Program::help(){
 	std::cout << "... mc explore    | Explores a Minecraft map using /tp" << std::endl;
 	std::cout << "... multiply      | Multiplies two integers of any length." << std::endl;
 	std::cout << "... palindrome    | Determines if a positive integer is palindrome." << std::endl;
-	std::cout << "... prime -help   | Displays help defailts for prime functions." << std::endl;
+	std::cout << "... prime -help   | Displays help defaults for prime functions." << std::endl;
+	std::cout << "... quadratic form| Calculates a solution to a*x^2+b*x+c=0." << std::endl;
 	std::cout << "... randfromfile  | Prints a number of random lines from a text file." << std::endl;
 	std::cout << "... subtract      | Finds the difference between two integers of any length." << std::endl;
 	std::cout << "... triangle      | Determines if a number is a triangle number or not." << std::endl;
@@ -401,13 +408,18 @@ int Program::randomInt(int min, int max, int seed){
 //A function used for testing.
 void Program::test(){
     std::cout << "Starting test." << std::endl;
-    //TODO CODE HERE
-
+	
+	/* Testing the quadratic formula function.
+	std::D3CMath math;
+	std::string ans = math.solveQuadraticFormula(3,4,1);
+	std::cout << ans << std::endl;
+	*/
+	/*
     MIAencrypt crypt(4);
     crypt.test();
 	crypt.encryptFile("C:\\Users\\torodean\\test.txt", "OutputFile");
 	//std::cout << "...No test function set. " << std:: endl;
-    
+    */
     std::cout << "Finished test." << std::endl;
 }
 

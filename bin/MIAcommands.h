@@ -39,6 +39,7 @@ class Commands{
 		void primeNumberNpopulateRunner();
 		void primeNumberNeraseRunner();
 		void printRandomLinesFromFileRunner();
+		void solveQuadraticFormulaRunner();
 		
 		//Functions adapted to work from the LOLA Program.
 			//Not yet added.

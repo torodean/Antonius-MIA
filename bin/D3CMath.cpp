@@ -695,6 +695,25 @@ string D3CMath::returnPrimeNlocation(){
 	return primeNlocation;
 }
 
+//Solves the quadratic formula and returns the answer as a string.
+string D3CMath::solveQuadraticFormula(double a, double b, double c){
+	string answer = "";
+	answer.append(to_string(-b*b/2.0/a));
+	if (b*b-4.0*a*c == 0){
+		std::cout << "b*b-4*a*c == 0" << std::endl;
+	} else if(b*b-4.0*a*c > 0){
+		std::cout << "b*b-4*a*c > 0" << std::endl;
+		answer.append(" +/- ");
+		answer.append(to_string(sqrt(b*b-4.0*a*c)));
+	} else {
+		std::cout << "b*b-4*a*c < 0" << std::endl;
+		answer.append(" +/- ");
+		answer.append(to_string(sqrt(4.0*a*c-b*b)));
+		answer.append("*i");
+	}
+	return answer;
+}
+
 /* Still working on these.
 string intToBinaryStr(int input, int bits){
 	string binary = bitset<8>(input).to_string(); //to binary.
