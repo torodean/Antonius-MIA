@@ -38,23 +38,23 @@ int NetUse::NetSessionEnumRunner(int argc, wchar_t *argv[]){
 		wprintf(L"Usage: %s [\\\\ServerName] [\\\\ClientName] [UserName]\n", argv[0]);
 		exit(1);
 	}
-	if (argc >= 2)
+	if (argc >= 2){
 		pszServerName = argv[1];
-	if (argc >= 3)
+	}
+	if (argc >= 3){
 		pszClientName = argv[2];
-	if (argc == 4)
+	}
+	if (argc == 4){
 		pszUserName = argv[3];
-
+	}
+	
 	// Call the NetSessionEnum function, specifying level 10.
-	do // begin do
-	{
+	do { // begin do
 		nStatus = NetSessionEnum(pszServerName, pszClientName, pszUserName, dwLevel, (LPBYTE*)&pBuf, dwPrefMaxLen, &dwEntriesRead, &dwTotalEntries, &dwResumeHandle);
 
 		// If the call succeeds,
 		if ((nStatus == NERR_Success) || (nStatus == ERROR_MORE_DATA)){
-			if ((pTmpBuf = pBuf) != NULL){
-
-				// Loop through the entries.
+			if ((pTmpBuf = pBuf) != NULL){ // Loop through the entries.
 				for (i = 0; i < dwEntriesRead; i++){
 					assert(pTmpBuf != NULL);
 
@@ -72,12 +72,10 @@ int NetUse::NetSessionEnumRunner(int argc, wchar_t *argv[]){
 					dwTotalCount++;
 				}
 			}
-		}
-
-		// Otherwise, indicate a system error.
-		else
+		} else { // Otherwise, indicate a system error.
 			fprintf(stderr, "...A system error has occurred: %d\n", nStatus);
-
+		}
+		
 		// Free the allocated memory.
 		if (pBuf != NULL){
 			NetApiBufferFree(pBuf);
@@ -89,9 +87,10 @@ int NetUse::NetSessionEnumRunner(int argc, wchar_t *argv[]){
 	while (nStatus == ERROR_MORE_DATA); // end do
 
 	// Check again for an allocated buffer.
-	if (pBuf != NULL)
+	if (pBuf != NULL){
 		NetApiBufferFree(pBuf);
-
+	}
+	
 	// Print the final count of sessions enumerated.
 	fprintf(stderr, "\n...Total of %d entries enumerated\n", dwTotalCount);
 
@@ -114,15 +113,15 @@ int NetUse::NetServerEnumRunner_WKST(int argc, wchar_t * argv[]){
 	LPWSTR pszDomainName = NULL;
 	DWORD i;
 
-	if (argc > 2)
-	{
+	if (argc > 2){
 		fwprintf(stderr, L"Usage: %s [DomainName]\n", argv[0]);
 		exit(1);
 	}
 	// The request is not for the primary domain.
-	if (argc == 2)
+	if (argc == 2){
 		pszDomainName = argv[1];
-
+	}
+	
 	// Call the NetServerEnum function to retrieve information
 	//  for all servers, specifying information level 101.
 	nStatus = NetServerEnum(pszServerName, dwLevel, (LPBYTE *)& pBuf, dwPrefMaxLen,
@@ -131,9 +130,7 @@ int NetUse::NetServerEnumRunner_WKST(int argc, wchar_t * argv[]){
 	// If the call succeeds,
 	if ((nStatus == NERR_Success) || (nStatus == ERROR_MORE_DATA)) {
 		if ((pTmpBuf = pBuf) != NULL) {
-
-			// Loop through the entries and 
-			//  print the data for all server types.
+			// Loop through the entries and print the data for all server types.
 			for (i = 0; i < dwEntriesRead; i++) {
 				assert(pTmpBuf != NULL);
 
@@ -149,11 +146,11 @@ int NetUse::NetServerEnumRunner_WKST(int argc, wchar_t * argv[]){
 
 				// Check to see if the server is a domain controller;
 				//  if so, identify it as a PDC or a BDC.
-				if (pTmpBuf->sv101_type & SV_TYPE_DOMAIN_CTRL)
+				if (pTmpBuf->sv101_type & SV_TYPE_DOMAIN_CTRL){
 					wprintf(L" (PDC)");
-				else if (pTmpBuf->sv101_type & SV_TYPE_DOMAIN_BAKCTRL)
+				} else if (pTmpBuf->sv101_type & SV_TYPE_DOMAIN_BAKCTRL) {
 					wprintf(L" (BDC)");
-
+				}
 				printf("\n");
 
 				// Also print the comment associated with the server.
@@ -173,22 +170,20 @@ int NetUse::NetServerEnumRunner_WKST(int argc, wchar_t * argv[]){
 
 			printf("\nEntries enumerated: %d\n", dwTotalCount);
 
-		}
-		else {
+		} else {
 			printf("No servers were found\n");
 			printf("The buffer (bufptr) returned was NULL\n");
 			printf("  entriesread: %d\n", dwEntriesRead);
 			printf("  totalentries: %d\n", dwEntriesRead);
 		}
 
-	}
-	else
+	} else {
 		fprintf(stderr, "...NetServerEnum failed with error: %d\n", nStatus);
-
+	}
 	// Free the allocated buffer.
-	if (pBuf != NULL)
+	if (pBuf != NULL){
 		NetApiBufferFree(pBuf);
-
+	}
 	return 0;
 }
 
@@ -208,15 +203,14 @@ int NetUse::NetServerEnumRunner_SERV(int argc, wchar_t * argv[]){
 	LPWSTR pszDomainName = NULL;
 	DWORD i;
 
-	if (argc > 2)
-	{
+	if (argc > 2){
 		fwprintf(stderr, L"Usage: %s [DomainName]\n", argv[0]);
 		exit(1);
 	}
 	// The request is not for the primary domain.
-	if (argc == 2)
+	if (argc == 2){
 		pszDomainName = argv[1];
-
+	}
 	// Call the NetServerEnum function to retrieve information
 	//  for all servers, specifying information level 101.
 	nStatus = NetServerEnum(pszServerName, dwLevel, (LPBYTE *)& pBuf, dwPrefMaxLen,
@@ -225,13 +219,11 @@ int NetUse::NetServerEnumRunner_SERV(int argc, wchar_t * argv[]){
 	// If the call succeeds,
 	if ((nStatus == NERR_Success) || (nStatus == ERROR_MORE_DATA)) {
 		if ((pTmpBuf = pBuf) != NULL) {
-
-			// Loop through the entries and 
-			//  print the data for all server types.
-			for (i = 0; i < dwEntriesRead; i++) {
+			// Loop through the entries and print the data for all server types.
+			for (i = 0; i < dwEntriesRead; i++){
 				assert(pTmpBuf != NULL);
 
-				if (pTmpBuf == NULL) {
+				if (pTmpBuf == NULL){
 					fprintf(stderr, "...An access violation has occurred\n");
 					break;
 				}
@@ -243,10 +235,11 @@ int NetUse::NetServerEnumRunner_SERV(int argc, wchar_t * argv[]){
 
 				// Check to see if the server is a domain controller;
 				//  if so, identify it as a PDC or a BDC.
-				if (pTmpBuf->sv101_type & SV_TYPE_DOMAIN_CTRL)
+				if (pTmpBuf->sv101_type & SV_TYPE_DOMAIN_CTRL){
 					wprintf(L" (PDC)");
-				else if (pTmpBuf->sv101_type & SV_TYPE_DOMAIN_BAKCTRL)
+				} else if (pTmpBuf->sv101_type & SV_TYPE_DOMAIN_BAKCTRL){
 					wprintf(L" (BDC)");
+				}
 
 				printf("\n");
 
@@ -267,22 +260,21 @@ int NetUse::NetServerEnumRunner_SERV(int argc, wchar_t * argv[]){
 
 			printf("\nEntries enumerated: %d\n", dwTotalCount);
 
-		}
-		else {
+		} else {
 			printf("No servers were found\n");
 			printf("The buffer (bufptr) returned was NULL\n");
 			printf("  entriesread: %d\n", dwEntriesRead);
 			printf("  totalentries: %d\n", dwEntriesRead);
 		}
 
-	}
-	else
+	} else {
 		fprintf(stderr, "...NetServerEnum failed with error: %d\n", nStatus);
-
+	}
+	
 	// Free the allocated buffer.
-	if (pBuf != NULL)
+	if (pBuf != NULL){
 		NetApiBufferFree(pBuf);
-
+	}
 	return 0;
 }
 
@@ -294,20 +286,18 @@ int NetUse::NetWkstaGetInfoRunner(int argc, wchar_t *argv[]){
 	LPWSTR pszServerName = NULL;
 
 	// Check command line arguments.
-	if (argc > 2)
-	{
+	if (argc > 2) {
 		fwprintf(stderr, L"Usage: %s [\\\\ServerName]\n", argv[0]);
 		exit(1);
 	}
 	// The server is not the default local computer.
-	if (argc == 2)
+	if (argc == 2){
 		pszServerName = argv[1];
-
+	}
 	// Call the NetWkstaGetInfo function, specifying level 102.
 	nStatus = NetWkstaGetInfo(pszServerName, dwLevel, (LPBYTE *)&pBuf);
 
-	// If the call is successful,
-	//  print the workstation data.
+	// If the call is successful, print the workstation data.
 	if (nStatus == NERR_Success){
 		printf("\n\tPlatform: %d\n", pBuf->wki102_platform_id);
 		wprintf(L"\tName:     %s\n", pBuf->wki102_computername);
@@ -315,16 +305,13 @@ int NetUse::NetWkstaGetInfoRunner(int argc, wchar_t *argv[]){
 		wprintf(L"\tDomain:   %s\n", pBuf->wki102_langroup);
 		wprintf(L"\tLan Root: %s\n", pBuf->wki102_lanroot);
 		wprintf(L"\t# Logged On Users: %d\n", pBuf->wki102_logged_on_users);
-	}
-
-	// Otherwise, indicate the system error.
-	else
+	} else { // Otherwise, indicate the system error.
 		fprintf(stderr, "...A system error has occurred: %d\n", nStatus);
-
+	}
 	// Free the allocated memory.
-	if (pBuf != NULL)
+	if (pBuf != NULL){
 		NetApiBufferFree(pBuf);
-
+	}
 	return 0;
 }
 
@@ -338,29 +325,26 @@ int NetUse::NetRemoteComputerSupportsRunner(int argc, wchar_t *argv[]){
 	LPDWORD OptionsSupported = NULL;
 
 	// Check command line arguments.
-	if (argc > 2)
-	{
+	if (argc > 2){
 		fwprintf(stderr, L"...Usage: %s [\\\\ServerName]\n", argv[0]);
 		exit(1);
 	}
 	// The server is not the default local computer.
-	if (argc == 2)
+	if (argc == 2){
 		UncServerName = argv[1];
-
+	}
 
 	nStatus = NetRemoteComputerSupports(UncServerName, OptionsWanted, (DWORD *)&OptionsSupported);
 	if (nStatus == NERR_Success){
 		//if (OptionsSupported == NULL){ printf("~~~Options supported is set to NULL"); }
 		printf("\n\tOptions Supported: %d\n", OptionsSupported);
-	}
-
-	else
+	} else {
 		fprintf(stderr, "...A system error has occurred: %d\n", nStatus);
-
+	}
 	// Free the allocated memory.
-	if (OptionsSupported != NULL)
+	if (OptionsSupported != NULL){
 		NetApiBufferFree(OptionsSupported);
-
+	}
 	return 0;
 }
 
@@ -378,14 +362,14 @@ int NetUse::NetUserEnumRunner(int argc, wchar_t *argv[]){
 	NET_API_STATUS nStatus;
 	LPTSTR pszServerName = NULL;
 
-	if (argc > 2)
-	{
+	if (argc > 2){
 		fwprintf(stderr, L"...Usage: %s [\\\\ServerName]\n", argv[0]);
 		exit(1);
 	}
 	//The server is not the default local computer.
-	if (argc == 2)
+	if (argc == 2){
 		pszServerName = (LPTSTR)argv[1];
+	}
 	wprintf(L"\n...User account on %s: \n", pszServerName);
 	//Call the NetUserEnum function, specifying level 0; enumerate global user account types only.
 	do{
@@ -415,10 +399,10 @@ int NetUse::NetUserEnumRunner(int argc, wchar_t *argv[]){
 					dwTotalCount++;
 				}
 			}
-		}
+		} else {
 		//Otherwise, print the system error.
-		else
 			fprintf(stderr, "...A system error has occurred: %d\n", nStatus);
+		}
 		//Free the allocated buffer.
 		if (pBuf != NULL){
 			NetApiBufferFree(pBuf);
@@ -428,8 +412,9 @@ int NetUse::NetUserEnumRunner(int argc, wchar_t *argv[]){
 	//Continue to call NetUserEnum while there are more entries. 
 	while (nStatus == ERROR_MORE_DATA); // end do
 	//Check again for allocated memory.
-	if (pBuf != NULL)
+	if (pBuf != NULL){
 		NetApiBufferFree(pBuf);
+	}
 	//Print the final count of users enumerated.
 	fprintf(stderr, "\n...Total of %d entries enumerated\n", dwTotalCount);
 
@@ -457,267 +442,211 @@ int NetUse::NetUserGetInfoRunner(int argc, wchar_t *argv[]){
 	int i = 0;
 	int j = 0;
 
-	if (argc != 3)
-	{
+	if (argc != 3){
 		fwprintf(stderr, L"...Usage: %s \\\\ServerName UserName\n", argv[0]);
 		exit(1);
 	}
 
-	while (i < 24)
-	{
+	while (i < 24){
 		// Call the NetUserGetInfo function.
 		dwLevel = i;
-		wprintf
-			(L"\n...Calling NetUserGetinfo with Servername=%s Username=%s Level=%d\n",
+		wprintf(L"\n...Calling NetUserGetinfo with Servername=%s Username=%s Level=%d\n",
 			argv[1], argv[2], dwLevel);
 		nStatus = NetUserGetInfo(argv[1], argv[2], dwLevel, (LPBYTE *)& pBuf);
 		// If the call succeeds, print the user information.
-		if (nStatus == NERR_Success)
-		{
-			if (pBuf != NULL)
-			{
-
-				switch (i)
-				{
-				case 0:
-					wprintf(L"\tUser account name: %s\n", pBuf->usri0_name);
-					break;
-				case 1:
-					pBuf1 = (LPUSER_INFO_1)pBuf;
-					wprintf(L"\tUser account name: %s\n", pBuf1->usri1_name);
-					wprintf(L"\tPassword: %s\n", pBuf1->usri1_password);
-					wprintf(L"\tPassword age (seconds): %d,\n",
-						pBuf1->usri1_password_age);
-					wprintf(L"\tPassword age (hours): %d,\n",
-						pBuf1->usri1_password_age / 60 / 60);
-					wprintf(L"\tPassword age (days): %d,\n",
-						pBuf1->usri1_password_age / 60 / 60 / 24);
-					wprintf(L"\tPrivilege level: %d\n", pBuf1->usri1_priv);
-					wprintf(L"\tHome directory: %s\n", pBuf1->usri1_home_dir);
-					wprintf(L"\tUser comment: %s\n", pBuf1->usri1_comment);
-					wprintf(L"\tFlags (in hex): %x\n", pBuf1->usri1_flags);
-					wprintf(L"\tScript path: %s\n", pBuf1->usri1_script_path);
-					break;
-				case 2:
-					pBuf2 = (LPUSER_INFO_2)pBuf;
-					wprintf(L"\tUser account name: %s\n", pBuf2->usri2_name);
-					wprintf(L"\tPassword: %s\n", pBuf2->usri2_password);
-					wprintf(L"\tPassword age (seconds): %d\n",
-						pBuf2->usri2_password_age);
-					wprintf(L"\tPassword age (hours): %d,\n",
-						pBuf2->usri2_password_age / 60 / 60);
-					wprintf(L"\tPassword age (days): %d,\n",
-						pBuf2->usri2_password_age / 60 / 60 / 24);
-					wprintf(L"\tPrivilege level: %d\n", pBuf2->usri2_priv);
-					wprintf(L"\tHome directory: %s\n", pBuf2->usri2_home_dir);
-					wprintf(L"\tComment: %s\n", pBuf2->usri2_comment);
-					wprintf(L"\tFlags (in hex): %x\n", pBuf2->usri2_flags);
-					wprintf(L"\tScript path: %s\n", pBuf2->usri2_script_path);
-					wprintf(L"\tAuth flags (in hex): %x\n",
-						pBuf2->usri2_auth_flags);
-					wprintf(L"\tFull name: %s\n", pBuf2->usri2_full_name);
-					wprintf(L"\tUser comment: %s\n", pBuf2->usri2_usr_comment);
-					wprintf(L"\tParameters: %s\n", pBuf2->usri2_parms);
-					wprintf(L"\tWorkstations: %s\n", pBuf2->usri2_workstations);
-					wprintf
-						(L"\tLast logon (seconds since January 1, 1970 GMT): %d\n",
-						pBuf2->usri2_last_logon);
-					wprintf
-						(L"\tLast logoff (seconds since January 1, 1970 GMT): %d\n",
-						pBuf2->usri2_last_logoff);
-					wprintf
-						(L"\tAccount expires (seconds since January 1, 1970 GMT): %d\n",
-						pBuf2->usri2_acct_expires);
-					wprintf(L"\tMax storage: %d\n", pBuf2->usri2_max_storage);
-					wprintf(L"\tUnits per week: %d\n",
-						pBuf2->usri2_units_per_week);
-					wprintf(L"\tLogon hours:");
-					for (j = 0; j < 21; j++)
-					{
-						printf(" %x", (BYTE)pBuf2->usri2_logon_hours[j]);
-					}
-					wprintf(L"\n");
-					wprintf(L"\tBad password count: %d\n",
-						pBuf2->usri2_bad_pw_count);
-					wprintf(L"\tNumber of logons: %d\n",
-						pBuf2->usri2_num_logons);
-					wprintf(L"\tLogon server: %s\n", pBuf2->usri2_logon_server);
-					wprintf(L"\tCountry code: %d\n", pBuf2->usri2_country_code);
-					wprintf(L"\tCode page: %d\n", pBuf2->usri2_code_page);
-					break;
-				case 4:
-					pBuf4 = (LPUSER_INFO_4)pBuf;
-					wprintf(L"\tUser account name: %s\n", pBuf4->usri4_name);
-					wprintf(L"\tPassword: %s\n", pBuf4->usri4_password);
-					wprintf(L"\tPassword age (seconds): %d\n",
-						pBuf4->usri4_password_age);
-					wprintf(L"\tPassword age (hours): %d\n",
-						pBuf4->usri4_password_age / 60 / 60);
-					wprintf(L"\tPassword age (days): %d\n",
-						pBuf4->usri4_password_age / 60 / 60 / 24);
-					wprintf(L"\tPrivilege level: %d\n", pBuf4->usri4_priv);
-					wprintf(L"\tHome directory: %s\n", pBuf4->usri4_home_dir);
-					wprintf(L"\tComment: %s\n", pBuf4->usri4_comment);
-					wprintf(L"\tFlags (in hex): %x\n", pBuf4->usri4_flags);
-					wprintf(L"\tScript path: %s\n", pBuf4->usri4_script_path);
-					wprintf(L"\tAuth flags (in hex): %x\n",
-						pBuf4->usri4_auth_flags);
-					wprintf(L"\tFull name: %s\n", pBuf4->usri4_full_name);
-					wprintf(L"\tUser comment: %s\n", pBuf4->usri4_usr_comment);
-					wprintf(L"\tParameters: %s\n", pBuf4->usri4_parms);
-					wprintf(L"\tWorkstations: %s\n", pBuf4->usri4_workstations);
-					wprintf
-						(L"\tLast logon (seconds since January 1, 1970 GMT): %d\n",
-						pBuf4->usri4_last_logon);
-					wprintf
-						(L"\tLast logoff (seconds since January 1, 1970 GMT): %d\n",
-						pBuf4->usri4_last_logoff);
-					wprintf
-						(L"\tAccount expires (seconds since January 1, 1970 GMT): %d\n",
-						pBuf4->usri4_acct_expires);
-					wprintf(L"\tMax storage: %d\n", pBuf4->usri4_max_storage);
-					wprintf(L"\tUnits per week: %d\n",
-						pBuf4->usri4_units_per_week);
-					wprintf(L"\tLogon hours:");
-					for (j = 0; j < 21; j++)
-					{
-						printf(" %x", (BYTE)pBuf4->usri4_logon_hours[j]);
-					}
-					wprintf(L"\n");
-					wprintf(L"\tBad password count: %d\n",
-						pBuf4->usri4_bad_pw_count);
-					wprintf(L"\tNumber of logons: %d\n",
-						pBuf4->usri4_num_logons);
-					wprintf(L"\tLogon server: %s\n", pBuf4->usri4_logon_server);
-					wprintf(L"\tCountry code: %d\n", pBuf4->usri4_country_code);
-					wprintf(L"\tCode page: %d\n", pBuf4->usri4_code_page);
-					if (ConvertSidToStringSid(pBuf4->usri4_user_sid, &sStringSid))
-					{
-						wprintf(L"\tUser SID: %s\n", sStringSid);
-						LocalFree(sStringSid);
-					}
-					else
-						wprintf(L"ConvertSidToSTringSid failed with error %d\n",
-						GetLastError());
-					wprintf(L"\tPrimary group ID: %d\n",
-						pBuf4->usri4_primary_group_id);
-					wprintf(L"\tProfile: %s\n", pBuf4->usri4_profile);
-					wprintf(L"\tHome directory drive letter: %s\n",
-						pBuf4->usri4_home_dir_drive);
-					wprintf(L"\tPassword expired information: %d\n",
-						pBuf4->usri4_password_expired);
-					break;
-				case 10:
-					pBuf10 = (LPUSER_INFO_10)pBuf;
-					wprintf(L"\tUser account name: %s\n", pBuf10->usri10_name);
-					wprintf(L"\tComment: %s\n", pBuf10->usri10_comment);
-					wprintf(L"\tUser comment: %s\n",
-						pBuf10->usri10_usr_comment);
-					wprintf(L"\tFull name: %s\n", pBuf10->usri10_full_name);
-					break;
-				case 11:
-					pBuf11 = (LPUSER_INFO_11)pBuf;
-					wprintf(L"\tUser account name: %s\n", pBuf11->usri11_name);
-					wprintf(L"\tComment: %s\n", pBuf11->usri11_comment);
-					wprintf(L"\tUser comment: %s\n",
-						pBuf11->usri11_usr_comment);
-					wprintf(L"\tFull name: %s\n", pBuf11->usri11_full_name);
-					wprintf(L"\tPrivilege level: %d\n", pBuf11->usri11_priv);
-					wprintf(L"\tAuth flags (in hex): %x\n",
-						pBuf11->usri11_auth_flags);
-					wprintf(L"\tPassword age (seconds): %d\n",
-						pBuf11->usri11_password_age);
-					wprintf(L"\tPassword age (hours): %d\n",
-						pBuf11->usri11_password_age / 60 / 60);
-					wprintf(L"\tPassword age (days): %d\n",
-						pBuf11->usri11_password_age / 60 / 60 / 24);
-					wprintf(L"\tHome directory: %s\n", pBuf11->usri11_home_dir);
-					wprintf(L"\tParameters: %s\n", pBuf11->usri11_parms);
-					wprintf
-						(L"\tLast logon (seconds since January 1, 1970 GMT): %d\n",
-						pBuf11->usri11_last_logon);
-					wprintf
-						(L"\tLast logoff (seconds since January 1, 1970 GMT): %d\n",
-						pBuf11->usri11_last_logoff);
-					wprintf(L"\tBad password count: %d\n",
-						pBuf11->usri11_bad_pw_count);
-					wprintf(L"\tNumber of logons: %d\n",
-						pBuf11->usri11_num_logons);
-					wprintf(L"\tLogon server: %s\n",
-						pBuf11->usri11_logon_server);
-					wprintf(L"\tCountry code: %d\n",
-						pBuf11->usri11_country_code);
-					wprintf(L"\tWorkstations: %s\n",
-						pBuf11->usri11_workstations);
-					wprintf(L"\tMax storage: %d\n", pBuf11->usri11_max_storage);
-					wprintf(L"\tUnits per week: %d\n",
-						pBuf11->usri11_units_per_week);
-					wprintf(L"\tLogon hours:");
-					for (j = 0; j < 21; j++)
-					{
-						printf(" %x", (BYTE)pBuf11->usri11_logon_hours[j]);
-					}
-					wprintf(L"\n");
-					wprintf(L"\tCode page: %d\n", pBuf11->usri11_code_page);
-					break;
-				case 20:
-					pBuf20 = (LPUSER_INFO_20)pBuf;
-					wprintf(L"\tUser account name: %s\n", pBuf20->usri20_name);
-					wprintf(L"\tFull name: %s\n", pBuf20->usri20_full_name);
-					wprintf(L"\tComment: %s\n", pBuf20->usri20_comment);
-					wprintf(L"\tFlags (in hex): %x\n", pBuf20->usri20_flags);
-					wprintf(L"\tUser ID: %u\n", pBuf20->usri20_user_id);
-					break;
-				case 23:
-					pBuf23 = (LPUSER_INFO_23)pBuf;
-					wprintf(L"\tUser account name: %s\n", pBuf23->usri23_name);
-					wprintf(L"\tFull name: %s\n", pBuf23->usri23_full_name);
-					wprintf(L"\tComment: %s\n", pBuf23->usri23_comment);
-					wprintf(L"\tFlags (in hex): %x\n", pBuf23->usri23_flags);
-					if (ConvertSidToStringSid
-						(pBuf23->usri23_user_sid, &sStringSid))
-					{
-						wprintf(L"\tUser SID: %s\n", sStringSid);
-						LocalFree(sStringSid);
-					}
-					else
-						wprintf(L"ConvertSidToSTringSid failed with error %d\n",
-						GetLastError());
-					break;
-				default:
-					break;
+		if (nStatus == NERR_Success){
+			if (pBuf != NULL){
+				switch (i){
+					case 0:
+						wprintf(L"\tUser account name: %s\n", pBuf->usri0_name);
+						break;
+					case 1:
+						pBuf1 = (LPUSER_INFO_1)pBuf;
+						wprintf(L"\tUser account name: %s\n", pBuf1->usri1_name);
+						wprintf(L"\tPassword: %s\n", pBuf1->usri1_password);
+						wprintf(L"\tPassword age (seconds): %d,\n",pBuf1->usri1_password_age);
+						wprintf(L"\tPassword age (hours): %d,\n",pBuf1->usri1_password_age / 60 / 60);
+						wprintf(L"\tPassword age (days): %d,\n",pBuf1->usri1_password_age / 60 / 60 / 24);
+						wprintf(L"\tPrivilege level: %d\n", pBuf1->usri1_priv);
+						wprintf(L"\tHome directory: %s\n", pBuf1->usri1_home_dir);
+						wprintf(L"\tUser comment: %s\n", pBuf1->usri1_comment);
+						wprintf(L"\tFlags (in hex): %x\n", pBuf1->usri1_flags);
+						wprintf(L"\tScript path: %s\n", pBuf1->usri1_script_path);
+						break;
+					case 2:
+						pBuf2 = (LPUSER_INFO_2)pBuf;
+						wprintf(L"\tUser account name: %s\n", pBuf2->usri2_name);
+						wprintf(L"\tPassword: %s\n", pBuf2->usri2_password);
+						wprintf(L"\tPassword age (seconds): %d\n",pBuf2->usri2_password_age);
+						wprintf(L"\tPassword age (hours): %d,\n",pBuf2->usri2_password_age / 60 / 60);
+						wprintf(L"\tPassword age (days): %d,\n",pBuf2->usri2_password_age / 60 / 60 / 24);
+						wprintf(L"\tPrivilege level: %d\n", pBuf2->usri2_priv);
+						wprintf(L"\tHome directory: %s\n", pBuf2->usri2_home_dir);
+						wprintf(L"\tComment: %s\n", pBuf2->usri2_comment);
+						wprintf(L"\tFlags (in hex): %x\n", pBuf2->usri2_flags);
+						wprintf(L"\tScript path: %s\n", pBuf2->usri2_script_path);
+						wprintf(L"\tAuth flags (in hex): %x\n",pBuf2->usri2_auth_flags);
+						wprintf(L"\tFull name: %s\n", pBuf2->usri2_full_name);
+						wprintf(L"\tUser comment: %s\n", pBuf2->usri2_usr_comment);
+						wprintf(L"\tParameters: %s\n", pBuf2->usri2_parms);
+						wprintf(L"\tWorkstations: %s\n", pBuf2->usri2_workstations);
+						wprintf(L"\tLast logon (seconds since January 1, 1970 GMT): %d\n",
+							pBuf2->usri2_last_logon);
+						wprintf(L"\tLast logoff (seconds since January 1, 1970 GMT): %d\n",
+							pBuf2->usri2_last_logoff);
+						wprintf(L"\tAccount expires (seconds since January 1, 1970 GMT): %d\n",
+							pBuf2->usri2_acct_expires);
+						wprintf(L"\tMax storage: %d\n", pBuf2->usri2_max_storage);
+						wprintf(L"\tUnits per week: %d\n",pBuf2->usri2_units_per_week);
+						wprintf(L"\tLogon hours:");
+						for (j = 0; j < 21; j++){
+							printf(" %x", (BYTE)pBuf2->usri2_logon_hours[j]);
+						}
+						wprintf(L"\n");
+						wprintf(L"\tBad password count: %d\n",pBuf2->usri2_bad_pw_count);
+						wprintf(L"\tNumber of logons: %d\n",pBuf2->usri2_num_logons);
+						wprintf(L"\tLogon server: %s\n", pBuf2->usri2_logon_server);
+						wprintf(L"\tCountry code: %d\n", pBuf2->usri2_country_code);
+						wprintf(L"\tCode page: %d\n", pBuf2->usri2_code_page);
+						break;
+					case 4:
+						pBuf4 = (LPUSER_INFO_4)pBuf;
+						wprintf(L"\tUser account name: %s\n", pBuf4->usri4_name);
+						wprintf(L"\tPassword: %s\n", pBuf4->usri4_password);
+						wprintf(L"\tPassword age (seconds): %d\n",pBuf4->usri4_password_age);
+						wprintf(L"\tPassword age (hours): %d\n",pBuf4->usri4_password_age / 60 / 60);
+						wprintf(L"\tPassword age (days): %d\n",pBuf4->usri4_password_age / 60 / 60 / 24);
+						wprintf(L"\tPrivilege level: %d\n", pBuf4->usri4_priv);
+						wprintf(L"\tHome directory: %s\n", pBuf4->usri4_home_dir);
+						wprintf(L"\tComment: %s\n", pBuf4->usri4_comment);
+						wprintf(L"\tFlags (in hex): %x\n", pBuf4->usri4_flags);
+						wprintf(L"\tScript path: %s\n", pBuf4->usri4_script_path);
+						wprintf(L"\tAuth flags (in hex): %x\n",pBuf4->usri4_auth_flags);
+						wprintf(L"\tFull name: %s\n", pBuf4->usri4_full_name);
+						wprintf(L"\tUser comment: %s\n", pBuf4->usri4_usr_comment);
+						wprintf(L"\tParameters: %s\n", pBuf4->usri4_parms);
+						wprintf(L"\tWorkstations: %s\n", pBuf4->usri4_workstations);
+						wprintf(L"\tLast logon (seconds since January 1, 1970 GMT): %d\n",
+							pBuf4->usri4_last_logon);
+						wprintf(L"\tLast logoff (seconds since January 1, 1970 GMT): %d\n",
+							pBuf4->usri4_last_logoff);
+						wprintf(L"\tAccount expires (seconds since January 1, 1970 GMT): %d\n",
+							pBuf4->usri4_acct_expires);
+						wprintf(L"\tMax storage: %d\n", pBuf4->usri4_max_storage);
+						wprintf(L"\tUnits per week: %d\n",pBuf4->usri4_units_per_week);
+						wprintf(L"\tLogon hours:");
+						for (j = 0; j < 21; j++){
+							printf(" %x", (BYTE)pBuf4->usri4_logon_hours[j]);
+						}
+						wprintf(L"\n");
+						wprintf(L"\tBad password count: %d\n",pBuf4->usri4_bad_pw_count);
+						wprintf(L"\tNumber of logons: %d\n",pBuf4->usri4_num_logons);
+						wprintf(L"\tLogon server: %s\n", pBuf4->usri4_logon_server);
+						wprintf(L"\tCountry code: %d\n", pBuf4->usri4_country_code);
+						wprintf(L"\tCode page: %d\n", pBuf4->usri4_code_page);
+						if (ConvertSidToStringSid(pBuf4->usri4_user_sid, &sStringSid)){
+							wprintf(L"\tUser SID: %s\n", sStringSid);
+							LocalFree(sStringSid);
+						} else {
+							wprintf(L"ConvertSidToSTringSid failed with error %d\n",GetLastError());
+						}
+						wprintf(L"\tPrimary group ID: %d\n",pBuf4->usri4_primary_group_id);
+						wprintf(L"\tProfile: %s\n", pBuf4->usri4_profile);
+						wprintf(L"\tHome directory drive letter: %s\n",pBuf4->usri4_home_dir_drive);
+						wprintf(L"\tPassword expired information: %d\n",pBuf4->usri4_password_expired);
+						break;
+					case 10:
+						pBuf10 = (LPUSER_INFO_10)pBuf;
+						wprintf(L"\tUser account name: %s\n", pBuf10->usri10_name);
+						wprintf(L"\tComment: %s\n", pBuf10->usri10_comment);
+						wprintf(L"\tUser comment: %s\n",pBuf10->usri10_usr_comment);
+						wprintf(L"\tFull name: %s\n", pBuf10->usri10_full_name);
+						break;
+					case 11:
+						pBuf11 = (LPUSER_INFO_11)pBuf;
+						wprintf(L"\tUser account name: %s\n", pBuf11->usri11_name);
+						wprintf(L"\tComment: %s\n", pBuf11->usri11_comment);
+						wprintf(L"\tUser comment: %s\n",pBuf11->usri11_usr_comment);
+						wprintf(L"\tFull name: %s\n", pBuf11->usri11_full_name);
+						wprintf(L"\tPrivilege level: %d\n", pBuf11->usri11_priv);
+						wprintf(L"\tAuth flags (in hex): %x\n",pBuf11->usri11_auth_flags);
+						wprintf(L"\tPassword age (seconds): %d\n",pBuf11->usri11_password_age);
+						wprintf(L"\tPassword age (hours): %d\n",pBuf11->usri11_password_age / 60 / 60);
+						wprintf(L"\tPassword age (days): %d\n",pBuf11->usri11_password_age / 60 / 60 / 24);
+						wprintf(L"\tHome directory: %s\n", pBuf11->usri11_home_dir);
+						wprintf(L"\tParameters: %s\n", pBuf11->usri11_parms);
+						wprintf(L"\tLast logon (seconds since January 1, 1970 GMT): %d\n",
+							pBuf11->usri11_last_logon);
+						wprintf(L"\tLast logoff (seconds since January 1, 1970 GMT): %d\n",
+							pBuf11->usri11_last_logoff);
+						wprintf(L"\tBad password count: %d\n",pBuf11->usri11_bad_pw_count);
+						wprintf(L"\tNumber of logons: %d\n",pBuf11->usri11_num_logons);
+						wprintf(L"\tLogon server: %s\n",pBuf11->usri11_logon_server);
+						wprintf(L"\tCountry code: %d\n",pBuf11->usri11_country_code);
+						wprintf(L"\tWorkstations: %s\n",pBuf11->usri11_workstations);
+						wprintf(L"\tMax storage: %d\n", pBuf11->usri11_max_storage);
+						wprintf(L"\tUnits per week: %d\n",pBuf11->usri11_units_per_week);
+						wprintf(L"\tLogon hours:");
+						for (j = 0; j < 21; j++){
+							printf(" %x", (BYTE)pBuf11->usri11_logon_hours[j]);
+						}
+						wprintf(L"\n");
+						wprintf(L"\tCode page: %d\n", pBuf11->usri11_code_page);
+						break;
+					case 20:
+						pBuf20 = (LPUSER_INFO_20)pBuf;
+						wprintf(L"\tUser account name: %s\n", pBuf20->usri20_name);
+						wprintf(L"\tFull name: %s\n", pBuf20->usri20_full_name);
+						wprintf(L"\tComment: %s\n", pBuf20->usri20_comment);
+						wprintf(L"\tFlags (in hex): %x\n", pBuf20->usri20_flags);
+						wprintf(L"\tUser ID: %u\n", pBuf20->usri20_user_id);
+						break;
+					case 23:
+						pBuf23 = (LPUSER_INFO_23)pBuf;
+						wprintf(L"\tUser account name: %s\n", pBuf23->usri23_name);
+						wprintf(L"\tFull name: %s\n", pBuf23->usri23_full_name);
+						wprintf(L"\tComment: %s\n", pBuf23->usri23_comment);
+						wprintf(L"\tFlags (in hex): %x\n", pBuf23->usri23_flags);
+						if (ConvertSidToStringSid(pBuf23->usri23_user_sid, &sStringSid)){
+							wprintf(L"\tUser SID: %s\n", sStringSid);
+							LocalFree(sStringSid);
+						} else {
+							wprintf(L"ConvertSidToSTringSid failed with error %d\n",
+							GetLastError());
+						}
+						break;
+					default:
+						break;
 				}
 			}
-		}
-		// Otherwise, print the system error.
-		else
+		} else { // Otherwise, print the system error.
 			fprintf(stderr, "...NetUserGetinfo failed with error: %d\n", nStatus);
+		}
 		// Free the allocated memory.
-		if (pBuf != NULL)
+		if (pBuf != NULL){
 			NetApiBufferFree(pBuf);
-
-		switch (i)
-		{
-		case 0:
-		case 1:
-		case 10:
-			i++;
-			break;
-		case 2:
-			i = 4;
-			break;
-		case 4:
-			i = 10;
-			break;
-		case 11:
-			i = 20;
-			break;
-		case 20:
-			i = 23;
-			break;
-		default:
-			i = 24;
-			break;
+		}
+		switch (i){
+			case 0:
+			case 1:
+			case 10:
+				i++;
+				break;
+			case 2:
+				i = 4;
+				break;
+			case 4:
+				i = 10;
+				break;
+			case 11:
+				i = 20;
+				break;
+			case 20:
+				i = 23;
+				break;
+			default:
+				i = 24;
+				break;
 		}
 	}
 	return 0;
@@ -731,37 +660,32 @@ int NetUse::NetUserModalsGetRunner(int argc, wchar_t *argv[]){
 	NET_API_STATUS nStatus;
 	LPTSTR pszServerName = NULL;
 
-	if (argc > 2)
-	{
+	if (argc > 2){
 		fwprintf(stderr, L"...Usage: %s [\\\\ServerName]\n", argv[0]);
 		exit(1);
 	}
 	// The server is not the default local computer.
-	if (argc == 2)
+	if (argc == 2){
 		pszServerName = (LPTSTR)argv[1];
+	}
 	// Call the NetUserModalsGet function; specify level 0.
-	nStatus = NetUserModalsGet((LPCWSTR)pszServerName,
-		dwLevel,
-		(LPBYTE *)&pBuf);
+	nStatus = NetUserModalsGet((LPCWSTR)pszServerName,dwLevel,(LPBYTE *)&pBuf);
 	// If the call succeeds, print the global information.
-	if (nStatus == NERR_Success)
-	{
-		if (pBuf != NULL)
-		{
+	if (nStatus == NERR_Success){
+		if (pBuf != NULL){
 			printf("\tMinimum password length:  %d\n", pBuf->usrmod0_min_passwd_len);
 			printf("\tMaximum password age (d): %d\n", pBuf->usrmod0_max_passwd_age / 86400);
 			printf("\tMinimum password age (d): %d\n", pBuf->usrmod0_min_passwd_age / 86400);
 			printf("\tForced log off time (s):  %d\n", pBuf->usrmod0_force_logoff);
 			printf("\tPassword history length:  %d\n", pBuf->usrmod0_password_hist_len);
 		}
-	}
-	// Otherwise, print the system error.
-	else
+	} else { // Otherwise, print the system error.
 		fprintf(stderr, "...A system error has occurred: %d\n", nStatus);
+	}
 	// Free the allocated memory.
-	if (pBuf != NULL)
+	if (pBuf != NULL){
 		NetApiBufferFree(pBuf);
-
+	}
 	return 0;
 }
 
@@ -770,16 +694,13 @@ int NetUse::NetQueryDisplayInformationRunner(wchar_t *argv[], int level){
 	PNET_DISPLAY_GROUP pBuff, p;
 	DWORD res, dwRec, i = 0;
 
-	do // begin do
-	{
+	do { // begin do
 		//Call the NetQueryDisplayInformation function; specify information level 3 (group account information).
 		res = NetQueryDisplayInformation(argv[1], level, i, 100, MAX_PREFERRED_LENGTH, &dwRec, (PVOID*)&pBuff);
 		// If the call succeeds,
-		if ((res == ERROR_SUCCESS) || (res == ERROR_MORE_DATA))
-		{
+		if ((res == ERROR_SUCCESS) || (res == ERROR_MORE_DATA)){
 			p = pBuff;
-			for (; dwRec>0; dwRec--)
-			{
+			for (; dwRec>0; dwRec--){
 				// Print the retrieved group information.
 				printf("\t Name:      %S\n"
 					   "\t Comment:   %S\n"
@@ -793,9 +714,9 @@ int NetUse::NetQueryDisplayInformationRunner(wchar_t *argv[], int level){
 			}
 			// Free the allocated memory.
 			NetApiBufferFree(pBuff);
-		}
-		else
+		} else {
 			printf("...Error: %u\n", res);
+		}
 		// Continue while there is more data.
 	} while (res == ERROR_MORE_DATA); // end do
 	return 0;

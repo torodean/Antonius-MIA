@@ -17,10 +17,11 @@
 #include "MIAEncrypt.h"
 #include "MIAMisc.h"
 
-/* CURRENTLY ONLY WORKS ON WINDOWS */
+// CURRENTLY ONLY WORKS ON WINDOWS
 #if  defined _WIN32 || defined _WIN64 || defined __CYGWIN__
 #include <windows.h>
 #include "WinKeys.h"
+#include "LOLANetUse.h"
 #endif
 
 
@@ -646,6 +647,7 @@ void Commands::solveQuadraticFormulaRunner(){
 	std::cout << "...The solution is: " << ans << std::endl;
 }
 
+//A joke function I created to rearrange the letters in a friends name. For unspecified reasons.
 void Commands::pranjal(){
 	Misc misc;
 	std::string output = misc.shuffleString("pranjal");
