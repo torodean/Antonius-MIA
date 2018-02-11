@@ -827,5 +827,13 @@ void WinKeys::duplicateLetter(int copies, std::string recipient){
     }
 }
 
+//Used for unloading letters from the mailbox in WoW. Useful for creating RP events.
+//Coordinates may need adapted based on screen resolutions, UI scales, etc..
+void WinKeys::unloadLetters(int copies){
+    std::this_thread::sleep_for(std::chrono::milliseconds(5000));
+    for(int i=0;i<copies;i++){
+        //NOT YET ADDED
+    }
+}
 
 

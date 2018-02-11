@@ -17,7 +17,7 @@ For a list of commands see the MIA manual.
 
 2) compile using 
 
-make clean && make
+make clean && make linux
 
 3) Run using 
 	
@@ -53,9 +53,7 @@ http://preshing.com/20141108/how-to-install-the-latest-gcc-on-windows/
 
  ~~~~~~~~~~~~ Compiling Instructions on Mac OS ~~~~~~~~~~~~
 
-1) Install Linux (I don't own a mac to test this on)
-
-2) See instructions for Linux.
+1) See instructions for Linux.
 
  ~~~~~~~~~~~~ Cleanup Instructions ~~~~~~~~~~~~
 
