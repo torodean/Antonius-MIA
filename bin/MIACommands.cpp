@@ -654,3 +654,17 @@ void Commands::pranjal(){
 	std::cout << "Did you mean " << output << "?" << std::endl;
 }
 
+//Finds and returns teh coordinates of the mouse pointer after 5 seconds.
+void Commands::findMouse(){
+	#if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
+	Program prog;
+	WinKeys keys;
+	
+	keys.findMouseCoords(5000);
+	
+	#else
+	Program prog;
+	prog.returnError(31416);
+	#endif
+}
+

@@ -44,7 +44,7 @@ D3CMath.o: D3CMath.cpp D3CMath.h
 MIAEncrypt.o: MIAEncrypt.cpp MIAEncrypt.h MIAProgram.h
 	$(CC) $(CFLAGS) MIAEncrypt.cpp
 
-WinKeys.o: WinKeys.cpp WinKeys.h
+WinKeys.o: WinKeys.cpp WinKeys.h MIAProgram.h
 	$(CC) $(CFLAGS) WinKeys.cpp
 
 MIAMisc.o: MIAMisc.cpp MIAMisc.h

@@ -81,6 +81,7 @@ class WinKeys{
 		
 		//Other useful functions.
 		void waitTime(int input);
+		void findMouseCoords(int waitTime);
 };
 
 #endif // WINKEYS_H

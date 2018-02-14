@@ -50,6 +50,7 @@ class Commands{
 		void buttonSpamRunner(bool enableTab);
 		void exploreMinecraft();
 		void duplicateLetterRunner();
+		void findMouse();
 		
 		//Misc functions
 		void pranjal();

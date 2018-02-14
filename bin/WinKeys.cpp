@@ -16,6 +16,7 @@
 #include <iostream>
 #include <string>
 #include "WinKeys.h"
+#include "MIAProgram.h"
 
 using namespace std;
 
@@ -831,9 +832,35 @@ void WinKeys::duplicateLetter(int copies, std::string recipient){
 //Coordinates may need adapted based on screen resolutions, UI scales, etc..
 void WinKeys::unloadLetters(int copies){
     std::this_thread::sleep_for(std::chrono::milliseconds(5000));
+
     for(int i=0;i<copies;i++){
-        //NOT YET ADDED
+        SetCursorPos(55, 265);
+        Sleep(300);
+        leftclick();
+        Sleep(300);
+        SetCursorPos(675, 600);
+        Sleep(300);
+        leftclick();
+        Sleep(300);
+        SetCursorPos(700, 650);
+        Sleep(300);
+        leftclick();
+        Sleep(300);
     }
+}
+
+//Prints the current location of the mouse curser after some wait time.
+void WinKeys::findMouseCoords(int wait){
+	Program prog;
+	POINT p;
+	
+	waitTime(wait);
+	GetCursorPos(&p);
+	
+	prog.blankDots();
+	int x=p.x, y=p.y;
+	std::cout << "The mouse curse is at: " << x << ", " << y << std::endl;
+	prog.blankDots();
 }
 
 

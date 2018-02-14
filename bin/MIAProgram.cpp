@@ -170,6 +170,8 @@ int Program::commandToInputVar(std::string input){
 		output = 28;
 	} else if (input == "pranjal"){
 		output = 29;
+	} else if (input == "find mouse"){
+		output = 30;	
 	}else if (input == "test"){
 		output = 999999;
 	}
@@ -277,7 +279,9 @@ void Program::performCommand(std::string input){
 		case 29: //corresponds to the pranjal command.
 			cmd.pranjal();
 			break;
-			
+		case 30: //Corresponds to the find mouse command.
+			cmd.findMouse();
+			break;
 		case 999999:
 			test();			
 			break;			
@@ -307,6 +311,7 @@ void Program::help(){
 	std::cout << "... decrypt -d0s2 | De-crypts a string using the d0s2 algorithm." << std::endl;
 	std::cout << "... digitsum      | Returns the sum of the digits within an integer of any size." << std::endl;
 	std::cout << "... factors       | Returns the number of factors within an integer." << std::endl;
+	std::cout << "... find mouse    | Finds/Returns the coordinates of the mouse after 5 seconds." << std::endl;
 	std::cout << "... lattice       | Returns lattice paths to the farthest corner of an NxM grid." << std::endl;
 	std::cout << "... mc dig        | Simulates key strokes for continuous Minecraft diggigg." << std::endl;
 	std::cout << "... mc explore    | Explores a Minecraft map using /tp" << std::endl;
