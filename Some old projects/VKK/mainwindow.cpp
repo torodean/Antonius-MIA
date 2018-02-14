@@ -24,7 +24,6 @@ MainWindow::~MainWindow(){
     delete ui;
 }
 
-//Cleared input values for a WoW tournament fee calculation
 void MainWindow::clearBoxes(){
     ui->lineEdit->clear();
     ui->lineEdit_2->clear();
@@ -38,20 +37,17 @@ void MainWindow::clearBoxes(){
     ui->lineEdit_10->clear();
 }
 
-//Button Spam - took two parameters (button, amount)
 void MainWindow::on_pushButton_3_clicked(){
     Sleep(5000);
     QString character = ui->lineEdit_2->text();
     int amount = ui->lineEdit_3->text().toInt();
 
-
-        for (int i=0;i<amount;i++){
-            type.press(character);
-            Sleep(500);
-        }
+    for (int i=0;i<amount;i++){
+        type.press(character);
+        Sleep(500);
+    }
 }
 
-//This Function was used for a World of Warcraft tournament fee calculations
 void MainWindow::on_pushButton_5_clicked(){
     long achievement = ui->lineEdit_6->text().toLong();
     long pets = ui->lineEdit_7->text().toLong();
@@ -71,7 +67,6 @@ void MainWindow::on_pushButton_5_clicked(){
 
 }
 
-//an old world of warcraft function for duplicating a letter
 void MainWindow::on_pushButton_2_clicked(){
     Sleep(5000);
     int copies = ui->lineEdit->text().toInt();
@@ -86,13 +81,12 @@ void MainWindow::on_pushButton_2_clicked(){
         type.tab();
         Sleep(200);
         type.paste();
-        Sleep(200);
+        Sleep(400);
         type.leftclick();
-        Sleep(1500);
+        Sleep(3400);
     }
 }
 
-//an old WoW function for mass mailing a letter to a list of people.
 void MainWindow::on_pushButton_clicked(){
     Sleep(5000);
     std::cout << "Mass Mailing started" << endl;
@@ -130,7 +124,6 @@ void MainWindow::on_pushButton_clicked(){
     myFile.close();
 }
 
-//exited app
 void MainWindow::on_actionExit_triggered(){
     qApp->quit();
 }
@@ -141,7 +134,6 @@ void MainWindow::on_actionClear_triggered(){
 
 //myfile.open("../build-D0sag3Command-Desktop_Qt_5_3_MinGW_32bit-Release/D3CCL.txt");
 
-//Corresponding to a "minecraft dig" button. This was for perpetual minecraft digging motions.
 void MainWindow::on_pushButton_4_clicked()
 {
     Sleep(4000);
@@ -173,7 +165,6 @@ void MainWindow::on_pushButton_4_clicked()
     SendInput(1, &ip, sizeof(INPUT));
 }
 
-//Performed some math. I literally have zero idea what I made this for but it must have done something important.
 void MainWindow::on_pushButton_6_clicked()
 {
     std::cout << "start" << std::endl;
@@ -185,77 +176,258 @@ void MainWindow::on_pushButton_6_clicked()
                 n1=(35*m+26)/x;
                 n2=(7*m+3)/y;
                 if(7*m*x-35*m*y+3*x-26*y==0 && 35*m+26-x*n1 == 0 && 7*m+3-y*n2==0 ){
-					std::cout << "m: " << m << ", ";
-					std::cout << "x: " << x << ", ";
-					std::cout << "y: " << y << std::endl; 
-					std::cout << "n1: " << n1 << ", " << "n2: " << n2 << std::endl;
+
+                        std::cout << "m: " << m << ", ";
+                        std::cout << "x: " << x << ", ";
+                        std::cout << "y: " << y << std::endl; std::cout << "n1: " << n1 << ", " << "n2: " << n2 << std::endl;
                 }
                 m=-m;
                 n1=(35*m+26)/x;
                 n2=(7*m+3)/y;
                 if(7*m*x-35*m*y+3*x-26*y==0 && 35*m+26-x*n1 == 0 && 7*m+3-y*n2==0 ){
-					std::cout << "m: " << m << ", ";
-					std::cout << "x: " << x << ", ";
-					std::cout << "y: " << y << std::endl; 
-					std::cout << "n1: " << n1 << ", " << "n2: " << n2 << std::endl;
+
+                        std::cout << "m: " << m << ", ";
+                        std::cout << "x: " << x << ", ";
+                        std::cout << "y: " << y << std::endl; std::cout << "n1: " << n1 << ", " << "n2: " << n2 << std::endl;
+
                 }
                 x=-x;
                 n1=(35*m+26)/x;
                 n2=(7*m+3)/y;
                 if(7*m*x-35*m*y+3*x-26*y==0 && 35*m+26-x*n1 == 0 && 7*m+3-y*n2==0 ){
-					std::cout << "m: " << m << ", ";
-					std::cout << "x: " << x << ", ";
-					std::cout << "y: " << y << std::endl; 
-					std::cout << "n1: " << n1 << ", " << "n2: " << n2 << std::endl;
+
+                        std::cout << "m: " << m << ", ";
+                        std::cout << "x: " << x << ", ";
+                        std::cout << "y: " << y << std::endl; std::cout << "n1: " << n1 << ", " << "n2: " << n2 << std::endl;
+
                 }
                 y=-y;
                 n1=(35*m+26)/x;
                 n2=(7*m+3)/y;
                 if(7*m*x-35*m*y+3*x-26*y==0 && 35*m+26-x*n1 == 0 && 7*m+3-y*n2==0 ){
-					std::cout << "m: " << m << ", ";
-					std::cout << "x: " << x << ", ";
-					std::cout << "y: " << y << std::endl; 
-					std::cout << "n1: " << n1 << ", " << "n2: " << n2 << std::endl;
+
+                        std::cout << "m: " << m << ", ";
+                        std::cout << "x: " << x << ", ";
+                        std::cout << "y: " << y << std::endl; std::cout << "n1: " << n1 << ", " << "n2: " << n2 << std::endl;
+
                 }
                 x=-x;
                 n1=(35*m+26)/x;
                 n2=(7*m+3)/y;
                 if(7*m*x-35*m*y+3*x-26*y==0 && 35*m+26-x*n1 == 0 && 7*m+3-y*n2==0 ){
-					std::cout << "m: " << m << ", ";
-					std::cout << "x: " << x << ", ";
-					std::cout << "y: " << y << std::endl; 
-					std::cout << "n1: " << n1 << ", " << "n2: " << n2 << std::endl;
+
+                        std::cout << "m: " << m << ", ";
+                        std::cout << "x: " << x << ", ";
+                        std::cout << "y: " << y << std::endl; std::cout << "n1: " << n1 << ", " << "n2: " << n2 << std::endl;
+
                 }
                 m=-m; x=-x; y=-y;
                 n1=(35*m+26)/x;
                 n2=(7*m+3)/y;
                 if(7*m*x-35*m*y+3*x-26*y==0 && 35*m+26-x*n1 == 0 && 7*m+3-y*n2==0 ){
-					std::cout << "m: " << m << ", ";
-					std::cout << "x: " << x << ", ";
-					std::cout << "y: " << y << std::endl; 
-					std::cout << "n1: " << n1 << ", " << "n2: " << n2 << std::endl;
+
+                        std::cout << "m: " << m << ", ";
+                        std::cout << "x: " << x << ", ";
+                        std::cout << "y: " << y << std::endl; std::cout << "n1: " << n1 << ", " << "n2: " << n2 << std::endl;
+
                 }
                 y=-y;
                 n1=(35*m+26)/x;
                 n2=(7*m+3)/y;
                 if(7*m*x-35*m*y+3*x-26*y==0 && 35*m+26-x*n1 == 0 && 7*m+3-y*n2==0 ){
-					std::cout << "m: " << m << ", ";
-					std::cout << "x: " << x << ", ";
-					std::cout << "y: " << y << std::endl; 
-					std::cout << "n1: " << n1 << ", " << "n2: " << n2 << std::endl;
+
+                        std::cout << "m: " << m << ", ";
+                        std::cout << "x: " << x << ", ";
+                        std::cout << "y: " << y << std::endl; std::cout << "n1: " << n1 << ", " << "n2: " << n2 << std::endl;
+
                 }
                 x=-x;
                 n1=(35*m+26)/x;
                 n2=(7*m+3)/y;
                 if(7*m*x-35*m*y+3*x-26*y==0 && 35*m+26-x*n1 == 0 && 7*m+3-y*n2==0 ){
-					std::cout << "m: " << m << ", ";
-					std::cout << "x: " << x << ", ";
-					std::cout << "y: " << y << std::endl; 
-					std::cout << "n1: " << n1 << ", " << "n2: " << n2 << std::endl;
+
+                        std::cout << "m: " << m << ", ";
+                        std::cout << "x: " << x << ", ";
+                        std::cout << "y: " << y << std::endl; std::cout << "n1: " << n1 << ", " << "n2: " << n2 << std::endl;
+
                 }
                 y=-y;
             }
         }
     }
     std::cout << "finished." << std::endl;
+}
+
+void MainWindow::on_pushButton_7_clicked()
+{
+    int pos = 1721;
+    int counter = 10000;
+            ;
+    Sleep(5000);
+    int max = (counter-pos)/50-1;
+    for(int i=0; i < max; i ++) {
+        pos = pos - 50;
+
+        Sleep(75);
+        type.t();
+        Sleep(75);
+        type.slash();
+        Sleep(75);
+        type.t();
+        Sleep(75);
+        type.p();
+        Sleep(75);
+        type.space();
+
+        Sleep(75);
+        type.dash();
+        Sleep(75);
+        //type.zero();
+        type.type(QString::number(pos));
+        Sleep(75);
+        type.period();
+        Sleep(75);
+        type.five();
+
+        Sleep(75);
+        type.space();
+
+        Sleep(75);
+        type.seven();
+        Sleep(75);
+        type.four();
+        Sleep(75);
+        type.space();
+
+        Sleep(75);
+        //type.dash();
+        //Sleep(75);
+        //type.type(QString::number(counter));
+        type.zero();
+        Sleep(75);
+        type.period();
+        Sleep(75);
+        type.five();
+
+        Sleep(75);
+        type.enter();
+
+        Sleep(2000);
+
+        type.t();
+        Sleep(75);
+        type.slash();
+        Sleep(75);
+        type.slash();
+        Sleep(75);
+        type.p();
+        Sleep(75);
+        type.a();
+        Sleep(75);
+        type.s();
+        Sleep(75);
+        type.t();
+        Sleep(75);
+        type.e();
+        Sleep(75);
+
+        type.space();
+        Sleep(75);
+        type.dash();
+        Sleep(75);
+        type.a();
+        Sleep(75);
+
+        type.enter();
+        Sleep(2000);
+    }
+}
+
+void MainWindow::on_pushButton_8_clicked()
+{
+    int xpos = 10000;
+    int zpos = 10000;
+    int xstart = 125;
+    int zstart = 125;
+
+    Sleep(5000);
+    for(int x=xstart; x < xpos; x ++) {
+        for(int z=zstart; z < zpos; z++){
+            Sleep(75);
+            type.t();
+            Sleep(75);
+            type.slash();
+            Sleep(75);
+            type.t();
+            Sleep(75);
+            type.p();
+            Sleep(75);
+            type.space();
+
+            Sleep(75);
+            type.dash();
+            Sleep(75);
+            type.type(QString::number(x));
+            Sleep(75);
+            type.space();
+
+            Sleep(75);
+            type.space();
+            Sleep(75);
+            type.one();
+            Sleep(75);
+            type.zero();
+            Sleep(75);
+            type.zero();
+            Sleep(75);
+            type.space();
+
+            Sleep(75);
+            type.dash();
+            Sleep(75);
+            type.type(QString::number(z));
+            Sleep(75);
+            type.space();
+            Sleep(75);
+
+            type.enter();
+            Sleep(2000);
+
+            z+=124;
+        }
+        x+=124;
+    }
+}
+
+void MainWindow::on_pushButton_9_clicked(){
+    Sleep(5000);
+    QString character = ui->lineEdit_2->text();
+    int amount = ui->lineEdit_3->text().toInt();
+
+    for (int i=0;i<amount;i++){
+        type.tab();
+        Sleep(50);
+        type.press(character);
+        Sleep(1200);
+    }
+}
+
+void MainWindow::on_pushButton_10_clicked(){
+    Sleep(5000);
+    int copies = ui->lineEdit->text().toInt();
+
+    for(int i=0;i<copies;i++){
+        SetCursorPos(55, 265);
+        Sleep(300);
+        type.leftclick();
+        Sleep(300);
+        SetCursorPos(675, 600);
+        Sleep(300);
+        type.leftclick();
+        Sleep(300);
+        SetCursorPos(700, 650);
+        Sleep(300);
+        type.leftclick();
+        Sleep(300);
+    }
 }

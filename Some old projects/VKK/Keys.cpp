@@ -644,6 +644,10 @@ void Keys::press(QString character){
         dash();
     }else if(character == "LC"){
         leftclick();
+    }else if(character == "/"){
+        slash();
+    }else if(character == "."){
+        slash();
     }
 }
 
@@ -652,6 +656,7 @@ void Keys::type(QString word){
     for(int i=0;i<size;i++){
         QString chara = word.at(i);
         press(chara);
+        Sleep(25);
     }
 }
 
@@ -685,4 +690,43 @@ void Keys::leftclick(){
   Input.mi.dwFlags  = MOUSEEVENTF_LEFTUP;
   ::SendInput(1,&Input,sizeof(INPUT));
   Sleep(100);
+}
+
+void Keys::slash(){
+    // Press the "/" key
+    ip.ki.wVk = 0x6F; // virtual-key code for the "/" key
+    ip.ki.dwFlags = 0; // 0 for key press
+    SendInput(1, &ip, sizeof(INPUT));
+
+    // Release the "/" key
+    ip.ki.wVk = 0x6F; // virtual-key code for the "/" key
+    ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
+    SendInput(1, &ip, sizeof(INPUT));
+    Sleep(50);
+}
+
+void Keys::period(){
+    // Press the "." key
+    ip.ki.wVk = 0xBE; // virtual-key code for the "." key
+    ip.ki.dwFlags = 0; // 0 for key press
+    SendInput(1, &ip, sizeof(INPUT));
+
+    // Release the "." key
+    ip.ki.wVk = 0xBE; // virtual-key code for the "." key
+    ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
+    SendInput(1, &ip, sizeof(INPUT));
+    Sleep(50);
+}
+
+void Keys::enter(){
+    // Press the "enter" key
+    ip.ki.wVk = 0x0D; // virtual-key code for the "enter" key
+    ip.ki.dwFlags = 0; // 0 for key press
+    SendInput(1, &ip, sizeof(INPUT));
+
+    // Release the "enter" key
+    ip.ki.wVk = 0x0D; // virtual-key code for the "enter" key
+    ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
+    SendInput(1, &ip, sizeof(INPUT));
+    Sleep(50);
 }

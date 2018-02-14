@@ -55,6 +55,8 @@ public:
     void type(QString word);
     void paste();
     void leftclick();
+    void slash();
+    void period();
 };
 
 #endif // KEYS_H
