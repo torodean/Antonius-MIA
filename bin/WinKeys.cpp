@@ -863,6 +863,9 @@ void WinKeys::findMouseCoords(int wait){
 	std::cout << "The mouse curse is at: " << x << ", " << y << std::endl;
 	prog.blankDots();
 }
+
+void WinKeys::getPixelColor	(){}
+
 /*
 //Prints the pixel color at the cursor location.
 void WinKeys::getPixelColor	(){
@@ -879,9 +882,9 @@ void WinKeys::getPixelColor	(){
 	std::cout << "Red: " << red << std::endl;
 	std::cout << "Green: " << green << std::endl;
 	std::cout << "Blue: " << blue << std::endl;
-}*/
+} */
 
-/* Does not work
+/* Does not compile
 void WinKeys::getPixelColor(){
 	POINT p;
 	COLORREF color;
@@ -914,19 +917,18 @@ void WinKeys::getPixelColor(){
 	}
 } */
 
-struct tagScreen
-{
-    DWORD*     pixels;  /* Pointer to raw bitmap bits. Access with: pixels[(y * Screen.cx) + x] */
-    size_t     cx, cy;  /* Width and height of bitmap. */
+/* TESTING
+struct tagScreen{
+    DWORD*     pixels;  //Pointer to raw bitmap bits. Access with: pixels[(y * Screen.cx) + x] 
+    size_t     cx, cy;  // Width and height of bitmap.
     HBITMAP    hBmp;
     HDC        hdcMem;
     HDC        hdcScreen;
 } Screen;
  
-/* Call once to setup.
- */
-void xSetupScreenBitmap(void)
-{
+// Call once to setup.
+
+void xSetupScreenBitmap(void){
     BITMAPINFO bmp   = { 0 };
  
     Screen.cx = GetSystemMetrics(SM_CXSCREEN);
@@ -946,39 +948,35 @@ void xSetupScreenBitmap(void)
     Screen.hdcScreen = CreateDC(TEXT("DISPLAY"), NULL, NULL, NULL);
 }
  
-/* Call to copy the current screen into the screen bitmap.
- */
-void xCopyScreen(void)
-{
+// Call to copy the current screen into the screen bitmap.
+
+void xCopyScreen(void){
     BitBlt(Screen.hdcMem, 0, 0, Screen.cx, Screen.cy, Screen.hdcScreen, 0, 0, SRCCOPY);
 }
  
-/* Convert a RGB value to the BGR used by Windows COLORREF values.
- */
-COLORREF RGB2BGR(DWORD color)
-{
+// Convert a RGB value to the BGR used by Windows COLORREF values.
+
+COLORREF RGB2BGR(DWORD color){
     return RGB(GetBValue(color), GetGValue(color), GetRValue(color));
 }
 
 void WinKeys::getPixelColor(){
 	size_t x, y;
  
-    xSetupScreenBitmap(); /* Call once for setup. */
-    xCopyScreen();        /* Call whenever you want a fresh copy of the screen. */
+    xSetupScreenBitmap(); // Call once for setup. 
+    xCopyScreen();        // Call whenever you want a fresh copy of the screen. 
  
-    /* Shows how to loop through all pixels. */
-    for (x = 0; x < Screen.cx; x++)
-    {
-        for (y = 0; y < Screen.cy; y++)
-        {
-            /* Use Screen.pixels[(y * Screen.cx) + x] as required. */
+    // Shows how to loop through all pixels. 
+    for (x = 0; x < Screen.cx; x++){
+        for (y = 0; y < Screen.cy; y++){
+            // Use Screen.pixels[(y * Screen.cx) + x] as required. 
  
-            /* TEST CODE: Output slighlty altered pixels to the screen. */
+            //TEST CODE: Output slighlty altered pixels to the screen. 
             SetPixel(Screen.hdcScreen, x, y, RGB2BGR(Screen.pixels[(y * Screen.cx) + x]) + 10);
         }
     }
 }
-
+*/
 
 
 

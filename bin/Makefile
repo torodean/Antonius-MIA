@@ -12,6 +12,9 @@ CC=g++
 # options I'll pass to the compiler.
 CFLAGS=-c -Wall -std=c++14
 
+#Libraries to include
+LDFLAGS=-lgdi32
+
 #make all - for compiling on Windows
 all: MIA
 
@@ -45,7 +48,7 @@ MIAEncrypt.o: MIAEncrypt.cpp MIAEncrypt.h MIAProgram.h
 	$(CC) $(CFLAGS) MIAEncrypt.cpp
 
 WinKeys.o: WinKeys.cpp WinKeys.h MIAProgram.h
-	$(CC) $(CFLAGS) WinKeys.cpp
+	$(CC) $(CFLAGS) $(LDFLAGS) WinKeys.cpp
 
 MIAMisc.o: MIAMisc.cpp MIAMisc.h
 	$(CC) $(CFLAGS) MIAMisc.cpp
