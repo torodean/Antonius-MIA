@@ -54,5 +54,6 @@ class Commands{
 		
 		//Misc functions
 		void pranjal();
+		void test();
 };
 #endif

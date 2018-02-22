@@ -82,6 +82,7 @@ class WinKeys{
 		//Other useful functions.
 		void waitTime(int input);
 		void findMouseCoords(int waitTime);
+		void getPixelColor();
 };
 
 #endif // WINKEYS_H

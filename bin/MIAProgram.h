@@ -24,8 +24,11 @@ class Program{
 		
 		//Initializes and returns private variables.
 		std::string getDefaultInputFilePath();
+		void setDefaultInputFilePath(std::string input);
 		std::string getDefaultCryptFilePath();
+		void setDefaultCryptFilePath(std::string input);
 		void initializeSettings(bool printSettings);
+		void setMIAVariable(std::string variable, std::string value);
 
 		//Program related functions.
 		void terminal();
@@ -48,5 +51,8 @@ class Program{
 		
 		//Error related functions
 		void returnError(int errorCode);
+		
+		//Misc functions.
+		int findEqualInString(std::string input);
 };
 #endif

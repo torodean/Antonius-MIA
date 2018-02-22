@@ -668,3 +668,16 @@ void Commands::findMouse(){
 	#endif
 }
 
+void Commands::test(){
+	#if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
+	Program prog;
+	WinKeys keys;
+	
+	keys.getPixelColor();
+	
+	#else
+	Program prog;
+	prog.returnError(31416);
+	#endif
+}
+

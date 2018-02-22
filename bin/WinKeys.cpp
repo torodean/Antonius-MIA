@@ -17,6 +17,7 @@
 #include <string>
 #include "WinKeys.h"
 #include "MIAProgram.h"
+#include<stdio.h>
 
 using namespace std;
 
@@ -852,15 +853,132 @@ void WinKeys::unloadLetters(int copies){
 //Prints the current location of the mouse curser after some wait time.
 void WinKeys::findMouseCoords(int wait){
 	Program prog;
-	POINT p;
+	POINT cursor;
 	
 	waitTime(wait);
-	GetCursorPos(&p);
+	GetCursorPos(&cursor);
 	
 	prog.blankDots();
-	int x=p.x, y=p.y;
+	int x = cursor.x, y = cursor.y;
 	std::cout << "The mouse curse is at: " << x << ", " << y << std::endl;
 	prog.blankDots();
 }
+/*
+//Prints the pixel color at the cursor location.
+void WinKeys::getPixelColor	(){
+	HDC dc = GetDC(NULL);
+	POINT cursor;
+	
+	GetCursorPos(&cursor);
+	COLORREF color = GetPixel(dc, cursor.x, cursor.y);
+	ReleaseDC(NULL,dc);
+	int red = GetRValue(color);
+	int green = GetGValue(color);
+	int blue = GetBValue(color);
+
+	std::cout << "Red: " << red << std::endl;
+	std::cout << "Green: " << green << std::endl;
+	std::cout << "Blue: " << blue << std::endl;
+}*/
+
+/* Does not work
+void WinKeys::getPixelColor(){
+	POINT p;
+	COLORREF color;
+	HDC hDC;
+	BOOL b;
+
+	// Get the current cursor position 
+	b = GetCursorPos(&p);
+	
+	// Get the device context for the screen 
+	hDC = GetDC(NULL);
+	if (hDC == NULL){
+		std::cout << "CLR_INVALID" << std::endl;
+	} else if (!b){
+		std::cout << "CLR_INVALID" << std::endl;
+	} else {
+		// Retrieve the color at that position 
+		color = GetPixel(hDC, p.x, p.y);
+
+		// Release the device context again 
+		ReleaseDC(GetDesktopWindow(), hDC);
+
+		int red = GetRValue(color);
+		int green = GetGValue(color);
+		int blue = GetBValue(color);
+
+		std::cout << "Red: " << red << std::endl;
+		std::cout << "Green: " << green << std::endl;
+		std::cout << "Blue: " << blue << std::endl;
+	}
+} */
+
+struct tagScreen
+{
+    DWORD*     pixels;  /* Pointer to raw bitmap bits. Access with: pixels[(y * Screen.cx) + x] */
+    size_t     cx, cy;  /* Width and height of bitmap. */
+    HBITMAP    hBmp;
+    HDC        hdcMem;
+    HDC        hdcScreen;
+} Screen;
+ 
+/* Call once to setup.
+ */
+void xSetupScreenBitmap(void)
+{
+    BITMAPINFO bmp   = { 0 };
+ 
+    Screen.cx = GetSystemMetrics(SM_CXSCREEN);
+    Screen.cy = GetSystemMetrics(SM_CYSCREEN);
+ 
+    bmp.bmiHeader.biSize        = sizeof(BITMAPINFOHEADER);
+    bmp.bmiHeader.biWidth       = Screen.cx;
+    bmp.bmiHeader.biHeight      = -(int) Screen.cy;
+    bmp.bmiHeader.biPlanes      = 1;
+    bmp.bmiHeader.biBitCount    = 32;
+    bmp.bmiHeader.biCompression = BI_RGB;
+ 
+    Screen.hBmp = CreateDIBSection(NULL, &bmp, DIB_RGB_COLORS, (void**) &Screen.pixels, NULL, 0);
+    Screen.hdcMem = CreateCompatibleDC(NULL);
+    SelectObject(Screen.hdcMem, Screen.hBmp);
+ 
+    Screen.hdcScreen = CreateDC(TEXT("DISPLAY"), NULL, NULL, NULL);
+}
+ 
+/* Call to copy the current screen into the screen bitmap.
+ */
+void xCopyScreen(void)
+{
+    BitBlt(Screen.hdcMem, 0, 0, Screen.cx, Screen.cy, Screen.hdcScreen, 0, 0, SRCCOPY);
+}
+ 
+/* Convert a RGB value to the BGR used by Windows COLORREF values.
+ */
+COLORREF RGB2BGR(DWORD color)
+{
+    return RGB(GetBValue(color), GetGValue(color), GetRValue(color));
+}
+
+void WinKeys::getPixelColor(){
+	size_t x, y;
+ 
+    xSetupScreenBitmap(); /* Call once for setup. */
+    xCopyScreen();        /* Call whenever you want a fresh copy of the screen. */
+ 
+    /* Shows how to loop through all pixels. */
+    for (x = 0; x < Screen.cx; x++)
+    {
+        for (y = 0; y < Screen.cy; y++)
+        {
+            /* Use Screen.pixels[(y * Screen.cx) + x] as required. */
+ 
+            /* TEST CODE: Output slighlty altered pixels to the screen. */
+            SetPixel(Screen.hdcScreen, x, y, RGB2BGR(Screen.pixels[(y * Screen.cx) + x]) + 10);
+        }
+    }
+}
+
+
 
 

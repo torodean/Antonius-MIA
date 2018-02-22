@@ -22,11 +22,55 @@
 //Main program constructor.
 Program::Program(){
 	//Chuck Norris can take a screen shot of his blue screen.
+	initializeSettings(false);	
 }
 
 //Main program deconstructor.
 Program::~Program(){
 	//When Chuck Norris throws exceptions, it's across the room.
+}
+
+//Finds the index of the first "=" sign in a string.
+int Program::findEqualInString(std::string input){
+	int length = input.size();
+	for (int i=0;i<length;i++){
+		if(input[i]=='='){
+			return i;
+		}
+	}
+	return 0;
+}
+
+//Changes the private variables.
+void Program::setDefaultInputFilePath(std::string input){
+	defaultInputFilePath = input;
+}
+void Program::setDefaultCryptFilePath(std::string input){
+	defaultCryptFilePath = input;
+}
+
+//Set's the variable to a value
+void Program::setMIAVariable(std::string variable, std::string value){
+	//Sets the variable for use in the switch statement.
+	int switchVar =0;
+	if (variable == "defaultInputFilePath"){
+		switchVar = 1;
+	} else if (variable == "defaultCryptFilePath"){
+		switchVar = 2;
+	}
+	
+	//Determines which variables to set.
+	switch( switchVar ){
+		case 1:
+			setDefaultInputFilePath(value);
+			break;
+		case 2:
+			setDefaultCryptFilePath(value);
+			break;
+		default:
+			returnError(31417);
+			break;
+	}
 }
 
 //This function is for loading in the settings file. Still in Development.
@@ -48,18 +92,24 @@ void Program::initializeSettings(bool printSettings){
 				if(printSettings){
 					std::cout << line << std::endl;
 				}
-			}
-			lines.push_back(line);
+				lines.push_back(line);
+			}	
 		}
 		if(printSettings){
 			std::cout << std::endl;
 		}
 		int size = lines.size();
+		int equalSignLocation=0;
+		std::string variable, value;
 		for (int i=0; i<size;i++){
-			
+			equalSignLocation = findEqualInString(lines[i]);
+			variable = lines[i].substr(0, equalSignLocation);
+			value = lines[i].substr(equalSignLocation+1,lines[i].size()-1);
+			std::cout << "...Setting variable: " << variable << " to value " << value << std::endl;
+			setMIAVariable(variable, value);
 		}
 	} else {
-		std::cout << "ERROR 404: MIAsettings file not found." << std::endl;
+		returnError(31404);
 	}
 }
 
@@ -337,7 +387,7 @@ void Program::helpPrime(){
 	std::cout << "... prime -n -c   | Clears the file created by 'prime -n -p'." << std::endl;
 }
 
-//Prints a random excuse 50% of the time.
+//Prints a random excuse some percentage of the time.
 bool Program::excuse(){
 	int random = randomInt(1,100, 0);
 	std::string txt;
@@ -419,6 +469,9 @@ int Program::randomInt(int min, int max, int seed){
 void Program::test(){
     std::cout << "Starting test." << std::endl;
 	
+	Commands cmd;
+	cmd.test();
+	
 	/* Testing the quadratic formula function.
 	std::D3CMath math;
 	std::string ans = math.solveQuadraticFormula(3,4,1);
@@ -458,12 +511,21 @@ void Program::returnError(int errorCode){
 		case 404: 
 			std::cout << "...ERROR 404: File not found." << std::endl;
 			break;
+		case 31404:
+			std::cout << "...ERROR 31404: MIAsettings file not found." << std::endl;
+			break;
 		case 31415:
 			std::cout << "...ERROR 31415: Function still in Development." << std::endl;
 			break;
 		case 31416:
-			std::cout << "...ERROR 31416: This feature is currently only programmed for Windows." << std:: endl;
+			std::cout << "...ERROR 31416: This feature is currently only programmed for Windows." << std::endl;
 			break;
+		case 31417:
+			std::cout << "...ERROR 31417: Invalid Option in MIASettings." << std::endl;
+			break;
+		default:
+			std::cout << "...ERROR: A catastrophic Failure Occurred." << std::endl;
+			
 	}
 }
 

@@ -11,7 +11,7 @@
 # This file must be of the proper format to work with MIA.
 # Create a setting parameter using 'settingVariable=value'.
 # Do not include spaces unless within a string variable. 
-# This means, do not do variable= text unless you intend to have " text" be the variable value.
+# This means, do not do 'variable= text' unless you intend to have " text" be the variable value.
 
 defaultInputFilePath=../bin/Resources/InputFiles/
 defaultCryptFilePath=../bin/Resources/EncryptedFiles/
