@@ -17,7 +17,7 @@
 #include <string>
 #include "WinKeys.h"
 #include "MIAProgram.h"
-#include<stdio.h>
+#include <stdio.h>
 
 using namespace std;
 
@@ -882,9 +882,9 @@ void WinKeys::getPixelColor	(){
 	std::cout << "Red: " << red << std::endl;
 	std::cout << "Green: " << green << std::endl;
 	std::cout << "Blue: " << blue << std::endl;
-} */
+}*/
 
-/* Does not compile
+/* Does not work
 void WinKeys::getPixelColor(){
 	POINT p;
 	COLORREF color;
@@ -916,7 +916,6 @@ void WinKeys::getPixelColor(){
 		std::cout << "Blue: " << blue << std::endl;
 	}
 } */
-
 /* TESTING
 struct tagScreen{
     DWORD*     pixels;  //Pointer to raw bitmap bits. Access with: pixels[(y * Screen.cx) + x] 

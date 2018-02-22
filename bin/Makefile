@@ -13,7 +13,7 @@ CC=g++
 CFLAGS=-c -Wall -std=c++14
 
 #Libraries to include
-LDFLAGS=-lgdi32
+LDFLAGS=-lobjc -lgdi32
 
 #make all - for compiling on Windows
 all: MIA
@@ -22,7 +22,7 @@ all: MIA
 MIA: MIAMain.o MIAProgram.o MIACommands.o D3CEncrypt.o D3CEncryptPW.o D3CMath.o MIAEncrypt.o MIAMisc.o WinKeys.o
 	$(CC) MIAMain.o MIAProgram.o MIACommands.o D3CEncrypt.o D3CEncryptPW.o D3CMath.o MIAEncrypt.o MIAMisc.o WinKeys.o -o MIA
 
-#make the object files on a linux machine.
+#make the object files on a Linux machine.
 linux: MIAMain.o MIAProgram.o MIACommands.o D3CEncrypt.o D3CEncryptPW.o D3CMath.o MIAEncrypt.o MIAMisc.o
 	$(CC) MIAMain.o MIAProgram.o MIACommands.o D3CEncrypt.o D3CEncryptPW.o D3CMath.o MIAEncrypt.o MIAMisc.o -o MIA
 
@@ -48,7 +48,7 @@ MIAEncrypt.o: MIAEncrypt.cpp MIAEncrypt.h MIAProgram.h
 	$(CC) $(CFLAGS) MIAEncrypt.cpp
 
 WinKeys.o: WinKeys.cpp WinKeys.h MIAProgram.h
-	$(CC) $(CFLAGS) $(LDFLAGS) WinKeys.cpp
+	$(CC) $(CFLAGS) WinKeys.cpp
 
 MIAMisc.o: MIAMisc.cpp MIAMisc.h
 	$(CC) $(CFLAGS) MIAMisc.cpp
