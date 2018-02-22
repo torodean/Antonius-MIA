@@ -868,7 +868,7 @@ void WinKeys::getPixelColor	(){}
 
 /*
 //Prints the pixel color at the cursor location.
-void WinKeys::getPixelColor	(){
+void WinKeys::getPixelColor(){
 	HDC dc = GetDC(NULL);
 	POINT cursor;
 	
