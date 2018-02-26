@@ -18,6 +18,7 @@
 #include "MIACommands.h"
 #include "MIAEncrypt.h"
 #include <vector>
+#include <algorithm>
 
 //Main program constructor.
 Program::Program(){
@@ -41,12 +42,45 @@ int Program::findEqualInString(std::string input){
 	return 0;
 }
 
+//function for determining if all characters in a string are digits/ints. Taken from StackOverflow.
+bool Program::is_digits(const std::string &str){
+    if(str.find_first_not_of("0123456789") == std::string::npos){
+		return true;
+	} else {
+		return false;
+	}
+}
+
 //Changes the private variables.
 void Program::setDefaultInputFilePath(std::string input){
 	defaultInputFilePath = input;
 }
 void Program::setDefaultCryptFilePath(std::string input){
 	defaultCryptFilePath = input;
+}
+void Program::setWoWMailboxSendLocation(char coord, std::string value){
+	if (is_digits(value)){
+		if(coord == 'x'){
+			WoWMailboxSendLocationX = std::stoi(value);
+		} else if (coord == 'y'){
+			WoWMailboxSendLocationY = std::stoi(value);
+		}
+	} else {
+		if(printConfigErrors)
+			returnError(31417);
+	}
+}
+void Program::setWoWMailboxFirstLetterLocation(char coord, std::string value){
+	if (is_digits(value)){
+		if(coord == 'x'){
+			WoWMailboxFirstLetterLocationX = std::stoi(value);
+		} else if (coord == 'y'){
+			WoWMailboxFirstLetterLocationY = std::stoi(value);
+		}
+	} else {
+		if(printConfigErrors)
+			returnError(31417);
+	}
 }
 
 //Set's the variable to a value
@@ -57,6 +91,14 @@ void Program::setMIAVariable(std::string variable, std::string value){
 		switchVar = 1;
 	} else if (variable == "defaultCryptFilePath"){
 		switchVar = 2;
+	} else if (variable == "WoWMailboxSendLocationX"){
+		switchVar = 3;
+	} else if (variable == "WoWMailboxSendLocationY"){
+		switchVar = 4;
+	} else if (variable == "WoWMailboxFirstLetterLocationX"){
+		switchVar = 5;
+	} else if (variable == "WoWMailboxFirstLetterLocationY"){
+		switchVar = 6;
 	}
 	
 	//Determines which variables to set.
@@ -67,16 +109,28 @@ void Program::setMIAVariable(std::string variable, std::string value){
 		case 2:
 			setDefaultCryptFilePath(value);
 			break;
+		case 3:
+			setWoWMailboxSendLocation('x',value);
+			break;
+		case 4:
+			setWoWMailboxSendLocation('y',value);
+			break;
+		case 5:
+			setWoWMailboxFirstLetterLocation('x',value);
+			break;
+		case 6:
+			setWoWMailboxFirstLetterLocation('y',value);
+			break;
 		default:
 			returnError(31417);
 			break;
 	}
 }
 
-//This function is for loading in the settings file. Still in Development.
+//This function is for loading in the config file. Still in Development.
 void Program::initializeSettings(bool printSettings){
-	//grabs the MIAsettings file.
-	std::string fileName = "../bin/Resources/MIAsettings.txt";
+	//grabs the MIAConfig file.
+	std::string fileName = "../bin/Resources/MIAConfig.txt";
 	std::ifstream file(fileName,std::ifstream::in);
 	
 	//Checks if the file exists and runs the code.
@@ -85,7 +139,7 @@ void Program::initializeSettings(bool printSettings){
 		std::vector<std::string> lines;
 
 		if (printSettings){
-			std::cout << std::endl << "Settings file output: " << std::endl;
+			std::cout << std::endl << "Config file output: " << std::endl;
 		}
 		while(std::getline(file,line)){
 			if (line[0] != '#' && line != "" && !line.empty() && line.size()>2){
@@ -105,7 +159,15 @@ void Program::initializeSettings(bool printSettings){
 			equalSignLocation = findEqualInString(lines[i]);
 			variable = lines[i].substr(0, equalSignLocation);
 			value = lines[i].substr(equalSignLocation+1,lines[i].size()-1);
-			std::cout << "...Setting variable: " << variable << " to value " << value << std::endl;
+			
+			//removes end of line characters from variable name and value. Fixes a bug.
+			variable.erase(std::remove(variable.begin(), variable.end(), '\r'), variable.end()); 
+			value.erase(std::remove(value.begin(), value.end(), '\r'), value.end());			
+			
+			if(printSettings){
+				std::cout << "...Setting variable: " << variable << " to value '" << value << "'" << std::endl;
+				printConfigErrors = true;
+			}
 			setMIAVariable(variable, value);
 		}
 	} else {
@@ -443,7 +505,7 @@ void Program::blankLine(){
 
 //Main user interface for MIA.
 void Program::terminal(){
-	initializeSettings(false);
+	initializeSettings(true);
 	splash();
 	intro();
 	standby();
@@ -521,7 +583,7 @@ void Program::returnError(int errorCode){
 			std::cout << "...ERROR 31416: This feature is currently only programmed for Windows." << std::endl;
 			break;
 		case 31417:
-			std::cout << "...ERROR 31417: Invalid Option in MIASettings." << std::endl;
+			std::cout << "...ERROR 31417: Invalid Option in MIAConfig." << std::endl;
 			break;
 		default:
 			std::cout << "...ERROR: A catastrophic Failure Occurred." << std::endl;

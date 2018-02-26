@@ -1,5 +1,5 @@
 #============================================================================
-# Name        : Settings.txt
+# Name        : MIAConfig.txt
 # Author      : Antonius Torode
 # Date        : 1/10/18
 # Copyright   : This file can be used under the conditions of Antonius' 
@@ -15,3 +15,7 @@
 
 defaultInputFilePath=../bin/Resources/InputFiles/
 defaultCryptFilePath=../bin/Resources/EncryptedFiles/
+WoWMailboxSendLocationX=0
+WoWMailboxSendLocationY=0
+WoWMailboxFirstLetterLocationX=0
+WoWMailboxFirstLetterLocationY=0

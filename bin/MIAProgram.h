@@ -15,9 +15,15 @@
 
 class Program{
 	private:
-		const std::string VERSION = "0.030";
+		const std::string VERSION = "0.032";
+		bool printConfigErrors = false;
 		std::string defaultInputFilePath = "../bin/Resources/InputFiles/";
 		std::string defaultCryptFilePath = "../bin/Resources/EncryptedFiles/";
+		int WoWMailboxSendLocationX = 0;
+		int WoWMailboxSendLocationY = 0;
+		int WoWMailboxFirstLetterLocationX = 0;
+		int WoWMailboxFirstLetterLocationY = 0;
+		
 	public:
 		Program();
 		~Program();
@@ -28,7 +34,10 @@ class Program{
 		std::string getDefaultCryptFilePath();
 		void setDefaultCryptFilePath(std::string input);
 		void initializeSettings(bool printSettings);
-		void setMIAVariable(std::string variable, std::string value);
+		void setMIAVariable(std::string variable, std::string value
+		);
+		void setWoWMailboxSendLocation(char coord, std::string value);
+		void setWoWMailboxFirstLetterLocation(char coord, std::string value);
 
 		//Program related functions.
 		void terminal();
@@ -54,5 +63,6 @@ class Program{
 		
 		//Misc functions.
 		int findEqualInString(std::string input);
+		bool is_digits(const std::string &str);
 };
 #endif

@@ -26,6 +26,12 @@ button spam
 	\item[] Spams a specified button (key press). This function asks for a key input as well as asks for a number of times the user would like the button spammed. Not all keys are programmed in and the time between button spamming is currently fixed (this will be updated at a later time). This function currently only works on Windows OS.
 \end{enumerate}
 \begin{lstlisting} 
+button spam -t
+\end{lstlisting}
+\begin{enumerate}
+	\item[] Does the same as the "button spam" command but also simulates the tab key in between each key press.
+\end{enumerate}
+\begin{lstlisting} 
 collatz   
 \end{lstlisting}
 \begin{enumerate}
@@ -66,6 +72,12 @@ factors
 \end{lstlisting}
 \begin{enumerate}
 	\item[] Returns the number of factors within an integer. The integer must be smaller than C++'s internal storage for the long data type.
+\end{enumerate}
+\begin{lstlisting} 
+find mouse
+\end{lstlisting}
+\begin{enumerate}
+	\item[] This function will locate the position of the usere mouse pointer after 5 seconds and print the coordinates it is located at.
 \end{enumerate}
 \begin{lstlisting} 
 lattice   
@@ -134,16 +146,34 @@ prime -n -c
 	\item[] Clears the file created by 'prime -n -p'.
 \end{enumerate}
 \begin{lstlisting} 
+quadratic form
+\end{lstlisting}
+\begin{enumerate}
+	\item[] Calculates the solution to an equation of the form $ax^2+bx+c=0$. This function accounts for imaginary answers.
+\end{enumerate}
+\begin{lstlisting} 
 subtract   
 \end{lstlisting}
 \begin{enumerate}
 	\item[] Finds the difference between two integers of any length. Similar to add, this subtracts two strings together using a similar algorithm one would when subtracting large numbers by hand. It is possible to get results by entering non-number entries but will serve no significance due to the way MIA internally converts strings to integers by shifting the ASCII values.
 \end{enumerate}
 \begin{lstlisting} 
+randomFromFile
+\end{lstlisting}
+\begin{enumerate}
+	\item[]  Prints a number of random lines from a text file. This will read in each line from a text file and print a user specified number of the lines by choosing them randomly.
+\end{enumerate}
+\begin{lstlisting} 
 triangle   
 \end{lstlisting}
 \begin{enumerate}
 	\item[] Determines if a number is a triangle number or not. The integer must be smaller than C++'s internal storage for the long data type.
+\end{enumerate}
+\begin{lstlisting} 
+wow dup letter
+\end{lstlisting}
+\begin{enumerate}
+	\item[] Duplicates a letter in WoW a specified number of times. This will simulate entering a recipient, subject, and then pasting a message into the body followed by hitting the send button through the in game mailbox on World of Warcraft. The user specifies needed information and number of letters to send. This function is useful for RP scenarios.
 \end{enumerate}
 \begin{lstlisting} 
 exit  
