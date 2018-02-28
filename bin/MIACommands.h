@@ -51,6 +51,7 @@ class Commands{
 		void exploreMinecraft();
 		void duplicateLetterRunner();
 		void findMouse();
+		void eyedropper();
 		
 		//Misc functions
 		void pranjal();

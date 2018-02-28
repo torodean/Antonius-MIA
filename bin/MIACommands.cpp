@@ -681,3 +681,16 @@ void Commands::test(){
 	#endif
 }
 
+void Commands::eyedropper(){
+	#if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
+	Program prog;
+	WinKeys keys;
+	
+	keys.getPixelColorAtMouse();
+	
+	#else
+	Program prog;
+	prog.returnError(31416);
+	#endif
+}
+

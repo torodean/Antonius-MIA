@@ -284,7 +284,9 @@ int Program::commandToInputVar(std::string input){
 		output = 29;
 	} else if (input == "find mouse"){
 		output = 30;	
-	}else if (input == "test"){
+	}  else if (input == "eyedropper"){
+		output = 31;	
+	} else if (input == "test"){
 		output = 999999;
 	}
 	return output;
@@ -394,6 +396,9 @@ void Program::performCommand(std::string input){
 		case 30: //Corresponds to the find mouse command.
 			cmd.findMouse();
 			break;
+		case 31: //Corresponds to the eyedropper command.
+			cmd.eyedropper();
+			break;
 		case 999999:
 			test();			
 			break;			
@@ -422,6 +427,7 @@ void Program::help(){
 	std::cout << "... decrypt -d0s1 | De-crypts a string using the d0s1 algorithm." << std::endl;
 	std::cout << "... decrypt -d0s2 | De-crypts a string using the d0s2 algorithm." << std::endl;
 	std::cout << "... digitsum      | Returns the sum of the digits within an integer of any size." << std::endl;
+	std::cout << "... eyedropper    | Returns the RGB value of the pixel located at the cursor." << std::endl;
 	std::cout << "... factors       | Returns the number of factors within an integer." << std::endl;
 	std::cout << "... find mouse    | Finds/Returns the coordinates of the mouse after 5 seconds." << std::endl;
 	std::cout << "... lattice       | Returns lattice paths to the farthest corner of an NxM grid." << std::endl;
@@ -505,7 +511,7 @@ void Program::blankLine(){
 
 //Main user interface for MIA.
 void Program::terminal(){
-	initializeSettings(true);
+	initializeSettings(false);
 	splash();
 	intro();
 	standby();

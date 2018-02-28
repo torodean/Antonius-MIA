@@ -864,25 +864,59 @@ void WinKeys::findMouseCoords(int wait){
 	prog.blankDots();
 }
 
-void WinKeys::getPixelColor	(){}
+//void WinKeys::getPixelColor	(){}
 
-/*
+
 //Prints the pixel color at the cursor location.
 void WinKeys::getPixelColor(){
-	HDC dc = GetDC(NULL);
 	POINT cursor;
-	
 	GetCursorPos(&cursor);
-	COLORREF color = GetPixel(dc, cursor.x, cursor.y);
+	
+	HDC dc = GetDC(NULL);
+	COLORREF color;
+	int red=0,green=0,blue=0;
+
+	std::cout << "...Scanning." << std::endl;
+	
+	for (int i=cursor.x;i<cursor.x+100;i+=4){
+		for (int j=cursor.y+2;j<cursor.y+100;j+=4){			
+			color = GetPixel(dc, i, j);
+			
+			red = GetRValue(color);
+			green = GetGValue(color);
+			blue = GetBValue(color);
+			
+			std::cout << "(x,y): " << "(" << i << "," << j << ")" << std::endl;
+			std::cout << "Red: " << red << "  --  " << "Green: " << green << "  --  " << "Blue: " << blue << std::endl;
+		}
+	}
 	ReleaseDC(NULL,dc);
+	
+	std::cout << "...Finished." << std::endl;
+}
+
+//Prints the pixel color at the cursor location.
+void WinKeys::getPixelColorAtMouse(){
+	POINT cursor;
+	GetCursorPos(&cursor);
+	
+	HDC dc = GetDC(NULL);
+
+	std::cout << "...Scanning." << std::endl;
+		
+	COLORREF color = GetPixel(dc, cursor.x, cursor.y);
+	
 	int red = GetRValue(color);
 	int green = GetGValue(color);
 	int blue = GetBValue(color);
+	
+	std::cout << "(x,y): " << "(" << cursor.x << "," << cursor.y << ")" << std::endl;
+	std::cout << "Red: " << red << "  --  " << "Green: " << green << "  --  " << "Blue: " << blue << std::endl;
 
-	std::cout << "Red: " << red << std::endl;
-	std::cout << "Green: " << green << std::endl;
-	std::cout << "Blue: " << blue << std::endl;
-}*/
+	ReleaseDC(NULL,dc);
+	
+	std::cout << "...Finished." << std::endl;
+}
 
 /* Does not work
 void WinKeys::getPixelColor(){

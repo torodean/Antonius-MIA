@@ -34,8 +34,7 @@ class Program{
 		std::string getDefaultCryptFilePath();
 		void setDefaultCryptFilePath(std::string input);
 		void initializeSettings(bool printSettings);
-		void setMIAVariable(std::string variable, std::string value
-		);
+		void setMIAVariable(std::string variable, std::string value);
 		void setWoWMailboxSendLocation(char coord, std::string value);
 		void setWoWMailboxFirstLetterLocation(char coord, std::string value);
 

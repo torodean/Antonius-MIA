@@ -13,14 +13,14 @@ CC=g++
 CFLAGS=-c -Wall -std=c++14
 
 #Libraries to include
-LDFLAGS=-lobjc -lgdi32
+LDFLAGS=-lgdi32
 
 #make all - for compiling on Windows
 all: MIA
 
 #make the object files on a Windows machine
 MIA: MIAMain.o MIAProgram.o MIACommands.o D3CEncrypt.o D3CEncryptPW.o D3CMath.o MIAEncrypt.o MIAMisc.o WinKeys.o
-	$(CC) MIAMain.o MIAProgram.o MIACommands.o D3CEncrypt.o D3CEncryptPW.o D3CMath.o MIAEncrypt.o MIAMisc.o WinKeys.o -o MIA
+	$(CC) MIAMain.o MIAProgram.o MIACommands.o D3CEncrypt.o D3CEncryptPW.o D3CMath.o MIAEncrypt.o MIAMisc.o WinKeys.o -o MIA $(LDFLAGS)
 
 #make the object files on a Linux machine.
 linux: MIAMain.o MIAProgram.o MIACommands.o D3CEncrypt.o D3CEncryptPW.o D3CMath.o MIAEncrypt.o MIAMisc.o
@@ -55,7 +55,7 @@ MIAMisc.o: MIAMisc.cpp MIAMisc.h
 
 #make clean - removes object files.
 clean:
-	rm -f *o MIA*
+	rm -f *o MIA.*
 
 #make obj_clean - For removing only the object files but keeping the executable.
 cleanup:
