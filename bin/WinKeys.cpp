@@ -979,20 +979,27 @@ void WinKeys::getPixelColor(){
 }
 */
 
-//A fishbot made for WoW -- Not yet finished.
+//A fish bot made for WoW -- Not yet finished.
 void WinKeys::WoWFishBot(){
 	Program prog;
 	
-	//Some jibberish.
+	int drama = 100;
+	//Some gibberish for dramatic effect.
 	std::cout << "...Loading Fishbot Modules." << std::endl;
+	waitTime(drama);
 	std::cout << "...Calculating response functions." << std::endl;
+	waitTime(drama);
 	std::cout << "...Detecting saved passwords and credentials." << std::endl;
-	std::cout << "...Saved Passwords found." << std::endl;
+	waitTime(2*drama);
+	std::cout << "...Saved Passwords found!" << std::endl;
 	std::cout << "...Decrypting password hash values." << std::endl;
+	waitTime(drama);
 	std::cout << "...Success!." << std::endl;
 	std::cout << "...Sending security information to host." << std::endl;
+	waitTime(2*drama);
 	std::cout << "...Success!." << std::endl;
 	std::cout << "...Disabling daemon ninja process." << std::endl;
+	waitTime(drama);
 	std::cout << "...Starting fishbot!" << std::endl;
 	prog.blankDots();
 	
