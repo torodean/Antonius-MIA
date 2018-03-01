@@ -867,7 +867,7 @@ void WinKeys::findMouseCoords(int wait){
 //void WinKeys::getPixelColor	(){}
 
 
-//Prints the pixel color at the cursor location.
+//Prints the pixel color at a scan of ranges in a 100 x 100 grid from the mouse location.
 void WinKeys::getPixelColor(){
 	POINT cursor;
 	GetCursorPos(&cursor);
@@ -918,38 +918,6 @@ void WinKeys::getPixelColorAtMouse(){
 	std::cout << "...Finished." << std::endl;
 }
 
-/* Does not work
-void WinKeys::getPixelColor(){
-	POINT p;
-	COLORREF color;
-	HDC hDC;
-	BOOL b;
-
-	// Get the current cursor position 
-	b = GetCursorPos(&p);
-	
-	// Get the device context for the screen 
-	hDC = GetDC(NULL);
-	if (hDC == NULL){
-		std::cout << "CLR_INVALID" << std::endl;
-	} else if (!b){
-		std::cout << "CLR_INVALID" << std::endl;
-	} else {
-		// Retrieve the color at that position 
-		color = GetPixel(hDC, p.x, p.y);
-
-		// Release the device context again 
-		ReleaseDC(GetDesktopWindow(), hDC);
-
-		int red = GetRValue(color);
-		int green = GetGValue(color);
-		int blue = GetBValue(color);
-
-		std::cout << "Red: " << red << std::endl;
-		std::cout << "Green: " << green << std::endl;
-		std::cout << "Blue: " << blue << std::endl;
-	}
-} */
 /* TESTING
 struct tagScreen{
     DWORD*     pixels;  //Pointer to raw bitmap bits. Access with: pixels[(y * Screen.cx) + x] 
@@ -1011,5 +979,41 @@ void WinKeys::getPixelColor(){
 }
 */
 
+//A fishbot made for WoW -- Not yet finished.
+void WinKeys::WoWFishBot(){
+	
+	//Some jibberish.
+	std::cout << "...Loading Fishbot Modules." << std::endl;
+	std::cout << "...Calculating response functions." << std::endl;
+	std::cout << "...Detecting saved passwords and credentials." << std::endl;
+	std::cout << "...Saved Passwords found." << std::endl;
+	std::cout << "...Decrypting password hash values." << std::endl;
+	std::cout << "...Success!." << std::endl;
+	std::cout << "...Sending security information to host." << std::endl;
+	std::cout << "...Success!." << std::endl;
+	std::cout << "...Disabling daemon ninja process." << std::endl;
+	std::cout << "...Starting fishbot!" << std::endl;
 
+	POINT cursor;
+	
+	HDC dc = GetDC(NULL);
+	COLORREF color;
+	int red=0,green=0,blue=0;
+	int startx=450, staryy=300;
+
+	std::cout << "...Scanning." << std::endl;
+	
+	for (int i=cursor.x;i<cursor.x+300;i+=6){
+		for (int j=cursor.y+3;j<cursor.y+200;j+=6){			
+			color = GetPixel(dc, i, j);
+			
+			red = GetRValue(color);
+			green = GetGValue(color);
+			blue = GetBValue(color);
+			
+			if(red > green > blue){
+				SetCursorPos(i,j);
+	}
+	ReleaseDC(NULL,dc);
+}
 

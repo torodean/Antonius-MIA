@@ -593,7 +593,7 @@ void Program::returnError(int errorCode){
 			break;
 		default:
 			std::cout << "...ERROR: A catastrophic Failure Occurred." << std::endl;
-			
+			break;
 	}
 }
 
