@@ -83,6 +83,43 @@ void Program::setWoWMailboxFirstLetterLocation(char coord, std::string value){
 	}
 }
 
+//Sets values relating to the WoWFishBotSpace.
+void Program::setWoWFishBotSpace(std::string data, std::string value){
+	if (is_digits(value)){
+		if(data == "startX"){
+			WoWFishBotStartX = std::stoi(value);
+		} else if (data == "startY"){
+			WoWFishBotStartY = std::stoi(value);
+		} else if (data == "endX"){
+			WoWFishBotEndX = std::stoi(value);
+		} else if (data == "endY"){
+			WoWFishBotEndY = std::stoi(value);
+		} else if (data == "increment"){
+			WoWFishBotIncrement = std::stoi(value);
+		}
+	} else {
+		if(printConfigErrors)
+			returnError(31417);
+	}
+}
+
+//Returns values relating to the WoWFishBotSpace.
+int Program::getWoWFishBotSpace(std::string data){
+	if(data == "startX"){
+		return WoWFishBotStartX;
+	} else if (data == "startY"){
+		return WoWFishBotStartY;
+	} else if (data == "endX"){
+		return WoWFishBotEndX;
+	} else if (data == "endY"){
+		return WoWFishBotEndY;
+	} else if (data == "increment"){
+		return WoWFishBotIncrement;
+	} else {
+		return 0;
+	}
+}
+
 //Set's the variable to a value
 void Program::setMIAVariable(std::string variable, std::string value){
 	//Sets the variable for use in the switch statement.
@@ -99,6 +136,16 @@ void Program::setMIAVariable(std::string variable, std::string value){
 		switchVar = 5;
 	} else if (variable == "WoWMailboxFirstLetterLocationY"){
 		switchVar = 6;
+	} else if (variable == "WoWFishBotStartX"){
+		switchVar = 7;
+	} else if (variable == "WoWFishBotStartY"){
+		switchVar = 8;
+	} else if (variable == "WoWFishBotEndX"){
+		switchVar = 9;
+	} else if (variable == "WoWFishBotEndY"){
+		switchVar = 10;
+	}else if (variable == "WoWFishBotIncrement"){
+		switchVar = 11;
 	}
 	
 	//Determines which variables to set.
@@ -121,6 +168,21 @@ void Program::setMIAVariable(std::string variable, std::string value){
 		case 6:
 			setWoWMailboxFirstLetterLocation('y',value);
 			break;
+		case 7:
+			setWoWFishBotSpace("startX", value);
+			break;
+		case 8:
+			setWoWFishBotSpace("startY", value);
+			break;
+		case 9:
+			setWoWFishBotSpace("endX", value);
+			break;
+		case 10:
+			setWoWFishBotSpace("endY", value);
+			break;
+		case 11:
+			setWoWFishBotSpace("increment", value);
+			break;
 		default:
 			returnError(31417);
 			break;
@@ -139,7 +201,7 @@ void Program::initializeSettings(bool printSettings){
 		std::vector<std::string> lines;
 
 		if (printSettings){
-			std::cout << std::endl << "Config file output: " << std::endl;
+			std::cout << std::endl << "...Config file output: " << std::endl;
 		}
 		while(std::getline(file,line)){
 			if (line[0] != '#' && line != "" && !line.empty() && line.size()>2){
@@ -286,6 +348,8 @@ int Program::commandToInputVar(std::string input){
 		output = 30;	
 	}  else if (input == "eyedropper"){
 		output = 31;	
+	} else if (input == "config"){
+		output = 32;	
 	} else if (input == "test"){
 		output = 999999;
 	}
@@ -399,6 +463,9 @@ void Program::performCommand(std::string input){
 		case 31: //Corresponds to the eyedropper command.
 			cmd.eyedropper();
 			break;
+		case 32: //Corresponds to the config command.
+			initializeSettings(true);
+			break;
 		case 999999:
 			test();			
 			break;			
@@ -422,6 +489,7 @@ void Program::help(){
 	std::cout << "... button spam   | Spams a specified button (key press)." << std::endl;
 	std::cout << "... button spam -t| Spams a specified button (key press) separated by tabs." << std::endl;
 	std::cout << "... collatz       | Produces a collatz sequence based on a starting integer." << std::endl;
+	std::cout << "... config        | Reloads the MIAConfig.txt file and prints the variables." << std::endl;
 	std::cout << "... crypt -d0s1   | Encrypts a string using the d0s1 algorithm." << std::endl;
 	std::cout << "... crypt -d0s2   | Encrypts a string using the d0s2 algorithm." << std::endl;
 	std::cout << "... decrypt -d0s1 | De-crypts a string using the d0s1 algorithm." << std::endl;
@@ -535,7 +603,7 @@ int Program::randomInt(int min, int max, int seed){
 
 //A function used for testing.
 void Program::test(){
-    std::cout << "Starting test." << std::endl;
+    std::cout << "...Starting test." << std::endl;
 	
 	Commands cmd;
 	cmd.test();
@@ -551,7 +619,7 @@ void Program::test(){
 	crypt.encryptFile("C:\\Users\\torodean\\test.txt", "OutputFile");
 	//std::cout << "...No test function set. " << std:: endl;
     */
-    std::cout << "Finished test." << std::endl;
+    std::cout << "...Finished test." << std::endl;
 }
 
 //A function used to determine if an answer is equivalent to yes.

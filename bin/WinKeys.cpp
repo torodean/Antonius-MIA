@@ -981,6 +981,7 @@ void WinKeys::getPixelColor(){
 
 //A fishbot made for WoW -- Not yet finished.
 void WinKeys::WoWFishBot(){
+	Program prog;
 	
 	//Some jibberish.
 	std::cout << "...Loading Fishbot Modules." << std::endl;
@@ -993,29 +994,53 @@ void WinKeys::WoWFishBot(){
 	std::cout << "...Success!." << std::endl;
 	std::cout << "...Disabling daemon ninja process." << std::endl;
 	std::cout << "...Starting fishbot!" << std::endl;
-
-	POINT cursor;
+	prog.blankDots();
 	
 	HDC dc = GetDC(NULL);
 	COLORREF color;
 	int red=0,green=0,blue=0;
-	int startx=450, starty=300;
-
+	int increment = prog.getWoWFishBotSpace("increment");
+	int startX = prog.getWoWFishBotSpace("startX") + increment/2, startY = prog.getWoWFishBotSpace("startY");
+	int endX = prog.getWoWFishBotSpace("endX"), endY = prog.getWoWFishBotSpace("endY");
+	bool bobberFound = false;
+	
+	std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
+	std::chrono::steady_clock::time_point end;
+	long elapsed_time = 0;
+	
 	std::cout << "...Scanning." << std::endl;
 	
-	for (int i=startx;i<startx+300;i+=6){
-		for (int j=starty+3;j<starty+200;j+=6){			
+	for (int j=startY;j<endY;j+=increment){	
+		for (int i=startX;i<endX;i+=increment){		
 			color = GetPixel(dc, i, j);
 			
 			red = GetRValue(color);
 			green = GetGValue(color);
 			blue = GetBValue(color);
 			
+			SetCursorPos(i,j);
+			
 			if(red > green && green > blue){
 				SetCursorPos(i,j);
+				std::cout << "...The bobber has been found!! ...I think." << std::endl;
+				bobberFound=true;
+				break;
 			}
 		}
+		if(bobberFound){
+			end = std::chrono::steady_clock::now();
+			break;
+		}
 	}
+	if(!bobberFound){
+		end = std::chrono::steady_clock::now();
+		std::cout << "...I was unable to find the bobber! ...Thanks Obama!" << std::endl;
+	}
+	
+	elapsed_time = std::chrono::duration_cast<std::chrono::milliseconds>(end - begin).count();
+	
+	std::cout << "...Elapsed time: " << elapsed_time << " milliseconds." << std::endl;
+	
 	ReleaseDC(NULL,dc);
 }
 

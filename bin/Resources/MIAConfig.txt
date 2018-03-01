@@ -13,9 +13,20 @@
 # Do not include spaces unless within a string variable. 
 # This means, do not do 'variable= text' unless you intend to have " text" be the variable value.
 
+# MIA file location variables.
 defaultInputFilePath=../bin/Resources/InputFiles/
 defaultCryptFilePath=../bin/Resources/EncryptedFiles/
+
+# WoW related variables.
 WoWMailboxSendLocationX=0
 WoWMailboxSendLocationY=0
 WoWMailboxFirstLetterLocationX=0
 WoWMailboxFirstLetterLocationY=0
+
+# Variables relating to the fishbot implementation inside MIA.
+# WoWFishBotIncrement should be an even number
+WoWFishBotStartX=400
+WoWFishBotStartY=400
+WoWFishBotEndX=1520
+WoWFishBotEndY=680exit
+WoWFishBotIncrement=30

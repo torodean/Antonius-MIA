@@ -15,7 +15,7 @@
 
 class Program{
 	private:
-		const std::string VERSION = "0.032";
+		const std::string VERSION = "0.033";
 		bool printConfigErrors = false;
 		std::string defaultInputFilePath = "../bin/Resources/InputFiles/";
 		std::string defaultCryptFilePath = "../bin/Resources/EncryptedFiles/";
@@ -23,6 +23,11 @@ class Program{
 		int WoWMailboxSendLocationY = 0;
 		int WoWMailboxFirstLetterLocationX = 0;
 		int WoWMailboxFirstLetterLocationY = 0;
+		int WoWFishBotStartX=0;
+		int WoWFishBotStartY=0;
+		int WoWFishBotEndX=0;
+		int WoWFishBotEndY=0;
+		int WoWFishBotIncrement=0;
 		
 	public:
 		Program();
@@ -37,6 +42,8 @@ class Program{
 		void setMIAVariable(std::string variable, std::string value);
 		void setWoWMailboxSendLocation(char coord, std::string value);
 		void setWoWMailboxFirstLetterLocation(char coord, std::string value);
+		void setWoWFishBotSpace(std::string data, std::string value);
+		int getWoWFishBotSpace(std::string data);
 
 		//Program related functions.
 		void terminal();

@@ -139,7 +139,7 @@ void Commands::collatzRunner(){
 	
 	output = math.productCollatzSequence(longInput);
 	
-	std::cout << "collatz: " << output << std::endl;
+	std::cout << "...collatz: " << output << std::endl;
 	prog.blankLine();
 	std::cout << "...Collatz sequence complete." << std::endl;
 	prog.blankLine();
@@ -163,7 +163,7 @@ void Commands::stringAdditionRunner(){
 
 	output = math.addTwoStrings(intOne, intTwo);
 
-	std::cout << "Integer sum: " << output << std::endl;
+	std::cout << "...Integer sum: " << output << std::endl;
 	prog.blankLine();
 }
 
@@ -185,7 +185,7 @@ void Commands::stringMultiplyRunner(){
 
 	output = math.multiplyTwoStrings(intOne, intTwo);
 
-	std::cout << "Integer product: " << output << std::endl;
+	std::cout << "...Integer product: " << output << std::endl;
 	prog.blankLine();	
 }
 
@@ -207,7 +207,7 @@ void Commands::stringSubtractionRunner(){
 
 	output = math.subtractTwoStrings(intOne, intTwo);
 
-	std::cout << "Integer difference: " << output << std::endl;
+	std::cout << "...Integer difference: " << output << std::endl;
 	prog.blankLine();
 }
 
@@ -266,7 +266,7 @@ void Commands::sumOfDigitsRunner(){
 	
 	long output = math.sumOfDigits(input);
 	
-	std::cout << "Sum of Digits: " << output << std::endl;        
+	std::cout << "...Sum of Digits: " << output << std::endl;        
 	prog.blankLine();
 }
 
@@ -500,7 +500,7 @@ void Commands::exploreMinecraft(){
 	prog.blankLine();
 	
 	double totalSteps = ((stopx-startx)*1.0/(stepSize*1.0)+1)*((stopz-startz)*1.0/(stepSize*1.0)+1);
-	std::cout << "totalSteps: " << totalSteps << std::endl;
+	std::cout << "...totalSteps: " << totalSteps << std::endl;
 	
 	std::cout << "...Beginning in " << delayStartTime << " milliseconds." << std::endl;
 	prog.blankLine();
@@ -651,7 +651,7 @@ void Commands::solveQuadraticFormulaRunner(){
 void Commands::pranjal(){
 	Misc misc;
 	std::string output = misc.shuffleString("pranjal");
-	std::cout << "Did you mean " << output << "?" << std::endl;
+	std::cout << "...Did you mean " << output << "?" << std::endl;
 }
 
 //Finds and returns the coordinates of the mouse pointer after 5 seconds.
@@ -660,9 +660,9 @@ void Commands::findMouse(){
 	Program prog;
 	WinKeys keys;
 	
-	std::cout << "...Locating mouse in 4 seconds." << std::endl;
+	std::cout << "...Locating mouse in 2 seconds." << std::endl;
 	
-	keys.findMouseCoords(4000);
+	keys.findMouseCoords(2000);
 	
 	#else
 	Program prog;
@@ -675,7 +675,7 @@ void Commands::test(){
 	Program prog;
 	WinKeys keys;
 	
-	keys.getPixelColor();
+	keys.WoWFishBot();
 	
 	#else
 	Program prog;
