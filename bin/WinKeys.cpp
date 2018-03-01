@@ -999,20 +999,22 @@ void WinKeys::WoWFishBot(){
 	HDC dc = GetDC(NULL);
 	COLORREF color;
 	int red=0,green=0,blue=0;
-	int startx=450, staryy=300;
+	int startx=450, starty=300;
 
 	std::cout << "...Scanning." << std::endl;
 	
-	for (int i=cursor.x;i<cursor.x+300;i+=6){
-		for (int j=cursor.y+3;j<cursor.y+200;j+=6){			
+	for (int i=startx;i<startx+300;i+=6){
+		for (int j=starty+3;j<starty+200;j+=6){			
 			color = GetPixel(dc, i, j);
 			
 			red = GetRValue(color);
 			green = GetGValue(color);
 			blue = GetBValue(color);
 			
-			if(red > green > blue){
+			if(red > green && green > blue){
 				SetCursorPos(i,j);
+			}
+		}
 	}
 	ReleaseDC(NULL,dc);
 }
