@@ -1005,7 +1005,9 @@ void WinKeys::WoWFishBot(){
 	
 	HDC dc = GetDC(NULL);
 	COLORREF color;
-	int red=0,green=0,blue=0;
+	int counter = 0;
+
+	int red=1,green=1,blue=1;
 	int increment = prog.getWoWFishBotSpace("increment");
 	int startX = prog.getWoWFishBotSpace("startX") + increment/2, startY = prog.getWoWFishBotSpace("startY");
 	int endX = prog.getWoWFishBotSpace("endX"), endY = prog.getWoWFishBotSpace("endY");
@@ -1015,20 +1017,25 @@ void WinKeys::WoWFishBot(){
 	std::chrono::steady_clock::time_point end;
 	long elapsed_time = 0;
 	
+	while(counter < 10000){
+	
 	std::cout << "...Scanning." << std::endl;
 	
 	for (int j=startY;j<endY;j+=increment){	
-		for (int i=startX;i<endX;i+=increment){		
+		for (int i=startX;i<endX;i+=increment){	
+			SetCursorPos(i,j);
+			waitTime(40);
 			color = GetPixel(dc, i, j);
+			//color = GetPixel(dc, cursor.x, cursor.y);
 			
 			red = GetRValue(color);
 			green = GetGValue(color);
 			blue = GetBValue(color);
+
+			std::cout << "(x,y): " << "(" << i << "," << j << ")" << std::endl;
+			std::cout << "Red: " << red << "  --  " << "Green: " << green << "  --  " << "Blue: " << blue << std::endl;
 			
-			SetCursorPos(i,j);
-			
-			if(red > green && green > blue){
-				SetCursorPos(i,j);
+			if(red == 0 && green == 0 && blue == 0){
 				std::cout << "...The bobber has been found!! ...I think." << std::endl;
 				bobberFound=true;
 				break;
@@ -1047,6 +1054,15 @@ void WinKeys::WoWFishBot(){
 	elapsed_time = std::chrono::duration_cast<std::chrono::milliseconds>(end - begin).count();
 	
 	std::cout << "...Elapsed time: " << elapsed_time << " milliseconds." << std::endl;
+	
+	waitTime(10000);
+	leftclick();
+	waitTime(1000);
+	bobberFound = false;
+	three();
+	elapsed_time = 0;
+	counter++;
+	}
 	
 	ReleaseDC(NULL,dc);
 }

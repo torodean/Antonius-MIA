@@ -25,8 +25,8 @@ WoWMailboxFirstLetterLocationY=0
 
 # Variables relating to the fishbot implementation inside MIA.
 # WoWFishBotIncrement should be an even number
-WoWFishBotStartX=400
-WoWFishBotStartY=400
-WoWFishBotEndX=1520
-WoWFishBotEndY=680exit
-WoWFishBotIncrement=30
+WoWFishBotStartX=725
+WoWFishBotStartY=360
+WoWFishBotEndX=1230
+WoWFishBotEndY=495
+WoWFishBotIncrement=40
