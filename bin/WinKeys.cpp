@@ -812,6 +812,7 @@ void WinKeys::slash(){
 
 //Used for duplicating a letter in WoW. Useful for creating RP events.
 void WinKeys::duplicateLetter(int copies, std::string recipient){
+	Program prog;
     std::this_thread::sleep_for(std::chrono::milliseconds(5000));
     for(int i=0;i<copies;i++){
         type(recipient);
@@ -823,7 +824,9 @@ void WinKeys::duplicateLetter(int copies, std::string recipient){
         tab();
         Sleep(200);
         paste();
-        Sleep(200);
+        Sleep(400);
+        SetCursorPos(prog.getWoWMailboxSendLocation('x'), prog.getWoWMailboxSendLocation('y'));
+        Sleep(300);
         leftclick();
         Sleep(1500);
     }

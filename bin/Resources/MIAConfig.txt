@@ -18,10 +18,10 @@ defaultInputFilePath=../bin/Resources/InputFiles/
 defaultCryptFilePath=../bin/Resources/EncryptedFiles/
 
 # WoW related variables.
-WoWMailboxSendLocationX=0
-WoWMailboxSendLocationY=0
-WoWMailboxFirstLetterLocationX=0
-WoWMailboxFirstLetterLocationY=0
+WoWMailboxSendLocationX=279
+WoWMailboxSendLocationY=647
+WoWMailboxFirstLetterLocationX=55
+WoWMailboxFirstLetterLocationY=265
 
 # Variables relating to the fishbot implementation inside MIA.
 # WoWFishBotIncrement should be an even number

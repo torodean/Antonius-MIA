@@ -70,6 +70,15 @@ void Program::setWoWMailboxSendLocation(char coord, std::string value){
 			returnError(31417);
 	}
 }
+int Program::getWoWMailboxSendLocation(char coord){
+	if(coord == 'x'){
+		return WoWMailboxSendLocationX;
+	} else if (coord == 'y'){
+		return WoWMailboxSendLocationY;
+	} else {
+		return 0;
+	}
+}
 void Program::setWoWMailboxFirstLetterLocation(char coord, std::string value){
 	if (is_digits(value)){
 		if(coord == 'x'){
