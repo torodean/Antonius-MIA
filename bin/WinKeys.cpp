@@ -1018,50 +1018,53 @@ void WinKeys::WoWFishBot(){
 	long elapsed_time = 0;
 	
 	while(counter < 10000){
-	
-	std::cout << "...Scanning." << std::endl;
-	
-	for (int j=startY;j<endY;j+=increment){	
-		for (int i=startX;i<endX;i+=increment){	
-			SetCursorPos(i,j);
-			waitTime(40);
-			color = GetPixel(dc, i, j);
-			//color = GetPixel(dc, cursor.x, cursor.y);
-			
-			red = GetRValue(color);
-			green = GetGValue(color);
-			blue = GetBValue(color);
+		std::cout << "...Scanning." << std::endl;
+		
+		for (int j=startY;j<endY;j+=increment){	
+			for (int i=startX;i<endX;i+=increment){	
+				SetCursorPos(i,j);
+				waitTime(40);
+				color = GetPixel(dc, i, j);
+				//color = GetPixel(dc, cursor.x, cursor.y);
+				
+				red = GetRValue(color);
+				green = GetGValue(color);
+				blue = GetBValue(color);
 
-			std::cout << "(x,y): " << "(" << i << "," << j << ")" << std::endl;
-			std::cout << "Red: " << red << "  --  " << "Green: " << green << "  --  " << "Blue: " << blue << std::endl;
-			
-			if(red == 0 && green == 0 && blue == 0){
-				std::cout << "...The bobber has been found!! ...I think." << std::endl;
-				bobberFound=true;
+				std::cout << "(x,y): " << "(" << i << "," << j << ")" << std::endl;
+				std::cout << "Red: " << red << "  --  " << "Green: " << green << "  --  " << "Blue: " << blue << std::endl;
+				
+				if(red == 0 && green == 0 && blue == 0){
+					std::cout << "...The bobber has been found!! ...I think." << std::endl;
+					bobberFound=true;
+					break;
+				}
+			}
+			if(bobberFound){
+				end = std::chrono::steady_clock::now();
 				break;
 			}
 		}
-		if(bobberFound){
+		if(!bobberFound){
 			end = std::chrono::steady_clock::now();
-			break;
+			std::cout << "...I was unable to find the bobber! ...Thanks Obama!" << std::endl;
 		}
-	}
-	if(!bobberFound){
-		end = std::chrono::steady_clock::now();
-		std::cout << "...I was unable to find the bobber! ...Thanks Obama!" << std::endl;
-	}
-	
-	elapsed_time = std::chrono::duration_cast<std::chrono::milliseconds>(end - begin).count();
-	
-	std::cout << "...Elapsed time: " << elapsed_time << " milliseconds." << std::endl;
-	
-	waitTime(10000);
-	leftclick();
-	waitTime(1000);
-	bobberFound = false;
-	three();
-	elapsed_time = 0;
-	counter++;
+		
+		elapsed_time = std::chrono::duration_cast<std::chrono::milliseconds>(end - begin).count();
+		
+		std::cout << "...Elapsed time: " << elapsed_time << " milliseconds." << std::endl;
+		
+		waitTime(10000);
+		leftclick();
+		waitTime(1000);
+		bobberFound = false;
+		three();
+		elapsed_time = 0;
+		if (counter % 100 == 0){
+			eight();
+			waitTime(3000);
+		}
+		counter++;
 	}
 	
 	ReleaseDC(NULL,dc);
