@@ -52,6 +52,7 @@ class Commands{
 		void duplicateLetterRunner();
 		void findMouse();
 		void eyedropper();
+		void runFishbot();
 		
 		//Misc functions
 		void pranjal();

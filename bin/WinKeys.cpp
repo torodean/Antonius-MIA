@@ -983,18 +983,18 @@ void WinKeys::getPixelColor(){
 */
 
 //A fish bot made for WoW -- Not yet finished.
-void WinKeys::WoWFishBot(){
+void WinKeys::WoWFishBot(std::string fishButton, std::string lureButton){
 	Program prog;
 	
-	int drama = 300;
+	int drama = 400;
 	//Some gibberish for dramatic effect.
 	std::cout << "...Loading Fishbot Modules." << std::endl;
 	waitTime(drama);
 	std::cout << "...Calculating response functions." << std::endl;
 	waitTime(drama);
-	std::cout << "...Detecting saved passwords and credentials." << std::endl;
+	std::cout << "...Detecting saved crypto-keys." << std::endl;
 	waitTime(2*drama);
-	std::cout << "...Saved Passwords found!" << std::endl;
+	std::cout << "...Saved keys found!" << std::endl;
 	std::cout << "...Decrypting password hash values." << std::endl;
 	waitTime(drama);
 	std::cout << "...Success!." << std::endl;
@@ -1024,11 +1024,11 @@ void WinKeys::WoWFishBot(){
 	while(counter < 10000){
 		if (counter % 100 == 0){
 			std::cout << "...Applying lure." << std::endl;
-			eight();
+			press(lureButton);
 			waitTime(3000);
 		}
 		std::cout << "...Casting." << std::endl;
-		three();
+		press(fishButton);
 		std::cout << "...Scanning." << std::endl;
 		
 		for (int j=startY;j<endY;j+=increment){	

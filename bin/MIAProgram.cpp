@@ -51,7 +51,7 @@ bool Program::is_digits(const std::string &str){
 	}
 }
 
-//Changes the private variables.
+//Changes and returns the private variables.
 void Program::setDefaultInputFilePath(std::string input){
 	defaultInputFilePath = input;
 }
@@ -209,6 +209,7 @@ void Program::initializeSettings(bool printSettings){
 		std::string line;
 		std::vector<std::string> lines;
 
+		//If true, print the configuration file settings.
 		if (printSettings){
 			std::cout << std::endl << "...Config file output: " << std::endl;
 		}
@@ -359,6 +360,8 @@ int Program::commandToInputVar(std::string input){
 		output = 31;	
 	} else if (input == "config"){
 		output = 32;	
+	} else if (input == "fishbot"){
+		output = 33;
 	} else if (input == "test"){
 		output = 999999;
 	}
@@ -474,6 +477,9 @@ void Program::performCommand(std::string input){
 			break;
 		case 32: //Corresponds to the config command.
 			initializeSettings(true);
+			break;
+		case 33: //Corresponds to the fishbot command.
+			cmd.runFishbot();
 			break;
 		case 999999:
 			test();			
