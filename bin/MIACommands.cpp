@@ -710,14 +710,14 @@ void Commands::runFishbot(){
 	std::cout << "...In order for the fishbot to work, please enter in game settings and DISABLE hardware cursor.";
 	std::cout << "...To use defauly values (3 for cast and 8 for lure) leave the following options blank.";
 	std::cout << "...Press ENTER to continue.";
-	cin.ignore();
+	std::cin.ignore();
 
 	prog.blankDots();
 	std::cout << "...Please enter which button you have set to cast: ";
-	getline(std::cin, fishbutton);
+	std::getline(std::cin, fishButton);
 	prog.blankLine();
 	std::cout << "...Please enter which button you have set to apply a lure: ";
-	getline(std::cin, lurebutton);
+	getline(std::cin, lureButton);
 	prog.blankLine();
 	
 	keys.WoWFishBot(fishButton, lureButton);
