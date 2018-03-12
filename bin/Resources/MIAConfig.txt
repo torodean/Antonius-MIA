@@ -29,3 +29,4 @@ WoWFishBotStartY=360
 WoWFishBotEndX=1230
 WoWFishBotEndY=495
 WoWFishBotIncrement=40
+WoWFishBotNumOfCasts=10000

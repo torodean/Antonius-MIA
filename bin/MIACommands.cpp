@@ -707,9 +707,9 @@ void Commands::runFishbot(){
 	//Default values.
 	std::string fishButton = "3", lureButton = "8";
 	
-	std::cout << "...In order for the fishbot to work, please enter in game settings and DISABLE hardware cursor.";
-	std::cout << "...To use defauly values (3 for cast and 8 for lure) leave the following options blank.";
-	std::cout << "...Press ENTER to continue.";
+	std::cout << "...In order for the fishbot to work, please enter in game settings and DISABLE" << std::endl << "     hardware cursor." << std::endl;
+	std::cout << "...To use default values (3 for cast and 8 for lure) leave the following options" << std::endl << "     blank." << std::endl;
+	std::cout << "...Press ENTER to continue." << std::endl;
 	std::cin.ignore();
 
 	prog.blankDots();
@@ -717,8 +717,16 @@ void Commands::runFishbot(){
 	std::getline(std::cin, fishButton);
 	prog.blankLine();
 	std::cout << "...Please enter which button you have set to apply a lure: ";
-	getline(std::cin, lureButton);
+	std::getline(std::cin, lureButton);
 	prog.blankLine();
+	
+	//Arbitrary default values based on my preferred setup.
+	if(fishButton == "" || fishButton == "\n" || fishButton == "\r"){
+		fishButton = "3";
+	}
+	if(lureButton == "" || lureButton == "\n" || lureButton == "\r"){
+		lureButton == "8";
+	}
 	
 	keys.WoWFishBot(fishButton, lureButton);
 	

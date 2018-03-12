@@ -1003,6 +1003,9 @@ void WinKeys::WoWFishBot(std::string fishButton, std::string lureButton){
 	std::cout << "...Success!." << std::endl;
 	std::cout << "...Disabling daemon ninja process." << std::endl;
 	waitTime(drama);
+	prog.blankDots();
+	std::cout << "...Number of casts set to: " << prog.getWoWFishBotSpace("casts") << std::endl;
+	waitTime(drama);
 	std::cout << "...Starting fishbot!" << std::endl;
 	waitTime(drama);
 	prog.blankDots();
@@ -1021,7 +1024,7 @@ void WinKeys::WoWFishBot(std::string fishButton, std::string lureButton){
 	std::chrono::steady_clock::time_point end;
 	long elapsed_time = 0;
 	
-	while(counter < 10000){
+	while(counter < prog.getWoWFishBotSpace("casts")){
 		if (counter % 100 == 0){
 			std::cout << "...Applying lure." << std::endl;
 			press(lureButton);

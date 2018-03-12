@@ -15,7 +15,7 @@
 
 class Program{
 	private:
-		const std::string VERSION = "0.033";
+		const std::string VERSION = "0.034";
 		bool printConfigErrors = false;
 		std::string defaultInputFilePath = "../bin/Resources/InputFiles/";
 		std::string defaultCryptFilePath = "../bin/Resources/EncryptedFiles/";
@@ -23,11 +23,12 @@ class Program{
 		int WoWMailboxSendLocationY = 650;
 		int WoWMailboxFirstLetterLocationX = 0;
 		int WoWMailboxFirstLetterLocationY = 0;
-		int WoWFishBotStartX=0;
-		int WoWFishBotStartY=0;
-		int WoWFishBotEndX=0;
-		int WoWFishBotEndY=0;
-		int WoWFishBotIncrement=0;
+		int WoWFishBotStartX = 0;
+		int WoWFishBotStartY = 0;
+		int WoWFishBotEndX = 0;
+		int WoWFishBotEndY = 0;
+		int WoWFishBotIncrement = 0;
+		int WoWFishBotNumOfCasts = 1000;
 		
 	public:
 		Program();

@@ -105,6 +105,8 @@ void Program::setWoWFishBotSpace(std::string data, std::string value){
 			WoWFishBotEndY = std::stoi(value);
 		} else if (data == "increment"){
 			WoWFishBotIncrement = std::stoi(value);
+		}  else if (data == "casts"){
+			WoWFishBotNumOfCasts = std::stoi(value);
 		}
 	} else {
 		if(printConfigErrors)
@@ -124,7 +126,9 @@ int Program::getWoWFishBotSpace(std::string data){
 		return WoWFishBotEndY;
 	} else if (data == "increment"){
 		return WoWFishBotIncrement;
-	} else {
+	} else if (data == "casts"){
+		return WoWFishBotNumOfCasts;
+	}else {
 		return 0;
 	}
 }
@@ -153,8 +157,10 @@ void Program::setMIAVariable(std::string variable, std::string value){
 		switchVar = 9;
 	} else if (variable == "WoWFishBotEndY"){
 		switchVar = 10;
-	}else if (variable == "WoWFishBotIncrement"){
+	} else if (variable == "WoWFishBotIncrement"){
 		switchVar = 11;
+	}  else if (variable == "WoWFishBotNumOfCasts"){
+		switchVar = 12;
 	}
 	
 	//Determines which variables to set.
@@ -191,6 +197,9 @@ void Program::setMIAVariable(std::string variable, std::string value){
 			break;
 		case 11:
 			setWoWFishBotSpace("increment", value);
+			break;
+		case 12:
+			setWoWFishBotSpace("casts", value);
 			break;
 		default:
 			returnError(31417);
