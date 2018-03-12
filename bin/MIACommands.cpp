@@ -670,12 +670,13 @@ void Commands::findMouse(){
 	#endif
 }
 
+//Function made for testing.
 void Commands::test(){
 	#if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
 	Program prog;
 	WinKeys keys;
 	
-	keys.WoWFishBot();
+	keys.WoWFishBot("3","8");
 	
 	#else
 	Program prog;
@@ -683,12 +684,43 @@ void Commands::test(){
 	#endif
 }
 
+//runs the eyedropper command which determines the color of the pixel at the mouse location.
 void Commands::eyedropper(){
 	#if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
 	Program prog;
 	WinKeys keys;
 	
 	keys.getPixelColorAtMouse();
+	
+	#else
+	Program prog;
+	prog.returnError(31416);
+	#endif
+}
+
+//Runs a fishbot for World of Warcraft.
+void Commands::runFishbot(){
+	#if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
+	Program prog;
+	WinKeys keys;
+	
+	//Default values.
+	std::string fishButton = "3", lureButton = "8";
+	
+	std::cout << "...In order for the fishbot to work, please enter in game settings and DISABLE hardware cursor.";
+	std::cout << "...To use defauly values (3 for cast and 8 for lure) leave the following options blank.";
+	std::cout << "...Press ENTER to continue.";
+	cin.ignore();
+
+	prog.blankDots();
+	std::cout << "...Please enter which button you have set to cast: ";
+	getline(std::cin, fishbutton);
+	prog.blankLine();
+	std::cout << "...Please enter which button you have set to apply a lure: ";
+	getline(std::cin, lurebutton);
+	prog.blankLine();
+	
+	keys.WoWFishBot(fishButton, lureButton);
 	
 	#else
 	Program prog;
