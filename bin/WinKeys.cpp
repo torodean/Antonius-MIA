@@ -986,7 +986,7 @@ void WinKeys::getPixelColor(){
 void WinKeys::WoWFishBot(){
 	Program prog;
 	
-	int drama = 100;
+	int drama = 300;
 	//Some gibberish for dramatic effect.
 	std::cout << "...Loading Fishbot Modules." << std::endl;
 	waitTime(drama);
@@ -1021,6 +1021,13 @@ void WinKeys::WoWFishBot(){
 	long elapsed_time = 0;
 	
 	while(counter < 10000){
+		if (counter % 100 == 0){
+			std::cout << "...Applying lure." << std::endl;
+			eight();
+			waitTime(3000);
+		}
+		std::cout << "...Casting." << std::endl;
+		three();
 		std::cout << "...Scanning." << std::endl;
 		
 		for (int j=startY;j<endY;j+=increment){	
@@ -1050,24 +1057,19 @@ void WinKeys::WoWFishBot(){
 		}
 		if(!bobberFound){
 			end = std::chrono::steady_clock::now();
-			std::cout << "...I was unable to find the bobber! ...Thanks Obama!" << std::endl;
+			std::cout << "...I was unable to find the bobber! ...To make it look like we're not cheeting of course." << std::endl;
 		}
 		
 		elapsed_time = std::chrono::duration_cast<std::chrono::milliseconds>(end - begin).count();
-		
-		std::cout << "...Elapsed time: " << elapsed_time << " milliseconds." << std::endl;
-		
+		counter++;
 		waitTime(10000);
 		leftclick();
 		waitTime(1000);
 		bobberFound = false;
-		three();
+		std::cout << "...Elapsed time: " << elapsed_time << " milliseconds." << std::endl;
+		std::cout << "...Number of casts: " << elapsed_time << " counter." << std::endl;
 		elapsed_time = 0;
-		if (counter % 100 == 0){
-			eight();
-			waitTime(3000);
-		}
-		counter++;
+		
 	}
 	
 	ReleaseDC(NULL,dc);
