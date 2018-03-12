@@ -1004,6 +1004,7 @@ void WinKeys::WoWFishBot(){
 	std::cout << "...Disabling daemon ninja process." << std::endl;
 	waitTime(drama);
 	std::cout << "...Starting fishbot!" << std::endl;
+	waitTime(drama);
 	prog.blankDots();
 	
 	HDC dc = GetDC(NULL);
@@ -1041,8 +1042,9 @@ void WinKeys::WoWFishBot(){
 				green = GetGValue(color);
 				blue = GetBValue(color);
 
-				std::cout << "(x,y): " << "(" << i << "," << j << ")" << std::endl;
-				std::cout << "Red: " << red << "  --  " << "Green: " << green << "  --  " << "Blue: " << blue << std::endl;
+				//Troubleshooting printouts for color of pixels detected.
+				//std::cout << "(x,y): " << "(" << i << "," << j << ")" << std::endl;
+				//std::cout << "Red: " << red << "  --  " << "Green: " << green << "  --  " << "Blue: " << blue << std::endl;
 				
 				if(red == 0 && green == 0 && blue == 0){
 					std::cout << "...The bobber has been found!! ...I think." << std::endl;
@@ -1057,17 +1059,19 @@ void WinKeys::WoWFishBot(){
 		}
 		if(!bobberFound){
 			end = std::chrono::steady_clock::now();
-			std::cout << "...I was unable to find the bobber! ...To make it look like we're not cheeting of course." << std::endl;
+			std::cout << "...I was unable to find the bobber! ...To make it look like we're not cheating of course." << std::endl;
 		}
 		
+		if(bobberFound){
+			waitTime(10000);
+			leftclick();
+		}
+		waitTime(1000);
 		elapsed_time = std::chrono::duration_cast<std::chrono::milliseconds>(end - begin).count();
 		counter++;
-		waitTime(10000);
-		leftclick();
-		waitTime(1000);
 		bobberFound = false;
 		std::cout << "...Elapsed time: " << elapsed_time << " milliseconds." << std::endl;
-		std::cout << "...Number of casts: " << elapsed_time << " counter." << std::endl;
+		std::cout << "...Number of casts: " << counter << std::endl;
 		elapsed_time = 0;
 		
 	}
