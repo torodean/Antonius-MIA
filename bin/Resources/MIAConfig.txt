@@ -18,8 +18,8 @@ defaultInputFilePath=../bin/Resources/InputFiles/
 defaultCryptFilePath=../bin/Resources/EncryptedFiles/
 
 # WoW related variables.
-WoWMailboxSendLocationX=279
-WoWMailboxSendLocationY=647
+WoWMailboxSendLetterLocationX=279
+WoWMailboxSendLetterLocationY=647
 WoWMailboxFirstLetterLocationX=55
 WoWMailboxFirstLetterLocationY=265
 WoWMailboxLootLetterLocationX=675

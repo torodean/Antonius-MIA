@@ -58,23 +58,23 @@ void Program::setDefaultInputFilePath(std::string input){
 void Program::setDefaultCryptFilePath(std::string input){
 	defaultCryptFilePath = input;
 }
-void Program::setWoWMailboxSendLocation(char coord, std::string value){
+void Program::setWoWMailboxSendLetterLocation(char coord, std::string value){
 	if (is_digits(value)){
 		if(coord == 'x'){
-			WoWMailboxSendLocationX = std::stoi(value);
+			WoWMailboxSendLetterLocationX = std::stoi(value);
 		} else if (coord == 'y'){
-			WoWMailboxSendLocationY = std::stoi(value);
+			WoWMailboxSendLetterLocationY = std::stoi(value);
 		}
 	} else {
 		if(printConfigErrors)
 			returnError(31417);
 	}
 }
-int Program::getWoWMailboxSendLocation(char coord){
+int Program::getWoWMailboxSendLetterLocation(char coord){
 	if(coord == 'x'){
-		return WoWMailboxSendLocationX;
+		return WoWMailboxSendLetterLocationX;
 	} else if (coord == 'y'){
-		return WoWMailboxSendLocationY;
+		return WoWMailboxSendLetterLocationY;
 	} else {
 		return 0;
 	}
@@ -85,6 +85,30 @@ void Program::setWoWMailboxFirstLetterLocation(char coord, std::string value){
 			WoWMailboxFirstLetterLocationX = std::stoi(value);
 		} else if (coord == 'y'){
 			WoWMailboxFirstLetterLocationY = std::stoi(value);
+		}
+	} else {
+		if(printConfigErrors)
+			returnError(31417);
+	}
+}
+void Program::setWoWMailboxLootLetterLocation(char coord, std::string value){
+	if (is_digits(value)){
+		if(coord == 'x'){
+			WoWMailboxLootLetterLocationX = std::stoi(value);
+		} else if (coord == 'y'){
+			WoWMailboxLootLetterLocationY = std::stoi(value);
+		}
+	} else {
+		if(printConfigErrors)
+			returnError(31417);
+	}
+}
+void Program::setWoWMailboxDeleteLetterLocation(char coord, std::string value){
+	if (is_digits(value)){
+		if(coord == 'x'){
+			WoWMailboxDeleteLetterLocationX = std::stoi(value);
+		} else if (coord == 'y'){
+			WoWMailboxDeleteLetterLocationY = std::stoi(value);
 		}
 	} else {
 		if(printConfigErrors)
@@ -139,80 +163,43 @@ int Program::getWoWFishBotSpace(std::string data){
 
 //Set's the variable to a value
 void Program::setMIAVariable(std::string variable, std::string value){
-	//Sets the variable for use in the switch statement.
-	int switchVar =0;
+	//Sets the appropriate variable values.
 	if (variable == "defaultInputFilePath"){
-		switchVar = 1;
+		setDefaultInputFilePath(value);
 	} else if (variable == "defaultCryptFilePath"){
-		switchVar = 2;
-	} else if (variable == "WoWMailboxSendLocationX"){
-		switchVar = 3;
-	} else if (variable == "WoWMailboxSendLocationY"){
-		switchVar = 4;
+		setDefaultCryptFilePath(value);
+	} else if (variable == "WoWMailboxSendLetterLocationX"){
+		setWoWMailboxSendLetterLocation('x',value);
+	} else if (variable == "WoWMailboxSendLetterLocationY"){
+		setWoWMailboxSendLetterLocation('y',value);
 	} else if (variable == "WoWMailboxFirstLetterLocationX"){
-		switchVar = 5;
+		setWoWMailboxFirstLetterLocation('x',value);
 	} else if (variable == "WoWMailboxFirstLetterLocationY"){
-		switchVar = 6;
+		setWoWMailboxFirstLetterLocation('y',value);
 	} else if (variable == "WoWFishBotStartX"){
-		switchVar = 7;
+		setWoWFishBotSpace("startX", value);
 	} else if (variable == "WoWFishBotStartY"){
-		switchVar = 8;
+		setWoWFishBotSpace("startY", value);
 	} else if (variable == "WoWFishBotEndX"){
-		switchVar = 9;
+		setWoWFishBotSpace("endX", value);
 	} else if (variable == "WoWFishBotEndY"){
-		switchVar = 10;
+		setWoWFishBotSpace("endY", value);
 	} else if (variable == "WoWFishBotIncrement"){
-		switchVar = 11;
+		setWoWFishBotSpace("increment", value);
 	}  else if (variable == "WoWFishBotNumOfCasts"){
-		switchVar = 12;
+		setWoWFishBotSpace("casts", value);
 	}  else if (variable == "WoWFishBotDelay"){
-		switchVar = 13;
-	}
-	
-	//Determines which variables to set.
-	switch( switchVar ){
-		case 1:
-			setDefaultInputFilePath(value);
-			break;
-		case 2:
-			setDefaultCryptFilePath(value);
-			break;
-		case 3:
-			setWoWMailboxSendLocation('x',value);
-			break;
-		case 4:
-			setWoWMailboxSendLocation('y',value);
-			break;
-		case 5:
-			setWoWMailboxFirstLetterLocation('x',value);
-			break;
-		case 6:
-			setWoWMailboxFirstLetterLocation('y',value);
-			break;
-		case 7:
-			setWoWFishBotSpace("startX", value);
-			break;
-		case 8:
-			setWoWFishBotSpace("startY", value);
-			break;
-		case 9:
-			setWoWFishBotSpace("endX", value);
-			break;
-		case 10:
-			setWoWFishBotSpace("endY", value);
-			break;
-		case 11:
-			setWoWFishBotSpace("increment", value);
-			break;
-		case 12:
-			setWoWFishBotSpace("casts", value);
-			break;
-		case 13:
-			setWoWFishBotSpace("delay", value);
-			break;
-		default:
-			returnError(31417);
-			break;
+		setWoWFishBotSpace("delay", value);
+	} else if (variable == "WoWMailboxLootLetterLocationX"){
+		setWoWMailboxLootLetterLocation('x',value);
+	} else if (variable == "WoWMailboxLootLetterLocationY"){
+		setWoWMailboxLootLetterLocation('y',value);
+	}  else if (variable == "WoWMailboxDeleteLetterLocationX"){
+		setWoWMailboxDeleteLetterLocation('x',value);
+	} else if (variable == "WoWMailboxDeleteLetterLocationY"){
+		setWoWMailboxDeleteLetterLocation('y',value);
+	} else {
+		returnError(31417);
 	}
 }
 
@@ -691,7 +678,7 @@ void Program::returnError(int errorCode){
 			std::cout << "...ERROR 31416: This feature is currently only programmed for Windows." << std::endl;
 			break;
 		case 31417:
-			std::cout << "...ERROR 31417: Invalid Option in MIAConfig." << std::endl;
+			std::cout << "...ERROR 31417: Invalid Option in MIAConfig. Using default value." << std::endl;
 			break;
 		default:
 			std::cout << "...ERROR: A catastrophic Failure Occurred." << std::endl;

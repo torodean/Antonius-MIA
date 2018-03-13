@@ -19,8 +19,8 @@ class Program{
 		bool printConfigErrors = false;
 		std::string defaultInputFilePath = "../bin/Resources/InputFiles/";
 		std::string defaultCryptFilePath = "../bin/Resources/EncryptedFiles/";
-		int WoWMailboxSendLocationX = 270;
-		int WoWMailboxSendLocationY = 650;
+		int WoWMailboxSendLetterLocationX = 270;
+		int WoWMailboxSendLetterLocationY = 650;
 		int WoWMailboxFirstLetterLocationX = 55;
 		int WoWMailboxFirstLetterLocationY = 265;
 		int WoWMailboxLootLetterLocationX = 675;
@@ -46,11 +46,14 @@ class Program{
 		void setDefaultCryptFilePath(std::string input);
 		void initializeSettings(bool printSettings);
 		void setMIAVariable(std::string variable, std::string value);
-		void setWoWMailboxSendLocation(char coord, std::string value);
-		void setWoWMailboxLootLocation(char coord, std::string value);
+		void setWoWMailboxSendLetterLocation(char coord, std::string value);
+		void setWoWMailboxLootLetterLocation(char coord, std::string value);
 		void setWoWMailboxDeleteLocation(char coord, std::string value);
-		int getWoWMailboxSendLocation(char coord);
 		void setWoWMailboxFirstLetterLocation(char coord, std::string value);
+		int getWoWMailboxSendLetterLocation(char coord);
+		int getWoWMailboxLootLetterLocation(char coord);
+		int getWoWMailboxDeleteLetterLocation(char coord);
+		int getWoWMailboxFirstLetterLocation(char coord);
 		void setWoWFishBotSpace(std::string data, std::string value);
 		int getWoWFishBotSpace(std::string data);
 
