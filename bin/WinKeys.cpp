@@ -813,9 +813,9 @@ void WinKeys::slash(){
 //Used for duplicating a letter in WoW. Useful for creating RP events.
 void WinKeys::duplicateLetter(int copies, std::string recipient){
 	Program prog;
-	
 	int x = prog.getWoWMailboxSendLetterLocation('x');
 	int y = prog.getWoWMailboxSendLetterLocation('y');
+	
     std::this_thread::sleep_for(std::chrono::milliseconds(5000));
     for(int i=0;i<copies;i++){
         type(recipient);
@@ -838,18 +838,26 @@ void WinKeys::duplicateLetter(int copies, std::string recipient){
 //Used for unloading letters from the mailbox in WoW. Useful for creating RP events.
 //Coordinates may need adapted based on screen resolutions, UI scales, etc..
 void WinKeys::unloadLetters(int copies){
+	Program prog;
+	int x0 = prog.getWoWMailboxFirstLetterLocation('x');
+	int y0 = prog.getWoWMailboxFirstLetterLocation('y');
+	int x1 = prog.getWoWMailboxLootLetterLocation('x');
+	int y1 = prog.getWoWMailboxLootLetterLocation('y');
+	int x2 = prog.getWoWMailboxDeleteLetterLocation('x');
+	int y2 = prog.getWoWMailboxDeleteLetterLocation('y');
+	
     std::this_thread::sleep_for(std::chrono::milliseconds(5000));
 
     for(int i=0;i<copies;i++){
-        SetCursorPos(55, 265);
+        SetCursorPos(x0, y0);
         Sleep(300);
         leftclick();
         Sleep(300);
-        SetCursorPos(675, 600);
+        SetCursorPos(x1, y1);
         Sleep(300);
         leftclick();
         Sleep(300);
-        SetCursorPos(700, 650);
+        SetCursorPos(x2, y2);
         Sleep(300);
         leftclick();
         Sleep(300);

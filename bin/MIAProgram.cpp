@@ -91,6 +91,15 @@ void Program::setWoWMailboxFirstLetterLocation(char coord, std::string value){
 			returnError(31417);
 	}
 }
+int Program::getWoWMailboxFirstLetterLocation(char coord){
+	if(coord == 'x'){
+		return WoWMailboxFirstLetterLocationX;
+	} else if (coord == 'y'){
+		return WoWMailboxFirstLetterLocationY;
+	} else {
+		return 0;
+	}
+}
 void Program::setWoWMailboxLootLetterLocation(char coord, std::string value){
 	if (is_digits(value)){
 		if(coord == 'x'){
@@ -103,6 +112,15 @@ void Program::setWoWMailboxLootLetterLocation(char coord, std::string value){
 			returnError(31417);
 	}
 }
+int Program::getWoWMailboxLootLetterLocation(char coord){
+	if(coord == 'x'){
+		return WoWMailboxLootLetterLocationX;
+	} else if (coord == 'y'){
+		return WoWMailboxLootLetterLocationY;
+	} else {
+		return 0;
+	}
+}
 void Program::setWoWMailboxDeleteLetterLocation(char coord, std::string value){
 	if (is_digits(value)){
 		if(coord == 'x'){
@@ -113,6 +131,15 @@ void Program::setWoWMailboxDeleteLetterLocation(char coord, std::string value){
 	} else {
 		if(printConfigErrors)
 			returnError(31417);
+	}
+}
+int Program::getWoWMailboxDeleteLetterLocation(char coord){
+	if(coord == 'x'){
+		return WoWMailboxDeleteLetterLocationX;
+	} else if (coord == 'y'){
+		return WoWMailboxDeleteLetterLocationY;
+	} else {
+		return 0;
 	}
 }
 
