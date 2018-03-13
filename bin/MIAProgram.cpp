@@ -107,6 +107,8 @@ void Program::setWoWFishBotSpace(std::string data, std::string value){
 			WoWFishBotIncrement = std::stoi(value);
 		}  else if (data == "casts"){
 			WoWFishBotNumOfCasts = std::stoi(value);
+		}  else if (data == "delay"){
+			WoWFishBotDelay = std::stoi(value);
 		}
 	} else {
 		if(printConfigErrors)
@@ -128,7 +130,9 @@ int Program::getWoWFishBotSpace(std::string data){
 		return WoWFishBotIncrement;
 	} else if (data == "casts"){
 		return WoWFishBotNumOfCasts;
-	}else {
+	} else if (data == "delay"){
+		return WoWFishBotDelay;
+	} else {
 		return 0;
 	}
 }
@@ -161,6 +165,8 @@ void Program::setMIAVariable(std::string variable, std::string value){
 		switchVar = 11;
 	}  else if (variable == "WoWFishBotNumOfCasts"){
 		switchVar = 12;
+	}  else if (variable == "WoWFishBotDelay"){
+		switchVar = 13;
 	}
 	
 	//Determines which variables to set.
@@ -200,6 +206,9 @@ void Program::setMIAVariable(std::string variable, std::string value){
 			break;
 		case 12:
 			setWoWFishBotSpace("casts", value);
+			break;
+		case 13:
+			setWoWFishBotSpace("delay", value);
 			break;
 		default:
 			returnError(31417);
@@ -522,6 +531,7 @@ void Program::help(){
 	std::cout << "... eyedropper    | Returns the RGB value of the pixel located at the cursor." << std::endl;
 	std::cout << "... factors       | Returns the number of factors within an integer." << std::endl;
 	std::cout << "... find mouse    | Finds/Returns the coordinates of the mouse after 5 seconds." << std::endl;
+	std::cout << "... fishbot       | A working and configurable WoW fishbot." << std::endl;
 	std::cout << "... lattice       | Returns lattice paths to the farthest corner of an NxM grid." << std::endl;
 	std::cout << "... mc dig        | Simulates key strokes for continuous Minecraft diggigg." << std::endl;
 	std::cout << "... mc explore    | Explores a Minecraft map using /tp" << std::endl;

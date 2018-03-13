@@ -867,9 +867,6 @@ void WinKeys::findMouseCoords(int wait){
 	prog.blankDots();
 }
 
-//void WinKeys::getPixelColor	(){}
-
-
 //Prints the pixel color at a scan of ranges in a 100 x 100 grid from the mouse location.
 void WinKeys::getPixelColor(){
 	POINT cursor;
@@ -921,7 +918,7 @@ void WinKeys::getPixelColorAtMouse(){
 	std::cout << "...Finished." << std::endl;
 }
 
-/* TESTING
+/* TESTING - A possible quicker way to determine and manage pixels found online
 struct tagScreen{
     DWORD*     pixels;  //Pointer to raw bitmap bits. Access with: pixels[(y * Screen.cx) + x] 
     size_t     cx, cy;  // Width and height of bitmap.
@@ -988,6 +985,7 @@ void WinKeys::WoWFishBot(std::string fishButton, std::string lureButton){
 	
 	int drama = 400;
 	//Some gibberish for dramatic effect.
+	//Also serves as a brief load time before bot starts.
 	std::cout << "...Loading Fishbot Modules." << std::endl;
 	waitTime(drama);
 	std::cout << "...Calculating response functions." << std::endl;
@@ -1010,30 +1008,44 @@ void WinKeys::WoWFishBot(std::string fishButton, std::string lureButton){
 	waitTime(drama);
 	prog.blankDots();
 	
+	//Begin useful variable initialization.
 	HDC dc = GetDC(NULL);
 	COLORREF color;
 	int counter = 0;
-
 	int red=1,green=1,blue=1;
 	int increment = prog.getWoWFishBotSpace("increment");
 	int startX = prog.getWoWFishBotSpace("startX") + increment/2, startY = prog.getWoWFishBotSpace("startY");
 	int endX = prog.getWoWFishBotSpace("endX"), endY = prog.getWoWFishBotSpace("endY");
 	bool bobberFound = false;
+	bool useLure = true;
+	int catchDelay = prog.getWoWFishBotSpace("delay");
 	
+	//Determines whether a lure is being used based on input.
+	if (lureButton == "NONE" || lureButton == "None" || lureButton == "none"){
+		useLure = false;
+	}
+	
+	//Creates a clock for timing how long the bot has ran for.
 	std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
 	std::chrono::steady_clock::time_point end;
 	long elapsed_time = 0;
 	
+	//Run the fishbot for some number of casts - determined by the config file variable WoWFishBotNumOfCasts.
 	while(counter < prog.getWoWFishBotSpace("casts")){
-		if (counter % 100 == 0){
+		
+		//Applies lure.
+		if (useLure && counter % 100 == 0){
 			std::cout << "...Applying lure." << std::endl;
 			press(lureButton);
 			waitTime(3000);
 		}
+		
+		//Casts.
 		std::cout << "...Casting." << std::endl;
 		press(fishButton);
 		std::cout << "...Scanning." << std::endl;
 		
+		//Finds bobber.
 		for (int j=startY;j<endY;j+=increment){	
 			for (int i=startX;i<endX;i+=increment){	
 				SetCursorPos(i,j);
@@ -1056,7 +1068,6 @@ void WinKeys::WoWFishBot(std::string fishButton, std::string lureButton){
 				}
 			}
 			if(bobberFound){
-				end = std::chrono::steady_clock::now();
 				break;
 			}
 		}
@@ -1065,20 +1076,23 @@ void WinKeys::WoWFishBot(std::string fishButton, std::string lureButton){
 			std::cout << "...I was unable to find the bobber! ...To make it look like we're not cheating of course." << std::endl;
 		}
 		
+		//Waits a delay time and then clocks the bobber if it was found.
 		if(bobberFound){
-			waitTime(10000);
+			waitTime(catchDelay);
 			leftclick();
 		}
 		waitTime(1000);
+		
+		//Determines elapsed time and progress information.
+		end = std::chrono::steady_clock::now();
 		elapsed_time = std::chrono::duration_cast<std::chrono::milliseconds>(end - begin).count();
 		counter++;
 		bobberFound = false;
 		std::cout << "...Elapsed time: " << elapsed_time << " milliseconds." << std::endl;
 		std::cout << "...Number of casts: " << counter << std::endl;
 		elapsed_time = 0;
-		
 	}
-	
+
 	ReleaseDC(NULL,dc);
 }
 

@@ -707,8 +707,14 @@ void Commands::runFishbot(){
 	//Default values.
 	std::string fishButton = "3", lureButton = "8";
 	
+	std::cout << "...CAUTION! This fishbot was made for educational purposes." << std::endl;
+	std::cout << "...WARNING! Use the fishbot at your own risk!" << std::endl;
+	std::cout << "...DANGER! Using this fishbot may have negative consequences." << std::endl;
+	std::cout << "...ALERT! This fishbot may get you banned." << std::endl;
+	prog.blankDots();
 	std::cout << "...In order for the fishbot to work, please enter in game settings and DISABLE" << std::endl << "... hardware cursor." << std::endl;
 	std::cout << "...To use default values (3 for cast and 8 for lure) leave the following options" << std::endl << "... blank." << std::endl;
+	std::cout << "...Press CTRL-C to stop the fishbot early once started." << std::endl;
 	std::cout << "...Press ENTER to continue." << std::endl;
 	std::cin.ignore();
 
@@ -716,6 +722,7 @@ void Commands::runFishbot(){
 	std::cout << "...Please enter which button you have set to cast: ";
 	std::getline(std::cin, fishButton);
 	prog.blankLine();
+	std::cout << "...If yo uare not using a lure please enter NONE ";
 	std::cout << "...Please enter which button you have set to apply a lure: ";
 	std::getline(std::cin, lureButton);
 	prog.blankLine();

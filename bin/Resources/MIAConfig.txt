@@ -22,6 +22,10 @@ WoWMailboxSendLocationX=279
 WoWMailboxSendLocationY=647
 WoWMailboxFirstLetterLocationX=55
 WoWMailboxFirstLetterLocationY=265
+WoWMailboxLootLetterLocationX=675
+WoWMailboxLootLetterLocationY=600
+WoWMailboxDeleteLetterLocationX=700
+WoWMailboxDeleteLetterLocationY=650
 
 # Variables relating to the fishbot implementation inside MIA.
 WoWFishBotStartX=725
@@ -30,3 +34,4 @@ WoWFishBotEndX=1230
 WoWFishBotEndY=495
 WoWFishBotIncrement=40
 WoWFishBotNumOfCasts=10000
+WoWFishBotDelay=10000
