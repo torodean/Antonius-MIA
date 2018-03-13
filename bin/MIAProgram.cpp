@@ -680,6 +680,9 @@ void Program::returnError(int errorCode){
 		case 31417:
 			std::cout << "...ERROR 31417: Invalid Option in MIAConfig. Using default value." << std::endl;
 			break;
+		case 31418:
+			std::cout << "...ERROR 31418: Nothing set for testing." << std::endl;
+			break;
 		default:
 			std::cout << "...ERROR: A catastrophic Failure Occurred." << std::endl;
 			break;

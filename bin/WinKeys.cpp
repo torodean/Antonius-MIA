@@ -813,6 +813,9 @@ void WinKeys::slash(){
 //Used for duplicating a letter in WoW. Useful for creating RP events.
 void WinKeys::duplicateLetter(int copies, std::string recipient){
 	Program prog;
+	
+	int x = prog.getWoWMailboxSendLetterLocation('x');
+	int y = prog.getWoWMailboxSendLetterLocation('y');
     std::this_thread::sleep_for(std::chrono::milliseconds(5000));
     for(int i=0;i<copies;i++){
         type(recipient);
@@ -825,7 +828,7 @@ void WinKeys::duplicateLetter(int copies, std::string recipient){
         Sleep(200);
         paste();
         Sleep(400);
-        SetCursorPos(prog.getWoWMailboxSendLocation('x'), prog.getWoWMailboxSendLocation('y'));
+        SetCursorPos(x, y);
         Sleep(300);
         leftclick();
         Sleep(1500);
@@ -1073,7 +1076,8 @@ void WinKeys::WoWFishBot(std::string fishButton, std::string lureButton){
 		}
 		if(!bobberFound){
 			end = std::chrono::steady_clock::now();
-			std::cout << "...I was unable to find the bobber! ...To make it look like we're not cheating of course." << std::endl;
+			std::cout << "...I was unable to find the bobber!" << std::endl;
+			std::cout << "...To make it look like we're not cheating of course." << std::endl;
 		}
 		
 		//Waits a delay time and then clocks the bobber if it was found.

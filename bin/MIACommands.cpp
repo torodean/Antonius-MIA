@@ -672,16 +672,18 @@ void Commands::findMouse(){
 
 //Function made for testing.
 void Commands::test(){
-	#if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
 	Program prog;
-	WinKeys keys;
+	prog.returnError(31418); //Returns nothing set for testing.
 	
-	keys.WoWFishBot("3","8");
+	/* Uncomment this for testing things for Windows only.
+	#if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
+	
 	
 	#else
 	Program prog;
 	prog.returnError(31416);
 	#endif
+	*/
 }
 
 //runs the eyedropper command which determines the color of the pixel at the mouse location.

@@ -48,7 +48,7 @@ class Program{
 		void setMIAVariable(std::string variable, std::string value);
 		void setWoWMailboxSendLetterLocation(char coord, std::string value);
 		void setWoWMailboxLootLetterLocation(char coord, std::string value);
-		void setWoWMailboxDeleteLocation(char coord, std::string value);
+		void setWoWMailboxDeleteLetterLocation(char coord, std::string value);
 		void setWoWMailboxFirstLetterLocation(char coord, std::string value);
 		int getWoWMailboxSendLetterLocation(char coord);
 		int getWoWMailboxLootLetterLocation(char coord);
