@@ -675,15 +675,15 @@ void Commands::test(){
 	Program prog;
 	prog.returnError(31418); //Returns nothing set for testing.
 	
-	/* Uncomment this for testing things for Windows only.
+	///* Uncomment this for testing things for Windows only.
 	#if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
-	
-	
+
+
 	#else
 	Program prog;
 	prog.returnError(31416);
 	#endif
-	*/
+	//*/
 }
 
 //runs the eyedropper command which determines the color of the pixel at the mouse location.
@@ -724,7 +724,7 @@ void Commands::runFishbot(){
 	std::cout << "...Please enter which button you have set to cast: ";
 	std::getline(std::cin, fishButton);
 	prog.blankLine();
-	std::cout << "...If yo uare not using a lure please enter NONE ";
+	std::cout << "...If you are not using a lure please enter NONE ";
 	std::cout << "...Please enter which button you have set to apply a lure: ";
 	std::getline(std::cin, lureButton);
 	prog.blankLine();
