@@ -17,6 +17,9 @@ class Misc {
 		Misc();
 		~Misc();
 		
+		//Functions relating to workout creation.
+		
+		
 		//Misc functions.
 		void printRandomLinesFromFile(bool useFefaultPath, int numberOfLines);
 		std::string shuffleString(std::string input);

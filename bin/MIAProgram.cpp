@@ -23,12 +23,33 @@
 //Main program constructor.
 Program::Program(){
 	//Chuck Norris can take a screen shot of his blue screen.
-	initializeSettings(false);	
+	initializeSettings(verboseMode);	
 }
 
 //Main program deconstructor.
 Program::~Program(){
 	//When Chuck Norris throws exceptions, it's across the room.
+}
+
+//sets verboseMode.
+void Program::setVerboseMode(std::string value){
+	value = removeCharInString(value, ' ');
+	if (value == "true"){
+		verboseMode = true;
+	} else {
+		verboseMode = false;
+	}
+}
+
+//Returns verboseMode.
+bool Program::getVerboseMode(){
+	return verboseMode;
+}
+
+//Removes a specific character from a string.
+std::string Program::removeCharInString(std::string str, char c){
+	str.erase(std::remove(str.begin(), str.end(), c), str.end());
+	return str;
 }
 
 //Finds the index of the first "=" sign in a string.
@@ -66,7 +87,7 @@ void Program::setWoWMailboxSendLetterLocation(char coord, std::string value){
 			WoWMailboxSendLetterLocationY = std::stoi(value);
 		}
 	} else {
-		if(printConfigErrors)
+		if(verboseMode)
 			returnError(31417);
 	}
 }
@@ -87,7 +108,7 @@ void Program::setWoWMailboxFirstLetterLocation(char coord, std::string value){
 			WoWMailboxFirstLetterLocationY = std::stoi(value);
 		}
 	} else {
-		if(printConfigErrors)
+		if(verboseMode)
 			returnError(31417);
 	}
 }
@@ -108,7 +129,7 @@ void Program::setWoWMailboxLootLetterLocation(char coord, std::string value){
 			WoWMailboxLootLetterLocationY = std::stoi(value);
 		}
 	} else {
-		if(printConfigErrors)
+		if(verboseMode)
 			returnError(31417);
 	}
 }
@@ -129,7 +150,7 @@ void Program::setWoWMailboxDeleteLetterLocation(char coord, std::string value){
 			WoWMailboxDeleteLetterLocationY = std::stoi(value);
 		}
 	} else {
-		if(printConfigErrors)
+		if(verboseMode)
 			returnError(31417);
 	}
 }
@@ -162,7 +183,7 @@ void Program::setWoWFishBotSpace(std::string data, std::string value){
 			WoWFishBotDelay = std::stoi(value);
 		}
 	} else {
-		if(printConfigErrors)
+		if(verboseMode)
 			returnError(31417);
 	}
 }
@@ -225,6 +246,8 @@ void Program::setMIAVariable(std::string variable, std::string value){
 		setWoWMailboxDeleteLetterLocation('x',value);
 	} else if (variable == "WoWMailboxDeleteLetterLocationY"){
 		setWoWMailboxDeleteLetterLocation('y',value);
+	}  else if (variable == "verboseMode"){
+		setVerboseMode(value);
 	} else {
 		returnError(31417);
 	}
@@ -242,18 +265,18 @@ void Program::initializeSettings(bool printSettings){
 		std::vector<std::string> lines;
 
 		//If true, print the configuration file settings.
-		if (printSettings){
+		if (verboseMode){
 			std::cout << std::endl << "...Config file output: " << std::endl;
 		}
 		while(std::getline(file,line)){
 			if (line[0] != '#' && line != "" && !line.empty() && line.size()>2){
-				if(printSettings){
+				if(verboseMode){
 					std::cout << line << std::endl;
 				}
 				lines.push_back(line);
 			}	
 		}
-		if(printSettings){
+		if(verboseMode){
 			std::cout << std::endl;
 		}
 		int size = lines.size();
@@ -269,13 +292,13 @@ void Program::initializeSettings(bool printSettings){
 			value.erase(std::remove(value.begin(), value.end(), '\r'), value.end());			
 			
 			if(printSettings){
-				std::cout << "...Setting variable: " << variable << " to value '" << value << "'" << std::endl;
-				printConfigErrors = true;
+				std::cout << "...Setting variable: " << variable << " to '" << value << "'" << std::endl;
 			}
 			setMIAVariable(variable, value);
 		}
 	} else {
-		returnError(31404);
+		if (printSettings)
+			returnError(31404);
 	}
 }
 
@@ -627,7 +650,7 @@ void Program::blankLine(){
 
 //Main user interface for MIA.
 void Program::terminal(){
-	initializeSettings(false);
+	initializeSettings(verboseMode);
 	splash();
 	intro();
 	standby();
