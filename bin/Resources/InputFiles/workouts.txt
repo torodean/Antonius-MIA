@@ -16,9 +16,9 @@
 # Meaning, if one had 'pull_up=5.0', then MIA would expect the user to be able to do 5.0 pull ups per weight.
 # weight is the value that determines the difficulty.
 
-# The weight is defined by a user value 'weight' which defaults at 1.
+# The weight is defined by a user value 'weight' which defaults at 1.0.
 # Currently weighted for push_up
-weight=1
+weight=1.0
 
 # Exercises and weights.
 push_up=10.0
