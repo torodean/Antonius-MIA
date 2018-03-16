@@ -680,7 +680,7 @@ void Commands::test(){
 
 
 	#else
-	Program prog;
+
 	prog.returnError(31416);
 	#endif
 	//*/
