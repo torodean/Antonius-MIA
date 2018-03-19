@@ -19,7 +19,7 @@ defaultCryptFilePath=../bin/Resources/EncryptedFiles/
 workoutsFilePath=../bin/Resources/InputFiles/workouts.txt
 
 # MIA program variables.
-verboseMode=true
+verboseMode=false
 
 # WoW related variables.
 WoWMailboxSendLetterLocationX=279

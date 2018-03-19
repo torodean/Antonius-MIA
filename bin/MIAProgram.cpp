@@ -700,11 +700,6 @@ void Program::test(){
 	Commands cmd;
 	cmd.test();
 	
-	/* Testing the quadratic formula function.
-	std::D3CMath math;
-	std::string ans = math.solveQuadraticFormula(3,4,1);
-	std::cout << ans << std::endl;
-	*/
 	/*
     MIAencrypt crypt(4);
     crypt.test();

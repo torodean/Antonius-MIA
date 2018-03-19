@@ -65,7 +65,7 @@ void Misc::printRandomLinesFromFile(bool useDefaultPath, int numberOfLines){
 			std::cout << lines[randomNum] << std::endl;
 		}
 	} else {
-		std::cout << "ERROR 404: File not found." << std::endl;
+		prog.returnError(41404);
 	}
 }
 
@@ -81,7 +81,7 @@ std::string Misc::getBeforeEqualSign(std::string line){
 	int equalSignLocation = prog.findEqualInString(line);
 	
 	if(prog.getVerboseMode())
-		std::cout << "stringBeforeEqual: " << line.substr(0, equalSignLocation) << std::endl;
+		std::cout << "...stringBeforeEqual: " << line.substr(0, equalSignLocation) << std::endl;
 	
 	return line.substr(0, equalSignLocation);
 }
@@ -94,7 +94,7 @@ std::string Misc::getBetweenEqualAndSemiColon(std::string line){
 	line = line.substr(equalSignLocation+1,line.size()-1);
 	
 	if(prog.getVerboseMode())
-		std::cout << "stringBetweenEqualAndSemiColon: " << line << std::endl;
+		std::cout << "...stringBetweenEqualAndSemiColon: " << line << std::endl;
 	
 	return line;
 }
@@ -102,7 +102,7 @@ std::string Misc::getAfterSemiColon(std::string line){
 	int semiColonLocation = prog.findSemiColonInString(line);
 	
 	if(prog.getVerboseMode())
-		std::cout << "stringAfterSemiColon: " << line.substr(semiColonLocation+1,line.size()-1) << std::endl;
+		std::cout << "...stringAfterSemiColon: " << line.substr(semiColonLocation+1,line.size()-1) << std::endl;
 	
 	return line.substr(semiColonLocation+1,line.size()-1);
 }
@@ -153,42 +153,45 @@ void Misc::generateWorkout(double difficulty){
 		std::vector<double> workoutWeight;
 		std::vector<std::string> workoutUnit;
 		int weight = 1;
-		int size= lines.size();
+		int size = lines.size();
 		
 		if(prog.getVerboseMode())
 			std::cout << "...Variables created. " << std::endl;
 		
+		if(getBeforeEqualSign(lines[0]) == "weight"){
+			if(prog.getVerboseMode())
+				std::cout << "...weight variable discovered. " << std::endl;
+			
+			int equalSignLocation = prog.findEqualInString(lines[0]);
+			weight = stod(lines[0].substr(equalSignLocation+1,lines[0].size()-1));
+			
+			if(prog.getVerboseMode())
+				std::cout << "...Printing values set. " << std::endl;
+			
+			std::cout << "...weight: " << weight << std::endl;
+			
+			lines.erase(lines.begin());
+		}
+		
 		//Sets the workout file variables and the weight value.
-		for(int i=0; i < size; i++){
+		for(int i=0; i < size-1; i++){
 			if(prog.getVerboseMode())
 				std::cout << "...Beginning to assign variable values. " << std::endl;
 			
-			if(getBeforeEqualSign(lines[i])=="weight"){
-				if(prog.getVerboseMode())
-					std::cout << "...weight variable discovered. " << std::endl;
-				
-				int equalSignLocation = prog.findEqualInString(lines[i]);
-				weight = stod(lines[i].substr(equalSignLocation+1,lines[i].size()-1));
-				
-				if(prog.getVerboseMode())
-					std::cout << "...Printing values set. " << std::endl;
-				
-				std::cout << "weight: " << weight << std::endl;
-			} else {
-				if(prog.getVerboseMode())
-					std::cout << "processing line: " << lines[i] << std::endl;
-				
-				workoutName.push_back(getBeforeEqualSign(lines[i]));
-				workoutWeight.push_back( convertWorkoutWeight( getBetweenEqualAndSemiColon(lines[i]) ) );
-				workoutUnit.push_back(getAfterSemiColon(lines[i]));
-				
-				if(prog.getVerboseMode())
-					std::cout << "...Printing values set. " << std::endl;
-				
-				//std::cout << workoutName[i] << ": " <<  workoutWeight[i] << " " << workoutUnit[i] << std::endl;
+			if(prog.getVerboseMode())
+				std::cout << "...processing line: " << lines[i] << std::endl;
+			
+			workoutName.push_back( getBeforeEqualSign(lines[i]) );
+			workoutWeight.push_back( convertWorkoutWeight( getBetweenEqualAndSemiColon(lines[i]) ) );
+			workoutUnit.push_back( getAfterSemiColon(lines[i]) );
+			
+			if(prog.getVerboseMode()){
+				std::cout << "...Printing values set. " << std::endl;
+				std::cout << workoutName[i] << ": ";
+				std::cout << workoutWeight[i] << " ";
+				std::cout << workoutUnit[i] << std::endl;
 			}
 		}
-		
 		
 	} else {
 		if (prog.getVerboseMode())

@@ -9,6 +9,7 @@
 
 #include <iostream>
 #include <string>
+#include <algorithm>
 #include "D3CEncrypt.h"
 #include "D3CEncryptPW.h"
 #include "MIACommands.h"
@@ -680,7 +681,15 @@ void Commands::test(){
 	std::cout << "...Loading MIA workout generator (still in beta). " << std::endl;
 	std::cout << "...Please enter a difficulty: ";
 	std::getline(std::cin,input);
-	double difficulty = stod(input);
+	
+	std::transform(input.begin(), input.end(), input.begin(), ::tolower);
+	double difficulty;
+	
+	if(input == "pranjal"){
+		difficulty = 0.0;
+	} else {
+		difficulty = stod(input);
+	}
 	misc.generateWorkout(difficulty);
 
 	#else
