@@ -63,6 +63,17 @@ int Program::findEqualInString(std::string input){
 	return 0;
 }
 
+//Finds the index of the first ";" sign in a string.
+int Program::findSemiColonInString(std::string input){
+	int length = input.size();
+	for (int i=0;i<length;i++){
+		if(input[i]==';'){
+			return i;
+		}
+	}
+	return 0;
+}
+
 //function for determining if all characters in a string are digits/ints. Taken from StackOverflow.
 bool Program::is_digits(const std::string &str){
     if(str.find_first_not_of("0123456789") == std::string::npos){
@@ -78,6 +89,12 @@ void Program::setDefaultInputFilePath(std::string input){
 }
 void Program::setDefaultCryptFilePath(std::string input){
 	defaultCryptFilePath = input;
+}
+void Program::setWorkoutsFilePath(std::string input){
+	workoutsFilePath = input;
+}
+std::string Program::getWorkoutsFilePath(){
+	return workoutsFilePath;
 }
 void Program::setWoWMailboxSendLetterLocation(char coord, std::string value){
 	if (is_digits(value)){
@@ -216,6 +233,8 @@ void Program::setMIAVariable(std::string variable, std::string value){
 		setDefaultInputFilePath(value);
 	} else if (variable == "defaultCryptFilePath"){
 		setDefaultCryptFilePath(value);
+	} else if (variable == "workoutsFilePath"){
+		setWorkoutsFilePath(value);
 	} else if (variable == "WoWMailboxSendLetterLocationX"){
 		setWoWMailboxSendLetterLocation('x',value);
 	} else if (variable == "WoWMailboxSendLetterLocationY"){
@@ -297,8 +316,10 @@ void Program::initializeSettings(bool printSettings){
 			setMIAVariable(variable, value);
 		}
 	} else {
-		if (printSettings)
+		if (printSettings){
+			returnError(31403);
 			returnError(31404);
+		}
 	}
 }
 
@@ -718,8 +739,11 @@ void Program::returnError(int errorCode){
 		case 404: 
 			std::cout << "...ERROR 404: File not found." << std::endl;
 			break;
+		case 31403:
+			std::cout << "...ERROR 31403: MIAsettings file not found." << std::endl;
+			break;
 		case 31404:
-			std::cout << "...ERROR 31404: MIAsettings file not found." << std::endl;
+			std::cout << "...ERROR 31404: FATAL: File not found." << std::endl;
 			break;
 		case 31415:
 			std::cout << "...ERROR 31415: Function still in Development." << std::endl;

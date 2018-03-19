@@ -9,7 +9,6 @@
 
 #include <iostream>
 #include <string>
-#include "MIAProgram.h"
 #include "D3CEncrypt.h"
 #include "D3CEncryptPW.h"
 #include "MIACommands.h"
@@ -24,8 +23,6 @@
 #include "LOLANetUse.h"
 #endif
 
-
-
 //Main commands constructor.
 Commands::Commands(){
 	//Chuck Norris writes code that optimizes itself. Be like chuck Norris.
@@ -38,7 +35,7 @@ Commands::~Commands(){
 
 //Main UI runner for the D3CEncrypt (d0s1) program feature. Encryption
 void Commands::d0s1CryptRunner(){
-	Program prog;
+	
 	std::D3CEncrypt crypt;
 	
 	prog.blankDots();
@@ -57,7 +54,7 @@ void Commands::d0s1CryptRunner(){
 
 //Main UI runner for the D3CEncrypt (d0s1) program feature. DeCryption
 void Commands::d0s1DeCryptRunner(){
-	Program prog;
+	
 	std::D3CEncrypt crypt;
 	
 	prog.blankDots();
@@ -76,7 +73,7 @@ void Commands::d0s1DeCryptRunner(){
 
 //Main UI runner for the D3CEncryptPW (d0s2) program feature. Encryption
 void Commands::d0s2CryptRunner(){
-	Program prog;
+	
 	D3CEncryptPW crypt;
 	
 	prog.blankDots();
@@ -101,7 +98,7 @@ void Commands::d0s2CryptRunner(){
 
 //Main UI runner for the D3CEncryptPW (d0s2) program feature. DeCryption
 void Commands::d0s2DeCryptRunner(){
-	Program prog;
+	
 	D3CEncryptPW crypt;
 	
 	prog.blankDots();
@@ -126,7 +123,7 @@ void Commands::d0s2DeCryptRunner(){
 
 //Main UI runner for the D3CMath productCollatzSequence() function.
 void Commands::collatzRunner(){
-	Program prog;
+	
 	std::D3CMath math;
 	std::string input, output;
 	
@@ -147,7 +144,7 @@ void Commands::collatzRunner(){
 
 //Main UI runner for the D3CMath addTwoStrings() function.
 void Commands::stringAdditionRunner(){
-	Program prog;
+	
 	std::D3CMath math;
 	std::string intOne, intTwo, output;
 	
@@ -169,7 +166,7 @@ void Commands::stringAdditionRunner(){
 
 //Main UI runner for the D3CMath multiplyTwoStrings() function.
 void Commands::stringMultiplyRunner(){
-	Program prog;
+	
 	std::D3CMath math;
 	std::string intOne, intTwo, output;
 	
@@ -191,7 +188,7 @@ void Commands::stringMultiplyRunner(){
 
 //Main UI runner for the D3CMath subtractTwoStrings() function.
 void Commands::stringSubtractionRunner(){
-	Program prog;
+	
 	std::D3CMath math;
 	std::string intOne, intTwo, output;
 	
@@ -213,7 +210,7 @@ void Commands::stringSubtractionRunner(){
 
 //Main UI runner for the D3CMath isPrime() function.
 void Commands::isPrimeRunner(){
-	Program prog;
+	
 	std::D3CMath math;
 	std::string input;
 
@@ -234,7 +231,7 @@ void Commands::isPrimeRunner(){
 
 //Main UI runner for the D3CMath isPalindrome() function.
 void Commands::isPalindromeRunner(){
-	Program prog;
+	
 	std::D3CMath math;
 	std::string input;
 
@@ -255,7 +252,7 @@ void Commands::isPalindromeRunner(){
 
 //Main UI runner for the D3CMath sumOfDigits() function.
 void Commands::sumOfDigitsRunner(){
-	Program prog;
+	
 	std::D3CMath math;
 	std::string input;
 
@@ -272,7 +269,7 @@ void Commands::sumOfDigitsRunner(){
 
 //Main UI runner for the D3CMath primeFactors() function.
 void Commands::primeFactorsRunner(){
-	Program prog;
+	
 	std::D3CMath math;
 	std::string input;
 
@@ -294,7 +291,7 @@ void Commands::primeFactorsRunner(){
 
 //Main UI runner for the D3CMath numberOfFactors() function.
 void Commands::numberOfFactorsRunner(){
-	Program prog;
+	
 	std::D3CMath math;
 	std::string input;
 
@@ -313,7 +310,7 @@ void Commands::numberOfFactorsRunner(){
 
 //Main UI runner for the D3CMath isTriangleNumber() function.
 void Commands::isTriangleNumberRunner(){
-	Program prog;
+	
 	std::D3CMath math;
 	std::string input;
 
@@ -334,7 +331,7 @@ void Commands::isTriangleNumberRunner(){
 
 //Main UI runner for the D3CMath latticePaths() function.
 void Commands::latticePathsRunner(){
-	Program prog;
+	
 	std::D3CMath math;
 	std::string n, m;
 	
@@ -363,7 +360,7 @@ void Commands::latticePathsRunner(){
 
 //Main UI runner for the D3CMath primeN() function.
 void Commands::primeNRunner(){
-	Program prog;
+	
 	std::D3CMath math;
 	std::string input;
 
@@ -381,7 +378,7 @@ void Commands::primeNRunner(){
 
 //Main UI runner for the D3CMath primeNPopulate() function.
 void Commands::primeNumberNpopulateRunner(){
-	Program prog;
+	
 	std::D3CMath math;
 	
 	prog.blankLine();
@@ -402,7 +399,7 @@ void Commands::primeNumberNeraseRunner(){
 //Spams a button a specific number of times.
 void Commands::buttonSpamRunner(bool enableTab){
 	#if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
-	Program prog;
+	
 	WinKeys key;
 	
 	std::string button;
@@ -436,7 +433,7 @@ void Commands::buttonSpamRunner(bool enableTab){
 	}
 	
 	#else
-	Program prog;
+	
 	prog.returnError(31416);
 	#endif
 }
@@ -444,7 +441,7 @@ void Commands::buttonSpamRunner(bool enableTab){
 //performs a sequence to perpetually dig as you would in minecraft.
 void Commands::minecraftDigRunner(){
 	#if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
-	Program prog;
+	
 	WinKeys key;
 	
 	std::string input;
@@ -459,7 +456,7 @@ void Commands::minecraftDigRunner(){
 	key.minecraftDig(time);
 	
 	#else
-	Program prog;
+	
 	prog.returnError(31416);
 	#endif
 }
@@ -467,7 +464,7 @@ void Commands::minecraftDigRunner(){
 //used to explore a minecraft map given that the user is gamemode=1.
 void Commands::exploreMinecraft(){
 	#if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
-	Program prog;
+	
 	WinKeys key;
 	
 	int stepSize = 125, delayStartTime = 5000;
@@ -542,7 +539,7 @@ void Commands::exploreMinecraft(){
 	}
 	
 	#else
-	Program prog;
+	
 	prog.returnError(31416);
 	#endif
 }
@@ -550,7 +547,7 @@ void Commands::exploreMinecraft(){
 //Runs the duplicate letter function which is useful for World of Warcraft.
 void Commands::duplicateLetterRunner(){
 	#if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
-	Program prog;
+	
 	WinKeys keys;
 	
 	std::cout << "...INSTRUCTIONS: Please have the contents of the letter copied to your clipboard." << std::endl;
@@ -576,14 +573,14 @@ void Commands::duplicateLetterRunner(){
 	std::cout << "...Finished duplicating letters." << std::endl;
 	
 	#else
-	Program prog;
+	
 	prog.returnError(31416);
 	#endif
 }
 
 //Runs d0s3 encryption
 void Commands::d0s3CryptRunner(){
-	Program prog;
+	
 	MIAEncrypt crypt(3);
 	
 	std::string inputFile;
@@ -599,13 +596,13 @@ void Commands::d0s3CryptRunner(){
 	
 //runs d0s3 decryption.	
 void Commands::d0s3DeCryptRunner(){
-	Program prog;
+	
 	prog.returnError(31415);
 }
 
 //Prints a number of random lines from a text file. The user specifies the file and number of lines.
 void Commands::printRandomLinesFromFileRunner(){	
-	Program prog;
+	
 	Misc misc;
 	
 	int lines;
@@ -628,7 +625,7 @@ void Commands::printRandomLinesFromFileRunner(){
 
 //Runner for the solveQuadraticFormula function.
 void Commands::solveQuadraticFormulaRunner(){
-	Program prog;
+	
 	std::D3CMath math;
 	
 	double a,b,c;
@@ -657,7 +654,7 @@ void Commands::pranjal(){
 //Finds and returns the coordinates of the mouse pointer after 5 seconds.
 void Commands::findMouse(){
 	#if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
-	Program prog;
+	
 	WinKeys keys;
 	
 	std::cout << "...Locating mouse in 2 seconds." << std::endl;
@@ -665,22 +662,28 @@ void Commands::findMouse(){
 	keys.findMouseCoords(2000);
 	
 	#else
-	Program prog;
+	
 	prog.returnError(31416);
 	#endif
 }
 
 //Function made for testing.
 void Commands::test(){
-	Program prog;
-	prog.returnError(31418); //Returns nothing set for testing.
+	
+	//prog.returnError(31418); //Returns nothing set for testing.
 	
 	///* Uncomment this for testing things for Windows only.
 	#if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
 
+	Misc misc;
+	std::string input; 
+	std::cout << "...Loading MIA workout generator (still in beta). " << std::endl;
+	std::cout << "...Please enter a difficulty: ";
+	std::getline(std::cin,input);
+	double difficulty = stod(input);
+	misc.generateWorkout(difficulty);
 
 	#else
-
 	prog.returnError(31416);
 	#endif
 	//*/
@@ -689,13 +692,13 @@ void Commands::test(){
 //runs the eyedropper command which determines the color of the pixel at the mouse location.
 void Commands::eyedropper(){
 	#if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
-	Program prog;
+	
 	WinKeys keys;
 	
 	keys.getPixelColorAtMouse();
 	
 	#else
-	Program prog;
+	
 	prog.returnError(31416);
 	#endif
 }
@@ -703,7 +706,7 @@ void Commands::eyedropper(){
 //Runs a fishbot for World of Warcraft.
 void Commands::runFishbot(){
 	#if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
-	Program prog;
+	
 	WinKeys keys;
 	
 	//Default values.
@@ -740,7 +743,7 @@ void Commands::runFishbot(){
 	keys.WoWFishBot(fishButton, lureButton);
 	
 	#else
-	Program prog;
+	
 	prog.returnError(31416);
 	#endif
 }

@@ -10,6 +10,7 @@
 #include <string>
 #ifndef __MIAMISC_H__
 #define __MIAMISC_H__
+#include "MIAProgram.h"
 
 class Misc {
 	private:
@@ -17,8 +18,14 @@ class Misc {
 		Misc();
 		~Misc();
 		
-		//Functions relating to workout creation.
+		Program prog;
 		
+		//Functions relating to workout creation.
+		void generateWorkout(double difficulty);
+		std::string getBeforeEqualSign(std::string line);
+		std::string getBetweenEqualAndSemiColon(std::string line);
+		std::string getAfterSemiColon(std::string line);
+		double convertWorkoutWeight(std::string line);
 		
 		//Misc functions.
 		void printRandomLinesFromFile(bool useFefaultPath, int numberOfLines);

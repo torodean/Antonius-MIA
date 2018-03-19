@@ -10,12 +10,15 @@
 #ifndef __COMMANDS_H__
 #define __COMMANDS_H__
 #include <string>
+#include "MIAProgram.h"
 
 class Commands{
 	private:
 	public:
 		Commands();
 		~Commands();
+		
+		Program prog;
 		
 		//Functions adapted to work from the old D3C Program.
 		void d0s1CryptRunner();

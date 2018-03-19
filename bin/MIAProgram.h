@@ -15,10 +15,11 @@
 
 class Program{
 	private:
-		const std::string VERSION = "0.034";
+		const std::string VERSION = "0.035";
 		bool verboseMode = false;
 		std::string defaultInputFilePath = "../bin/Resources/InputFiles/";
 		std::string defaultCryptFilePath = "../bin/Resources/EncryptedFiles/";
+		std::string workoutsFilePath = "../bin/Resources/InputFiles/workouts.txt";
 		int WoWMailboxSendLetterLocationX = 270;
 		int WoWMailboxSendLetterLocationY = 650;
 		int WoWMailboxFirstLetterLocationX = 55;
@@ -44,6 +45,8 @@ class Program{
 		void setDefaultInputFilePath(std::string input);
 		std::string getDefaultCryptFilePath();
 		void setDefaultCryptFilePath(std::string input);
+		std::string getWorkoutsFilePath();
+		void setWorkoutsFilePath(std::string input);
 		void initializeSettings(bool printSettings);
 		void setVerboseMode(std::string value);
 		bool getVerboseMode();
@@ -85,6 +88,7 @@ class Program{
 		
 		//Misc functions.
 		int findEqualInString(std::string input);
+		int findSemiColonInString(std::string input);
 		bool is_digits(const std::string &str);
 		std::string removeCharInString(std::string str, char c);
 };
