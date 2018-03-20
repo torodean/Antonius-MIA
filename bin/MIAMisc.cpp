@@ -250,8 +250,7 @@ void Misc::generateWorkout(double difficulty){
 		lines.erase(lines.begin(), lines.begin()+numOfVariables);
 		
 		//Sets the workout file variables and the weighted value.
-		for(int i=0; i < size-numOfVariables; i++){
-			if(prog.getVerboseMode())			
+		for(int i=0; i < size-numOfVariables; i++){		
 			workoutName.push_back( getBeforeEqualSign(lines[i]) );
 			workoutWeight.push_back( convertWorkoutWeight( getBetweenEqualAndSemiColon(lines[i]) ) );
 			workoutUnit.push_back( getAfterSemiColon(lines[i]) );
@@ -265,15 +264,15 @@ void Misc::generateWorkout(double difficulty){
 		}
 		
 		std::cout << "...Running workout generation. " << std::endl;
-		prog.blankDots();
+		prog.blankLine();
 		
 		//Calculates workout routine
 		double maxNumOfWorkoutsModifier = (maxNumOfWorkouts-minNumOfWorkouts)/100.0 * difficulty + minNumOfWorkouts;
 		double minNumOfWorkoutsModifier = (maxNumOfWorkouts-minNumOfWorkouts)/200.0 * difficulty + minNumOfWorkouts;
-		int numOfWorkouts = prog.randomInt((int)minNumOfWorkoutsModifier,(int)maxNumOfWorkoutsModifier,0);
+		int numOfWorkouts = prog.randomInt((int)minNumOfWorkoutsModifier,(int)maxNumOfWorkoutsModifier,0, true);
 		double maxNumOfSetsModifier = (maxNumOfSets-minNumOfSets)/100.0 * difficulty + minNumOfSets;
 		double minNumOfSetsModifier = (maxNumOfSets-minNumOfSets)/200.0 * difficulty + minNumOfSets;
-		int numOfSets = prog.randomInt((int)minNumOfSetsModifier,(int)maxNumOfSetsModifier,0);
+		int numOfSets = prog.randomInt((int)minNumOfSetsModifier,(int)maxNumOfSetsModifier,0, true);
 		
 		if(prog.getVerboseMode()){
 			std::cout << "...numOfWorkouts: " << numOfWorkouts << std::endl;
@@ -286,22 +285,35 @@ void Misc::generateWorkout(double difficulty){
 		}
 		
 		//determines which workouts to use.
-		int randNum = prog.randomInt(0,size-numOfVariables,0);
+		int randNum = prog.randomInt(0,size-numOfVariables,0, true);
+		int randCounter = 0;
 		for(int i=0;i<numOfWorkouts; i++){
-			randNum = prog.randomInt(0,size-numOfVariables,0);
+			randNum = prog.randomInt(0,size-numOfVariables,0, true);
 			while(workoutChosen[randNum]){
-				randNum = prog.randomInt(0,size-numOfVariables,0);
+				randNum = prog.randomInt(0,size-numOfVariables,randCounter, true);
+				randCounter++;
 			}
 			workoutChosen[randNum] = true;
 		}
 		
-		std::cout << "...Number of workouts: " << numOfWorkouts << std::endl;
-		std::cout << "...Number of sets: " << numOfSets << std::endl;
+		std::cout << "Number of sets: " << numOfSets << std::endl;
+		prog.blankLine();
 		
+		double repsMin, repsMax, repsModifier;
 		//Determines values for each workout and prints the results.
-		for (int i=0; i<size-numOfVariables; i ++){
-			//TODO
+		for (int i=0; i<size-numOfVariables; i++){
+			randCounter++;
+			if(workoutChosen[i]){
+				repsMin = (toughness*difficulty*workoutWeight[i]-workoutWeight[i])/2+workoutWeight[i];
+				repsMax = toughness*difficulty*workoutWeight[i];
+				repsModifier = (repsMax-repsMin)/2+repsMin;
+				std::cout << workoutName[i] << ": " << repsModifier << " " << workoutUnit[i] << std::endl;
+			}
 		}
+		if(difficulty == 0.0){
+			std::cout << "rest: 45 minutes" << std::endl;
+		}
+		prog.blankLine();
 		
 	} else {
 		if (prog.getVerboseMode())

@@ -15,7 +15,7 @@
 
 class Program{
 	private:
-		const std::string VERSION = "0.035";
+		const std::string VERSION = "0.036";
 		bool verboseMode = false;
 		std::string defaultInputFilePath = "../bin/Resources/InputFiles/";
 		std::string defaultCryptFilePath = "../bin/Resources/EncryptedFiles/";
@@ -80,7 +80,7 @@ class Program{
 		void help();
 		void helpPrime();
 		bool excuse();
-		int randomInt(int start, int end, int seed);
+		int randomInt(int start, int end, int seed, bool useTime);
 		std::string getRandomLineOfFile(std::string fileName);
 		void test();
 		

@@ -20,7 +20,7 @@
 # Increasing this value provides a global increase to difficulty. Recommended value is 1.
 # The maxNumOfWorkouts cannot exceed the number of workouts defined. Default values is inf (which picks the maximum allowed).
 # Put these variable before all defined exercises.
-toughness = 1.0
+toughness = 0.1
 minNumOfWorkouts = 3.0
 maxNumOfWorkouts = inf
 minNumOfSets = 1.0
@@ -41,7 +41,7 @@ split_jump = 5.0; reps
 squat = 3.0; reps
 squat_weighted = 1.0; reps
 jumping_jack = 30.0; reps
-running = 0.25; miles
+running = 0.1; miles
 dips = 5; reps
 wall_sit = 30; seconds
 plank = 30; seconds

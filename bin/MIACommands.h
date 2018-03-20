@@ -60,5 +60,6 @@ class Commands{
 		//Misc functions
 		void pranjal();
 		void test();
+		void workoutRunner();
 };
 #endif

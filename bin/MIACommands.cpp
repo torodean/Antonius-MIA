@@ -670,14 +670,21 @@ void Commands::findMouse(){
 
 //Function made for testing.
 void Commands::test(){
-	
-	//prog.returnError(31418); //Returns nothing set for testing.
+	prog.returnError(31418); //Returns nothing set for testing.
 	
 	///* Uncomment this for testing things for Windows only.
 	#if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
 
+
+	#else
+	prog.returnError(31416);
+	#endif
+	//*/
+}
+
+//Function made for generating a workout via the Misc class.
+void Commands::workoutRunner(){
 	Misc misc;
-	/*
 	std::string input; 
 	std::cout << "...Loading MIA workout generator (still in beta). " << std::endl;
 	prog.blankDots();
@@ -692,16 +699,7 @@ void Commands::test(){
 	} else {
 		difficulty = stod(input);
 	}
-	*/
-	for (int i = 0 ; i < 100; i+=20){
-		misc.generateWorkout((double)i);
-	}
-	
-
-	#else
-	prog.returnError(31416);
-	#endif
-	//*/
+	misc.generateWorkout(difficulty);
 }
 
 //runs the eyedropper command which determines the color of the pixel at the mouse location.

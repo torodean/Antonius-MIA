@@ -348,7 +348,7 @@ void MIAEncrypt::passphraseToCombination(std::string passphrase){
 	int randomInt=0;
 	for(int n=size;n<totalRotations; n++){
 		total += int(passphrase[n % size]);
-		randomInt = prog.randomInt(0, 1000000, total*total-n);
+		randomInt = prog.randomInt(0, 1000000, total*total-n, false);
 		std::cout << randomInt << std::endl;
 		combination[n] = randomInt % totalRotations;
 		std::cout << combination[n] << std::endl;

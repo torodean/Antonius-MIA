@@ -438,6 +438,8 @@ int Program::commandToInputVar(std::string input){
 		output = 32;	
 	} else if (input == "fishbot"){
 		output = 33;
+	} else if (input == "workout"){
+		output = 34;
 	} else if (input == "test"){
 		output = 999999;
 	}
@@ -557,6 +559,9 @@ void Program::performCommand(std::string input){
 		case 33: //Corresponds to the fishbot command.
 			cmd.runFishbot();
 			break;
+		case 34: //Corresponds to the workout command.
+			cmd.workoutRunner();
+			break;
 		case 999999:
 			test();			
 			break;			
@@ -600,6 +605,7 @@ void Program::help(){
 	std::cout << "... randfromfile  | Prints a number of random lines from a text file." << std::endl;
 	std::cout << "... subtract      | Finds the difference between two integers of any length." << std::endl;
 	std::cout << "... triangle      | Determines if a number is a triangle number or not." << std::endl;
+	std::cout << "... workout       | Generates a workout from the values defined in workouts.txt." << std::endl;
 	std::cout << "... wow dup letter| Duplicates a letter in WoW a specified number of times." << std::endl;
 	std::cout << "... exit          | Quits MIA. " << std::endl;
 }
@@ -617,7 +623,7 @@ void Program::helpPrime(){
 
 //Prints a random excuse some percentage of the time.
 bool Program::excuse(){
-	int random = randomInt(1,100, 0);
+	int random = randomInt(1,100, 0, true);
 	std::string txt;
 	
 	if (random >= 20){	
@@ -643,7 +649,7 @@ std::string Program::getRandomLineOfFile(std::string fileName){
 	file.close();
 	
 	std::ifstream file2(fileName);
-	int random = randomInt(1,counter, 0);
+	int random = randomInt(1,counter, 0, true);
 	counter = 0;
 	
 	while (getline(file2, output)){
@@ -683,11 +689,13 @@ std::string Program::getMIAVersion(){
 }
 
 //Returns a random integer between min and max.
-int Program::randomInt(int min, int max, int seed){
+int Program::randomInt(int min, int max, int seed, bool useTime){
 	if(verboseMode)
 		std::cout << "...Calculating random value between " << min << " and " << max << "." << std::endl;
 	if(seed == 0){
 		srand((unsigned)time(0)); 
+	} else if (useTime){
+		srand((unsigned)time(0) + seed); 
 	} else {
 		srand(seed);
 	}
