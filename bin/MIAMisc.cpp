@@ -108,12 +108,17 @@ std::string Misc::getAfterSemiColon(std::string line){
 }
 
 //convert input file line to proper format (doubles.
-double Misc::convertWorkoutToughness(std::string line){
+double Misc::convertWorkoutWeight(std::string line){
 	return stod(line);
 }
 
 //Returns a workout generated based on a difficulty.
 void Misc::generateWorkout(double difficulty){
+	
+	prog.blankDots();
+	std::cout << "...Loading MIA workout generation. " << std::endl;
+	prog.blankDots();
+
 	//grabs the workouts file.
 	std::string fileName = prog.getWorkoutsFilePath();
 	std::ifstream file(fileName,std::ifstream::in);
@@ -148,49 +153,154 @@ void Misc::generateWorkout(double difficulty){
 		if(prog.getVerboseMode())
 			std::cout << "...Finished reading in workouts file. " << std::endl;
 		
-		//Creates and stores workouts file variables.
+		//Creates and stores workouts file/program variables.
 		std::vector<std::string> workoutName;
-		std::vector<double> workoutToughness;
+		std::vector<double> workoutWeight;
 		std::vector<std::string> workoutUnit;
-		int toughness = 1;
 		int size = lines.size();
+		double toughness = 1.0;
+		double minNumOfWorkouts = 3.0;
+		double maxNumOfWorkouts = (double)size-5.0; //Minus 5 because there are 5 non-workout variables.
+		double minNumOfSets = 1.0;
+		double maxNumOfSets = 10.0;
 		
-		if(prog.getVerboseMode())
-			std::cout << "...Variables created. " << std::endl;
+		//For keeping track of how many variables are in the workouts file.
+		int numOfVariables = 5, variableCount = 0;
+		bool foundVar = false;
 		
-		if(getBeforeEqualSign(lines[0]) == "toughness"){
-			if(prog.getVerboseMode())
-				std::cout << "...toughness variable discovered. " << std::endl;
+		std::string variable;
+		int equalSignLocation;
+		
+		//Read the workouts input file and grab the variables.
+		for(int i=0; i<numOfVariables; i++){
+			//Finds what the variable input is if one exists.
+			variable = getBeforeEqualSign(lines[i]);
 			
-			int equalSignLocation = prog.findEqualInString(lines[0]);
-			toughness = stod(lines[0].substr(equalSignLocation+1,lines[0].size()-1));
+			//Sets the toughness variable.
+			if(variable == "toughness"){
+				if(prog.getVerboseMode())
+					std::cout << "...toughness variable discovered. " << std::endl;
+				
+				equalSignLocation = prog.findEqualInString(lines[i]);
+				toughness = stod(lines[i].substr(equalSignLocation+1,lines[i].size()-1));
 			
-			if(prog.getVerboseMode())
-				std::cout << "...Printing values set. " << std::endl;
+				if(prog.getVerboseMode())
+					std::cout << "...toughness: " << toughness << std::endl;
+				foundVar = true;
+			//Sets the minNumOfWorkouts if one exists.
+			} else if(variable  == "minNumOfWorkouts"){
+				if(prog.getVerboseMode())
+					std::cout << "...minNumOfWorkouts variable discovered. " << std::endl;
+				
+				equalSignLocation = prog.findEqualInString(lines[i]);
+				minNumOfWorkouts = stod(lines[i].substr(equalSignLocation+1,lines[i].size()-1));
 			
-			std::cout << "...toughness: " << toughness << std::endl;
+				if(prog.getVerboseMode())
+					std::cout << "...minNumOfWorkouts: " << (int)minNumOfWorkouts << std::endl;
+				foundVar = true;
+			//Sets the maxNumOfWorkouts if one exists.
+			} else if(variable  == "maxNumOfWorkouts"){
+				if(prog.getVerboseMode())
+					std::cout << "...maxNumOfWorkouts variable discovered. " << std::endl;
+				
+				equalSignLocation = prog.findEqualInString(lines[i]);
+				if(lines[i].substr(equalSignLocation+1,lines[i].size()-1) != "inf"){
+					maxNumOfWorkouts = stod(lines[i].substr(equalSignLocation+1,lines[i].size()-1));
+				}
 			
-			lines.erase(lines.begin());
+				if(prog.getVerboseMode())
+					std::cout << "...maxNumOfWorkouts: " << (int)maxNumOfWorkouts << std::endl;
+				foundVar = true;
+			//Sets the minNumOfSets if one exists.
+			} else if(variable  == "minNumOfSets"){
+				if(prog.getVerboseMode())
+					std::cout << "...minNumOfSets variable discovered. " << std::endl;
+				
+				equalSignLocation = prog.findEqualInString(lines[i]);
+				minNumOfSets = stod(lines[i].substr(equalSignLocation+1,lines[i].size()-1));
+			
+				if(prog.getVerboseMode())
+					std::cout << "...minNumOfSets: " << (int)minNumOfSets << std::endl;
+				foundVar = true;
+			//Sets the maxNumOfSets variable if one was found.
+			} else if(variable  == "maxNumOfSets"){
+				if(prog.getVerboseMode())
+					std::cout << "...maxNumOfSets variable discovered. " << std::endl;
+				
+				equalSignLocation = prog.findEqualInString(lines[i]);
+				if(lines[i].substr(equalSignLocation+1,lines[i].size()-1) != "inf"){
+					maxNumOfSets = stod(lines[i].substr(equalSignLocation+1,lines[i].size()-1));
+				}
+			
+				if(prog.getVerboseMode())
+					std::cout << "...maxNumOfSets: " << (int)maxNumOfSets << std::endl;
+				foundVar = true;
+			}
+			
+			//Counter to see if variable wasn't found in workouts file.
+			if (!foundVar){
+				variableCount++;
+			} else {
+				foundVar = true;
+			}
 		}
 		
-		//Sets the workout file variables and the toughness value.
-		for(int i=0; i < size-1; i++){
-			if(prog.getVerboseMode())
-				std::cout << "...Beginning to assign variable values. " << std::endl;
-			
-			if(prog.getVerboseMode())
-				std::cout << "...processing line: " << lines[i] << std::endl;
-			
+		//Accounts for variables not found in workouts file.
+		numOfVariables = numOfVariables - variableCount;
+		lines.erase(lines.begin(), lines.begin()+numOfVariables);
+		
+		//Sets the workout file variables and the weighted value.
+		for(int i=0; i < size-numOfVariables; i++){
+			if(prog.getVerboseMode())			
 			workoutName.push_back( getBeforeEqualSign(lines[i]) );
-			workoutToughness.push_back( convertWorkoutToughness( getBetweenEqualAndSemiColon(lines[i]) ) );
+			workoutWeight.push_back( convertWorkoutWeight( getBetweenEqualAndSemiColon(lines[i]) ) );
 			workoutUnit.push_back( getAfterSemiColon(lines[i]) );
 			
 			if(prog.getVerboseMode()){
 				std::cout << "...Printing values set. " << std::endl;
 				std::cout << workoutName[i] << ": ";
-				std::cout << workoutToughness[i] << " ";
+				std::cout << workoutWeight[i] << " ";
 				std::cout << workoutUnit[i] << std::endl;
 			}
+		}
+		
+		std::cout << "...Running workout generation. " << std::endl;
+		prog.blankDots();
+		
+		//Calculates workout routine
+		double maxNumOfWorkoutsModifier = (maxNumOfWorkouts-minNumOfWorkouts)/100.0 * difficulty + minNumOfWorkouts;
+		double minNumOfWorkoutsModifier = (maxNumOfWorkouts-minNumOfWorkouts)/200.0 * difficulty + minNumOfWorkouts;
+		int numOfWorkouts = prog.randomInt((int)minNumOfWorkoutsModifier,(int)maxNumOfWorkoutsModifier,0);
+		double maxNumOfSetsModifier = (maxNumOfSets-minNumOfSets)/100.0 * difficulty + minNumOfSets;
+		double minNumOfSetsModifier = (maxNumOfSets-minNumOfSets)/200.0 * difficulty + minNumOfSets;
+		int numOfSets = prog.randomInt((int)minNumOfSetsModifier,(int)maxNumOfSetsModifier,0);
+		
+		if(prog.getVerboseMode()){
+			std::cout << "...numOfWorkouts: " << numOfWorkouts << std::endl;
+			std::cout << "...numOfSets: " << numOfSets << std::endl;
+		}
+		
+		std::vector<bool> workoutChosen;
+		for(int i=0; i<size-numOfVariables; i++){
+			workoutChosen.push_back(false);
+		}
+		
+		//determines which workouts to use.
+		int randNum = prog.randomInt(0,size-numOfVariables,0);
+		for(int i=0;i<numOfWorkouts; i++){
+			randNum = prog.randomInt(0,size-numOfVariables,0);
+			while(workoutChosen[randNum]){
+				randNum = prog.randomInt(0,size-numOfVariables,0);
+			}
+			workoutChosen[randNum] = true;
+		}
+		
+		std::cout << "...Number of workouts: " << numOfWorkouts << std::endl;
+		std::cout << "...Number of sets: " << numOfSets << std::endl;
+		
+		//Determines values for each workout and prints the results.
+		for (int i=0; i<size-numOfVariables; i ++){
+			//TODO
 		}
 		
 	} else {

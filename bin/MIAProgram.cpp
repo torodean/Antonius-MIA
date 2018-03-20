@@ -34,7 +34,7 @@ Program::~Program(){
 //sets verboseMode.
 void Program::setVerboseMode(std::string value){
 	value = removeCharInString(value, ' ');
-	if (value == "true"){
+	if (value == "true" || value == "1"){
 		verboseMode = true;
 	} else {
 		verboseMode = false;
@@ -524,13 +524,13 @@ void Program::performCommand(std::string input){
 		case 22: //corresponds to the prime -help command.
 			helpPrime();
 			break;
-		case 23:	//corresponds to the crypt -d0s3 command.
+		case 23: //corresponds to the crypt -d0s3 command.
 			cmd.d0s3CryptRunner();
 			break;
-		case 24:	//corresponds to the decrypt -d0s3 command.
+		case 24: //corresponds to the decrypt -d0s3 command.
 			cmd.d0s3DeCryptRunner();
 			break;
-		case 25:	//corresponds to the button spam -t command.
+		case 25: //corresponds to the button spam -t command.
 			cmd.buttonSpamRunner(true);
 			break;
 		case 26: //corresponds to the randfromfile command.
@@ -624,7 +624,7 @@ bool Program::excuse(){
 		blankLine();
 		std::cout << "...Sorry, I can't do that (Invalid command entered). " << std::endl;
 		
-		txt = getRandomLineOfFile("../bin/Resources/Excuses.txt");
+		txt = getRandomLineOfFile(excuseFilePath);
 		std::cout << "..." << txt << std::endl;
 		return true;		
 	}
@@ -684,12 +684,16 @@ std::string Program::getMIAVersion(){
 
 //Returns a random integer between min and max.
 int Program::randomInt(int min, int max, int seed){
+	if(verboseMode)
+		std::cout << "...Calculating random value between " << min << " and " << max << "." << std::endl;
 	if(seed == 0){
 		srand((unsigned)time(0)); 
 	} else {
 		srand(seed);
 	}
 	int random = min + (rand() % static_cast<int>(max - min + 1));
+	if(verboseMode)
+		std::cout << "...random value is " << random << "." << std::endl;
 	return random;
 }
 

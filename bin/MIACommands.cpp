@@ -677,8 +677,10 @@ void Commands::test(){
 	#if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
 
 	Misc misc;
+	/*
 	std::string input; 
 	std::cout << "...Loading MIA workout generator (still in beta). " << std::endl;
+	prog.blankDots();
 	std::cout << "...Please enter a difficulty: ";
 	std::getline(std::cin,input);
 	
@@ -690,7 +692,11 @@ void Commands::test(){
 	} else {
 		difficulty = stod(input);
 	}
-	misc.generateWorkout(difficulty);
+	*/
+	for (int i = 0 ; i < 100; i+=20){
+		misc.generateWorkout((double)i);
+	}
+	
 
 	#else
 	prog.returnError(31416);

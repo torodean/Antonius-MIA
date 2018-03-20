@@ -19,6 +19,7 @@ class Program{
 		bool verboseMode = false;
 		std::string defaultInputFilePath = "../bin/Resources/InputFiles/";
 		std::string defaultCryptFilePath = "../bin/Resources/EncryptedFiles/";
+		std::string excuseFilePath = "../bin/Resources/Excuses.txt";
 		std::string workoutsFilePath = "../bin/Resources/InputFiles/workouts.txt";
 		int WoWMailboxSendLetterLocationX = 270;
 		int WoWMailboxSendLetterLocationY = 650;
