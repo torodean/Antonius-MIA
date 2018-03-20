@@ -13,13 +13,14 @@
 # To define a workout give it a name and a weight value (input as a double).
 # units are added by placing a semicolon after the exercise followed by the unit name.
 # This is done as such 'workoutName = weightedValue; unitName', for example 'pull_up = 5.0; reps'.
-# The above example would weight everything with respect to 1. 
-# Meaning, if one had 'pull_up = 5.0', then MIA would expect the user to be able to do 5.0 pull ups per unit weight.
-# weight is the value that determines the difficulty.
+# All workouts are weighted relative to each other and the toughness value.
+# Meaning, if one had 'pull_up = 5.0', then MIA would expect the user to be able to do 5.0 pull ups per unit toughness.
+# toughness is the value that determines the difficulty.
 
-# The weight is defined by a user value 'weight' which defaults at 1.0.
+# The toughness is defined by a user value 'toughness' which defaults at 1.0. 
+# Increasing this value provides a global increase to difficulty. Recommended value is 1.
 # Put this variable before all workout variables.
-weight = 1.0
+toughness = 1.0
 
 # Exercises and weights.
 push_up = 10.0; reps

@@ -108,7 +108,7 @@ std::string Misc::getAfterSemiColon(std::string line){
 }
 
 //convert input file line to proper format (doubles.
-double Misc::convertWorkoutWeight(std::string line){
+double Misc::convertWorkoutToughness(std::string line){
 	return stod(line);
 }
 
@@ -150,30 +150,30 @@ void Misc::generateWorkout(double difficulty){
 		
 		//Creates and stores workouts file variables.
 		std::vector<std::string> workoutName;
-		std::vector<double> workoutWeight;
+		std::vector<double> workoutToughness;
 		std::vector<std::string> workoutUnit;
-		int weight = 1;
+		int toughness = 1;
 		int size = lines.size();
 		
 		if(prog.getVerboseMode())
 			std::cout << "...Variables created. " << std::endl;
 		
-		if(getBeforeEqualSign(lines[0]) == "weight"){
+		if(getBeforeEqualSign(lines[0]) == "toughness"){
 			if(prog.getVerboseMode())
-				std::cout << "...weight variable discovered. " << std::endl;
+				std::cout << "...toughness variable discovered. " << std::endl;
 			
 			int equalSignLocation = prog.findEqualInString(lines[0]);
-			weight = stod(lines[0].substr(equalSignLocation+1,lines[0].size()-1));
+			toughness = stod(lines[0].substr(equalSignLocation+1,lines[0].size()-1));
 			
 			if(prog.getVerboseMode())
 				std::cout << "...Printing values set. " << std::endl;
 			
-			std::cout << "...weight: " << weight << std::endl;
+			std::cout << "...toughness: " << toughness << std::endl;
 			
 			lines.erase(lines.begin());
 		}
 		
-		//Sets the workout file variables and the weight value.
+		//Sets the workout file variables and the toughness value.
 		for(int i=0; i < size-1; i++){
 			if(prog.getVerboseMode())
 				std::cout << "...Beginning to assign variable values. " << std::endl;
@@ -182,13 +182,13 @@ void Misc::generateWorkout(double difficulty){
 				std::cout << "...processing line: " << lines[i] << std::endl;
 			
 			workoutName.push_back( getBeforeEqualSign(lines[i]) );
-			workoutWeight.push_back( convertWorkoutWeight( getBetweenEqualAndSemiColon(lines[i]) ) );
+			workoutToughness.push_back( convertWorkoutToughness( getBetweenEqualAndSemiColon(lines[i]) ) );
 			workoutUnit.push_back( getAfterSemiColon(lines[i]) );
 			
 			if(prog.getVerboseMode()){
 				std::cout << "...Printing values set. " << std::endl;
 				std::cout << workoutName[i] << ": ";
-				std::cout << workoutWeight[i] << " ";
+				std::cout << workoutToughness[i] << " ";
 				std::cout << workoutUnit[i] << std::endl;
 			}
 		}

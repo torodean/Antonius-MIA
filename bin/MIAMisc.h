@@ -25,7 +25,7 @@ class Misc {
 		std::string getBeforeEqualSign(std::string line);
 		std::string getBetweenEqualAndSemiColon(std::string line);
 		std::string getAfterSemiColon(std::string line);
-		double convertWorkoutWeight(std::string line);
+		double convertWorkoutToughness(std::string line);
 		
 		//Misc functions.
 		void printRandomLinesFromFile(bool useFefaultPath, int numberOfLines);
