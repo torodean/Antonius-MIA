@@ -357,7 +357,7 @@ void Program::standby(){
 	while(exit == false){
 		getline(std::cin,input);
 		blankLine();
-		if(input == "exit"){
+		if(input == "exit" || input == "quit" || input == "EXIT" || input == "QUIT"){
 			exit = true;
 		} else{
 			performCommand(input);
@@ -440,7 +440,11 @@ int Program::commandToInputVar(std::string input){
 		output = 33;
 	} else if (input == "workout"){
 		output = 34;
-	} else if (input == "test"){
+	} else if (input == "error info"){
+		output = 999997;
+	} else if (input == "error info -a"){
+		output = 999998;
+	}else if (input == "test"){
 		output = 999999;
 	}
 	return output;
@@ -562,6 +566,12 @@ void Program::performCommand(std::string input){
 		case 34: //Corresponds to the workout command.
 			cmd.workoutRunner();
 			break;
+		case 999997: //Corresponds to the error info command.
+			errorInfoRun(false);
+			break;
+		case 999998: //Corresponds to the error info -a command.
+			errorInfoRun(true);
+			break;
 		case 999999:
 			test();			
 			break;			
@@ -591,13 +601,15 @@ void Program::help(){
 	std::cout << "... decrypt -d0s1 | De-crypts a string using the d0s1 algorithm." << std::endl;
 	std::cout << "... decrypt -d0s2 | De-crypts a string using the d0s2 algorithm." << std::endl;
 	std::cout << "... digitsum      | Returns the sum of the digits within an integer of any size." << std::endl;
+	std::cout << "... error info    | Returns information regarding an error code." << std::endl;
+	std::cout << "... error info -a | Returns information regarding all error codes." << std::endl;
 	std::cout << "... eyedropper    | Returns the RGB value of the pixel located at the cursor." << std::endl;
 	std::cout << "... factors       | Returns the number of factors within an integer." << std::endl;
 	std::cout << "... find mouse    | Finds/Returns the coordinates of the mouse after 5 seconds." << std::endl;
 	std::cout << "... fishbot       | A working and configurable WoW fishbot." << std::endl;
 	std::cout << "... lattice       | Returns lattice paths to the farthest corner of an NxM grid." << std::endl;
-	std::cout << "... mc dig        | Simulates key strokes for continuous Minecraft diggigg." << std::endl;
-	std::cout << "... mc explore    | Explores a Minecraft map using /tp" << std::endl;
+	std::cout << "... mc dig        | Simulates key strokes for continuous Minecraft digging." << std::endl;
+	std::cout << "... mc explore    | Explores a Minecraft map using the minecraft /tp command." << std::endl;
 	std::cout << "... multiply      | Multiplies two integers of any length." << std::endl;
 	std::cout << "... palindrome    | Determines if a positive integer is palindrome." << std::endl;
 	std::cout << "... prime -help   | Displays help defaults for prime functions." << std::endl;
@@ -770,6 +782,100 @@ void Program::returnError(int errorCode){
 	}
 }
 
+void Program::errorInfoRun(bool all){
+	blankDots();
+	int error = 0;
+	if(all){
+		errorInfo(-1);
+	} else {
+		std::cout << "...Please enter an error code: ";
+		std::cin >> error;
+		std::cin.ignore();
+		errorInfo(error);
+	}
+}
 
+//Returns information about a specified known error or all of the known errors.
+void Program::errorInfo(int error){
+	blankDots();
+	switch(error){
+		case 0:
+			std::cout << "...0: ERROR_SUCCESS - The operation completed successfully." << std::endl;
+			break;
+		case 5:
+			std::cout << "...5: ERROR_ACCESS_DENIED" << std::endl;
+			break;
+		case 31:
+			std::cout << "...31: ERROR_GEN_FAILURE - A device attached to the system is not functioning." << std::endl;
+			break;
+		case 53:
+			std::cout << "...53: ERROR_BAD_NETPATH - The network path was not found." << std::endl;
+			break;
+		case 87:
+			std::cout << "...87: ERROR_INVALID_PARAMETER - The parameter is incorrect." << std::endl;
+			break;
+		case 124:
+			std::cout << "...124: ERROR_INVALID_LEVEL - The system call level is not correct." << std::endl;
+			break;
+		case 404: 
+			std::cout << "...404: File not found." << std::endl;
+			break;
+		case 1326:
+			std::cout << "...1326: ERROR_LOGON_FAILURE - The user name or password is incorrect." << std::endl;
+			break;
+		case 1722:
+			std::cout << "...1722: RPC_S_SERVER_UNAVAILABLE - The RPC server is unavailable." << std::endl;
+			break;
+		case 2221:
+			std::cout << "...2221: NERR_UserNotFound - The user name could not be found." << std::endl;
+			break;
+		case 6118:
+			std::cout << "...6118: ERROR_NO_BROWSER_SERVERS_FOUND" << std::endl;
+			std::cout << "...    - The list of servers for this workgroup is not currently available." << std::endl;
+			break;
+		case 31403:
+			std::cout << "...31403: MIAsettings file not found." << std::endl;
+			break;
+		case 31404:
+			std::cout << "...31404: FATAL: File not found." << std::endl;
+			break;
+		case 31415:
+			std::cout << "...31415: Function still in Development." << std::endl;
+			break;
+		case 31416:
+			std::cout << "...31416: This feature is currently only programmed for Windows." << std::endl;
+			break;
+		case 31417:
+			std::cout << "...31417: Invalid Option in MIAConfig. Using default value." << std::endl;
+			break;
+		case 31418:
+			std::cout << "...31418: Nothing set for testing." << std::endl;
+			break;
+		default:
+			std::cout << "...Invalid or unknown error code entered." << std::endl;
+			std::cout << "...Full List of programmed error codes follow." << std::endl;
+			blankDots();
+			std::cout << "...UNKNOWN: A catastrophic Failure Occurred." << std::endl;
+			std::cout << "...0: ERROR_SUCCESS - The operation completed successfully." << std::endl;
+			std::cout << "...5: ERROR_ACCESS_DENIED" << std::endl;
+			std::cout << "...31: ERROR_GEN_FAILURE - A device attached to the system is not functioning." << std::endl;
+			std::cout << "...53: ERROR_BAD_NETPATH - The network path was not found." << std::endl;
+			std::cout << "...87: ERROR_INVALID_PARAMETER - The parameter is incorrect." << std::endl;
+			std::cout << "...124: ERROR_INVALID_LEVEL - The system call level is not correct." << std::endl;
+			std::cout << "...404: File not found." << std::endl;
+			std::cout << "...1326: ERROR_LOGON_FAILURE - The user name or password is incorrect." << std::endl;
+			std::cout << "...1722: RPC_S_SERVER_UNAVAILABLE - The RPC server is unavailable." << std::endl;
+			std::cout << "...2221: NERR_UserNotFound - The user name could not be found." << std::endl;
+			std::cout << "...6118: ERROR_NO_BROWSER_SERVERS_FOUND" << std::endl;
+			std::cout << "...    - The list of servers for this workgroup is not currently available." << std::endl;
+			std::cout << "...31403: MIAsettings file not found." << std::endl;
+			std::cout << "...31404: FATAL: File not found." << std::endl;
+			std::cout << "...31415: Function still in Development." << std::endl;
+			std::cout << "...31416: This feature is currently only programmed for Windows." << std::endl;
+			std::cout << "...31417: Invalid Option in MIAConfig. Using default value." << std::endl;
+			std::cout << "...31418: Nothing set for testing." << std::endl;
+			break;
+	}
+}
 
 

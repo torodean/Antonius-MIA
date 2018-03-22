@@ -10,11 +10,11 @@
 #ifndef __NETUSE_H__
 #define __NETUSE_H__
 
-class NetUse{
+class LOLANetUse{
 	private:
 	public:
-		NetUse();
-		~NetUse();
+		LOLANetUse();
+		~LOLANetUse();
 		
 		//Functions adapted to work from the old LOLA Program.
 		int NetSessionEnumRunner(int argc, wchar_t *argv[]); 

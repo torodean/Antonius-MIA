@@ -19,6 +19,7 @@ class Program{
 		bool verboseMode = false;
 		std::string defaultInputFilePath = "../bin/Resources/InputFiles/";
 		std::string defaultCryptFilePath = "../bin/Resources/EncryptedFiles/";
+		std::string defaultDecryptFilePath = "../bin/Resources/DecryptedFiles/";
 		std::string excuseFilePath = "../bin/Resources/Excuses.txt";
 		std::string workoutsFilePath = "../bin/Resources/InputFiles/workouts.txt";
 		int WoWMailboxSendLetterLocationX = 270;
@@ -86,6 +87,8 @@ class Program{
 		
 		//Error related functions
 		void returnError(int errorCode);
+		void errorInfo(int error);
+		void errorInfoRun(bool all);
 		
 		//Misc functions.
 		int findEqualInString(std::string input);

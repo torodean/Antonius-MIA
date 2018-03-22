@@ -4,8 +4,12 @@
 // Copyright   : This file can be used under the conditions of Antonius' 
 //				 General Purpose License (AGPL).
 // Created on  : September 28, 2016 (LOLA) -- June 12, 2017 (MIA)
-// Description : The NetUse Functions from the LOLA program adapted for use with MIA.
+// Description : The LOLANetUse Functions from the LOLA program adapted for use with MIA.
 //============================================================================
+
+#ifndef UNICODE
+#define UNICODE
+#endif
 
 #include <windows.h>
 #include <stdio.h>
@@ -13,21 +17,20 @@
 #include <lm.h>
 #include "Sddl.h"
 #include <stdexcept>
+#include "LOLANetUse.h"
 
-using namespace std;
-
-//Main constructor for the NetUse class.
-NetUse::NetUse(){
+//Main constructor for the LOLANetUse class.
+LOLANetUse::LOLANetUse(){
 	//Chuck Norris can divide by 0.
 }
 
-//Main deconstructor for the NetUse class.
-NetUse::~NetUse(){
+//Main deconstructor for the LOLANetUse class.
+LOLANetUse::~LOLANetUse(){
 	//There is no Esc key on Chuck Norris’ keyboard, because no one escapes Chuck Norris.
 }
 
 //The NetSessionEnum function Provides information about sessions established on a server.
-int NetUse::NetSessionEnumRunner(int argc, wchar_t *argv[]){
+int LOLANetUse::NetSessionEnumRunner(int argc, wchar_t *argv[]){
 	LPSESSION_INFO_10 pBuf = NULL, pTmpBuf;
 	DWORD dwLevel = 10, dwPrefMaxLen = MAX_PREFERRED_LENGTH, dwEntriesRead = 0, dwTotalEntries = 0, dwResumeHandle = 0, i, dwTotalCount = 0;
 	LPTSTR pszServerName = NULL, pszClientName = NULL, pszUserName = NULL;
@@ -98,7 +101,7 @@ int NetUse::NetSessionEnumRunner(int argc, wchar_t *argv[]){
 }
 
 //The NetServerEnum function lists all workstations that are visible in a domain. 
-int NetUse::NetServerEnumRunner_WKST(int argc, wchar_t * argv[]){
+int LOLANetUse::NetServerEnumRunner_WKST(int argc, wchar_t * argv[]){
 	LPSERVER_INFO_101 pBuf = NULL;
 	LPSERVER_INFO_101 pTmpBuf;
 	DWORD dwLevel = 101;
@@ -188,7 +191,7 @@ int NetUse::NetServerEnumRunner_WKST(int argc, wchar_t * argv[]){
 }
 
 //The NetServerEnum function lists all servers that are visible in a domain. 
-int NetUse::NetServerEnumRunner_SERV(int argc, wchar_t * argv[]){
+int LOLANetUse::NetServerEnumRunner_SERV(int argc, wchar_t * argv[]){
 	LPSERVER_INFO_101 pBuf = NULL;
 	LPSERVER_INFO_101 pTmpBuf;
 	DWORD dwLevel = 101;
@@ -279,7 +282,7 @@ int NetUse::NetServerEnumRunner_SERV(int argc, wchar_t * argv[]){
 }
 
 //The NetWkstaGetInfo function returns information about the configuration of a workstation.
-int NetUse::NetWkstaGetInfoRunner(int argc, wchar_t *argv[]){
+int LOLANetUse::NetWkstaGetInfoRunner(int argc, wchar_t *argv[]){
 	DWORD dwLevel = 102;
 	LPWKSTA_INFO_102 pBuf = NULL;
 	NET_API_STATUS nStatus;
@@ -318,7 +321,7 @@ int NetUse::NetWkstaGetInfoRunner(int argc, wchar_t *argv[]){
 //The NetRemoteComputerSupports function queries the redirector to retrieve the optional features the remote system supports. 
 //Features include Unicode, Remote Procedure Call (RPC), and Remote Administration Protocol support. 
 //The function establishes a network connection if one does not exist.
-int NetUse::NetRemoteComputerSupportsRunner(int argc, wchar_t *argv[]){
+int LOLANetUse::NetRemoteComputerSupportsRunner(int argc, wchar_t *argv[]){
 	NET_API_STATUS nStatus;
 	LPCWSTR UncServerName = NULL;
 	DWORD OptionsWanted = SUPPORTS_LOCAL;
@@ -349,7 +352,7 @@ int NetUse::NetRemoteComputerSupportsRunner(int argc, wchar_t *argv[]){
 }
 
 //The NetUserEnum function retrieves information about all user accounts on a server.
-int NetUse::NetUserEnumRunner(int argc, wchar_t *argv[]){
+int LOLANetUse::NetUserEnumRunner(int argc, wchar_t *argv[]){
 	LPUSER_INFO_0 pBuf = NULL;
 	LPUSER_INFO_0 pTmpBuf;
 	DWORD dwLevel = 0;
@@ -422,7 +425,7 @@ int NetUse::NetUserEnumRunner(int argc, wchar_t *argv[]){
 }
 
 //The NetUserGetInfo function retrieves information about a particular user account on a server.
-int NetUse::NetUserGetInfoRunner(int argc, wchar_t *argv[]){
+int LOLANetUse::NetUserGetInfoRunner(int argc, wchar_t *argv[]){
 	DWORD dwLevel = 0;
 
 	LPUSER_INFO_0 pBuf = NULL;
@@ -654,7 +657,7 @@ int NetUse::NetUserGetInfoRunner(int argc, wchar_t *argv[]){
 
 //The NetUserModalsGet function retrieves global information for all users and global groups in the security database, 
 //which is the security accounts manager(SAM) database or, in the case of domain controllers, the Active Directory.
-int NetUse::NetUserModalsGetRunner(int argc, wchar_t *argv[]){
+int LOLANetUse::NetUserModalsGetRunner(int argc, wchar_t *argv[]){
 	DWORD dwLevel = 0;
 	USER_MODALS_INFO_0 *pBuf = NULL;
 	NET_API_STATUS nStatus;
@@ -690,7 +693,7 @@ int NetUse::NetUserModalsGetRunner(int argc, wchar_t *argv[]){
 }
 
 //The NetQueryDisplayInformation function returns user account, computer, or group account information.
-int NetUse::NetQueryDisplayInformationRunner(wchar_t *argv[], int level){
+int LOLANetUse::NetQueryDisplayInformationRunner(wchar_t *argv[], int level){
 	PNET_DISPLAY_GROUP pBuff, p;
 	DWORD res, dwRec, i = 0;
 

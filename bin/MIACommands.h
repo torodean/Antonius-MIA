@@ -45,7 +45,15 @@ class Commands{
 		void solveQuadraticFormulaRunner();
 		
 		//Functions adapted to work from the LOLA Program.
-			//Not yet added.
+		void runNetSessionEnum();
+		void runNetServerEnum_WKST();
+		void runNetServerEnum_SERV();
+		void runNetWkstaGetInfo();
+		void runNetRemoteComputerSupports();
+		void runNetUserEnum();
+		void runNetUserGetInfo();
+		void runNetUserModalsGet();
+		void runNetQueryDisplayInformation();
 		
 		//Functions adapted to work from the old VKK program.
 		//Currently only useful on Windows.

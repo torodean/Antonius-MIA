@@ -670,11 +670,12 @@ void Commands::findMouse(){
 
 //Function made for testing.
 void Commands::test(){
-	prog.returnError(31418); //Returns nothing set for testing.
+	//prog.returnError(31418); //Returns nothing set for testing.
 	
 	///* Uncomment this for testing things for Windows only.
 	#if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
-
+	
+	runNetSessionEnum();
 
 	#else
 	prog.returnError(31416);
@@ -757,6 +758,36 @@ void Commands::runFishbot(){
 	
 	#else
 	
+	prog.returnError(31416);
+	#endif
+}
+
+//Runs the NetSessionEnumRunner from the LOLANetUse.cpp file
+void Commands::runNetSessionEnum(){
+	#if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
+	
+	LOLANetUse lola;
+	std::string server;
+	int argc = 4;  //set to 4 indicating that all fields [0] -> [3] of argv are filled.
+	
+	std::cout << "...Please enter a server address for me to gather information about." << std::endl;
+	prog.blankLine();
+	std::getline(std::cin, server);
+	
+	const size_t len = server.length() + 1;
+    wchar_t w_server[len];
+
+    swprintf(w_server, len, L"%s", server.c_str());
+	
+	std::cout << "...Loading NetSessionEnumRunner." << std::endl;
+	std::cout << "w_server: " << *w_server << std::endl;
+	wchar_t *argv1[] = {NULL, w_server, NULL, NULL};
+	lola.NetSessionEnumRunner(argc, argv1);
+	
+	prog.blankDots();
+	std::cout << "...NetSessionEnumRunner Finished." << std::endl;
+	
+	#else
 	prog.returnError(31416);
 	#endif
 }
