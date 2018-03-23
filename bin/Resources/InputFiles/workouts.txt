@@ -23,7 +23,7 @@
 toughness = 0.1
 minNumOfWorkouts = 3.0
 maxNumOfWorkouts = inf
-minNumOfSets = 1.0
+minNumOfSets = 2.0
 maxNumOfSets = inf
 
 #############################################
@@ -32,10 +32,12 @@ maxNumOfSets = inf
 
 # Exercises and weights.
 push_up = 8.0; reps
+push_up_mixed = 5.0; reps
 push_up_weighted = 2.0; reps
 push_up_diamond = 3.0; reps
 push_up_jump = 3.0; reps
 sit_up = 15.0; reps
+sit_up_inclined = 10.0; reps
 crunch = 5.0; reps
 leg_lift = 10.0; reps
 pull_up = 0.75; reps
@@ -46,8 +48,8 @@ squat_weighted = 1.0; reps
 jumping_jack = 30.0; reps
 running = 0.1; miles
 dips = 5.0; reps
-wall_sit = 30.0; seconds
-plank = 30.0; seconds
+wall_sit = 23.0; seconds
+plank = 27.0; seconds
 lunge = 3.0; reps
 knee_jump = 3.0; reps
 burpee = 3.0; reps
@@ -55,5 +57,5 @@ squirpee = 3.0; reps
 chin_up = 2.0; reps
 chin_up_weighted = 0.75; reps
 punches = 10.0; seconds
-russion_twist = 10.0; reps
+russion_twist = 10.0; seconds
 run_in_place = 30.0; seconds
