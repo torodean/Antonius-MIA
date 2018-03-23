@@ -15,7 +15,7 @@
 
 class Program{
 	private:
-		const std::string VERSION = "0.036";
+		const std::string VERSION = "0.037";
 		bool verboseMode = false;
 		std::string defaultInputFilePath = "../bin/Resources/InputFiles/";
 		std::string defaultCryptFilePath = "../bin/Resources/EncryptedFiles/";

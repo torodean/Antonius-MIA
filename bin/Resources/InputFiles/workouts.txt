@@ -23,7 +23,7 @@
 toughness = 0.1
 minNumOfWorkouts = 3.0
 maxNumOfWorkouts = inf
-minNumOfSets = 2.0
+minNumOfSets = 1.0
 maxNumOfSets = inf
 
 #############################################
