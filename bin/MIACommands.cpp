@@ -687,8 +687,11 @@ void Commands::test(){
 void Commands::workoutRunner(){
 	Misc misc;
 	std::string input; 
-	std::cout << "...Loading MIA workout generator (still in beta). " << std::endl;
+	std::cout << "...Loading MIA workout generator. " << std::endl;
 	prog.blankDots();
+	std::cout << "...Assuming default values, difficulties range from 0-100." << std::endl;
+	std::cout << "...1-10 (VERY EASY), 11-22 (EASY), 23-35 (NORMAL)" << std::endl;
+	std::cout << "...36-49 (HARD), 50-65 (VERY HARD), 65+ (INSANE)" << std::endl;
 	std::cout << "...Please enter a difficulty: ";
 	std::getline(std::cin,input);
 	
