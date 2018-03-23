@@ -440,7 +440,9 @@ int Program::commandToInputVar(std::string input){
 		output = 33;
 	} else if (input == "workout"){
 		output = 34;
-	} else if (input == "error info"){
+	} else if (input == "splash"){
+		output = 35;
+	}else if (input == "error info"){
 		output = 999997;
 	} else if (input == "error info -a"){
 		output = 999998;
@@ -565,6 +567,9 @@ void Program::performCommand(std::string input){
 			break;
 		case 34: //Corresponds to the workout command.
 			cmd.workoutRunner();
+			break;
+		case 35: //Corresponds to the splash command.
+			splash();
 			break;
 		case 999997: //Corresponds to the error info command.
 			errorInfoRun(false);
@@ -702,6 +707,11 @@ std::string Program::getMIAVersion(){
 
 //Returns a random integer between min and max.
 int Program::randomInt(int min, int max, int seed, bool useTime){
+	if(max < min){
+		if(verboseMode)
+			std::cout << "...Max value smaller than min, adjusting appropriately by returning min." << std::endl;
+		return min;
+	}
 	if(verboseMode)
 		std::cout << "...Calculating random value between " << min << " and " << max << "." << std::endl;
 	if(seed == 0){
