@@ -422,10 +422,14 @@ void Misc::generateWorkout(double difficulty, bool weekly){
 					std::cout << "rest: 45 minutes" << std::endl;
 				}
 			}
-			prog.blankLine();
+			if (weekly){
+				out << std::endl;
+			} else {
+				prog.blankLine();
+			}
 			timesToGenerate--;
 		}
-		std::cout << "Workout generation completed." << std::endl;
+		std::cout << "...Workout generation completed." << std::endl;
 	} else {
 		if (prog.getVerboseMode())
 			prog.returnError(31404);
