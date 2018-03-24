@@ -17,6 +17,8 @@
 defaultInputFilePath=../bin/Resources/InputFiles/
 defaultCryptFilePath=../bin/Resources/EncryptedFiles/
 workoutsFilePath=../bin/Resources/InputFiles/workouts.txt
+workoutOutputFilePath=../bin/Resources/OutputFiles/workout.txt
+excuseFilePath=../bin/Resources/Excuses.txt
 
 # MIA program variables.
 verboseMode=false

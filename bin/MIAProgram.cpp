@@ -10,6 +10,7 @@
 #include <iostream>
 #include <string>
 #include <cctype>
+#include <ctime>
 #include <time.h>
 #include <fstream>
 #include "MIAProgram.h"
@@ -84,6 +85,18 @@ bool Program::is_digits(const std::string &str){
 }
 
 //Changes and returns the private variables.
+void Program::setWorkoutOutputFilePath(std::string input){
+	workoutOutputFilePath = input;
+}
+std::string Program::getWorkoutOutputFilePath(){
+	return workoutOutputFilePath;
+}
+void Program::setExcuseFilePath(std::string input){
+	excuseFilePath = input;
+}
+std::string Program::getExcuseFilePath(){
+	return excuseFilePath;
+}
 void Program::setDefaultInputFilePath(std::string input){
 	defaultInputFilePath = input;
 }
@@ -235,6 +248,10 @@ void Program::setMIAVariable(std::string variable, std::string value){
 		setDefaultCryptFilePath(value);
 	} else if (variable == "workoutsFilePath"){
 		setWorkoutsFilePath(value);
+	} else if (variable == "workoutOutputFilePath"){
+		setWorkoutOutputFilePath(value);
+	} else if (variable == "excuseFilePath"){
+		setExcuseFilePath(value);
 	} else if (variable == "WoWMailboxSendLetterLocationX"){
 		setWoWMailboxSendLetterLocation('x',value);
 	} else if (variable == "WoWMailboxSendLetterLocationY"){
@@ -442,7 +459,9 @@ int Program::commandToInputVar(std::string input){
 		output = 34;
 	} else if (input == "splash"){
 		output = 35;
-	}else if (input == "error info"){
+	}  else if (input == "workout -w"){
+		output = 36;
+	} else if (input == "error info"){
 		output = 999997;
 	} else if (input == "error info -a"){
 		output = 999998;
@@ -566,10 +585,13 @@ void Program::performCommand(std::string input){
 			cmd.runFishbot();
 			break;
 		case 34: //Corresponds to the workout command.
-			cmd.workoutRunner();
+			cmd.workoutRunner(false);
 			break;
 		case 35: //Corresponds to the splash command.
 			splash();
+			break;
+		case 36: //Corresponds to the splash command.
+			cmd.workoutRunner(true);
 			break;
 		case 999997: //Corresponds to the error info command.
 			errorInfoRun(false);
@@ -886,6 +908,17 @@ void Program::errorInfo(int error){
 			std::cout << "...31418: Nothing set for testing." << std::endl;
 			break;
 	}
+}
+
+//Returns the date for today.
+std::string Program::today(){
+	std::time_t t = std::time(0);   // get time now
+    std::tm* now = std::localtime(&t);
+	std::string month = std::to_string(now->tm_mon + 1);
+	std::string day = std::to_string(now->tm_mday);
+	std::string year = std::to_string(now->tm_year + 1900);
+    std::string todaysDate =  month + "-" + day + "-" + year;
+	return todaysDate;
 }
 
 

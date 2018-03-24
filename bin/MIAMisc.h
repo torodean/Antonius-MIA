@@ -21,7 +21,7 @@ class Misc {
 		Program prog;
 		
 		//Functions relating to workout creation.
-		void generateWorkout(double difficulty);
+		void generateWorkout(double difficulty, bool weekly);
 		std::string getBeforeEqualSign(std::string line);
 		std::string getBetweenEqualAndSemiColon(std::string line);
 		std::string getAfterSemiColon(std::string line);

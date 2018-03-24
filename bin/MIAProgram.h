@@ -15,13 +15,14 @@
 
 class Program{
 	private:
-		const std::string VERSION = "0.037";
+		const std::string VERSION = "0.038";
 		bool verboseMode = false;
 		std::string defaultInputFilePath = "../bin/Resources/InputFiles/";
 		std::string defaultCryptFilePath = "../bin/Resources/EncryptedFiles/";
 		std::string defaultDecryptFilePath = "../bin/Resources/DecryptedFiles/";
 		std::string excuseFilePath = "../bin/Resources/Excuses.txt";
 		std::string workoutsFilePath = "../bin/Resources/InputFiles/workouts.txt";
+		std::string workoutOutputFilePath = "../bin/Resources/OutputFiles/workout.txt";
 		int WoWMailboxSendLetterLocationX = 270;
 		int WoWMailboxSendLetterLocationY = 650;
 		int WoWMailboxFirstLetterLocationX = 55;
@@ -48,11 +49,15 @@ class Program{
 		std::string getDefaultCryptFilePath();
 		void setDefaultCryptFilePath(std::string input);
 		std::string getWorkoutsFilePath();
+		void setExcuseFilePath(std::string input);
+		std::string getExcuseFilePath();
 		void setWorkoutsFilePath(std::string input);
 		void initializeSettings(bool printSettings);
 		void setVerboseMode(std::string value);
 		bool getVerboseMode();
-		
+		void setWorkoutOutputFilePath(std::string input);
+		std::string getWorkoutOutputFilePath();
+
 		//Initializes and returns private WoW variables.
 		void setMIAVariable(std::string variable, std::string value);
 		void setWoWMailboxSendLetterLocation(char coord, std::string value);
@@ -95,5 +100,6 @@ class Program{
 		int findSemiColonInString(std::string input);
 		bool is_digits(const std::string &str);
 		std::string removeCharInString(std::string str, char c);
+		std::string today();
 };
 #endif

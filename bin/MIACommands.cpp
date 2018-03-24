@@ -684,14 +684,14 @@ void Commands::test(){
 }
 
 //Function made for generating a workout via the Misc class.
-void Commands::workoutRunner(){
+void Commands::workoutRunner(bool weekly){
 	Misc misc;
 	std::string input; 
 	std::cout << "...Loading MIA workout generator. " << std::endl;
 	prog.blankDots();
 	std::cout << "...Assuming default values, difficulties range from 0-100." << std::endl;
-	std::cout << "...1-10 (VERY EASY), 11-22 (EASY), 23-35 (NORMAL)" << std::endl;
-	std::cout << "...36-49 (HARD), 50-65 (VERY HARD), 65+ (INSANE)" << std::endl;
+	std::cout << "...1-10 (VERY EASY), 11-24 (EASY), 25-39 (NORMAL)" << std::endl;
+	std::cout << "...39-54 (HARD), 54-74 (VERY HARD), 75+ (INSANE)" << std::endl;
 	std::cout << "...Please enter a difficulty: ";
 	std::getline(std::cin,input);
 	
@@ -703,7 +703,11 @@ void Commands::workoutRunner(){
 	} else {
 		difficulty = stod(input);
 	}
-	misc.generateWorkout(difficulty);
+	if (weekly){
+		misc.generateWorkout(difficulty, true);
+	} else {
+		misc.generateWorkout(difficulty, false);
+	}
 }
 
 //runs the eyedropper command which determines the color of the pixel at the mouse location.
