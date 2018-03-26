@@ -30,6 +30,7 @@ LOLANetUse::~LOLANetUse(){
 }
 
 //The NetSessionEnum function Provides information about sessions established on a server.
+//Taken from https://msdn.microsoft.com/en-us/library/windows/desktop/bb525382(v=vs.85).aspx
 int LOLANetUse::NetSessionEnumRunner(int argc, wchar_t *argv[]){
 	LPSESSION_INFO_10 pBuf = NULL, pTmpBuf;
 	DWORD dwLevel = 10, dwPrefMaxLen = MAX_PREFERRED_LENGTH, dwEntriesRead = 0, dwTotalEntries = 0, dwResumeHandle = 0, i, dwTotalCount = 0;
@@ -57,7 +58,8 @@ int LOLANetUse::NetSessionEnumRunner(int argc, wchar_t *argv[]){
 
 		// If the call succeeds,
 		if ((nStatus == NERR_Success) || (nStatus == ERROR_MORE_DATA)){
-			if ((pTmpBuf = pBuf) != NULL){ // Loop through the entries.
+			if ((pTmpBuf = pBuf) != NULL){ 
+				// Loop through the entries.
 				for (i = 0; i < dwEntriesRead; i++){
 					assert(pTmpBuf != NULL);
 
@@ -339,8 +341,10 @@ int LOLANetUse::NetRemoteComputerSupportsRunner(int argc, wchar_t *argv[]){
 
 	nStatus = NetRemoteComputerSupports(UncServerName, OptionsWanted, (DWORD *)&OptionsSupported);
 	if (nStatus == NERR_Success){
-		//if (OptionsSupported == NULL){ printf("~~~Options supported is set to NULL"); }
-		printf("\n\tOptions Supported: %d\n", OptionsSupported);
+		if (OptionsSupported == NULL){ 
+			printf("~~~Options supported is set to NULL"); 
+		}
+		printf("\n\tOptions Supported: %d\n", *	OptionsSupported);
 	} else {
 		fprintf(stderr, "...A system error has occurred: %d\n", nStatus);
 	}
@@ -431,7 +435,7 @@ int LOLANetUse::NetUserGetInfoRunner(int argc, wchar_t *argv[]){
 	LPUSER_INFO_0 pBuf = NULL;
 	LPUSER_INFO_1 pBuf1 = NULL;
 	LPUSER_INFO_2 pBuf2 = NULL;
-	LPUSER_INFO_3 pBuf3 = NULL;
+	//LPUSER_INFO_3 pBuf3 = NULL;
 	LPUSER_INFO_4 pBuf4 = NULL;
 	LPUSER_INFO_10 pBuf10 = NULL;
 	LPUSER_INFO_11 pBuf11 = NULL;

@@ -787,7 +787,10 @@ void Commands::runNetSessionEnum(){
     swprintf(w_server, len, L"%s", server.c_str());
 	
 	std::cout << "...Loading NetSessionEnumRunner." << std::endl;
-	std::cout << "w_server: " << *w_server << std::endl;
+	std::cout << "...w_server: " << w_server << std::endl;
+	std::cout << "...*w_server: " << *w_server << std::endl;
+	std::cout << "...&w_server: " << &w_server << std::endl;
+	std::cout << "...server.c_str(): " << server.c_str() << std::endl;
 	wchar_t *argv1[] = {NULL, w_server, NULL, NULL};
 	lola.NetSessionEnumRunner(argc, argv1);
 	
