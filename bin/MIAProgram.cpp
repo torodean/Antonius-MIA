@@ -459,8 +459,14 @@ int Program::commandToInputVar(std::string input){
 		output = 34;
 	} else if (input == "splash"){
 		output = 35;
-	}  else if (input == "workout -w"){
+	} else if (input == "workout -w"){
 		output = 36;
+	} else if (input == "net session"){
+		output = 37;
+	} else if (input == "net server -w"){
+		output = 38;
+	} else if (input == "net server -s"){
+		output = 39;
 	} else if (input == "error info"){
 		output = 999997;
 	} else if (input == "error info -a"){
@@ -593,6 +599,15 @@ void Program::performCommand(std::string input){
 		case 36: //Corresponds to the splash command.
 			cmd.workoutRunner(true);
 			break;
+		case 37: //Corresponds to the net session command.
+			cmd.runNetSessionEnum();
+			break;
+		case 38: //Corresponds to the net server -w command.
+			cmd.runNetServerEnum('w');
+			break;
+		case 39: //Corresponds to the net server -s command.
+			cmd.runNetServerEnum('s');
+			break;
 		case 999997: //Corresponds to the error info command.
 			errorInfoRun(false);
 			break;
@@ -638,6 +653,7 @@ void Program::help(){
 	std::cout << "... mc dig        | Simulates key strokes for continuous Minecraft digging." << std::endl;
 	std::cout << "... mc explore    | Explores a Minecraft map using the minecraft /tp command." << std::endl;
 	std::cout << "... multiply      | Multiplies two integers of any length." << std::endl;
+	std::cout << "... net -help     | Displays net functions available within MIA." << std::endl;
 	std::cout << "... palindrome    | Determines if a positive integer is palindrome." << std::endl;
 	std::cout << "... prime -help   | Displays help defaults for prime functions." << std::endl;
 	std::cout << "... quadratic form| Calculates a solution to a*x^2+b*x+c=0." << std::endl;
@@ -649,8 +665,9 @@ void Program::help(){
 	std::cout << "... exit          | Quits MIA. " << std::endl;
 }
 
+//Provides information regarding the prime number functions
 void Program::helpPrime(){
-	std::cout << "... A list of valid commands and a brief summary.                          ..." << std::endl;
+	std::cout << "... A list of various valid commands and a brief summary.                  ..." << std::endl;
 	std::cout << "... Commands are NOT case sensitive.                                       ..." << std::endl;
 	blankDots();
 	std::cout << "... prime         | Determines if a positive integer is prime or not." << std::endl;
@@ -658,6 +675,21 @@ void Program::helpPrime(){
 	std::cout << "... prime -n      | Calculates the n'th prime number up to a max of 2147483647." << std::endl;
 	std::cout << "... prime -n -p   | Creates a file of prime #'s up to a max of 2147483647." << std::endl;
 	std::cout << "... prime -n -c   | Clears the file created by 'prime -n -p'." << std::endl;
+}
+
+void Program::helpNet(){
+	std::cout << "... A list of various valid commands and a brief summary.                  ..." << std::endl;
+	std::cout << "... Commands are NOT case sensitive.                                       ..." << std::endl;
+	blankDots();
+	std::cout << "... net session   | Provides info about sessions established on a server." << std::endl;
+	std::cout << "... net server -s | Lists all servers that are visible in a domain." << std::endl;
+	std::cout << "... net server -w | Lists all workstations that are visible in a domain." << std::endl;
+	//std::cout << "... net wkst      | Returns info about the configuration of a workstation." << std::endl;
+	//std::cout << "... net remote    | Retrieves the optional features a remote system supports." << std::endl;
+	//std::cout << "... net user      | Retrieves information about all user accounts on a server." << std::endl;
+	//std::cout << "... net user -i   | Retrieves information about a user account on a server." << std::endl;
+	//std::cout << "... net modals    | Retrieves global information for all users and global groups." << std::endl;
+	//std::cout << "... net display   | Returns computer, or group account information." << std::endl;
 }
 
 //Prints a random excuse some percentage of the time.

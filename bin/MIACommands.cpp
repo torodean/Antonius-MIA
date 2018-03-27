@@ -675,7 +675,7 @@ void Commands::test(){
 	///* Uncomment this for testing things for Windows only.
 	#if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
 	
-	runNetSessionEnum();
+	runNetUserEnum();
 
 	#else
 	prog.returnError(31416);
@@ -780,19 +780,23 @@ void Commands::runNetSessionEnum(){
 	std::cout << "...Please enter a server address for me to gather information about." << std::endl;
 	prog.blankLine();
 	std::getline(std::cin, server);
+	prog.blankLine();
 	
 	const size_t len = server.length() + 1;
     wchar_t w_server[len];
 
-    swprintf(w_server, len, L"%s", server.c_str());
+    swprintf(w_server, len, L"...%s", server.c_str());
 	
 	std::cout << "...Loading NetSessionEnumRunner." << std::endl;
-	std::cout << "...w_server: " << w_server << std::endl;
-	std::cout << "...*w_server: " << *w_server << std::endl;
-	std::cout << "...&w_server: " << &w_server << std::endl;
-	std::cout << "...server.c_str(): " << server.c_str() << std::endl;
-	wchar_t *argv1[] = {NULL, w_server, NULL, NULL};
-	lola.NetSessionEnumRunner(argc, argv1);
+	if(prog.getVerboseMode()){
+		std::cout << "...w_server: " << w_server << std::endl;
+		std::cout << "...*w_server: " << *w_server << std::endl;
+		std::cout << "...&w_server: " << &w_server << std::endl;
+		std::cout << "...server.c_str(): " << server.c_str() << std::endl;
+	}
+	
+	wchar_t *argv[] = {NULL, w_server, NULL, NULL};
+	lola.NetSessionEnumRunner(argc, argv);
 	
 	prog.blankDots();
 	std::cout << "...NetSessionEnumRunner Finished." << std::endl;
@@ -801,4 +805,159 @@ void Commands::runNetSessionEnum(){
 	prog.returnError(31416);
 	#endif
 }
+
+//Runs the NetServerEnumRunner_WKST from the LOLANetUse.cpp file
+//Valid modes are 'w' for workstation or 's' for server
+void Commands::runNetServerEnum(char mode){
+	#if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
+	
+	LOLANetUse lola;
+	std::string domain;
+	int argc = 2;  //set to 2 indicating that all fields [0] -> [1] of argv are filled.
+	
+	std::cout << "...Please enter a domain for me to gather information about." << std::endl;
+	prog.blankLine();
+	std::getline(std::cin, domain);
+	prog.blankLine();
+	
+	const size_t len = domain.length() + 1;
+    wchar_t w_domain[len];
+
+    swprintf(w_domain, len, L"...%s", domain.c_str());
+
+	wchar_t *argv[] = {NULL, w_domain};
+	std::cout << "...Loading NetServerEnum." << std::endl;
+	if(prog.getVerboseMode()){
+		std::cout << "...w_domain: " << w_domain << std::endl;
+		std::cout << "...*w_domain: " << *w_domain << std::endl;
+		std::cout << "...&w_domain: " << &w_domain << std::endl;
+		std::cout << "...domain.c_str(): " << domain.c_str() << std::endl;
+	}
+	
+	if(mode == 'w'){
+		lola.NetServerEnumRunner_WKST(argc, argv);
+	} else if(mode == 's'){
+		lola.NetServerEnumRunner_SERV(argc, argv);
+	}
+	
+	prog.blankDots();
+	std::cout << "...NetServerEnum Finished!." << std::endl;
+	
+	#else
+	prog.returnError(31416);
+	#endif
+}
+
+//Runs the NetWkstaGetInfoRunner from the LOLANetUse.cpp file
+void Commands::runNetWkstaGetInfo(){
+	#if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
+	
+	LOLANetUse lola;
+	std::string wkst;
+	int argc = 2;  //set to 4 indicating that all fields [0] -> [1] of argv are filled.
+	
+	std::cout << "...Please enter a workstation address for me to gather information about." << std::endl;
+	prog.blankLine();
+	std::getline(std::cin, wkst);
+	prog.blankLine();
+	
+	const size_t len = wkst.length() + 1;
+    wchar_t w_wkst[len];
+
+    swprintf(w_wkst, len, L"...%s", wkst.c_str());
+	
+	std::cout << "...Loading NetWkstaGetInfo." << std::endl;
+	if(prog.getVerboseMode()){
+		std::cout << "...w_wkst: " << w_wkst << std::endl;
+		std::cout << "...*w_wkst: " << *w_wkst << std::endl;
+		std::cout << "...&w_wkst: " << &w_wkst << std::endl;
+		std::cout << "...wkst.c_str(): " << wkst.c_str() << std::endl;
+	}
+	
+	wchar_t *argv[] = {NULL, w_wkst};
+	lola.NetWkstaGetInfoRunner(argc, argv);
+	
+	prog.blankDots();
+	std::cout << "...NetSessionEnum Finished." << std::endl;
+	
+	#else
+	prog.returnError(31416);
+	#endif
+}
+
+//Runs the NetRemoteComputerSupportsRunner from the LOLANetUse.cpp file
+void Commands::runNetRemoteComputerSupports(){
+	#if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
+	
+	LOLANetUse lola;
+	std::string wkst;
+	int argc = 2;  //set to 4 indicating that all fields [0] -> [1] of argv are filled.
+	
+	std::cout << "...Please enter a workstation address for me to gather information about." << std::endl;
+	prog.blankLine();
+	std::getline(std::cin, wkst);
+	prog.blankLine();
+	
+	const size_t len = wkst.length() + 1;
+    wchar_t w_wkst[len];
+
+    swprintf(w_wkst, len, L"...%s", wkst.c_str());
+	
+	std::cout << "...Loading NetRemoteComputerSupports." << std::endl;
+	if(prog.getVerboseMode()){
+		std::cout << "...w_wkst: " << w_wkst << std::endl;
+		std::cout << "...*w_wkst: " << *w_wkst << std::endl;
+		std::cout << "...&w_wkst: " << &w_wkst << std::endl;
+		std::cout << "...wkst.c_str(): " << wkst.c_str() << std::endl;
+	}
+	
+	wchar_t *argv[] = {NULL, w_wkst};
+	lola.NetRemoteComputerSupportsRunner(argc, argv);
+	
+	prog.blankDots();
+	std::cout << "...NetRemoteComputerSupports Finished." << std::endl;
+	
+	#else
+	prog.returnError(31416);
+	#endif
+}
+
+//Runs the NetUserEnumRunner from the LOLANetUse.cpp file
+void Commands::runNetUserEnum(){
+	#if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
+	
+	LOLANetUse lola;
+	std::string wkst;
+	int argc = 2;  //set to 4 indicating that all fields [0] -> [1] of argv are filled.
+	
+	std::cout << "...Please enter a server for me to gather information about." << std::endl;
+	prog.blankLine();
+	std::getline(std::cin, wkst);
+	prog.blankLine();
+	
+	const size_t len = wkst.length() + 1;
+    wchar_t w_wkst[len];
+
+    swprintf(w_wkst, len, L"...%s", wkst.c_str());
+	
+	std::cout << "...Loading NetUserEnum." << std::endl;
+	if(prog.getVerboseMode()){
+		std::cout << "...w_wkst: " << w_wkst << std::endl;
+		std::cout << "...*w_wkst: " << *w_wkst << std::endl;
+		std::cout << "...&w_wkst: " << &w_wkst << std::endl;
+		std::cout << "...wkst.c_str(): " << wkst.c_str() << std::endl;
+	}
+	
+	wchar_t *argv[] = {NULL, w_wkst};
+	lola.NetUserEnumRunner(argc, argv);
+	
+	prog.blankDots();
+	std::cout << "...NetUserEnum Finished." << std::endl;
+	
+	#else
+	prog.returnError(31416);
+	#endif
+}
+
+
 

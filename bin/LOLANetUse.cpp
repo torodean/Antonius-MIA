@@ -31,7 +31,7 @@ LOLANetUse::~LOLANetUse(){
 
 //The NetSessionEnum function Provides information about sessions established on a server.
 //Taken from https://msdn.microsoft.com/en-us/library/windows/desktop/bb525382(v=vs.85).aspx
-int LOLANetUse::NetSessionEnumRunner(int argc, wchar_t *argv[]){
+void LOLANetUse::NetSessionEnumRunner(int argc, wchar_t *argv[]){
 	LPSESSION_INFO_10 pBuf = NULL, pTmpBuf;
 	DWORD dwLevel = 10, dwPrefMaxLen = MAX_PREFERRED_LENGTH, dwEntriesRead = 0, dwTotalEntries = 0, dwResumeHandle = 0, i, dwTotalCount = 0;
 	LPTSTR pszServerName = NULL, pszClientName = NULL, pszUserName = NULL;
@@ -69,8 +69,8 @@ int LOLANetUse::NetSessionEnumRunner(int argc, wchar_t *argv[]){
 					}
 
 					// Print the retrieved data. 
-					wprintf(L"\n\tClient: %s\n", pTmpBuf->sesi10_cname);
-					wprintf(L"\tUser:   %s\n", pTmpBuf->sesi10_username);
+					wprintf(L"\n\tClient: %ls\n", pTmpBuf->sesi10_cname);
+					wprintf(L"\tUser:   %ls\n", pTmpBuf->sesi10_username);
 					printf("\tActive: %d\n", pTmpBuf->sesi10_time);
 					printf("\tIdle:   %d\n", pTmpBuf->sesi10_idle_time);
 					pTmpBuf++;
@@ -98,12 +98,10 @@ int LOLANetUse::NetSessionEnumRunner(int argc, wchar_t *argv[]){
 	
 	// Print the final count of sessions enumerated.
 	fprintf(stderr, "\n...Total of %d entries enumerated\n", dwTotalCount);
-
-	return 0;
 }
 
 //The NetServerEnum function lists all workstations that are visible in a domain. 
-int LOLANetUse::NetServerEnumRunner_WKST(int argc, wchar_t * argv[]){
+void LOLANetUse::NetServerEnumRunner_WKST(int argc, wchar_t *argv[]){
 	LPSERVER_INFO_101 pBuf = NULL;
 	LPSERVER_INFO_101 pTmpBuf;
 	DWORD dwLevel = 101;
@@ -119,7 +117,7 @@ int LOLANetUse::NetServerEnumRunner_WKST(int argc, wchar_t * argv[]){
 	DWORD i;
 
 	if (argc > 2){
-		fwprintf(stderr, L"Usage: %s [DomainName]\n", argv[0]);
+		fwprintf(stderr, L"...Usage: %s [DomainName]\n", argv[0]);
 		exit(1);
 	}
 	// The request is not for the primary domain.
@@ -145,7 +143,7 @@ int LOLANetUse::NetServerEnumRunner_WKST(int argc, wchar_t * argv[]){
 				}
 
 				printf("\tPlatform: %d\n", pTmpBuf->sv101_platform_id);
-				wprintf(L"\tName:     %s\n", pTmpBuf->sv101_name);
+				wprintf(L"\tName:     %ls\n", pTmpBuf->sv101_name);
 				printf("\tVersion:  %d.%d\n", pTmpBuf->sv101_version_major, pTmpBuf->sv101_version_minor);
 				printf("\tType:     %d", pTmpBuf->sv101_type);
 
@@ -159,7 +157,7 @@ int LOLANetUse::NetServerEnumRunner_WKST(int argc, wchar_t * argv[]){
 				printf("\n");
 
 				// Also print the comment associated with the server.
-				wprintf(L"\tComment:  %s\n\n", pTmpBuf->sv101_comment);
+				wprintf(L"\t...Comment:  %ls\n\n", pTmpBuf->sv101_comment);
 
 				pTmpBuf++;
 				dwTotalCount++;
@@ -169,17 +167,17 @@ int LOLANetUse::NetServerEnumRunner_WKST(int argc, wchar_t * argv[]){
 			//  enumerated, and the total number available.
 
 			if (nStatus == ERROR_MORE_DATA) {
-				fprintf(stderr, "\nMore entries available!!!\n");
-				fprintf(stderr, "Total entries: %d", dwTotalEntries);
+				fprintf(stderr, "\n...More entries available!!!\n");
+				fprintf(stderr, "...Total entries: %d", dwTotalEntries);
 			}
 
 			printf("\nEntries enumerated: %d\n", dwTotalCount);
 
 		} else {
-			printf("No servers were found\n");
-			printf("The buffer (bufptr) returned was NULL\n");
-			printf("  entriesread: %d\n", dwEntriesRead);
-			printf("  totalentries: %d\n", dwEntriesRead);
+			printf("...No servers were found\n");
+			printf("...The buffer (bufptr) returned was NULL\n");
+			printf("...entriesread: %d\n", dwEntriesRead);
+			printf("...totalentries: %d\n", dwEntriesRead);
 		}
 
 	} else {
@@ -189,11 +187,10 @@ int LOLANetUse::NetServerEnumRunner_WKST(int argc, wchar_t * argv[]){
 	if (pBuf != NULL){
 		NetApiBufferFree(pBuf);
 	}
-	return 0;
 }
 
 //The NetServerEnum function lists all servers that are visible in a domain. 
-int LOLANetUse::NetServerEnumRunner_SERV(int argc, wchar_t * argv[]){
+void LOLANetUse::NetServerEnumRunner_SERV(int argc, wchar_t *argv[]){
 	LPSERVER_INFO_101 pBuf = NULL;
 	LPSERVER_INFO_101 pTmpBuf;
 	DWORD dwLevel = 101;
@@ -209,7 +206,7 @@ int LOLANetUse::NetServerEnumRunner_SERV(int argc, wchar_t * argv[]){
 	DWORD i;
 
 	if (argc > 2){
-		fwprintf(stderr, L"Usage: %s [DomainName]\n", argv[0]);
+		fwprintf(stderr, L"...Usage: %s [DomainName]\n", argv[0]);
 		exit(1);
 	}
 	// The request is not for the primary domain.
@@ -234,7 +231,7 @@ int LOLANetUse::NetServerEnumRunner_SERV(int argc, wchar_t * argv[]){
 				}
 
 				printf("\tPlatform: %d\n", pTmpBuf->sv101_platform_id);
-				wprintf(L"\tName:     %s\n", pTmpBuf->sv101_name);
+				wprintf(L"\tName:     %ls\n", pTmpBuf->sv101_name);
 				printf("\tVersion:  %d.%d\n", pTmpBuf->sv101_version_major, pTmpBuf->sv101_version_minor);
 				printf("\tType:     %d", pTmpBuf->sv101_type);
 
@@ -249,7 +246,7 @@ int LOLANetUse::NetServerEnumRunner_SERV(int argc, wchar_t * argv[]){
 				printf("\n");
 
 				// Also print the comment associated with the server.
-				wprintf(L"\tComment:  %s\n\n", pTmpBuf->sv101_comment);
+				wprintf(L"\tComment:  %ls\n\n", pTmpBuf->sv101_comment);
 
 				pTmpBuf++;
 				dwTotalCount++;
@@ -259,17 +256,17 @@ int LOLANetUse::NetServerEnumRunner_SERV(int argc, wchar_t * argv[]){
 			//  enumerated, and the total number available.
 
 			if (nStatus == ERROR_MORE_DATA) {
-				fprintf(stderr, "\nMore entries available!!!\n");
-				fprintf(stderr, "Total entries: %d", dwTotalEntries);
+				fprintf(stderr, "\n...More entries available!!!\n");
+				fprintf(stderr, "...Total entries: %d", dwTotalEntries);
 			}
 
 			printf("\nEntries enumerated: %d\n", dwTotalCount);
 
 		} else {
-			printf("No servers were found\n");
-			printf("The buffer (bufptr) returned was NULL\n");
-			printf("  entriesread: %d\n", dwEntriesRead);
-			printf("  totalentries: %d\n", dwEntriesRead);
+			printf("...No servers were found\n");
+			printf("...The buffer (bufptr) returned was NULL\n");
+			printf("...entriesread: %d\n", dwEntriesRead);
+			printf("...totalentries: %d\n", dwEntriesRead);
 		}
 
 	} else {
@@ -280,11 +277,10 @@ int LOLANetUse::NetServerEnumRunner_SERV(int argc, wchar_t * argv[]){
 	if (pBuf != NULL){
 		NetApiBufferFree(pBuf);
 	}
-	return 0;
 }
 
 //The NetWkstaGetInfo function returns information about the configuration of a workstation.
-int LOLANetUse::NetWkstaGetInfoRunner(int argc, wchar_t *argv[]){
+void LOLANetUse::NetWkstaGetInfoRunner(int argc, wchar_t *argv[]){
 	DWORD dwLevel = 102;
 	LPWKSTA_INFO_102 pBuf = NULL;
 	NET_API_STATUS nStatus;
@@ -292,7 +288,7 @@ int LOLANetUse::NetWkstaGetInfoRunner(int argc, wchar_t *argv[]){
 
 	// Check command line arguments.
 	if (argc > 2) {
-		fwprintf(stderr, L"Usage: %s [\\\\ServerName]\n", argv[0]);
+		fwprintf(stderr, L"...Usage: %s [\\\\ServerName]\n", argv[0]);
 		exit(1);
 	}
 	// The server is not the default local computer.
@@ -305,10 +301,10 @@ int LOLANetUse::NetWkstaGetInfoRunner(int argc, wchar_t *argv[]){
 	// If the call is successful, print the workstation data.
 	if (nStatus == NERR_Success){
 		printf("\n\tPlatform: %d\n", pBuf->wki102_platform_id);
-		wprintf(L"\tName:     %s\n", pBuf->wki102_computername);
+		wprintf(L"\tName:     %ls\n", pBuf->wki102_computername);
 		printf("\tVersion:  %d.%d\n", pBuf->wki102_ver_major, pBuf->wki102_ver_minor);
-		wprintf(L"\tDomain:   %s\n", pBuf->wki102_langroup);
-		wprintf(L"\tLan Root: %s\n", pBuf->wki102_lanroot);
+		wprintf(L"\tDomain:   %ls\n", pBuf->wki102_langroup);
+		wprintf(L"\tLan Root: %ls\n", pBuf->wki102_lanroot);
 		wprintf(L"\t# Logged On Users: %d\n", pBuf->wki102_logged_on_users);
 	} else { // Otherwise, indicate the system error.
 		fprintf(stderr, "...A system error has occurred: %d\n", nStatus);
@@ -317,13 +313,12 @@ int LOLANetUse::NetWkstaGetInfoRunner(int argc, wchar_t *argv[]){
 	if (pBuf != NULL){
 		NetApiBufferFree(pBuf);
 	}
-	return 0;
 }
 
 //The NetRemoteComputerSupports function queries the redirector to retrieve the optional features the remote system supports. 
 //Features include Unicode, Remote Procedure Call (RPC), and Remote Administration Protocol support. 
 //The function establishes a network connection if one does not exist.
-int LOLANetUse::NetRemoteComputerSupportsRunner(int argc, wchar_t *argv[]){
+void LOLANetUse::NetRemoteComputerSupportsRunner(int argc, wchar_t *argv[]){
 	NET_API_STATUS nStatus;
 	LPCWSTR UncServerName = NULL;
 	DWORD OptionsWanted = SUPPORTS_LOCAL;
@@ -352,7 +347,7 @@ int LOLANetUse::NetRemoteComputerSupportsRunner(int argc, wchar_t *argv[]){
 	if (OptionsSupported != NULL){
 		NetApiBufferFree(OptionsSupported);
 	}
-	return 0;
+
 }
 
 //The NetUserEnum function retrieves information about all user accounts on a server.
@@ -377,7 +372,7 @@ int LOLANetUse::NetUserEnumRunner(int argc, wchar_t *argv[]){
 	if (argc == 2){
 		pszServerName = (LPTSTR)argv[1];
 	}
-	wprintf(L"\n...User account on %s: \n", pszServerName);
+	wprintf(L"\n...User accounts on %ls: \n", pszServerName);
 	//Call the NetUserEnum function, specifying level 0; enumerate global user account types only.
 	do{
 		nStatus = NetUserEnum((LPCWSTR)pszServerName,
@@ -400,7 +395,7 @@ int LOLANetUse::NetUserEnumRunner(int argc, wchar_t *argv[]){
 						break;
 					}
 					//Print the name of the user account.
-					wprintf(L"\t--%s\n", pTmpBuf->usri0_name);
+					wprintf(L"\t--%ls\n", pTmpBuf->usri0_name);
 
 					pTmpBuf++;
 					dwTotalCount++;

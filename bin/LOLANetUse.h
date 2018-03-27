@@ -17,11 +17,11 @@ class LOLANetUse{
 		~LOLANetUse();
 		
 		//Functions adapted to work from the old LOLA Program.
-		int NetSessionEnumRunner(int argc, wchar_t *argv[]); 
-		int NetServerEnumRunner_WKST(int argc, wchar_t *argv[]); 
-		int NetServerEnumRunner_SERV(int argc, wchar_t *argv[]); 
-		int NetWkstaGetInfoRunner(int argc, wchar_t *argv[]); 
-		int NetRemoteComputerSupportsRunner(int argc, wchar_t *argv[]); 
+		void NetSessionEnumRunner(int argc, wchar_t *argv[]); 
+		void NetServerEnumRunner_WKST(int argc, wchar_t *argv[]); 
+		void NetServerEnumRunner_SERV(int argc, wchar_t *argv[]); 
+		void NetWkstaGetInfoRunner(int argc, wchar_t *argv[]); 
+		void NetRemoteComputerSupportsRunner(int argc, wchar_t *argv[]); 
 		int NetUserEnumRunner(int argc, wchar_t *argv[]); 
 		int NetUserGetInfoRunner(int argc, wchar_t *argv[]); 
 		int NetUserModalsGetRunner(int argc, wchar_t *argv[]); 

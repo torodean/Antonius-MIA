@@ -46,8 +46,7 @@ class Commands{
 		
 		//Functions adapted to work from the LOLA Program.
 		void runNetSessionEnum();
-		void runNetServerEnum_WKST();
-		void runNetServerEnum_SERV();
+		void runNetServerEnum(char mode);
 		void runNetWkstaGetInfo();
 		void runNetRemoteComputerSupports();
 		void runNetUserEnum();
