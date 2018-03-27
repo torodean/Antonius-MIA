@@ -358,7 +358,7 @@ void Misc::generateWorkout(double difficulty, bool weekly){
 			//Loops over the stuff and creates a random workout for each set.
 			while (numOfSets > 0){
 				randCounter++;
-				if(weekly){
+				if(weekly){ //prints results.
 					out << "...Workout for set " << set << "." << std::endl << std::endl;
 				} else {
 					std::cout << "...Workout for set " << set << "." << std::endl;
@@ -375,7 +375,7 @@ void Misc::generateWorkout(double difficulty, bool weekly){
 				
 				//determines which workouts to use.
 				for(int i=0;i<numOfWorkouts; i++){
-					randNum = prog.randomInt(0,size-numOfVariables,0, true);
+					randNum = prog.randomInt(0,size-numOfVariables,randCounter, true);
 					while(workoutChosen[randNum]){
 						randNum = prog.randomInt(0,size-numOfVariables,randCounter, true);
 						randCounter++;
@@ -391,7 +391,7 @@ void Misc::generateWorkout(double difficulty, bool weekly){
 						repsMax = toughness*difficulty*workoutWeight[i];
 						if(workoutName[i] != "running"){
 							repsModifier = prog.randomInt((int)repsMin, (int)repsMax, randCounter, true);
-							if(weekly){
+							if(weekly){ //prints results.
 								out << workoutName[i] << ": " << (int)repsModifier+1 << " " << workoutUnit[i] << std::endl;
 							} else {
 								std::cout << workoutName[i] << ": " << (int)repsModifier+1 << " " << workoutUnit[i] << std::endl;
@@ -399,7 +399,7 @@ void Misc::generateWorkout(double difficulty, bool weekly){
 						} else {
 							repsModifier = prog.randomInt((int)(repsMin*100.0), (int)(repsMax*100.0), randCounter, true);
 							repsModifier /= 100;
-							if(weekly){
+							if(weekly){ //prints results.
 								out << workoutName[i] << ": " << repsModifier << " " << workoutUnit[i] << std::endl;
 							} else {
 								std::cout << workoutName[i] << ": " << repsModifier << " " << workoutUnit[i] << std::endl;
@@ -409,20 +409,20 @@ void Misc::generateWorkout(double difficulty, bool weekly){
 				}		
 				set++;
 				numOfSets--;
-				if(weekly){
+				if(weekly){ //prints results.
 					out << std::endl;
 				} else {
 					prog.blankLine();
 				}
 			}
 			if(difficulty == 0.0){
-				if(weekly){
+				if(weekly){ //prints results.
 					out << "rest: 45 minutes" << std::endl;
 				} else {
 					std::cout << "rest: 45 minutes" << std::endl;
 				}
 			}
-			if (weekly){
+			if (weekly){ //prints results.
 				out << std::endl;
 			} else {
 				prog.blankLine();

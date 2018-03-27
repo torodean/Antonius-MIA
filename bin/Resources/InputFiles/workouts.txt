@@ -57,5 +57,5 @@ squirpee = 3.0; reps
 chin_up = 2.0; reps
 chin_up_weighted = 0.75; reps
 punches = 10.0; seconds
-russion_twist = 10.0; seconds
+russian_twist = 10.0; seconds
 run_in_place = 30.0; seconds
