@@ -26,6 +26,8 @@ class Misc {
 		std::string getBetweenEqualAndSemiColon(std::string line);
 		std::string getAfterSemiColon(std::string line);
 		double convertWorkoutWeight(std::string line);
+		double maxNumModifier(double min, double max, double difficulty);
+		double minNumModifier(double min, double max, double difficulty);
 		
 		//Misc functions.
 		void printRandomLinesFromFile(bool useFefaultPath, int numberOfLines);

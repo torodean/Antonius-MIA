@@ -12,6 +12,7 @@
 #include <fstream>
 #include <string>
 #include <vector>
+#include <math.h> 
 #include "MIAMisc.h"
 
 
@@ -112,6 +113,23 @@ double Misc::convertWorkoutWeight(std::string line){
 	return stod(line);
 }
 
+//Returns the maximumNumberOfXXX based on a difficulty.
+//Custom formula chosen for desired workout curves.
+double Misc::maxNumModifier(double min, double max, double difficulty){
+	return (max/(10.0*pow(10.0,(1.0/3.0))) - min/(10.0*pow(10.0,(1.0/3.0))))*pow(difficulty,(2.0/3.0))+min;
+}
+
+//Returns the manimumNumberOfXXX based on a difficulty.
+//Custom formula chosen for desired workout curves.
+double Misc::minNumModifier(double min, double max, double difficulty){
+	
+	//adjusts the min compared to max.
+	//Set such that new curves are similar to old workout generation functions.
+	double minModifier = 1.9; 
+	
+	return (-((-max + min*minModifier)/(10.0*pow(10.0,(1.0/3.0))*minModifier)))*pow(difficulty,(2.0/3.0)) + min;
+}
+
 //Returns a workout generated based on a difficulty.
 void Misc::generateWorkout(double difficulty, bool weekly){
 	
@@ -183,7 +201,7 @@ void Misc::generateWorkout(double difficulty, bool weekly){
 		std::vector<double> workoutWeight;
 		std::vector<std::string> workoutUnit;
 		int size = lines.size();
-		double toughness = 1.0;
+		double toughness = 0.1;
 		double minNumOfWorkouts = 3.0;
 		double maxNumOfWorkouts = (double)size-5.0; //Minus 5 because there are 5 non-workout variables.
 		double minNumOfSets = 1.0;
@@ -290,8 +308,9 @@ void Misc::generateWorkout(double difficulty, bool weekly){
 		
 		std::cout << "...Running workout generation. " << std::endl;
 		
-		int randCounter = 1;
+		int randCounter = 1; //For changing random integers between calls.
 		
+		//Loops over the generation code however many times needed.
 		while(timesToGenerate > 0){
 			
 			if(!weekly){
@@ -327,11 +346,22 @@ void Misc::generateWorkout(double difficulty, bool weekly){
 			}
 			
 			//Calculates workout routine
+			
+			/* Old functions for workout calculations.
 			double maxNumOfWorkoutsModifier = (maxNumOfWorkouts-minNumOfWorkouts)/100.0 * difficulty + minNumOfWorkouts;
 			double minNumOfWorkoutsModifier = (maxNumOfWorkouts-minNumOfWorkouts)/200.0 * difficulty + minNumOfWorkouts;
-			int numOfWorkouts;
 			double maxNumOfSetsModifier = (maxNumOfSets-minNumOfSets)/100.0 * difficulty + minNumOfSets;
 			double minNumOfSetsModifier = (maxNumOfSets-minNumOfSets)/200.0 * difficulty + minNumOfSets;
+			*/
+			
+			// Improved functions for workout calculations
+			double maxNumOfWorkoutsModifier = maxNumModifier(minNumOfWorkouts, maxNumOfWorkouts, difficulty);
+			double minNumOfWorkoutsModifier = minNumModifier(minNumOfWorkouts, maxNumOfWorkouts, difficulty);
+			double maxNumOfSetsModifier = maxNumModifier(minNumOfSets, maxNumOfSets, difficulty);
+			double minNumOfSetsModifier = minNumModifier(minNumOfSets, maxNumOfSets, difficulty);
+			
+			
+			int numOfWorkouts;
 			randCounter++;
 			int numOfSets = prog.randomInt((int)minNumOfSetsModifier,(int)maxNumOfSetsModifier,randCounter, true);
 			

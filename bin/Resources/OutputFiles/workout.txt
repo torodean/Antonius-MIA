@@ -1,7 +1,7 @@
 //============================================================================
 // Name        : workout.txt                                                  
 // Author      : MIA                                                          
-// Created on  : 3-26-2018                                         
+// Created on  : 3-28-2018                                         
 // Description : A daily generated workout via the MIA program (for one week).
 // Difficulty  : 35.000000                           
 //============================================================================
@@ -10,286 +10,448 @@
 ### SUNDAY ###
 ##############
 
-...Number of sets: 2
+...Number of sets: 5
 
 ...Workout for set 1.
 
-push_up_mixed: 13 reps
-push_up_weighted: 7 reps
-leg_lift: 23 reps
-pull_up: 3 reps
-pull_up_weighted: 1 reps
-running: 0.35 miles
-dips: 13 reps
-squirpee: 9 reps
+push_up: 23 reps
+sit_up_inclined: 24 reps
+crunch: 15 reps
+leg_lift: 30 reps
+squat: 7 reps
+squat_weighted: 3 reps
+jumping_jack: 106 reps
+running: 0.28 miles
+knee_jump: 10 reps
+burpee: 8 reps
+squirpee: 8 reps
 chin_up: 6 reps
-chin_up_weighted: 2 reps
 
 ...Workout for set 2.
 
-push_up_mixed: 14 reps
-crunch: 18 reps
-squat_weighted: 4 reps
-running: 0.29 miles
-burpee: 11 reps
-squirpee: 7 reps
+push_up_jump: 10 reps
+sit_up: 53 reps
+sit_up_inclined: 27 reps
+pull_up_weighted: 1 reps
+split_jump: 15 reps
+squat: 9 reps
+wall_sit: 56 seconds
+lunge: 10 reps
+knee_jump: 10 reps
+punches: 32 seconds
+russian_twist: 29 seconds
+
+...Workout for set 3.
+
+push_up_mixed: 18 reps
+push_up_weighted: 6 reps
+push_up_diamond: 7 reps
+push_up_jump: 7 reps
+leg_lift: 28 reps
+pull_up: 2 reps
+pull_up_weighted: 1 reps
+dips: 13 reps
+wall_sit: 53 seconds
+plank: 67 seconds
+chin_up_weighted: 2 reps
+punches: 28 seconds
+
+...Workout for set 4.
+
+push_up: 23 reps
+push_up_mixed: 12 reps
+sit_up_inclined: 31 reps
+crunch: 15 reps
+pull_up: 2 reps
+jumping_jack: 90 reps
+running: 0.22 miles
+dips: 14 reps
+knee_jump: 7 reps
+burpee: 8 reps
+chin_up: 5 reps
+
+...Workout for set 5.
+
+push_up_diamond: 7 reps
+push_up_jump: 8 reps
+sit_up: 40 reps
+sit_up_inclined: 32 reps
+split_jump: 16 reps
+squat: 11 reps
+squat_weighted: 3 reps
+jumping_jack: 101 reps
+wall_sit: 64 seconds
+plank: 78 seconds
+lunge: 7 reps
+knee_jump: 8 reps
+punches: 25 seconds
+russian_twist: 36 seconds
+run_in_place: 71 seconds
 
 
 ##############
 ### MONDAY ###
 ##############
 
-...Number of sets: 4
+...Number of sets: 3
 
 ...Workout for set 1.
 
-push_up_jump: 9 reps
-sit_up_inclined: 31 reps
-squat: 10 reps
-squat_weighted: 4 reps
-lunge: 9 reps
-knee_jump: 9 reps
-burpee: 9 reps
-run_in_place: 100 seconds
+push_up_mixed: 13 reps
+push_up_weighted: 6 reps
+push_up_jump: 8 reps
+pull_up: 2 reps
+pull_up_weighted: 1 reps
+running: 0.22 miles
+dips: 16 reps
+wall_sit: 54 seconds
+squirpee: 9 reps
+chin_up_weighted: 3 reps
+punches: 24 seconds
 
 ...Workout for set 2.
 
-push_up_diamond: 10 reps
-push_up_jump: 10 reps
-split_jump: 13 reps
-squat: 9 reps
-wall_sit: 71 seconds
-plank: 76 seconds
-knee_jump: 10 reps
-punches: 23 seconds
-russian_twist: 34 seconds
-run_in_place: 99 seconds
+push_up: 20 reps
+push_up_mixed: 12 reps
+sit_up_inclined: 29 reps
+crunch: 16 reps
+leg_lift: 36 reps
+pull_up: 2 reps
+squat_weighted: 4 reps
+jumping_jack: 85 reps
+running: 0.34 miles
+knee_jump: 8 reps
+burpee: 9 reps
+squirpee: 9 reps
+run_in_place: 94 seconds
 
 ...Workout for set 3.
 
-push_up_weighted: 8 reps
+push_up_weighted: 5 reps
 push_up_diamond: 9 reps
-pull_up: 2 reps
+sit_up: 50 reps
+sit_up_inclined: 34 reps
 pull_up_weighted: 1 reps
-split_jump: 13 reps
-wall_sit: 59 seconds
-chin_up: 7 reps
-chin_up_weighted: 2 reps
-punches: 36 seconds
-
-...Workout for set 4.
-
-push_up_mixed: 15 reps
-push_up_weighted: 7 reps
-crunch: 12 reps
-leg_lift: 32 reps
-pull_up: 3 reps
-pull_up_weighted: 1 reps
-running: 0.31 miles
-dips: 16 reps
-wall_sit: 55 seconds
-squirpee: 10 reps
-chin_up: 6 reps
+split_jump: 16 reps
+squat: 11 reps
+wall_sit: 66 seconds
+lunge: 9 reps
+knee_jump: 10 reps
+punches: 27 seconds
+russian_twist: 36 seconds
+run_in_place: 106 seconds
 
 
 ###############
 ### TUESDAY ###
 ###############
 
-...Number of sets: 2
+...Number of sets: 4
 
 ...Workout for set 1.
 
-sit_up: 43 reps
-sit_up_inclined: 34 reps
-crunch: 18 reps
-squat: 8 reps
-squat_weighted: 3 reps
-jumping_jack: 77 reps
-lunge: 11 reps
-burpee: 11 reps
-squirpee: 10 reps
-run_in_place: 86 seconds
+push_up_mixed: 14 reps
+push_up_weighted: 5 reps
+leg_lift: 31 reps
+pull_up: 3 reps
+pull_up_weighted: 1 reps
+dips: 14 reps
+squirpee: 11 reps
+chin_up: 8 reps
+chin_up_weighted: 3 reps
 
 ...Workout for set 2.
 
-push_up_jump: 9 reps
-sit_up: 41 reps
-sit_up_inclined: 31 reps
-squat: 7 reps
-plank: 84 seconds
-lunge: 10 reps
-knee_jump: 8 reps
-russian_twist: 35 seconds
-run_in_place: 73 seconds
+push_up: 27 reps
+push_up_mixed: 17 reps
+sit_up_inclined: 35 reps
+crunch: 14 reps
+leg_lift: 27 reps
+squat_weighted: 4 reps
+running: 0.26 miles
+dips: 18 reps
+burpee: 7 reps
+squirpee: 8 reps
+
+...Workout for set 3.
+
+push_up_jump: 10 reps
+sit_up_inclined: 30 reps
+squat: 8 reps
+squat_weighted: 3 reps
+knee_jump: 10 reps
+burpee: 10 reps
+run_in_place: 92 seconds
+
+...Workout for set 4.
+
+push_up_weighted: 5 reps
+push_up_diamond: 11 reps
+sit_up: 42 reps
+pull_up_weighted: 1 reps
+split_jump: 13 reps
+squat: 8 reps
+dips: 13 reps
+wall_sit: 75 seconds
+plank: 89 seconds
+lunge: 11 reps
+knee_jump: 9 reps
+chin_up_weighted: 2 reps
+punches: 23 seconds
+russian_twist: 34 seconds
+run_in_place: 76 seconds
 
 
 #################
 ### WEDNESDAY ###
 #################
 
-...Number of sets: 2
+...Number of sets: 5
 
 ...Workout for set 1.
 
+push_up_mixed: 12 reps
 push_up_weighted: 6 reps
-push_up_diamond: 11 reps
-push_up_jump: 9 reps
-pull_up: 2 reps
-split_jump: 13 reps
-wall_sit: 75 seconds
-plank: 89 seconds
-chin_up: 6 reps
-chin_up_weighted: 2 reps
-russian_twist: 34 seconds
+leg_lift: 24 reps
+jumping_jack: 106 reps
+running: 0.22 miles
+dips: 14 reps
+squirpee: 11 reps
+chin_up: 5 reps
 
 ...Workout for set 2.
 
-push_up: 21 reps
-push_up_weighted: 5 reps
-leg_lift: 29 reps
-pull_up: 3 reps
-running: 0.27 miles
+push_up: 26 reps
+push_up_mixed: 14 reps
+sit_up: 39 reps
+sit_up_inclined: 25 reps
+crunch: 18 reps
+squat: 10 reps
+squat_weighted: 4 reps
+jumping_jack: 78 reps
+running: 0.3 miles
+knee_jump: 11 reps
+burpee: 11 reps
+squirpee: 7 reps
+russian_twist: 29 seconds
+run_in_place: 87 seconds
+
+...Workout for set 3.
+
+push_up_diamond: 8 reps
+push_up_jump: 8 reps
+pull_up: 2 reps
+split_jump: 14 reps
+squat: 7 reps
+wall_sit: 74 seconds
+plank: 83 seconds
+knee_jump: 8 reps
+chin_up_weighted: 3 reps
+punches: 25 seconds
+russian_twist: 35 seconds
+
+...Workout for set 4.
+
+push_up_mixed: 12 reps
+push_up_weighted: 8 reps
+crunch: 16 reps
+leg_lift: 36 reps
+pull_up: 2 reps
+pull_up_weighted: 1 reps
+jumping_jack: 90 reps
+running: 0.34 miles
 dips: 14 reps
-chin_up: 8 reps
+wall_sit: 65 seconds
+squirpee: 7 reps
+chin_up: 7 reps
+chin_up_weighted: 2 reps
+punches: 36 seconds
+
+...Workout for set 5.
+
+push_up_jump: 8 reps
+sit_up_inclined: 30 reps
+crunch: 16 reps
+split_jump: 13 reps
+squat: 11 reps
+squat_weighted: 3 reps
+jumping_jack: 74 reps
+plank: 68 seconds
+lunge: 10 reps
+burpee: 8 reps
+squirpee: 8 reps
+russian_twist: 34 seconds
+run_in_place: 83 seconds
 
 
 ################
 ### THURSDAY ###
 ################
 
-...Number of sets: 4
+...Number of sets: 3
 
 ...Workout for set 1.
 
-push_up: 26 reps
-sit_up: 41 reps
-crunch: 14 reps
-leg_lift: 27 reps
-squat_weighted: 4 reps
-jumping_jack: 102 reps
+push_up_mixed: 12 reps
+push_up_weighted: 5 reps
+push_up_diamond: 9 reps
+leg_lift: 23 reps
+pull_up: 3 reps
+split_jump: 13 reps
 dips: 13 reps
-burpee: 8 reps
-squirpee: 9 reps
+wall_sit: 63 seconds
+plank: 83 seconds
+squirpee: 8 reps
+chin_up: 8 reps
+chin_up_weighted: 2 reps
+punches: 23 seconds
+russian_twist: 34 seconds
 
 ...Workout for set 2.
 
-push_up_jump: 9 reps
-sit_up: 42 reps
-sit_up_inclined: 36 reps
-squat: 8 reps
-squat_weighted: 3 reps
-lunge: 11 reps
-knee_jump: 9 reps
-burpee: 10 reps
-punches: 29 seconds
-russian_twist: 24 seconds
-run_in_place: 71 seconds
+push_up: 20 reps
+sit_up: 36 reps
+crunch: 13 reps
+leg_lift: 33 reps
+squat_weighted: 4 reps
+jumping_jack: 97 reps
+dips: 17 reps
+burpee: 9 reps
+squirpee: 9 reps
 
 ...Workout for set 3.
 
-push_up_diamond: 7 reps
-push_up_jump: 7 reps
-pull_up_weighted: 1 reps
-squat: 11 reps
-wall_sit: 73 seconds
-plank: 93 seconds
-chin_up_weighted: 2 reps
-russian_twist: 30 seconds
-
-...Workout for set 4.
-
-push_up: 24 reps
-push_up_mixed: 17 reps
-push_up_weighted: 6 reps
-push_up_diamond: 10 reps
-leg_lift: 34 reps
-pull_up: 2 reps
-running: 0.32 miles
-dips: 17 reps
-wall_sit: 55 seconds
-chin_up: 5 reps
-chin_up_weighted: 2 reps
+sit_up: 39 reps
+sit_up_inclined: 35 reps
+squat: 10 reps
+squat_weighted: 4 reps
+lunge: 8 reps
+knee_jump: 11 reps
+burpee: 7 reps
+run_in_place: 93 seconds
 
 
 ##############
 ### FRIDAY ###
 ##############
 
-...Number of sets: 2
+...Number of sets: 5
 
 ...Workout for set 1.
 
-push_up: 28 reps
-sit_up: 47 reps
-crunch: 14 reps
-leg_lift: 28 reps
-squat_weighted: 4 reps
-jumping_jack: 100 reps
-dips: 13 reps
-knee_jump: 9 reps
-squirpee: 8 reps
-run_in_place: 70 seconds
+push_up_diamond: 8 reps
+push_up_jump: 8 reps
+pull_up_weighted: 1 reps
+squat: 7 reps
+wall_sit: 59 seconds
+plank: 63 seconds
+lunge: 8 reps
+chin_up_weighted: 2 reps
+russian_twist: 36 seconds
 
 ...Workout for set 2.
 
+push_up_mixed: 16 reps
+push_up_weighted: 6 reps
+push_up_diamond: 11 reps
+leg_lift: 26 reps
+pull_up: 2 reps
+pull_up_weighted: 1 reps
+split_jump: 17 reps
+running: 0.24 miles
+dips: 16 reps
+wall_sit: 70 seconds
+chin_up: 5 reps
+chin_up_weighted: 3 reps
+punches: 26 seconds
+
+...Workout for set 3.
+
+push_up: 27 reps
+push_up_weighted: 5 reps
+sit_up: 46 reps
+crunch: 15 reps
+leg_lift: 35 reps
+squat: 7 reps
+squat_weighted: 4 reps
+jumping_jack: 68 reps
+dips: 12 reps
+lunge: 11 reps
+burpee: 9 reps
+squirpee: 9 reps
+chin_up: 5 reps
+run_in_place: 77 seconds
+
+...Workout for set 4.
+
 push_up_jump: 7 reps
 sit_up: 49 reps
-split_jump: 13 reps
-squat: 9 reps
-squat_weighted: 3 reps
-lunge: 7 reps
-punches: 24 seconds
-run_in_place: 97 seconds
+sit_up_inclined: 23 reps
+split_jump: 14 reps
+squat: 10 reps
+plank: 62 seconds
+lunge: 8 reps
+punches: 30 seconds
+russian_twist: 27 seconds
+run_in_place: 104 seconds
+
+...Workout for set 5.
+
+push_up_weighted: 7 reps
+push_up_diamond: 8 reps
+push_up_jump: 8 reps
+pull_up: 3 reps
+pull_up_weighted: 1 reps
+wall_sit: 69 seconds
+plank: 94 seconds
+chin_up_weighted: 2 reps
+russian_twist: 24 seconds
 
 
 ################
 ### SATURDAY ###
 ################
 
-...Number of sets: 4
+...Number of sets: 3
 
 ...Workout for set 1.
 
-push_up_diamond: 10 reps
-push_up_jump: 8 reps
+push_up: 24 reps
+push_up_mixed: 18 reps
+push_up_weighted: 8 reps
+leg_lift: 28 reps
 pull_up: 2 reps
-pull_up_weighted: 1 reps
-wall_sit: 74 seconds
-plank: 84 seconds
-chin_up_weighted: 3 reps
-punches: 24 seconds
-russian_twist: 35 seconds
+jumping_jack: 94 reps
+running: 0.26 miles
+burpee: 10 reps
+squirpee: 10 reps
+chin_up: 7 reps
 
 ...Workout for set 2.
 
-push_up_mixed: 15 reps
-push_up_diamond: 11 reps
-pull_up: 3 reps
-running: 0.3 miles
-dips: 18 reps
-chin_up: 8 reps
-chin_up_weighted: 2 reps
+push_up: 19 reps
+sit_up: 45 reps
+crunch: 18 reps
+leg_lift: 32 reps
+squat_weighted: 4 reps
+jumping_jack: 82 reps
+knee_jump: 7 reps
+squirpee: 11 reps
 
 ...Workout for set 3.
 
-push_up: 19 reps
-push_up_mixed: 17 reps
-push_up_weighted: 7 reps
-leg_lift: 27 reps
-jumping_jack: 102 reps
-running: 0.25 miles
-burpee: 9 reps
-squirpee: 7 reps
-chin_up: 6 reps
-
-...Workout for set 4.
-
-push_up: 26 reps
-sit_up_inclined: 34 reps
+push_up_diamond: 7 reps
+push_up_jump: 7 reps
+sit_up: 39 reps
+pull_up_weighted: 1 reps
+split_jump: 16 reps
+squat: 10 reps
 squat_weighted: 3 reps
-jumping_jack: 89 reps
-knee_jump: 11 reps
-squirpee: 7 reps
+plank: 92 seconds
+lunge: 11 reps
+knee_jump: 7 reps
+chin_up_weighted: 2 reps
+punches: 32 seconds
+run_in_place: 75 seconds
 
 
