@@ -83,7 +83,7 @@ p   ull u ps   =   15  . 0   ; reps
 
 \section{Generation Algorithm}\label{workout algorithm}
 
-This section contains an outline of the algorithm used to generate the MIA workouts. The MIA generation is based on creating two curves (maximum and minimum) for a parameter and then deciding upon which parameter to use for a workout by taking a random value between both curves.
+This section contains an outline of the algorithm used to generate the MIA workouts. The MIA generation is based on creating two curves (maximum and minimum) for a parameter and then deciding upon which parameter to use for a workout by taking a random value between both curves. For the purposes of this section, we will denote a random number between two values $q_1$ and $q_2$ as $rand[q_1,q_2]$. We will denote a complete workout with $W$.
 
 \subsection{Number of Sets Per Workout}
 
@@ -94,14 +94,15 @@ S_{min}(s_{min},s_{max},d) \equiv S_{min}&= \frac{s_{max}-1.9 \times s_{min}}{1.
 \end{align}
 Thus since $S(s_{min},s_{max},d)$ is a random value between these curves, we have
 \begin{align}
-S_{ave}(s_{min},s_{max},d) \equiv S_{ave} &= \frac{S_{max}+ S_{min}}{2} \\ &= \frac{\left(2.9s_{max}-3.8s_{min}\right)}{3.8 \times 10^{4/3}}d^{2/3}+s_{min}.
+S_{ave}(s_{min},s_{max},d) \equiv S_{ave} &= \frac{S_{max}+ S_{min}}{2} \\ &= \frac{\left(2.9s_{max}-3.8s_{min}\right)}{3.8 \times 10^{4/3}}d^{2/3}+s_{min} \\
+S(s_{min},s_{max},d) &= rand[S_{min}(s_{min},s_{max},d),S_{max}(s_{min},s_{max},d)].
 \end{align}
 These are shown in Figure \ref{Svd and Evd}. The algorithm used to determine the sets per workout is identical to that of determining the number of exercises per set.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.5\textwidth]{Images/Svd.png}\includegraphics[width=0.5\textwidth]{Images/Evd.png}
-	\caption{Number of sets per workout (left) and number of exercises pet set (right) based on the user input difficulty. The small dotted lines represent the original algorithm which was a simple linear increase in difficulty for each parameter. For the above two figures, values of $s_{min}=1.0$, $s_{max} = 10.0$, $e_{min}=3.0$ and $e_{max}=25.0$ were used.} \label{Svd and Evd}
+	\caption{Number of sets per workout (left) and number of exercises pet set (right) based on the user input difficulty. The small dotted lines represent the original algorithm which was a simple linear increase in difficulty for each parameter. For the above two figures, values of $s_{min}=1.0$, $s_{max} = 10.0$, $e_{min}=3.0$ and $e_{max}=25.0$ were used. The possible values for $S$ and $E$ are shown via the gray shaded areas.} \label{Svd and Evd}
 \end{figure}
 
 \subsection{Number of Exercises Per Set}
@@ -113,16 +114,59 @@ E_{min}(e_{min},e_{max},d) \equiv E_{min}&= \frac{e_{max}-1.9 \times e_{min}}{1.
 \end{align}
 Thus since $E(e_{min},e_{max},d)$ is a random value between these curves, we have
 \begin{align}
-E_{ave}(e_{min},e_{max},d) \equiv E_{ave} &= \frac{E_{max}+ E_{min}}{2} \\ &= \frac{\left(2.9e_{max}-3.8e_{min}\right)}{3.8 \times 10^{4/3}}d^{2/3}+e_{min}.
+E_{ave}(e_{min},e_{max},d) \equiv E_{ave} &= \frac{E_{max}+ E_{min}}{2} \\ &= \frac{\left(2.9e_{max}-3.8e_{min}\right)}{3.8 \times 10^{4/3}}d^{2/3}+e_{min} \\
+E(e_{min},e_{max},d) &= rand[E_{min}(e_{min},e_{max},d), E_{max}(e_{min},e_{max},d)].
 \end{align}
-These are shown in Figure \ref{Svd and Evd}.
+These are shown in Figure \ref{Svd and Evd}. Since this value depends on each set, and there are generally numerous sets per workout, we denote the set within the workout with $i$ such that $1\leq i \leq S$, where $S$ is the total number of sets within a workout. Using this index, $E_i$ becomes
+\begin{align}
+	E_{i,max}(e_{min},e_{max},d) \equiv E_{max}&= \frac{e_{max}-e_{min}}{10^{4/3}} d^{2/3}+e_{min} \\
+	E_{i,min}(e_{min},e_{max},d) \equiv E_{min}&= \frac{e_{max}-1.9 \times e_{min}}{1.9 \times 10^{4/3}} d^{2/3}+e_{min} \\
+	E_{i,ave}(e_{min},e_{max},d) \equiv E_{ave} &= \frac{E_{max}+ E_{min}}{2} \\ &= \frac{\left(2.9e_{max}-3.8e_{min}\right)}{3.8 \times 10^{4/3}}d^{2/3}+e_{min} \\
+	E_i(e_{min},e_{max},d) &= rand[E_{i,min}(e_{min},e_{max},d), E_{i,max}(e_{min},e_{max},d)].
+\end{align}
+Following this, the average number of exercises done for a given workout would be
+\begin{align}
+	E_{W} = \frac{1}{S}\sum_{i=1}^{S}E_i.
+\end{align}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\textwidth]{Images/Rvd1.png}\includegraphics[width=0.5\textwidth]{Images/Rvd5.png}
+	\caption{Number of reps per exercise. On the right, we have $R(0.1,d,1)$ and on the left, $R(0.1,d,5)$. The possible values for $R$ are shown via the gray shaded area.} \label{Rvd}
+\end{figure}
 
 
 \subsection{Number of Reps Per Exercise}
 
-The number of reps, denoted $R(t,d) \equiv R$ is dependent on two variables. The first is toughness $t$ which is gathered from the input file or defaults to 0.1. The second is difficulty $d$ which is input by the user upon generation.
-
-
+The number of reps, denoted $R(t,d,w) \equiv R$ is dependent on three variables. The first is toughness $t$ which is gathered from the input file or defaults to 0.1. The second is difficulty $d$ which is input by the user upon generation. Lastly, the weight $w$ of a given exercise is needed to provide the total reps that are output. The reps are determined by a linear trend given by
+\begin{align}
+	R_{max}(t,d,w) &= tdw+w \\
+	R_{min}(t,d,w) &= \frac{tdw}{2}+w \\
+	R_{ave}(t,d,w) &= \frac{R_{max}+R_{min}}{2} = \frac{3tdw}{4}+w \\
+	R(t,d,w) &= rand[R{min}(t,d,w),R_{max}(t,d,w)].
+\end{align}
+These are shown in Figure \ref{Rvd}. Since this value depends on each exercise, and there are generally numerous exercises per set, we denote the exercises within the set by an index $j$ such that $1 \leq j \leq E_i$, where $E_j$ is the total number of exercises within the given set $i$. Using this index, $R$ becomes
+\begin{align}
+	R_{j,max}(t,d,w_j) &= tdw_j+w_j \\
+	R_{j,min}(t,d,w_j) &= \frac{tdw_j}{2}+w_j \\
+	R_{j,ave}(t,d,w_j) &= \frac{R_{max}+R_{min}}{2} = \frac{3tdw_j}{4}+w_j \\
+	R_j(t,d,w_j) &= rand[R_{j,min}(t,d,w_j),R_{j,max}(t,d,w_j)].
+\end{align}
+Following this, the average number of normalized reps done per set would be
+\begin{align}
+	R_{i,ave} = \frac{1}{E_i}\sum_{j=1}^{E_i}\frac{R_j}{w_j}.
+\end{align}
+Then, the average number of reps (normalized by the weights) done per workout would be given by
+\begin{align}
+	R_{W} = \frac{1}{S}\sum_{i=1}^{S}\frac{1}{E_i}\sum_{j=1}^{E_i}\frac{R_j}{w_j}
+\end{align}
 
 \section{Real World Difficulties} 
+
+Due to the way that we set up the weighted system for each exercise, we can easily determine how difficult, denoted $D$ a workout is in reality based upon the generation. First, a workout is directly proportional to the number of sets it contains and thus $D \propto S$. Similarly, the difficulty of each set is proportional to the number of exercises are contained within each set and thus we use $D \propto E_{W}$. Lastly, the difficulty of each exercise is proportional to the number of normalized reps, and thus $D \propto E_{W}$. By combining all of these components we get
+\begin{align}
+	D \equiv S E_{W} R_{W} = S \left(\frac{1}{S}\sum_{i=1}^{S}E_i \right)\frac{1}{S}\sum_{i=1}^{S}\frac{1}{E_i}\sum_{j=1}^{E_i}\frac{R_j}{w_j}.
+\end{align}
+
+	
 

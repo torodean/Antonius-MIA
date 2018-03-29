@@ -10,6 +10,6 @@
 \contentsline {section}{\numberline {4.2}Input File and Defining Workouts}{7}{section.4.2}
 \contentsline {section}{\numberline {4.3}Generation Algorithm}{9}{section.4.3}
 \contentsline {subsection}{\numberline {4.3.1}Number of Sets Per Workout}{9}{subsection.4.3.1}
-\contentsline {subsection}{\numberline {4.3.2}Number of Exercises Per Set}{9}{subsection.4.3.2}
+\contentsline {subsection}{\numberline {4.3.2}Number of Exercises Per Set}{10}{subsection.4.3.2}
 \contentsline {subsection}{\numberline {4.3.3}Number of Reps Per Exercise}{10}{subsection.4.3.3}
-\contentsline {section}{\numberline {4.4}Real World Difficulties}{10}{section.4.4}
+\contentsline {section}{\numberline {4.4}Real World Difficulties}{11}{section.4.4}

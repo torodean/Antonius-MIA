@@ -11,12 +11,13 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 #declare variables that are inputs or needed values for adjusting calculations.
-toughness = 0.1
+toughness = 1
 minNumOfExercises = 3.0
 maxNumOfExercises = 25
 minNumOfSets = 1.0
 maxNumOfSets = 10.0
 val = 1.9
+weight = 1.0
 
 def numMaxModifier(min, max, difficulty):
 	'''
@@ -69,14 +70,14 @@ def numOfRepsMin(toughness, difficulty):
 	Inputs are difficulty and toughness.
 	Returns the min number of reps performed for a given difficulty.
 	'''
-	return (toughness*difficulty)/2.0 + 1.0
+	return (toughness*difficulty*weight)/2.0 + weight
 	
 def numOfRepsMax(toughness, difficulty):
 	'''
 	Inputs are difficulty and toughness.
 	Returns the max number of reps performed for a given difficulty.
 	'''
-	return toughness*difficulty+1.0
+	return toughness*difficulty*weight+weight
 
 def numOfRepsAverage(difficulty, toughness):
 	'''
@@ -159,7 +160,7 @@ plt.show()
 #Plots the number of reps per workout per difficulty.
 plt.xlabel('Difficulty')
 plt.ylabel('Number of Reps Per Workout')
-plt.title('Reps vs Difficulty in MIA')
+plt.title('Reps vs Difficulty in MIA (weight='+str(weight)+')')
 plt.plot(difficulty, aveReps,color="red", linestyle='--', label='Average Reps')
 plt.plot(difficulty, maxReps,color="green", label='Maximum Reps')
 plt.plot(difficulty, minReps,color="blue", label='Minimum Reps')
