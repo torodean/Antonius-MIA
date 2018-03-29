@@ -1,8 +1,15 @@
 \BOOKMARK [0][-]{chapter.1}{Multiple Integrated Applications \(MIA\)}{}% 1
-\BOOKMARK [0][-]{chapter.2}{Commands and Syntax}{}% 2
-\BOOKMARK [1][-]{section.2.1}{Valid Syntax}{chapter.2}% 3
-\BOOKMARK [1][-]{section.2.2}{Complete List of Valid Commands \(CLVC\)}{chapter.2}% 4
-\BOOKMARK [0][-]{chapter.3}{D0sag3 Command \(D3C\) Integration}{}% 5
-\BOOKMARK [1][-]{section.3.1}{D3C Introduction and Overview}{chapter.3}% 6
-\BOOKMARK [1][-]{section.3.2}{d0s1 Encryption}{chapter.3}% 7
-\BOOKMARK [1][-]{section.3.3}{d0s2 Encryption}{chapter.3}% 8
+\BOOKMARK [0][-]{chapter.2}{MIAConfig file}{}% 2
+\BOOKMARK [1][-]{section.2.1}{MIAConfig Purpose Introduction}{chapter.2}% 3
+\BOOKMARK [1][-]{section.2.2}{MIAConfig Usage}{chapter.2}% 4
+\BOOKMARK [0][-]{chapter.3}{Commands and Syntax}{}% 5
+\BOOKMARK [1][-]{section.3.1}{Valid Syntax}{chapter.3}% 6
+\BOOKMARK [1][-]{section.3.2}{Complete List of Valid Commands \(CLVC\)}{chapter.3}% 7
+\BOOKMARK [0][-]{chapter.4}{Workout Generation}{}% 8
+\BOOKMARK [1][-]{section.4.1}{MIA Workout Generation Overview and Introduction}{chapter.4}% 9
+\BOOKMARK [1][-]{section.4.2}{Input File and Defining Workouts}{chapter.4}% 10
+\BOOKMARK [1][-]{section.4.3}{Generation Algorithm}{chapter.4}% 11
+\BOOKMARK [2][-]{subsection.4.3.1}{Number of Sets Per Workout}{section.4.3}% 12
+\BOOKMARK [2][-]{subsection.4.3.2}{Number of Exercises Per Set}{section.4.3}% 13
+\BOOKMARK [2][-]{subsection.4.3.3}{Number of Reps Per Exercise}{section.4.3}% 14
+\BOOKMARK [1][-]{section.4.4}{Real World Difficulties}{chapter.4}% 15

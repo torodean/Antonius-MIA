@@ -15,3 +15,12 @@
 \definecolor{commentcolour}{rgb}{.00,.245,.0}
 \lstdefinestyle{sharpc}{language=[Sharp]C, tabsize=3, backgroundcolor=\color{backcolour},breaklines=true, basicstyle=\footnotesize, showstringspaces=false, commentstyle=\color{commentcolour}, keywordstyle=\color{blue}}
 \lstset{style=sharpc}
+
+
+%%% This defines the note environment for you to write your solutions.
+\newenvironment{note}
+{\let\oldqedsymbol=\qedsymbol
+	\renewcommand{\qedsymbol}{$ $}
+	\begin{proof}[\bfseries\upshape \color{red}Note]\color{red}}
+	{\end{proof}
+	\renewcommand{\qedsymbol}{\oldqedsymbol}}

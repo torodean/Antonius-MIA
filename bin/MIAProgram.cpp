@@ -661,6 +661,7 @@ void Program::help(){
 	std::cout << "... subtract      | Finds the difference between two integers of any length." << std::endl;
 	std::cout << "... triangle      | Determines if a number is a triangle number or not." << std::endl;
 	std::cout << "... workout       | Generates a workout from the values defined in workouts.txt." << std::endl;
+	std::cout << "... workout -w    | Generates a weekly workout and outputs it to a file." << std::endl;
 	std::cout << "... wow dup letter| Duplicates a letter in WoW a specified number of times." << std::endl;
 	std::cout << "... exit          | Quits MIA. " << std::endl;
 }

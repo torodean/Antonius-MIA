@@ -202,8 +202,8 @@ void Misc::generateWorkout(double difficulty, bool weekly){
 		std::vector<std::string> workoutUnit;
 		int size = lines.size();
 		double toughness = 0.1;
-		double minNumOfWorkouts = 3.0;
-		double maxNumOfWorkouts = (double)size-5.0; //Minus 5 because there are 5 non-workout variables.
+		double minNumOfExercises = 3.0;
+		double maxNumOfExercises = (double)size-5.0; //Minus 5 because there are 5 non-workout variables.
 		double minNumOfSets = 1.0;
 		double maxNumOfSets = 10.0;
 		
@@ -230,29 +230,29 @@ void Misc::generateWorkout(double difficulty, bool weekly){
 				if(prog.getVerboseMode())
 					std::cout << "...toughness: " << toughness << std::endl;
 				foundVar = true;
-			//Sets the minNumOfWorkouts if one exists.
-			} else if(variable  == "minNumOfWorkouts"){
+			//Sets the minNumOfExercises if one exists.
+			} else if(variable  == "minNumOfExercises"){
 				if(prog.getVerboseMode())
-					std::cout << "...minNumOfWorkouts variable discovered. " << std::endl;
+					std::cout << "...minNumOfExercises variable discovered. " << std::endl;
 				
 				equalSignLocation = prog.findEqualInString(lines[i]);
-				minNumOfWorkouts = stod(lines[i].substr(equalSignLocation+1,lines[i].size()-1));
+				minNumOfExercises = stod(lines[i].substr(equalSignLocation+1,lines[i].size()-1));
 			
 				if(prog.getVerboseMode())
-					std::cout << "...minNumOfWorkouts: " << (int)minNumOfWorkouts << std::endl;
+					std::cout << "...minNumOfExercises: " << (int)minNumOfExercises << std::endl;
 				foundVar = true;
-			//Sets the maxNumOfWorkouts if one exists.
-			} else if(variable  == "maxNumOfWorkouts"){
+			//Sets the maxNumOfExercises if one exists.
+			} else if(variable  == "maxNumOfExercises"){
 				if(prog.getVerboseMode())
-					std::cout << "...maxNumOfWorkouts variable discovered. " << std::endl;
+					std::cout << "...maxNumOfExercises variable discovered. " << std::endl;
 				
 				equalSignLocation = prog.findEqualInString(lines[i]);
 				if(lines[i].substr(equalSignLocation+1,lines[i].size()-1) != "inf"){
-					maxNumOfWorkouts = stod(lines[i].substr(equalSignLocation+1,lines[i].size()-1));
+					maxNumOfExercises = stod(lines[i].substr(equalSignLocation+1,lines[i].size()-1));
 				}
 			
 				if(prog.getVerboseMode())
-					std::cout << "...maxNumOfWorkouts: " << (int)maxNumOfWorkouts << std::endl;
+					std::cout << "...maxNumOfExercises: " << (int)maxNumOfExercises << std::endl;
 				foundVar = true;
 			//Sets the minNumOfSets if one exists.
 			} else if(variable  == "minNumOfSets"){
@@ -348,15 +348,15 @@ void Misc::generateWorkout(double difficulty, bool weekly){
 			//Calculates workout routine
 			
 			/* Old functions for workout calculations.
-			double maxNumOfWorkoutsModifier = (maxNumOfWorkouts-minNumOfWorkouts)/100.0 * difficulty + minNumOfWorkouts;
-			double minNumOfWorkoutsModifier = (maxNumOfWorkouts-minNumOfWorkouts)/200.0 * difficulty + minNumOfWorkouts;
+			double maxNumOfExercisesModifier = (maxNumOfExercises-minNumOfExercises)/100.0 * difficulty + minNumOfExercises;
+			double minNumOfExercisesModifier = (maxNumOfExercises-minNumOfExercises)/200.0 * difficulty + minNumOfExercises;
 			double maxNumOfSetsModifier = (maxNumOfSets-minNumOfSets)/100.0 * difficulty + minNumOfSets;
 			double minNumOfSetsModifier = (maxNumOfSets-minNumOfSets)/200.0 * difficulty + minNumOfSets;
 			*/
 			
 			// Improved functions for workout calculations
-			double maxNumOfWorkoutsModifier = maxNumModifier(minNumOfWorkouts, maxNumOfWorkouts, difficulty);
-			double minNumOfWorkoutsModifier = minNumModifier(minNumOfWorkouts, maxNumOfWorkouts, difficulty);
+			double maxNumOfExercisesModifier = maxNumModifier(minNumOfExercises, maxNumOfExercises, difficulty);
+			double minNumOfExercisesModifier = minNumModifier(minNumOfExercises, maxNumOfExercises, difficulty);
 			double maxNumOfSetsModifier = maxNumModifier(minNumOfSets, maxNumOfSets, difficulty);
 			double minNumOfSetsModifier = minNumModifier(minNumOfSets, maxNumOfSets, difficulty);
 			
@@ -401,7 +401,7 @@ void Misc::generateWorkout(double difficulty, bool weekly){
 				}			
 				
 				//randomizes the number of workouts per set.
-				numOfWorkouts = prog.randomInt((int)minNumOfWorkoutsModifier,(int)maxNumOfWorkoutsModifier,randCounter, true);
+				numOfWorkouts = prog.randomInt((int)minNumOfExercisesModifier,(int)maxNumOfExercisesModifier,randCounter, true);
 				
 				//determines which workouts to use.
 				for(int i=0;i<numOfWorkouts; i++){

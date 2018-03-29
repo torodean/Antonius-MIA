@@ -1,10 +1,10 @@
 #============================================================================
-# Name        : workouts.txt
+# Name        : exercises.txt
 # Author      : Antonius Torode
 # Date        : created on 3/14/18
 # Copyright   : This file can be used under the conditions of Antonius' 
 #				 General Purpose License (AGPL).
-# Description : Different workouts with weighted values for MIA workout generation.
+# Description : Different exercises with weighted values for MIA workout generation.
 #============================================================================
 
 # Create a commented line using the '#' character.
@@ -12,17 +12,17 @@
 
 # To define an exercise give it a name and a weight value (input as a double).
 # units are added by placing a semicolon after the exercise followed by the unit name.
-# This is done as such 'workoutName = weightedValue; unitName', for example 'pull_up = 5.0; reps'.
-# All workouts are weighted relative to each other and the toughness value.
+# This is done as such 'exerciseName = weightedValue; unitName', for example 'pull_up = 5.0; reps'.
+# All exercises are weighted relative to each other and the toughness value.
 # Meaning, if one had 'pull_up = 5.0', then MIA would expect the user to be able to do 5.0 pull ups per unit toughness.
 
 # toughness is the value that determines the difficulty.
 # Increasing this value provides a global increase to difficulty. Recommended value is 0.1.
-# The maxNumOfWorkouts cannot exceed the number of exercises defined. Default values is inf (which picks the maximum allowed).
+# The maxNumOfExercises cannot exceed the number of exercises defined. Default values is inf (which picks the maximum allowed).
 # Put these variable before all defined exercises.
 toughness = 0.1
-minNumOfWorkouts = 3.0
-maxNumOfWorkouts = inf
+minNumOfExercises = 3.0
+maxNumOfExercises = inf
 minNumOfSets = 1.0
 maxNumOfSets = inf
 

@@ -12,18 +12,17 @@ import matplotlib.pyplot as plt
 
 #declare variables that are inputs or needed values for adjusting calculations.
 toughness = 0.1
-minNumOfWorkouts = 3.0
-maxNumOfWorkouts = 25
+minNumOfExercises = 3.0
+maxNumOfExercises = 25
 minNumOfSets = 1.0
 maxNumOfSets = 10.0
-b = 0.5
 val = 1.9
 
 def numMaxModifier(min, max, difficulty):
 	'''
 	Returns the modifier that determines the maximum of a thing allowed based on difficulty.
 	'''
-	return (max/(10.0*10.0**(1.0/3.0)) - min/(10.0*10.0**(1.0/3.0)))*difficulty**(2.0/3.0)+min
+	return ( (max-min)/( 10.0**(4.0/3.0) ) )*difficulty**(2.0/3.0)+min
 	
 def numMaxModifierOLD(min, max, difficulty):
 	'''
@@ -35,7 +34,7 @@ def numMinModifier(min, max, difficulty):
 	'''
 	Returns the modifier that determines the manimum of a thing allowed based on difficulty.
 	'''
-	return (-((-max + min*val)/(10.0*10.0**(1.0/3.0)* val)))*difficulty**(2.0/3.0) + min
+	return ( (max - min*val)/(10.0**(4.0/3.0)* val) )*difficulty**(2.0/3.0) + min
 	
 def numMinModifierOLD(min, max, difficulty):
 	'''
@@ -46,7 +45,7 @@ def numMinModifierOLD(min, max, difficulty):
 	
 def numAverage(min, max, difficulty):
 	'''
-	Inputs are minNumOfWorkouts and maxNumOfWorkouts and difficulty.
+	Inputs are minNumOfExercises and maxNumOfExercises and difficulty.
 	Returns the average value of the first two inputs at the given difficulty.
 	'''
 	maxModifier = numMaxModifier(min, max, difficulty)
@@ -56,7 +55,7 @@ def numAverage(min, max, difficulty):
 	
 def numAverageOLD(min, max, difficulty):
 	'''
-	Inputs are minNumOfWorkouts and maxNumOfWorkouts and difficulty.
+	Inputs are minNumOfExercises and maxNumOfExercises and difficulty.
 	Returns the average value of the first two inputs at the given difficulty.
 	'''
 	maxModifier = numMaxModifierOLD(min, max, difficulty)
@@ -85,7 +84,7 @@ def numOfRepsAverage(difficulty, toughness):
 	Returns the average number of reps performed for a given difficulty.
 	'''
 	repsMin = numOfRepsMin(toughness, difficulty)
-	repsMax = toughness*difficulty + 1.0
+	repsMax = numOfRepsMax(toughness, difficulty)
 	
 	return (repsMax + repsMin)/2.0
 	
@@ -101,44 +100,45 @@ def actualDifficulty(workouts, reps, sets):
 difficulty = np.arange(100)
 	
 #Set all of the average values for plotting.
-aveWorkouts = numAverage(minNumOfWorkouts, maxNumOfWorkouts, difficulty)
+aveExercises = numAverage(minNumOfExercises, maxNumOfExercises, difficulty)
 aveSets = numAverage(minNumOfSets, maxNumOfSets, difficulty)
-aveWorkoutsOLD = numAverageOLD(minNumOfWorkouts, maxNumOfWorkouts, difficulty)
+aveExercisesOLD = numAverageOLD(minNumOfExercises, maxNumOfExercises, difficulty)
 aveSetsOLD = numAverageOLD(minNumOfSets, maxNumOfSets, difficulty)
 aveReps = numOfRepsAverage(difficulty, toughness)
 
 #Set all of the maximum values for plotting.
-maxWorkouts = numMaxModifier(minNumOfWorkouts, maxNumOfWorkouts, difficulty)
+maxExercises = numMaxModifier(minNumOfExercises, maxNumOfExercises, difficulty)
 maxSets = numMaxModifier(minNumOfSets, maxNumOfSets, difficulty)
-maxWorkoutsOLD = numMaxModifierOLD(minNumOfWorkouts, maxNumOfWorkouts, difficulty)
+maxExercisesOLD = numMaxModifierOLD(minNumOfExercises, maxNumOfExercises, difficulty)
 maxSetsOLD = numMaxModifierOLD(minNumOfSets, maxNumOfSets, difficulty)
 maxReps = numOfRepsMax(toughness, difficulty)
 
 #Set all of the minimum values for plotting.
-minWorkouts = numMinModifier(minNumOfWorkouts, maxNumOfWorkouts, difficulty)
+minExercises = numMinModifier(minNumOfExercises, maxNumOfExercises, difficulty)
 minSets = numMinModifier(minNumOfSets, maxNumOfSets, difficulty)
-minWorkoutsOLD = numMinModifierOLD(minNumOfWorkouts, maxNumOfWorkouts, difficulty)
+minExercisesOLD = numMinModifierOLD(minNumOfExercises, maxNumOfExercises, difficulty)
 minSetsOLD = numMinModifierOLD(minNumOfSets, maxNumOfSets, difficulty)
 minReps = numOfRepsMin(toughness, difficulty)
 
 #Convert values to real live relative difficulties.
-actDifficultyAve = actualDifficulty(aveWorkouts, aveReps, aveSets)
-actDifficultyAveOLD = actualDifficulty(aveWorkoutsOLD, aveReps, aveSetsOLD)
-actDifficultyMax = actualDifficulty(maxWorkouts, maxReps, maxSets)
-actDifficultyMaxOLD = actualDifficulty(maxWorkoutsOLD, maxReps, maxSetsOLD)
-actDifficultyMin = actualDifficulty(minWorkouts, minReps, minSets)
-actDifficultyMinOLD = actualDifficulty(minWorkoutsOLD, minReps, minSetsOLD)
+actDifficultyAve = actualDifficulty(aveExercises, aveReps, aveSets)
+actDifficultyAveOLD = actualDifficulty(aveExercisesOLD, aveReps, aveSetsOLD)
+actDifficultyMax = actualDifficulty(maxExercises, maxReps, maxSets)
+actDifficultyMaxOLD = actualDifficulty(maxExercisesOLD, maxReps, maxSetsOLD)
+actDifficultyMin = actualDifficulty(minExercises, minReps, minSets)
+actDifficultyMinOLD = actualDifficulty(minExercisesOLD, minReps, minSetsOLD)
 	
-#Plot the number of workouts per difficulty.
+#Plot the number of exercises per difficulty.
 plt.xlabel('Difficulty')
-plt.ylabel('Number of Workouts')
-plt.title('Workouts vs Difficulty in MIA')
-plt.plot(difficulty, aveWorkouts,color="red", linestyle='--', label='Average Workouts')
-plt.plot(difficulty, maxWorkouts,color="green", label='Maximum Workouts')
-plt.plot(difficulty, maxWorkoutsOLD,color="green", linestyle = ':', label='Old Maximim Values')
-plt.plot(difficulty, minWorkouts,color="blue", label='Minimum Workouts')
-plt.plot(difficulty, minWorkoutsOLD,color="blue", linestyle = ':', label='Old Minimum Values')
-plt.fill_between(difficulty, maxWorkouts, minWorkouts, color='grey', alpha='0.2')
+plt.ylabel('Number of Exercises')
+plt.title('Exercises (Per Set) vs Difficulty in MIA')
+#plt.axhline(y=maxNumOfExercises,color='black', linestyle='-.',label='maxNumOfExercises')
+plt.plot(difficulty, aveExercises,color="red", linestyle='--', label='Average Exercises')
+plt.plot(difficulty, maxExercises,color="green", label='Maximum Exercises')
+plt.plot(difficulty, maxExercisesOLD,color="green", linestyle = ':', label='Old Maximim Values')
+plt.plot(difficulty, minExercises,color="blue", label='Minimum Exercises')
+plt.plot(difficulty, minExercisesOLD,color="blue", linestyle = ':', label='Old Minimum Values')
+plt.fill_between(difficulty, maxExercises, minExercises, color='grey', alpha='0.2')
 plt.legend()
 plt.show()
 
@@ -146,6 +146,7 @@ plt.show()
 plt.xlabel('Difficulty')
 plt.ylabel('Number of Sets')
 plt.title('Sets vs Difficulty in MIA')
+#plt.axhline(y=maxNumOfSets,color='black', linestyle='-.',label='maxNumOfSets')
 plt.plot(difficulty, aveSets,color="red", linestyle='--', label='Average Sets')
 plt.plot(difficulty, maxSets,color="green", label='Maximum Sets')
 plt.plot(difficulty, maxSetsOLD,color="green", linestyle = ':', label='Old Maximim Values')

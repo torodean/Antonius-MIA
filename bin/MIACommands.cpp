@@ -773,6 +773,7 @@ void Commands::runFishbot(){
 void Commands::runNetSessionEnum(){
 	#if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
 	
+	prog.returnError(31415);
 	LOLANetUse lola;
 	std::string server;
 	int argc = 4;  //set to 4 indicating that all fields [0] -> [3] of argv are filled.
@@ -811,6 +812,7 @@ void Commands::runNetSessionEnum(){
 void Commands::runNetServerEnum(char mode){
 	#if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
 	
+	prog.returnError(31415);
 	LOLANetUse lola;
 	std::string domain;
 	int argc = 2;  //set to 2 indicating that all fields [0] -> [1] of argv are filled.
@@ -851,7 +853,8 @@ void Commands::runNetServerEnum(char mode){
 //Runs the NetWkstaGetInfoRunner from the LOLANetUse.cpp file
 void Commands::runNetWkstaGetInfo(){
 	#if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
-	
+		
+	prog.returnError(31415);
 	LOLANetUse lola;
 	std::string wkst;
 	int argc = 2;  //set to 4 indicating that all fields [0] -> [1] of argv are filled.
@@ -888,7 +891,8 @@ void Commands::runNetWkstaGetInfo(){
 //Runs the NetRemoteComputerSupportsRunner from the LOLANetUse.cpp file
 void Commands::runNetRemoteComputerSupports(){
 	#if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
-	
+		
+	prog.returnError(31415);
 	LOLANetUse lola;
 	std::string wkst;
 	int argc = 2;  //set to 4 indicating that all fields [0] -> [1] of argv are filled.
@@ -925,7 +929,8 @@ void Commands::runNetRemoteComputerSupports(){
 //Runs the NetUserEnumRunner from the LOLANetUse.cpp file
 void Commands::runNetUserEnum(){
 	#if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
-	
+		
+	prog.returnError(31415);
 	LOLANetUse lola;
 	std::string wkst;
 	int argc = 2;  //set to 4 indicating that all fields [0] -> [1] of argv are filled.
