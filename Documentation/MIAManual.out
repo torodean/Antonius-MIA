@@ -1,15 +1,30 @@
 \BOOKMARK [0][-]{chapter.1}{Multiple Integrated Applications \(MIA\)}{}% 1
-\BOOKMARK [0][-]{chapter.2}{MIAConfig file}{}% 2
+\BOOKMARK [0][-]{chapter.2}{MIAConfig file \(MIAC\)}{}% 2
 \BOOKMARK [1][-]{section.2.1}{MIAConfig Purpose Introduction}{chapter.2}% 3
-\BOOKMARK [1][-]{section.2.2}{MIAConfig Usage}{chapter.2}% 4
-\BOOKMARK [0][-]{chapter.3}{Commands and Syntax}{}% 5
-\BOOKMARK [1][-]{section.3.1}{Valid Syntax}{chapter.3}% 6
-\BOOKMARK [1][-]{section.3.2}{Complete List of Valid Commands \(CLVC\)}{chapter.3}% 7
-\BOOKMARK [0][-]{chapter.4}{Workout Generation}{}% 8
-\BOOKMARK [1][-]{section.4.1}{MIA Workout Generation Overview and Introduction}{chapter.4}% 9
-\BOOKMARK [1][-]{section.4.2}{Input File and Defining Workouts}{chapter.4}% 10
-\BOOKMARK [1][-]{section.4.3}{Generation Algorithm}{chapter.4}% 11
-\BOOKMARK [2][-]{subsection.4.3.1}{Number of Sets Per Workout}{section.4.3}% 12
-\BOOKMARK [2][-]{subsection.4.3.2}{Number of Exercises Per Set}{section.4.3}% 13
-\BOOKMARK [2][-]{subsection.4.3.3}{Number of Reps Per Exercise}{section.4.3}% 14
-\BOOKMARK [1][-]{section.4.4}{Real World Difficulties}{chapter.4}% 15
+\BOOKMARK [1][-]{section.2.2}{MIAConfig Contents and Usage}{chapter.2}% 4
+\BOOKMARK [1][-]{section.2.3}{Valid MIAConfig \(MIAC\) variables}{chapter.2}% 5
+\BOOKMARK [2][-]{subsection.2.3.1}{File and Folder Paths}{section.2.3}% 6
+\BOOKMARK [2][-]{subsection.2.3.2}{MIA Program Related Variables}{section.2.3}% 7
+\BOOKMARK [2][-]{subsection.2.3.3}{World of Warcraft Related Variables}{section.2.3}% 8
+\BOOKMARK [0][-]{chapter.3}{Commands and Syntax}{}% 9
+\BOOKMARK [1][-]{section.3.1}{Valid Syntax}{chapter.3}% 10
+\BOOKMARK [1][-]{section.3.2}{Complete List of Valid Commands \(CLVC\)}{chapter.3}% 11
+\BOOKMARK [0][-]{chapter.4}{D0sag3 Command \(D3C\) Integration}{}% 12
+\BOOKMARK [1][-]{section.4.1}{D3C Introduction and Overview}{chapter.4}% 13
+\BOOKMARK [1][-]{section.4.2}{d0s1 Encryption}{chapter.4}% 14
+\BOOKMARK [1][-]{section.4.3}{d0s2 Encryption}{chapter.4}% 15
+\BOOKMARK [0][-]{chapter.5}{Workout Generation}{}% 16
+\BOOKMARK [1][-]{section.5.1}{MIA Workout Generation Overview and Introduction}{chapter.5}% 17
+\BOOKMARK [1][-]{section.5.2}{Input File and Defining Workouts}{chapter.5}% 18
+\BOOKMARK [2][-]{subsection.5.2.1}{Input File}{section.5.2}% 19
+\BOOKMARK [2][-]{subsection.5.2.2}{Workout Generation Parameters}{section.5.2}% 20
+\BOOKMARK [2][-]{subsection.5.2.3}{Defining Exercises}{section.5.2}% 21
+\BOOKMARK [1][-]{section.5.3}{Generation Algorithm}{chapter.5}% 22
+\BOOKMARK [2][-]{subsection.5.3.1}{Number of Sets Per Workout}{section.5.3}% 23
+\BOOKMARK [2][-]{subsection.5.3.2}{Number of Exercises Per Set}{section.5.3}% 24
+\BOOKMARK [2][-]{subsection.5.3.3}{Number of Reps Per Exercise}{section.5.3}% 25
+\BOOKMARK [1][-]{section.5.4}{Real World Difficulties}{chapter.5}% 26
+\BOOKMARK [1][-]{section.5.5}{Notes on Appropriate MIA Parameters For Usage}{chapter.5}% 27
+\BOOKMARK [0][-]{chapter.6}{World of Warcraft \(WoW\) Features in MIA}{}% 28
+\BOOKMARK [1][-]{section.6.1}{WoW Fishbot}{chapter.6}% 29
+\BOOKMARK [1][-]{section.6.2}{Mailbox Management}{chapter.6}% 30

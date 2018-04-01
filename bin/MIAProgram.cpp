@@ -467,7 +467,9 @@ int Program::commandToInputVar(std::string input){
 		output = 38;
 	} else if (input == "net server -s"){
 		output = 39;
-	} else if (input == "error info"){
+	} else if (input == "wow unload"){
+		output = 40;
+	}  else if (input == "error info"){
 		output = 999997;
 	} else if (input == "error info -a"){
 		output = 999998;
@@ -608,6 +610,9 @@ void Program::performCommand(std::string input){
 		case 39: //Corresponds to the net server -s command.
 			cmd.runNetServerEnum('s');
 			break;
+		case 40: //Corresponds to the wow unload command.
+			cmd.unloadLetterRunner();
+			break;
 		case 999997: //Corresponds to the error info command.
 			errorInfoRun(false);
 			break;
@@ -663,6 +668,7 @@ void Program::help(){
 	std::cout << "... workout       | Generates a workout from the values defined in workouts.txt." << std::endl;
 	std::cout << "... workout -w    | Generates a weekly workout and outputs it to a file." << std::endl;
 	std::cout << "... wow dup letter| Duplicates a letter in WoW a specified number of times." << std::endl;
+	std::cout << "... wow unload    | Unloads a number of letters from the WoW inbox." << std::endl;
 	std::cout << "... exit          | Quits MIA. " << std::endl;
 }
 

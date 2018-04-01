@@ -579,6 +579,35 @@ void Commands::duplicateLetterRunner(){
 	#endif
 }
 
+//Runs the duplicate letter function which is useful for World of Warcraft.
+void Commands::unloadLetterRunner(){
+	#if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
+	
+	WinKeys keys;
+	
+	std::cout << "...INSTRUCTIONS: Please have your WoW inbox open." << std::endl;
+	std::cout << "...INSTRUCTIONS: Please set MIAConfig variables appropriately (see manual)." << std::endl;
+
+	prog.blankLine();
+	
+	int copies;
+	std::cout << "...Please enter the number of letters you want unloaded: ";
+	std::cin >> copies;
+	std::cin.ignore();
+	prog.blankLine();
+	
+	std::cout << "...Beginning in 5000 milliseconds (5s)." << std::endl;
+	prog.blankLine();
+	keys.unloadLetters(copies);
+	
+	std::cout << "...Finished unloading letters." << std::endl;
+	
+	#else
+	
+	prog.returnError(31416);
+	#endif
+}
+
 //Runs d0s3 encryption
 void Commands::d0s3CryptRunner(){
 	

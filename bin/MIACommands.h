@@ -60,6 +60,7 @@ class Commands{
 		void buttonSpamRunner(bool enableTab);
 		void exploreMinecraft();
 		void duplicateLetterRunner();
+		void unloadLetterRunner();
 		void findMouse();
 		void eyedropper();
 		void runFishbot();

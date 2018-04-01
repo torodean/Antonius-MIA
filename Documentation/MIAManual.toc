@@ -1,15 +1,30 @@
 \contentsline {chapter}{\numberline {1}Multiple Integrated Applications (MIA)}{1}{chapter.1}
-\contentsline {chapter}{\numberline {2}MIAConfig file}{2}{chapter.2}
+\contentsline {chapter}{\numberline {2}MIAConfig file (MIAC)}{2}{chapter.2}
 \contentsline {section}{\numberline {2.1}MIAConfig Purpose Introduction}{2}{section.2.1}
-\contentsline {section}{\numberline {2.2}MIAConfig Usage}{2}{section.2.2}
-\contentsline {chapter}{\numberline {3}Commands and Syntax}{3}{chapter.3}
-\contentsline {section}{\numberline {3.1}Valid Syntax}{3}{section.3.1}
-\contentsline {section}{\numberline {3.2}Complete List of Valid Commands (CLVC)}{3}{section.3.2}
-\contentsline {chapter}{\numberline {4}Workout Generation}{7}{chapter.4}
-\contentsline {section}{\numberline {4.1}MIA Workout Generation Overview and Introduction}{7}{section.4.1}
-\contentsline {section}{\numberline {4.2}Input File and Defining Workouts}{7}{section.4.2}
-\contentsline {section}{\numberline {4.3}Generation Algorithm}{9}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}Number of Sets Per Workout}{9}{subsection.4.3.1}
-\contentsline {subsection}{\numberline {4.3.2}Number of Exercises Per Set}{10}{subsection.4.3.2}
-\contentsline {subsection}{\numberline {4.3.3}Number of Reps Per Exercise}{10}{subsection.4.3.3}
-\contentsline {section}{\numberline {4.4}Real World Difficulties}{11}{section.4.4}
+\contentsline {section}{\numberline {2.2}MIAConfig Contents and Usage}{2}{section.2.2}
+\contentsline {section}{\numberline {2.3}Valid MIAConfig (MIAC) variables}{3}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}File and Folder Paths}{3}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.2}MIA Program Related Variables}{3}{subsection.2.3.2}
+\contentsline {subsection}{\numberline {2.3.3}World of Warcraft Related Variables}{3}{subsection.2.3.3}
+\contentsline {chapter}{\numberline {3}Commands and Syntax}{5}{chapter.3}
+\contentsline {section}{\numberline {3.1}Valid Syntax}{5}{section.3.1}
+\contentsline {section}{\numberline {3.2}Complete List of Valid Commands (CLVC)}{5}{section.3.2}
+\contentsline {chapter}{\numberline {4}D0sag3 Command (D3C) Integration}{10}{chapter.4}
+\contentsline {section}{\numberline {4.1}D3C Introduction and Overview}{10}{section.4.1}
+\contentsline {section}{\numberline {4.2}d0s1 Encryption}{10}{section.4.2}
+\contentsline {section}{\numberline {4.3}d0s2 Encryption}{10}{section.4.3}
+\contentsline {chapter}{\numberline {5}Workout Generation}{11}{chapter.5}
+\contentsline {section}{\numberline {5.1}MIA Workout Generation Overview and Introduction}{11}{section.5.1}
+\contentsline {section}{\numberline {5.2}Input File and Defining Workouts}{11}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Input File}{11}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}Workout Generation Parameters}{12}{subsection.5.2.2}
+\contentsline {subsection}{\numberline {5.2.3}Defining Exercises}{12}{subsection.5.2.3}
+\contentsline {section}{\numberline {5.3}Generation Algorithm}{13}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}Number of Sets Per Workout}{13}{subsection.5.3.1}
+\contentsline {subsection}{\numberline {5.3.2}Number of Exercises Per Set}{13}{subsection.5.3.2}
+\contentsline {subsection}{\numberline {5.3.3}Number of Reps Per Exercise}{14}{subsection.5.3.3}
+\contentsline {section}{\numberline {5.4}Real World Difficulties}{15}{section.5.4}
+\contentsline {section}{\numberline {5.5}Notes on Appropriate MIA Parameters For Usage}{17}{section.5.5}
+\contentsline {chapter}{\numberline {6}World of Warcraft (WoW) Features in MIA}{18}{chapter.6}
+\contentsline {section}{\numberline {6.1}WoW Fishbot}{18}{section.6.1}
+\contentsline {section}{\numberline {6.2}Mailbox Management}{18}{section.6.2}

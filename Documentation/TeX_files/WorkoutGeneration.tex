@@ -9,6 +9,8 @@ Throughout this section, workout can be defined as the complete output generated
 
 \section{Input File and Defining Workouts}
 
+\subsection{Input File}
+
 The MIA workout generation utilizes an input file to determine exercises, exercise weighted values and various generation values. By default, this file is located in ../bin/Resources/InputFiles/exercises.txt but this file name and path can be changed via the MIAConfig file (see section \ref{MIAConfig} for more details). The contents of this input file look similar to the following.
 
 \lstset{language=Python}
@@ -42,6 +44,8 @@ jumping_jack = 30.0; reps
 
 This file must be in the correct format in order for the MIA workout generation to function properly. First, commented lines are created using the '\#' character. These lines are ignored by MIA when running internal algorithms. Within this input file, spaces are not important. Upon initialization, the MIA program will ignore all spaces within this file. Next, there are a few variables that the user can customize and define within this file which are below.
 
+\subsection{Workout Generation Parameters}
+
 \begin{lstlisting}
 toughness = 0.1
 minNumOfExercises = 3.0
@@ -55,6 +59,8 @@ These values must appear in the input file before any defined exercises. To begi
 \begin{note}
 	At the time of writing this, the MIA program is not designed to account for a value of maxNumOfExercises that is larger than the actual number of exercises defined in the input file.
 \end{note}
+
+\subsection{Defining Exercises}
 
 Following these program variables, the main part of the input file is the defined exercises. The exercises are defined similar to below.
 
@@ -168,5 +174,33 @@ Due to the way that we set up the weighted system for each exercise, we can easi
 	D \equiv S E_{W} R_{W} = S \left(\frac{1}{S}\sum_{i=1}^{S}E_i \right)\frac{1}{S}\sum_{i=1}^{S}\frac{1}{E_i}\sum_{j=1}^{E_i}\frac{R_j}{w_j}.
 \end{align}
 
-	
+To demonstrate the possible values that can be output by $D$ we can examine the maximum and minimum values. The maximum value would be when $S$, $E$, and $R$ are at their maximums. Thus, we have
+\begin{align}
+	D_{max} &= S_{max} \left(\frac{1}{S_{max}}\sum_{i=1}^{S_{max}}E_{i,max} \right)\frac{1}{S_{max}}\sum_{i=1}^{S_{max}}\frac{1}{E_{i,max}}\sum_{j=1}^{E_{i,max}}\frac{R_{j,max}}{w_j}.
+\end{align}
+Since each $E_{i,max}$ and $R_{j,max}/w_j$ are the same for all $i,j$ respectively, then we can simplify this to
+\begin{align}
+	D_{max} &= S_{max} \left(\frac{1}{S_{max}}S_{max}E_{max} \right)\frac{1}{S_{max}}S_{max}\frac{1}{E_{max}}E_{max}\frac{R_{max}}{w} \\
+	&= S_{max} E_{max} \frac{R_{j,max}}{w_j}.
+\end{align}
+Similarly, the minimum value is 
+\begin{align}
+	D_{min} = S_{min} E_{min} \frac{R_{j,min}}{w_j},
+\end{align}
+where $R_{j,min}/w_j$ represents the normalized reps for each exercise in both of the above two cases. The possible values of $D$ then lie between these two curves and can be seen in figure \ref{Dvd}.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\textwidth]{Images/Dvd.png}\includegraphics[width=0.5\textwidth]{Images/Dvdc.png}
+	\caption{The real world difficulties $D$ output by the MIA workout generation program versus the input difficulty parameter (LEFT). The possible values for $D$ are shown via the gray shaded area. The old min/max values represent $D$ based on the old $S$ and $E$ values (see figure \ref{Svd and Evd}). On the right are color codes depicting the difficulty ranges. The ranges run from very easy (cyan), to very hard (red).} \label{Dvd}
+\end{figure}
+
+The real world difficulty $D$ has an exponential increase. This is desired for a specific reason. As improvements are made, meaning as ones physique and ability to perform improves, a greater challenge is needed. Similarly, there is a much larger variance in the real world difficulty $D$ increases with respect to the input difficulty $d$. This is because as workout intensities increase, there is a desire to keep the body both guessing and not straining too often. Therefore, by increasing the variability of a workout, there is a greater effectiveness and an improved 'rest' or 'slow' period between intensive workouts. 
+
+\section{Notes on Appropriate MIA Parameters For Usage}
+
+Based on the way MIA generates workouts (as described in the above sections), there are a few things to keep in mind when determining the proper settings. First, if a maxNumberOfExercises value of 'inf' is used, then the real world difficulty output will be proportional to the number of exercises defined in the input file. Therefore, if one places a thousand different workouts in this file, each difficulty will be drastically more intense than if there were only 25. Thus, it is important to experiment with this value and adjust accordingly based on the number of defined exercises you have in the input file.
+
+ 
+
 
