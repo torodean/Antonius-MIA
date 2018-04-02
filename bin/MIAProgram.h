@@ -17,7 +17,7 @@ using std::string;
 
 class Program{
 	private:
-		const string VERSION = "0.040";
+		const string VERSION = "0.041";
 		bool verboseMode = false;
 		string defaultInputFilePath = "../bin/Resources/InputFiles/";
 		string defaultCryptFilePath = "../bin/Resources/EncryptedFiles/";

@@ -364,6 +364,7 @@ void Program::splash(){
 	cout << "............................. TERMINAL INTERFACE ............................." << endl;
 	cout << "............. Multiple Integrated Applications -- Version: " + VERSION + " ............." << endl;
 	cout << "....................     Programmer: Antonius Torode      ...................." << endl;
+	cout << "....................      Compiled on: " << __DATE__ << "        ...................." << endl;
 	cout << ".............................................................................." << endl;
 }
 
