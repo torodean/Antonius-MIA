@@ -14,7 +14,11 @@
 #include <math.h>
 #include <iostream>
 
-using namespace std;
+using std::vector;
+using std::string;
+using std::D3CEncrypt;
+using std::cout;
+using std::endl;
 
 //Main Constructor for the D3CEncryptPW class.
 D3CEncryptPW::D3CEncryptPW(){

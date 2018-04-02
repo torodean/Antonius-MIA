@@ -24,6 +24,16 @@
 #include "LOLANetUse.h"
 #endif
 
+using std::cout;
+using std::endl;
+using std::string;
+using std::cin;
+using std::atol;
+using std::atoi;
+using std::to_string;
+using std::getline;
+using std::transform;
+
 //Main commands constructor.
 Commands::Commands(){
 	//Chuck Norris writes code that optimizes itself. Be like chuck Norris.
@@ -40,17 +50,17 @@ void Commands::d0s1CryptRunner(){
 	std::D3CEncrypt crypt;
 	
 	prog.blankDots();
-	std::cout << "...Please enter a string to encrypt: " << std::endl;
+	cout << "...Please enter a string to encrypt: " << endl;
 	prog.blankLine();
 	
-	std::string input, output;
-	getline(std::cin,input);
+	string input, output;
+	getline(cin,input);
 	output = crypt.Crypt(input, true);
 	
 	prog.blankLine();
-	std::cout << "...The encrypted output is: " << std::endl;
+	cout << "...The encrypted output is: " << endl;
 	prog.blankLine();
-	std::cout << output << std::endl;
+	cout << output << endl;
 }
 
 //Main UI runner for the D3CEncrypt (d0s1) program feature. DeCryption
@@ -59,17 +69,17 @@ void Commands::d0s1DeCryptRunner(){
 	std::D3CEncrypt crypt;
 	
 	prog.blankDots();
-	std::cout << "...Please enter a string to de-crypt: " << std::endl;
+	cout << "...Please enter a string to de-crypt: " << endl;
 	prog.blankLine();
 	
-	std::string input, output;
-	getline(std::cin,input);
+	string input, output;
+	getline(cin,input);
 	output = crypt.DeCrypt(input, true);
 	
 	prog.blankLine();
-	std::cout << "...The de-crypted output is: " << std::endl;
+	cout << "...The de-crypted output is: " << endl;
 	prog.blankLine();
-	std::cout << output << std::endl;
+	cout << output << endl;
 }
 
 //Main UI runner for the D3CEncryptPW (d0s2) program feature. Encryption
@@ -78,23 +88,23 @@ void Commands::d0s2CryptRunner(){
 	D3CEncryptPW crypt;
 	
 	prog.blankDots();
-	std::cout << "...Please enter a string to encrypt: " << std::endl;
+	cout << "...Please enter a string to encrypt: " << endl;
 	prog.blankLine();
 	
-	std::string input, password, output;
-	getline(std::cin,input);
+	string input, password, output;
+	getline(cin,input);
 	
 	prog.blankDots();
-	std::cout << "...Please enter the password to encrypt: " << std::endl;
+	cout << "...Please enter the password to encrypt: " << endl;
 	prog.blankLine();
 	
-	getline(std::cin,password);
+	getline(cin,password);
 	output = crypt.EncryptPW(input, password);
 	
 	prog.blankLine();
-	std::cout << "...The encrypted output is: " << std::endl;
+	cout << "...The encrypted output is: " << endl;
 	prog.blankLine();
-	std::cout << output << std::endl;
+	cout << output << endl;
 }
 
 //Main UI runner for the D3CEncryptPW (d0s2) program feature. DeCryption
@@ -103,129 +113,129 @@ void Commands::d0s2DeCryptRunner(){
 	D3CEncryptPW crypt;
 	
 	prog.blankDots();
-	std::cout << "...Please enter a string to de-crypt: " << std::endl;
+	cout << "...Please enter a string to de-crypt: " << endl;
 	prog.blankLine();
 	
-	std::string input, password, output;
-	getline(std::cin,input);
+	string input, password, output;
+	getline(cin,input);
 	
 	prog.blankDots();
-	std::cout << "...Please enter the password to de-crypt: " << std::endl;
+	cout << "...Please enter the password to de-crypt: " << endl;
 	prog.blankLine();
 	
-	getline(std::cin,password);
+	getline(cin,password);
 	output = crypt.DecryptPW(input, password);
 	
 	prog.blankLine();
-	std::cout << "...The de-crypted output is: " << std::endl;
+	cout << "...The de-crypted output is: " << endl;
 	prog.blankLine();
-	std::cout << output << std::endl;
+	cout << output << endl;
 }
 
 //Main UI runner for the D3CMath productCollatzSequence() function.
 void Commands::collatzRunner(){
 	
-	std::D3CMath math;
-	std::string input, output;
+	D3CMath math;
+	string input, output;
 	
-	std::cout << "...Enter a starting number (positive integer): " << std::endl;
+	cout << "...Enter a starting number (positive integer): " << endl;
 	prog.blankLine();
-	getline(std::cin,input);
+	getline(cin,input);
 	prog.blankLine();
 	
-    long longInput = std::atol(input.c_str());
+    long longInput = atol(input.c_str());
 	
 	output = math.productCollatzSequence(longInput);
 	
-	std::cout << "...collatz: " << output << std::endl;
+	cout << "...collatz: " << output << endl;
 	prog.blankLine();
-	std::cout << "...Collatz sequence complete." << std::endl;
+	cout << "...Collatz sequence complete." << endl;
 	prog.blankLine();
 }
 
 //Main UI runner for the D3CMath addTwoStrings() function.
 void Commands::stringAdditionRunner(){
 	
-	std::D3CMath math;
-	std::string intOne, intTwo, output;
+	D3CMath math;
+	string intOne, intTwo, output;
 	
-	std::cout << "...Addition of two integers of any size." << std::endl << "...Enter first integer to add: " << std::endl;
+	cout << "...Addition of two integers of any size." << endl << "...Enter first integer to add: " << endl;
 	prog.blankLine();
-	getline(std::cin, intOne);
+	getline(cin, intOne);
 	prog.blankLine();
 
-	std::cout << "...Enter second integer to add: " << std::endl;
+	cout << "...Enter second integer to add: " << endl;
 	prog.blankLine();
-	getline(std::cin, intTwo);
+	getline(cin, intTwo);
 	prog.blankLine();
 
 	output = math.addTwoStrings(intOne, intTwo);
 
-	std::cout << "...Integer sum: " << output << std::endl;
+	cout << "...Integer sum: " << output << endl;
 	prog.blankLine();
 }
 
 //Main UI runner for the D3CMath multiplyTwoStrings() function.
 void Commands::stringMultiplyRunner(){
 	
-	std::D3CMath math;
-	std::string intOne, intTwo, output;
+	D3CMath math;
+	string intOne, intTwo, output;
 	
-	std::cout << "...Multiplication of two integers of any size." << std::endl << "...Enter first integer to multiply: " << std::endl;
+	cout << "...Multiplication of two integers of any size." << endl << "...Enter first integer to multiply: " << endl;
 	prog.blankLine();
-	getline(std::cin, intOne);
+	getline(cin, intOne);
 	prog.blankLine();
 
-	std::cout << "...Enter second integer to multiply: " << std::endl;
+	cout << "...Enter second integer to multiply: " << endl;
 	prog.blankLine();
-	getline(std::cin, intTwo);
+	getline(cin, intTwo);
 	prog.blankLine();
 
 	output = math.multiplyTwoStrings(intOne, intTwo);
 
-	std::cout << "...Integer product: " << output << std::endl;
+	cout << "...Integer product: " << output << endl;
 	prog.blankLine();	
 }
 
 //Main UI runner for the D3CMath subtractTwoStrings() function.
 void Commands::stringSubtractionRunner(){
 	
-	std::D3CMath math;
-	std::string intOne, intTwo, output;
+	D3CMath math;
+	string intOne, intTwo, output;
 	
-	std::cout << "...Subtraction of two integers of any size." << std::endl << "...Enter first integer: " << std::endl;
+	cout << "...Subtraction of two integers of any size." << endl << "...Enter first integer: " << endl;
 	prog.blankLine();
-	getline(std::cin, intOne);
+	getline(cin, intOne);
 	prog.blankLine();
 
-	std::cout << "...Enter second integer to subtract: " << std::endl;
+	cout << "...Enter second integer to subtract: " << endl;
 	prog.blankLine();
-	getline(std::cin, intTwo);
+	getline(cin, intTwo);
 	prog.blankLine();
 
 	output = math.subtractTwoStrings(intOne, intTwo);
 
-	std::cout << "...Integer difference: " << output << std::endl;
+	cout << "...Integer difference: " << output << endl;
 	prog.blankLine();
 }
 
 //Main UI runner for the D3CMath isPrime() function.
 void Commands::isPrimeRunner(){
 	
-	std::D3CMath math;
-	std::string input;
+	D3CMath math;
+	string input;
 
-	std::cout << "...Enter a positive Integer: " << std::endl;
+	cout << "...Enter a positive Integer: " << endl;
 	prog.blankLine();
-	getline(std::cin, input);
+	getline(cin, input);
 	prog.blankLine();
 	
-	long longInput = std::atol(input.c_str());
+	long longInput = atol(input.c_str());
 	
 	if(math.isPrime(longInput)){
-		std::cout << "...The number you entered is prime. " << std::endl;
+		cout << "...The number you entered is prime. " << endl;
 	}else{
-		std::cout << "...The number you entered is NOT prime. " << std::endl;
+		cout << "...The number you entered is NOT prime. " << endl;
 	}
 	prog.blankLine();
 }
@@ -233,20 +243,20 @@ void Commands::isPrimeRunner(){
 //Main UI runner for the D3CMath isPalindrome() function.
 void Commands::isPalindromeRunner(){
 	
-	std::D3CMath math;
-	std::string input;
+	D3CMath math;
+	string input;
 
-	std::cout << "...Enter a positive Integer: " << std::endl;
+	cout << "...Enter a positive Integer: " << endl;
 	prog.blankLine();
-	getline(std::cin, input);
+	getline(cin, input);
 	prog.blankLine();
 	
-	long longInput = std::atol(input.c_str());
+	long longInput = atol(input.c_str());
 	
 	if(math.isPalindrome(longInput)){
-		std::cout << "...The number you entered is a palindrome. " << std::endl;
+		cout << "...The number you entered is a palindrome. " << endl;
 	}else{
-		std::cout << "...The number you entered is NOT a palindrome. " << std::endl;
+		cout << "...The number you entered is NOT a palindrome. " << endl;
 	}
 	prog.blankLine();
 }
@@ -254,37 +264,37 @@ void Commands::isPalindromeRunner(){
 //Main UI runner for the D3CMath sumOfDigits() function.
 void Commands::sumOfDigitsRunner(){
 	
-	std::D3CMath math;
-	std::string input;
+	D3CMath math;
+	string input;
 
-	std::cout << "...Enter a positive Integer of any length: " << std::endl;
+	cout << "...Enter a positive Integer of any length: " << endl;
 	prog.blankLine();
-	getline(std::cin, input);
+	getline(cin, input);
 	prog.blankLine();
 	
 	long output = math.sumOfDigits(input);
 	
-	std::cout << "...Sum of Digits: " << output << std::endl;        
+	cout << "...Sum of Digits: " << output << endl;        
 	prog.blankLine();
 }
 
 //Main UI runner for the D3CMath primeFactors() function.
 void Commands::primeFactorsRunner(){
 	
-	std::D3CMath math;
-	std::string input;
+	D3CMath math;
+	string input;
 
-	std::cout << "...Enter a positive Integer: " << std::endl;
+	cout << "...Enter a positive Integer: " << endl;
 	prog.blankLine();
-	getline(std::cin, input);
+	getline(cin, input);
 	prog.blankLine();
 	
-	long longInput = std::atol(input.c_str());
+	long longInput = atol(input.c_str());
 
-	std::cout << "...The prime factors are: ";
+	cout << "...The prime factors are: ";
 	for (long i = 1; i <= (longInput + 1) / 2; i++) {
 		if (math.isPrime(i) == true && longInput % i == 0){
-			std::cout << i << " ";
+			cout << i << " ";
 		}
 	}
 	prog.blankLine();
@@ -293,39 +303,39 @@ void Commands::primeFactorsRunner(){
 //Main UI runner for the D3CMath numberOfFactors() function.
 void Commands::numberOfFactorsRunner(){
 	
-	std::D3CMath math;
-	std::string input;
+	D3CMath math;
+	string input;
 
-	std::cout << "...Enter a positive Integer: " << std::endl;
+	cout << "...Enter a positive Integer: " << endl;
 	prog.blankLine();
-	getline(std::cin, input);
+	getline(cin, input);
 	prog.blankLine();
 	
-	long longInput = std::atol(input.c_str());
+	long longInput = atol(input.c_str());
 	
 	int factors = math.numberOfFactors(longInput);
 
-	std::cout << "...The number of factors are: " << factors << std::endl;
+	cout << "...The number of factors are: " << factors << endl;
 	prog.blankLine();
 }
 
 //Main UI runner for the D3CMath isTriangleNumber() function.
 void Commands::isTriangleNumberRunner(){
 	
-	std::D3CMath math;
-	std::string input;
+	D3CMath math;
+	string input;
 
-	std::cout << "...Enter a positive Integer: " << std::endl;
+	cout << "...Enter a positive Integer: " << endl;
 	prog.blankLine();
-	getline(std::cin, input);
+	getline(cin, input);
 	prog.blankLine();
 	
-	long longInput = std::atol(input.c_str());
+	long longInput = atol(input.c_str());
 	
 	if(math.isTriangleNumber(longInput)){
-		std::cout << "...The number you entered is a triangle number." << std::endl;
+		cout << "...The number you entered is a triangle number." << endl;
 	}else{
-		std::cout << "...The number you entered is NOT a triangle number." << std::endl;
+		cout << "...The number you entered is NOT a triangle number." << endl;
 	}
 	prog.blankLine();
 }
@@ -333,59 +343,59 @@ void Commands::isTriangleNumberRunner(){
 //Main UI runner for the D3CMath latticePaths() function.
 void Commands::latticePathsRunner(){
 	
-	std::D3CMath math;
-	std::string n, m;
+	D3CMath math;
+	string n, m;
 	
 	prog.blankLine();
-	std::cout << "...IMPORTANT: This feature depends on the c++ long. " << std::endl;
-	std::cout << "...Therefore if the lattice paths exceed 2147483647,  " << std::endl;
-	std::cout << "...the answers will no longer be reliable. " << std::endl;
+	cout << "...IMPORTANT: This feature depends on the c++ long. " << endl;
+	cout << "...Therefore if the lattice paths exceed 2147483647,  " << endl;
+	cout << "...the answers will no longer be reliable. " << endl;
 	prog.blankLine();
 	
-	std::cout << "...Enter grid size in horizontal direction: : " << std::endl;
+	cout << "...Enter grid size in horizontal direction: : " << endl;
 	prog.blankLine();
-	getline(std::cin, n);
+	getline(cin, n);
 	prog.blankLine();
-	std::cout << "...Enter grid size in vertical direction: : " << std::endl;
+	cout << "...Enter grid size in vertical direction: : " << endl;
 	prog.blankLine();
-	getline(std::cin, m);
+	getline(cin, m);
 	prog.blankLine();
 	
-	long intOne = std::atol(n.c_str());
-	long intTwo = std::atol(m.c_str());
+	long intOne = atol(n.c_str());
+	long intTwo = atol(m.c_str());
     long output = math.latticePathsOfSquare(intOne, intTwo);
 	
-	std::cout << "...The total lattice paths are: " << output << std::endl;
+	cout << "...The total lattice paths are: " << output << endl;
 	prog.blankLine();
 }
 
 //Main UI runner for the D3CMath primeN() function.
 void Commands::primeNRunner(){
 	
-	std::D3CMath math;
-	std::string input;
+	D3CMath math;
+	string input;
 
-	std::cout << "...Enter a positive integer: " << std::endl;
+	cout << "...Enter a positive integer: " << endl;
 	prog.blankLine();
-	getline(std::cin, input);
+	getline(cin, input);
 	prog.blankLine();
 	
-	long longInput = std::atol(input.c_str());
+	long longInput = atol(input.c_str());
     long output = math.primeNumberN(longInput);
 	
-	std::cout << "...Prime number " << input << ": " << output << std::endl;
+	cout << "...Prime number " << input << ": " << output << endl;
 	prog.blankLine();
 }
 
 //Main UI runner for the D3CMath primeNPopulate() function.
 void Commands::primeNumberNpopulateRunner(){
 	
-	std::D3CMath math;
+	D3CMath math;
 	
 	prog.blankLine();
-	std::cout << "...PrimeNumberList.txt now being written to: " << math.returnPrimeNlocation() << std::endl;
-	std::cout << "...This file will increase the efficiency of the 'prime -n' command." << std::endl;
-	std::cout << "...This may take some time..." << std::endl;
+	cout << "...PrimeNumberList.txt now being written to: " << math.returnPrimeNlocation() << endl;
+	cout << "...This file will increase the efficiency of the 'prime -n' command." << endl;
+	cout << "...This may take some time..." << endl;
 	prog.blankLine();
 	
 	math.primeNumberNpopulate();
@@ -393,7 +403,7 @@ void Commands::primeNumberNpopulateRunner(){
 
 //Main UI runner for the D3CMath primeNerase() function.
 void Commands::primeNumberNeraseRunner(){
-	std::D3CMath math;
+	D3CMath math;
 	math.primeNumberNerase();
 }
 
@@ -403,28 +413,28 @@ void Commands::buttonSpamRunner(bool enableTab){
 	
 	WinKeys key;
 	
-	std::string button;
+	string button;
 
-	std::cout << "...Enter a button you would like spammed: ";
-	getline(std::cin, button);
+	cout << "...Enter a button you would like spammed: ";
+	getline(cin, button);
 	prog.blankLine();
 	
-	std::string amountStr;
+	string amountStr;
 
-	std::cout << "...How many times would you like it spammed? ";
-	getline(std::cin, amountStr);
+	cout << "...How many times would you like it spammed? ";
+	getline(cin, amountStr);
 	prog.blankLine();
 	
 	int pause;
 	
-	std::cout << "...How long between each key press (in ms)? ";
-	std::cin >> pause;
+	cout << "...How long between each key press (in ms)? ";
+	cin >> pause;
 	prog.blankLine();
 	
-	int amount = std::atoi(amountStr.c_str());
+	int amount = atoi(amountStr.c_str());
 	
-	std::cout << "...Preparing to spam " << button << " " << amountStr << " times." << std::endl;
-	std::cout << "...Beginning in 5 seconds." << std::endl;
+	cout << "...Preparing to spam " << button << " " << amountStr << " times." << endl;
+	cout << "...Beginning in 5 seconds." << endl;
 	prog.blankLine();
 
 	if (enableTab){
@@ -445,15 +455,15 @@ void Commands::minecraftDigRunner(){
 	
 	WinKeys key;
 	
-	std::string input;
+	string input;
 
-	std::cout << "...How long would you like to dig for (in seconds)? ";
-	getline(std::cin, input);
+	cout << "...How long would you like to dig for (in seconds)? ";
+	getline(cin, input);
 	prog.blankLine();
 	
-	int time = std::atoi(input.c_str());
+	int time = atoi(input.c_str());
 	
-	std::cout << "...Beginning in 5 seconds." << std::endl;
+	cout << "...Beginning in 5 seconds." << endl;
 	key.minecraftDig(time);
 	
 	#else
@@ -474,38 +484,38 @@ void Commands::exploreMinecraft(){
 	
 	int startx, startz, stopx, stopz;
 	
-	std::cout << "...Please enter the lower numbers as the starting values." << std::endl;
+	cout << "...Please enter the lower numbers as the starting values." << endl;
 	prog.blankLine();
 	
-	std::cout << "...Enter a starting X coordinate (integer): ";
-	std::cin >> startx;
+	cout << "...Enter a starting X coordinate (integer): ";
+	cin >> startx;
 	prog.blankLine();
 	
-	std::cout << "...Enter an ending X coordinate (integer): ";
-	std::cin >> stopx;
+	cout << "...Enter an ending X coordinate (integer): ";
+	cin >> stopx;
 	prog.blankLine();
 	
-	std::cout << "...Enter a starting Z coordinate (integer): ";
-	std::cin >> startz;
+	cout << "...Enter a starting Z coordinate (integer): ";
+	cin >> startz;
 	prog.blankLine();
 	
-	std::cout << "...Enter an ending Z coordinate (integer): ";
-	std::cin >> stopz;
+	cout << "...Enter an ending Z coordinate (integer): ";
+	cin >> stopz;
 	prog.blankLine();
 	
-	std::cout << "...Enter the intermidiate time between steps in milliseconds (integer): ";
-	std::cin >> breakTime;
+	cout << "...Enter the intermidiate time between steps in milliseconds (integer): ";
+	cin >> breakTime;
 	prog.blankLine();
 	
 	double totalSteps = ((stopx-startx)*1.0/(stepSize*1.0)+1)*((stopz-startz)*1.0/(stepSize*1.0)+1);
-	std::cout << "...totalSteps: " << totalSteps << std::endl;
+	cout << "...totalSteps: " << totalSteps << endl;
 	
-	std::cout << "...Beginning in " << delayStartTime << " milliseconds." << std::endl;
+	cout << "...Beginning in " << delayStartTime << " milliseconds." << endl;
 	prog.blankLine();
 	
 	key.waitTime(delayStartTime);
 	
-	std::cout << "...Sleeping between each loop for " << breakTime << " milliseconds." << std::endl;
+	cout << "...Sleeping between each loop for " << breakTime << " milliseconds." << endl;
 
 	
 	for(int x=startx; x <= stopx; x++){
@@ -518,20 +528,20 @@ void Commands::exploreMinecraft(){
 			key.type("tp");
 			key.space();
 			
-			key.type(std::to_string(x));
+			key.type(to_string(x));
 			key.space();
 			
 			key.type("90");
 			key.space();
 			
-			key.type(std::to_string(z));
+			key.type(to_string(z));
 			key.space();
 
 			key.enter();
 			
 			counter += 1.0;
 			percentComplete = counter*100.0/totalSteps;
-			std::cout << "...Percentage Complete: " << percentComplete << " %" << std::endl;
+			cout << "...Percentage Complete: " << percentComplete << " %" << endl;
 			key.waitTime(breakTime);
 			
 			z+=stepSize-1;
@@ -551,27 +561,27 @@ void Commands::duplicateLetterRunner(){
 	
 	WinKeys keys;
 	
-	std::cout << "...INSTRUCTIONS: Please have the contents of the letter copied to your clipboard." << std::endl;
-	std::cout << "...INSTRUCTIONS: After entering final parameters, move mouse curser to the WoW 'send' button." << std::endl;
+	cout << "...INSTRUCTIONS: Please have the contents of the letter copied to your clipboard." << endl;
+	cout << "...INSTRUCTIONS: After entering final parameters, move mouse curser to the WoW 'send' button." << endl;
 
 	prog.blankLine();
 	
 	int copies;
-	std::cout << "...Please enter the number of letters you want duplicated: ";
-	std::cin >> copies;
-	std::cin.ignore();
+	cout << "...Please enter the number of letters you want duplicated: ";
+	cin >> copies;
+	cin.ignore();
 	prog.blankLine();
 	
-	std::string recipient;
-	std::cout << "...Please enter the recipient you want the letters sent to: ";
-	std::getline(std::cin, recipient);
+	string recipient;
+	cout << "...Please enter the recipient you want the letters sent to: ";
+	getline(cin, recipient);
 	prog.blankLine();
 	
-	std::cout << "...Beginning in 5000 milliseconds (5s)." << std::endl;
+	cout << "...Beginning in 5000 milliseconds (5s)." << endl;
 	prog.blankLine();
 	keys.duplicateLetter(copies, recipient);
 	
-	std::cout << "...Finished duplicating letters." << std::endl;
+	cout << "...Finished duplicating letters." << endl;
 	
 	#else
 	
@@ -585,22 +595,22 @@ void Commands::unloadLetterRunner(){
 	
 	WinKeys keys;
 	
-	std::cout << "...INSTRUCTIONS: Please have your WoW inbox open." << std::endl;
-	std::cout << "...INSTRUCTIONS: Please set MIAConfig variables appropriately (see manual)." << std::endl;
+	cout << "...INSTRUCTIONS: Please have your WoW inbox open." << endl;
+	cout << "...INSTRUCTIONS: Please set MIAConfig variables appropriately (see manual)." << endl;
 
 	prog.blankLine();
 	
 	int copies;
-	std::cout << "...Please enter the number of letters you want unloaded: ";
-	std::cin >> copies;
-	std::cin.ignore();
+	cout << "...Please enter the number of letters you want unloaded: ";
+	cin >> copies;
+	cin.ignore();
 	prog.blankLine();
 	
-	std::cout << "...Beginning in 5000 milliseconds (5s)." << std::endl;
+	cout << "...Beginning in 5000 milliseconds (5s)." << endl;
 	prog.blankLine();
 	keys.unloadLetters(copies);
 	
-	std::cout << "...Finished unloading letters." << std::endl;
+	cout << "...Finished unloading letters." << endl;
 	
 	#else
 	
@@ -613,13 +623,13 @@ void Commands::d0s3CryptRunner(){
 	
 	MIAEncrypt crypt(3);
 	
-	std::string inputFile;
+	string inputFile;
 	
 	prog.returnError(31415);
 
-	std::cout << "...Please enter a file (using default file path) to be encrypted: " << std::endl;
+	cout << "...Please enter a file (using default file path) to be encrypted: " << endl;
 	prog.blankLine();
-	getline(std::cin, inputFile);
+	getline(cin, inputFile);
 	
 	crypt.encryptFile(inputFile, "OutputFile");
 }
@@ -636,14 +646,14 @@ void Commands::printRandomLinesFromFileRunner(){
 	Misc misc;
 	
 	int lines;
-	std::cout << "...How many random lines would you like to print from a file? ";
-	std::cin >> lines;
-	std::cin.ignore();
+	cout << "...How many random lines would you like to print from a file? ";
+	cin >> lines;
+	cin.ignore();
 	prog.blankLine();
 
-	std::string answer;
-	std::cout << "...Would you like to use default input file path? (y/n): ";
-	getline(std::cin, answer);
+	string answer;
+	cout << "...Would you like to use default input file path? (y/n): ";
+	getline(cin, answer);
 	prog.blankLine();
 	
 	if(prog.formOfYes(answer)){
@@ -656,29 +666,29 @@ void Commands::printRandomLinesFromFileRunner(){
 //Runner for the solveQuadraticFormula function.
 void Commands::solveQuadraticFormulaRunner(){
 	
-	std::D3CMath math;
+	D3CMath math;
 	
 	double a,b,c;
-	std::cout << "...This is a solver for equations of the form a*x^2+b*x+c=0." << std::endl;
-	std::cout << "...Please Enter a: ";
-	std::cin >> a;
-	std::cout << "...Please Enter b: ";
-	std::cin >> b;
-	std::cout << "...Please Enter c: ";
-	std::cin >> c;	
-	std::cin.ignore();
+	cout << "...This is a solver for equations of the form a*x^2+b*x+c=0." << endl;
+	cout << "...Please Enter a: ";
+	cin >> a;
+	cout << "...Please Enter b: ";
+	cin >> b;
+	cout << "...Please Enter c: ";
+	cin >> c;	
+	cin.ignore();
 	prog.blankLine();
 	
-	std::string ans = math.solveQuadraticFormula(a,b,c);
+	string ans = math.solveQuadraticFormula(a,b,c);
 	prog.blankLine();
-	std::cout << "...The solution is: " << ans << std::endl;
+	cout << "...The solution is: " << ans << endl;
 }
 
 //A joke function I created to rearrange the letters in a friends name. For unspecified reasons.
 void Commands::pranjal(){
 	Misc misc;
-	std::string output = misc.shuffleString("pranjal");
-	std::cout << "...Did you mean " << output << "?" << std::endl;
+	string output = misc.shuffleString("pranjal");
+	cout << "...Did you mean " << output << "?" << endl;
 }
 
 //Finds and returns the coordinates of the mouse pointer after 5 seconds.
@@ -687,7 +697,7 @@ void Commands::findMouse(){
 	
 	WinKeys keys;
 	
-	std::cout << "...Locating mouse in 2 seconds." << std::endl;
+	cout << "...Locating mouse in 2 seconds." << endl;
 	
 	keys.findMouseCoords(2000);
 	
@@ -715,16 +725,16 @@ void Commands::test(){
 //Function made for generating a workout via the Misc class.
 void Commands::workoutRunner(bool weekly){
 	Misc misc;
-	std::string input; 
-	std::cout << "...Loading MIA workout generator. " << std::endl;
+	string input; 
+	cout << "...Loading MIA workout generator. " << endl;
 	prog.blankDots();
-	std::cout << "...Assuming default values, difficulties range from 0-100." << std::endl;
-	std::cout << "...1-10 (VERY EASY), 11-24 (EASY), 25-39 (NORMAL)" << std::endl;
-	std::cout << "...39-54 (HARD), 54-74 (VERY HARD), 75+ (INSANE)" << std::endl;
-	std::cout << "...Please enter a difficulty: ";
-	std::getline(std::cin,input);
+	cout << "...Assuming default values, difficulties range from 0-100." << endl;
+	cout << "...1-10 (VERY EASY), 11-24 (EASY), 25-39 (NORMAL)" << endl;
+	cout << "...39-54 (HARD), 54-74 (VERY HARD), 75+ (INSANE)" << endl;
+	cout << "...Please enter a difficulty: ";
+	getline(cin,input);
 	
-	std::transform(input.begin(), input.end(), input.begin(), ::tolower);
+	transform(input.begin(), input.end(), input.begin(), ::tolower);
 	double difficulty;
 	
 	if(input == "pranjal"){
@@ -760,26 +770,26 @@ void Commands::runFishbot(){
 	WinKeys keys;
 	
 	//Default values.
-	std::string fishButton = "3", lureButton = "8";
+	string fishButton = "3", lureButton = "8";
 	
-	std::cout << "...CAUTION! This fishbot was made for educational purposes." << std::endl;
-	std::cout << "...WARNING! Use the fishbot at your own risk!" << std::endl;
-	std::cout << "...DANGER! Using this fishbot may have negative consequences." << std::endl;
-	std::cout << "...ALERT! This fishbot may get you banned." << std::endl;
+	cout << "...CAUTION! This fishbot was made for educational purposes." << endl;
+	cout << "...WARNING! Use the fishbot at your own risk!" << endl;
+	cout << "...DANGER! Using this fishbot may have negative consequences." << endl;
+	cout << "...ALERT! This fishbot may get you banned." << endl;
 	prog.blankDots();
-	std::cout << "...In order for the fishbot to work, please enter in game settings and DISABLE" << std::endl << "... hardware cursor." << std::endl;
-	std::cout << "...To use default values (3 for cast and 8 for lure) leave the following options" << std::endl << "... blank." << std::endl;
-	std::cout << "...Press CTRL-C to stop the fishbot early once started." << std::endl;
-	std::cout << "...Press ENTER to continue." << std::endl;
-	std::cin.ignore();
+	cout << "...In order for the fishbot to work, please enter in game settings and DISABLE" << endl << "... hardware cursor." << endl;
+	cout << "...To use default values (3 for cast and 8 for lure) leave the following options" << endl << "... blank." << endl;
+	cout << "...Press CTRL-C to stop the fishbot early once started." << endl;
+	cout << "...Press ENTER to continue." << endl;
+	cin.ignore();
 
 	prog.blankDots();
-	std::cout << "...Please enter which button you have set to cast: ";
-	std::getline(std::cin, fishButton);
+	cout << "...Please enter which button you have set to cast: ";
+	getline(cin, fishButton);
 	prog.blankLine();
-	std::cout << "...If you are not using a lure please enter NONE ";
-	std::cout << "...Please enter which button you have set to apply a lure: ";
-	std::getline(std::cin, lureButton);
+	cout << "...If you are not using a lure please enter NONE ";
+	cout << "...Please enter which button you have set to apply a lure: ";
+	getline(cin, lureButton);
 	prog.blankLine();
 	
 	//Arbitrary default values based on my preferred setup.
@@ -804,12 +814,12 @@ void Commands::runNetSessionEnum(){
 	
 	prog.returnError(31415);
 	LOLANetUse lola;
-	std::string server;
+	string server;
 	int argc = 4;  //set to 4 indicating that all fields [0] -> [3] of argv are filled.
 	
-	std::cout << "...Please enter a server address for me to gather information about." << std::endl;
+	cout << "...Please enter a server address for me to gather information about." << endl;
 	prog.blankLine();
-	std::getline(std::cin, server);
+	getline(cin, server);
 	prog.blankLine();
 	
 	const size_t len = server.length() + 1;
@@ -817,19 +827,19 @@ void Commands::runNetSessionEnum(){
 
     swprintf(w_server, len, L"...%s", server.c_str());
 	
-	std::cout << "...Loading NetSessionEnumRunner." << std::endl;
+	cout << "...Loading NetSessionEnumRunner." << endl;
 	if(prog.getVerboseMode()){
-		std::cout << "...w_server: " << w_server << std::endl;
-		std::cout << "...*w_server: " << *w_server << std::endl;
-		std::cout << "...&w_server: " << &w_server << std::endl;
-		std::cout << "...server.c_str(): " << server.c_str() << std::endl;
+		cout << "...w_server: " << w_server << endl;
+		cout << "...*w_server: " << *w_server << endl;
+		cout << "...&w_server: " << &w_server << endl;
+		cout << "...server.c_str(): " << server.c_str() << endl;
 	}
 	
 	wchar_t *argv[] = {NULL, w_server, NULL, NULL};
 	lola.NetSessionEnumRunner(argc, argv);
 	
 	prog.blankDots();
-	std::cout << "...NetSessionEnumRunner Finished." << std::endl;
+	cout << "...NetSessionEnumRunner Finished." << endl;
 	
 	#else
 	prog.returnError(31416);
@@ -843,12 +853,12 @@ void Commands::runNetServerEnum(char mode){
 	
 	prog.returnError(31415);
 	LOLANetUse lola;
-	std::string domain;
+	string domain;
 	int argc = 2;  //set to 2 indicating that all fields [0] -> [1] of argv are filled.
 	
-	std::cout << "...Please enter a domain for me to gather information about." << std::endl;
+	cout << "...Please enter a domain for me to gather information about." << endl;
 	prog.blankLine();
-	std::getline(std::cin, domain);
+	getline(cin, domain);
 	prog.blankLine();
 	
 	const size_t len = domain.length() + 1;
@@ -857,12 +867,12 @@ void Commands::runNetServerEnum(char mode){
     swprintf(w_domain, len, L"...%s", domain.c_str());
 
 	wchar_t *argv[] = {NULL, w_domain};
-	std::cout << "...Loading NetServerEnum." << std::endl;
+	cout << "...Loading NetServerEnum." << endl;
 	if(prog.getVerboseMode()){
-		std::cout << "...w_domain: " << w_domain << std::endl;
-		std::cout << "...*w_domain: " << *w_domain << std::endl;
-		std::cout << "...&w_domain: " << &w_domain << std::endl;
-		std::cout << "...domain.c_str(): " << domain.c_str() << std::endl;
+		cout << "...w_domain: " << w_domain << endl;
+		cout << "...*w_domain: " << *w_domain << endl;
+		cout << "...&w_domain: " << &w_domain << endl;
+		cout << "...domain.c_str(): " << domain.c_str() << endl;
 	}
 	
 	if(mode == 'w'){
@@ -872,7 +882,7 @@ void Commands::runNetServerEnum(char mode){
 	}
 	
 	prog.blankDots();
-	std::cout << "...NetServerEnum Finished!." << std::endl;
+	cout << "...NetServerEnum Finished!." << endl;
 	
 	#else
 	prog.returnError(31416);
@@ -885,12 +895,12 @@ void Commands::runNetWkstaGetInfo(){
 		
 	prog.returnError(31415);
 	LOLANetUse lola;
-	std::string wkst;
+	string wkst;
 	int argc = 2;  //set to 4 indicating that all fields [0] -> [1] of argv are filled.
 	
-	std::cout << "...Please enter a workstation address for me to gather information about." << std::endl;
+	cout << "...Please enter a workstation address for me to gather information about." << endl;
 	prog.blankLine();
-	std::getline(std::cin, wkst);
+	getline(cin, wkst);
 	prog.blankLine();
 	
 	const size_t len = wkst.length() + 1;
@@ -898,19 +908,19 @@ void Commands::runNetWkstaGetInfo(){
 
     swprintf(w_wkst, len, L"...%s", wkst.c_str());
 	
-	std::cout << "...Loading NetWkstaGetInfo." << std::endl;
+	cout << "...Loading NetWkstaGetInfo." << endl;
 	if(prog.getVerboseMode()){
-		std::cout << "...w_wkst: " << w_wkst << std::endl;
-		std::cout << "...*w_wkst: " << *w_wkst << std::endl;
-		std::cout << "...&w_wkst: " << &w_wkst << std::endl;
-		std::cout << "...wkst.c_str(): " << wkst.c_str() << std::endl;
+		cout << "...w_wkst: " << w_wkst << endl;
+		cout << "...*w_wkst: " << *w_wkst << endl;
+		cout << "...&w_wkst: " << &w_wkst << endl;
+		cout << "...wkst.c_str(): " << wkst.c_str() << endl;
 	}
 	
 	wchar_t *argv[] = {NULL, w_wkst};
 	lola.NetWkstaGetInfoRunner(argc, argv);
 	
 	prog.blankDots();
-	std::cout << "...NetSessionEnum Finished." << std::endl;
+	cout << "...NetSessionEnum Finished." << endl;
 	
 	#else
 	prog.returnError(31416);
@@ -923,12 +933,12 @@ void Commands::runNetRemoteComputerSupports(){
 		
 	prog.returnError(31415);
 	LOLANetUse lola;
-	std::string wkst;
+	string wkst;
 	int argc = 2;  //set to 4 indicating that all fields [0] -> [1] of argv are filled.
 	
-	std::cout << "...Please enter a workstation address for me to gather information about." << std::endl;
+	cout << "...Please enter a workstation address for me to gather information about." << endl;
 	prog.blankLine();
-	std::getline(std::cin, wkst);
+	getline(cin, wkst);
 	prog.blankLine();
 	
 	const size_t len = wkst.length() + 1;
@@ -936,19 +946,19 @@ void Commands::runNetRemoteComputerSupports(){
 
     swprintf(w_wkst, len, L"...%s", wkst.c_str());
 	
-	std::cout << "...Loading NetRemoteComputerSupports." << std::endl;
+	cout << "...Loading NetRemoteComputerSupports." << endl;
 	if(prog.getVerboseMode()){
-		std::cout << "...w_wkst: " << w_wkst << std::endl;
-		std::cout << "...*w_wkst: " << *w_wkst << std::endl;
-		std::cout << "...&w_wkst: " << &w_wkst << std::endl;
-		std::cout << "...wkst.c_str(): " << wkst.c_str() << std::endl;
+		cout << "...w_wkst: " << w_wkst << endl;
+		cout << "...*w_wkst: " << *w_wkst << endl;
+		cout << "...&w_wkst: " << &w_wkst << endl;
+		cout << "...wkst.c_str(): " << wkst.c_str() << endl;
 	}
 	
 	wchar_t *argv[] = {NULL, w_wkst};
 	lola.NetRemoteComputerSupportsRunner(argc, argv);
 	
 	prog.blankDots();
-	std::cout << "...NetRemoteComputerSupports Finished." << std::endl;
+	cout << "...NetRemoteComputerSupports Finished." << endl;
 	
 	#else
 	prog.returnError(31416);
@@ -961,12 +971,12 @@ void Commands::runNetUserEnum(){
 		
 	prog.returnError(31415);
 	LOLANetUse lola;
-	std::string wkst;
+	string wkst;
 	int argc = 2;  //set to 4 indicating that all fields [0] -> [1] of argv are filled.
 	
-	std::cout << "...Please enter a server for me to gather information about." << std::endl;
+	cout << "...Please enter a server for me to gather information about." << endl;
 	prog.blankLine();
-	std::getline(std::cin, wkst);
+	getline(cin, wkst);
 	prog.blankLine();
 	
 	const size_t len = wkst.length() + 1;
@@ -974,19 +984,19 @@ void Commands::runNetUserEnum(){
 
     swprintf(w_wkst, len, L"...%s", wkst.c_str());
 	
-	std::cout << "...Loading NetUserEnum." << std::endl;
+	cout << "...Loading NetUserEnum." << endl;
 	if(prog.getVerboseMode()){
-		std::cout << "...w_wkst: " << w_wkst << std::endl;
-		std::cout << "...*w_wkst: " << *w_wkst << std::endl;
-		std::cout << "...&w_wkst: " << &w_wkst << std::endl;
-		std::cout << "...wkst.c_str(): " << wkst.c_str() << std::endl;
+		cout << "...w_wkst: " << w_wkst << endl;
+		cout << "...*w_wkst: " << *w_wkst << endl;
+		cout << "...&w_wkst: " << &w_wkst << endl;
+		cout << "...wkst.c_str(): " << wkst.c_str() << endl;
 	}
 	
 	wchar_t *argv[] = {NULL, w_wkst};
 	lola.NetUserEnumRunner(argc, argv);
 	
 	prog.blankDots();
-	std::cout << "...NetUserEnum Finished." << std::endl;
+	cout << "...NetUserEnum Finished." << endl;
 	
 	#else
 	prog.returnError(31416);

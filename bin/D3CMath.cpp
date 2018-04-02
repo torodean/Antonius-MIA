@@ -16,7 +16,20 @@
 #include <limits>
 #include "D3CMath.h"
 
-namespace std {
+using std::endl;
+using std::stringstream;
+using std::cout;
+using std::string;
+using std::vector;
+using std::ifstream;
+using std::ios;
+using std::istream;
+using std::to_string;
+using std::streamsize;
+using std::ofstream;
+using std::numeric_limits;
+using std::ws;
+
 
 //Main constructor for D3CMath class.
 D3CMath::D3CMath() : primeNlocation("../bin/Resources/PrimeNumberList.txt") {
@@ -664,7 +677,7 @@ string D3CMath::productCollatzSequence(long n){
             } else {
                 n = (3 * n) + 1;
             }
-            std::stringstream strstream;
+            stringstream strstream;
             strstream << n;
             strstream >> temp;
             sequence.append(temp);
@@ -700,13 +713,13 @@ string D3CMath::solveQuadraticFormula(double a, double b, double c){
 	string answer = "";
 	answer.append(to_string(-b*b/2.0/a));
 	if (b*b-4.0*a*c == 0){
-		std::cout << "b*b-4*a*c == 0" << std::endl;
+		cout << "b*b-4*a*c == 0" << endl;
 	} else if(b*b-4.0*a*c > 0){
-		std::cout << "b*b-4*a*c > 0" << std::endl;
+		cout << "b*b-4*a*c > 0" << endl;
 		answer.append(" +/- ");
 		answer.append(to_string(sqrt(b*b-4.0*a*c)));
 	} else {
-		std::cout << "b*b-4*a*c < 0" << std::endl;
+		cout << "b*b-4*a*c < 0" << endl;
 		answer.append(" +/- ");
 		answer.append(to_string(sqrt(4.0*a*c-b*b)));
 		answer.append("*i");
@@ -725,6 +738,5 @@ unsigned long binaryStrToInt(string input, int bits){
 	return decimal;
 }
 */
-} /* namespace std */
 
 

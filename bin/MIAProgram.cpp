@@ -21,6 +21,18 @@
 #include <vector>
 #include <algorithm>
 
+using std::string;
+using std::remove;
+using std::stoi;
+using std::ifstream;
+using std::vector;
+using std::cout;
+using std::endl;
+using std::getline;
+using std::cin;
+using std::tolower;
+using std::to_string;
+
 //Main program constructor.
 Program::Program(){
 	//Chuck Norris can take a screen shot of his blue screen.
@@ -33,7 +45,7 @@ Program::~Program(){
 }
 
 //sets verboseMode.
-void Program::setVerboseMode(std::string value){
+void Program::setVerboseMode(string value){
 	value = removeCharInString(value, ' ');
 	if (value == "true" || value == "1"){
 		verboseMode = true;
@@ -48,13 +60,13 @@ bool Program::getVerboseMode(){
 }
 
 //Removes a specific character from a string.
-std::string Program::removeCharInString(std::string str, char c){
-	str.erase(std::remove(str.begin(), str.end(), c), str.end());
+string Program::removeCharInString(string str, char c){
+	str.erase(remove(str.begin(), str.end(), c), str.end());
 	return str;
 }
 
 //Finds the index of the first "=" sign in a string.
-int Program::findEqualInString(std::string input){
+int Program::findEqualInString(string input){
 	int length = input.size();
 	for (int i=0;i<length;i++){
 		if(input[i]=='='){
@@ -65,7 +77,7 @@ int Program::findEqualInString(std::string input){
 }
 
 //Finds the index of the first ";" sign in a string.
-int Program::findSemiColonInString(std::string input){
+int Program::findSemiColonInString(string input){
 	int length = input.size();
 	for (int i=0;i<length;i++){
 		if(input[i]==';'){
@@ -76,8 +88,8 @@ int Program::findSemiColonInString(std::string input){
 }
 
 //function for determining if all characters in a string are digits/ints. Taken from StackOverflow.
-bool Program::is_digits(const std::string &str){
-    if(str.find_first_not_of("0123456789") == std::string::npos){
+bool Program::is_digits(const string &str){
+    if(str.find_first_not_of("0123456789") == string::npos){
 		return true;
 	} else {
 		return false;
@@ -85,36 +97,36 @@ bool Program::is_digits(const std::string &str){
 }
 
 //Changes and returns the private variables.
-void Program::setWorkoutOutputFilePath(std::string input){
+void Program::setWorkoutOutputFilePath(string input){
 	workoutOutputFilePath = input;
 }
-std::string Program::getWorkoutOutputFilePath(){
+string Program::getWorkoutOutputFilePath(){
 	return workoutOutputFilePath;
 }
-void Program::setExcuseFilePath(std::string input){
+void Program::setExcuseFilePath(string input){
 	excuseFilePath = input;
 }
-std::string Program::getExcuseFilePath(){
+string Program::getExcuseFilePath(){
 	return excuseFilePath;
 }
-void Program::setDefaultInputFilePath(std::string input){
+void Program::setDefaultInputFilePath(string input){
 	defaultInputFilePath = input;
 }
-void Program::setDefaultCryptFilePath(std::string input){
+void Program::setDefaultCryptFilePath(string input){
 	defaultCryptFilePath = input;
 }
-void Program::setWorkoutsFilePath(std::string input){
+void Program::setWorkoutsFilePath(string input){
 	workoutsFilePath = input;
 }
-std::string Program::getWorkoutsFilePath(){
+string Program::getWorkoutsFilePath(){
 	return workoutsFilePath;
 }
-void Program::setWoWMailboxSendLetterLocation(char coord, std::string value){
+void Program::setWoWMailboxSendLetterLocation(char coord, string value){
 	if (is_digits(value)){
 		if(coord == 'x'){
-			WoWMailboxSendLetterLocationX = std::stoi(value);
+			WoWMailboxSendLetterLocationX = stoi(value);
 		} else if (coord == 'y'){
-			WoWMailboxSendLetterLocationY = std::stoi(value);
+			WoWMailboxSendLetterLocationY = stoi(value);
 		}
 	} else {
 		if(verboseMode)
@@ -130,12 +142,12 @@ int Program::getWoWMailboxSendLetterLocation(char coord){
 		return 0;
 	}
 }
-void Program::setWoWMailboxFirstLetterLocation(char coord, std::string value){
+void Program::setWoWMailboxFirstLetterLocation(char coord, string value){
 	if (is_digits(value)){
 		if(coord == 'x'){
-			WoWMailboxFirstLetterLocationX = std::stoi(value);
+			WoWMailboxFirstLetterLocationX = stoi(value);
 		} else if (coord == 'y'){
-			WoWMailboxFirstLetterLocationY = std::stoi(value);
+			WoWMailboxFirstLetterLocationY = stoi(value);
 		}
 	} else {
 		if(verboseMode)
@@ -151,12 +163,12 @@ int Program::getWoWMailboxFirstLetterLocation(char coord){
 		return 0;
 	}
 }
-void Program::setWoWMailboxLootLetterLocation(char coord, std::string value){
+void Program::setWoWMailboxLootLetterLocation(char coord, string value){
 	if (is_digits(value)){
 		if(coord == 'x'){
-			WoWMailboxLootLetterLocationX = std::stoi(value);
+			WoWMailboxLootLetterLocationX = stoi(value);
 		} else if (coord == 'y'){
-			WoWMailboxLootLetterLocationY = std::stoi(value);
+			WoWMailboxLootLetterLocationY = stoi(value);
 		}
 	} else {
 		if(verboseMode)
@@ -172,12 +184,12 @@ int Program::getWoWMailboxLootLetterLocation(char coord){
 		return 0;
 	}
 }
-void Program::setWoWMailboxDeleteLetterLocation(char coord, std::string value){
+void Program::setWoWMailboxDeleteLetterLocation(char coord, string value){
 	if (is_digits(value)){
 		if(coord == 'x'){
-			WoWMailboxDeleteLetterLocationX = std::stoi(value);
+			WoWMailboxDeleteLetterLocationX = stoi(value);
 		} else if (coord == 'y'){
-			WoWMailboxDeleteLetterLocationY = std::stoi(value);
+			WoWMailboxDeleteLetterLocationY = stoi(value);
 		}
 	} else {
 		if(verboseMode)
@@ -195,22 +207,22 @@ int Program::getWoWMailboxDeleteLetterLocation(char coord){
 }
 
 //Sets values relating to the WoWFishBotSpace.
-void Program::setWoWFishBotSpace(std::string data, std::string value){
+void Program::setWoWFishBotSpace(string data, string value){
 	if (is_digits(value)){
 		if(data == "startX"){
-			WoWFishBotStartX = std::stoi(value);
+			WoWFishBotStartX = stoi(value);
 		} else if (data == "startY"){
-			WoWFishBotStartY = std::stoi(value);
+			WoWFishBotStartY = stoi(value);
 		} else if (data == "endX"){
-			WoWFishBotEndX = std::stoi(value);
+			WoWFishBotEndX = stoi(value);
 		} else if (data == "endY"){
-			WoWFishBotEndY = std::stoi(value);
+			WoWFishBotEndY = stoi(value);
 		} else if (data == "increment"){
-			WoWFishBotIncrement = std::stoi(value);
+			WoWFishBotIncrement = stoi(value);
 		}  else if (data == "casts"){
-			WoWFishBotNumOfCasts = std::stoi(value);
+			WoWFishBotNumOfCasts = stoi(value);
 		}  else if (data == "delay"){
-			WoWFishBotDelay = std::stoi(value);
+			WoWFishBotDelay = stoi(value);
 		}
 	} else {
 		if(verboseMode)
@@ -219,7 +231,7 @@ void Program::setWoWFishBotSpace(std::string data, std::string value){
 }
 
 //Returns values relating to the WoWFishBotSpace.
-int Program::getWoWFishBotSpace(std::string data){
+int Program::getWoWFishBotSpace(string data){
 	if(data == "startX"){
 		return WoWFishBotStartX;
 	} else if (data == "startY"){
@@ -240,7 +252,7 @@ int Program::getWoWFishBotSpace(std::string data){
 }
 
 //Set's the variable to a value
-void Program::setMIAVariable(std::string variable, std::string value){
+void Program::setMIAVariable(string variable, string value){
 	//Sets the appropriate variable values.
 	if (variable == "defaultInputFilePath"){
 		setDefaultInputFilePath(value);
@@ -292,43 +304,43 @@ void Program::setMIAVariable(std::string variable, std::string value){
 //This function is for loading in the config file. Still in Development.
 void Program::initializeSettings(bool printSettings){
 	//grabs the MIAConfig file.
-	std::string fileName = "../bin/Resources/MIAConfig.txt";
-	std::ifstream file(fileName,std::ifstream::in);
+	string fileName = "../bin/Resources/MIAConfig.txt";
+	ifstream file(fileName,ifstream::in);
 	
 	//Checks if the file exists and runs the code.
 	if (file.good()){
-		std::string line;
-		std::vector<std::string> lines;
+		string line;
+		vector<string> lines;
 
 		//If true, print the configuration file settings.
 		if (verboseMode){
-			std::cout << std::endl << "...Config file output: " << std::endl;
+			cout << endl << "...Config file output: " << endl;
 		}
-		while(std::getline(file,line)){
+		while(getline(file,line)){
 			if (line[0] != '#' && line != "" && !line.empty() && line.size()>2){
 				if(verboseMode){
-					std::cout << line << std::endl;
+					cout << line << endl;
 				}
 				lines.push_back(line);
 			}	
 		}
 		if(verboseMode){
-			std::cout << std::endl;
+			cout << endl;
 		}
 		int size = lines.size();
 		int equalSignLocation=0;
-		std::string variable, value;
+		string variable, value;
 		for (int i=0; i<size;i++){
 			equalSignLocation = findEqualInString(lines[i]);
 			variable = lines[i].substr(0, equalSignLocation);
 			value = lines[i].substr(equalSignLocation+1,lines[i].size()-1);
 			
 			//removes end of line characters from variable name and value. Fixes a bug.
-			variable.erase(std::remove(variable.begin(), variable.end(), '\r'), variable.end()); 
-			value.erase(std::remove(value.begin(), value.end(), '\r'), value.end());			
+			variable.erase(remove(variable.begin(), variable.end(), '\r'), variable.end()); 
+			value.erase(remove(value.begin(), value.end(), '\r'), value.end());			
 			
 			if(printSettings){
-				std::cout << "...Setting variable: " << variable << " to '" << value << "'" << std::endl;
+				cout << "...Setting variable: " << variable << " to '" << value << "'" << endl;
 			}
 			setMIAVariable(variable, value);
 		}
@@ -342,37 +354,37 @@ void Program::initializeSettings(bool printSettings){
 
 //Displays the MIA splash screen.
 void Program::splash(){
-	std::cout << "     ...................................................................." << std::endl;
-	std::cout << "    ... //  ~~      |||      |||  ||||||||||      ||||     TM   ~~  \\\\ ..." << std::endl;
-	std::cout << "   ... //  ~~       ||||    ||||      ||         ||  ||          ~~  \\\\ ..." << std::endl;
-	std::cout << "  ... //  ~~        || ||  || ||      ||        ||||||||          ~~  \\\\ ..." << std::endl;
-	std::cout << " ... //  ~~         ||  ||||  ||      ||       ||      ||          ~~  \\\\ ..." << std::endl;
-	std::cout << "... //  ~~          ||   ||   ||  ||||||||||  ||        ||          ~~  \\\\ ..." << std::endl;
-	std::cout << ".............................................................................." << std::endl;
-	std::cout << "............................. TERMINAL INTERFACE ............................." << std::endl;
-	std::cout << "............. Multiple Integrated Applications -- Version: " + VERSION + " ............." << std::endl;
-	std::cout << "....................     Programmer: Antonius Torode      ...................." << std::endl;
-	std::cout << ".............................................................................." << std::endl;
+	cout << "     ...................................................................." << endl;
+	cout << "    ... //  ~~      |||      |||  ||||||||||      ||||     TM   ~~  \\\\ ..." << endl;
+	cout << "   ... //  ~~       ||||    ||||      ||         ||  ||          ~~  \\\\ ..." << endl;
+	cout << "  ... //  ~~        || ||  || ||      ||        ||||||||          ~~  \\\\ ..." << endl;
+	cout << " ... //  ~~         ||  ||||  ||      ||       ||      ||          ~~  \\\\ ..." << endl;
+	cout << "... //  ~~          ||   ||   ||  ||||||||||  ||        ||          ~~  \\\\ ..." << endl;
+	cout << ".............................................................................." << endl;
+	cout << "............................. TERMINAL INTERFACE ............................." << endl;
+	cout << "............. Multiple Integrated Applications -- Version: " + VERSION + " ............." << endl;
+	cout << "....................     Programmer: Antonius Torode      ...................." << endl;
+	cout << ".............................................................................." << endl;
 }
 
 //Displays a blank line surrounded by dots - used for formatting.
 void Program::blankDots(){
-	std::cout << "...                                                                        ..." << std::endl;
+	cout << "...                                                                        ..." << endl;
 }
 
 //Displays an introductory greeting to the user.
 void Program::intro(){
 	blankDots();
-	std::cout << "... Greetings! I am MIA.                                                   ..." << std::endl;
+	cout << "... Greetings! I am MIA.                                                   ..." << endl;
 }
 
 //The standby screen while waiting for a user input.
 void Program::standby(){
-	std::string input = "";
+	string input = "";
 	bool exit = false;
 	helpMessage();
 	while(exit == false){
-		getline(std::cin,input);
+		getline(cin,input);
 		blankLine();
 		if(input == "exit" || input == "quit" || input == "EXIT" || input == "QUIT"){
 			exit = true;
@@ -384,7 +396,7 @@ void Program::standby(){
 }
 
 //Takes the user input as a string and converts it to a corresponding integer to be used in the switch case.
-int Program::commandToInputVar(std::string input){
+int Program::commandToInputVar(string input){
 	int output=3141592;
 	
 	if(input == "help"){
@@ -480,9 +492,9 @@ int Program::commandToInputVar(std::string input){
 }
 
 //Takes the input command by the user and runs the corresponding feature.
-void Program::performCommand(std::string input){
+void Program::performCommand(string input){
 	for(int i=0; input[i]; i++){
-		input[i] = std::tolower(input[i]);
+		input[i] = tolower(input[i]);
 	}
 	int in = commandToInputVar(input);
 	
@@ -626,7 +638,7 @@ void Program::performCommand(std::string input){
 		default: //defaults to an unrecognized command.
 			if(excuse()){
 			} else{
-				std::cout << "... Invalid Command Entered.                                               ..." << std::endl;
+				cout << "... Invalid Command Entered.                                               ..." << endl;
 			}
 			break;
 	}
@@ -634,99 +646,99 @@ void Program::performCommand(std::string input){
 
 //Displays a list of valid commands and what they do to the user.
 void Program::help(){
-	std::cout << "... A list of valid commands and a brief summary.                          ..." << std::endl;
-	std::cout << "... Commands are NOT case sensitive.                                       ..." << std::endl;
+	cout << "... A list of valid commands and a brief summary.                          ..." << endl;
+	cout << "... Commands are NOT case sensitive.                                       ..." << endl;
 	blankDots();
-	std::cout << "... help          | Displays a valid lists of commands." << std::endl;
-	std::cout << "... add           | Adds two positive integers of any length. " << std::endl;
-	std::cout << "... button spam   | Spams a specified button (key press)." << std::endl;
-	std::cout << "... button spam -t| Spams a specified button (key press) separated by tabs." << std::endl;
-	std::cout << "... collatz       | Produces a collatz sequence based on a starting integer." << std::endl;
-	std::cout << "... config        | Reloads the MIAConfig.txt file and prints the variables." << std::endl;
-	std::cout << "... crypt -d0s1   | Encrypts a string using the d0s1 algorithm." << std::endl;
-	std::cout << "... crypt -d0s2   | Encrypts a string using the d0s2 algorithm." << std::endl;
-	std::cout << "... decrypt -d0s1 | De-crypts a string using the d0s1 algorithm." << std::endl;
-	std::cout << "... decrypt -d0s2 | De-crypts a string using the d0s2 algorithm." << std::endl;
-	std::cout << "... digitsum      | Returns the sum of the digits within an integer of any size." << std::endl;
-	std::cout << "... error info    | Returns information regarding an error code." << std::endl;
-	std::cout << "... error info -a | Returns information regarding all error codes." << std::endl;
-	std::cout << "... eyedropper    | Returns the RGB value of the pixel located at the cursor." << std::endl;
-	std::cout << "... factors       | Returns the number of factors within an integer." << std::endl;
-	std::cout << "... find mouse    | Finds/Returns the coordinates of the mouse after 5 seconds." << std::endl;
-	std::cout << "... fishbot       | A working and configurable WoW fishbot." << std::endl;
-	std::cout << "... lattice       | Returns lattice paths to the farthest corner of an NxM grid." << std::endl;
-	std::cout << "... mc dig        | Simulates key strokes for continuous Minecraft digging." << std::endl;
-	std::cout << "... mc explore    | Explores a Minecraft map using the minecraft /tp command." << std::endl;
-	std::cout << "... multiply      | Multiplies two integers of any length." << std::endl;
-	std::cout << "... net -help     | Displays net functions available within MIA." << std::endl;
-	std::cout << "... palindrome    | Determines if a positive integer is palindrome." << std::endl;
-	std::cout << "... prime -help   | Displays help defaults for prime functions." << std::endl;
-	std::cout << "... quadratic form| Calculates a solution to a*x^2+b*x+c=0." << std::endl;
-	std::cout << "... randfromfile  | Prints a number of random lines from a text file." << std::endl;
-	std::cout << "... subtract      | Finds the difference between two integers of any length." << std::endl;
-	std::cout << "... triangle      | Determines if a number is a triangle number or not." << std::endl;
-	std::cout << "... workout       | Generates a workout from the values defined in workouts.txt." << std::endl;
-	std::cout << "... workout -w    | Generates a weekly workout and outputs it to a file." << std::endl;
-	std::cout << "... wow dup letter| Duplicates a letter in WoW a specified number of times." << std::endl;
-	std::cout << "... wow unload    | Unloads a number of letters from the WoW inbox." << std::endl;
-	std::cout << "... exit          | Quits MIA. " << std::endl;
+	cout << "... help          | Displays a valid lists of commands." << endl;
+	cout << "... add           | Adds two positive integers of any length. " << endl;
+	cout << "... button spam   | Spams a specified button (key press)." << endl;
+	cout << "... button spam -t| Spams a specified button (key press) separated by tabs." << endl;
+	cout << "... collatz       | Produces a collatz sequence based on a starting integer." << endl;
+	cout << "... config        | Reloads the MIAConfig.txt file and prints the variables." << endl;
+	cout << "... crypt -d0s1   | Encrypts a string using the d0s1 algorithm." << endl;
+	cout << "... crypt -d0s2   | Encrypts a string using the d0s2 algorithm." << endl;
+	cout << "... decrypt -d0s1 | De-crypts a string using the d0s1 algorithm." << endl;
+	cout << "... decrypt -d0s2 | De-crypts a string using the d0s2 algorithm." << endl;
+	cout << "... digitsum      | Returns the sum of the digits within an integer of any size." << endl;
+	cout << "... error info    | Returns information regarding an error code." << endl;
+	cout << "... error info -a | Returns information regarding all error codes." << endl;
+	cout << "... eyedropper    | Returns the RGB value of the pixel located at the cursor." << endl;
+	cout << "... factors       | Returns the number of factors within an integer." << endl;
+	cout << "... find mouse    | Finds/Returns the coordinates of the mouse after 5 seconds." << endl;
+	cout << "... fishbot       | A working and configurable WoW fishbot." << endl;
+	cout << "... lattice       | Returns lattice paths to the farthest corner of an NxM grid." << endl;
+	cout << "... mc dig        | Simulates key strokes for continuous Minecraft digging." << endl;
+	cout << "... mc explore    | Explores a Minecraft map using the minecraft /tp command." << endl;
+	cout << "... multiply      | Multiplies two integers of any length." << endl;
+	cout << "... net -help     | Displays net functions available within MIA." << endl;
+	cout << "... palindrome    | Determines if a positive integer is palindrome." << endl;
+	cout << "... prime -help   | Displays help defaults for prime functions." << endl;
+	cout << "... quadratic form| Calculates a solution to a*x^2+b*x+c=0." << endl;
+	cout << "... randfromfile  | Prints a number of random lines from a text file." << endl;
+	cout << "... subtract      | Finds the difference between two integers of any length." << endl;
+	cout << "... triangle      | Determines if a number is a triangle number or not." << endl;
+	cout << "... workout       | Generates a workout from the values defined in workouts.txt." << endl;
+	cout << "... workout -w    | Generates a weekly workout and outputs it to a file." << endl;
+	cout << "... wow dup letter| Duplicates a letter in WoW a specified number of times." << endl;
+	cout << "... wow unload    | Unloads a number of letters from the WoW inbox." << endl;
+	cout << "... exit          | Quits MIA. " << endl;
 }
 
 //Provides information regarding the prime number functions
 void Program::helpPrime(){
-	std::cout << "... A list of various valid commands and a brief summary.                  ..." << std::endl;
-	std::cout << "... Commands are NOT case sensitive.                                       ..." << std::endl;
+	cout << "... A list of various valid commands and a brief summary.                  ..." << endl;
+	cout << "... Commands are NOT case sensitive.                                       ..." << endl;
 	blankDots();
-	std::cout << "... prime         | Determines if a positive integer is prime or not." << std::endl;
-	std::cout << "... prime -f      | Determines all of the prime factors of a positive integer." << std::endl;
-	std::cout << "... prime -n      | Calculates the n'th prime number up to a max of 2147483647." << std::endl;
-	std::cout << "... prime -n -p   | Creates a file of prime #'s up to a max of 2147483647." << std::endl;
-	std::cout << "... prime -n -c   | Clears the file created by 'prime -n -p'." << std::endl;
+	cout << "... prime         | Determines if a positive integer is prime or not." << endl;
+	cout << "... prime -f      | Determines all of the prime factors of a positive integer." << endl;
+	cout << "... prime -n      | Calculates the n'th prime number up to a max of 2147483647." << endl;
+	cout << "... prime -n -p   | Creates a file of prime #'s up to a max of 2147483647." << endl;
+	cout << "... prime -n -c   | Clears the file created by 'prime -n -p'." << endl;
 }
 
 void Program::helpNet(){
-	std::cout << "... A list of various valid commands and a brief summary.                  ..." << std::endl;
-	std::cout << "... Commands are NOT case sensitive.                                       ..." << std::endl;
+	cout << "... A list of various valid commands and a brief summary.                  ..." << endl;
+	cout << "... Commands are NOT case sensitive.                                       ..." << endl;
 	blankDots();
-	std::cout << "... net session   | Provides info about sessions established on a server." << std::endl;
-	std::cout << "... net server -s | Lists all servers that are visible in a domain." << std::endl;
-	std::cout << "... net server -w | Lists all workstations that are visible in a domain." << std::endl;
-	//std::cout << "... net wkst      | Returns info about the configuration of a workstation." << std::endl;
-	//std::cout << "... net remote    | Retrieves the optional features a remote system supports." << std::endl;
-	//std::cout << "... net user      | Retrieves information about all user accounts on a server." << std::endl;
-	//std::cout << "... net user -i   | Retrieves information about a user account on a server." << std::endl;
-	//std::cout << "... net modals    | Retrieves global information for all users and global groups." << std::endl;
-	//std::cout << "... net display   | Returns computer, or group account information." << std::endl;
+	cout << "... net session   | Provides info about sessions established on a server." << endl;
+	cout << "... net server -s | Lists all servers that are visible in a domain." << endl;
+	cout << "... net server -w | Lists all workstations that are visible in a domain." << endl;
+	//cout << "... net wkst      | Returns info about the configuration of a workstation." << endl;
+	//cout << "... net remote    | Retrieves the optional features a remote system supports." << endl;
+	//cout << "... net user      | Retrieves information about all user accounts on a server." << endl;
+	//cout << "... net user -i   | Retrieves information about a user account on a server." << endl;
+	//cout << "... net modals    | Retrieves global information for all users and global groups." << endl;
+	//cout << "... net display   | Returns computer, or group account information." << endl;
 }
 
 //Prints a random excuse some percentage of the time.
 bool Program::excuse(){
 	int random = randomInt(1,100, 0, true);
-	std::string txt;
+	string txt;
 	
 	if (random >= 20){	
 		blankLine();
-		std::cout << "...Sorry, I can't do that (Invalid command entered). " << std::endl;
+		cout << "...Sorry, I can't do that (Invalid command entered). " << endl;
 		
 		txt = getRandomLineOfFile(excuseFilePath);
-		std::cout << "..." << txt << std::endl;
+		cout << "..." << txt << endl;
 		return true;		
 	}
 	return false;
 }
 
 //Returns the random line of a specified text file.
-std::string Program::getRandomLineOfFile(std::string fileName){
+string Program::getRandomLineOfFile(string fileName){
 	int counter = 0;
-	std::string output;
-	std::ifstream file(fileName);
+	string output;
+	ifstream file(fileName);
 	
 	while (getline(file, output)){
 		counter++;			
 	}
 	file.close();
 	
-	std::ifstream file2(fileName);
+	ifstream file2(fileName);
 	int random = randomInt(1,counter, 0, true);
 	counter = 0;
 	
@@ -742,15 +754,15 @@ std::string Program::getRandomLineOfFile(std::string fileName){
 //Informs the user of the help feature and asks for a command.
 void Program::helpMessage(){
 	blankDots();
-	std::cout << "... You can type 'help' for a list of valid commands.                      ..." << std::endl;
-	std::cout << "... Please enter a command.                                                ..." << std::endl;
+	cout << "... You can type 'help' for a list of valid commands.                      ..." << endl;
+	cout << "... Please enter a command.                                                ..." << endl;
 	blankDots();
 	blankLine();
 }
 
 //Prints a blank line.
 void Program::blankLine(){
-	std::cout << std::endl;
+	cout << endl;
 }
 
 //Main user interface for MIA.
@@ -762,7 +774,7 @@ void Program::terminal(){
 }
 
 //Returns the Version number of MIA.
-std::string Program::getMIAVersion(){
+string Program::getMIAVersion(){
 	return VERSION;
 }
 
@@ -770,11 +782,11 @@ std::string Program::getMIAVersion(){
 int Program::randomInt(int min, int max, int seed, bool useTime){
 	if(max < min){
 		if(verboseMode)
-			std::cout << "...Max value smaller than min, adjusting appropriately by returning min." << std::endl;
+			cout << "...Max value smaller than min, adjusting appropriately by returning min." << endl;
 		return min;
 	}
 	if(verboseMode)
-		std::cout << "...Calculating random value between " << min << " and " << max << "." << std::endl;
+		cout << "...Calculating random value between " << min << " and " << max << "." << endl;
 	if(seed == 0){
 		srand((unsigned)time(0)); 
 	} else if (useTime){
@@ -784,13 +796,13 @@ int Program::randomInt(int min, int max, int seed, bool useTime){
 	}
 	int random = min + (rand() % static_cast<int>(max - min + 1));
 	if(verboseMode)
-		std::cout << "...random value is " << random << "." << std::endl;
+		cout << "...random value is " << random << "." << endl;
 	return random;
 }
 
 //A function used for testing.
 void Program::test(){
-    std::cout << "...Starting test." << std::endl;
+    cout << "...Starting test." << endl;
 	
 	Commands cmd;
 	cmd.test();
@@ -799,13 +811,13 @@ void Program::test(){
     MIAencrypt crypt(4);
     crypt.test();
 	crypt.encryptFile("C:\\Users\\torodean\\test.txt", "OutputFile");
-	//std::cout << "...No test function set. " << std:: endl;
+	//cout << "...No test function set. " << endl;
     */
-    std::cout << "...Finished test." << std::endl;
+    cout << "...Finished test." << endl;
 }
 
 //A function used to determine if an answer is equivalent to yes.
-bool Program::formOfYes(std::string input){
+bool Program::formOfYes(string input){
 	if (input == "y" || input == "Y" || input == "yes" || input == "Yes" || input == "YES"){
 		return true;
 	} else {
@@ -814,12 +826,12 @@ bool Program::formOfYes(std::string input){
 }
 
 //Returns defaultInputFilePath.
-std::string Program::getDefaultInputFilePath(){
+string Program::getDefaultInputFilePath(){
 	return defaultInputFilePath;
 }
 
 //Returns defaultCryptFilePath.
-std::string Program::getDefaultCryptFilePath(){
+string Program::getDefaultCryptFilePath(){
 	return defaultCryptFilePath;
 }
 
@@ -827,28 +839,28 @@ std::string Program::getDefaultCryptFilePath(){
 void Program::returnError(int errorCode){
 	switch(errorCode){
 		case 404: 
-			std::cout << "...ERROR 404: File not found." << std::endl;
+			cout << "...ERROR 404: File not found." << endl;
 			break;
 		case 31403:
-			std::cout << "...ERROR 31403: MIAsettings file not found." << std::endl;
+			cout << "...ERROR 31403: MIAsettings file not found." << endl;
 			break;
 		case 31404:
-			std::cout << "...ERROR 31404: FATAL: File not found." << std::endl;
+			cout << "...ERROR 31404: FATAL: File not found." << endl;
 			break;
 		case 31415:
-			std::cout << "...ERROR 31415: Function still in Development." << std::endl;
+			cout << "...ERROR 31415: Function still in Development." << endl;
 			break;
 		case 31416:
-			std::cout << "...ERROR 31416: This feature is currently only programmed for Windows." << std::endl;
+			cout << "...ERROR 31416: This feature is currently only programmed for Windows." << endl;
 			break;
 		case 31417:
-			std::cout << "...ERROR 31417: Invalid Option in MIAConfig. Using default value." << std::endl;
+			cout << "...ERROR 31417: Invalid Option in MIAConfig. Using default value." << endl;
 			break;
 		case 31418:
-			std::cout << "...ERROR 31418: Nothing set for testing." << std::endl;
+			cout << "...ERROR 31418: Nothing set for testing." << endl;
 			break;
 		default:
-			std::cout << "...ERROR: A catastrophic Failure Occurred." << std::endl;
+			cout << "...ERROR: A catastrophic Failure Occurred." << endl;
 			break;
 	}
 }
@@ -859,9 +871,9 @@ void Program::errorInfoRun(bool all){
 	if(all){
 		errorInfo(-1);
 	} else {
-		std::cout << "...Please enter an error code: ";
-		std::cin >> error;
-		std::cin.ignore();
+		cout << "...Please enter an error code: ";
+		cin >> error;
+		cin.ignore();
 		errorInfo(error);
 	}
 }
@@ -871,92 +883,92 @@ void Program::errorInfo(int error){
 	blankDots();
 	switch(error){
 		case 0:
-			std::cout << "...0: ERROR_SUCCESS - The operation completed successfully." << std::endl;
+			cout << "...0: ERROR_SUCCESS - The operation completed successfully." << endl;
 			break;
 		case 5:
-			std::cout << "...5: ERROR_ACCESS_DENIED" << std::endl;
+			cout << "...5: ERROR_ACCESS_DENIED" << endl;
 			break;
 		case 31:
-			std::cout << "...31: ERROR_GEN_FAILURE - A device attached to the system is not functioning." << std::endl;
+			cout << "...31: ERROR_GEN_FAILURE - A device attached to the system is not functioning." << endl;
 			break;
 		case 53:
-			std::cout << "...53: ERROR_BAD_NETPATH - The network path was not found." << std::endl;
+			cout << "...53: ERROR_BAD_NETPATH - The network path was not found." << endl;
 			break;
 		case 87:
-			std::cout << "...87: ERROR_INVALID_PARAMETER - The parameter is incorrect." << std::endl;
+			cout << "...87: ERROR_INVALID_PARAMETER - The parameter is incorrect." << endl;
 			break;
 		case 124:
-			std::cout << "...124: ERROR_INVALID_LEVEL - The system call level is not correct." << std::endl;
+			cout << "...124: ERROR_INVALID_LEVEL - The system call level is not correct." << endl;
 			break;
 		case 404: 
-			std::cout << "...404: File not found." << std::endl;
+			cout << "...404: File not found." << endl;
 			break;
 		case 1326:
-			std::cout << "...1326: ERROR_LOGON_FAILURE - The user name or password is incorrect." << std::endl;
+			cout << "...1326: ERROR_LOGON_FAILURE - The user name or password is incorrect." << endl;
 			break;
 		case 1722:
-			std::cout << "...1722: RPC_S_SERVER_UNAVAILABLE - The RPC server is unavailable." << std::endl;
+			cout << "...1722: RPC_S_SERVER_UNAVAILABLE - The RPC server is unavailable." << endl;
 			break;
 		case 2221:
-			std::cout << "...2221: NERR_UserNotFound - The user name could not be found." << std::endl;
+			cout << "...2221: NERR_UserNotFound - The user name could not be found." << endl;
 			break;
 		case 6118:
-			std::cout << "...6118: ERROR_NO_BROWSER_SERVERS_FOUND" << std::endl;
-			std::cout << "...    - The list of servers for this workgroup is not currently available." << std::endl;
+			cout << "...6118: ERROR_NO_BROWSER_SERVERS_FOUND" << endl;
+			cout << "...    - The list of servers for this workgroup is not currently available." << endl;
 			break;
 		case 31403:
-			std::cout << "...31403: MIAsettings file not found." << std::endl;
+			cout << "...31403: MIAsettings file not found." << endl;
 			break;
 		case 31404:
-			std::cout << "...31404: FATAL: File not found." << std::endl;
+			cout << "...31404: FATAL: File not found." << endl;
 			break;
 		case 31415:
-			std::cout << "...31415: Function still in Development." << std::endl;
+			cout << "...31415: Function still in Development." << endl;
 			break;
 		case 31416:
-			std::cout << "...31416: This feature is currently only programmed for Windows." << std::endl;
+			cout << "...31416: This feature is currently only programmed for Windows." << endl;
 			break;
 		case 31417:
-			std::cout << "...31417: Invalid Option in MIAConfig. Using default value." << std::endl;
+			cout << "...31417: Invalid Option in MIAConfig. Using default value." << endl;
 			break;
 		case 31418:
-			std::cout << "...31418: Nothing set for testing." << std::endl;
+			cout << "...31418: Nothing set for testing." << endl;
 			break;
 		default:
-			std::cout << "...Invalid or unknown error code entered." << std::endl;
-			std::cout << "...Full List of programmed error codes follow." << std::endl;
+			cout << "...Invalid or unknown error code entered." << endl;
+			cout << "...Full List of programmed error codes follow." << endl;
 			blankDots();
-			std::cout << "...UNKNOWN: A catastrophic Failure Occurred." << std::endl;
-			std::cout << "...0: ERROR_SUCCESS - The operation completed successfully." << std::endl;
-			std::cout << "...5: ERROR_ACCESS_DENIED" << std::endl;
-			std::cout << "...31: ERROR_GEN_FAILURE - A device attached to the system is not functioning." << std::endl;
-			std::cout << "...53: ERROR_BAD_NETPATH - The network path was not found." << std::endl;
-			std::cout << "...87: ERROR_INVALID_PARAMETER - The parameter is incorrect." << std::endl;
-			std::cout << "...124: ERROR_INVALID_LEVEL - The system call level is not correct." << std::endl;
-			std::cout << "...404: File not found." << std::endl;
-			std::cout << "...1326: ERROR_LOGON_FAILURE - The user name or password is incorrect." << std::endl;
-			std::cout << "...1722: RPC_S_SERVER_UNAVAILABLE - The RPC server is unavailable." << std::endl;
-			std::cout << "...2221: NERR_UserNotFound - The user name could not be found." << std::endl;
-			std::cout << "...6118: ERROR_NO_BROWSER_SERVERS_FOUND" << std::endl;
-			std::cout << "...    - The list of servers for this workgroup is not currently available." << std::endl;
-			std::cout << "...31403: MIAsettings file not found." << std::endl;
-			std::cout << "...31404: FATAL: File not found." << std::endl;
-			std::cout << "...31415: Function still in Development." << std::endl;
-			std::cout << "...31416: This feature is currently only programmed for Windows." << std::endl;
-			std::cout << "...31417: Invalid Option in MIAConfig. Using default value." << std::endl;
-			std::cout << "...31418: Nothing set for testing." << std::endl;
+			cout << "...UNKNOWN: A catastrophic Failure Occurred." << endl;
+			cout << "...0: ERROR_SUCCESS - The operation completed successfully." << endl;
+			cout << "...5: ERROR_ACCESS_DENIED" << endl;
+			cout << "...31: ERROR_GEN_FAILURE - A device attached to the system is not functioning." << endl;
+			cout << "...53: ERROR_BAD_NETPATH - The network path was not found." << endl;
+			cout << "...87: ERROR_INVALID_PARAMETER - The parameter is incorrect." << endl;
+			cout << "...124: ERROR_INVALID_LEVEL - The system call level is not correct." << endl;
+			cout << "...404: File not found." << endl;
+			cout << "...1326: ERROR_LOGON_FAILURE - The user name or password is incorrect." << endl;
+			cout << "...1722: RPC_S_SERVER_UNAVAILABLE - The RPC server is unavailable." << endl;
+			cout << "...2221: NERR_UserNotFound - The user name could not be found." << endl;
+			cout << "...6118: ERROR_NO_BROWSER_SERVERS_FOUND" << endl;
+			cout << "...    - The list of servers for this workgroup is not currently available." << endl;
+			cout << "...31403: MIAsettings file not found." << endl;
+			cout << "...31404: FATAL: File not found." << endl;
+			cout << "...31415: Function still in Development." << endl;
+			cout << "...31416: This feature is currently only programmed for Windows." << endl;
+			cout << "...31417: Invalid Option in MIAConfig. Using default value." << endl;
+			cout << "...31418: Nothing set for testing." << endl;
 			break;
 	}
 }
 
 //Returns the date for today.
-std::string Program::today(){
+string Program::today(){
 	std::time_t t = std::time(0);   // get time now
     std::tm* now = std::localtime(&t);
-	std::string month = std::to_string(now->tm_mon + 1);
-	std::string day = std::to_string(now->tm_mday);
-	std::string year = std::to_string(now->tm_year + 1900);
-    std::string todaysDate =  month + "-" + day + "-" + year;
+	string month = to_string(now->tm_mon + 1);
+	string day = to_string(now->tm_mday);
+	string year = to_string(now->tm_year + 1900);
+    string todaysDate =  month + "-" + day + "-" + year;
 	return todaysDate;
 }
 

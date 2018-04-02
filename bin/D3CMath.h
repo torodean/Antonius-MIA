@@ -13,7 +13,8 @@
 #ifndef D3CMath_H_
 #define D3CMath_H_
 
-namespace std {
+using std::string;
+using std::vector;
 
 class D3CMath {
 	private:
@@ -50,7 +51,5 @@ class D3CMath {
 		//unsigned long binaryStrToInt(std::string input, int bits);
 		virtual ~D3CMath();
 };
-
-} /* namespace std */
 
 #endif /* D3CMath_H_ */

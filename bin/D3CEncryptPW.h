@@ -13,17 +13,19 @@
 #include <string>
 #include <vector>
 
+using std::string;
+
 class D3CEncryptPW{
 	public:
 		D3CEncryptPW();
 		~D3CEncryptPW();
-		std::string EncryptPW(std::string message, std::string password);
-		std::string DecryptPW(std::string message, std::string password);
-		std::vector<int> stringToVector(std::string a);
-		std::string PWRepeat(std::string PW, int PWR, int PWM);
-		std::string PWmessageCombine(std::string message, std::string PW);
-		std::string PWmessageUnCombine(std::string message, std::string PW);
-		std::string invertString(std::string str);
+		string EncryptPW(string message, string password);
+		string DecryptPW(string message, string password);
+		std::vector<int> stringToVector(string a);
+		string PWRepeat(string PW, int PWR, int PWM);
+		string PWmessageCombine(string message, string PW);
+		string PWmessageUnCombine(string message, string PW);
+		string invertString(string str);
 };
 
 #endif // D3CENCRYPTPW_H

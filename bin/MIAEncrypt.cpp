@@ -14,8 +14,20 @@
 #include <vector>
 #include <fstream>
 
+using std::vector;
+using std::cout;
+using std::string;
+using std::cin;
+using std::endl;
+using std::ifstream;
+using std::ofstream;
+using std::ios;
+using std::copy;
+using std::istreambuf_iterator;
+using std::ostreambuf_iterator;
+
 //Main constructor for the MIAEncrypt algorithm.
-MIAEncrypt::MIAEncrypt(int cSize): cubeSize(cSize), intCube(cubeSize, std::vector<std::vector<int>>(cubeSize, std::vector<int>(cubeSize, 0) ) ), 
+MIAEncrypt::MIAEncrypt(int cSize): cubeSize(cSize), intCube(cubeSize, vector<vector<int>>(cubeSize, vector<int>(cubeSize, 0) ) ), 
 		tesseract(8, intCube), totalRotations(3*2*cubeSize), combination(totalRotations, 0){
 	//When Chuck Norris's code fails to compile, the computer apologizes.
 }
@@ -30,7 +42,7 @@ MIAEncrypt::~MIAEncrypt(){
 //==================================================
 
 void MIAEncrypt::test(){
-	std::vector< std::vector< std::vector<int>>> testCube = intCube;
+	vector< vector< vector<int>>> testCube = intCube;
 	for(int i=0;i<cubeSize;i++){
 		for(int j=0;j<cubeSize;j++){
 			  for(int k=0;k<cubeSize;k++){
@@ -42,7 +54,7 @@ void MIAEncrypt::test(){
 		
 	/* Tests the rotations. //All work!
 	
-	std::vector< std::vector< std::vector<int>>> testCube = intCube;
+	vector< vector< vector<int>>> testCube = intCube;
 	for(int i=0;i<cubeSize;i++){
 		for(int j=0;j<cubeSize;j++){
 			  for(int k=0;k<cubeSize;k++){
@@ -52,10 +64,10 @@ void MIAEncrypt::test(){
 	}
 	printCube(testCube);
 	
-	std::string input = "";
-	std::cout << "Enter a rotation (format == side(char) index(int) CW(bool)): ";
+	string input = "";
+	cout << "Enter a rotation (format == side(char) index(int) CW(bool)): ";
 	
-	getline(std::cin, input);
+	getline(cin, input);
 	while(input != "exit"){
 		if(input == "z 0 1"){
 			testCube = rotation(testCube, 'z', 0, 1);
@@ -84,21 +96,21 @@ void MIAEncrypt::test(){
 		}
 		printCube(testCube);
 		
-		std::cout << std::endl << "Enter a rotation (format == side(char) index(int) CW(bool)): ";
-		getline(std::cin, input);
+		cout << endl << "Enter a rotation (format == side(char) index(int) CW(bool)): ";
+		getline(cin, input);
 	}
 	
 	*/ //All work!
 	
 	/* Tests the combination -> integer process. //All works!
-	std::cout  << totalRotations << std::endl;
+	cout  << totalRotations << endl;
 	for(int n=0; n<totalRotations; n++){
 		combination[n] = n;
-		std::cout << combination[n] << std::endl;
+		cout << combination[n] << endl;
 	}
 	
 	int rotations = combination.size();
-	std::cout  << rotations << std::endl;
+	cout  << rotations << endl;
 
 	
 	//initializes and sets the defauly rotation values. 	
@@ -136,7 +148,7 @@ void MIAEncrypt::test(){
 			index = combination[n]%cubeSize;
 		}
 		
-		std::cout << combination[n] << "   " << CW << "   " << side << "   " << index << std::endl;
+		cout << combination[n] << "   " << CW << "   " << side << "   " << index << endl;
 	}
 	*/ //All works!
 	
@@ -152,19 +164,19 @@ void MIAEncrypt::test(){
 	printCube(testCube);
 	*/ //All works!
 	
-	std::cout << "Starting test... " << std::endl;
+	cout << "Starting test... " << endl;
 	
-	std::vector<char> charTest = fileToCharVec("input.txt");
-	std::vector<int> intTest = charVecToIntVec(charTest);
+	vector<char> charTest = fileToCharVec("input.txt");
+	vector<int> intTest = charVecToIntVec(charTest);
 
 	
 	
-	std::cout << "Finished... " << std::endl;
+	cout << "Finished... " << endl;
 }
 
 //Rotates part of a intCube (side length n) while keeping one side constant in either a clockwize or counterclockwise direction.
-std::vector< std::vector< std::vector<int>>> MIAEncrypt::rotation(std::vector< std::vector< std::vector<int>>> inputCube, char side, int index, bool CW){
-	std::vector< std::vector< std::vector<int>>> cubeNew = inputCube;
+vector< vector< vector<int>>> MIAEncrypt::rotation(vector< vector< vector<int>>> inputCube, char side, int index, bool CW){
+	vector< vector< vector<int>>> cubeNew = inputCube;
 
 	if (side == 'x'){ //keep the x coordinate the same.
 		if(CW){ //clockwise.
@@ -214,31 +226,31 @@ std::vector< std::vector< std::vector<int>>> MIAEncrypt::rotation(std::vector< s
 }
 
 //Prints the components of a intCube in a format assuming each element has the same length.
-void MIAEncrypt::printCube(std::vector< std::vector< std::vector<int>>> inputCube){	
-	std::cout << std::endl;
+void MIAEncrypt::printCube(vector< vector< vector<int>>> inputCube){	
+	cout << endl;
 	for(int k=cubeSize-1; k>=0; k--){
 		for(int j=cubeSize-1; j>=0; j--){
 			for(int s=0; s<k; s++){ //s determines the number of spacing between each intCube.
-				std::cout << "   ";
+				cout << "   ";
 			}
 			for(int i=0; i<cubeSize; i++){
-				std::cout << " " << inputCube[i][j][k] << " ";
+				cout << " " << inputCube[i][j][k] << " ";
 			}
-			std::cout << std::endl;
+			cout << endl;
 		}
 	}
-	std::cout << std::endl;
+	cout << endl;
 }
 
 //Scrambles a intCube According to the combination integer entered.
-std::vector< std::vector< std::vector<int>>> MIAEncrypt::scrambleCube(std::vector< std::vector< std::vector<int>>> inputCube, std::vector<int> combination){	
+vector< vector< vector<int>>> MIAEncrypt::scrambleCube(vector< vector< vector<int>>> inputCube, vector<int> combination){	
 	//initializes and sets the defauly rotation values. 	
 	char side = 'x';
 	bool CW = 1;
 	int index = 0;
 	int temp = 0;
 	
-	std::vector< std::vector< std::vector<int>>> cubeNew = inputCube;
+	vector< vector< vector<int>>> cubeNew = inputCube;
 
 	for(int n=0; n<totalRotations; n++){		
 		//determines the side of the intCube to rotate.
@@ -276,14 +288,14 @@ std::vector< std::vector< std::vector<int>>> MIAEncrypt::scrambleCube(std::vecto
 }
 
 //Un-crambles a intCube According to the combination entered.
-std::vector< std::vector< std::vector<int>>> MIAEncrypt::unscrambleCube(std::vector< std::vector< std::vector<int>>> inputCube, std::vector<int> combination){
+vector< vector< vector<int>>> MIAEncrypt::unscrambleCube(vector< vector< vector<int>>> inputCube, vector<int> combination){
 	//initializes and sets the defauly rotation values. 	
 	char side = 'x';
 	bool CW = 1;
 	int index = 0;
 	int temp = 0;
 	
-	std::vector< std::vector< std::vector<int>>> cubeNew = inputCube;
+	vector< vector< vector<int>>> cubeNew = inputCube;
 	
 	for(int n=totalRotations-1; n>=0; n--){		
 		//determines the side of the intCube to rotate.
@@ -321,7 +333,7 @@ std::vector< std::vector< std::vector<int>>> MIAEncrypt::unscrambleCube(std::vec
 }
 
 //Converts a string passphrase to a vector of integers.
-void MIAEncrypt::passphraseToCombination(std::string passphrase){
+void MIAEncrypt::passphraseToCombination(string passphrase){
 	long total = 0;
 	int size = passphrase.size();
 	Program prog;
@@ -329,9 +341,9 @@ void MIAEncrypt::passphraseToCombination(std::string passphrase){
 	//sets the value of total.
 	for(int n=0; n<size; n++){
 		total += int(passphrase[n]);
-		//std::cout << int(passphrase[n]) << std::endl;
+		//cout << int(passphrase[n]) << endl;
 	}
-	//std::cout << total << std::endl;
+	//cout << total << endl;
 
 	//for larger passphrases, increase the rotations.
 	if(size > totalRotations){
@@ -341,7 +353,7 @@ void MIAEncrypt::passphraseToCombination(std::string passphrase){
 	//set's the first few moves to that of the passphrase.
 	for(int n=0; n<size; n++){
 		combination[n] = (int(passphrase[n])+total) % totalRotations;
-		std::cout << combination[n] << std::endl;
+		cout << combination[n] << endl;
 	}
 	
 	//set's the remaining combination slots.
@@ -349,64 +361,64 @@ void MIAEncrypt::passphraseToCombination(std::string passphrase){
 	for(int n=size;n<totalRotations; n++){
 		total += int(passphrase[n % size]);
 		randomInt = prog.randomInt(0, 1000000, total*total-n, false);
-		std::cout << randomInt << std::endl;
+		cout << randomInt << endl;
 		combination[n] = randomInt % totalRotations;
-		std::cout << combination[n] << std::endl;
+		cout << combination[n] << endl;
 	}
 }
 
 //Encrypts a file. NOT YET WORKING/FINISED.
-void MIAEncrypt::encryptFile(std::string file, std::string fileName){
+void MIAEncrypt::encryptFile(string file, string fileName){
 	Program prog;
-	std::string outputFile = prog.getDefaultCryptFilePath() + fileName + ".d0s3";
+	string outputFile = prog.getDefaultCryptFilePath() + fileName + ".d0s3";
 	
-	std::ifstream input( prog.getDefaultCryptFilePath()  + file, std::ios::binary );
-	std::ofstream output( outputFile, std::ios::binary );
+	ifstream input( prog.getDefaultCryptFilePath()  + file, ios::binary );
+	ofstream output( outputFile, ios::binary );
 	
 	/* Copy's a file to the output file - same file but different name.
-	std::copy(std::istreambuf_iterator<char>(input), 
-			  std::istreambuf_iterator<char>( ),
-			  std::ostreambuf_iterator<char>(output));
+	copy(istreambuf_iterator<char>(input), 
+			  istreambuf_iterator<char>( ),
+			  ostreambuf_iterator<char>(output));
 	*/	
 		
-	std::vector<char> buffer((std::istreambuf_iterator<char>(input)), 
-				 (std::istreambuf_iterator<char>()));
+	vector<char> buffer((istreambuf_iterator<char>(input)), 
+				 (istreambuf_iterator<char>()));
 	int size = buffer.size();
 	
 	/* Prints the data from the file. */
 	for(int i = 0; i < size; i++){
-		std::cout << buffer[i];
+		cout << buffer[i];
 	}
-	std::cout << std::endl;
+	cout << endl;
 	
-	std::string bufferString = "";
+	string bufferString = "";
 	for(int i=0; i<size; i++){
 		bufferString += buffer[i];
 	}
-	//std::cout << bufferString << std::endl;
+	//cout << bufferString << endl;
 }
 
 //Converts a text file to a vector of characters.
-std::vector<char> MIAEncrypt::fileToCharVec(std::string file){
+vector<char> MIAEncrypt::fileToCharVec(string file){
 	Program prog;
 	
-	std::ifstream input( prog.getDefaultCryptFilePath()  + file, std::ios::binary );
+	ifstream input( prog.getDefaultCryptFilePath()  + file, ios::binary );
 	
-	std::vector<char> charVec((std::istreambuf_iterator<char>(input)), (std::istreambuf_iterator<char>()));
+	vector<char> charVec((istreambuf_iterator<char>(input)), (istreambuf_iterator<char>()));
 	
 	int size = charVec.size();
 	/* Prints the data from the file. */
 	for(int i = 0; i < size; i++){
-		std::cout << charVec[i];
+		cout << charVec[i];
 	}
-	std::cout << std::endl;
+	cout << endl;
 	
 	return charVec;
 }
 
 //Converts a vector of characters to a vector of integers.
-std::vector<int> MIAEncrypt::charVecToIntVec(std::vector<char> charVec){
-	std::vector<int> intVec;
+vector<int> MIAEncrypt::charVecToIntVec(vector<char> charVec){
+	vector<int> intVec;
 	int charVecSize = charVec.size();
 	intVec.reserve(charVecSize);
 	for(int i=0; i<charVecSize; i++){
@@ -416,16 +428,16 @@ std::vector<int> MIAEncrypt::charVecToIntVec(std::vector<char> charVec){
 	/* Prints the data from the array. */
 	int intVecSize = intVec.size();
 	for(int i = 0; i < intVecSize; i++){
-		std::cout << intVec[i];
+		cout << intVec[i];
 	}
-	std::cout << std::endl;
+	cout << endl;
 	
 	return intVec;
 }
 
 //In development. 
-std::vector<bool> MIAEncrypt::intVecToBoolVec(std::vector<int> intVec){
-	std::vector<bool> boolVec;
+vector<bool> MIAEncrypt::intVecToBoolVec(vector<int> intVec){
+	vector<bool> boolVec;
 	
 	int intVecSize = intVec.size();
 	for(int i=0; i<intVecSize; i++){
@@ -437,8 +449,8 @@ std::vector<bool> MIAEncrypt::intVecToBoolVec(std::vector<int> intVec){
 }
 
 //In development. 
-std::vector< std::vector< std::vector<bool> > >	MIAEncrypt::boolVecToBoolCube(std::vector<bool> boolVec){
-	std::vector< std::vector< std::vector<bool> > > boolCube;
+vector< vector< vector<bool> > >	MIAEncrypt::boolVecToBoolCube(vector<bool> boolVec){
+	vector< vector< vector<bool> > > boolCube;
 	return boolCube;
 }
 

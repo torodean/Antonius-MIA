@@ -15,6 +15,17 @@
 #include <math.h> 
 #include "MIAMisc.h"
 
+using std::string;
+using std::cin;
+using std::ifstream;
+using std::cout;
+using std::vector;
+using std::getline;
+using std::endl;
+using std::random_shuffle;
+using std::ofstream;
+using std::to_string;
+using std::remove;
 
 //Main constructor for the Misc class.
 Misc::Misc(){
@@ -28,32 +39,32 @@ Misc::~Misc(){
 
 //Takes a file as an input and prints an input number of random lines from it. 
 void Misc::printRandomLinesFromFile(bool useDefaultPath, int numberOfLines){
-	std::string fileName;
-	std::string fullPath;
+	string fileName;
+	string fullPath;
 	
 	//Checks the user for where the file is located.
 	if (useDefaultPath){
-		std::cout << "...Please enter an input file: ";
-		getline(std::cin, fileName);
+		cout << "...Please enter an input file: ";
+		getline(cin, fileName);
 		fullPath = prog.getDefaultInputFilePath() + fileName;
 		prog.blankLine();
 	} else {
-		std::cout << "...Please enter an input file (full path included): ";
-		getline(std::cin, fileName);
+		cout << "...Please enter an input file (full path included): ";
+		getline(cin, fileName);
 		fullPath = fileName;
 		prog.blankLine();
 	}
 	
 	//grabs the file.
-	std::ifstream file(fullPath,std::ifstream::in);
+	ifstream file(fullPath,ifstream::in);
 	
 	//Checks if the file exists and runs the code.
 	if (file.good()){
-		std::string line;
-		std::vector<std::string> lines;
+		string line;
+		vector<string> lines;
 
-		while(std::getline(file,line)){
-			//std::cout << line << std::endl;
+		while(getline(file,line)){
+			//cout << line << endl;
 			lines.push_back(line);
 		}
 		
@@ -63,7 +74,7 @@ void Misc::printRandomLinesFromFile(bool useDefaultPath, int numberOfLines){
 		
 		for(int i=0; i<numberOfLines; i++){
 			randomNum = rand() % listSize;
-			std::cout << lines[randomNum] << std::endl;
+			cout << lines[randomNum] << endl;
 		}
 	} else {
 		prog.returnError(41404);
@@ -71,22 +82,22 @@ void Misc::printRandomLinesFromFile(bool useDefaultPath, int numberOfLines){
 }
 
 //Returns a shuffled string.
-std::string Misc::shuffleString(std::string input){
-	std::string output = input;
-	std::random_shuffle(output.begin(), output.end());
+string Misc::shuffleString(string input){
+	string output = input;
+	random_shuffle(output.begin(), output.end());
 	return output;
 }
 
 //Manages input file lines.
-std::string Misc::getBeforeEqualSign(std::string line){
+string Misc::getBeforeEqualSign(string line){
 	int equalSignLocation = prog.findEqualInString(line);
 	
 	if(prog.getVerboseMode())
-		std::cout << "...stringBeforeEqual: " << line.substr(0, equalSignLocation) << std::endl;
+		cout << "...stringBeforeEqual: " << line.substr(0, equalSignLocation) << endl;
 	
 	return line.substr(0, equalSignLocation);
 }
-std::string Misc::getBetweenEqualAndSemiColon(std::string line){
+string Misc::getBetweenEqualAndSemiColon(string line){
 	int equalSignLocation = prog.findEqualInString(line);
 	int semiColonLocation = prog.findSemiColonInString(line);
 	
@@ -95,21 +106,21 @@ std::string Misc::getBetweenEqualAndSemiColon(std::string line){
 	line = line.substr(equalSignLocation+1,line.size()-1);
 	
 	if(prog.getVerboseMode())
-		std::cout << "...stringBetweenEqualAndSemiColon: " << line << std::endl;
+		cout << "...stringBetweenEqualAndSemiColon: " << line << endl;
 	
 	return line;
 }
-std::string Misc::getAfterSemiColon(std::string line){
+string Misc::getAfterSemiColon(string line){
 	int semiColonLocation = prog.findSemiColonInString(line);
 	
 	if(prog.getVerboseMode())
-		std::cout << "...stringAfterSemiColon: " << line.substr(semiColonLocation+1,line.size()-1) << std::endl;
+		cout << "...stringAfterSemiColon: " << line.substr(semiColonLocation+1,line.size()-1) << endl;
 	
 	return line.substr(semiColonLocation+1,line.size()-1);
 }
 
 //convert input file line to proper format (doubles.
-double Misc::convertWorkoutWeight(std::string line){
+double Misc::convertWorkoutWeight(string line){
 	return stod(line);
 }
 
@@ -135,22 +146,22 @@ void Misc::generateWorkout(double difficulty, bool weekly){
 	
 	//Int to keep track of whether we need to generate a weekly workout or not.
 	int timesToGenerate = 1;
-	std::ofstream out;
+	ofstream out;
 	
 	
 	if(weekly){
-		std::string outputFile = prog.getWorkoutOutputFilePath();
+		string outputFile = prog.getWorkoutOutputFilePath();
 		
-		std::cout << "...Weekly workout generation loaded. " << std::endl;
-		std::cout << "...Workout will be output to '" << outputFile << "'" << std::endl;
+		cout << "...Weekly workout generation loaded. " << endl;
+		cout << "...Workout will be output to '" << outputFile << "'" << endl;
 		prog.blankDots();
 		
-		std::string outputFileText = "//============================================================================\n"
+		string outputFileText = "//============================================================================\n"
 		"// Name        : workout.txt                                                  \n"
 		"// Author      : MIA                                                          \n"
 		"// Created on  : " + prog.today() + "                                         \n"
 		"// Description : A daily generated workout via the MIA program (for one week).\n"
-		"// Difficulty  : " + std::to_string(difficulty) + "                           \n"
+		"// Difficulty  : " + to_string(difficulty) + "                           \n"
 		"//============================================================================\n\n";
 		
 		timesToGenerate = 7; //generate 7 workouts
@@ -159,47 +170,47 @@ void Misc::generateWorkout(double difficulty, bool weekly){
 	}
 	
 	prog.blankDots();
-	std::cout << "...Loading MIA workout generation. " << std::endl;
+	cout << "...Loading MIA workout generation. " << endl;
 	prog.blankDots();
 
 	//grabs the workouts file.
-	std::string fileName = prog.getWorkoutsFilePath();
-	std::ifstream file(fileName,std::ifstream::in);
+	string fileName = prog.getWorkoutsFilePath();
+	ifstream file(fileName,ifstream::in);
 	
 	//Checks if the file exists and gathers the variables.
 	if (file.good()){
-		std::string line;
-		std::vector<std::string> lines;
+		string line;
+		vector<string> lines;
 
 		//If true, print the workouts file.
 		if (prog.getVerboseMode()){
-			std::cout << std::endl << "...Workouts file output: " << std::endl;
+			cout << endl << "...Workouts file output: " << endl;
 		}
-		while(std::getline(file,line)){
+		while(getline(file,line)){
 			if (line[0] != '#' && line != "" && !line.empty() && line.size()>2){
 				if(prog.getVerboseMode()){
-					std::cout << line << std::endl;
+					cout << line << endl;
 				}
 				
 				//remove spaces from each line for processing
-				line.erase(std::remove(line.begin(), line.end(), ' '), line.end());
+				line.erase(remove(line.begin(), line.end(), ' '), line.end());
 				//removes end of line characters from variable name and value. Fixes a bug.
-				line.erase(std::remove(line.begin(), line.end(), '\r'), line.end()); 
-				line.erase(std::remove(line.begin(), line.end(), '\n'), line.end()); 
+				line.erase(remove(line.begin(), line.end(), '\r'), line.end()); 
+				line.erase(remove(line.begin(), line.end(), '\n'), line.end()); 
 				
 				lines.push_back(line);
 			}	
 		}
 		if(prog.getVerboseMode()){
-			std::cout << std::endl;
+			cout << endl;
 		}
 		if(prog.getVerboseMode())
-			std::cout << "...Finished reading in workouts file. " << std::endl;
+			cout << "...Finished reading in workouts file. " << endl;
 		
 		//Creates and stores workouts file/program variables.
-		std::vector<std::string> workoutName;
-		std::vector<double> workoutWeight;
-		std::vector<std::string> workoutUnit;
+		vector<string> workoutName;
+		vector<double> workoutWeight;
+		vector<string> workoutUnit;
 		int size = lines.size();
 		double toughness = 0.1;
 		double minNumOfExercises = 3.0;
@@ -211,7 +222,7 @@ void Misc::generateWorkout(double difficulty, bool weekly){
 		int numOfVariables = 5, variableCount = 0;
 		bool foundVar = false;
 		
-		std::string variable;
+		string variable;
 		int equalSignLocation;
 		
 		//Read the workouts input file and grab the variables.
@@ -222,29 +233,29 @@ void Misc::generateWorkout(double difficulty, bool weekly){
 			//Sets the toughness variable.
 			if(variable == "toughness"){
 				if(prog.getVerboseMode())
-					std::cout << "...toughness variable discovered. " << std::endl;
+					cout << "...toughness variable discovered. " << endl;
 				
 				equalSignLocation = prog.findEqualInString(lines[i]);
 				toughness = stod(lines[i].substr(equalSignLocation+1,lines[i].size()-1));
 			
 				if(prog.getVerboseMode())
-					std::cout << "...toughness: " << toughness << std::endl;
+					cout << "...toughness: " << toughness << endl;
 				foundVar = true;
 			//Sets the minNumOfExercises if one exists.
 			} else if(variable  == "minNumOfExercises"){
 				if(prog.getVerboseMode())
-					std::cout << "...minNumOfExercises variable discovered. " << std::endl;
+					cout << "...minNumOfExercises variable discovered. " << endl;
 				
 				equalSignLocation = prog.findEqualInString(lines[i]);
 				minNumOfExercises = stod(lines[i].substr(equalSignLocation+1,lines[i].size()-1));
 			
 				if(prog.getVerboseMode())
-					std::cout << "...minNumOfExercises: " << (int)minNumOfExercises << std::endl;
+					cout << "...minNumOfExercises: " << (int)minNumOfExercises << endl;
 				foundVar = true;
 			//Sets the maxNumOfExercises if one exists.
 			} else if(variable  == "maxNumOfExercises"){
 				if(prog.getVerboseMode())
-					std::cout << "...maxNumOfExercises variable discovered. " << std::endl;
+					cout << "...maxNumOfExercises variable discovered. " << endl;
 				
 				equalSignLocation = prog.findEqualInString(lines[i]);
 				if(lines[i].substr(equalSignLocation+1,lines[i].size()-1) != "inf"){
@@ -252,23 +263,23 @@ void Misc::generateWorkout(double difficulty, bool weekly){
 				}
 			
 				if(prog.getVerboseMode())
-					std::cout << "...maxNumOfExercises: " << (int)maxNumOfExercises << std::endl;
+					cout << "...maxNumOfExercises: " << (int)maxNumOfExercises << endl;
 				foundVar = true;
 			//Sets the minNumOfSets if one exists.
 			} else if(variable  == "minNumOfSets"){
 				if(prog.getVerboseMode())
-					std::cout << "...minNumOfSets variable discovered. " << std::endl;
+					cout << "...minNumOfSets variable discovered. " << endl;
 				
 				equalSignLocation = prog.findEqualInString(lines[i]);
 				minNumOfSets = stod(lines[i].substr(equalSignLocation+1,lines[i].size()-1));
 			
 				if(prog.getVerboseMode())
-					std::cout << "...minNumOfSets: " << (int)minNumOfSets << std::endl;
+					cout << "...minNumOfSets: " << (int)minNumOfSets << endl;
 				foundVar = true;
 			//Sets the maxNumOfSets variable if one was found.
 			} else if(variable  == "maxNumOfSets"){
 				if(prog.getVerboseMode())
-					std::cout << "...maxNumOfSets variable discovered. " << std::endl;
+					cout << "...maxNumOfSets variable discovered. " << endl;
 				
 				equalSignLocation = prog.findEqualInString(lines[i]);
 				if(lines[i].substr(equalSignLocation+1,lines[i].size()-1) != "inf"){
@@ -276,7 +287,7 @@ void Misc::generateWorkout(double difficulty, bool weekly){
 				}
 			
 				if(prog.getVerboseMode())
-					std::cout << "...maxNumOfSets: " << (int)maxNumOfSets << std::endl;
+					cout << "...maxNumOfSets: " << (int)maxNumOfSets << endl;
 				foundVar = true;
 			}
 			
@@ -299,14 +310,14 @@ void Misc::generateWorkout(double difficulty, bool weekly){
 			workoutUnit.push_back( getAfterSemiColon(lines[i]) );
 			
 			if(prog.getVerboseMode()){
-				std::cout << "...Printing values set. " << std::endl;
-				std::cout << workoutName[i] << ": ";
-				std::cout << workoutWeight[i] << " ";
-				std::cout << workoutUnit[i] << std::endl;
+				cout << "...Printing values set. " << endl;
+				cout << workoutName[i] << ": ";
+				cout << workoutWeight[i] << " ";
+				cout << workoutUnit[i] << endl;
 			}
 		}
 		
-		std::cout << "...Running workout generation. " << std::endl;
+		cout << "...Running workout generation. " << endl;
 		
 		int randCounter = 1; //For changing random integers between calls.
 		
@@ -318,31 +329,31 @@ void Misc::generateWorkout(double difficulty, bool weekly){
 			} else if(timesToGenerate == 7){
 				out << "##############\n"
 						"### SUNDAY ###\n"
-						"##############" << std::endl << std::endl;
+						"##############" << endl << endl;
 			} else if(timesToGenerate == 6){
 				out << "##############\n"
 						"### MONDAY ###\n"
-						"##############" << std::endl << std::endl;
+						"##############" << endl << endl;
 			} else if(timesToGenerate == 5){
 				out << "###############\n"
 						"### TUESDAY ###\n"
-						"###############" << std::endl << std::endl;
+						"###############" << endl << endl;
 			} else if(timesToGenerate == 4){
 				out << "#################\n"
 						"### WEDNESDAY ###\n"
-						"#################" << std::endl << std::endl;
+						"#################" << endl << endl;
 			} else if(timesToGenerate == 3){
 				out << "################\n"
 						"### THURSDAY ###\n"
-						"################" << std::endl << std::endl;
+						"################" << endl << endl;
 			} else if(timesToGenerate == 2){
 				out << "##############\n"
 						"### FRIDAY ###\n"
-						"##############" << std::endl << std::endl;
+						"##############" << endl << endl;
 			} else if(timesToGenerate == 1){
 				out << "################\n"
 						"### SATURDAY ###\n"
-						"################" << std::endl << std::endl;
+						"################" << endl << endl;
 			}
 			
 			//Calculates workout routine
@@ -366,17 +377,17 @@ void Misc::generateWorkout(double difficulty, bool weekly){
 			int numOfSets = prog.randomInt((int)minNumOfSetsModifier,(int)maxNumOfSetsModifier,randCounter, true);
 			
 			if(prog.getVerboseMode()){
-				std::cout << "...numOfSets: " << numOfSets << std::endl;
+				cout << "...numOfSets: " << numOfSets << endl;
 			}
 			if(weekly){
-				out << "...Number of sets: " << numOfSets << std::endl << std::endl;
+				out << "...Number of sets: " << numOfSets << endl << endl;
 			} else {
-				std::cout << "...Number of sets: " << numOfSets << std::endl;
+				cout << "...Number of sets: " << numOfSets << endl;
 				prog.blankLine();
 			}
 			
 			//declares some needed variables.
-			std::vector<bool> workoutChosen;
+			vector<bool> workoutChosen;
 			for(int i=0; i<size-numOfVariables; i++){
 				workoutChosen.push_back(false);
 			}
@@ -389,9 +400,9 @@ void Misc::generateWorkout(double difficulty, bool weekly){
 			while (numOfSets > 0){
 				randCounter++;
 				if(weekly){ //prints results.
-					out << "...Workout for set " << set << "." << std::endl << std::endl;
+					out << "...Workout for set " << set << "." << endl << endl;
 				} else {
-					std::cout << "...Workout for set " << set << "." << std::endl;
+					cout << "...Workout for set " << set << "." << endl;
 					prog.blankLine();
 				}
 
@@ -422,17 +433,17 @@ void Misc::generateWorkout(double difficulty, bool weekly){
 						if(workoutName[i] != "running"){
 							repsModifier = prog.randomInt((int)repsMin, (int)repsMax, randCounter, true);
 							if(weekly){ //prints results.
-								out << workoutName[i] << ": " << (int)repsModifier+1 << " " << workoutUnit[i] << std::endl;
+								out << workoutName[i] << ": " << (int)repsModifier+1 << " " << workoutUnit[i] << endl;
 							} else {
-								std::cout << workoutName[i] << ": " << (int)repsModifier+1 << " " << workoutUnit[i] << std::endl;
+								cout << workoutName[i] << ": " << (int)repsModifier+1 << " " << workoutUnit[i] << endl;
 							}
 						} else {
 							repsModifier = prog.randomInt((int)(repsMin*100.0), (int)(repsMax*100.0), randCounter, true);
 							repsModifier /= 100;
 							if(weekly){ //prints results.
-								out << workoutName[i] << ": " << repsModifier << " " << workoutUnit[i] << std::endl;
+								out << workoutName[i] << ": " << repsModifier << " " << workoutUnit[i] << endl;
 							} else {
-								std::cout << workoutName[i] << ": " << repsModifier << " " << workoutUnit[i] << std::endl;
+								cout << workoutName[i] << ": " << repsModifier << " " << workoutUnit[i] << endl;
 							}
 						}
 					}
@@ -440,26 +451,26 @@ void Misc::generateWorkout(double difficulty, bool weekly){
 				set++;
 				numOfSets--;
 				if(weekly){ //prints results.
-					out << std::endl;
+					out << endl;
 				} else {
 					prog.blankLine();
 				}
 			}
 			if(difficulty == 0.0){
 				if(weekly){ //prints results.
-					out << "rest: 45 minutes" << std::endl;
+					out << "rest: 45 minutes" << endl;
 				} else {
-					std::cout << "rest: 45 minutes" << std::endl;
+					cout << "rest: 45 minutes" << endl;
 				}
 			}
 			if (weekly){ //prints results.
-				out << std::endl;
+				out << endl;
 			} else {
 				prog.blankLine();
 			}
 			timesToGenerate--;
 		}
-		std::cout << "...Workout generation completed." << std::endl;
+		cout << "...Workout generation completed." << endl;
 	} else {
 		if (prog.getVerboseMode())
 			prog.returnError(31404);
