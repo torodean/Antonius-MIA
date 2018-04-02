@@ -22,7 +22,7 @@
 # Put these variable before all defined exercises.
 toughness = 0.1
 minNumOfWorkouts = 3.0
-maxNumOfWorkouts = inf
+maxNumOfWorkouts = 22
 minNumOfSets = 1.0
 maxNumOfSets = inf
 
