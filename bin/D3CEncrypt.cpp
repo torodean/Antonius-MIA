@@ -14,7 +14,12 @@
 #include <math.h>
 #include "D3CEncrypt.h"
 
-namespace std {
+using std::vector;
+using std::string;
+using std::stringstream;
+using std::ostringstream;
+using std::cout;
+using std::endl;
 
 //Constructor for the D3CEncrypt class.
 D3CEncrypt::D3CEncrypt() : stringLength (0), vectorSize (0), digit (0), powerofDigit (0), 
@@ -874,6 +879,4 @@ string D3CEncrypt::expand(string input){
 	
 	return output;
 }
-
-}/* namespace std */
 

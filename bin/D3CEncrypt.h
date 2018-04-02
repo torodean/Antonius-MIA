@@ -13,7 +13,8 @@
 #ifndef D3CEncrypt_H_
 #define D3CEncrypt_H_
 
-namespace std {
+using std::vector;
+using std::string;
 
 class D3CEncrypt {
 	private:
@@ -49,7 +50,5 @@ class D3CEncrypt {
 		string squish(string input);
 		string expand(string input);
 };
-
-}/* namespace std */
 
 #endif /* D3CEncrypt_H_ */

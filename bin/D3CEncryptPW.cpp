@@ -16,7 +16,6 @@
 
 using std::vector;
 using std::string;
-using std::D3CEncrypt;
 using std::cout;
 using std::endl;
 

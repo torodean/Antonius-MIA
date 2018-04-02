@@ -12,43 +12,46 @@
 #include <string>
 #include <vector>
 
+using std::vector;
+using std::string;
+
 class MIAEncrypt{
 	private:
 		int cubeSize;
-        std::vector< std::vector< std::vector<int> > > intCube;
-		std::vector< std::vector< std::vector< std::vector<int> > > > tesseract;
+        vector< vector< vector<int> > > intCube;
+		vector< vector< vector< vector<int> > > > tesseract;
 		int totalRotations;
-		std::vector<int> combination;
+		vector<int> combination;
 		
 	public:
 		MIAEncrypt(int cSize);
 		~MIAEncrypt();
 	
 		//Miscellaneous Actions.
-		void encryptFile(std::string file, std::string fileName);
-		std::string encryptString(std::string text);
-		void passphraseToCombination(std::string passphrase);
-		void printCube(std::vector< std::vector< std::vector<int>>> intCube);
+		void encryptFile(string file, string fileName);
+		string encryptString(string text);
+		void passphraseToCombination(string passphrase);
+		void printCube(vector< vector< vector<int>>> intCube);
 		void test();
 		
 		//bool cube.
-		std::vector<char> fileToCharVec(std::string filename);
-		std::vector<int> charVecToIntVec(std::vector<char> charVec);
-		std::vector<bool> intVecToBoolVec(std::vector<int> intVec);
-		std::vector< std::vector< std::vector<bool> > >	boolVecToBoolCube(std::vector<bool> boolVec);	
+		vector<char> fileToCharVec(string filename);
+		vector<int> charVecToIntVec(vector<char> charVec);
+		vector<bool> intVecToBoolVec(vector<int> intVec);
+		vector< vector< vector<bool> > >	boolVecToBoolCube(vector<bool> boolVec);	
 		
 		
 		
 		//Get Private Variables.
-		std::vector< std::vector< std::vector<int>>> getCube();
-		std::vector<std::string> getCombination();
+		vector< vector< vector<int>>> getCube();
+		vector<string> getCombination();
 		
 		//Scramble and Unscramble algorithms.
-		std::vector< std::vector< std::vector<int>>> scrambleCube(std::vector< std::vector< std::vector<int>>> intCube, std::vector<int> combination);
-		std::vector< std::vector< std::vector<int>>> unscrambleCube(std::vector< std::vector< std::vector<int>>> intCube, std::vector<int> combination);
+		vector< vector< vector<int>>> scrambleCube(vector< vector< vector<int>>> intCube, vector<int> combination);
+		vector< vector< vector<int>>> unscrambleCube(vector< vector< vector<int>>> intCube, vector<int> combination);
 		
 		//N*N*N cuboidal Combinatorial rotations.	
-		std::vector< std::vector< std::vector<int>>> rotation(std::vector< std::vector< std::vector<int>>> intCube,char side, int index, bool CW);
+		vector< vector< vector<int>>> rotation(vector< vector< vector<int>>> intCube,char side, int index, bool CW);
 };
 
 #endif // MIAENCRYPT_H

@@ -47,7 +47,7 @@ Commands::~Commands(){
 //Main UI runner for the D3CEncrypt (d0s1) program feature. Encryption
 void Commands::d0s1CryptRunner(){
 	
-	std::D3CEncrypt crypt;
+	D3CEncrypt crypt;
 	
 	prog.blankDots();
 	cout << "...Please enter a string to encrypt: " << endl;
@@ -66,7 +66,7 @@ void Commands::d0s1CryptRunner(){
 //Main UI runner for the D3CEncrypt (d0s1) program feature. DeCryption
 void Commands::d0s1DeCryptRunner(){
 	
-	std::D3CEncrypt crypt;
+	D3CEncrypt crypt;
 	
 	prog.blankDots();
 	cout << "...Please enter a string to de-crypt: " << endl;
