@@ -115,6 +115,9 @@ void Program::setDefaultInputFilePath(string input){
 void Program::setDefaultCryptFilePath(string input){
 	defaultCryptFilePath = input;
 }
+void Program::setDefaultDecryptFilePath(string input){
+	defaultDecryptFilePath = input;
+}
 void Program::setWorkoutsFilePath(string input){
 	workoutsFilePath = input;
 }
@@ -258,7 +261,9 @@ void Program::setMIAVariable(string variable, string value){
 		setDefaultInputFilePath(value);
 	} else if (variable == "defaultCryptFilePath"){
 		setDefaultCryptFilePath(value);
-	} else if (variable == "workoutsFilePath"){
+	} else if (variable == "defaultDecryptFilePath"){
+		setDefaultDecryptFilePath(value);
+	}  else if (variable == "workoutsFilePath"){
 		setWorkoutsFilePath(value);
 	} else if (variable == "workoutOutputFilePath"){
 		setWorkoutOutputFilePath(value);
@@ -380,9 +385,17 @@ void Program::intro(){
 }
 
 //The standby screen while waiting for a user input.
-void Program::standby(){
+void Program::standby(string defaultCommand){
 	string input = "";
 	bool exit = false;
+	
+	if(defaultCommand != ""){
+		cout << "... I've detected a default command entered: " << defaultCommand << endl;
+		blankLine();	
+		performCommand(defaultCommand);
+		blankLine();	
+	}
+	
 	helpMessage();
 	while(exit == false){
 		getline(cin,input);
@@ -767,11 +780,15 @@ void Program::blankLine(){
 }
 
 //Main user interface for MIA.
-void Program::terminal(){
+void Program::terminal(string defaultCommand){
 	initializeSettings(verboseMode);
 	splash();
 	intro();
-	standby();
+	if (defaultCommand == ""){
+		standby("");
+	} else {
+		standby(defaultCommand);
+	}
 }
 
 //Returns the Version number of MIA.
@@ -834,6 +851,11 @@ string Program::getDefaultInputFilePath(){
 //Returns defaultCryptFilePath.
 string Program::getDefaultCryptFilePath(){
 	return defaultCryptFilePath;
+}
+
+//Returns defaultDecryptFilePath.
+string Program::getDefaultDecryptFilePath(){
+	return defaultDecryptFilePath;
 }
 
 //Function used for displaying error information.

@@ -32,7 +32,7 @@ MIAEncrypt::MIAEncrypt(int cSize): cubeSize(cSize), intCube(cubeSize, vector<vec
 	//When Chuck Norris's code fails to compile, the computer apologizes.
 }
 
-//Main de-onstructor for the MIAEncrypt algorithm.
+//Main de-constructor for the MIAEncrypt algorithm.
 MIAEncrypt::~MIAEncrypt(){
 	//Chuck Norris can stop an infinite loop just by thinking about it.
 }
@@ -370,7 +370,7 @@ void MIAEncrypt::passphraseToCombination(string passphrase){
 //Encrypts a file. NOT YET WORKING/FINISED.
 void MIAEncrypt::encryptFile(string file, string fileName){
 	Program prog;
-	string outputFile = prog.getDefaultCryptFilePath() + fileName + ".d0s3";
+	string outputFile = prog.getDefaultDecryptFilePath() + fileName + ".d0s3";
 	
 	ifstream input( prog.getDefaultCryptFilePath()  + file, ios::binary );
 	ofstream output( outputFile, ios::binary );
@@ -443,7 +443,6 @@ vector<bool> MIAEncrypt::intVecToBoolVec(vector<int> intVec){
 	for(int i=0; i<intVecSize; i++){
 		
 	}
-	
 	
 	return boolVec;
 }

@@ -18,6 +18,8 @@ using std::string;
 class Program{
 	private:
 		const string VERSION = "0.041";
+		
+		//Variables that can be set in the MIAConfig file.
 		bool verboseMode = false;
 		string defaultInputFilePath = "../bin/Resources/InputFiles/";
 		string defaultCryptFilePath = "../bin/Resources/EncryptedFiles/";
@@ -50,6 +52,8 @@ class Program{
 		void setDefaultInputFilePath(string input);
 		string getDefaultCryptFilePath();
 		void setDefaultCryptFilePath(string input);
+		string getDefaultDecryptFilePath();
+		void setDefaultDecryptFilePath(string input);
 		string getWorkoutsFilePath();
 		void setExcuseFilePath(string input);
 		string getExcuseFilePath();
@@ -74,12 +78,12 @@ class Program{
 		int getWoWFishBotSpace(string data);
 
 		//Program related functions.
-		void terminal();
+		void terminal(string defaultCommand);
 		bool formOfYes(string input);
 		void blankDots();
 		void splash();
 		void intro();
-		void standby();
+		void standby(string defaultCommand);
 		void helpMessage();
 		void blankLine();
 		string getMIAVersion();

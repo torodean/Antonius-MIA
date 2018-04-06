@@ -11,6 +11,6 @@
 //Runs the main MIA program.
 int main(){
 	Program program;
-	program.terminal();
+	program.terminal("");
 	return 0;
 }
