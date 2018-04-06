@@ -777,7 +777,7 @@ void Commands::runFishbot(){
 	cout << "...DANGER! Using this fishbot may have negative consequences." << endl;
 	cout << "...ALERT! This fishbot may get you banned." << endl;
 	prog.blankDots();
-	cout << "...In order for the fishbot to work, please enter in game settings and DISABLE" << endl << "... hardware cursor." << endl;
+	cout << "...In order for the fishbot to work, please enter in game settings and DISABLE" << endl << "... hardware cursor. See the manual for more details." << endl;
 	cout << "...To use default values (3 for cast and 8 for lure) leave the following options" << endl << "... blank." << endl;
 	cout << "...Press CTRL-C to stop the fishbot early once started." << endl;
 	cout << "...Press ENTER to continue." << endl;
@@ -787,7 +787,7 @@ void Commands::runFishbot(){
 	cout << "...Please enter which button you have set to cast: ";
 	getline(cin, fishButton);
 	prog.blankLine();
-	cout << "...If you are not using a lure please enter NONE ";
+	cout << "...If you are not using a lure please enter 'NONE' " << endl;
 	cout << "...Please enter which button you have set to apply a lure: ";
 	getline(cin, lureButton);
 	prog.blankLine();
