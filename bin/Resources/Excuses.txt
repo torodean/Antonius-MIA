@@ -113,3 +113,4 @@ I started but I hit a wall.
 I tried that once, but it did not work out well for anyone.
 Last time I did that a small country dissapeared.
 I'm too tired, I need to take a nap.
+Careful, you shouldn't simplify the wrong term of the wronskian... If you know what I mean.
