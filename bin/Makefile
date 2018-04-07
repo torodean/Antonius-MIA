@@ -29,13 +29,15 @@ linux: MIAMain.o MIAProgram.o MIACommands.o D3CEncrypt.o D3CEncryptPW.o D3CMath.
 # make the object files on a Linux machine.
 release: MIAMain.o MIAProgram.o MIACommands.o D3CEncrypt.o D3CEncryptPW.o D3CMath.o MIAEncrypt.o MIAMisc.o WinKeys.o LOLANetUse.o
 	$(CC) MIAMain.o MIAProgram.o MIACommands.o D3CEncrypt.o D3CEncryptPW.o D3CMath.o MIAEncrypt.o MIAMisc.o WinKeys.o LOLANetUse.o -o MIA $(LDFLAGS)
-	rm -rf ../Release/
+	rm -rfv ../Release/
+	rm -rfv ../MIA\ R*
 	mkdir ../Release/
-	cp -rf MIA.exe ../Release/
-	cp -f ../dlls/c* ../Release/
-	cp -f ../dlls/g* ../Release/
-	cp -rf Resources/ ../Release/Resources/
-	cp ../Documentation/MIAManual.pdf ../Release/MIAManual.pdf
+	cp -rfv MIA.exe ../Release/
+	cp -fv ../dlls/c* ../Release/
+	cp -fv ../dlls/g* ../Release/
+	cp -rfv Resources/ ../Release/Resources/
+	cp -fv ../Documentation/MIAManual.pdf ../Release/MIAManual.pdf
+	tar -czvf ../MIA\ Release.tar.gz ../Release/*
 
 MIAMain.o: MIAMain.cpp MIAProgram.h
 	$(CC) $(CFLAGS) MIAMain.cpp
@@ -69,8 +71,8 @@ LOLANetUse.o: LOLANetUse.cpp LOLANetUse.h
 
 #make clean - removes object files.
 clean:
-	rm -f *o MIA.*
+	rm -fv *o MIA.*
 
 #make obj_clean - For removing only the object files but keeping the executable.
 cleanup:
-	rm -f *o MIA.exe.*
+	rm -fv *o MIA.exe.*
