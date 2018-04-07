@@ -151,6 +151,10 @@ void Misc::generateWorkout(double difficulty, bool weekly){
 	
 	if(weekly){
 		string outputFile = prog.getWorkoutOutputFilePath();
+		outputFile.erase(outputFile.end()-4,outputFile.end());
+		outputFile += " ";
+		outputFile += __DATE__;
+		outputFile += ".txt";
 		
 		cout << "...Weekly workout generation loaded. " << endl;
 		cout << "...Workout will be output to '" << outputFile << "'" << endl;

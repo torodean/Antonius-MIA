@@ -21,12 +21,12 @@ class Program{
 		
 		//Variables that can be set in the MIAConfig file.
 		bool verboseMode = false;
-		string defaultInputFilePath = "../bin/Resources/InputFiles/";
-		string defaultCryptFilePath = "../bin/Resources/EncryptedFiles/";
-		string defaultDecryptFilePath = "../bin/Resources/DecryptedFiles/";
-		string excuseFilePath = "../bin/Resources/Excuses.txt";
-		string workoutsFilePath = "../bin/Resources/InputFiles/workouts.txt";
-		string workoutOutputFilePath = "../bin/Resources/OutputFiles/workout.txt";
+		string defaultInputFilePath = "Resources/InputFiles/";
+		string defaultCryptFilePath = "Resources/EncryptedFiles/";
+		string defaultDecryptFilePath = "Resources/DecryptedFiles/";
+		string excuseFilePath = "Resources/Excuses.txt";
+		string workoutsFilePath = "Resources/InputFiles/workouts.txt";
+		string workoutOutputFilePath = "Resources/OutputFiles/workout.txt";
 		int WoWMailboxSendLetterLocationX = 270;
 		int WoWMailboxSendLetterLocationY = 650;
 		int WoWMailboxFirstLetterLocationX = 55;

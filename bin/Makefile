@@ -25,6 +25,17 @@ MIA: MIAMain.o MIAProgram.o MIACommands.o D3CEncrypt.o D3CEncryptPW.o D3CMath.o 
 # make the object files on a Linux machine.
 linux: MIAMain.o MIAProgram.o MIACommands.o D3CEncrypt.o D3CEncryptPW.o D3CMath.o MIAEncrypt.o MIAMisc.o
 	$(CC) MIAMain.o MIAProgram.o MIACommands.o D3CEncrypt.o D3CEncryptPW.o D3CMath.o MIAEncrypt.o MIAMisc.o -o MIA
+	
+# make the object files on a Linux machine.
+release: MIAMain.o MIAProgram.o MIACommands.o D3CEncrypt.o D3CEncryptPW.o D3CMath.o MIAEncrypt.o MIAMisc.o WinKeys.o LOLANetUse.o
+	$(CC) MIAMain.o MIAProgram.o MIACommands.o D3CEncrypt.o D3CEncryptPW.o D3CMath.o MIAEncrypt.o MIAMisc.o WinKeys.o LOLANetUse.o -o MIA $(LDFLAGS)
+	rm -rf ../Release/
+	mkdir ../Release/
+	cp -rf MIA.exe ../Release/
+	cp -f ../dlls/c* ../Release/
+	cp -f ../dlls/g* ../Release/
+	cp -rf Resources/ ../Release/Resources/
+	cp ../Documentation/MIAManual.pdf ../Release/MIAManual.pdf
 
 MIAMain.o: MIAMain.cpp MIAProgram.h
 	$(CC) $(CFLAGS) MIAMain.cpp

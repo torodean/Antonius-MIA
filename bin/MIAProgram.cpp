@@ -19,7 +19,7 @@
 #include "MIACommands.h"
 #include "MIAEncrypt.h"
 #include <vector>
-#include <algorithm>
+#include <algorithm>	
 
 using std::string;
 using std::remove;
@@ -309,7 +309,7 @@ void Program::setMIAVariable(string variable, string value){
 //This function is for loading in the config file. Still in Development.
 void Program::initializeSettings(bool printSettings){
 	//grabs the MIAConfig file.
-	string fileName = "../bin/Resources/MIAConfig.txt";
+	string fileName = "Resources/MIAConfig.txt";
 	ifstream file(fileName,ifstream::in);
 	
 	//Checks if the file exists and runs the code.
