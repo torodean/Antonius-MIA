@@ -737,6 +737,7 @@ void Commands::workoutRunner(bool weekly){
 	transform(input.begin(), input.end(), input.begin(), ::tolower);
 	double difficulty;
 	
+	//The pranjal input for a difficulty is a joke reference to a friend.
 	if(input == "pranjal"){
 		difficulty = 0.0;
 	} else {
@@ -823,9 +824,11 @@ void Commands::runNetSessionEnum(){
 	prog.blankLine();
 	
 	const size_t len = server.length() + 1;
+	if(prog.getVerboseMode())
+		cout << "len: " << len << endl;
     wchar_t w_server[len];
 
-    swprintf(w_server, len, L"...%s", server.c_str());
+    swprintf(w_server, len, L"%s", server.c_str());
 	
 	cout << "...Loading NetSessionEnumRunner." << endl;
 	if(prog.getVerboseMode()){

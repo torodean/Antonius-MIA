@@ -9,12 +9,15 @@
 
 #ifndef __NETUSE_H__
 #define __NETUSE_H__
+#include "MIAProgram.h"
 
 class LOLANetUse{
 	private:
 	public:
 		LOLANetUse();
 		~LOLANetUse();
+		
+		Program prog;
 		
 		//Functions adapted to work from the old LOLA Program.
 		void NetSessionEnumRunner(int argc, wchar_t *argv[]); 
