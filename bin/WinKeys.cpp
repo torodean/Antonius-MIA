@@ -6,8 +6,8 @@
 // Created on  : 2015 (Original) -- July 5, 2017 (MIA)
 // Description : The WinKeys Functions from the VKK program adapted for use with MIA.
 //				 The key presses in this file were originally designed to work with Windows.
+//               Also contains other windows functions.
 //============================================================================
-
 
 #define WINVER 0x0500
 #include <windows.h>
@@ -16,20 +16,22 @@
 #include <iostream>
 #include <string>
 #include "WinKeys.h"
-#include "MIAProgram.h"
 #include <stdio.h>
 
-using namespace std;
-
-INPUT ip;
+using std::cout;
+using std::endl;
+using std::string;
 
 WinKeys::WinKeys(){
-
     // Set up a generic keyboard event.
     ip.type = INPUT_KEYBOARD;
     ip.ki.wScan = 0; // hardware scan code for key
     ip.ki.time = 0;
     ip.ki.dwExtraInfo = 0;
+}
+
+WinKeys::~WinKeys(){
+
 }
 
 void WinKeys::space(){
@@ -542,6 +544,7 @@ void WinKeys::z(){
     std::this_thread::sleep_for(std::chrono::milliseconds(globalSleep));
 }
 
+//In dev.
 void WinKeys::alt0248(){
     // Press the "alt" key
     ip.ki.wVk = VK_LMENU; // virtual-key code for the "alt" key
@@ -561,6 +564,7 @@ void WinKeys::alt0248(){
     std::this_thread::sleep_for(std::chrono::milliseconds(globalSleep));
 }
 
+//In dev.
 void WinKeys::alt136(){
     // Press the "alt" key
     ip.ki.wVk = VK_MENU; // virtual-key code for the "alt" key
@@ -580,7 +584,8 @@ void WinKeys::alt136(){
     std::this_thread::sleep_for(std::chrono::milliseconds(globalSleep));
 }
 
-void WinKeys::press(std::string character){
+//Simulates a key press.
+void WinKeys::press(string character){
     if(character == "1"){
         one();
     } else if(character == "2"){
@@ -668,10 +673,11 @@ void WinKeys::press(std::string character){
 	}
 }
 
-void WinKeys::type(std::string word){
+//Simulates key presses for a word.
+void WinKeys::type(string word){
     int size = word.size();
     for(int i=0;i<size;i++){
-        std::string letter(1,  word[i]);
+        string letter(1,  word[i]);
         press(letter);
     }
 }
@@ -709,7 +715,7 @@ void WinKeys::leftclick(){
 }
 
 //Spams a button a specific number of times.
-void WinKeys::buttonSpam(std::string button, int amount, int pause){
+void WinKeys::buttonSpam(string button, int amount, int pause){
 	std::this_thread::sleep_for(std::chrono::milliseconds(5000)); //Waits 5 seconds before beginning.
 	
 	for (int i=0;i<amount;i++){
@@ -719,7 +725,7 @@ void WinKeys::buttonSpam(std::string button, int amount, int pause){
 }
 
 //Spams a button a specific number of times.
-void WinKeys::buttonSpamTab(std::string button, int amount, int pause){
+void WinKeys::buttonSpamTab(string button, int amount, int pause){
 	std::this_thread::sleep_for(std::chrono::milliseconds(5000)); //Waits 5 seconds before beginning.
 	
 	for (int i=0;i<amount;i++){
@@ -811,8 +817,8 @@ void WinKeys::slash(){
 }
 
 //Used for duplicating a letter in WoW. Useful for creating RP events.
-void WinKeys::duplicateLetter(int copies, std::string recipient){
-	Program prog;
+void WinKeys::duplicateLetter(int copies, string recipient){
+	Program progz;
 	int x = prog.getWoWMailboxSendLetterLocation('x');
 	int y = prog.getWoWMailboxSendLetterLocation('y');
 	
@@ -838,7 +844,6 @@ void WinKeys::duplicateLetter(int copies, std::string recipient){
 //Used for unloading letters from the mailbox in WoW. Useful for creating RP events.
 //Coordinates may need adapted based on screen resolutions, UI scales, etc..
 void WinKeys::unloadLetters(int copies){
-	Program prog;
 	int x0 = prog.getWoWMailboxFirstLetterLocation('x');
 	int y0 = prog.getWoWMailboxFirstLetterLocation('y');
 	int x1 = prog.getWoWMailboxLootLetterLocation('x');
@@ -866,7 +871,7 @@ void WinKeys::unloadLetters(int copies){
 
 //Prints the current location of the mouse curser after some wait time.
 void WinKeys::findMouseCoords(int wait){
-	Program prog;
+	
 	POINT cursor;
 	
 	waitTime(wait);
@@ -874,7 +879,7 @@ void WinKeys::findMouseCoords(int wait){
 	
 	prog.blankDots();
 	int x = cursor.x, y = cursor.y;
-	std::cout << "The mouse curse is at: " << x << ", " << y << std::endl;
+	cout << "The mouse curse is at: " << x << ", " << y << endl;
 	prog.blankDots();
 }
 
@@ -887,7 +892,7 @@ void WinKeys::getPixelColor(){
 	COLORREF color;
 	int red=0,green=0,blue=0;
 
-	std::cout << "...Scanning." << std::endl;
+	cout << "...Scanning." << endl;
 	
 	for (int i=cursor.x;i<cursor.x+100;i+=4){
 		for (int j=cursor.y+2;j<cursor.y+100;j+=4){			
@@ -897,13 +902,13 @@ void WinKeys::getPixelColor(){
 			green = GetGValue(color);
 			blue = GetBValue(color);
 			
-			std::cout << "(x,y): " << "(" << i << "," << j << ")" << std::endl;
-			std::cout << "Red: " << red << "  --  " << "Green: " << green << "  --  " << "Blue: " << blue << std::endl;
+			cout << "(x,y): " << "(" << i << "," << j << ")" << endl;
+			cout << "Red: " << red << "  --  " << "Green: " << green << "  --  " << "Blue: " << blue << endl;
 		}
 	}
 	ReleaseDC(NULL,dc);
 	
-	std::cout << "...Finished." << std::endl;
+	cout << "...Finished." << endl;
 }
 
 //Prints the pixel color at the cursor location.
@@ -913,7 +918,7 @@ void WinKeys::getPixelColorAtMouse(){
 	
 	HDC dc = GetDC(NULL);
 
-	std::cout << "...Scanning." << std::endl;
+	cout << "...Scanning." << endl;
 		
 	COLORREF color = GetPixel(dc, cursor.x, cursor.y);
 	
@@ -921,40 +926,40 @@ void WinKeys::getPixelColorAtMouse(){
 	int green = GetGValue(color);
 	int blue = GetBValue(color);
 	
-	std::cout << "(x,y): " << "(" << cursor.x << "," << cursor.y << ")" << std::endl;
-	std::cout << "Red: " << red << "  --  " << "Green: " << green << "  --  " << "Blue: " << blue << std::endl;
+	cout << "(x,y): " << "(" << cursor.x << "," << cursor.y << ")" << endl;
+	cout << "Red: " << red << "  --  " << "Green: " << green << "  --  " << "Blue: " << blue << endl;
 
 	ReleaseDC(NULL,dc);
 	
-	std::cout << "...Finished." << std::endl;
+	cout << "...Finished." << endl;
 }
 
 //A fish bot made for WoW -- Not yet finished.
-void WinKeys::WoWFishBot(std::string fishButton, std::string lureButton){
-	Program prog;
+void WinKeys::WoWFishBot(string fishButton, string lureButton){
+	
 	
 	int drama = 400;
 	//Some gibberish for dramatic effect.
 	//Also serves as a brief load time before bot starts.
-	std::cout << "...Loading Fishbot Modules." << std::endl;
+	cout << "...Loading Fishbot Modules." << endl;
 	waitTime(drama);
-	std::cout << "...Calculating response functions." << std::endl;
+	cout << "...Calculating response functions." << endl;
 	waitTime(drama);
-	std::cout << "...Detecting saved crypto-keys." << std::endl;
+	cout << "...Detecting saved crypto-keys." << endl;
 	waitTime(2*drama);
-	std::cout << "...Saved keys found!" << std::endl;
-	std::cout << "...Decrypting password hash values." << std::endl;
+	cout << "...Saved keys found!" << endl;
+	cout << "...Decrypting password hash values." << endl;
 	waitTime(drama);
-	std::cout << "...Success!." << std::endl;
-	std::cout << "...Sending security information to host." << std::endl;
+	cout << "...Success!." << endl;
+	cout << "...Sending security information to host." << endl;
 	waitTime(2*drama);
-	std::cout << "...Success!." << std::endl;
-	std::cout << "...Disabling daemon ninja process." << std::endl;
+	cout << "...Success!." << endl;
+	cout << "...Disabling daemon ninja process." << endl;
 	waitTime(drama);
 	prog.blankDots();
-	std::cout << "...Number of casts set to: " << prog.getWoWFishBotSpace("casts") << std::endl;
+	cout << "...Number of casts set to: " << prog.getWoWFishBotSpace("casts") << endl;
 	waitTime(drama);
-	std::cout << "...Starting fishbot!" << std::endl;
+	cout << "...Starting fishbot!" << endl;
 	waitTime(drama);
 	prog.blankDots();
 	
@@ -985,15 +990,15 @@ void WinKeys::WoWFishBot(std::string fishButton, std::string lureButton){
 		
 		//Applies lure.
 		if (useLure && counter % 100 == 0){
-			std::cout << "...Applying lure." << std::endl;
+			cout << "...Applying lure." << endl;
 			press(lureButton);
 			waitTime(3000);
 		}
 		
 		//Casts.
-		std::cout << "...Casting." << std::endl;
+		cout << "...Casting." << endl;
 		press(fishButton);
-		std::cout << "...Scanning." << std::endl;
+		cout << "...Scanning." << endl;
 		
 		//Finds bobber.
 		for (int j=startY;j<endY;j+=increment){	
@@ -1008,11 +1013,11 @@ void WinKeys::WoWFishBot(std::string fishButton, std::string lureButton){
 				blue = GetBValue(color);
 
 				//Troubleshooting printouts for color of pixels detected.
-				//std::cout << "(x,y): " << "(" << i << "," << j << ")" << std::endl;
-				//std::cout << "Red: " << red << "  --  " << "Green: " << green << "  --  " << "Blue: " << blue << std::endl;
+				//cout << "(x,y): " << "(" << i << "," << j << ")" << endl;
+				//cout << "Red: " << red << "  --  " << "Green: " << green << "  --  " << "Blue: " << blue << endl;
 				
 				if(red == 0 && green == 0 && blue == 0){
-					std::cout << "...The bobber has been found!! ...I think." << std::endl;
+					cout << "...The bobber has been found!! ...I think." << endl;
 					bobberFound=true;
 					break;
 				}
@@ -1023,8 +1028,8 @@ void WinKeys::WoWFishBot(std::string fishButton, std::string lureButton){
 		}
 		if(!bobberFound){
 			end = std::chrono::steady_clock::now();
-			std::cout << "...I was unable to find the bobber!" << std::endl;
-			std::cout << "...To make it look like we're not cheating of course." << std::endl;
+			cout << "...I was unable to find the bobber!" << endl;
+			cout << "...To make it look like we're not cheating of course." << endl;
 		}
 		
 		//Waits a delay time and then clocks the bobber if it was found.
@@ -1039,8 +1044,8 @@ void WinKeys::WoWFishBot(std::string fishButton, std::string lureButton){
 		elapsed_time = std::chrono::duration_cast<std::chrono::milliseconds>(end - begin).count();
 		counter++;
 		bobberFound = false;
-		std::cout << "...Elapsed time: " << elapsed_time << " milliseconds." << std::endl;
-		std::cout << "...Number of casts: " << counter << std::endl;
+		cout << "...Elapsed time: " << elapsed_time << " milliseconds." << endl;
+		cout << "...Number of casts: " << counter << endl;
 		elapsed_time = 0;
 	}
 

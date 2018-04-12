@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (MiKTeX 2.9.6300 64-bit) (preloaded format=xelatex 2017.5.22)  5 APR 2018 20:29
+This is XeTeX, Version 3.14159265-2.6-0.99998 (MiKTeX 2.9.6300 64-bit) (preloaded format=xelatex 2017.5.22)  12 APR 2018 18:28
 entering extended mode
 **./MIAManual.tex
 (MIAManual.tex
@@ -331,7 +331,7 @@ Package: fancyhdr 2016/09/06 3.8 Extensive control of page headers and footers
 \f@ncyO@erf=\skip59
 \f@ncyO@olf=\skip60
 \f@ncyO@orf=\skip61
-))
+)
 ("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\hyperref.s
 ty"
 Package: hyperref 2017/03/14 v6.85a Hypertext links for LaTeX
@@ -466,6 +466,9 @@ tly
 (rerunfilecheck)             and the loading of the package is aborted.
 )
 \Hy@SectionHShift=\skip62
+))
+("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\makeidx.sty"
+Package: makeidx 2014/09/29 v1.0m Standard LaTeX package
 )
 \@input{./TeX_files/settings.aux}
 \openout2 = `./TeX_files/settings.aux'.
@@ -474,34 +477,40 @@ tly
 ("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex\latex\listings\lstlang1.s
 ty"
 File: lstlang1.sty 2015/06/04 1.6 listings language file
-)) (MIAManual.aux (TeX_files/Copywrite.aux) (TeX_files/MIAconcept.aux)
+))
+\@indexfile=\write3
+\openout3 = `MIAManual.idx'.
+
+
+Writing index file MIAManual.idx
+(MIAManual.aux (TeX_files/Copywrite.aux) (TeX_files/MIAconcept.aux)
 (TeX_files/MIAConfig.aux) (TeX_files/MIAcommands.aux)
 (TeX_files/D3CIntegration.aux) (TeX_files/WorkoutGeneration.aux)
 (TeX_files/WoWFeatures.aux
 
 LaTeX Warning: Label `fishbot increments' multiply defined.
 
-) (TeX_files/AppendixI.aux) (TeX_files/references.aux))
+))
 \openout1 = `MIAManual.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
 
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -538,7 +547,7 @@ LaTeX Font Info:    ... okay on input line 10.
 
 \c@lstlisting=\count137
 \AtBeginShipoutBox=\box59
-Package hyperref Info: Link coloring OFF on input line 10.
+Package hyperref Info: Link coloring OFF on input line 12.
 
 ("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\nameref.st
 y"
@@ -550,22 +559,22 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count138
 )
-LaTeX Info: Redefining \ref on input line 10.
-LaTeX Info: Redefining \pageref on input line 10.
-LaTeX Info: Redefining \nameref on input line 10.
+LaTeX Info: Redefining \ref on input line 12.
+LaTeX Info: Redefining \pageref on input line 12.
+LaTeX Info: Redefining \nameref on input line 12.
  (MIAManual.out) (MIAManual.out)
-\@outlinefile=\write3
-\openout3 = `MIAManual.out'.
+\@outlinefile=\write4
+\openout4 = `MIAManual.out'.
 
 File: ./Images/MIA_cropped_Inverted.png Graphic file (type QTm)
 
 <use  "./Images/MIA_cropped_Inverted.png" >
-LaTeX Font Info:    Try loading font information for U+msa on input line 14.
+LaTeX Font Info:    Try loading font information for U+msa on input line 16.
 
 ("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 14.
+LaTeX Font Info:    Try loading font information for U+msb on input line 16.
 
 ("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -593,8 +602,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 28--34
 [2
 
 ]) (MIAManual.toc)
-\tf@toc=\write4
-\openout4 = `MIAManual.toc'.
+\tf@toc=\write5
+\openout5 = `MIAManual.toc'.
 
  [3
 
@@ -712,29 +721,21 @@ File: Images/WoWScrnShot_040518_181350b.jpg Graphic file (type QTm)
 <use  "Images/WoWScrnShot_040518_181350b.jpg" > [22]
 File: Images/WoWScrnShot_040518_115947b.jpg Graphic file (type QTm)
 
-<use  "Images/WoWScrnShot_040518_115947b.jpg" >) [23]
-\openout2 = `./TeX_files/AppendixI.aux'.
-
- (TeX_files/AppendixI.tex)
-\openout2 = `./TeX_files/references.aux'.
-
-(TeX_files/references.tex) [24
+<use  "Images/WoWScrnShot_040518_115947b.jpg" >) [23] (MIAManual.ind [24
 
 
 
 
+])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 51.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 51.
 
-
-]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 46.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 46.
- (MIAManual.aux (TeX_files/Copywrite.aux)
-(TeX_files/MIAconcept.aux) (TeX_files/MIAConfig.aux) (TeX_files/MIAcommands.aux
-) (TeX_files/D3CIntegration.aux) (TeX_files/WorkoutGeneration.aux)
-(TeX_files/WoWFeatures.aux) (TeX_files/AppendixI.aux) (TeX_files/references.aux
-))
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 46.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 46.
+(MIAManual.aux (TeX_files/Copywrite.aux) (TeX_files/MIAconcept.aux)
+(TeX_files/MIAConfig.aux) (TeX_files/MIAcommands.aux)
+(TeX_files/D3CIntegration.aux) (TeX_files/WorkoutGeneration.aux)
+(TeX_files/WoWFeatures.aux))
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 51.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 51.
 
 
 LaTeX Warning: There were undefined references.
@@ -742,15 +743,15 @@ LaTeX Warning: There were undefined references.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 46.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 51.
  ) 
 Here is how much of TeX's memory you used:
- 12423 strings out of 427841
- 169171 string characters out of 3148764
- 465432 words of memory out of 3000000
- 16170 multiletter control sequences out of 15000+200000
+ 12421 strings out of 427841
+ 169010 string characters out of 3148764
+ 465532 words of memory out of 3000000
+ 16175 multiletter control sequences out of 15000+200000
  12495 words of font info for 62 fonts, out of 3000000 for 9000
  1328 hyphenation exceptions out of 8191
- 34i,12n,50p,1081b,1731s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 34i,12n,50p,1221b,1731s stack positions out of 5000i,500n,10000p,200000b,50000s
 
 Output written on MIAManual.pdf (28 pages).

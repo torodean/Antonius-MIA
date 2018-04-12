@@ -57,7 +57,7 @@ D3CEncryptPW.o: D3CEncryptPW.cpp D3CEncrypt.h D3CEncryptPW.h
 D3CMath.o: D3CMath.cpp D3CMath.h
 	$(CC) $(CFLAGS) D3CMath.cpp
 
-MIAEncrypt.o: MIAEncrypt.cpp MIAEncrypt.h MIAProgram.h
+MIAEncrypt.o: MIAEncrypt.cpp MIAEncrypt.h
 	$(CC) $(CFLAGS) MIAEncrypt.cpp
 
 WinKeys.o: WinKeys.cpp WinKeys.h MIAProgram.h

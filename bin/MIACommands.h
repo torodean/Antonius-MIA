@@ -9,7 +9,6 @@
 
 #ifndef __COMMANDS_H__
 #define __COMMANDS_H__
-#include <string>
 #include "MIAProgram.h"
 
 class Commands{

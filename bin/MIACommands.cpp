@@ -17,7 +17,7 @@
 #include "MIAEncrypt.h"
 #include "MIAMisc.h"
 
-// CURRENTLY ONLY WORKS ON WINDOWS
+// Includes for a windows only compile.
 #if  defined _WIN32 || defined _WIN64 || defined __CYGWIN__
 #include <windows.h>
 #include "WinKeys.h"
@@ -613,7 +613,6 @@ void Commands::unloadLetterRunner(){
 	cout << "...Finished unloading letters." << endl;
 	
 	#else
-	
 	prog.returnError(31416);
 	#endif
 }

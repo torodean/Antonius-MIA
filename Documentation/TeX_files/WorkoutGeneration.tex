@@ -1,4 +1,4 @@
-\chapter{Workout Generation} \label{workout}
+\chapter{Workout Generation} \label{workout}\index{workout}
 \pagestyle{fancy}
 
 \section{MIA Workout Generation Overview and Introduction}
@@ -54,7 +54,7 @@ minNumOfSets = 1.0
 maxNumOfSets = inf
 \end{lstlisting}
 
-These values must appear in the input file before any defined exercises. To begin, toughness is a global variable that helps define the number of reps MIA will output per workout chosen. Increasing this value is a global increase to the workout generation difficulty. The default value for toughness is 0.1 (see section \ref{workout algorithm} for more details). Next, There are minNumOfExercises and maxNumOfExercises variables which are used to determine the minimum number of exercises MIA will choose per set and the maximum number of exercises MIA can choose per set. The maxNumOfExercises value is read in such that a value of 'inf' is allowed. If 'inf' is selected, MIA will set the total number of exercises within the input file to be the maximum. Similarly, there are minNumOfSets and maxNumOfSets values which work in identical ways to minNumOfExercises and maxNumOfExercises only defining a minimum and maximum for number of sets per generated workout instead of number of exercises per set. 
+These values must appear in the input file before any defined exercises. To begin, toughness is a global variable that helps define the number of reps MIA will output per workout chosen. Increasing this value is a global increase to the workout generation difficulty. The default value for toughness is 0.1 (see section \ref{workout algorithm} for more details). Next, There are minNumOfExercises\index{minNumOfExercises} and maxNumOfExercises\index{maxNumOfExercises} variables which are used to determine the minimum number of exercises MIA will choose per set and the maximum number of exercises MIA can choose per set. The maxNumOfExercises value is read in such that a value of 'inf' is allowed. If 'inf' is selected, MIA will set the total number of exercises within the input file to be the maximum. Similarly, there are minNumOfSets\index{minNumOfSets} and maxNumOfSets\index{maxNumOfSets} values which work in identical ways to minNumOfExercises\index{minNumOfExercises} and maxNumOfExercises\index{maxNumOfExercises} only defining a minimum and maximum for number of sets per generated workout instead of number of exercises per set. 
 
 \begin{note}
 	At the time of writing this, the MIA program is not designed to account for a value of maxNumOfExercises that is larger than the actual number of exercises defined in the input file.
@@ -113,7 +113,7 @@ These are shown in Figure \ref{Svd and Evd}. The algorithm used to determine the
 
 \subsection{Number of Exercises Per Set}
 
-The number of exercises, denoted $E(e_{min},e_{max},d) \equiv E$ is dependent on three variables. The first two are from the input file which are minNumOfExercises, denoted $e_{min}$ and minNumOfExercises, denoted $e_{max}$. The last is the difficulty $d$ which is input by the user upon generation. The maximum number of sets was originally based on a linear increase, however for better optimization of the real world workout difficulties, a custom algorithm was created. The maximum $E_{max}(e_{min},e_{max},d)$ and minimum $E_{min}(e_{min},e_{max},d)$ number of sets per workout are given by
+The number of exercises, denoted $E(e_{min},e_{max},d) \equiv E$ is dependent on three variables. The first two are from the input file which are minNumOfExercises\index{minNumOfExercises}, denoted $e_{min}$ and maxNumOfExercises\index{maxNumOfExercises}, denoted $e_{max}$. The last is the difficulty $d$ which is input by the user upon generation. The maximum number of sets was originally based on a linear increase, however for better optimization of the real world workout difficulties, a custom algorithm was created. The maximum $E_{max}(e_{min},e_{max},d)$ and minimum $E_{min}(e_{min},e_{max},d)$ number of sets per workout are given by
 \begin{align}
 E_{max}(e_{min},e_{max},d) \equiv E_{max}&= \frac{e_{max}-e_{min}}{10^{4/3}} d^{2/3}+e_{min} \\
 E_{min}(e_{min},e_{max},d) \equiv E_{min}&= \frac{e_{max}-1.9 \times e_{min}}{1.9 \times 10^{4/3}} d^{2/3}+e_{min}.

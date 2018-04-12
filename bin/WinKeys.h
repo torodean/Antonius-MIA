@@ -9,12 +9,20 @@
 
 #ifndef WINKEYS_H
 #define WINKEYS_H
+#include <string>
+#include "MIAProgram.h"
+
+using std::string;
 
 class WinKeys{
 	private:
 		int globalSleep = 50;
+		INPUT ip;
 	public:
 		WinKeys();
+		~WinKeys();
+		
+		Program prog;
 		
 		//Keys.
 		void one();
@@ -61,24 +69,24 @@ class WinKeys{
 		void alt0248();
 		void alt136();
 		void shift(char character);
-		void press(std::string character);
-		void type(std::string word);
+		void press(string character);
+		void type(string word);
 		void paste();
 		void backslash();
 		void slash();
 		void leftclick();
 		
 		//Functions using the key presses.
-		void buttonSpam(std::string button, int amount, int pause);
-		void buttonSpamTab(std::string button, int amount, int pause);
+		void buttonSpam(string button, int amount, int pause);
+		void buttonSpamTab(string button, int amount, int pause);
 		
-		//functions relating to minecraft.
+		//functions relating to Minecraft.
 		void minecraftDig(int time);
 		
 		//functions relating to World of Warcraft
-		void duplicateLetter(int copies, std::string recipient);
+		void duplicateLetter(int copies, string recipient);
 		void unloadLetters(int copies);
-		void WoWFishBot(std::string fishButton, std::string lureButton);
+		void WoWFishBot(string fishButton, string lureButton);
 		
 		//Other useful functions.
 		void waitTime(int input);
