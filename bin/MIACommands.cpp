@@ -706,21 +706,6 @@ void Commands::findMouse(){
 	#endif
 }
 
-//Function made for testing.
-void Commands::test(){
-	//prog.returnError(31418); //Returns nothing set for testing.
-	
-	///* Uncomment this for testing things for Windows only.
-	#if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
-	
-	runNetUserEnum();
-
-	#else
-	prog.returnError(31416);
-	#endif
-	//*/
-}
-
 //Function made for generating a workout via the Misc class.
 void Commands::workoutRunner(bool weekly){
 	Misc misc;
@@ -1006,4 +991,24 @@ void Commands::runNetUserEnum(){
 }
 
 
+
+
+
+
+//Function made for testing.
+//This should be placed at the end of the file for easy accessibility. 
+void Commands::test(){
+	//prog.returnError(31418); //Returns nothing set for testing.
+	
+	///* Uncomment this for testing things for Windows only.
+	#if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
+	//runNetUserEnum();
+	
+	system("DATE");
+
+	#else
+	prog.returnError(31416);
+	#endif
+	//*/
+}
 

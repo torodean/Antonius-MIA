@@ -495,6 +495,8 @@ int Program::commandToInputVar(string input){
 		output = 39;
 	} else if (input == "wow unload"){
 		output = 40;
+	}   else if (input == "date"){
+		output = 41;
 	}  else if (input == "error info"){
 		output = 999997;
 	} else if (input == "error info -a"){
@@ -638,6 +640,9 @@ void Program::performCommand(string input){
 			break;
 		case 40: //Corresponds to the wow unload command.
 			cmd.unloadLetterRunner();
+			break;
+		case 41: //Corresponds to the wow unload command.
+			terminalCommand("DATE");
 			break;
 		case 999997: //Corresponds to the error info command.
 			errorInfoRun(false);
@@ -818,22 +823,6 @@ int Program::randomInt(int min, int max, int seed, bool useTime){
 	return random;
 }
 
-//A function used for testing.
-void Program::test(){
-    cout << "...Starting test." << endl;
-	
-	Commands cmd;
-	cmd.test();
-	
-	/*
-    MIAencrypt crypt(4);
-    crypt.test();
-	crypt.encryptFile("C:\\Users\\torodean\\test.txt", "OutputFile");
-	//cout << "...No test function set. " << endl;
-    */
-    cout << "...Finished test." << endl;
-}
-
 //A function used to determine if an answer is equivalent to yes.
 bool Program::formOfYes(string input){
 	if (input == "y" || input == "Y" || input == "yes" || input == "Yes" || input == "YES"){
@@ -994,5 +983,41 @@ string Program::today(){
     string todaysDate =  month + "-" + day + "-" + year;
 	return todaysDate;
 }
+
+//Runs a terminal command.
+void Program::terminalCommand(string command){
+	#if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
+	
+	system(command.c_str());
+	blankLine();
+
+	#else
+	prog.returnError(31416);
+	#endif
+}
+
+
+
+//A function used for testing.
+//This should be placed at the end of the file for easy accessibility. 
+void Program::test(){
+    cout << "...Starting test." << endl;
+	
+	Commands cmd;
+	cmd.test();
+	
+	/*
+    MIAencrypt crypt(4);
+    crypt.test();
+	crypt.encryptFile("C:\\Users\\torodean\\test.txt", "OutputFile");
+	//cout << "...No test function set. " << endl;
+    */
+    cout << "...Finished test." << endl;
+}
+
+
+
+
+
 
 

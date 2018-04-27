@@ -108,5 +108,6 @@ class Program{
 		bool is_digits(const string &str);
 		string removeCharInString(string str, char c);
 		string today();
+		void terminalCommand(string command);
 };
 #endif
