@@ -451,7 +451,7 @@ void Misc::generateWorkout(double difficulty, bool weekly){
 							}
 						}
 					}
-				}		
+				}
 				set++;
 				numOfSets--;
 				if(weekly){ //prints results.

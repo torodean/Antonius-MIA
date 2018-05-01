@@ -992,7 +992,7 @@ void Program::terminalCommand(string command){
 	blankLine();
 
 	#else
-	prog.returnError(31416);
+	returnError(31416);
 	#endif
 }
 
