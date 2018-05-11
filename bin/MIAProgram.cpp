@@ -65,22 +65,11 @@ string Program::removeCharInString(string str, char c){
 	return str;
 }
 
-//Finds the index of the first "=" sign in a string.
-int Program::findEqualInString(string input){
+//Finds the index of the first occurrence of a char in a string.
+int Program::findCharInString(string input, char c){
 	int length = input.size();
 	for (int i=0;i<length;i++){
-		if(input[i]=='='){
-			return i;
-		}
-	}
-	return 0;
-}
-
-//Finds the index of the first ";" sign in a string.
-int Program::findSemiColonInString(string input){
-	int length = input.size();
-	for (int i=0;i<length;i++){
-		if(input[i]==';'){
+		if(input[i]==c){
 			return i;
 		}
 	}
@@ -336,7 +325,7 @@ void Program::initializeSettings(bool printSettings){
 		int equalSignLocation=0;
 		string variable, value;
 		for (int i=0; i<size;i++){
-			equalSignLocation = findEqualInString(lines[i]);
+			equalSignLocation = findCharInString(lines[i], '=');
 			variable = lines[i].substr(0, equalSignLocation);
 			value = lines[i].substr(equalSignLocation+1,lines[i].size()-1);
 			

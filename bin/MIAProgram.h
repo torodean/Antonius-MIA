@@ -103,8 +103,7 @@ class Program{
 		void errorInfoRun(bool all);
 		
 		//Misc functions.
-		int findEqualInString(string input);
-		int findSemiColonInString(string input);
+		int findCharInString(string input, char c);
 		bool is_digits(const string &str);
 		string removeCharInString(string str, char c);
 		string today();

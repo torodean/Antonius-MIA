@@ -24,9 +24,9 @@ class Misc {
 		
 		//Functions relating to workout creation.
 		void generateWorkout(double difficulty, bool weekly);
-		string getBeforeEqualSign(string line);
+		string getBeforeChar(string line, char c);
 		string getBetweenEqualAndSemiColon(string line);
-		string getAfterSemiColon(string line);
+		string getAfterChar(string line, char c);
 		double convertWorkoutWeight(string line);
 		double maxNumModifier(double min, double max, double difficulty);
 		double minNumModifier(double min, double max, double difficulty);
@@ -34,5 +34,13 @@ class Misc {
 		//Misc functions.
 		void printRandomLinesFromFile(bool useFefaultPath, int numberOfLines);
 		string shuffleString(string input);
+		
+		//Misc functions relating to rolling die.
+		bool inputRoll(string input);
+		void roll1d20();
+		void roll1d10();
+		void roll1d8();
+		void roll1d6();
+		void roll1d4();
 };
 #endif

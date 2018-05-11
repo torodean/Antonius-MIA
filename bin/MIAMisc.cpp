@@ -89,8 +89,8 @@ string Misc::shuffleString(string input){
 }
 
 //Manages input file lines.
-string Misc::getBeforeEqualSign(string line){
-	int equalSignLocation = prog.findEqualInString(line);
+string Misc::getBeforeChar(string line, char c){
+	int equalSignLocation = prog.findCharInString(line, c);
 	
 	if(prog.getVerboseMode())
 		cout << "...stringBeforeEqual: " << line.substr(0, equalSignLocation) << endl;
@@ -98,8 +98,8 @@ string Misc::getBeforeEqualSign(string line){
 	return line.substr(0, equalSignLocation);
 }
 string Misc::getBetweenEqualAndSemiColon(string line){
-	int equalSignLocation = prog.findEqualInString(line);
-	int semiColonLocation = prog.findSemiColonInString(line);
+	int equalSignLocation = prog.findCharInString(line, '=');
+	int semiColonLocation = prog.findCharInString(line, ';');
 	
 	//First remove everything after the semi colon sign. Then keep everything after the equal sign.
 	line = line.substr(0,semiColonLocation);
@@ -110,8 +110,8 @@ string Misc::getBetweenEqualAndSemiColon(string line){
 	
 	return line;
 }
-string Misc::getAfterSemiColon(string line){
-	int semiColonLocation = prog.findSemiColonInString(line);
+string Misc::getAfterChar(string line, char c){
+	int semiColonLocation = prog.findCharInString(line, c);
 	
 	if(prog.getVerboseMode())
 		cout << "...stringAfterSemiColon: " << line.substr(semiColonLocation+1,line.size()-1) << endl;
@@ -232,14 +232,14 @@ void Misc::generateWorkout(double difficulty, bool weekly){
 		//Read the workouts input file and grab the variables.
 		for(int i=0; i<numOfVariables; i++){
 			//Finds what the variable input is if one exists.
-			variable = getBeforeEqualSign(lines[i]);
+			variable = getBeforeChar(lines[i], '=');
 			
 			//Sets the toughness variable.
 			if(variable == "toughness"){
 				if(prog.getVerboseMode())
 					cout << "...toughness variable discovered. " << endl;
 				
-				equalSignLocation = prog.findEqualInString(lines[i]);
+				equalSignLocation = prog.findCharInString(lines[i], '=');
 				toughness = stod(lines[i].substr(equalSignLocation+1,lines[i].size()-1));
 			
 				if(prog.getVerboseMode())
@@ -250,7 +250,7 @@ void Misc::generateWorkout(double difficulty, bool weekly){
 				if(prog.getVerboseMode())
 					cout << "...minNumOfExercises variable discovered. " << endl;
 				
-				equalSignLocation = prog.findEqualInString(lines[i]);
+				equalSignLocation = prog.findCharInString(lines[i], '=');
 				minNumOfExercises = stod(lines[i].substr(equalSignLocation+1,lines[i].size()-1));
 			
 				if(prog.getVerboseMode())
@@ -261,7 +261,7 @@ void Misc::generateWorkout(double difficulty, bool weekly){
 				if(prog.getVerboseMode())
 					cout << "...maxNumOfExercises variable discovered. " << endl;
 				
-				equalSignLocation = prog.findEqualInString(lines[i]);
+				equalSignLocation = prog.findCharInString(lines[i], '=');
 				if(lines[i].substr(equalSignLocation+1,lines[i].size()-1) != "inf"){
 					maxNumOfExercises = stod(lines[i].substr(equalSignLocation+1,lines[i].size()-1));
 				}
@@ -274,7 +274,7 @@ void Misc::generateWorkout(double difficulty, bool weekly){
 				if(prog.getVerboseMode())
 					cout << "...minNumOfSets variable discovered. " << endl;
 				
-				equalSignLocation = prog.findEqualInString(lines[i]);
+				equalSignLocation = prog.findCharInString(lines[i], '=');
 				minNumOfSets = stod(lines[i].substr(equalSignLocation+1,lines[i].size()-1));
 			
 				if(prog.getVerboseMode())
@@ -285,7 +285,7 @@ void Misc::generateWorkout(double difficulty, bool weekly){
 				if(prog.getVerboseMode())
 					cout << "...maxNumOfSets variable discovered. " << endl;
 				
-				equalSignLocation = prog.findEqualInString(lines[i]);
+				equalSignLocation = prog.findCharInString(lines[i], '=');
 				if(lines[i].substr(equalSignLocation+1,lines[i].size()-1) != "inf"){
 					maxNumOfSets = stod(lines[i].substr(equalSignLocation+1,lines[i].size()-1));
 				}
@@ -309,9 +309,9 @@ void Misc::generateWorkout(double difficulty, bool weekly){
 		
 		//Sets the workout file variables and the weighted value.
 		for(int i=0; i < size-numOfVariables; i++){		
-			workoutName.push_back( getBeforeEqualSign(lines[i]) );
+			workoutName.push_back( getBeforeChar(lines[i], '=') );
 			workoutWeight.push_back( convertWorkoutWeight( getBetweenEqualAndSemiColon(lines[i]) ) );
-			workoutUnit.push_back( getAfterSemiColon(lines[i]) );
+			workoutUnit.push_back( getAfterChar(lines[i], ';') );
 			
 			if(prog.getVerboseMode()){
 				cout << "...Printing values set. " << endl;
@@ -480,3 +480,45 @@ void Misc::generateWorkout(double difficulty, bool weekly){
 			prog.returnError(31404);
 	}
 }
+
+//Determines if a string is of the format for a dice roll. i.e 1d20 or 3d8.
+bool Misc::inputRoll(string input){
+	if(input.size() <= 5 && input.find('d') != string::npos && input.find_first_not_of("1234567890d") == string::npos){
+		return true;
+	}
+	return false;
+}
+
+//returns a 1d20 output.
+void Misc::roll1d20(){
+	prog.blankLine();
+	cout << "1d20: " << prog.randomInt(1,20,0,true) << endl;
+	prog.blankLine();
+}
+
+//returns a 1d10 output.
+void Misc::roll1d10(){
+	prog.blankLine();
+	cout << "1d10: " << prog.randomInt(1,10,0,true) << endl;
+	prog.blankLine();
+}
+
+//returns a 1d8 output.
+void Misc::roll1d8(){
+	prog.blankLine();
+	cout << "1d8: " << prog.randomInt(1,8,0,true) << endl;
+	prog.blankLine();
+}
+//returns a 1d6 output.
+void Misc::roll1d6(){
+	prog.blankLine();
+	cout << "1d6: " << prog.randomInt(1,6,0,true) << endl;
+	prog.blankLine();
+}
+//returns a 1d4 output.
+void Misc::roll1d4(){
+	prog.blankLine();
+	cout << "1d4: " << prog.randomInt(1,4,0,true) << endl;
+	prog.blankLine();
+}
+
