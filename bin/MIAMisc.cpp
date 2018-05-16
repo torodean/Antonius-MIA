@@ -481,44 +481,22 @@ void Misc::generateWorkout(double difficulty, bool weekly){
 	}
 }
 
-//Determines if a string is of the format for a dice roll. i.e 1d20 or 3d8.
-bool Misc::inputRoll(string input){
-	if(input.size() <= 5 && input.find('d') != string::npos && input.find_first_not_of("1234567890d") == string::npos){
-		return true;
+//rolls a dice based on input.
+void Misc::roll(string input){
+	int numOfDice = stoi(getBeforeChar(input, 'd'));
+	int sizeOfDice = stoi(getAfterChar(input, 'd'));
+	int totalRolled = 0;
+	
+	prog.blankLine();
+	for(int i=0; i<numOfDice; i++){
+		totalRolled += rolldXX(sizeOfDice, i);
 	}
-	return false;
-}
-
-//returns a 1d20 output.
-void Misc::roll1d20(){
-	prog.blankLine();
-	cout << "1d20: " << prog.randomInt(1,20,0,true) << endl;
+	cout << "Total Rolled: " << totalRolled << endl;
 	prog.blankLine();
 }
 
-//returns a 1d10 output.
-void Misc::roll1d10(){
-	prog.blankLine();
-	cout << "1d10: " << prog.randomInt(1,10,0,true) << endl;
-	prog.blankLine();
+//returns a 1dXX output.
+int Misc::rolldXX(int xx, int seed){
+	cout << "1d" << xx << ": " << prog.randomInt(1,xx,seed,true) << endl;
+	return prog.randomInt(1,xx,seed,true);
 }
-
-//returns a 1d8 output.
-void Misc::roll1d8(){
-	prog.blankLine();
-	cout << "1d8: " << prog.randomInt(1,8,0,true) << endl;
-	prog.blankLine();
-}
-//returns a 1d6 output.
-void Misc::roll1d6(){
-	prog.blankLine();
-	cout << "1d6: " << prog.randomInt(1,6,0,true) << endl;
-	prog.blankLine();
-}
-//returns a 1d4 output.
-void Misc::roll1d4(){
-	prog.blankLine();
-	cout << "1d4: " << prog.randomInt(1,4,0,true) << endl;
-	prog.blankLine();
-}
-

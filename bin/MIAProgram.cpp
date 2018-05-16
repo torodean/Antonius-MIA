@@ -486,14 +486,24 @@ int Program::commandToInputVar(string input){
 		output = 40;
 	}   else if (input == "date"){
 		output = 41;
+	} else if (inputRoll(input)){
+		output = 999996;
 	}  else if (input == "error info"){
 		output = 999997;
 	} else if (input == "error info -a"){
 		output = 999998;
-	}else if (input == "test"){
+	} else if (input == "test"){
 		output = 999999;
 	}
 	return output;
+}
+
+//Determines if a string is of the format for a dice roll. i.e 1d20 or 3d8.
+bool Program::inputRoll(string input){
+	if(input.size() <= 5 && input.find('d') != string::npos && input.find_first_not_of("1234567890d") == string::npos){
+		return true;
+	}
+	return false;
 }
 
 //Takes the input command by the user and runs the corresponding feature.
@@ -632,6 +642,9 @@ void Program::performCommand(string input){
 			break;
 		case 41: //Corresponds to the wow unload command.
 			terminalCommand("DATE");
+			break;
+		case 999996: //Corresponds to the roll dice functions.
+			cmd.rollDice(input);
 			break;
 		case 999997: //Corresponds to the error info command.
 			errorInfoRun(false);

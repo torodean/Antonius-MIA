@@ -990,7 +990,11 @@ void Commands::runNetUserEnum(){
 	#endif
 }
 
-
+//Rolls a dice using commands programmed in misc class.
+void Commands::rollDice(string input){
+	Misc misc;
+	misc.roll(input);
+}
 
 
 
@@ -1004,8 +1008,6 @@ void Commands::test(){
 	///* Uncomment this for testing things for Windows only.
 	#if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
 	//runNetUserEnum();
-	Misc misc;
-	misc.roll1d20();
 
 	#else
 	prog.returnError(31416);

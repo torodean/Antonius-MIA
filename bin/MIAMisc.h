@@ -36,11 +36,8 @@ class Misc {
 		string shuffleString(string input);
 		
 		//Misc functions relating to rolling die.
-		bool inputRoll(string input);
-		void roll1d20();
-		void roll1d10();
-		void roll1d8();
-		void roll1d6();
-		void roll1d4();
+		void roll(string input);
+		int rolldXX(int diceSize, int seed);
+
 };
 #endif

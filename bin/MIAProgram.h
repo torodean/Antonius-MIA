@@ -108,5 +108,6 @@ class Program{
 		string removeCharInString(string str, char c);
 		string today();
 		void terminalCommand(string command);
+		bool inputRoll(string input);
 };
 #endif
