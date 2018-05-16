@@ -7,6 +7,8 @@ MIA is designed to be used similar to a terminal or command prompt. One enters c
 
 \section{Complete List of Valid Commands (CLVC)} \label{CLVC}
 
+\subsection{Static Commands}
+
 \index{help}
 \begin{lstlisting}
 help
@@ -291,4 +293,18 @@ exit
 \end{lstlisting}
 \begin{enumerate}
 	\item[] Quits MIA. 
+\end{enumerate}
+
+\subsection{Fluid (Volatile) Commands}
+
+The fluid commands are commands that do not have a fixed input. They are generally formatted commands that can be entered with user specific input.
+
+\index{XXdYY}
+\begin{lstlisting} 
+XXdYY   //Where XX and YY are integers.
+1d20    //Example of rolling a 20 sided dice.
+3d6     //Example of rolling three 6 sided dice.
+\end{lstlisting}
+\begin{enumerate}
+	\item[] Rolls a dice. The format of this command is XXdYY, where XX and YY are both integers. The value of XX determines the number of dice to roll and the value of YY determines the value of each dice.
 \end{enumerate}

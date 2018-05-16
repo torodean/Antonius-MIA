@@ -9,6 +9,8 @@
 \contentsline {chapter}{\numberline {3}Commands and Syntax}{5}{chapter.3}
 \contentsline {section}{\numberline {3.1}Valid Syntax}{5}{section.3.1}
 \contentsline {section}{\numberline {3.2}Complete List of Valid Commands (CLVC)}{5}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Static Commands}{5}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Fluid (Volatile) Commands}{9}{subsection.3.2.2}
 \contentsline {chapter}{\numberline {4}D0sag3 Command (D3C) Integration}{10}{chapter.4}
 \contentsline {section}{\numberline {4.1}D3C Introduction and Overview}{10}{section.4.1}
 \contentsline {section}{\numberline {4.2}d0s1 Encryption}{10}{section.4.2}
