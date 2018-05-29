@@ -16,6 +16,7 @@ using std::string;
 
 class Misc {
 	private:
+		int randCounter;
 	public:
 		Misc();
 		~Misc();
@@ -36,7 +37,7 @@ class Misc {
 		string shuffleString(string input);
 		
 		//Misc functions relating to rolling die.
-		void roll(string input);
+		int roll(string input);
 		int rolldXX(int diceSize, int seed);
 
 };

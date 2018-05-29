@@ -28,7 +28,7 @@ using std::to_string;
 using std::remove;
 
 //Main constructor for the Misc class.
-Misc::Misc(){
+Misc::Misc() : randCounter(0){
 	//Chuck Norris can read all encrypted data, because nothing can hide from Chuck Norris.
 }
 
@@ -482,21 +482,24 @@ void Misc::generateWorkout(double difficulty, bool weekly){
 }
 
 //rolls a dice based on input.
-void Misc::roll(string input){
+int Misc::roll(string input){
 	int numOfDice = stoi(getBeforeChar(input, 'd'));
 	int sizeOfDice = stoi(getAfterChar(input, 'd'));
 	int totalRolled = 0;
 	
 	prog.blankLine();
 	for(int i=0; i<numOfDice; i++){
-		totalRolled += rolldXX(sizeOfDice, i);
+		randCounter += numOfDice;
+		totalRolled += rolldXX(sizeOfDice, randCounter);
 	}
 	cout << "Total Rolled: " << totalRolled << endl;
 	prog.blankLine();
+	return totalRolled;
 }
 
 //returns a 1dXX output.
 int Misc::rolldXX(int xx, int seed){
-	cout << "1d" << xx << ": " << prog.randomInt(1,xx,seed,true) << endl;
-	return prog.randomInt(1,xx,seed,true);
+	int rand = prog.randomInt(1,xx,seed,true);
+	cout << "1d" << xx << ": " << rand << endl;
+	return rand;
 }
