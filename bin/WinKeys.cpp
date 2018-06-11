@@ -937,8 +937,6 @@ void WinKeys::getPixelColorAtMouse(){
 
 //A fish bot made for WoW -- Not yet finished.
 void WinKeys::WoWFishBot(string fishButton, string lureButton){
-	
-	
 	int drama = 400;
 	//Some gibberish for dramatic effect.
 	//Also serves as a brief load time before bot starts.
