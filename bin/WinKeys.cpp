@@ -679,6 +679,7 @@ void WinKeys::type(string word){
     for(int i=0;i<size;i++){
         string letter(1,  word[i]);
         press(letter);
+		std::this_thread::sleep_for(std::chrono::milliseconds(globalSleep));
     }
 }
 
@@ -719,7 +720,7 @@ void WinKeys::buttonSpam(string button, int amount, int pause){
 	std::this_thread::sleep_for(std::chrono::milliseconds(5000)); //Waits 5 seconds before beginning.
 	
 	for (int i=0;i<amount;i++){
-		press(button);
+		type(button);
 		std::this_thread::sleep_for(std::chrono::milliseconds(pause));
 	}
 }
@@ -729,7 +730,7 @@ void WinKeys::buttonSpamTab(string button, int amount, int pause){
 	std::this_thread::sleep_for(std::chrono::milliseconds(5000)); //Waits 5 seconds before beginning.
 	
 	for (int i=0;i<amount;i++){
-		press(button);
+		type(button);
 		std::this_thread::sleep_for(std::chrono::milliseconds(50));
 		tab();
 		std::this_thread::sleep_for(std::chrono::milliseconds(pause));

@@ -415,7 +415,7 @@ void Commands::buttonSpamRunner(bool enableTab){
 	
 	string button;
 
-	cout << "...Enter a button you would like spammed: ";
+	cout << "...Enter a button sequence you would like spammed: ";
 	getline(cin, button);
 	prog.blankLine();
 	

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.5.11)  16 MAY 2018 09:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.5.11)  11 JUN 2018 09:23
 entering extended mode
 **./MIAManual.tex
 (MIAManual.tex
@@ -847,7 +847,7 @@ LaTeX Info: Redefining \nameref on input line 12.
 \@outlinefile=\write4
 \openout4 = `MIAManual.out'.
 
-<./Images/MIA_cropped_Inverted.png, id=139, 549.55313pt x 126.4725pt>
+<./Images/MIA_cropped_Inverted.png, id=155, 549.55313pt x 126.4725pt>
 File: ./Images/MIA_cropped_Inverted.png Graphic file (type png)
 <use ./Images/MIA_cropped_Inverted.png>
 Package pdftex.def Info: ./Images/MIA_cropped_Inverted.png  used on input line 
@@ -897,12 +897,29 @@ Underfull \hbox (badness 10000) in paragraph at lines 28--34
 
 
 
-] [4]
+] [4] [5] [6
+
+]
 \openout2 = `./TeX_files/MIAconcept.aux'.
 
  (TeX_files/MIAconcept.tex
 Chapter 1.
-)
+<Images/setup01.png, id=230, 749.80125pt x 216.05719pt>
+File: Images/setup01.png Graphic file (type png)
+<use Images/setup01.png>
+Package pdftex.def Info: Images/setup01.png  used on input line 27.
+(pdftex.def)             Requested size: 407.66833pt x 117.47025pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<Images/setup02.png, id=232, 341.02406pt x 256.70906pt>
+File: Images/setup02.png Graphic file (type png)
+<use Images/setup02.png>
+Package pdftex.def Info: Images/setup02.png  used on input line 35.
+(pdftex.def)             Requested size: 181.18439pt x 136.38809pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
@@ -912,8 +929,20 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 [1
 
 
-
 ]
+<Images/setup03.png, id=250, 955.31906pt x 368.1253pt>
+File: Images/setup03.png Graphic file (type png)
+<use Images/setup03.png>
+Package pdftex.def Info: Images/setup03.png  used on input line 43.
+(pdftex.def)             Requested size: 407.66833pt x 157.08873pt.
+ [2 <./Images/setup01.png> <./Images/setup02.png> <./Images/setup03.png>]
+<Images/setup04.png, id=261, 692.5875pt x 219.06844pt>
+File: Images/setup04.png Graphic file (type png)
+<use Images/setup04.png>
+Package pdftex.def Info: Images/setup04.png  used on input line 51.
+(pdftex.def)             Requested size: 407.66833pt x 128.9484pt.
+)
+[3 <./Images/setup04.png>]
 \openout2 = `./TeX_files/MIAConfig.aux'.
 
  (TeX_files/MIAConfig.tex
@@ -921,47 +950,47 @@ Chapter 2.
 (C:\Users\torodean\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
-[2
+[4
 
 
 
-] [3]) [4]
+] [5]) [6]
 \openout2 = `./TeX_files/MIAcommands.aux'.
 
  (TeX_files/MIAcommands.tex
 Chapter 3.
-[5
+[7
 
 
 
-] [6] [7] [8]) [9]
+] [8] [9] [10]) [11]
 \openout2 = `./TeX_files/D3CIntegration.aux'.
 
  (TeX_files/D3CIntegration.tex
 Chapter 4.
-[10
+[12
 
 
 
-]) [11]
+]) [13]
 \openout2 = `./TeX_files/WorkoutGeneration.aux'.
 
  (TeX_files/WorkoutGeneration.tex
 Chapter 5.
 
-LaTeX Warning: Reference `MIAConfig' on page 12 undefined on input line 14.
+LaTeX Warning: Reference `MIAConfig' on page 14 undefined on input line 14.
 
-[12
+[14
 
 
 
-] [13]
-<Images/Svd.png, id=479, 462.528pt x 346.896pt>
+] [15]
+<Images/Svd.png, id=540, 462.528pt x 346.896pt>
 File: Images/Svd.png Graphic file (type png)
 <use Images/Svd.png>
 Package pdftex.def Info: Images/Svd.png  used on input line 110.
 (pdftex.def)             Requested size: 226.48395pt x 169.86406pt.
-<Images/Evd.png, id=481, 462.528pt x 346.896pt>
+<Images/Evd.png, id=541, 462.528pt x 346.896pt>
 File: Images/Evd.png Graphic file (type png)
 <use Images/Evd.png>
 Package pdftex.def Info: Images/Evd.png  used on input line 110.
@@ -970,13 +999,13 @@ Package pdftex.def Info: Images/Evd.png  used on input line 110.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[14]
-<Images/Rvd1.png, id=505, 462.528pt x 346.896pt>
+[16]
+<Images/Rvd1.png, id=565, 462.528pt x 346.896pt>
 File: Images/Rvd1.png Graphic file (type png)
 <use Images/Rvd1.png>
 Package pdftex.def Info: Images/Rvd1.png  used on input line 140.
 (pdftex.def)             Requested size: 226.48395pt x 169.86406pt.
-<Images/Rvd5.png, id=506, 462.528pt x 346.896pt>
+<Images/Rvd5.png, id=566, 462.528pt x 346.896pt>
 File: Images/Rvd5.png Graphic file (type png)
 <use Images/Rvd5.png>
 Package pdftex.def Info: Images/Rvd5.png  used on input line 140.
@@ -985,19 +1014,19 @@ Package pdftex.def Info: Images/Rvd5.png  used on input line 140.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[15 <./Images/Svd.png> <./Images/Evd.png>] [16 <./Images/Rvd1.png> <./Images/Rv
+[17 <./Images/Svd.png> <./Images/Evd.png>] [18 <./Images/Rvd1.png> <./Images/Rv
 d5.png>]
-<Images/Dvd.png, id=544, 462.528pt x 346.896pt>
+<Images/Dvd.png, id=603, 462.528pt x 346.896pt>
 File: Images/Dvd.png Graphic file (type png)
 <use Images/Dvd.png>
 Package pdftex.def Info: Images/Dvd.png  used on input line 194.
 (pdftex.def)             Requested size: 226.48395pt x 169.86406pt.
-<Images/Dvdc.png, id=545, 462.528pt x 346.896pt>
+<Images/Dvdc.png, id=604, 462.528pt x 346.896pt>
 File: Images/Dvdc.png Graphic file (type png)
 <use Images/Dvdc.png>
 Package pdftex.def Info: Images/Dvdc.png  used on input line 194.
 (pdftex.def)             Requested size: 226.48395pt x 169.86406pt.
- [17 <./Images/Dvd.png> <./Images/Dvdc.png>]) [18]
+ [19 <./Images/Dvd.png> <./Images/Dvdc.png>]) [20]
 \openout2 = `./TeX_files/WoWFeatures.aux'.
 
 
@@ -1009,24 +1038,24 @@ File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <9> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 17.
-<Images/WoWScrnShot_040118_234154.jpg, id=565, 1445.4pt x 766.36313pt>
+<Images/WoWScrnShot_040118_234154.jpg, id=625, 1445.4pt x 766.36313pt>
 File: Images/WoWScrnShot_040118_234154.jpg Graphic file (type jpg)
 <use Images/WoWScrnShot_040118_234154.jpg>
 Package pdftex.def Info: Images/WoWScrnShot_040118_234154.jpg  used on input li
 ne 22.
 (pdftex.def)             Requested size: 407.66833pt x 216.14717pt.
- [19
+ [21
 
 
 
  <./Images/WoWScrnShot_040118_234154.jpg>]
-<Images/WoWScrnShot_040118_234212.jpg, id=575, 1445.4pt x 276.28218pt>
+<Images/WoWScrnShot_040118_234212.jpg, id=635, 1445.4pt x 276.28218pt>
 File: Images/WoWScrnShot_040118_234212.jpg Graphic file (type jpg)
 <use Images/WoWScrnShot_040118_234212.jpg>
 Package pdftex.def Info: Images/WoWScrnShot_040118_234212.jpg  used on input li
 ne 30.
 (pdftex.def)             Requested size: 407.66833pt x 77.92339pt.
-<Images/WoWScrnShot_040118_234212b.jpg, id=576, 718.93594pt x 188.95593pt>
+<Images/WoWScrnShot_040118_234212b.jpg, id=636, 718.93594pt x 188.95593pt>
 File: Images/WoWScrnShot_040118_234212b.jpg Graphic file (type jpg)
 <use Images/WoWScrnShot_040118_234212b.jpg>
 Package pdftex.def Info: Images/WoWScrnShot_040118_234212b.jpg  used on input l
@@ -1037,34 +1066,34 @@ Overfull \hbox (2.63379pt too wide) in paragraph at lines 50--51
 []\OT1/cmr/m/n/10.95 These val-ues, [][][][][][], de-
  []
 
-[20 <./Images/WoWScrnShot_040118_234212.jpg> <./Images/WoWScrnShot_040118_23421
+[22 <./Images/WoWScrnShot_040118_234212.jpg> <./Images/WoWScrnShot_040118_23421
 2b.jpg>]
-<Images/WoWScrnShot_040118_234227b.jpg, id=594, 604.50844pt x 306.39468pt>
+<Images/WoWScrnShot_040118_234227b.jpg, id=654, 604.50844pt x 306.39468pt>
 File: Images/WoWScrnShot_040118_234227b.jpg Graphic file (type jpg)
 <use Images/WoWScrnShot_040118_234227b.jpg>
 Package pdftex.def Info: Images/WoWScrnShot_040118_234227b.jpg  used on input l
 ine 67.
 (pdftex.def)             Requested size: 362.37569pt x 183.66992pt.
-<Images/fishbot_MIA.png, id=597, 432.86719pt x 228.10219pt>
+<Images/fishbot_MIA.png, id=657, 432.86719pt x 228.10219pt>
 File: Images/fishbot_MIA.png Graphic file (type png)
 <use Images/fishbot_MIA.png>
 Package pdftex.def Info: Images/fishbot_MIA.png  used on input line 73.
 (pdftex.def)             Requested size: 317.07614pt x 167.09096pt.
- [21 <./Images/WoWScrnShot_040118_234227b.jpg> <./Images/fishbot_MIA.png>]
-<Images/WoWScrnShot_040518_181350b.jpg, id=616, 1311.90125pt x 574.145pt>
+ [23 <./Images/WoWScrnShot_040118_234227b.jpg> <./Images/fishbot_MIA.png>]
+<Images/WoWScrnShot_040518_181350b.jpg, id=675, 1311.90125pt x 574.145pt>
 File: Images/WoWScrnShot_040518_181350b.jpg Graphic file (type jpg)
 <use Images/WoWScrnShot_040518_181350b.jpg>
 Package pdftex.def Info: Images/WoWScrnShot_040518_181350b.jpg  used on input l
 ine 99.
 (pdftex.def)             Requested size: 407.66833pt x 178.41238pt.
- [22 <./Images/WoWScrnShot_040518_181350b.jpg>]
-<Images/WoWScrnShot_040518_115947b.jpg, id=627, 1231.60126pt x 627.34375pt>
+ [24 <./Images/WoWScrnShot_040518_181350b.jpg>]
+<Images/WoWScrnShot_040518_115947b.jpg, id=686, 1231.60126pt x 627.34375pt>
 File: Images/WoWScrnShot_040518_115947b.jpg Graphic file (type jpg)
 <use Images/WoWScrnShot_040518_115947b.jpg>
 Package pdftex.def Info: Images/WoWScrnShot_040518_115947b.jpg  used on input l
 ine 107.
 (pdftex.def)             Requested size: 407.66833pt x 207.64629pt.
-) [23 <./Images/WoWScrnShot_040518_115947b.jpg>] (MIAManual.ind [24
+) [25 <./Images/WoWScrnShot_040518_115947b.jpg>] (MIAManual.ind [26
 
 
 
@@ -1078,15 +1107,9 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 51.
 (TeX_files/WorkoutGeneration.aux) (TeX_files/WoWFeatures.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 51.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 51.
+Package rerunfilecheck Info: File `MIAManual.out' has not changed.
+(rerunfilecheck)             Checksum: 52379D71EC4BD91D8831E73C2C14DD91;2871.
 
-
-Package rerunfilecheck Warning: File `MIAManual.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `MIAManual.out':
-(rerunfilecheck)             Before: D31DC76B38767DFC85D0DCD75A634F08;2534
-(rerunfilecheck)             After:  C5E8094C1DB084DEBC385AA2199619B3;2686.
 
 LaTeX Warning: There were undefined references.
 
@@ -1096,10 +1119,10 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 51.
  ) 
 Here is how much of TeX's memory you used:
- 10575 strings out of 493305
- 148141 string characters out of 3138865
- 447351 words of memory out of 3000000
- 13556 multiletter control sequences out of 15000+200000
+ 10684 strings out of 493305
+ 149478 string characters out of 3138865
+ 448040 words of memory out of 3000000
+ 13643 multiletter control sequences out of 15000+200000
  15459 words of font info for 58 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  33i,12n,49p,1221b,1855s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1112,14 +1135,15 @@ onts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
 amsfonts/cm/cmmi9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/
 cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.
 pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/P
-rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Fil
-es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Program Files/MiKTeX 
-2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/font
-s/type1/public/amsfonts/cm/cmsy9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
-ublic/amsfonts/cm/cmti10.pfb>
-Output written on MIAManual.pdf (28 pages, 1842540 bytes).
+rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Fil
+es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 
+2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Program Files/MiKTeX 2.9/fonts/
+type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
+blic/amsfonts/cm/cmsy9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsf
+onts/cm/cmti10.pfb>
+Output written on MIAManual.pdf (32 pages, 2049732 bytes).
 PDF statistics:
- 803 PDF objects out of 1000 (max. 8388607)
- 346 named destinations out of 1000 (max. 500000)
- 343 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 870 PDF objects out of 1000 (max. 8388607)
+ 364 named destinations out of 1000 (max. 500000)
+ 395 words of extra memory for PDF output out of 10000 (max. 10000000)
 
