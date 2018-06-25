@@ -662,6 +662,8 @@ void WinKeys::press(string character){
         space();
     } else if(character == "-"){
         dash();
+    }  else if(character == "="){
+        dash();
     } else if(character == "LC"){
         leftclick();
     } else if (character == "\\"){
