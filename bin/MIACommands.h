@@ -68,6 +68,6 @@ class Commands{
 		void pranjal();
 		void test();
 		void workoutRunner(bool weekly);
-		void rollDice(string input);
+		int rollDice(string input);
 };
 #endif

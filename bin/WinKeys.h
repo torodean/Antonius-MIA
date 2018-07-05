@@ -65,6 +65,7 @@ class WinKeys{
 		void x();
 		void y();
 		void z();
+		void numlock();
 		void space();
 		void alt0248();
 		void alt136();
@@ -75,6 +76,7 @@ class WinKeys{
 		void backslash();
 		void slash();
 		void leftclick();
+		void rightclick();
 		
 		//Functions using the key presses.
 		void buttonSpam(string button, int amount, int pause);

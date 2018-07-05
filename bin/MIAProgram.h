@@ -12,8 +12,10 @@
 #define __MIAPROGRAM_H__
 
 #include <string>
+#include <vector>
 
 using std::string;
+using std::vector;
 
 class Program{
 	private:
@@ -27,6 +29,9 @@ class Program{
 		string excuseFilePath = "Resources/Excuses.txt";
 		string workoutsFilePath = "Resources/InputFiles/workouts.txt";
 		string workoutOutputFilePath = "Resources/OutputFiles/workout.txt";
+		string defaultButtonCombination = "1234567T";
+		vector<int> buttonCombinationCoordsX = {};
+		vector<int> buttonCombinationCoordsY = {};
 		int WoWMailboxSendLetterLocationX = 270;
 		int WoWMailboxSendLetterLocationY = 650;
 		int WoWMailboxFirstLetterLocationX = 55;
@@ -63,6 +68,8 @@ class Program{
 		bool getVerboseMode();
 		void setWorkoutOutputFilePath(string input);
 		string getWorkoutOutputFilePath();
+		void setDefaultButtonCombination(string input);
+		string getDefaultButtonCombination();
 
 		//Initializes and returns private WoW variables.
 		void setMIAVariable(string variable, string value);

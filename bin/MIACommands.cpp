@@ -991,9 +991,10 @@ void Commands::runNetUserEnum(){
 }
 
 //Rolls a dice using commands programmed in misc class.
-void Commands::rollDice(string input){
+int Commands::rollDice(string input){
 	Misc misc;
 	int dr = misc.roll(input);
+	return dr;
 }
 
 
@@ -1008,17 +1009,11 @@ void Commands::test(){
 	///* Uncomment this for testing things for Windows only.
 	#if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
 	//runNetUserEnum();
-	
-	Misc misc;
-	bool yes = false;
-	int dr = 0;
-	for (int i=0;i<1000;i++){
-		dr = misc.roll("15d6");
-		if (dr < 40)
-			yes = true;
+
+	WinKeys key;
+	for (int i=0;i<100;i++){
+		key.numlock();
 	}
-	if (yes)
-		cout << "YEA BOI!!!!!" << endl;
 
 	#else
 	prog.returnError(31416);

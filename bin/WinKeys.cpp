@@ -23,6 +23,7 @@ using std::endl;
 using std::string;
 
 WinKeys::WinKeys(){
+	// Chuck Norris can make a CPU run at 300% efficiency.
     // Set up a generic keyboard event.
     ip.type = INPUT_KEYBOARD;
     ip.ki.wScan = 0; // hardware scan code for key
@@ -31,7 +32,7 @@ WinKeys::WinKeys(){
 }
 
 WinKeys::~WinKeys(){
-
+	// When Chuck Norris catches errors, he catches them with chopsticks.
 }
 
 void WinKeys::space(){
@@ -664,14 +665,20 @@ void WinKeys::press(string character){
         dash();
     }  else if(character == "="){
         dash();
-    } else if(character == "LC"){
+    } else if(character == "L"){
         leftclick();
+    } else if(character == "R"){
+        rightclick();
     } else if (character == "\\"){
 		backslash();
 	} else if (character == "/"){
 		slash();
-	} else if (character == "ENTER"){
+	} else if (character == "E"){
 		enter();
+	} else if (character == "T"){
+		tab();
+	} else if (character == "N"){
+		numlock();
 	}
 }
 
@@ -699,7 +706,6 @@ void WinKeys::paste(){
     SendInput(1, &ip, sizeof(INPUT));
 
     std::this_thread::sleep_for(std::chrono::milliseconds(globalSleep));
-
 }
 
 void WinKeys::leftclick(){
@@ -713,6 +719,34 @@ void WinKeys::leftclick(){
   ZeroMemory(&Input,sizeof(INPUT));
   Input.type      = INPUT_MOUSE;
   Input.mi.dwFlags  = MOUSEEVENTF_LEFTUP;
+  SendInput(1,&Input,sizeof(INPUT));
+  std::this_thread::sleep_for(std::chrono::milliseconds(2*globalSleep));
+}
+
+void WinKeys::numlock(){
+    // Press the "y" key
+    ip.ki.wVk = 0x90; // virtual-key code for the "y" key
+    ip.ki.dwFlags = 0; // 0 for key press
+    SendInput(1, &ip, sizeof(INPUT));
+
+    // Release the "y" key
+    ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
+    SendInput(1, &ip, sizeof(INPUT));
+
+    std::this_thread::sleep_for(std::chrono::milliseconds(globalSleep));
+}
+
+void WinKeys::rightclick(){
+  INPUT    Input={0};
+  // left down
+  Input.type      = INPUT_MOUSE;
+  Input.mi.dwFlags  = MOUSEEVENTF_RIGHTDOWN;
+  SendInput(1,&Input,sizeof(INPUT));
+
+  // left up
+  ZeroMemory(&Input,sizeof(INPUT));
+  Input.type      = INPUT_MOUSE;
+  Input.mi.dwFlags  = MOUSEEVENTF_RIGHTUP;
   SendInput(1,&Input,sizeof(INPUT));
   std::this_thread::sleep_for(std::chrono::milliseconds(2*globalSleep));
 }

@@ -113,6 +113,12 @@ void Program::setWorkoutsFilePath(string input){
 string Program::getWorkoutsFilePath(){
 	return workoutsFilePath;
 }
+void Program::setDefaultButtonCombination(string input){
+	defaultButtonCombination = input;
+}
+string Program::getDefaultButtonCombination(){
+	return defaultButtonCombination;
+}
 void Program::setWoWMailboxSendLetterLocation(char coord, string value){
 	if (is_digits(value)){
 		if(coord == 'x'){
@@ -276,20 +282,22 @@ void Program::setMIAVariable(string variable, string value){
 		setWoWFishBotSpace("endY", value);
 	} else if (variable == "WoWFishBotIncrement"){
 		setWoWFishBotSpace("increment", value);
-	}  else if (variable == "WoWFishBotNumOfCasts"){
+	} else if (variable == "WoWFishBotNumOfCasts"){
 		setWoWFishBotSpace("casts", value);
-	}  else if (variable == "WoWFishBotDelay"){
+	} else if (variable == "WoWFishBotDelay"){
 		setWoWFishBotSpace("delay", value);
 	} else if (variable == "WoWMailboxLootLetterLocationX"){
 		setWoWMailboxLootLetterLocation('x',value);
 	} else if (variable == "WoWMailboxLootLetterLocationY"){
 		setWoWMailboxLootLetterLocation('y',value);
-	}  else if (variable == "WoWMailboxDeleteLetterLocationX"){
+	} else if (variable == "WoWMailboxDeleteLetterLocationX"){
 		setWoWMailboxDeleteLetterLocation('x',value);
 	} else if (variable == "WoWMailboxDeleteLetterLocationY"){
 		setWoWMailboxDeleteLetterLocation('y',value);
-	}  else if (variable == "verboseMode"){
+	} else if (variable == "verboseMode"){
 		setVerboseMode(value);
+	} else if (variable == "defaultButtonCombination"){
+		setDefaultButtonCombination(value);
 	} else {
 		returnError(31417);
 	}
