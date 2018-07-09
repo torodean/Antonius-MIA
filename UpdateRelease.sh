@@ -15,5 +15,5 @@ rm -vrf Release/Resources
 cp -vr bin/Resources Release/Resources
 echo "...done!"
 echo "Creating compressed release file."
-tar czvf MIA\ Release.tar.gz Release
-echo "done..."
+tar czvf MIA\ Release.tar.gz Release/
+echo "...done!"
