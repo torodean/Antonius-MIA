@@ -25,6 +25,11 @@ excuseFilePath=Resources/Excuses.txt
 # MIA program variables.
 verboseMode=false
 
+# MIA variables.
+defaultButtonCombination=1234567T
+#buttonCombinationCoordsX=0,0,0
+#buttonCombinationCoordsY=0,0,0
+
 # WoW related variables.
 WoWMailboxSendLetterLocationX=279
 WoWMailboxSendLetterLocationY=647
