@@ -23,7 +23,7 @@ workoutOutputFilePath=Resources/OutputFiles/workout.txt
 excuseFilePath=Resources/Excuses.txt
 
 # MIA program variables.
-verboseMode=false
+verboseMode=true
 
 # MIA variables.
 defaultButtonCombination=1234567T

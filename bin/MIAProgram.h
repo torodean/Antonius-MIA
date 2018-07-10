@@ -116,5 +116,6 @@ class Program{
 		string today();
 		void terminalCommand(string command);
 		bool inputRoll(string input);
+		vector<string> delimiterString(string input, string delimiter);
 };
 #endif

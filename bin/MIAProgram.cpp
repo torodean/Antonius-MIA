@@ -76,6 +76,36 @@ int Program::findCharInString(string input, char c){
 	return 0;
 }
 
+//Separates a string into components via a delimiter.
+vector<string> Program::delimiterString(string input, string delimiter){
+	if(verboseMode)
+		cout << "input string: " << input << endl;
+	vector<string> output;
+	size_t pos = 0;
+	std::string item;
+	while ((pos = input.find(delimiter)) != string::npos) {
+		item = input.substr(0, pos);
+		output.push_back(item);
+		if(verboseMode)
+			cout << "delimiter item: " << item << endl;
+		input.erase(0, pos + delimiter.length());
+	}
+	output.push_back(input);
+	if(verboseMode)
+		cout << "delimiter item: " << input << endl;
+	int outputSize = output.size();
+	if(verboseMode){
+		cout << "Contents of output: ";
+		for(int i=0;i<outputSize;i++){
+			cout << output[i];
+			if(i != outputSize-1)
+				cout << delimiter;
+		}
+		cout << endl;
+	}
+	return output;
+}
+
 //function for determining if all characters in a string are digits/ints. Taken from StackOverflow.
 bool Program::is_digits(const string &str){
     if(str.find_first_not_of("0123456789") == string::npos){
@@ -1013,8 +1043,9 @@ void Program::terminalCommand(string command){
 void Program::test(){
     cout << "...Starting test." << endl;
 	
-	Commands cmd;
-	cmd.test();
+	delimiterString("a,b,c,d", ",");
+	//Commands cmd;
+	//cmd.test();
 	
 	/*
     MIAencrypt crypt(4);
