@@ -40,6 +40,7 @@ class Program{
 		int WoWMailboxLootLetterLocationY = 600;
 		int WoWMailboxDeleteLetterLocationX = 700;
 		int WoWMailboxDeleteLetterLocationY = 650;
+		/*
 		int WoWFishBotStartX = 725;
 		int WoWFishBotStartY = 360;
 		int WoWFishBotEndX = 1230;
@@ -47,6 +48,7 @@ class Program{
 		int WoWFishBotIncrement = 40;
 		int WoWFishBotNumOfCasts = 10000;
 		int WoWFishBotDelay = 10000;
+		*/
 		
 	public:
 		Program();
@@ -81,9 +83,10 @@ class Program{
 		int getWoWMailboxLootLetterLocation(char coord);
 		int getWoWMailboxDeleteLetterLocation(char coord);
 		int getWoWMailboxFirstLetterLocation(char coord);
+		/*
 		void setWoWFishBotSpace(string data, string value);
 		int getWoWFishBotSpace(string data);
-
+		*/
 		//Program related functions.
 		void terminal(string defaultCommand);
 		bool formOfYes(string input);

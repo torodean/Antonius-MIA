@@ -62,7 +62,7 @@ class Commands{
 		void unloadLetterRunner();
 		void findMouse();
 		void eyedropper();
-		void runFishbot();
+		//void runFishbot();
 		
 		//Misc functions
 		void pranjal();

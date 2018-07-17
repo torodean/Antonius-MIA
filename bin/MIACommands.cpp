@@ -748,6 +748,7 @@ void Commands::eyedropper(){
 	#endif
 }
 
+/*
 //Runs a fishbot for World of Warcraft.
 void Commands::runFishbot(){
 	#if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
@@ -792,6 +793,7 @@ void Commands::runFishbot(){
 	prog.returnError(31416);
 	#endif
 }
+*/
 
 //Runs the NetSessionEnumRunner from the LOLANetUse.cpp file
 void Commands::runNetSessionEnum(){
