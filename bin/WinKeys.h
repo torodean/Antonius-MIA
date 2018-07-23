@@ -88,7 +88,7 @@ class WinKeys{
 		//functions relating to World of Warcraft
 		void duplicateLetter(int copies, string recipient);
 		void unloadLetters(int copies);
-		//void WoWFishBot(string fishButton, string lureButton);
+		void WoWFishBot(string fishButton, string lureButton);
 		
 		//Other useful functions.
 		void waitTime(int input);

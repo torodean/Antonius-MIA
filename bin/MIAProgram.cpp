@@ -234,7 +234,6 @@ int Program::getWoWMailboxDeleteLetterLocation(char coord){
 	}
 }
 
-/*
 //Sets values relating to the WoWFishBotSpace.
 void Program::setWoWFishBotSpace(string data, string value){
 	if (is_digits(value)){
@@ -279,7 +278,6 @@ int Program::getWoWFishBotSpace(string data){
 		return 0;
 	}
 }
-*/
 
 //Set's the variable to a value
 void Program::setMIAVariable(string variable, string value){
@@ -304,7 +302,7 @@ void Program::setMIAVariable(string variable, string value){
 		setWoWMailboxFirstLetterLocation('x',value);
 	} else if (variable == "WoWMailboxFirstLetterLocationY"){
 		setWoWMailboxFirstLetterLocation('y',value);
-	} /* else if (variable == "WoWFishBotStartX"){
+	} else if (variable == "WoWFishBotStartX"){
 		setWoWFishBotSpace("startX", value);
 	} else if (variable == "WoWFishBotStartY"){
 		setWoWFishBotSpace("startY", value);
@@ -318,7 +316,7 @@ void Program::setMIAVariable(string variable, string value){
 		setWoWFishBotSpace("casts", value);
 	} else if (variable == "WoWFishBotDelay"){
 		setWoWFishBotSpace("delay", value);
-	} */ else if (variable == "WoWMailboxLootLetterLocationX"){
+	} else if (variable == "WoWMailboxLootLetterLocationX"){
 		setWoWMailboxLootLetterLocation('x',value);
 	} else if (variable == "WoWMailboxLootLetterLocationY"){
 		setWoWMailboxLootLetterLocation('y',value);
@@ -508,9 +506,9 @@ int Program::commandToInputVar(string input){
 		output = 31;	
 	} else if (input == "config"){
 		output = 32;	
-	} /* else if (input == "fishbot"){
+	} else if (input == "fishbot"){
 		output = 33;
-	} */ else if (input == "workout"){
+	} else if (input == "workout"){
 		output = 34;
 	} else if (input == "splash"){
 		output = 35;
@@ -656,9 +654,9 @@ void Program::performCommand(string input){
 		case 32: //Corresponds to the config command.
 			initializeSettings(true);
 			break;
-		/* case 33: //Corresponds to the fishbot command.
+		case 33: //Corresponds to the fishbot command.
 			cmd.runFishbot();
-			break; */
+			break;
 		case 34: //Corresponds to the workout command.
 			cmd.workoutRunner(false);
 			break;
@@ -726,7 +724,7 @@ void Program::help(){
 	cout << "... eyedropper    | Returns the RGB value of the pixel located at the cursor." << endl;
 	cout << "... factors       | Returns the number of factors within an integer." << endl;
 	cout << "... find mouse    | Finds/Returns the coordinates of the mouse after 5 seconds." << endl;
-	//cout << "... fishbot       | A working and configurable WoW fishbot." << endl;
+	cout << "... fishbot       | A working and configurable WoW fishbot." << endl;
 	cout << "... lattice       | Returns lattice paths to the farthest corner of an NxM grid." << endl;
 	cout << "... mc dig        | Simulates key strokes for continuous Minecraft digging." << endl;
 	cout << "... mc explore    | Explores a Minecraft map using the minecraft /tp command." << endl;

@@ -971,7 +971,6 @@ void WinKeys::getPixelColorAtMouse(){
 	cout << "...Finished." << endl;
 }
 
-/*
 //A fish bot made for WoW -- Not yet polished.
 void WinKeys::WoWFishBot(string fishButton, string lureButton){
 	int drama = 400;
@@ -1087,4 +1086,3 @@ void WinKeys::WoWFishBot(string fishButton, string lureButton){
 
 	ReleaseDC(NULL,dc);
 }
-*/
