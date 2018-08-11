@@ -874,7 +874,7 @@ void WinKeys::duplicateLetter(int copies, string recipient){
         SetCursorPos(x, y);
         Sleep(300);
         leftclick();
-        Sleep(1500);
+        Sleep(2500);
     }
 }
 
