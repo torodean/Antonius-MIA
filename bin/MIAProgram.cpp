@@ -1043,9 +1043,8 @@ void Program::terminalCommand(string command){
 void Program::test(){
     cout << "...Starting test." << endl;
 	
-	delimiterString("a,b,c,d", ",");
-	//Commands cmd;
-	//cmd.test();
+	Commands cmd;
+	cmd.test();
 	
 	/*
     MIAencrypt crypt(4);

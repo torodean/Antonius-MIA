@@ -1010,12 +1010,10 @@ void Commands::test(){
 	///* Uncomment this for testing things for Windows only.
 	#if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
 	//runNetUserEnum();
+	MIAEncrypt crypt(4);
+	crypt.test();
 
-	WinKeys key;
-	for (int i=0;i<100;i++){
-		key.numlock();
-	}
-
+	
 	#else
 	prog.returnError(31416);
 	#endif

@@ -52,8 +52,10 @@ void MIAEncrypt::test(){
 	}
 	printCube(testCube);
 		
-	/* Tests the rotations. //All work!
+	// /* Tests the rotations. //All work!
+	cout << "Testing rotation process." << endl;
 	
+	cout << "Creating test cube with values equal to coordinates." << endl;
 	vector< vector< vector<int>>> testCube = intCube;
 	for(int i=0;i<cubeSize;i++){
 		for(int j=0;j<cubeSize;j++){
@@ -66,9 +68,10 @@ void MIAEncrypt::test(){
 	
 	string input = "";
 	cout << "Enter a rotation (format == side(char) index(int) CW(bool)): ";
+	cout << "Type 'stop' to stop" << endl;
 	
 	getline(cin, input);
-	while(input != "exit"){
+	while(input != "stop"){
 		if(input == "z 0 1"){
 			testCube = rotation(testCube, 'z', 0, 1);
 		} else if (input == "z 0 0"){
@@ -100,10 +103,11 @@ void MIAEncrypt::test(){
 		getline(cin, input);
 	}
 	
-	*/ //All work!
+	//*/ //All work!
 	
-	/* Tests the combination -> integer process. //All works!
-	cout  << totalRotations << endl;
+	// Tests the combination -> integer process. //All works!
+	cout << "Testing combination to integer process." << endl;
+	cout  << "totalRotations: " << totalRotations << endl;
 	for(int n=0; n<totalRotations; n++){
 		combination[n] = n;
 		cout << combination[n] << endl;
@@ -150,26 +154,29 @@ void MIAEncrypt::test(){
 		
 		cout << combination[n] << "   " << CW << "   " << side << "   " << index << endl;
 	}
-	*/ //All works!
+	// */ //All works!
 	
-	/* Tests the passphrase -> combination -> scramble -> unscramble process. //All works!
+	// /* Tests the passphrase -> combination -> scramble -> unscramble process. //All works!
+	cout << "Testing the passphrase to combination then scramble and unscramble process." << endl;
+	
+	cout << "Comverting passphrase to combination." << endl;
 	passphraseToCombination("Hello World!");
 	
+	cout << "Scrambling cube with combination" << endl;
 	testCube = scrambleCube(testCube, combination);
 	
 	printCube(testCube);
 	
+	cout << "Unscrambling cube with combination" << endl;
 	testCube = unscrambleCube(testCube, combination);
 
 	printCube(testCube);
-	*/ //All works!
+	// */ //All works!
 	
 	cout << "Starting test... " << endl;
 	
 	vector<char> charTest = fileToCharVec("input.txt");
 	vector<int> intTest = charVecToIntVec(charTest);
-
-	
 	
 	cout << "Finished... " << endl;
 }
@@ -226,7 +233,7 @@ vector< vector< vector<int>>> MIAEncrypt::rotation(vector< vector< vector<int>>>
 }
 
 //Prints the components of a intCube in a format assuming each element has the same length.
-void MIAEncrypt::printCube(vector< vector< vector<int>>> inputCube){	
+void MIAEncrypt::printCube(vector< vector< vector<int>>> inputCube){
 	cout << endl;
 	for(int k=cubeSize-1; k>=0; k--){
 		for(int j=cubeSize-1; j>=0; j--){
@@ -448,19 +455,10 @@ vector<bool> MIAEncrypt::intVecToBoolVec(vector<int> intVec){
 }
 
 //In development. 
-vector< vector< vector<bool> > >	MIAEncrypt::boolVecToBoolCube(vector<bool> boolVec){
+vector< vector< vector<bool> > > MIAEncrypt::boolVecToBoolCube(vector<bool> boolVec){
 	vector< vector< vector<bool> > > boolCube;
 	return boolCube;
 }
-
-
-
-
-
-
-
-
-
 
 
 
