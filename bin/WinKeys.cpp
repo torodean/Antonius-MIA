@@ -1004,11 +1004,23 @@ void WinKeys::WoWFishBot(string fishButton, string lureButton){
 	int counter = 0;
 	int red=1,green=1,blue=1;
 	int increment = prog.getWoWFishBotSpace("increment");
+	if(prog.getVerboseMode())
+		cout << "increment: " << increment << endl;
 	int startX = prog.getWoWFishBotSpace("startX") + increment/2, startY = prog.getWoWFishBotSpace("startY");
+	if(prog.getVerboseMode()){
+		cout << "startX: " << startX << endl;
+		cout << "startY: " << startY << endl;
+	}
 	int endX = prog.getWoWFishBotSpace("endX"), endY = prog.getWoWFishBotSpace("endY");
+	if(prog.getVerboseMode()){
+		cout << "endX: " << endX << endl;
+		cout << "endY: " << endY << endl;
+	}
 	bool bobberFound = false;
 	bool useLure = true;
 	int catchDelay = prog.getWoWFishBotSpace("delay");
+	if(prog.getVerboseMode())
+		cout << "catchDelay: " << catchDelay << endl;
 	
 	//Determines whether a lure is being used based on input.
 	if (lureButton == "NONE" || lureButton == "None" || lureButton == "none"){
@@ -1051,7 +1063,7 @@ void WinKeys::WoWFishBot(string fishButton, string lureButton){
 				//cout << "(x,y): " << "(" << i << "," << j << ")" << endl;
 				//cout << "Red: " << red << "  --  " << "Green: " << green << "  --  " << "Blue: " << blue << endl;
 				
-				if(red == 0 && green == 0 && blue == 0){
+				if(red > green || red > blue){
 					cout << "...The bobber has been found!! ...I think." << endl;
 					bobberFound=true;
 					break;

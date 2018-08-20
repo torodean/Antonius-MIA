@@ -56,7 +56,7 @@ void MIAEncrypt::test(){
 	cout << "Testing rotation process." << endl;
 	
 	cout << "Creating test cube with values equal to coordinates." << endl;
-	vector< vector< vector<int>>> testCube = intCube;
+	//vector< vector< vector<int>>> testCube = intCube;
 	for(int i=0;i<cubeSize;i++){
 		for(int j=0;j<cubeSize;j++){
 			  for(int k=0;k<cubeSize;k++){
