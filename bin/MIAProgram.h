@@ -19,7 +19,7 @@ using std::vector;
 
 class Program{
 	private:
-		const string VERSION = "0.042";
+		const string VERSION = "0.043";
 		
 		//Variables that can be set in the MIAConfig file.
 		bool verboseMode = false;
