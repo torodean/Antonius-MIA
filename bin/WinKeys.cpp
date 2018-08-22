@@ -1063,7 +1063,7 @@ void WinKeys::WoWFishBot(string fishButton, string lureButton){
 				//cout << "(x,y): " << "(" << i << "," << j << ")" << endl;
 				//cout << "Red: " << red << "  --  " << "Green: " << green << "  --  " << "Blue: " << blue << endl;
 				
-				if(red > green || red > blue){
+				if(red > green + 15 || red > blue + 15){
 					cout << "...The bobber has been found!! ...I think." << endl;
 					bobberFound=true;
 					break;
