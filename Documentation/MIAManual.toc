@@ -31,6 +31,8 @@
 \contentsline {section}{\numberline {5.4}Real World Difficulties}{18}{section.5.4}
 \contentsline {section}{\numberline {5.5}Notes on Appropriate MIA Parameters For Usage}{20}{section.5.5}
 \contentsline {chapter}{\numberline {6}World of Warcraft (WoW) Features in MIA}{21}{chapter.6}
-\contentsline {section}{\numberline {6.1}Mailbox Management}{21}{section.6.1}
-\contentsline {subsection}{\numberline {6.1.1}Sending Duplicates of a Letter}{21}{subsection.6.1.1}
-\contentsline {subsection}{\numberline {6.1.2}Unloading Duplicated letters}{22}{subsection.6.1.2}
+\contentsline {section}{\numberline {6.1}WoW Fishbot}{21}{section.6.1}
+\contentsline {subsection}{\numberline {6.1.1}Setup and Configuration}{21}{subsection.6.1.1}
+\contentsline {section}{\numberline {6.2}Mailbox Management}{23}{section.6.2}
+\contentsline {subsection}{\numberline {6.2.1}Sending Duplicates of a Letter}{24}{subsection.6.2.1}
+\contentsline {subsection}{\numberline {6.2.2}Unloading Duplicated letters}{25}{subsection.6.2.2}
