@@ -48,3 +48,10 @@ WoWFishBotEndY=581
 WoWFishBotIncrement=20
 WoWFishBotNumOfCasts=10000
 WoWFishBotDelay=12000
+
+# Variables relating to the functions designed for PokeMMO
+CenterHairPixelX=927
+CenterHairPixelY=476
+CenterHairColorR=182
+CenterHairColorG=172
+CenterHairColorB=169

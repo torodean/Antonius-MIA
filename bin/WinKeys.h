@@ -90,6 +90,9 @@ class WinKeys{
 		void unloadLetters(int copies);
 		void WoWFishBot(string fishButton, string lureButton);
 		
+		//functions relating to PokeMMO
+		void trainPokemon(int time);
+		
 		//Other useful functions.
 		void waitTime(int input);
 		void findMouseCoords(int waitTime);

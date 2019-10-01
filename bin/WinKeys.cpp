@@ -1098,3 +1098,7 @@ void WinKeys::WoWFishBot(string fishButton, string lureButton){
 
 	ReleaseDC(NULL,dc);
 }
+
+void WinKeys::trainPokemon(int time){
+	
+}

@@ -477,7 +477,7 @@ void Misc::generateWorkout(double difficulty, bool weekly){
 		cout << "...Workout generation completed." << endl;
 	} else {
 		if (prog.getVerboseMode())
-			prog.returnError(31404);
+			prog.returnError(31404, "");
 	}
 }
 

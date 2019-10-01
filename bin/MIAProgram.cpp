@@ -329,7 +329,9 @@ void Program::setMIAVariable(string variable, string value){
 	} else if (variable == "defaultButtonCombination"){
 		setDefaultButtonCombination(value);
 	} else {
-		returnError(31417);
+		if(verboseMode){
+			returnError(31417, variable);
+		}
 	}
 }
 
@@ -888,7 +890,7 @@ string Program::getDefaultDecryptFilePath(){
 }
 
 //Function used for displaying error information.
-void Program::returnError(int errorCode){
+void Program::returnError(int errorCode, string details){
 	switch(errorCode){
 		case 404: 
 			cout << "...ERROR 404: File not found." << endl;
@@ -906,7 +908,7 @@ void Program::returnError(int errorCode){
 			cout << "...ERROR 31416: This feature is currently only programmed for Windows." << endl;
 			break;
 		case 31417:
-			cout << "...ERROR 31417: Invalid Option in MIAConfig. Using default value." << endl;
+			cout << "...ERROR 31417: Invalid Option in MIAConfig: " << details << ".  Using default value." << endl;
 			break;
 		case 31418:
 			cout << "...ERROR 31418: Nothing set for testing." << endl;
@@ -981,7 +983,7 @@ void Program::errorInfo(int error){
 			cout << "...31416: This feature is currently only programmed for Windows." << endl;
 			break;
 		case 31417:
-			cout << "...31417: Invalid Option in MIAConfig. Using default value." << endl;
+			cout << "...31417: Invalid Option in MIAConfig: invalidVariable. Using default value." << endl;
 			break;
 		case 31418:
 			cout << "...31418: Nothing set for testing." << endl;

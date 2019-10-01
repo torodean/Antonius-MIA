@@ -47,6 +47,11 @@ class Program{
 		int WoWFishBotIncrement = 40;
 		int WoWFishBotNumOfCasts = 10000;
 		int WoWFishBotDelay = 10000;
+		int CenterHairPixelX = 927;
+		int CenterHairPixelY = 476;
+		int CenterHairColorR = 182;
+		int CenterHairColorG = 172;
+		int CenterHairColorB = 169;
 		
 	public:
 		Program();
@@ -83,6 +88,12 @@ class Program{
 		int getWoWMailboxFirstLetterLocation(char coord);
 		void setWoWFishBotSpace(string data, string value);
 		int getWoWFishBotSpace(string data);
+		
+		//Initializes and returns private PokeMMO variables.
+		void setCenterHairPixelLocation(char coord, string value);
+		void setCenterHairColor(char color, string value);
+		int getCenterHairPixelLocation(char coord);
+		int getCenterHairColor(char color);
 
 		//Program related functions.
 		void terminal(string defaultCommand);
@@ -105,7 +116,7 @@ class Program{
 		void test();
 		
 		//Error related functions
-		void returnError(int errorCode);
+		void returnError(int errorCode, string details = "");
 		void errorInfo(int error);
 		void errorInfoRun(bool all);
 		
