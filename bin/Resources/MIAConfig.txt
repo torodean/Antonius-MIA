@@ -23,7 +23,7 @@ workoutOutputFilePath=Resources/OutputFiles/workout.txt
 excuseFilePath=Resources/Excuses.txt
 
 # MIA program variables.
-verboseMode=false
+verboseMode=true
 
 # MIA variables.
 defaultButtonCombination=1234567T
@@ -48,10 +48,3 @@ WoWFishBotEndY=581
 WoWFishBotIncrement=20
 WoWFishBotNumOfCasts=10000
 WoWFishBotDelay=12000
-
-# Variables relating to the functions designed for PokeMMO
-CenterHairPixelX=927
-CenterHairPixelY=476
-CenterHairColorR=182
-CenterHairColorG=172
-CenterHairColorB=169

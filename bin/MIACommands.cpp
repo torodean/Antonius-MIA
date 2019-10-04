@@ -1010,8 +1010,74 @@ void Commands::test(){
 	///* Uncomment this for testing things for Windows only.
 	#if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
 	//runNetUserEnum();
-	MIAEncrypt crypt(4);
-	crypt.test();
+	//MIAEncrypt crypt(4);
+	//crypt.test();
+
+	std::string toon = "warrior2";
+
+	WinKeys keys;
+	keys.sleep(3000);
+	if (toon == "hunter"){
+		for (int i=0;i<=1000;i++){
+			keys.tab();
+			keys.three();
+			keys.sleep(1000);
+			keys.four();
+			keys.sleep(1000);
+			keys.four();
+			keys.sleep(3000);
+			for (int j=0;j<5;j++){
+				keys.three();
+				keys.sleep(6500);
+			}
+		}
+	} else if (toon == "rogue"){
+		for (int i=0;i<=1000;i++){
+			keys.tab();
+			for (int j=0;j<4;j++){
+					keys.four();
+					keys.sleep(300);
+			}
+			for (int j=0;j<45;j++){
+				if(j%5==0){
+					keys.four();
+					keys.sleep(300);
+				}
+				keys.three();
+				keys.sleep(500);
+			}
+		}
+	}  else if (toon == "warrior"){
+		for (int i=0;i<=1000;i++){
+			if(i%2==0)
+				keys.press("d",250);
+			keys.tab();
+			keys.sleep(300);
+			keys.eight();
+			keys.sleep(500);		
+
+			for (int j=0;j<=31;j++){
+				keys.three();
+				keys.sleep(500);
+			}
+			keys.rightclick();
+			keys.sleep(500);
+		}
+	} else if (toon == "warrior2"){
+		for (int i=0;i<=1000;i++){
+			keys.tab();
+			keys.sleep(300);
+			for (int j=0;j<=52;j++){
+				keys.one();
+				keys.two();
+				keys.three();
+				keys.sleep(500);
+			}
+			keys.rightclick();
+			keys.sleep(500);
+		}
+	}
+
 
 	
 	#else
