@@ -1013,22 +1013,17 @@ void Commands::test(){
 	//MIAEncrypt crypt(4);
 	//crypt.test();
 
-	std::string toon = "warrior2";
+	std::string toon = "warlock";
 
 	WinKeys keys;
 	keys.sleep(3000);
 	if (toon == "hunter"){
 		for (int i=0;i<=1000;i++){
 			keys.tab();
-			keys.three();
-			keys.sleep(1000);
-			keys.four();
-			keys.sleep(1000);
-			keys.four();
-			keys.sleep(3000);
 			for (int j=0;j<5;j++){
+				keys.one();
 				keys.three();
-				keys.sleep(6500);
+				keys.sleep(5000);
 			}
 		}
 	} else if (toon == "rogue"){
@@ -1075,6 +1070,19 @@ void Commands::test(){
 			}
 			keys.rightclick();
 			keys.sleep(500);
+		}
+	} else if (toon == "warlock"){
+		for (int i=0;i<=1000;i++){
+			keys.press("d",250);
+			keys.tab();
+			keys.sleep(500);
+			keys.four();
+			keys.sleep(10000);
+			keys.four();
+			keys.sleep(10000);
+			keys.four();
+			keys.sleep(10000);
+			keys.rightclick();			
 		}
 	}
 

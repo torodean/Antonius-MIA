@@ -13,6 +13,6 @@ int main(){
 	Program program;
 	
 	//Give this function a string parameter for a default command to be run upon execution.
-	program.terminal("");
+	program.terminal("test");
 	return 0;
 }
