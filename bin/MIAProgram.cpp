@@ -54,9 +54,24 @@ void Program::setVerboseMode(string value){
 	}
 }
 
+//sets verboseMode.
+void Program::setMIATerminalMode(string value){
+	value = removeCharInString(value, ' ');
+	if (value == "true" || value == "1"){
+		MIATerminalMode = true;
+	} else {
+		MIATerminalMode = false;
+	}
+}
+
 //Returns verboseMode.
 bool Program::getVerboseMode(){
 	return verboseMode;
+}
+
+//Returns MIATerminalMode.
+bool Program::getMIATerminalMode(){
+	return MIATerminalMode;
 }
 
 //Removes a specific character from a string.
@@ -326,6 +341,8 @@ void Program::setMIAVariable(string variable, string value){
 		setWoWMailboxDeleteLetterLocation('y',value);
 	} else if (variable == "verboseMode"){
 		setVerboseMode(value);
+	}  else if (variable == "MIATerminalMode"){
+		setMIATerminalMode(value);
 	} else if (variable == "defaultButtonCombination"){
 		setDefaultButtonCombination(value);
 	} else {
@@ -431,11 +448,12 @@ void Program::standby(string defaultCommand){
 		blankLine();
 		if(input == "exit" || input == "quit" || input == "EXIT" || input == "QUIT"){
 			exit = true;
+			break;
 		} else{
 			performCommand(input);
 		}
 		helpMessage();
-	} 
+	}
 }
 
 //Takes the user input as a string and converts it to a corresponding integer to be used in the switch case.
@@ -867,7 +885,7 @@ int Program::randomInt(int min, int max, int seed, bool useTime){
 
 //A function used to determine if an answer is equivalent to yes.
 bool Program::formOfYes(string input){
-	if (input == "y" || input == "Y" || input == "yes" || input == "Yes" || input == "YES"){
+	if (input == "y" || input == "Y" || input == "yes" || input == "Yes" || input == "YES" || input == "sure" || input == "Sure"){
 		return true;
 	} else {
 		return false;

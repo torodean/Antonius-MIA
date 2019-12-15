@@ -15,6 +15,9 @@ CFLAGS=-c -Wall -std=c++14
 # Libraries to include
 LDFLAGS=-lgdi32 -lNetapi32
 
+# Multithreading support
+TFLAGS=-lpthread
+
 # make all - for compiling on Windows
 all: MIA
 
@@ -24,9 +27,9 @@ MIA: MIAMain.o MIAProgram.o MIACommands.o D3CEncrypt.o D3CEncryptPW.o D3CMath.o 
 
 # make the object files on a Linux machine.
 linux: MIAMain.o MIAProgram.o MIACommands.o D3CEncrypt.o D3CEncryptPW.o D3CMath.o MIAEncrypt.o MIAMisc.o
-	$(CC) MIAMain.o MIAProgram.o MIACommands.o D3CEncrypt.o D3CEncryptPW.o D3CMath.o MIAEncrypt.o MIAMisc.o -o MIA
+	$(CC) MIAMain.o MIAProgram.o MIACommands.o D3CEncrypt.o D3CEncryptPW.o D3CMath.o MIAEncrypt.o MIAMisc.o -o MIA $(TFLAGS)
 	
-# make the object files on a Linux machine.
+# make the object files for release.
 release: MIAMain.o MIAProgram.o MIACommands.o D3CEncrypt.o D3CEncryptPW.o D3CMath.o MIAEncrypt.o MIAMisc.o WinKeys.o LOLANetUse.o
 	$(CC) MIAMain.o MIAProgram.o MIACommands.o D3CEncrypt.o D3CEncryptPW.o D3CMath.o MIAEncrypt.o MIAMisc.o WinKeys.o LOLANetUse.o -o MIA $(LDFLAGS)
 	rm -rfv ../Release/

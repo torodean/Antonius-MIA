@@ -19,10 +19,11 @@ using std::vector;
 
 class Program{
 	private:
-		const string VERSION = "0.043";
+		const string VERSION = "0.144";
 		
 		//Variables that can be set in the MIAConfig file.
 		bool verboseMode = false;
+		bool MIATerminalMode = true;
 		string defaultInputFilePath = "Resources/InputFiles/";
 		string defaultCryptFilePath = "Resources/EncryptedFiles/";
 		string defaultDecryptFilePath = "Resources/DecryptedFiles/";
@@ -71,6 +72,8 @@ class Program{
 		void initializeSettings(bool printSettings);
 		void setVerboseMode(string value);
 		bool getVerboseMode();
+		void setMIATerminalMode(string value);
+		bool getMIATerminalMode();
 		void setWorkoutOutputFilePath(string input);
 		string getWorkoutOutputFilePath();
 		void setDefaultButtonCombination(string input);
@@ -96,7 +99,7 @@ class Program{
 		int getCenterHairColor(char color);
 
 		//Program related functions.
-		void terminal(string defaultCommand);
+		void terminal(string defaultCommand = "");
 		bool formOfYes(string input);
 		void blankDots();
 		void splash();
