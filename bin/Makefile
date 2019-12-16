@@ -26,8 +26,8 @@ MIA: MIAMain.o MIAProgram.o MIACommands.o D3CEncrypt.o D3CEncryptPW.o D3CMath.o 
 	$(CC) MIAMain.o MIAProgram.o MIACommands.o D3CEncrypt.o D3CEncryptPW.o D3CMath.o MIAEncrypt.o MIAMisc.o WinKeys.o LOLANetUse.o MIAMusic.o -o MIA $(LDFLAGS)
 
 # make the object files on a Linux machine.
-linux: MIAMain.o MIAProgram.o MIACommands.o D3CEncrypt.o D3CEncryptPW.o D3CMath.o MIAEncrypt.o MIAMisc.o
-	$(CC) MIAMain.o MIAProgram.o MIACommands.o D3CEncrypt.o D3CEncryptPW.o D3CMath.o MIAEncrypt.o MIAMisc.o -o MIA $(TFLAGS)
+linux: MIAMain.o MIAProgram.o MIACommands.o D3CEncrypt.o D3CEncryptPW.o D3CMath.o MIAEncrypt.o MIAMisc.o MIAMusic.o
+	$(CC) MIAMain.o MIAProgram.o MIACommands.o D3CEncrypt.o D3CEncryptPW.o D3CMath.o MIAEncrypt.o MIAMisc.o MIAMusic.o -o MIA $(TFLAGS)
 	
 # make the object files for release.
 release: MIAMain.o MIAProgram.o MIACommands.o D3CEncrypt.o D3CEncryptPW.o D3CMath.o MIAEncrypt.o MIAMisc.o WinKeys.o LOLANetUse.o MIAMusic.o
