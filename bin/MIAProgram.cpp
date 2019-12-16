@@ -36,7 +36,7 @@ using std::to_string;
 //Main program constructor.
 Program::Program(){
 	//Chuck Norris can take a screen shot of his blue screen.
-	initializeSettings(verboseMode);	
+	initializeSettings(verboseMode);
 }
 
 //Main program deconstructor.
@@ -54,7 +54,12 @@ void Program::setVerboseMode(string value){
 	}
 }
 
-//sets verboseMode.
+//Returns verboseMode.
+bool Program::getVerboseMode(){
+	return verboseMode;
+}
+
+//sets MIATerminalMode.
 void Program::setMIATerminalMode(string value){
 	value = removeCharInString(value, ' ');
 	if (value == "true" || value == "1"){
@@ -62,11 +67,6 @@ void Program::setMIATerminalMode(string value){
 	} else {
 		MIATerminalMode = false;
 	}
-}
-
-//Returns verboseMode.
-bool Program::getVerboseMode(){
-	return verboseMode;
 }
 
 //Returns MIATerminalMode.
@@ -466,7 +466,7 @@ int Program::commandToInputVar(string input){
 		output = 1;
 	} else if (input == "decrypt -d0s1"){
 		output = 2;
-	}else if (input == "crypt -d0s2"){
+	} else if (input == "crypt -d0s2"){
 		output = 3;
 	} else if (input == "decrypt -d0s2"){
 		output = 4;
@@ -522,7 +522,7 @@ int Program::commandToInputVar(string input){
 		output = 29;
 	} else if (input == "find mouse"){
 		output = 30;	
-	}  else if (input == "eyedropper"){
+	} else if (input == "eyedropper"){
 		output = 31;	
 	} else if (input == "config"){
 		output = 32;	
@@ -542,11 +542,11 @@ int Program::commandToInputVar(string input){
 		output = 39;
 	} else if (input == "wow unload"){
 		output = 40;
-	}   else if (input == "date"){
+	} else if (input == "date"){
 		output = 41;
 	} else if (inputRoll(input)){
 		output = 999996;
-	}  else if (input == "error info"){
+	} else if (input == "error info"){
 		output = 999997;
 	} else if (input == "error info -a"){
 		output = 999998;

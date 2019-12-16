@@ -24,6 +24,7 @@ class Program{
 		//Variables that can be set in the MIAConfig file.
 		bool verboseMode = false;
 		bool MIATerminalMode = true;
+		bool MIAMusicMode = true;
 		string defaultInputFilePath = "Resources/InputFiles/";
 		string defaultCryptFilePath = "Resources/EncryptedFiles/";
 		string defaultDecryptFilePath = "Resources/DecryptedFiles/";

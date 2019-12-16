@@ -16,6 +16,7 @@
 #include "D3CMath.h"
 #include "MIAEncrypt.h"
 #include "MIAMisc.h"
+#include "MIAMusic.h"
 
 // Includes for a windows only compile.
 #if  defined _WIN32 || defined _WIN64 || defined __CYGWIN__
@@ -1009,83 +1010,9 @@ void Commands::test(){
 	
 	///* Uncomment this for testing things for Windows only.
 	#if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
-	//runNetUserEnum();
-	//MIAEncrypt crypt(4);
-	//crypt.test();
-
-	std::string toon = "warlock";
-
-	WinKeys keys;
-	keys.sleep(3000);
-	if (toon == "hunter"){
-		for (int i=0;i<=1000;i++){
-			keys.tab();
-			for (int j=0;j<5;j++){
-				keys.one();
-				keys.three();
-				keys.sleep(5000);
-			}
-		}
-	} else if (toon == "rogue"){
-		for (int i=0;i<=1000;i++){
-			keys.tab();
-			for (int j=0;j<4;j++){
-					keys.four();
-					keys.sleep(300);
-			}
-			for (int j=0;j<45;j++){
-				if(j%5==0){
-					keys.four();
-					keys.sleep(300);
-				}
-				keys.three();
-				keys.sleep(500);
-			}
-		}
-	}  else if (toon == "warrior"){
-		for (int i=0;i<=1000;i++){
-			if(i%2==0)
-				keys.press("d",250);
-			keys.tab();
-			keys.sleep(300);
-			keys.eight();
-			keys.sleep(500);		
-
-			for (int j=0;j<=31;j++){
-				keys.three();
-				keys.sleep(500);
-			}
-			keys.rightclick();
-			keys.sleep(500);
-		}
-	} else if (toon == "warrior2"){
-		for (int i=0;i<=1000;i++){
-			keys.tab();
-			keys.sleep(300);
-			for (int j=0;j<=52;j++){
-				keys.one();
-				keys.two();
-				keys.three();
-				keys.sleep(500);
-			}
-			keys.rightclick();
-			keys.sleep(500);
-		}
-	} else if (toon == "warlock"){
-		for (int i=0;i<=1000;i++){
-			keys.press("d",250);
-			keys.tab();
-			keys.sleep(500);
-			keys.four();
-			keys.sleep(10000);
-			keys.four();
-			keys.sleep(10000);
-			keys.four();
-			keys.sleep(10000);
-			keys.rightclick();			
-		}
-	}
-
+	
+	Music m;
+	m.playSong("test.mp3");
 
 	
 	#else

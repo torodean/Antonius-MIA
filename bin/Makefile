@@ -22,16 +22,16 @@ TFLAGS=-lpthread
 all: MIA
 
 # make the object files on a Windows machine
-MIA: MIAMain.o MIAProgram.o MIACommands.o D3CEncrypt.o D3CEncryptPW.o D3CMath.o MIAEncrypt.o MIAMisc.o WinKeys.o LOLANetUse.o
-	$(CC) MIAMain.o MIAProgram.o MIACommands.o D3CEncrypt.o D3CEncryptPW.o D3CMath.o MIAEncrypt.o MIAMisc.o WinKeys.o LOLANetUse.o -o MIA $(LDFLAGS)
+MIA: MIAMain.o MIAProgram.o MIACommands.o D3CEncrypt.o D3CEncryptPW.o D3CMath.o MIAEncrypt.o MIAMisc.o WinKeys.o LOLANetUse.o MIAMusic.o
+	$(CC) MIAMain.o MIAProgram.o MIACommands.o D3CEncrypt.o D3CEncryptPW.o D3CMath.o MIAEncrypt.o MIAMisc.o WinKeys.o LOLANetUse.o MIAMusic.o -o MIA $(LDFLAGS)
 
 # make the object files on a Linux machine.
 linux: MIAMain.o MIAProgram.o MIACommands.o D3CEncrypt.o D3CEncryptPW.o D3CMath.o MIAEncrypt.o MIAMisc.o
 	$(CC) MIAMain.o MIAProgram.o MIACommands.o D3CEncrypt.o D3CEncryptPW.o D3CMath.o MIAEncrypt.o MIAMisc.o -o MIA $(TFLAGS)
 	
 # make the object files for release.
-release: MIAMain.o MIAProgram.o MIACommands.o D3CEncrypt.o D3CEncryptPW.o D3CMath.o MIAEncrypt.o MIAMisc.o WinKeys.o LOLANetUse.o
-	$(CC) MIAMain.o MIAProgram.o MIACommands.o D3CEncrypt.o D3CEncryptPW.o D3CMath.o MIAEncrypt.o MIAMisc.o WinKeys.o LOLANetUse.o -o MIA $(LDFLAGS)
+release: MIAMain.o MIAProgram.o MIACommands.o D3CEncrypt.o D3CEncryptPW.o D3CMath.o MIAEncrypt.o MIAMisc.o WinKeys.o LOLANetUse.o MIAMusic.o
+	$(CC) MIAMain.o MIAProgram.o MIACommands.o D3CEncrypt.o D3CEncryptPW.o D3CMath.o MIAEncrypt.o MIAMisc.o WinKeys.o LOLANetUse.o MIAMusic.o -o MIA $(LDFLAGS)
 	rm -rfv ../Release/
 	rm -rfv ../MIA\ R*
 	mkdir ../Release/
@@ -48,7 +48,7 @@ MIAMain.o: MIAMain.cpp MIAProgram.h
 MIAProgram.o: MIAProgram.cpp MIAProgram.h D3CEncrypt.h MIACommands.h MIAEncrypt.h
 	$(CC) $(CFLAGS) MIAProgram.cpp
 
-MIACommands.o: MIACommands.cpp MIAProgram.h D3CEncrypt.h D3CEncryptPW.h MIACommands.h D3CMath.h MIAEncrypt.h LOLANetUse.h
+MIACommands.o: MIACommands.cpp MIAProgram.h D3CEncrypt.h D3CEncryptPW.h MIACommands.h D3CMath.h MIAEncrypt.h LOLANetUse.h MIAMusic.h
 	$(CC) $(CFLAGS) MIACommands.cpp
 
 D3CEncrypt.o: D3CEncrypt.cpp D3CEncrypt.h
@@ -68,6 +68,9 @@ WinKeys.o: WinKeys.cpp WinKeys.h MIAProgram.h
 
 MIAMisc.o: MIAMisc.cpp MIAMisc.h
 	$(CC) $(CFLAGS) MIAMisc.cpp
+	
+MIAMusic.o: MIAMusic.cpp MIAMusic.h
+	$(CC) $(CFLAGS) MIAMusic.cpp
 	
 LOLANetUse.o: LOLANetUse.cpp LOLANetUse.h
 	$(CC) $(CFLAGS) LOLANetUse.cpp
