@@ -1011,12 +1011,12 @@ void Commands::test(){
 	///* Uncomment this for testing things for Windows only.
 	#if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
 	
+	#else
+		
 	Music m;
 	m.playSong("test.mp3");
-
 	
-	#else
-	prog.returnError(31416);
+	//prog.returnError(31416);
 	#endif
 	//*/
 }
