@@ -404,7 +404,7 @@ void Program::initializeSettings(bool printSettings){
 }
 
 //Displays the MIA splash screen.
-void Program::splash(){
+void Program::printSplash(){
 	cout << "     ...................................................................." << endl;
 	cout << "    ... //  ~~      |||      |||  ||||||||||      ||||     TM   ~~  \\\\ ..." << endl;
 	cout << "   ... //  ~~       ||||    ||||      ||         ||  ||          ~~  \\\\ ..." << endl;
@@ -438,7 +438,7 @@ void Program::standby(string defaultCommand){
 	if(defaultCommand != ""){
 		cout << "... I've detected a default command entered: " << defaultCommand << endl;
 		blankLine();	
-		performCommand(defaultCommand);
+		performMIACommand(defaultCommand);
 		blankLine();	
 	}
 	
@@ -450,12 +450,13 @@ void Program::standby(string defaultCommand){
 			exit = true;
 			break;
 		} else{
-			performCommand(input);
+			performMIACommand(input);
 		}
 		helpMessage();
 	}
 }
 
+//DEPRECATED in version 0.145. Replaced by Program::inputEnum(string input).
 //Takes the user input as a string and converts it to a corresponding integer to be used in the switch case.
 int Program::commandToInputVar(string input){
 	int output=3141592;
@@ -564,6 +565,269 @@ bool Program::inputRoll(string input){
 	return false;
 }
 
+//Replaced Program::commandToInputVar(string input) in versin 0.145.
+//Takes the user input as a string and converts it to a corresponding value of Program::MIAInput enum to be used in the switch case. 
+Program::MIAInput Program::commandToInputEnum(string input){
+	Program::MIAInput output = MIAInput::excuse;
+	
+	if(input == "help"){
+		output = MIAInput::help;
+	} else if (input == "crypt -d0s1"){
+		output = MIAInput::crypt_d0s1;
+	} else if (input == "decrypt -d0s1"){
+		output = MIAInput::decrypt_d0s1;
+	} else if (input == "crypt -d0s2"){
+		output = MIAInput::crypt_d0s2;
+	} else if (input == "decrypt -d0s2"){
+		output = MIAInput::decrypt_d0s2;
+	} else if (input == "collatz"){
+		output = MIAInput::collatz;
+	} else if (input == "add"){
+		output = MIAInput::add;
+	} else if (input == "multiply"){
+		output = MIAInput::multiply;
+	} else if (input == "subtract"){
+		output = MIAInput::subtract;
+	} else if (input == "prime"){
+		output = MIAInput::prime;
+	} else if (input == "palindrome"){
+		output = MIAInput::palindrome;
+	} else if (input == "digitsum"){
+		output = MIAInput::digitsum;
+	} else if (input == "prime -f"){
+		output = MIAInput::prime_f;
+	} else if (input == "factors"){
+		output = MIAInput::factors;
+	} else if (input == "triangle"){
+		output = MIAInput::triangle;
+	} else if (input == "lattice"){
+		output = MIAInput::lattice;
+	} else if (input == "prime -n"){
+		output = MIAInput::prime_n;
+	} else if (input == "prime -n -p" || input == "prime -p -n"){
+		output = MIAInput::prime_n_p;
+	} else if (input == "prime -n -c" || input == "prime -c -n"){
+		output = MIAInput::prime_n_c;
+	} else if (input == "mc dig"){
+		output = MIAInput::mcdig;
+	} else if (input == "button spam"){
+		output = MIAInput::buttonspam;
+	} else if (input == "mc explore"){
+		output = MIAInput::mcexplore;
+	} else if (input == "prime -help" || input == "prime --help"){
+		output = MIAInput::prime_help;
+	} else if (input == "crypt -d0s3"){
+		output = MIAInput::crypt_d0s3;
+	} else if (input == "decrypt -d0s3"){
+		output = MIAInput::decrypt_d0s3;
+	} else if (input == "button spam -t"){
+		output = MIAInput::buttonspam_t;
+	} else if (input == "randfromfile"){
+		output = MIAInput::randfromfile;
+	} else if (input == "wow dup letter"){
+		output = MIAInput::wowdupletter;
+	} else if (input == "quadratic form"){
+		output = MIAInput::quadraticform;
+	} else if (input == "pranjal"){
+		output = MIAInput::pranjal;
+	} else if (input == "find mouse"){
+		output = MIAInput::findmouse;	
+	} else if (input == "eyedropper"){
+		output = MIAInput::eyedropper;
+	} else if (input == "config"){
+		output = MIAInput::config;		
+	} else if (input == "fishbot"){
+		output = MIAInput::fishbot;
+	} else if (input == "workout"){
+		output = MIAInput::workout;
+	} else if (input == "splash"){
+		output = MIAInput::splash;
+	} else if (input == "workout -w"){
+		output = MIAInput::workout_w;
+	} else if (input == "net session"){
+		output = MIAInput::netsession;
+	} else if (input == "net server -w"){
+		output = MIAInput::netserver_w;
+	} else if (input == "net server -s"){
+		output = MIAInput::netserver_s;
+	} else if (input == "wow unload"){
+		output = MIAInput::wowunload;
+	} else if (input == "date"){
+		output = MIAInput::date;
+	} else if (inputRoll(input)){
+		output = MIAInput::diceroll;
+	} else if (input == "error info"){
+		output = MIAInput::errorinfo;
+	} else if (input == "error info -a"){
+		output = MIAInput::errorinfo_a;
+	} else if (input == "test"){
+		output = MIAInput::test;
+	}
+	return output;
+}
+
+//Replaced Program::performCommand(string input) in versin 0.145.
+//Takes the input command by the user and runs the corresponding feature.
+void Program::performMIACommand(string input){
+	for(int i=0; input[i]; i++){
+		input[i] = tolower(input[i]);
+	}
+	Program::MIAInput in = commandToInputEnum(input);
+	
+	//Loads in the commands class which contains all of the individual command runners.
+	Commands cmd;
+	
+	switch( in ){
+		case MIAInput::help: //corresponds to the help command.
+			printHelp();
+			break;	
+		case MIAInput::crypt_d0s1:	//corresponds to the crypt -d0s1 command.
+			cmd.d0s1CryptRunner();
+			break;
+		case MIAInput::decrypt_d0s1:	//corresponds to the decrypt -d0s1 command.
+			cmd.d0s1DeCryptRunner();
+			break;
+		case MIAInput::crypt_d0s2:	//corresponds to the crypt -d0s2 command.
+			cmd.d0s2CryptRunner();
+			break;
+		case MIAInput::decrypt_d0s2:	//corresponds to the decrypt -d0s2 command.
+			cmd.d0s2DeCryptRunner();
+			break;	
+		case MIAInput::collatz:	//corresponds to the collatz command.
+			cmd.collatzRunner();
+			break;
+		case MIAInput::add:	//corresponds to the add command.
+			cmd.stringAdditionRunner();
+			break;
+		case MIAInput::multiply:	//corresponds to the multiply command.
+			cmd.stringMultiplyRunner();
+			break;
+		case MIAInput::subtract:	//corresponds to the subtract command.
+			cmd.stringSubtractionRunner();
+			break;
+		case MIAInput::prime:	//corresponds to the prime command.
+			cmd.isPrimeRunner();
+			break;
+		case MIAInput::palindrome: //corresponds to the palindrome command.
+			cmd.isPalindromeRunner();
+			break;
+		case MIAInput::digitsum: //corresponds to the digitsum command.
+			cmd.sumOfDigitsRunner();
+			break;
+		case MIAInput::prime_f: //corresponds to the prime -f command.
+			cmd.primeFactorsRunner();
+			break;
+		case MIAInput::factors: //corresponds to the factors command.
+			cmd.numberOfFactorsRunner();
+			break;
+		case MIAInput::triangle: //corresponds to the triangle command.
+			cmd.isTriangleNumberRunner();
+			break;
+		case MIAInput::lattice: //corresponds to the lattice command.
+			cmd.latticePathsRunner();
+			break;
+		case MIAInput::prime_n: //corresponds to the prime -n command.
+			cmd.primeNRunner();
+			break;
+		case MIAInput::prime_n_p: //corresponds to the prime -n -p command.
+			cmd.primeNumberNpopulateRunner();
+			break;
+		case MIAInput::prime_n_c: //corresponds to the prime -n -c command.
+			cmd.primeNumberNeraseRunner();
+			break;
+		case MIAInput::mcdig: //corresponds to the mc dig command.
+			cmd.minecraftDigRunner(); 
+			break;
+		case MIAInput::buttonspam: //corresponds to the button spam command.
+			cmd.buttonSpamRunner(false);
+			break;
+		case MIAInput::mcexplore: //corresponds to the mc explore command.
+			cmd.exploreMinecraft();
+			break;
+		case MIAInput::prime_help: //corresponds to the prime -help command.
+			helpPrime();
+			break;
+		case MIAInput::crypt_d0s3: //corresponds to the crypt -d0s3 command.
+			cmd.d0s3CryptRunner();
+			break;
+		case MIAInput::decrypt_d0s3: //corresponds to the decrypt -d0s3 command.
+			cmd.d0s3DeCryptRunner();
+			break;
+		case MIAInput::buttonspam_t: //corresponds to the button spam -t command.
+			cmd.buttonSpamRunner(true);
+			break;
+		case MIAInput::randfromfile: //corresponds to the randfromfile command.
+			cmd.printRandomLinesFromFileRunner();
+			break;
+		case MIAInput::wowdupletter: //corresponds to the wow dup letter command.
+			cmd.duplicateLetterRunner();
+			break;
+		case MIAInput::quadraticform: //corresponds to the quadratic form command.
+			cmd.solveQuadraticFormulaRunner();
+			break;
+		case MIAInput::pranjal: //corresponds to the pranjal command.
+			cmd.pranjal();
+			break;
+		case MIAInput::findmouse: //Corresponds to the find mouse command.
+			cmd.findMouse();
+			break;
+		case MIAInput::eyedropper: //Corresponds to the eyedropper command.
+			cmd.eyedropper();
+			break;
+		case MIAInput::config: //Corresponds to the config command.
+			initializeSettings(true);
+			break;
+		case MIAInput::fishbot: //Corresponds to the fishbot command.
+			cmd.runFishbot();
+			break;
+		case MIAInput::workout: //Corresponds to the workout command.
+			cmd.workoutRunner(false);
+			break;
+		case MIAInput::splash: //Corresponds to the splash command.
+			printSplash();
+			break;
+		case MIAInput::workout_w: //Corresponds to the workout -w command.
+			cmd.workoutRunner(true);
+			break;
+		case MIAInput::netsession: //Corresponds to the net session command.
+			cmd.runNetSessionEnum();
+			break;
+		case MIAInput::netserver_w: //Corresponds to the net server -w command.
+			cmd.runNetServerEnum('w');
+			break;
+		case MIAInput::netserver_s: //Corresponds to the net server -s command.
+			cmd.runNetServerEnum('s');
+			break;
+		case MIAInput::wowunload: //Corresponds to the wow unload command.
+			cmd.unloadLetterRunner();
+			break;
+		case MIAInput::date: //Corresponds to the date command.
+			terminalCommand("DATE");
+			break;
+		case MIAInput::diceroll: //Corresponds to the roll dice functions.
+			cmd.rollDice(input);
+			break;
+		case MIAInput::errorinfo: //Corresponds to the error info command.
+			errorInfoRun(false);
+			break;
+		case MIAInput::errorinfo_a: //Corresponds to the error info -a command.
+			errorInfoRun(true);
+			break;
+		case MIAInput::test: //Corresponds to the test command.
+			runTest();			
+			break;	
+		
+		case MIAInput::excuse:
+		default: //defaults to an unrecognized command.
+			if(useExcuse()){
+			} else{
+				cout << "... Invalid Command Entered.                                               ..." << endl;
+			}
+			break;
+	}
+}
+
+//DEPRECATED in version 0.145. Replaced by performMIACommand
 //Takes the input command by the user and runs the corresponding feature.
 void Program::performCommand(string input){
 	for(int i=0; input[i]; i++){
@@ -576,7 +840,7 @@ void Program::performCommand(string input){
 	
 	switch( in ){
 		case 0: //corresponds to the help command.
-			help();
+			printHelp();
 			break;	
 		case 1:	//corresponds to the crypt -d0s1 command.
 			cmd.d0s1CryptRunner();
@@ -681,7 +945,7 @@ void Program::performCommand(string input){
 			cmd.workoutRunner(false);
 			break;
 		case 35: //Corresponds to the splash command.
-			splash();
+			printSplash();
 			break;
 		case 36: //Corresponds to the splash command.
 			cmd.workoutRunner(true);
@@ -711,11 +975,11 @@ void Program::performCommand(string input){
 			errorInfoRun(true);
 			break;
 		case 999999:
-			test();			
+			runTest();			
 			break;			
 			
 		default: //defaults to an unrecognized command.
-			if(excuse()){
+			if(useExcuse()){
 			} else{
 				cout << "... Invalid Command Entered.                                               ..." << endl;
 			}
@@ -724,7 +988,7 @@ void Program::performCommand(string input){
 }
 
 //Displays a list of valid commands and what they do to the user.
-void Program::help(){
+void Program::printHelp(){
 	cout << "... A list of valid commands and a brief summary.                          ..." << endl;
 	cout << "... Commands are NOT case sensitive.                                       ..." << endl;
 	blankDots();
@@ -791,7 +1055,7 @@ void Program::helpNet(){
 }
 
 //Prints a random excuse some percentage of the time.
-bool Program::excuse(){
+bool Program::useExcuse(){
 	int random = randomInt(1,100, 0, true);
 	string txt;
 	
@@ -847,7 +1111,7 @@ void Program::blankLine(){
 //Main user interface for MIA.
 void Program::terminal(string defaultCommand){
 	initializeSettings(verboseMode);
-	splash();
+	printSplash();
 	intro();
 	if (defaultCommand == ""){
 		standby("");
@@ -1060,15 +1324,15 @@ void Program::terminalCommand(string command){
 
 //A function used for testing.
 //This should be placed at the end of the file for easy accessibility. 
-void Program::test(){
+void Program::runTest(){
     cout << "...Starting test." << endl;
 	
 	Commands cmd;
-	cmd.test();
+	cmd.runTest();
 	
 	/*
     MIAencrypt crypt(4);
-    crypt.test();
+    crypt.runTest();
 	crypt.encryptFile("C:\\Users\\torodean\\test.txt", "OutputFile");
 	//cout << "...No test function set. " << endl;
     */

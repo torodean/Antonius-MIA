@@ -19,7 +19,7 @@ using std::vector;
 
 class Program{
 	private:
-		const string VERSION = "0.144";
+		const string VERSION = "0.145";
 		
 		//Variables that can be set in the MIAConfig file.
 		bool verboseMode = false;
@@ -103,21 +103,22 @@ class Program{
 		void terminal(string defaultCommand = "");
 		bool formOfYes(string input);
 		void blankDots();
-		void splash();
+		void printSplash();
 		void intro();
 		void standby(string defaultCommand);
 		void helpMessage();
 		void blankLine();
 		string getMIAVersion();
 		void performCommand(string input);
+		void performMIACommand(string input);
 		int commandToInputVar(string input);
-		void help();
+		void printHelp();
 		void helpPrime();
 		void helpNet();
-		bool excuse();
+		bool useExcuse();
 		int randomInt(int start, int end, int seed, bool useTime);
 		string getRandomLineOfFile(string fileName);
-		void test();
+		void runTest();
 		
 		//Error related functions
 		void returnError(int errorCode, string details = "");
@@ -132,5 +133,58 @@ class Program{
 		void terminalCommand(string command);
 		bool inputRoll(string input);
 		vector<string> delimiterString(string input, string delimiter);
+		
+		//enum list of all valid inputs.
+		enum MIAInput{
+			help,
+			crypt_d0s1,
+			decrypt_d0s1,
+			crypt_d0s2,
+			decrypt_d0s2,
+			collatz,
+			add,
+			multiply,
+			subtract,
+			prime,
+			palindrome,
+			digitsum,
+			prime_f,
+			factors,
+			triangle,
+			lattice,
+			prime_n,
+			prime_n_p,
+			prime_n_c,
+			mcdig,
+			buttonspam,
+			mcexplore,
+			prime_help,
+			crypt_d0s3,
+			decrypt_d0s3,
+			buttonspam_t,
+			randfromfile,
+			wowdupletter,
+			quadraticform,
+			pranjal,
+			findmouse,
+			eyedropper,
+			config,
+			fishbot,
+			workout,
+			splash,
+			workout_w,
+			netsession,
+			netserver_w,
+			netserver_s,
+			wowunload,
+			date,
+			diceroll,
+			errorinfo,
+			errorinfo_a,
+			test,
+			excuse
+		};
+		
+		MIAInput commandToInputEnum(string input);
 };
 #endif

@@ -41,7 +41,7 @@ MIAEncrypt::~MIAEncrypt(){
 //===== N*N*N Cuboidal Combinatorial rotations =====
 //==================================================
 
-void MIAEncrypt::test(){
+void MIAEncrypt::runTest(){
 	vector< vector< vector<int>>> testCube = intCube;
 	for(int i=0;i<cubeSize;i++){
 		for(int j=0;j<cubeSize;j++){

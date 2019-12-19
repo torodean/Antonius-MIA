@@ -32,7 +32,7 @@ class MIAEncrypt{
 		string encryptString(string text);
 		void passphraseToCombination(string passphrase);
 		void printCube(vector< vector< vector<int>>> intCube);
-		void test();
+		void runTest();
 		
 		//bool cube.
 		vector<char> fileToCharVec(string filename);

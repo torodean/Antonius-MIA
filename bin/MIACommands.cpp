@@ -1005,7 +1005,7 @@ int Commands::rollDice(string input){
 
 //Function made for testing.
 //This should be placed at the end of the file for easy accessibility. 
-void Commands::test(){
+void Commands::runTest(){
 	//prog.returnError(31418); //Returns nothing set for testing.
 	
 	///* Uncomment this for testing things for Windows only.

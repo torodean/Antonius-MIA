@@ -26,7 +26,6 @@ excuseFilePath=Resources/Excuses.txt
 verboseMode=false
 MIATerminalMode=true
 
-
 # MIA variables.
 defaultButtonCombination=1234567T
 #buttonCombinationCoordsX=0,0,0
