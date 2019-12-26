@@ -377,9 +377,9 @@ void MIAEncrypt::passphraseToCombination(string passphrase){
 //Encrypts a file. NOT YET WORKING/FINISED.
 void MIAEncrypt::encryptFile(string file, string fileName){
 	Program prog;
-	string outputFile = prog.getDefaultDecryptFilePath() + fileName + ".d0s3";
+	string outputFile = prog.getFilePath("decryptFilePath") + fileName + ".d0s3";
 	
-	ifstream input( prog.getDefaultCryptFilePath()  + file, ios::binary );
+	ifstream input( prog.getFilePath("decryptFilePath")  + file, ios::binary );
 	ofstream output( outputFile, ios::binary );
 	
 	/* Copy's a file to the output file - same file but different name.
@@ -409,7 +409,7 @@ void MIAEncrypt::encryptFile(string file, string fileName){
 vector<char> MIAEncrypt::fileToCharVec(string file){
 	Program prog;
 	
-	ifstream input( prog.getDefaultCryptFilePath()  + file, ios::binary );
+	ifstream input( prog.getFilePath("decryptFilePath")  + file, ios::binary );
 	
 	vector<char> charVec((istreambuf_iterator<char>(input)), (istreambuf_iterator<char>()));
 	

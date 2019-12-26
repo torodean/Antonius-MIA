@@ -1,0 +1,30 @@
+#============================================================================
+# Name        : MIASequences.txt
+# Author      : Antonius Torode
+# Date        : 12/26/2019
+# Copyright   : This file can be used under the conditions of Antonius' 
+#				 General Purpose License (AGPL).
+# Description : MIA combinations for button sequences.
+#============================================================================
+
+# This file is formatted similar to the MIAConfig file.
+# Create a commented line using the '#' character. 
+# Comments must be on their own line.
+# This file must be of the proper format to work with MIA.
+# Create a combination name using 'SEQUENCENAME=name'.
+# Define the timing between sequence parameters with 'timing=3000', units are milliseconds.
+# After declaring a name for the command sequence, define the command sequence using the following.
+# XXXX,YYYY=LEFTCLICK
+# NONE,NONE=abc
+# The first performs a left click at some coordinate (XXXX,YYYY).
+# The second simply types 'abc'.
+# Do not include spaces unless within a string variable. 
+# This means, do not do 'variable= text' unless you intend to have " text" be the variable value.
+
+SEQUENCENAME=PSclouds
+timing=3000
+hovertime=2000
+3778,857=LEFTCLICK
+2208,-196=LEFTCLICK
+2378,83=HOVER
+2483,83=LEFTCLICK

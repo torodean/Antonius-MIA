@@ -16,7 +16,7 @@ using std::string;
 
 class Music{
 	private:
-		
+		bool songIsPlaying = false;
 	public:
 		Music(){};
 		~Music(){};

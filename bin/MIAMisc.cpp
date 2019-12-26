@@ -46,7 +46,7 @@ void Misc::printRandomLinesFromFile(bool useDefaultPath, int numberOfLines){
 	if (useDefaultPath){
 		cout << "...Please enter an input file: ";
 		getline(cin, fileName);
-		fullPath = prog.getDefaultInputFilePath() + fileName;
+		fullPath = prog.getFilePath("inputFilePath") + fileName;
 		prog.blankLine();
 	} else {
 		cout << "...Please enter an input file (full path included): ";

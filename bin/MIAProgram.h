@@ -19,21 +19,27 @@ using std::vector;
 
 class Program{
 	private:
-		const string VERSION = "0.145";
+		const string VERSION = "0.146";
+		
+		//Defines location of the MIAconfig.txt file.
+		string MIAConfigFile = "Resources/MIAConfig.MIA";
 		
 		//Variables that can be set in the MIAConfig file.
 		bool verboseMode = false;
 		bool MIATerminalMode = true;
 		bool MIAMusicMode = true;
-		string defaultInputFilePath = "Resources/InputFiles/";
-		string defaultCryptFilePath = "Resources/EncryptedFiles/";
-		string defaultDecryptFilePath = "Resources/DecryptedFiles/";
-		string excuseFilePath = "Resources/Excuses.txt";
+		string inputFilePath = "Resources/InputFiles/";
+		string cryptFilePath = "Resources/EncryptedFiles/";
+		string decryptFilePath = "Resources/DecryptedFiles/";
+		string excuseFilePath = "Resources/Excuses.MIA";
 		string workoutsFilePath = "Resources/InputFiles/workouts.txt";
+		string sequencesFilePath = "Resources/InputFiles/MIASequences.txt";
 		string workoutOutputFilePath = "Resources/OutputFiles/workout.txt";
 		string defaultButtonCombination = "1234567T";
 		vector<int> buttonCombinationCoordsX = {};
 		vector<int> buttonCombinationCoordsY = {};
+		
+		//WoW Mailbox variables.
 		int WoWMailboxSendLetterLocationX = 270;
 		int WoWMailboxSendLetterLocationY = 650;
 		int WoWMailboxFirstLetterLocationX = 55;
@@ -42,6 +48,8 @@ class Program{
 		int WoWMailboxLootLetterLocationY = 600;
 		int WoWMailboxDeleteLetterLocationX = 700;
 		int WoWMailboxDeleteLetterLocationY = 650;
+		
+		//Fishbot Variables
 		int WoWFishBotStartX = 725;
 		int WoWFishBotStartY = 360;
 		int WoWFishBotEndX = 1230;
@@ -49,34 +57,41 @@ class Program{
 		int WoWFishBotIncrement = 40;
 		int WoWFishBotNumOfCasts = 10000;
 		int WoWFishBotDelay = 10000;
+		
 		int CenterHairPixelX = 927;
 		int CenterHairPixelY = 476;
 		int CenterHairColorR = 182;
 		int CenterHairColorG = 172;
 		int CenterHairColorB = 169;
 		
+		
+		
 	public:
 		Program();
 		~Program();
 		
 		//Initializes and returns private program variables.
-		string getDefaultInputFilePath();
-		void setDefaultInputFilePath(string input);
-		string getDefaultCryptFilePath();
-		void setDefaultCryptFilePath(string input);
-		string getDefaultDecryptFilePath();
-		void setDefaultDecryptFilePath(string input);
-		string getWorkoutsFilePath();
-		void setExcuseFilePath(string input);
-		string getExcuseFilePath();
-		void setWorkoutsFilePath(string input);
+		string getInputFilePath(); //DEPRECATED
+		void setInputFilePath(string input); //DEPRECATED
+		string getCryptFilePath(); //DEPRECATED
+		void setCryptFilePath(string input); //DEPRECATED
+		string getDecryptFilePath(); //DEPRECATED
+		void setDecryptFilePath(string input); //DEPRECATED
+		string getWorkoutsFilePath(); //DEPRECATED
+		void setExcuseFilePath(string input); //DEPRECATED
+		string getExcuseFilePath(); //DEPRECATED
+		void setWorkoutsFilePath(string input); //DEPRECATED
+		void setWorkoutOutputFilePath(string input); //DEPRECATED
+		string getWorkoutOutputFilePath(); //DEPRECATED
+		
+		//Initializes and returns private program variables.
+		void setFilePath(string filePath, string input);
+		string getFilePath(string filePath);
 		void initializeSettings(bool printSettings);
 		void setVerboseMode(string value);
 		bool getVerboseMode();
 		void setMIATerminalMode(string value);
 		bool getMIATerminalMode();
-		void setWorkoutOutputFilePath(string input);
-		string getWorkoutOutputFilePath();
 		void setDefaultButtonCombination(string input);
 		string getDefaultButtonCombination();
 
@@ -100,6 +115,7 @@ class Program{
 		int getCenterHairColor(char color);
 
 		//Program related functions.
+		bool variableIsFilePath(string variable);
 		void terminal(string defaultCommand = "");
 		bool formOfYes(string input);
 		void blankDots();
@@ -109,9 +125,9 @@ class Program{
 		void helpMessage();
 		void blankLine();
 		string getMIAVersion();
-		void performCommand(string input);
+		void performCommand(string input); //DEPRECATED.
 		void performMIACommand(string input);
-		int commandToInputVar(string input);
+		int commandToInputVar(string input); //DEPRECATED.
 		void printHelp();
 		void helpPrime();
 		void helpNet();

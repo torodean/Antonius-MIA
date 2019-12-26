@@ -130,31 +130,97 @@ bool Program::is_digits(const string &str){
 	}
 }
 
+//DEPRECATED. Replaced by getFilePath(string filePath) in version 0.146.
+//Returns defaultInputFilePath.
+string Program::getInputFilePath(){
+	return inputFilePath;
+}
+
+//DEPRECATED. Replaced by getFilePath(string filePath) in version 0.146.
+//Returns defaultCryptFilePath.
+string Program::getCryptFilePath(){
+	return cryptFilePath;
+}
+
+//DEPRECATED. Replaced by getFilePath(string filePath) in version 0.146.
+//Returns defaultDecryptFilePath.
+string Program::getDecryptFilePath(){
+	return decryptFilePath;
+}
+
+//DEPRECATED. Replaced by setFilePath(string filePath, string input) in version 0.146.
 //Changes and returns the private variables.
 void Program::setWorkoutOutputFilePath(string input){
 	workoutOutputFilePath = input;
 }
+//DEPRECATED. Replaced by getFilePath(string filePath) in version 0.146.
 string Program::getWorkoutOutputFilePath(){
 	return workoutOutputFilePath;
 }
+//DEPRECATED. Replaced by setFilePath(string filePath, string input) in version 0.146.
 void Program::setExcuseFilePath(string input){
 	excuseFilePath = input;
 }
+//DEPRECATED. Replaced by getFilePath(string filePath) in version 0.146.
 string Program::getExcuseFilePath(){
 	return excuseFilePath;
 }
-void Program::setDefaultInputFilePath(string input){
-	defaultInputFilePath = input;
+//DEPRECATED. Replaced by setFilePath(string filePath, string input) in version 0.146.
+void Program::setInputFilePath(string input){
+	inputFilePath = input;
 }
-void Program::setDefaultCryptFilePath(string input){
-	defaultCryptFilePath = input;
+//DEPRECATED. Replaced by setFilePath(string filePath, string input) in version 0.146.
+void Program::setCryptFilePath(string input){
+	cryptFilePath = input;
 }
-void Program::setDefaultDecryptFilePath(string input){
-	defaultDecryptFilePath = input;
+//DEPRECATED. Replaced by setFilePath(string filePath, string input) in version 0.146.
+void Program::setDecryptFilePath(string input){
+	decryptFilePath = input;
 }
+//DEPRECATED. Replaced by setFilePath(string filePath, string input) in version 0.146.
 void Program::setWorkoutsFilePath(string input){
 	workoutsFilePath = input;
 }
+
+//Sets the appropriate variables for file paths.
+void Program::setFilePath(string filePath, string input){
+	if(filePath == "excuseFilePath"){
+		excuseFilePath = input;
+	} else if(filePath == "inputFilePath"){
+		inputFilePath = input;
+	} else if(filePath == "cryptFilePath"){
+		cryptFilePath = input;
+	} else if(filePath == "decryptFilePath"){
+		decryptFilePath = input;
+	} else if(filePath == "workoutsFilePath"){
+		workoutsFilePath = input;
+	} else if(filePath == "sequencesFilePath"){
+		sequencesFilePath = input;
+	} else {
+		string configLine = filePath + ": " + input;
+		returnError(31419, configLine);
+	}
+}
+//Returns the appropriate variables for file paths.
+string Program::getFilePath(string filePath){
+	if(filePath == "excuseFilePath"){
+		return excuseFilePath;
+	} else if(filePath == "inputFilePath"){
+		return inputFilePath;
+	} else if(filePath == "cryptFilePath"){
+		return cryptFilePath;
+	} else if(filePath == "decryptFilePath"){
+		return decryptFilePath;
+	} else if(filePath == "workoutsFilePath"){
+		return workoutsFilePath;
+	} else if(filePath == "sequencesFilePath"){
+		return sequencesFilePath;
+	} else {
+		returnError(31419, filePath);
+		return "";
+	}
+}
+//DEPRECATED. Replaced by getFilePath(string filePath) in version 0.146.
 string Program::getWorkoutsFilePath(){
 	return workoutsFilePath;
 }
@@ -294,21 +360,25 @@ int Program::getWoWFishBotSpace(string data){
 	}
 }
 
+//Returns true if a string is a reference to a valid filepath.
+bool Program::variableIsFilePath(string variable){
+	if (variable == "inputFilePath"
+		|| variable == "cryptFilePath"
+		|| variable == "decryptFilePath"
+		|| variable == "workoutsFilePath"
+		|| variable == "sequencesFilePath"
+		|| variable == "workoutOutputFilePath"
+		|| variable == "excuseFilePath"){
+		return true;
+	} 
+	return false;
+}
+
 //Set's the variable to a value
 void Program::setMIAVariable(string variable, string value){
 	//Sets the appropriate variable values.
-	if (variable == "defaultInputFilePath"){
-		setDefaultInputFilePath(value);
-	} else if (variable == "defaultCryptFilePath"){
-		setDefaultCryptFilePath(value);
-	} else if (variable == "defaultDecryptFilePath"){
-		setDefaultDecryptFilePath(value);
-	}  else if (variable == "workoutsFilePath"){
-		setWorkoutsFilePath(value);
-	} else if (variable == "workoutOutputFilePath"){
-		setWorkoutOutputFilePath(value);
-	} else if (variable == "excuseFilePath"){
-		setExcuseFilePath(value);
+	if (variableIsFilePath(variable)){
+		setFilePath(variable, value);
 	} else if (variable == "WoWMailboxSendLetterLocationX"){
 		setWoWMailboxSendLetterLocation('x',value);
 	} else if (variable == "WoWMailboxSendLetterLocationY"){
@@ -355,8 +425,7 @@ void Program::setMIAVariable(string variable, string value){
 //This function is for loading in the config file. Still in Development.
 void Program::initializeSettings(bool printSettings){
 	//grabs the MIAConfig file.
-	string fileName = "Resources/MIAConfig.txt";
-	ifstream file(fileName,ifstream::in);
+	ifstream file(MIAConfigFile,ifstream::in);
 	
 	//Checks if the file exists and runs the code.
 	if (file.good()){
@@ -1156,21 +1225,6 @@ bool Program::formOfYes(string input){
 	}
 }
 
-//Returns defaultInputFilePath.
-string Program::getDefaultInputFilePath(){
-	return defaultInputFilePath;
-}
-
-//Returns defaultCryptFilePath.
-string Program::getDefaultCryptFilePath(){
-	return defaultCryptFilePath;
-}
-
-//Returns defaultDecryptFilePath.
-string Program::getDefaultDecryptFilePath(){
-	return defaultDecryptFilePath;
-}
-
 //Function used for displaying error information.
 void Program::returnError(int errorCode, string details){
 	switch(errorCode){
@@ -1178,7 +1232,7 @@ void Program::returnError(int errorCode, string details){
 			cout << "...ERROR 404: File not found." << endl;
 			break;
 		case 31403:
-			cout << "...ERROR 31403: MIAsettings file not found." << endl;
+			cout << "...ERROR 31403: MIAConfig.MIA file not found." << endl;
 			break;
 		case 31404:
 			cout << "...ERROR 31404: FATAL: File not found." << endl;
@@ -1194,6 +1248,9 @@ void Program::returnError(int errorCode, string details){
 			break;
 		case 31418:
 			cout << "...ERROR 31418: Nothing set for testing." << endl;
+			break;
+		case 31419:
+			cout << "...ERROR 31419: Issue setting MIA variable: " << details << endl;
 			break;
 		default:
 			cout << "...ERROR: A catastrophic Failure Occurred." << endl;
