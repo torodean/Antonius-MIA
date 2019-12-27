@@ -7,9 +7,47 @@ The MIA acronym was created by the original author for the sole purpose of this 
 
 As MIA is continually under development, this document is also. Due to this, it may fall behind and become slightly outdated as I implement and test new features into MIA. I will attempt to keep this document up to date with all of the features MIA contains but I can only do so if time permits.
 
-\section{Setting up the MIA Encironment for Developers}
+\section{Setting up the MIA Environment for Developers}
 
-To set up MIA for development, simply git pull the project and begin working.
+To set up MIA for development, simply git clone the project and begin working.
+
+\begin{lstlisting}
+git clone https://github.com/torodean/Antonius-MIA
+\end{lstlisting}
+
+To build the project, simply navigate to the bin directory and run
+
+\begin{lstlisting}
+cd Antonius-MIA/bin
+make clean && make         # For Windows users using Cygwin.
+make clean && make linux   # For Linux and Mac users
+\end{lstlisting}
+
+\section{Creating an Updated Release Package}
+
+To create an updated release package, you can run the updateRelease.sh script found in the root MIA directory. This script must be ran after building the updated project to ensure it has the most up to date files. This script will remove all old files and copy the new updated files over and compress them into a release folder. At the time of writing this the script looks something like the following.
+
+\begin{lstlisting}
+#!/bin/sh
+echo "Removing old release download."
+rm -vf MIA\ Release.tar.gz
+echo "...done!"
+echo "Updating executable."
+rm -vf Release/MIA.exe
+cp bin/MIA.exe Release/MIA.exe
+echo "...done!"
+echo "Updating manual."
+rm -vf Release/MIAManual.pdf
+cp Documentation/MIAManual.pdf Release/MIAManual.pdf
+echo "...done!"
+echo "Updating dependencies."
+rm -vrf Release/Resources
+cp -vr bin/Resources Release/Resources
+echo "...done!"
+echo "Creating compressed release file."
+tar czvf MIA\ Release.tar.gz Release/
+echo "...done!"
+\end{lstlisting}
 
 \section{Setting up the MIA Environment for End Users}
 

@@ -52,7 +52,7 @@ collatz
 config 
 \end{lstlisting}
 \begin{enumerate}
-	\item[] Reloads the MIAConfig.txt file and prints the variables.
+	\item[] Reloads the MIAConfig.MIA file and prints the variables.
 \end{enumerate}
 
 \index{d0s1}
@@ -115,6 +115,14 @@ eyedropper
 \end{lstlisting}
 \begin{enumerate}
 	\item[] Returns the RGB value of the pixel located at the cursor.
+\end{enumerate}
+
+\index{exit}
+\begin{lstlisting} 
+exit  
+\end{lstlisting}
+\begin{enumerate}
+	\item[] Quits MIA. 
 \end{enumerate}
 
 \index{factors}
@@ -248,6 +256,14 @@ randomFromFile
 	\item[]  Prints a number of random lines from a text file. This will read in each line from a text file and print a user specified number of the lines by choosing them randomly.
 \end{enumerate}
 
+\index{exit}
+\begin{lstlisting} 
+sequencer
+\end{lstlisting}
+\begin{enumerate}
+	\item[] This begins running the MIA sequencer to process the MIASequence.txt file. 
+\end{enumerate}
+
 \index{triangle}
 \begin{lstlisting} 
 triangle   
@@ -285,14 +301,6 @@ wow unload
 \end{lstlisting}
 \begin{enumerate}
 	\item[] Unloads a number of letters from the WoW inbox. This is useful in conjunction with the 'wow dup letter' feature. This will simulate opening a letter, obtaining the contents of that letter (assuming it contains 1 item), then deleting said letter through the in game mailbox on World of Warcraft. The user specifies needed information and number of letters to send. This function is useful for RP scenarios. See section \ref{WoWMailbox} for more details.
-\end{enumerate}
-
-\index{exit}
-\begin{lstlisting} 
-exit  
-\end{lstlisting}
-\begin{enumerate}
-	\item[] Quits MIA. 
 \end{enumerate}
 
 \subsection{Fluid (Volatile) Commands}

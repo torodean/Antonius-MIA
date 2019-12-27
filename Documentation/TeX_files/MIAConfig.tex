@@ -5,7 +5,7 @@
 
 \section{MIAConfig Purpose Introduction}
 
-The MIAConfig.txt file (MIAC) is a file designed to hold program variables. The intent and purpose os this file is such that program variables can be changed after compilation and affect the program itself. This is useful for variables that are user dependent and in cases where the user is unable to re-compile the program themselves. 
+The MIAConfig.MIA file (MIAC) is a file designed to hold program variables. The intent and purpose os this file is such that program variables can be changed after compilation and affect the program itself. This is useful for variables that are user dependent and in cases where the user is unable to re-compile the program themselves. 
 
 \section{MIAConfig Contents and Usage}
 
@@ -13,7 +13,7 @@ The MIAC will appear similar to the following.
 
 \begin{lstlisting}
 #============================================================================
-# Name        : MIAConfig.txt
+# Name        : MIAConfig.MIA
 # Author      : Antonius Torode
 # Date        : 1/10/18
 # Copyright   : This file can be used under the conditions of Antonius' 
@@ -21,21 +21,24 @@ The MIAC will appear similar to the following.
 # Description : MIA settings for program initialization.
 #============================================================================
 
-# Create a commented line using the '#' character. Comments must be on their own line.
+# Create a commented line using the '#' character. 
+# Comments must be on their own line.
 # This file must be of the proper format to work with MIA.
 # Create a setting parameter using 'settingVariable=value'.
 # Do not include spaces unless within a string variable. 
-# This means, do not do 'variable= text' unless you intend to have " text" be the variable value.
 
 # MIA file location variables.
-defaultInputFilePath=../bin/Resources/InputFiles/
-defaultCryptFilePath=../bin/Resources/EncryptedFiles/
-workoutsFilePath=../bin/Resources/InputFiles/exercises.txt
-workoutOutputFilePath=../bin/Resources/OutputFiles/workout.txt
-excuseFilePath=../bin/Resources/Excuses.txt
+inputFilePath=Resources/InputFiles/
+cryptFilePath=Resources/EncryptedFiles/
+decryptFilePath=Resources/EncryptedFiles/
+workoutsFilePath=Resources/InputFiles/exercises.txt
+sequencesFilePath=Resources/InputFiles/MIASequences.txt
+workoutOutputFilePath=Resources/OutputFiles/workout.txt
+excuseFilePath=Resources/Excuses.txt
 
 # MIA program variables.
 verboseMode=false
+MIATerminalMode=true
 
 #... Other variables below
 \end{lstlisting}
