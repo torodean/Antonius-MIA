@@ -242,7 +242,6 @@ void Sequencer::activateSequence(string sequence){
 	for(int i=0;i<size;i++){
 		keys.sleep(timing);
 		if(XCoords[i] == 0 && YCoords[i] == 0){
-			cout << "actions[i]: " << actions[i] << endl;
 			if(getVerboseMode()){
 				cout << "...Coordinates both zero, typing " << actions[i] << endl;
 			}
@@ -252,7 +251,6 @@ void Sequencer::activateSequence(string sequence){
 				cout << "...Coordinates not both zero, moving mouse to " << XCoords[i] << "," << YCoords[i] << "." << endl;
 			}
 			keys.moveMouseTo(XCoords[i], YCoords[i]);
-			cout << "actions[i]: " << actions[i] << endl;
 			if(actions[i] == "HOVER"){				
 				if(getVerboseMode()){
 					cout << "...Coordinates both zero, Hovering for " << hover << " seconds." << endl;
