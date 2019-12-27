@@ -35,6 +35,7 @@ using std::atoi;
 using std::to_string;
 using std::getline;
 using std::transform;
+using std::find;
 
 //Main commands constructor.
 Commands::Commands(){
@@ -1000,6 +1001,21 @@ int Commands::rollDice(string input){
 	return diceRoll;
 }
 
+//Main runner for the sequencer.
+void Commands::runSequencer(){
+	cout << "...Beginning MIA Sequencer." << endl;
+	Sequencer seq;
+	string input;
+	cout << "...Enter a sequence to initiate: " << endl;
+	prog.blankLine();
+	getline(cin, input);
+	vector<string> names = seq.getSequenceNames();
+	if (find(names.begin(), names.end(), input) != names.end()){
+		seq.activateSequence(input);
+	} else {
+		prog.returnError(31423, input);
+	}
+}
 
 //Function made for testing.
 //This should be placed at the end of the file for easy accessibility. 

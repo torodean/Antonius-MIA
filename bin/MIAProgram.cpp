@@ -735,6 +735,8 @@ Program::MIAInput Program::commandToInputEnum(string input){
 		output = MIAInput::wowunload;
 	} else if (input == "date"){
 		output = MIAInput::date;
+	} else if (input == "sequencer"){
+		output = MIAInput::sequencer;
 	} else if (inputRoll(input)){
 		output = MIAInput::diceroll;
 	} else if (input == "error info"){
@@ -887,6 +889,9 @@ void Program::performMIACommand(string input){
 			break;
 		case MIAInput::diceroll: //Corresponds to the roll dice functions.
 			cmd.rollDice(input);
+			break;
+		case MIAInput::sequencer: //Corresponds to the sequencer functions.
+			cmd.runSequencer();
 			break;
 		case MIAInput::errorinfo: //Corresponds to the error info command.
 			errorInfoRun(false);

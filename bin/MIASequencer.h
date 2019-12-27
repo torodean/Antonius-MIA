@@ -23,7 +23,7 @@ using std::map;
 
 class Sequencer : public Program {
 	private:
-		//Variables for the sequence file.
+		//Variables for loading the sequence file.
 		int lastSequenceIndex = 0;
 		int sequenceSize = 0;
 		vector<string> sequenceNames;
@@ -31,6 +31,7 @@ class Sequencer : public Program {
 		vector<int> sequenceYCoordLine;
 		vector<string> sequenceActionLine;
 		
+		//Maps for storing sequencer data.
 		map<string, int> sequenceTimings;
 		map<string, int> sequenceHoverTimes;
 		map<string, int> sequenceSizes;
@@ -41,17 +42,21 @@ class Sequencer : public Program {
 		WinKeys keys;
 		
 	public: 
+		//Functions for initializing the sequencer and loading in variables from file.
 		Sequencer();
 		~Sequencer();
-	
 		void setSequenceVariables(string variable, string value);
 		void initializeSequences();
 		
-		void activateSequence(string sequence);
+		//Functions for handling sequencer data.
 		int getSequenceIndex(string sequence);
 		int getSequenceSize(string sequence);
 		vector<int> getSequenceXCoords(string sequence);
 		vector<int> getSequenceYCoords(string sequence);
 		vector<string> getSequenceActions(string sequence);
+		vector<string> getSequenceNames(){ return sequenceNames; };
+		
+		//Functions for using the sequencer.
+		void activateSequence(string sequence);
 };
 #endif

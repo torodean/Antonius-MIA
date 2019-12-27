@@ -105,7 +105,7 @@ void Sequencer::setSequenceVariables(string variable, string value){
 		sequenceXCoordLine.push_back(stoi(coordx));
 		sequenceYCoordLine.push_back(stoi(coordy));
 		
-		for(int i=0;i<sequenceYCoordLine.size();i++){
+		for(unsigned int i=0;i<sequenceYCoordLine.size();i++){
 			cout << sequenceXCoordLine[i];
 		}
 		cout << endl;

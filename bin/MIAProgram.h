@@ -19,7 +19,7 @@ using std::vector;
 
 class Program{
 	private:
-		const string VERSION = "0.147";
+		const string VERSION = "0.149";
 		
 		//Defines location of the MIAconfig.txt file.
 		string MIAConfigFile = "Resources/MIAConfig.MIA";
@@ -195,6 +195,7 @@ class Program{
 			wowunload,
 			date,
 			diceroll,
+			sequencer,
 			errorinfo,
 			errorinfo_a,
 			test,
