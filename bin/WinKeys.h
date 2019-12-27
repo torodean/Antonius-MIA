@@ -9,8 +9,11 @@
 
 #ifndef WINKEYS_H
 #define WINKEYS_H
-#include <string>
+
 #include "MIAProgram.h"
+
+#include <windows.h>
+#include <string>
 
 using std::string;
 
@@ -77,8 +80,6 @@ class WinKeys{
 		void slash();
 		void leftclick();
 		void rightclick();
-		void sleep(int ms = 500);
-		void defaultSleep();
 		
 		//Functions using the key presses.
 		void buttonSpam(string button, int amount, int pause);
@@ -93,10 +94,13 @@ class WinKeys{
 		void WoWFishBot(string fishButton, string lureButton);
 		
 		//Other useful functions.
-		void waitTime(int input);
+		void sleep(int ms = 500);
+		void defaultSleep();
+		void waitTime(int input); //DEPRECATED.
 		void findMouseCoords(int waitTime);
 		void getPixelColor();
 		void getPixelColorAtMouse();
+		void moveMouseTo(int x, int y);
 };
 
 #endif // WINKEYS_H

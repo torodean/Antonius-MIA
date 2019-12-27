@@ -15,16 +15,31 @@
 # Define the timing between sequence parameters with 'timing=3000', units are milliseconds.
 # After declaring a name for the command sequence, define the command sequence using the following.
 # XXXX,YYYY=LEFTCLICK
-# NONE,NONE=abc
+# type=abc
 # The first performs a left click at some coordinate (XXXX,YYYY).
 # The second simply types 'abc'.
 # Do not include spaces unless within a string variable. 
-# This means, do not do 'variable= text' unless you intend to have " text" be the variable value.
+# Actions and program variables should be capitalized.
+# The sequence name must be defined at the start of a sequence.
+# The end of a sequence must be defined by ENDOFSEQUENCE.
 
+# This combination is for testing.
+SEQUENCENAME=test
+TIMING=3000
+HOVERTIME=2000
+145,887=LEFTCLICK
+219,889=HOVER
+145,887=LEFTCLICK
+ENDOFSEQUENCE
+
+# This combination is to create cloud layers in Photoshop for random map generation.
 SEQUENCENAME=PSclouds
-timing=3000
-hovertime=2000
+TIMING=3000
+HOVERTIME=2000
 3778,857=LEFTCLICK
 2208,-196=LEFTCLICK
 2378,83=HOVER
 2483,83=LEFTCLICK
+TYPE=abcdefg
+ENDOFSEQUENCE
+

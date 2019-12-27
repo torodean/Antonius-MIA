@@ -7,19 +7,22 @@
 // Description : MIA settings and functions related to the MIA program.
 //============================================================================
 
+#include "MIAProgram.h"
+#include "D3CEncrypt.h"
+#include "D3CMath.h"
+#include "MIACommands.h"
+#include "MIAEncrypt.h"
+#include "MIASequencer.h"
+
 #include <iostream>
 #include <string>
 #include <cctype>
 #include <ctime>
 #include <time.h>
 #include <fstream>
-#include "MIAProgram.h"
-#include "D3CEncrypt.h"
-#include "D3CMath.h"
-#include "MIACommands.h"
-#include "MIAEncrypt.h"
 #include <vector>
-#include <algorithm>	
+#include <algorithm>
+#include <map>
 
 using std::string;
 using std::remove;
@@ -84,11 +87,18 @@ string Program::removeCharInString(string str, char c){
 int Program::findCharInString(string input, char c){
 	int length = input.size();
 	for (int i=0;i<length;i++){
-		if(input[i]==c){
+		if(input[i] == c){
 			return i;
 		}
 	}
 	return 0;
+}
+
+//Determines if a character is contained within a string.
+bool Program::stringContainsChar(string input, char c){
+	if(findCharInString(input, c) == 0)
+		return false;
+	return true;
 }
 
 //Separates a string into components via a delimiter.
@@ -196,6 +206,8 @@ void Program::setFilePath(string filePath, string input){
 		workoutsFilePath = input;
 	} else if(filePath == "sequencesFilePath"){
 		sequencesFilePath = input;
+	} else if(filePath == "workoutOutputFilePath"){
+		workoutOutputFilePath = input;
 	} else {
 		string configLine = filePath + ": " + input;
 		returnError(31419, configLine);
@@ -374,8 +386,8 @@ bool Program::variableIsFilePath(string variable){
 	return false;
 }
 
-//Set's the variable to a value
-void Program::setMIAVariable(string variable, string value){
+//Set's the variable to a value.
+void Program::setMIAVariables(string variable, string value){
 	//Sets the appropriate variable values.
 	if (variableIsFilePath(variable)){
 		setFilePath(variable, value);
@@ -462,7 +474,7 @@ void Program::initializeSettings(bool printSettings){
 			if(printSettings){
 				cout << "...Setting variable: " << variable << " to '" << value << "'" << endl;
 			}
-			setMIAVariable(variable, value);
+			setMIAVariables(variable, value);
 		}
 	} else {
 		if (printSettings){
@@ -1252,12 +1264,28 @@ void Program::returnError(int errorCode, string details){
 		case 31419:
 			cout << "...ERROR 31419: Issue setting MIA variable: " << details << endl;
 			break;
+		case 31420:
+			cout << "...ERROR 31420: Issue with MIASequenceFile. " << endl;
+			break;
+		case 31421:
+			cout << "...ERROR 31421: MIASequences File not found! " << endl;
+			break;
+		case 31422:
+			cout << "...ERROR 31422: Invalid Option in MIASequences: " << details << endl;
+			break;
+		case 31423:
+			cout << "...ERROR 31423: Error finding mapped value: " << details << endl;
+			break;
+		case 31424:
+			cout << "...ERROR 31424: Invalid Character input: " << details << endl;
+			break;
 		default:
 			cout << "...ERROR: A catastrophic Failure Occurred." << endl;
 			break;
 	}
 }
 
+//Inquires for an error code to gather info about.
 void Program::errorInfoRun(bool all){
 	blankDots();
 	int error = 0;
@@ -1327,6 +1355,24 @@ void Program::errorInfo(int error){
 		case 31418:
 			cout << "...31418: Nothing set for testing." << endl;
 			break;
+		case 31419:
+			cout << "...ERROR 31419: Issue setting MIA variable. " << endl;
+			break;
+		case 31420:
+			cout << "...ERROR 31420: Issue with MIASequenceFile. " << endl;
+			break;
+		case 31421:
+			cout << "...ERROR 31421: MIASequences File not found! " << endl;
+			break;
+		case 31422:
+			cout << "...ERROR 31422: Invalid Option in MIASequences. " << endl;
+			break;
+		case 31423:
+			cout << "...ERROR 31423: Error finding mapped value. " << endl;
+			break;
+		case 31424:
+			cout << "...ERROR 31424: Invalid Character input. " << endl;
+			break;
 		default:
 			cout << "...Invalid or unknown error code entered." << endl;
 			cout << "...Full List of programmed error codes follow." << endl;
@@ -1386,6 +1432,7 @@ void Program::runTest(){
 	
 	Commands cmd;
 	cmd.runTest();
+
 	
 	/*
     MIAencrypt crypt(4);
@@ -1395,8 +1442,6 @@ void Program::runTest(){
     */
     cout << "...Finished test." << endl;
 }
-
-
 
 
 

@@ -23,6 +23,7 @@
 #include <windows.h>
 #include "WinKeys.h"
 #include "LOLANetUse.h"
+#include "MIASequencer.h"
 #endif
 
 using std::cout;
@@ -995,12 +996,9 @@ void Commands::runNetUserEnum(){
 //Rolls a dice using commands programmed in misc class.
 int Commands::rollDice(string input){
 	Misc misc;
-	int dr = misc.roll(input);
-	return dr;
+	int diceRoll = misc.roll(input);
+	return diceRoll;
 }
-
-
-
 
 
 //Function made for testing.
@@ -1010,13 +1008,12 @@ void Commands::runTest(){
 	
 	///* Uncomment this for testing things for Windows only.
 	#if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
-	
+		Sequencer s;
+		s.activateSequence("test");
 	#else
-		
-	Music m;
-	m.playSong("test.mp3");
-	
-	//prog.returnError(31416);
+		Music m;
+		m.playSong("test.mp3");
+		//prog.returnError(31416);
 	#endif
 	//*/
 }

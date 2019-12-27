@@ -7,19 +7,19 @@
 // Description : MIA settings and functions related to the MIA program.
 //============================================================================
 
-#include <string>
 #ifndef __MIAPROGRAM_H__
 #define __MIAPROGRAM_H__
 
 #include <string>
 #include <vector>
+#include <map>
 
 using std::string;
 using std::vector;
 
 class Program{
 	private:
-		const string VERSION = "0.146";
+		const string VERSION = "0.147";
 		
 		//Defines location of the MIAconfig.txt file.
 		string MIAConfigFile = "Resources/MIAConfig.MIA";
@@ -64,8 +64,6 @@ class Program{
 		int CenterHairColorG = 172;
 		int CenterHairColorB = 169;
 		
-		
-		
 	public:
 		Program();
 		~Program();
@@ -95,8 +93,9 @@ class Program{
 		void setDefaultButtonCombination(string input);
 		string getDefaultButtonCombination();
 
+		void setMIAVariables(string variable, string value);
+
 		//Initializes and returns private WoW variables.
-		void setMIAVariable(string variable, string value);
 		void setWoWMailboxSendLetterLocation(char coord, string value);
 		void setWoWMailboxLootLetterLocation(char coord, string value);
 		void setWoWMailboxDeleteLetterLocation(char coord, string value);
@@ -143,6 +142,7 @@ class Program{
 		
 		//Misc functions.
 		int findCharInString(string input, char c);
+		bool stringContainsChar(string input, char c);
 		bool is_digits(const string &str);
 		string removeCharInString(string str, char c);
 		string today();
@@ -203,4 +203,5 @@ class Program{
 		
 		MIAInput commandToInputEnum(string input);
 };
+
 #endif

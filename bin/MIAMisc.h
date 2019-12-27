@@ -40,5 +40,6 @@ class Misc {
 		int roll(string input);
 		int rolldXX(int diceSize, int seed);
 
+		
 };
 #endif

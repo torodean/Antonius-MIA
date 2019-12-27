@@ -15,17 +15,16 @@
 # This means, do not do 'variable= text' unless you intend to have " text" be the variable value.
 
 # MIA file location variables.
-defaultInputFilePath=Resources/InputFiles/
-defaultCryptFilePath=Resources/EncryptedFiles/
-defaultDecryptFilePath=Resources/EncryptedFiles/
+inputFilePath=Resources/InputFiles/
+cryptFilePath=Resources/EncryptedFiles/
+decryptFilePath=Resources/EncryptedFiles/
 workoutsFilePath=Resources/InputFiles/exercises.txt
 sequencesFilePath=Resources/InputFiles/MIASequences.txt
 workoutOutputFilePath=Resources/OutputFiles/workout.txt
 excuseFilePath=Resources/Excuses.txt
 
-
 # MIA program variables.
-verboseMode=false
+verboseMode=true
 MIATerminalMode=true
 
 # MIA variables.

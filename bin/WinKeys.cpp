@@ -10,12 +10,14 @@
 //============================================================================
 
 #define WINVER 0x0500
+
+#include "WinKeys.h"
+
 #include <windows.h>
 #include <thread>
 #include <chrono>
 #include <iostream>
 #include <string>
-#include "WinKeys.h"
 #include <stdio.h>
 
 using std::cout;
@@ -37,8 +39,18 @@ WinKeys::~WinKeys(){
 
 //Simulates a pause/sleep for some number of milliseconds.
 void WinKeys::sleep(int ms){
+	if(prog.getVerboseMode()){
+		cout << "...Sleeping for " << ms << " milliseconds." << endl;
+	}
 	std::this_thread::sleep_for(std::chrono::milliseconds(ms));
 }
+
+//DEPRECATED in version 0.147. sleep() function performs same action.
+//Tells the program to sleep for some time in milliseconds.
+void WinKeys::waitTime(int input){
+	std::this_thread::sleep_for(std::chrono::milliseconds(input));
+}
+
 void WinKeys::defaultSleep(){
 	sleep(globalSleep);
 }
@@ -785,6 +797,8 @@ void WinKeys::press(string character, int holdTime){
 		tab();
 	} else if (character == "N"){
 		numlock();
+	} else{
+		prog.returnError(31424, character);
 	}
 }
 
@@ -918,11 +932,6 @@ void WinKeys::minecraftDig(int time){
     SendInput(1, &ip, sizeof(INPUT));
 }
 
-//Tells the program to sleep for some time in milliseconds.
-void WinKeys::waitTime(int input){
-	    std::this_thread::sleep_for(std::chrono::milliseconds(input));
-}
-
 // Press the "ENTER" key
 void WinKeys::enter(){
 	// Press the "ENTER" key
@@ -1023,7 +1032,7 @@ void WinKeys::findMouseCoords(int wait){
 	
 	POINT cursor;
 	
-	waitTime(wait);
+	sleep(wait);
 	GetCursorPos(&cursor);
 	
 	prog.blankDots();
@@ -1083,31 +1092,36 @@ void WinKeys::getPixelColorAtMouse(){
 	cout << "...Finished." << endl;
 }
 
+void WinKeys::moveMouseTo(int x, int y){
+	SetCursorPos(x,y);
+	sleep(40);
+}
+
 //A fish bot made for WoW -- Not yet polished.
 void WinKeys::WoWFishBot(string fishButton, string lureButton){
 	int drama = 400;
 	//Some gibberish for dramatic effect.
 	//Also serves as a brief load time before bot starts.
 	cout << "...Loading Fishbot Modules." << endl;
-	waitTime(drama);
+	sleep(drama);
 	cout << "...Calculating response functions." << endl;
-	waitTime(drama);
+	sleep(drama);
 	cout << "...Detecting saved crypto-keys." << endl;
-	waitTime(2*drama);
+	sleep(2*drama);
 	cout << "...Saved keys found!" << endl;
 	cout << "...Decrypting password hash values." << endl;
-	waitTime(drama);
+	sleep(drama);
 	cout << "...Success!." << endl;
 	cout << "...Sending security information to host." << endl;
-	waitTime(2*drama);
+	sleep(2*drama);
 	cout << "...Success!." << endl;
 	cout << "...Disabling daemon ninja process." << endl;
-	waitTime(drama);
+	sleep(drama);
 	prog.blankDots();
 	cout << "...Number of casts set to: " << prog.getWoWFishBotSpace("casts") << endl;
-	waitTime(drama);
+	sleep(drama);
 	cout << "...Starting fishbot!" << endl;
-	waitTime(drama);
+	sleep(drama);
 	prog.blankDots();
 	
 	//Begin useful variable initialization.
@@ -1151,7 +1165,7 @@ void WinKeys::WoWFishBot(string fishButton, string lureButton){
 		if (useLure && counter % 100 == 0){
 			cout << "...Applying lure." << endl;
 			press(lureButton);
-			waitTime(3000);
+			sleep(3000);
 		}
 		
 		//Casts.
@@ -1163,7 +1177,7 @@ void WinKeys::WoWFishBot(string fishButton, string lureButton){
 		for (int j=startY;j<endY;j+=increment){	
 			for (int i=startX;i<endX;i+=increment){	
 				SetCursorPos(i,j);
-				waitTime(40);
+				sleep(40);
 				color = GetPixel(dc, i, j);
 				//color = GetPixel(dc, cursor.x, cursor.y);
 				
@@ -1193,10 +1207,10 @@ void WinKeys::WoWFishBot(string fishButton, string lureButton){
 		
 		//Waits a delay time and then clocks the bobber if it was found.
 		if(bobberFound){
-			waitTime(catchDelay);
+			sleep(catchDelay);
 			leftclick();
 		}
-		waitTime(1000);
+		sleep(1000);
 		
 		//Determines elapsed time and progress information.
 		end = std::chrono::steady_clock::now();
