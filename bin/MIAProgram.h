@@ -196,6 +196,7 @@ class Program{
 			date,
 			diceroll,
 			sequencer,
+			sequencer_l,
 			errorinfo,
 			errorinfo_a,
 			test,

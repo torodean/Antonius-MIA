@@ -737,6 +737,8 @@ Program::MIAInput Program::commandToInputEnum(string input){
 		output = MIAInput::date;
 	} else if (input == "sequencer"){
 		output = MIAInput::sequencer;
+	}  else if (input == "sequencer -l"){
+		output = MIAInput::sequencer_l;
 	} else if (inputRoll(input)){
 		output = MIAInput::diceroll;
 	} else if (input == "error info"){
@@ -892,6 +894,9 @@ void Program::performMIACommand(string input){
 			break;
 		case MIAInput::sequencer: //Corresponds to the sequencer functions.
 			cmd.runSequencer();
+			break;
+		case MIAInput::sequencer_l: //Corresponds to the sequencer -l functions.
+			cmd.loopSequencer();
 			break;
 		case MIAInput::errorinfo: //Corresponds to the error info command.
 			errorInfoRun(false);
@@ -1104,6 +1109,8 @@ void Program::printHelp(){
 	cout << "... prime -help   | Displays help defaults for prime functions." << endl;
 	cout << "... quadratic form| Calculates a solution to a*x^2+b*x+c=0." << endl;
 	cout << "... randfromfile  | Prints a number of random lines from a text file." << endl;
+	cout << "... sequencer     | Runs a sequence from the sequences file." << endl;
+	cout << "... sequencer -l  | Loops a sequence from the sequences file." << endl;
 	cout << "... subtract      | Finds the difference between two integers of any length." << endl;
 	cout << "... triangle      | Determines if a number is a triangle number or not." << endl;
 	cout << "... workout       | Generates a workout from the values defined in workouts.txt." << endl;

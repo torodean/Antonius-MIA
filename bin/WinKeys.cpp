@@ -13,13 +13,6 @@
 
 #include "WinKeys.h"
 
-#include <windows.h>
-#include <thread>
-#include <chrono>
-#include <iostream>
-#include <string>
-#include <stdio.h>
-
 using std::cout;
 using std::endl;
 using std::string;
@@ -39,7 +32,7 @@ WinKeys::~WinKeys(){
 
 //Simulates a pause/sleep for some number of milliseconds.
 void WinKeys::sleep(int ms){
-	if(prog.getVerboseMode()){
+	if(getVerboseMode()){
 		cout << "...Sleeping for " << ms << " milliseconds." << endl;
 	}
 	std::this_thread::sleep_for(std::chrono::milliseconds(ms));
@@ -61,7 +54,7 @@ void WinKeys::space(){
     ip.ki.dwFlags = 0; // 0 for key press
     SendInput(1, &ip, sizeof(INPUT));
 
-	if(prog.getVerboseMode())
+	if(getVerboseMode())
 		cout << "space" << endl;
 	
     // Release the "space" key
@@ -78,7 +71,7 @@ void WinKeys::one(int holdTime){
     SendInput(1, &ip, sizeof(INPUT));
 	
 	sleep(holdTime);
-	if(prog.getVerboseMode())
+	if(getVerboseMode())
 		cout << "1" << endl;
 
     // Release the "1" key
@@ -95,7 +88,7 @@ void WinKeys::two(int holdTime){
     SendInput(1, &ip, sizeof(INPUT));
 	
 	sleep(holdTime);
-	if(prog.getVerboseMode())
+	if(getVerboseMode())
 		cout << "2" << endl;
 
     // Release the "2" key
@@ -111,7 +104,7 @@ void WinKeys::three(int holdTime){
     SendInput(1, &ip, sizeof(INPUT));
 	
 	sleep(holdTime);
-	if(prog.getVerboseMode())
+	if(getVerboseMode())
 		cout << "3" << endl;
 
     // Release the "3" key
@@ -128,7 +121,7 @@ void WinKeys::four(int holdTime){
     SendInput(1, &ip, sizeof(INPUT));
 	
 	sleep(holdTime);
-	if(prog.getVerboseMode())
+	if(getVerboseMode())
 		cout << "4" << endl;
 
     // Release the "4" key
@@ -144,7 +137,7 @@ void WinKeys::five(int holdTime){
     SendInput(1, &ip, sizeof(INPUT));
 	
 	sleep(holdTime);
-	if(prog.getVerboseMode())
+	if(getVerboseMode())
 		cout << "5" << endl;
 
     // Release the "5" key
@@ -160,7 +153,7 @@ void WinKeys::six(int holdTime){
     SendInput(1, &ip, sizeof(INPUT));
 	
 	sleep(holdTime);
-	if(prog.getVerboseMode())
+	if(getVerboseMode())
 		cout << "6" << endl;
 
     // Release the "6" key
@@ -177,7 +170,7 @@ void WinKeys::seven(int holdTime){
     SendInput(1, &ip, sizeof(INPUT));
 	
 	sleep(holdTime);
-	if(prog.getVerboseMode())
+	if(getVerboseMode())
 		cout << "7" << endl;
 
     // Release the "7" key
@@ -193,7 +186,7 @@ void WinKeys::eight(int holdTime){
     SendInput(1, &ip, sizeof(INPUT));
 	
 	sleep(holdTime);
-	if(prog.getVerboseMode())
+	if(getVerboseMode())
 		cout << "8" << endl;
 
     // Release the "8" key
@@ -209,7 +202,7 @@ void WinKeys::nine(int holdTime){
     SendInput(1, &ip, sizeof(INPUT));
 	
 	sleep(holdTime);
-	if(prog.getVerboseMode())
+	if(getVerboseMode())
 		cout << "9" << endl;
 
     // Release the "9" key
@@ -225,7 +218,7 @@ void WinKeys::zero(int holdTime){
     SendInput(1, &ip, sizeof(INPUT));
 	
 	sleep(holdTime);
-	if(prog.getVerboseMode())
+	if(getVerboseMode())
 		cout << "0" << endl;
 
     // Release the "0" key
@@ -264,7 +257,7 @@ void WinKeys::tab(){
     ip.ki.dwFlags = 0; // 0 for key press
     SendInput(1, &ip, sizeof(INPUT));
 	
-	if(prog.getVerboseMode())
+	if(getVerboseMode())
 		cout << "TAB" << endl;
 
     // Release the "tab" key
@@ -798,7 +791,7 @@ void WinKeys::press(string character, int holdTime){
 	} else if (character == "N"){
 		numlock();
 	} else{
-		prog.returnError(31424, character);
+		returnError(31424, character);
 	}
 }
 
@@ -835,7 +828,7 @@ void WinKeys::leftclick(){
 	Input.mi.dwFlags  = MOUSEEVENTF_LEFTDOWN;
 	SendInput(1,&Input,sizeof(INPUT));
 
-	if(prog.getVerboseMode())
+	if(getVerboseMode())
 		cout << "LEFT CLICK" << endl;
 
 	// left up
@@ -866,7 +859,7 @@ void WinKeys::rightclick(){
 	Input.mi.dwFlags  = MOUSEEVENTF_RIGHTDOWN;
 	SendInput(1,&Input,sizeof(INPUT));
 
-	if(prog.getVerboseMode())
+	if(getVerboseMode())
 		cout << "RIGHT CLICK" << endl;
 	
 	// right up
@@ -977,8 +970,8 @@ void WinKeys::slash(){
 //Used for duplicating a letter in WoW. Useful for creating RP events.
 void WinKeys::duplicateLetter(int copies, string recipient){
 	Program progz;
-	int x = prog.getWoWMailboxSendLetterLocation('x');
-	int y = prog.getWoWMailboxSendLetterLocation('y');
+	int x = getWoWMailboxSendLetterLocation('x');
+	int y = getWoWMailboxSendLetterLocation('y');
 	
     std::this_thread::sleep_for(std::chrono::milliseconds(5000));
     for(int i=0;i<copies;i++){
@@ -1002,12 +995,12 @@ void WinKeys::duplicateLetter(int copies, string recipient){
 //Used for unloading letters from the mailbox in WoW. Useful for creating RP events.
 //Coordinates may need adapted based on screen resolutions, UI scales, etc..
 void WinKeys::unloadLetters(int copies){
-	int x0 = prog.getWoWMailboxFirstLetterLocation('x');
-	int y0 = prog.getWoWMailboxFirstLetterLocation('y');
-	int x1 = prog.getWoWMailboxLootLetterLocation('x');
-	int y1 = prog.getWoWMailboxLootLetterLocation('y');
-	int x2 = prog.getWoWMailboxDeleteLetterLocation('x');
-	int y2 = prog.getWoWMailboxDeleteLetterLocation('y');
+	int x0 = getWoWMailboxFirstLetterLocation('x');
+	int y0 = getWoWMailboxFirstLetterLocation('y');
+	int x1 = getWoWMailboxLootLetterLocation('x');
+	int y1 = getWoWMailboxLootLetterLocation('y');
+	int x2 = getWoWMailboxDeleteLetterLocation('x');
+	int y2 = getWoWMailboxDeleteLetterLocation('y');
 	
     std::this_thread::sleep_for(std::chrono::milliseconds(5000));
 
@@ -1035,10 +1028,10 @@ void WinKeys::findMouseCoords(int wait){
 	sleep(wait);
 	GetCursorPos(&cursor);
 	
-	prog.blankDots();
+	blankDots();
 	int x = cursor.x, y = cursor.y;
 	cout << "The mouse curse is at: " << x << ", " << y << endl;
-	prog.blankDots();
+	blankDots();
 }
 
 //Prints the pixel color at a scan of ranges in a 100 x 100 grid from the mouse location.
@@ -1056,9 +1049,7 @@ void WinKeys::getPixelColor(){
 		for (int j=cursor.y+2;j<cursor.y+100;j+=4){			
 			color = GetPixel(dc, i, j);
 			
-			red = GetRValue(color);
-			green = GetGValue(color);
-			blue = GetBValue(color);
+			getRGB(color, red, green, blue);
 			
 			cout << "(x,y): " << "(" << i << "," << j << ")" << endl;
 			cout << "Red: " << red << "  --  " << "Green: " << green << "  --  " << "Blue: " << blue << endl;
@@ -1080,12 +1071,12 @@ void WinKeys::getPixelColorAtMouse(){
 		
 	COLORREF color = GetPixel(dc, cursor.x, cursor.y);
 	
-	int red = GetRValue(color);
-	int green = GetGValue(color);
-	int blue = GetBValue(color);
+	int red = 0, green = 0, blue = 0;
+	getRGB(color, red, green, blue);
 	
 	cout << "(x,y): " << "(" << cursor.x << "," << cursor.y << ")" << endl;
 	cout << "Red: " << red << "  --  " << "Green: " << green << "  --  " << "Blue: " << blue << endl;
+	cout << "RGB: (" << red << "," << green << "," << blue << ")" << endl; 
 
 	ReleaseDC(NULL,dc);
 	
@@ -1097,8 +1088,7 @@ void WinKeys::moveMouseTo(int x, int y){
 	sleep(40);
 }
 
-//A fish bot made for WoW -- Not yet polished.
-void WinKeys::WoWFishBot(string fishButton, string lureButton){
+void WinKeys::fishBotIntro(){
 	int drama = 400;
 	//Some gibberish for dramatic effect.
 	//Also serves as a brief load time before bot starts.
@@ -1117,39 +1107,49 @@ void WinKeys::WoWFishBot(string fishButton, string lureButton){
 	cout << "...Success!." << endl;
 	cout << "...Disabling daemon ninja process." << endl;
 	sleep(drama);
-	prog.blankDots();
-	cout << "...Number of casts set to: " << prog.getWoWFishBotSpace("casts") << endl;
+	blankDots();
+	cout << "...Number of casts set to: " << getWoWFishBotSpace("casts") << endl;
 	sleep(drama);
 	cout << "...Starting fishbot!" << endl;
 	sleep(drama);
-	prog.blankDots();
+	blankDots();
+}
+
+void WinKeys::getRGB(COLORREF& color, int& r, int& g, int&b){
+	r = GetRValue(color);
+	g = GetGValue(color);
+	b = GetBValue(color);
+}
+
+//A fish bot made for WoW -- Not yet polished.
+void WinKeys::WoWFishBot(string fishButton, string lureButton){
+	fishBotIntro();
 	
 	//Begin useful variable initialization.
 	HDC dc = GetDC(NULL);
 	COLORREF color;
 	int counter = 0;
 	int red=1,green=1,blue=1;
-	int increment = prog.getWoWFishBotSpace("increment");
-	if(prog.getVerboseMode())
+	int increment = getWoWFishBotSpace("increment");
+	if(getVerboseMode())
 		cout << "increment: " << increment << endl;
-	int startX = prog.getWoWFishBotSpace("startX") + increment/2, startY = prog.getWoWFishBotSpace("startY");
-	if(prog.getVerboseMode()){
+	int startX = getWoWFishBotSpace("startX") + increment/2, startY = getWoWFishBotSpace("startY");
+	if(getVerboseMode()){
 		cout << "startX: " << startX << endl;
 		cout << "startY: " << startY << endl;
 	}
-	int endX = prog.getWoWFishBotSpace("endX"), endY = prog.getWoWFishBotSpace("endY");
-	if(prog.getVerboseMode()){
+	int endX = getWoWFishBotSpace("endX"), endY = getWoWFishBotSpace("endY");
+	if(getVerboseMode()){
 		cout << "endX: " << endX << endl;
 		cout << "endY: " << endY << endl;
 	}
 	bool bobberFound = false;
 	bool useLure = true;
-	int catchDelay = prog.getWoWFishBotSpace("delay");
-	if(prog.getVerboseMode())
-		cout << "catchDelay: " << catchDelay << endl;
+	int catchDelay = getWoWFishBotSpace("delay");
+	if(getVerboseMode()) cout << "catchDelay: " << catchDelay << endl;
 	
 	//Determines whether a lure is being used based on input.
-	if (lureButton == "NONE" || lureButton == "None" || lureButton == "none"){
+	if (lureButton == "NONE" || lureButton == "None" || lureButton == "none" || lureButton == "n" || lureButton == "N"){
 		useLure = false;
 	}
 	
@@ -1159,7 +1159,7 @@ void WinKeys::WoWFishBot(string fishButton, string lureButton){
 	long elapsed_time = 0;
 	
 	//Run the fishbot for some number of casts - determined by the config file variable WoWFishBotNumOfCasts.
-	while(counter < prog.getWoWFishBotSpace("casts")){
+	while(counter < getWoWFishBotSpace("casts")){
 		
 		//Applies lure.
 		if (useLure && counter % 100 == 0){
@@ -1171,25 +1171,28 @@ void WinKeys::WoWFishBot(string fishButton, string lureButton){
 		//Casts.
 		cout << "...Casting." << endl;
 		press(fishButton);
+		sleep(1500);
 		cout << "...Scanning." << endl;
 		
 		//Finds bobber.
 		for (int j=startY;j<endY;j+=increment){	
 			for (int i=startX;i<endX;i+=increment){	
 				SetCursorPos(i,j);
-				sleep(40);
+				sleep(2);
 				color = GetPixel(dc, i, j);
 				//color = GetPixel(dc, cursor.x, cursor.y);
 				
-				red = GetRValue(color);
-				green = GetGValue(color);
-				blue = GetBValue(color);
+				getRGB(color, red, green, blue);
 
 				//Troubleshooting printouts for color of pixels detected.
-				//cout << "(x,y): " << "(" << i << "," << j << ")" << endl;
-				//cout << "Red: " << red << "  --  " << "Green: " << green << "  --  " << "Blue: " << blue << endl;
+				if (getVerboseMode()){
+					cout << "(x,y): " << "(" << i << "," << j << ")" << endl;
+					cout << "Red: " << red << "  --  " << "Green: " << green << "  --  " << "Blue: " << blue << endl;
+					cout << "RGB: (" << red << "," << green << "," << blue << ")" << endl;
+				}
 				
-				if(red > green + 15 || red > blue + 15){
+				//Check if the mouse is over the bobber.
+				if(red > green + 35 || red > blue + 35){
 					cout << "...The bobber has been found!! ...I think." << endl;
 					bobberFound=true;
 					break;

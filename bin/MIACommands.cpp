@@ -1017,6 +1017,25 @@ void Commands::runSequencer(){
 	}
 }
 
+//Main runner for the sequencer.
+void Commands::loopSequencer(){
+	cout << "...Beginning MIA Sequencer loop." << endl;
+	cout << "...This will loop the sequence indefinitely." << endl;
+	Sequencer seq;
+	string input;
+	cout << "...Enter a sequence to initiate: " << endl;
+	prog.blankLine();
+	getline(cin, input);
+	vector<string> names = seq.getSequenceNames();
+	if (find(names.begin(), names.end(), input) != names.end()){
+		while(true){
+			seq.activateSequence(input);
+		}
+	} else {
+		prog.returnError(31423, input);
+	}
+}
+
 //Function made for testing.
 //This should be placed at the end of the file for easy accessibility. 
 void Commands::runTest(){

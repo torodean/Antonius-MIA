@@ -70,5 +70,6 @@ class Commands{
 		void workoutRunner(bool weekly);
 		int rollDice(string input);
 		void runSequencer();
+		void loopSequencer();
 };
 #endif

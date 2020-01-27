@@ -26,12 +26,36 @@ using std::copy;
 using std::istreambuf_iterator;
 using std::ostreambuf_iterator;
 
+MIACrypt::MIACrypt(){
+
+}
+
+MIACrypt::~MIACrypt(){
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// DEPRECATED in newer design - MIACrypt.
 //Main constructor for the MIAEncrypt algorithm.
 MIAEncrypt::MIAEncrypt(int cSize): cubeSize(cSize), intCube(cubeSize, vector<vector<int>>(cubeSize, vector<int>(cubeSize, 0) ) ), 
 		tesseract(8, intCube), totalRotations(3*2*cubeSize), combination(totalRotations, 0){
 	//When Chuck Norris's code fails to compile, the computer apologizes.
 }
 
+// DEPRECATED in newer design - MIACrypt.
 //Main de-constructor for the MIAEncrypt algorithm.
 MIAEncrypt::~MIAEncrypt(){
 	//Chuck Norris can stop an infinite loop just by thinking about it.
@@ -41,6 +65,7 @@ MIAEncrypt::~MIAEncrypt(){
 //===== N*N*N Cuboidal Combinatorial rotations =====
 //==================================================
 
+// DEPRECATED in newer design - MIACrypt.
 void MIAEncrypt::runTest(){
 	vector< vector< vector<int>>> testCube = intCube;
 	for(int i=0;i<cubeSize;i++){
@@ -181,6 +206,7 @@ void MIAEncrypt::runTest(){
 	cout << "Finished... " << endl;
 }
 
+// DEPRECATED in newer design - MIACrypt.
 //Rotates part of a intCube (side length n) while keeping one side constant in either a clockwize or counterclockwise direction.
 vector< vector< vector<int>>> MIAEncrypt::rotation(vector< vector< vector<int>>> inputCube, char side, int index, bool CW){
 	vector< vector< vector<int>>> cubeNew = inputCube;
@@ -232,6 +258,7 @@ vector< vector< vector<int>>> MIAEncrypt::rotation(vector< vector< vector<int>>>
 	return cubeNew;
 }
 
+// DEPRECATED in newer design - MIACrypt.
 //Prints the components of a intCube in a format assuming each element has the same length.
 void MIAEncrypt::printCube(vector< vector< vector<int>>> inputCube){
 	cout << endl;
@@ -249,6 +276,7 @@ void MIAEncrypt::printCube(vector< vector< vector<int>>> inputCube){
 	cout << endl;
 }
 
+// DEPRECATED in newer design - MIACrypt.
 //Scrambles a intCube According to the combination integer entered.
 vector< vector< vector<int>>> MIAEncrypt::scrambleCube(vector< vector< vector<int>>> inputCube, vector<int> combination){	
 	//initializes and sets the defauly rotation values. 	
@@ -294,6 +322,7 @@ vector< vector< vector<int>>> MIAEncrypt::scrambleCube(vector< vector< vector<in
 	return cubeNew;
 }
 
+// DEPRECATED in newer design - MIACrypt.
 //Un-crambles a intCube According to the combination entered.
 vector< vector< vector<int>>> MIAEncrypt::unscrambleCube(vector< vector< vector<int>>> inputCube, vector<int> combination){
 	//initializes and sets the defauly rotation values. 	
@@ -339,6 +368,7 @@ vector< vector< vector<int>>> MIAEncrypt::unscrambleCube(vector< vector< vector<
 	return cubeNew;
 }
 
+// DEPRECATED in newer design - MIACrypt.
 //Converts a string passphrase to a vector of integers.
 void MIAEncrypt::passphraseToCombination(string passphrase){
 	long total = 0;
@@ -374,6 +404,7 @@ void MIAEncrypt::passphraseToCombination(string passphrase){
 	}
 }
 
+// DEPRECATED in newer design - MIACrypt.
 //Encrypts a file. NOT YET WORKING/FINISED.
 void MIAEncrypt::encryptFile(string file, string fileName){
 	Program prog;
@@ -405,6 +436,7 @@ void MIAEncrypt::encryptFile(string file, string fileName){
 	//cout << bufferString << endl;
 }
 
+// DEPRECATED in newer design - MIACrypt.
 //Converts a text file to a vector of characters.
 vector<char> MIAEncrypt::fileToCharVec(string file){
 	Program prog;
@@ -423,6 +455,7 @@ vector<char> MIAEncrypt::fileToCharVec(string file){
 	return charVec;
 }
 
+// DEPRECATED in newer design - MIACrypt.
 //Converts a vector of characters to a vector of integers.
 vector<int> MIAEncrypt::charVecToIntVec(vector<char> charVec){
 	vector<int> intVec;
@@ -442,6 +475,7 @@ vector<int> MIAEncrypt::charVecToIntVec(vector<char> charVec){
 	return intVec;
 }
 
+// DEPRECATED in newer design - MIACrypt.
 //In development. 
 vector<bool> MIAEncrypt::intVecToBoolVec(vector<int> intVec){
 	vector<bool> boolVec;
@@ -454,6 +488,7 @@ vector<bool> MIAEncrypt::intVecToBoolVec(vector<int> intVec){
 	return boolVec;
 }
 
+// DEPRECATED in newer design - MIACrypt.
 //In development. 
 vector< vector< vector<bool> > > MIAEncrypt::boolVecToBoolCube(vector<bool> boolVec){
 	vector< vector< vector<bool> > > boolCube;

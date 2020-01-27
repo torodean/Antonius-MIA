@@ -24,7 +24,7 @@ workoutOutputFilePath=Resources/OutputFiles/workout.txt
 excuseFilePath=Resources/Excuses.txt
 
 # MIA program variables.
-verboseMode=true
+verboseMode=false
 MIATerminalMode=true
 
 # MIA variables.
@@ -33,20 +33,20 @@ defaultButtonCombination=1234567T
 #buttonCombinationCoordsY=0,0,0
 
 # WoW related variables.
-WoWMailboxSendLetterLocationX=279
-WoWMailboxSendLetterLocationY=647
-WoWMailboxFirstLetterLocationX=55
-WoWMailboxFirstLetterLocationY=265
-WoWMailboxLootLetterLocationX=675
-WoWMailboxLootLetterLocationY=600
-WoWMailboxDeleteLetterLocationX=700
-WoWMailboxDeleteLetterLocationY=650
+WoWMailboxSendLetterLocationX=252
+WoWMailboxSendLetterLocationY=593
+WoWMailboxFirstLetterLocationX=56
+WoWMailboxFirstLetterLocationY=223
+WoWMailboxLootLetterLocationX=646
+WoWMailboxLootLetterLocationY=556
+WoWMailboxDeleteLetterLocationX=699
+WoWMailboxDeleteLetterLocationY=589
 
 # Variables relating to the fishbot implementation inside MIA.
 WoWFishBotStartX=791
 WoWFishBotStartY=443
 WoWFishBotEndX=1082
 WoWFishBotEndY=581
-WoWFishBotIncrement=20
+WoWFishBotIncrement=15
 WoWFishBotNumOfCasts=10000
-WoWFishBotDelay=12000
+WoWFishBotDelay=10000

@@ -15,9 +15,30 @@
 using std::vector;
 using std::string;
 
+class MIACrypt{
+	public:
+		MIACrypt();
+		~MIACrypt();
+	protected:
+	
+	private:
+		vector<vector<vector<unsigned char>>> binaryData;
+		string passphrase;
+}; //MIACrypt.
+
+
+
+
+
+
+
+
+
+// DEPRECATED in newer design - MIACrypt.
 class MIAEncrypt{
 	private:
 		int cubeSize;
+		
         vector< vector< vector<int> > > intCube;
 		vector< vector< vector< vector<int> > > > tesseract;
 		int totalRotations;
@@ -39,7 +60,6 @@ class MIAEncrypt{
 		vector<int> charVecToIntVec(vector<char> charVec);
 		vector<bool> intVecToBoolVec(vector<int> intVec);
 		vector< vector< vector<bool> > >	boolVecToBoolCube(vector<bool> boolVec);	
-		
 		
 		
 		//Get Private Variables.

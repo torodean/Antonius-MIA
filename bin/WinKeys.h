@@ -13,19 +13,26 @@
 #include "MIAProgram.h"
 
 #include <windows.h>
+#include <thread>
+#include <chrono>
+#include <iostream>
 #include <string>
+#include <stdio.h>
+
 
 using std::string;
 
-class WinKeys{
+class WinKeys : public Program {
 	private:
 		int globalSleep = 50;
 		INPUT ip;
+		
+		void fishBotIntro();
+	protected:
+		void getRGB(COLORREF& color, int& r, int& g, int& b);
 	public:
 		WinKeys();
 		~WinKeys();
-		
-		Program prog;
 		
 		//Keys.
 		void one(int holdTime = 0);

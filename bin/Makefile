@@ -78,10 +78,10 @@ MIASequencer.o: MIASequencer.cpp MIASequencer.h MIAProgram.h WinKeys.h
 LOLANetUse.o: LOLANetUse.cpp LOLANetUse.h
 	$(CC) $(CFLAGS) LOLANetUse.cpp
 
-#make clean - removes object files.
+# make clean - removes object files.
 clean:
 	rm -fv *o MIA.*
 
-#make obj_clean - For removing only the object files but keeping the executable.
+# make obj_clean - For removing only the object files but keeping the executable.
 cleanup:
 	rm -fv *o MIA.exe.*
