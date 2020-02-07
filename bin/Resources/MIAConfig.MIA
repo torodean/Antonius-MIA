@@ -33,8 +33,8 @@ defaultButtonCombination=1234567T
 #buttonCombinationCoordsY=0,0,0
 
 # WoW related variables.
-WoWMailboxSendLetterLocationX=252
-WoWMailboxSendLetterLocationY=593
+WoWMailboxSendLetterLocationX=241
+WoWMailboxSendLetterLocationY=580
 WoWMailboxFirstLetterLocationX=56
 WoWMailboxFirstLetterLocationY=223
 WoWMailboxLootLetterLocationX=646
