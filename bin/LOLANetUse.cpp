@@ -380,7 +380,7 @@ int LOLANetUse::NetUserEnumRunner(int argc, wchar_t *argv[]){
 	}
 	//The server is not the default local computer.
 	if (argc == 2){
-		pszServerName = (LPTSTR)argv[1];
+		pszServerName = argv[1];
 	}
 	wprintf(L"\n...User accounts on %ls: \n", pszServerName);
 	//Call the NetUserEnum function, specifying level 0; enumerate global user account types only.
@@ -512,7 +512,7 @@ int LOLANetUse::NetUserGetInfoRunner(int argc, wchar_t *argv[]){
 						wprintf(L"\tUnits per week: %d\n",pBuf2->usri2_units_per_week);
 						wprintf(L"\tLogon hours:");
 						for (j = 0; j < 21; j++){
-							printf(" %x", (BYTE)pBuf2->usri2_logon_hours[j]);
+							printf(" %x", pBuf2->usri2_logon_hours[j]);
 						}
 						wprintf(L"\n");
 						wprintf(L"\tBad password count: %d\n",pBuf2->usri2_bad_pw_count);
@@ -548,7 +548,7 @@ int LOLANetUse::NetUserGetInfoRunner(int argc, wchar_t *argv[]){
 						wprintf(L"\tUnits per week: %d\n",pBuf4->usri4_units_per_week);
 						wprintf(L"\tLogon hours:");
 						for (j = 0; j < 21; j++){
-							printf(" %x", (BYTE)pBuf4->usri4_logon_hours[j]);
+							printf(" %x", pBuf4->usri4_logon_hours[j]);
 						}
 						wprintf(L"\n");
 						wprintf(L"\tBad password count: %d\n",pBuf4->usri4_bad_pw_count);
@@ -600,7 +600,7 @@ int LOLANetUse::NetUserGetInfoRunner(int argc, wchar_t *argv[]){
 						wprintf(L"\tUnits per week: %d\n",pBuf11->usri11_units_per_week);
 						wprintf(L"\tLogon hours:");
 						for (j = 0; j < 21; j++){
-							printf(" %x", (BYTE)pBuf11->usri11_logon_hours[j]);
+							printf(" %x", pBuf11->usri11_logon_hours[j]);
 						}
 						wprintf(L"\n");
 						wprintf(L"\tCode page: %d\n", pBuf11->usri11_code_page);
@@ -678,7 +678,7 @@ int LOLANetUse::NetUserModalsGetRunner(int argc, wchar_t *argv[]){
 	}
 	// The server is not the default local computer.
 	if (argc == 2){
-		pszServerName = (LPTSTR)argv[1];
+		pszServerName = argv[1];
 	}
 	// Call the NetUserModalsGet function; specify level 0.
 	nStatus = NetUserModalsGet((LPCWSTR)pszServerName,dwLevel,(LPBYTE *)&pBuf);

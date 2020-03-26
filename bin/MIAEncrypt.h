@@ -67,8 +67,8 @@ class MIAEncrypt{
 		vector<string> getCombination();
 		
 		//Scramble and Unscramble algorithms.
-		vector< vector< vector<int>>> scrambleCube(vector< vector< vector<int>>> intCube, vector<int> combination);
-		vector< vector< vector<int>>> unscrambleCube(vector< vector< vector<int>>> intCube, vector<int> combination);
+		vector< vector< vector<int>>> scrambleCube(vector< vector< vector<int>>> intCube, vector<int> com);
+		vector< vector< vector<int>>> unscrambleCube(vector< vector< vector<int>>> intCube, vector<int> com);
 		
 		//N*N*N cuboidal Combinatorial rotations.	
 		vector< vector< vector<int>>> rotation(vector< vector< vector<int>>> intCube,char side, int index, bool CW);

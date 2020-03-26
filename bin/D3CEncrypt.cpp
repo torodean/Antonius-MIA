@@ -479,14 +479,14 @@ vector<int> D3CEncrypt::DeCryptChars(vector<int> a, vector<int> b){
 vector<int> D3CEncrypt::binaryVectorToASCII(vector<int> a){
     vectorSize = a.size();
     vector<int> deCryptedIntVector (vectorSize);
-    int digit, character, power, twoPower;
+    int val, character, power, twoPower;
     for(int i=0;i<vectorSize;i++){
         character = 0;
-        digit = a[i];
+        val = a[i];
         for(int x=6;x>=0;x--){
             power = pow(10,x);
             twoPower = pow(2, x);
-            character += ((digit/power)%10)*(twoPower);
+            character += ((val/power)%10)*(twoPower);
         }
         deCryptedIntVector[i] = character;
     }

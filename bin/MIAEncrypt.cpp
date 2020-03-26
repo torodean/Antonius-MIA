@@ -278,7 +278,7 @@ void MIAEncrypt::printCube(vector< vector< vector<int>>> inputCube){
 
 // DEPRECATED in newer design - MIACrypt.
 //Scrambles a intCube According to the combination integer entered.
-vector< vector< vector<int>>> MIAEncrypt::scrambleCube(vector< vector< vector<int>>> inputCube, vector<int> combination){	
+vector< vector< vector<int>>> MIAEncrypt::scrambleCube(vector< vector< vector<int>>> inputCube, vector<int> com){	
 	//initializes and sets the defauly rotation values. 	
 	char side = 'x';
 	bool CW = 1;
@@ -289,16 +289,16 @@ vector< vector< vector<int>>> MIAEncrypt::scrambleCube(vector< vector< vector<in
 
 	for(int n=0; n<totalRotations; n++){		
 		//determines the side of the intCube to rotate.
-		if(combination[n] >= 2*totalRotations/3){
+		if(com[n] >= 2*totalRotations/3){
 			side = 'z';
-		} else if(combination[n] >= totalRotations/3){
+		} else if(com[n] >= totalRotations/3){
 			side = 'y';
 		} else {
 			side = 'x';
 		}
 		
 		//determines the direction of the intCube to rotate.
-		if (combination[n]%2 == 0){
+		if (com[n]%2 == 0){
 			CW = true;
 		} else {
 			CW = false;
@@ -306,14 +306,14 @@ vector< vector< vector<int>>> MIAEncrypt::scrambleCube(vector< vector< vector<in
 		
 		//determines the index.
 		if (cubeSize%2 == 0){
-			if(combination[n]%(2*cubeSize) > combination[n]%cubeSize){
+			if(com[n]%(2*cubeSize) > com[n]%cubeSize){
 				temp = (combination[n]%(2*cubeSize))-cubeSize;
 				index = (combination[n]%(2*cubeSize))-2*temp-1;
 			} else {
 				index = combination[n]%cubeSize;
 			}
 		} else {
-			index = combination[n]%cubeSize;
+			index = com[n]%cubeSize;
 		}
 		
 		cubeNew = rotation(cubeNew, side, index, CW);
@@ -324,7 +324,7 @@ vector< vector< vector<int>>> MIAEncrypt::scrambleCube(vector< vector< vector<in
 
 // DEPRECATED in newer design - MIACrypt.
 //Un-crambles a intCube According to the combination entered.
-vector< vector< vector<int>>> MIAEncrypt::unscrambleCube(vector< vector< vector<int>>> inputCube, vector<int> combination){
+vector< vector< vector<int>>> MIAEncrypt::unscrambleCube(vector< vector< vector<int>>> inputCube, vector<int> com){
 	//initializes and sets the defauly rotation values. 	
 	char side = 'x';
 	bool CW = 1;
@@ -335,16 +335,16 @@ vector< vector< vector<int>>> MIAEncrypt::unscrambleCube(vector< vector< vector<
 	
 	for(int n=totalRotations-1; n>=0; n--){		
 		//determines the side of the intCube to rotate.
-		if(combination[n] >= 2*totalRotations/3){
+		if(com[n] >= 2*totalRotations/3){
 			side = 'z';
-		} else if(combination[n] >= totalRotations/3){
+		} else if(com[n] >= totalRotations/3){
 			side = 'y';
 		} else {
 			side = 'x';
 		}
 		
 		//determines the direction of the intCube to rotate.
-		if (combination[n]%2 != 0){
+		if (com[n]%2 != 0){
 			CW = true;
 		} else {
 			CW = false;
@@ -352,14 +352,14 @@ vector< vector< vector<int>>> MIAEncrypt::unscrambleCube(vector< vector< vector<
 		
 		//determines the index.
 		if (cubeSize%2 == 0){
-			if(combination[n]%(2*cubeSize) > combination[n]%cubeSize){
+			if(com[n]%(2*cubeSize) > com[n]%cubeSize){
 				temp = (combination[n]%(2*cubeSize))-cubeSize;
 				index = (combination[n]%(2*cubeSize))-2*temp-1;
 			} else {
 				index = combination[n]%cubeSize;
 			}
 		} else {
-			index = combination[n]%cubeSize;
+			index = com[n]%cubeSize;
 		}
 		
 		cubeNew = rotation(cubeNew, side, index, CW);
@@ -490,7 +490,7 @@ vector<bool> MIAEncrypt::intVecToBoolVec(vector<int> intVec){
 
 // DEPRECATED in newer design - MIACrypt.
 //In development. 
-vector< vector< vector<bool> > > MIAEncrypt::boolVecToBoolCube(vector<bool> boolVec){
+vector< vector< vector<bool> > > MIAEncrypt::boolVecToBoolCube([[maybe_unused]] vector<bool> boolVec){
 	vector< vector< vector<bool> > > boolCube;
 	return boolCube;
 }

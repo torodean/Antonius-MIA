@@ -323,7 +323,7 @@ void Misc::generateWorkout(double difficulty, bool weekly){
 		
 		cout << "...Running workout generation. " << endl;
 		
-		int randCounter = 1; //For changing random integers between calls.
+		int counter = 1; //For changing random integers between calls.
 		
 		//Loops over the generation code however many times needed.
 		while(timesToGenerate > 0){
@@ -377,8 +377,8 @@ void Misc::generateWorkout(double difficulty, bool weekly){
 			
 			
 			int numOfWorkouts;
-			randCounter++;
-			int numOfSets = prog.randomInt((int)minNumOfSetsModifier,(int)maxNumOfSetsModifier,randCounter, true);
+			counter++;
+			int numOfSets = prog.randomInt((int)minNumOfSetsModifier,(int)maxNumOfSetsModifier,counter, true);
 			
 			if(prog.getVerboseMode()){
 				cout << "...numOfSets: " << numOfSets << endl;
@@ -395,14 +395,14 @@ void Misc::generateWorkout(double difficulty, bool weekly){
 			for(int i=0; i<size-numOfVariables; i++){
 				workoutChosen.push_back(false);
 			}
-			randCounter++;
-			int randNum = prog.randomInt(0,size-numOfVariables,randCounter, true);
+			counter++;
+			int randNum = prog.randomInt(0,size-numOfVariables,counter, true);
 			int set = 1;
 			double repsMin, repsMax, repsModifier;		
 			
 			//Loops over the stuff and creates a random workout for each set.
 			while (numOfSets > 0){
-				randCounter++;
+				counter++;
 				if(weekly){ //prints results.
 					out << "...Workout for set " << set << "." << endl << endl;
 				} else {

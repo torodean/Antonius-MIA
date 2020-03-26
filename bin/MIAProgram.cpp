@@ -1234,7 +1234,7 @@ int Program::randomInt(int min, int max, int seed, bool useTime){
 	} else {
 		srand(seed);
 	}
-	int random = min + (rand() % static_cast<int>(max - min + 1));
+	int random = min + (rand() % (max - min + 1));
 	if(verboseMode)
 		cout << "...random value is " << random << "." << endl;
 	return random;

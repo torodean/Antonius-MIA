@@ -822,10 +822,10 @@ void WinKeys::paste(){
 }
 
 void WinKeys::leftclick(){
-	INPUT    Input={0};
+	INPUT Input;
 	// left down
-	Input.type      = INPUT_MOUSE;
-	Input.mi.dwFlags  = MOUSEEVENTF_LEFTDOWN;
+	Input.type = INPUT_MOUSE;
+	Input.mi.dwFlags = MOUSEEVENTF_LEFTDOWN;
 	SendInput(1,&Input,sizeof(INPUT));
 
 	if(getVerboseMode())
@@ -833,8 +833,8 @@ void WinKeys::leftclick(){
 
 	// left up
 	ZeroMemory(&Input,sizeof(INPUT));
-	Input.type      = INPUT_MOUSE;
-	Input.mi.dwFlags  = MOUSEEVENTF_LEFTUP;
+	Input.type  = INPUT_MOUSE;
+	Input.mi.dwFlags = MOUSEEVENTF_LEFTUP;
 	SendInput(1,&Input,sizeof(INPUT));
 	std::this_thread::sleep_for(std::chrono::milliseconds(2*globalSleep));
 }
@@ -853,10 +853,10 @@ void WinKeys::numlock(){
 }
 
 void WinKeys::rightclick(){
-	INPUT    Input={0};
+	INPUT Input;
 	// right down
-	Input.type      = INPUT_MOUSE;
-	Input.mi.dwFlags  = MOUSEEVENTF_RIGHTDOWN;
+	Input.type = INPUT_MOUSE;
+	Input.mi.dwFlags = MOUSEEVENTF_RIGHTDOWN;
 	SendInput(1,&Input,sizeof(INPUT));
 
 	if(getVerboseMode())
@@ -864,8 +864,8 @@ void WinKeys::rightclick(){
 	
 	// right up
 	ZeroMemory(&Input,sizeof(INPUT));
-	Input.type      = INPUT_MOUSE;
-	Input.mi.dwFlags  = MOUSEEVENTF_RIGHTUP;
+	Input.type = INPUT_MOUSE;
+	Input.mi.dwFlags = MOUSEEVENTF_RIGHTUP;
 	SendInput(1,&Input,sizeof(INPUT));
 	std::this_thread::sleep_for(std::chrono::milliseconds(2*globalSleep));
 }
@@ -906,7 +906,7 @@ void WinKeys::minecraftDig(int time){
     ip.ki.dwFlags = 0; // 0 for key press
     SendInput(1, &ip, sizeof(INPUT));
 
-    INPUT ip2={0};
+    INPUT ip2;
     ip2.type = INPUT_MOUSE;
     ip2.mi.dwFlags = MOUSEEVENTF_LEFTDOWN; // left down
     SendInput(1,&ip2,sizeof(INPUT));

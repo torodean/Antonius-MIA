@@ -262,6 +262,7 @@ long D3CMath::primeNumberN(long n) {
 
     string line;
     ifstream myfilein(primeNlocation);
+	
     if (myfilein.is_open()) {
         line = getLastLine(myfilein);
     }
@@ -280,7 +281,7 @@ long D3CMath::primeNumberN(long n) {
             }
         }
 
-    }else if(primeCount < n){
+    } else if(primeCount < n){
 
         long primeStart = seperateFileEnd(line);
         for (long i = primeStart+1; i < max; i++) {
@@ -292,17 +293,17 @@ long D3CMath::primeNumberN(long n) {
                 }
             }
 
-    }else if(primeCount > n){
+    } else if(primeCount > n){
         long lineNumber = 1;
-        long requestedLineNumber = n+5;
-        ifstream myfilein(primeNlocation);
-        while (getline(myfilein, line)){
+        long requestedLineNumber = n + 5;
+        ifstream primeFile(primeNlocation);
+        while (getline(primeFile, line)){
                 if (lineNumber == requestedLineNumber){
                         break;
                 }
                 lineNumber++;
         }
-        myfilein.close();
+        primeFile.close();
         largePrime = seperateFileEnd(line);
         primeCount = n;
     }
@@ -645,13 +646,13 @@ string D3CMath::multiplyTwoStrings(string stringOne, string stringTwo) {
 }
 
 // finds the largest product of x consecutive numbers in a string of numbers that is of length sL.
-long D3CMath::largestProductOfXConsecutiveNumbers(string string, long x) { 
+long D3CMath::largestProductOfXConsecutiveNumbers(string str, long x) { 
 
-    int sL = string.size(), temp = 0;
+    int sL = str.size(), temp = 0;
     long max = 0;
     int num[sL];
     for (int i = 0; i < sL; i++) {
-        num[i] = (string[i] - 48); // "-48" converts the ascii number of 0,1,2,3,... (48,49,50,51,... in ascii) to a regular int.
+        num[i] = (str[i] - 48); // "-48" converts the ascii number of 0,1,2,3,... (48,49,50,51,... in ascii) to a regular int.
     }
     for (int p = 0; p <= sL - x; p++) {
         temp = num[p];

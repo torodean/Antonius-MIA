@@ -10,7 +10,7 @@
 CC=g++
 
 # options I'll pass to the compiler.
-CFLAGS=-c -Wall -std=c++14
+CFLAGS=-c -Wall -Wshadow -Wextra -Wunused -Wlogical-op -Wuseless-cast -std=c++14
 
 # Libraries to include
 LDFLAGS=-lgdi32 -lNetapi32
