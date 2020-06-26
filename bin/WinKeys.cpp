@@ -790,6 +790,8 @@ void WinKeys::press(string character, int holdTime){
 		tab();
 	} else if (character == "N"){
 		numlock();
+	} else if (character == " "){
+		space();
 	} else{
 		returnError(31424, character);
 	}

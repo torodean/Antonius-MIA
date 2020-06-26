@@ -481,7 +481,7 @@ void Commands::exploreMinecraft(){
 	
 	WinKeys key;
 	
-	int stepSize = 125, delayStartTime = 5000;
+	int stepSize = 100, delayStartTime = 5000;
 	double percentComplete = 0.0,  counter = 0.0;
 	int breakTime;
 	
@@ -524,21 +524,16 @@ void Commands::exploreMinecraft(){
 	for(int x=startx; x <= stopx; x++){
 		for(int z=startz; z <= stopz; z++){
 			
-			key.type("t");
-			key.waitTime(100);
-			
 			key.slash();
-			key.type("tp");
-			key.space();
+			key.type("tp d0sag3 ");
 			
 			key.type(to_string(x));
 			key.space();
 			
-			key.type("90");
+			key.type("100");
 			key.space();
 			
 			key.type(to_string(z));
-			key.space();
 
 			key.enter();
 			
