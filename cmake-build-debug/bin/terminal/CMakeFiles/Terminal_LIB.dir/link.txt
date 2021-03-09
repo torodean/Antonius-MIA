@@ -1,0 +1,2 @@
+/usr/bin/ar qc libTerminal_LIB.a  CMakeFiles/Terminal_LIB.dir/MIATerminal.cpp.o CMakeFiles/Terminal_LIB.dir/Commands.cpp.o
+/usr/bin/ranlib libTerminal_LIB.a

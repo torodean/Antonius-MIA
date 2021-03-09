@@ -1,0 +1,279 @@
+/**
+ * File: Commands.cpp
+ * Author: Antonius Torode
+ * Date: 03/01/2021
+ * Description:
+ */
+
+#ifndef MIA2_COMMANDS_HPP
+#define MIA2_COMMANDS_HPP
+
+#include <string>
+
+class Commands
+{
+public:
+    Commands() = default;
+
+    ~Commands() = default;
+
+    enum MIAInput
+    {
+        EXCUSE,
+        HELP,
+        TEST,
+        CRYPT_D0S1,
+        DECRYPT_D0S1,
+        CRYPT_D0S2,
+        DECRYPT_D0S2,
+        COLLATZ,
+        ADD,
+        MULTIPLY,
+        SUBTRACT,
+        PRIME,
+        PALINDROME,
+        DIGITSUM,
+        PRIME_F,
+        FACTORS,
+        TRIANGLE,
+        LATTICE,
+        PRIME_N,
+        PRIME_N_P,
+        PRIME_N_C,
+        MCDIG,
+        BUTTONSPAM,
+        MCEXPLORE,
+        PRIME_HELP,
+        CRYPT_D0S3,
+        DECRYPT_D0S3,
+        BUTTONSPAM_T,
+        RANDFROMFILE,
+        WOWDUPLETTER,
+        QUADRATICFORM,
+        PRANJAL,
+        FINDMOUSE,
+        EYEDROPPER,
+        CONFIG,
+        FISHBOT,
+        WORKOUT,
+        SPLASH,
+        WORKOUT_W,
+        NETSESSION,
+        NETSERVER_W,
+        NETSERVER_S,
+        WOWUNLOAD,
+        DATE,
+        DICEROLL,
+        SEQUENCER,
+        SEQUENCER_L,
+        ERRORINFO,
+        ERRORINFO_A
+    };
+
+    /**
+     * A function used for testing
+     * This should be placed at the end of the file for easy accessibility.
+     */
+    static void runTest();
+
+    /**
+     * Takes the user input as a string and converts it to a corresponding
+     * value of Program::MIAInput enum to be used in the switch case.
+     * Replaced Program::commandToInputVar(string input) in versin 0.145.
+     * @param input
+     * @return
+     */
+    static MIAInput commandToInputEnum(std::string &input);
+
+    /**
+     * Main UI runner for the D3CMath productCollatzSequence() function.
+     */
+    void collatzRunner();
+
+    /**
+     * Main UI runner for the D3CMath addTwoStrings() function.
+     */
+    void stringAdditionRunner();
+
+    /**
+     * Main UI runner for the D3CMath multiplyTwoStrings() function.
+     */
+    void stringMultiplyRunner();
+
+    /**
+     * Main UI runner for the D3CMath subtractTwoStrings() function.
+     */
+    void stringSubtractionRunner();
+
+    /**
+     * Main UI runner for the D3CMath isPrime() function.
+     */
+    void isPrimeRunner();
+
+    /**
+     * Main UI runner for the D3CMath isPalindrome() function.
+     */
+    void isPalindromeRunner();
+
+    /**
+     * Main UI runner for the D3CMath sumOfDigits() function.
+     */
+    void sumOfDigitsRunner();
+
+    /**
+     * Main UI runner for the D3CMath primeFactors() function.
+     */
+    void primeFactorsRunner();
+
+    /**
+     * Main UI runner for the D3CMath numberOfFactors() function.
+     */
+    void numberOfFactorsRunner();
+
+    /**
+     * Main UI runner for the D3CMath isTriangleNumber() function.
+     */
+    void isTriangleNumberRunner();
+
+    /**
+     * Main UI runner for the D3CMath latticePaths() function.
+     */
+    void latticePathsRunner();
+
+    /**
+     * Main UI runner for the D3CMath primeN() function.
+     */
+    void primeNRunner();
+
+    /**
+     * Main UI runner for the D3CMath primeNPopulate() function.
+     */
+    void primeNumberNpopulateRunner();
+
+    /**
+     * Main UI runner for the D3CMath primeNerase() function.
+     */
+    void primeNumberNeraseRunner();
+
+    /**
+     * Spams a button a specific number of times.
+     * @param enableTab[bool] - option to tab between each button press.
+     */
+    void buttonSpamRunner(bool enableTab);
+
+    /**
+     * performs a sequence to perpetually dig as you would in minecraft.
+     */
+    void minecraftDigRunner();
+
+    /**
+     * used to explore a minecraft map given that the user is gamemode=1.
+     */
+    void exploreMinecraft();
+
+    /**
+     * Runs the duplicate letter function which is useful for World of Warcraft.
+     */
+    void duplicateLetterRunner();
+
+    /**
+     * Runs the duplicate letter function which is useful for World of Warcraft.
+     */
+    void unloadLetterRunner();
+
+    /**
+     * Runs d0s3 encryption
+     */
+    void d0s3CryptRunner();
+
+    /**
+     * Runs d0s3 decryption.
+     */
+    void d0s3DeCryptRunner();
+
+    /**
+     * Prints a number of random lines from a text file. The user specifies the file and number of lines.
+     */
+    static void printRandomLinesFromFileRunner();
+
+    /**
+     * Runner for the solveQuadraticFormula function.
+     */
+    static void solveQuadraticFormulaRunner();
+
+    /**
+     * A joke function I created to rearrange the letters in a friends name. For unspecified reasons.
+     */
+    static void pranjal();
+
+    /**
+     * Finds and returns the coordinates of the mouse pointer after 5 seconds.
+     */
+    void findMouse();
+
+    /**
+     * Runs the eyedropper command which determines the color of the pixel at the mouse location.
+     */
+    void eyedropper();
+
+    /**
+     * Runs a fishbot for World of Warcraft.
+     */
+    void runFishbot();
+
+    /**
+     * Runs the NetSessionEnumRunner from the LOLANetUse.cpp file.
+     */
+    void runNetSessionEnum();
+
+    /**
+     * Runs the NetServerEnumRunner_WKST from the LOLANetUse.cpp file.
+     * @param mode[char] - Valid modes are 'w' for workstation or 's' for server.
+     */
+    void runNetServerEnum(char mode);
+
+    /**
+     * Runs the NetWkstaGetInfoRunner from the LOLANetUse.cpp file.
+     */
+    void runNetWkstaGetInfo();
+
+    /**
+     * Runs the NetRemoteComputerSupportsRunner from the LOLANetUse.cpp file.
+     */
+    void runNetRemoteComputerSupports();
+
+    /**
+     * Runs the NetUserEnumRunner from the LOLANetUse.cpp file
+     */
+    void runNetUserEnum();
+
+    /**
+     * Rolls a dice using commands programmed in misc class.
+     * @param input[const std::string&] - String reference to the input dice roll.
+     * @return [int] - Returns the total dice roll value.
+     */
+    static int rollDice(const std::string& input);
+
+    /**
+     * Main runner for the sequencer.
+     */
+    static void runSequencer();
+
+    /**
+     * Main runner for the sequencer.
+     */
+    static void loopSequencer();
+
+    /**
+     * Function made for generating a workout via the Misc class.
+     * @param weekly
+     */
+    void workoutRunner(bool weekly);
+
+protected:
+
+private:
+
+};
+
+#endif //MIA2_COMMANDS_HPP

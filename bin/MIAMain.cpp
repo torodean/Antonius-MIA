@@ -1,34 +1,20 @@
-//============================================================================
-// Name        : MIAMain.cpp
-// Author      : Antonius Torode
-// Copyright   : This file can be used under the conditions of Antonius' 
-//				 General Purpose License (AGPL).
-// Description : MIA main Program Interface and Runner.
-//============================================================================
+/**
+ * File: MIAMain.cpp
+ * Author: Antonius Torode
+ * Date: 03/01/2021
+ * Description:
+ */
 
-#include "MIAProgram.h"
+
 #include <iostream>
-#include <thread>
+#include "terminal/MIATerminal.hpp"
 
-using std::thread;
+int main() {
+    std::cout << "Starting MIA program!" << std::endl;
 
-//Runs the main MIA terminal sub-program.
-void terminalMIA(){
-	Program program;
-	
-	//Give this function a string parameter for a default command to be run upon execution.
-	program.terminal();
-}
+    MIATerminal terminal("MIA Terminal");
+    terminal.run();
 
-//Runs the main MIA program.
-int main(){
-	Program program;
-	
-	if(program.getMIATerminalMode()){
-		thread threadObj( terminalMIA );
-		threadObj.join();
-	} else {
-		std::cout << "...MIATerminalMode is set to false." << std::endl;
-	}
-	return 0;
+    std::cout << "Finished MIA program!" << std::endl;
+    return 0;
 }
