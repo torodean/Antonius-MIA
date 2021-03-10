@@ -15,6 +15,8 @@
 #include "../utilities/MathUtils.hpp"
 #include "../utilities/MIASequencer.hpp"
 #include "../utilities/MIAWorkout.hpp"
+#include "../utilities/audio/SystemSounds.hpp"
+#include "../utilities/SystemUtils.hpp"
 
 using std::cout;
 using std::endl;
@@ -39,6 +41,8 @@ Commands::MIAInput Commands::commandToInputEnum(string& input)
         output = MIAInput::COLLATZ;
     else if (input == "add")
         output = MIAInput::ADD;
+    else if (input == "alarm -r")
+        output = MIAInput::ALARM_R;
     else if (input == "multiply")
         output = MIAInput::MULTIPLY;
     else if (input == "subtract")
@@ -995,6 +999,45 @@ void Commands::loopSequencer()
         }
     } else {
         Error::returnError(31423, input);
+    }
+}
+
+void Commands::runRepeatingAlarm()
+{
+    std::string input;
+    cout << "...WARNING: This feature requires sudo privileges." << endl;
+    cout << "...Enter time between alarm triggers (in seconds): " << endl;
+    MIATerminalTools::blankLine();
+    getline(std::cin, input);
+    MIATerminalTools::blankLine();
+
+    int interval = atoi(input.c_str());
+    int minutes = interval/60;
+    int totalTimeMS = interval*1000;
+
+
+    cout << "...Beginning repeating alarm loop." << endl;
+
+    while (true)
+    {
+        std::cout << "...Beeping!" << std::endl;
+        for(int i=0;i<10;i++)
+        {
+            SystemSounds::beep();
+            SystemUtils::sleepMilliseconds(75);
+        }
+        if(interval % 60 == 0)
+        {
+            for (int i = 0; i < minutes; i++)
+            {
+                std::cout << "Countdown: T - " << minutes - i << " minutes!" << std::endl;
+                SystemUtils::sleepMilliseconds(totalTimeMS / minutes);
+            }
+        }
+        else
+        {
+            SystemUtils::sleepMilliseconds(totalTimeMS);
+        }
     }
 }
 

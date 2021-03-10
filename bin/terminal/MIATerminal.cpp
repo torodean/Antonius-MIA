@@ -11,7 +11,6 @@
 #include "../utilities/MathUtils.hpp"
 #include "../utilities/FileUtils.hpp"
 #include "../utilities/encryption/D3CEncrypt.hpp"
-#include "../utilities/encryption/D3CEncryptPW.hpp"
 #include "../program/Error.hpp"
 
 #include <iostream>
@@ -132,6 +131,7 @@ void MIATerminal::printHelp()
     MIATerminalTools::blankDots();
     cout << "... help          | Displays a valid lists of commands." << endl;
     cout << "... add           | Adds two positive integers of any length. " << endl;
+    cout << "... alarm -r      | Triggers a repeating alarm after the desired ms." << endl;
     cout << "... collatz       | Produces a collatz sequence based on a starting integer." << endl;
     cout << "... config        | Reloads the MIAConfig.txt file and prints the variables." << endl;
     cout << "... crypt -d0s1   | Encrypts a string using the d0s1 algorithm." << endl;
@@ -344,6 +344,9 @@ void MIATerminal::performMIACommand(string& input)
         case Commands::MIAInput::SEQUENCER_L:
             Commands::loopSequencer();
             break;
+        case Commands::MIAInput::ALARM_R:
+            Commands::runRepeatingAlarm();
+            break;
         case Commands::MIAInput::ERRORINFO:
             Error::errorInfoRun(false);
             break;
@@ -371,3 +374,5 @@ void MIATerminal::runTest(){
 
     cout << "...Finished test." << endl;
 }
+
+

@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="MIA2"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\bin\;CMake Files\bin\libs\;CMake Files\bin\program\;CMake Files\bin\resources\;CMake Files\bin\terminal\;CMake Files\bin\utilities\;CMake Files\bin\utilities\audio\;CMake Files\bin\utilities\encryption\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/media/awtorode/storage/projects/git/Antonius-MIA"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/strip">
+				<Option working_dir="/media/awtorode/storage/projects/git/Antonius-MIA"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 install/strip"/>
+					<CompileFile command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/local">
+				<Option working_dir="/media/awtorode/storage/projects/git/Antonius-MIA"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 install/local"/>
+					<CompileFile command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/media/awtorode/storage/projects/git/Antonius-MIA"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/media/awtorode/storage/projects/git/Antonius-MIA"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="list_install_components">
+				<Option working_dir="/media/awtorode/storage/projects/git/Antonius-MIA"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 list_install_components"/>
+					<CompileFile command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install">
+				<Option working_dir="/media/awtorode/storage/projects/git/Antonius-MIA"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 install"/>
+					<CompileFile command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="MIA">
+				<Option output="/media/awtorode/storage/projects/git/Antonius-MIA/bin/MIA" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/media/awtorode/storage/projects/git/Antonius-MIA/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/Makefile&quot;  VERBOSE=1 MIA"/>
+					<CompileFile command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="MIA/fast">
+				<Option output="/media/awtorode/storage/projects/git/Antonius-MIA/bin/MIA" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/media/awtorode/storage/projects/git/Antonius-MIA/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/Makefile&quot;  VERBOSE=1 MIA/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Program_LIB">
+				<Option output="/media/awtorode/storage/projects/git/Antonius-MIA/bin/program/libProgram_LIB.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/media/awtorode/storage/projects/git/Antonius-MIA/bin/program"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/program/Makefile&quot;  VERBOSE=1 Program_LIB"/>
+					<CompileFile command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/program/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/program/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/program/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Program_LIB/fast">
+				<Option output="/media/awtorode/storage/projects/git/Antonius-MIA/bin/program/libProgram_LIB.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/media/awtorode/storage/projects/git/Antonius-MIA/bin/program"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/program/Makefile&quot;  VERBOSE=1 Program_LIB/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/program/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/program/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/program/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Terminal_LIB">
+				<Option output="/media/awtorode/storage/projects/git/Antonius-MIA/bin/terminal/libTerminal_LIB.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/media/awtorode/storage/projects/git/Antonius-MIA/bin/terminal"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/terminal/Makefile&quot;  VERBOSE=1 Terminal_LIB"/>
+					<CompileFile command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/terminal/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/terminal/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/terminal/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Terminal_LIB/fast">
+				<Option output="/media/awtorode/storage/projects/git/Antonius-MIA/bin/terminal/libTerminal_LIB.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/media/awtorode/storage/projects/git/Antonius-MIA/bin/terminal"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/terminal/Makefile&quot;  VERBOSE=1 Terminal_LIB/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/terminal/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/terminal/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/terminal/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Utilities_LIB">
+				<Option output="/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/libUtilities_LIB.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/Makefile&quot;  VERBOSE=1 Utilities_LIB"/>
+					<CompileFile command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Utilities_LIB/fast">
+				<Option output="/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/libUtilities_LIB.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/Makefile&quot;  VERBOSE=1 Utilities_LIB/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Audio_LIB">
+				<Option output="/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/audio/libAudio_LIB.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/audio"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/audio/Makefile&quot;  VERBOSE=1 Audio_LIB"/>
+					<CompileFile command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/audio/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/audio/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/audio/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Audio_LIB/fast">
+				<Option output="/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/audio/libAudio_LIB.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/audio"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/audio/Makefile&quot;  VERBOSE=1 Audio_LIB/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/audio/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/audio/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/audio/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Encryption_LIB">
+				<Option output="/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/encryption/libEncryption_LIB.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/encryption"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/encryption/Makefile&quot;  VERBOSE=1 Encryption_LIB"/>
+					<CompileFile command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/encryption/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/encryption/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/encryption/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Encryption_LIB/fast">
+				<Option output="/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/encryption/libEncryption_LIB.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/encryption"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/encryption/Makefile&quot;  VERBOSE=1 Encryption_LIB/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/encryption/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/encryption/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/encryption/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/media/awtorode/storage/projects/git/Antonius-MIA/bin/MIAMain.cpp">
+			<Option target="MIA"/>
+		</Unit>
+		<Unit filename="/media/awtorode/storage/projects/git/Antonius-MIA/bin/program/Configurator.cpp">
+			<Option target="Program_LIB"/>
+		</Unit>
+		<Unit filename="/media/awtorode/storage/projects/git/Antonius-MIA/bin/program/Configurator.hpp">
+			<Option target="Program_LIB"/>
+		</Unit>
+		<Unit filename="/media/awtorode/storage/projects/git/Antonius-MIA/bin/program/Error.cpp">
+			<Option target="Program_LIB"/>
+		</Unit>
+		<Unit filename="/media/awtorode/storage/projects/git/Antonius-MIA/bin/program/Error.hpp">
+			<Option target="Program_LIB"/>
+		</Unit>
+		<Unit filename="/media/awtorode/storage/projects/git/Antonius-MIA/bin/program/SubProgram.cpp">
+			<Option target="Program_LIB"/>
+		</Unit>
+		<Unit filename="/media/awtorode/storage/projects/git/Antonius-MIA/bin/program/SubProgram.hpp">
+			<Option target="Program_LIB"/>
+		</Unit>
+		<Unit filename="/media/awtorode/storage/projects/git/Antonius-MIA/bin/terminal/Commands.cpp">
+			<Option target="Terminal_LIB"/>
+		</Unit>
+		<Unit filename="/media/awtorode/storage/projects/git/Antonius-MIA/bin/terminal/Commands.hpp">
+			<Option target="Terminal_LIB"/>
+		</Unit>
+		<Unit filename="/media/awtorode/storage/projects/git/Antonius-MIA/bin/terminal/MIATerminal.cpp">
+			<Option target="Terminal_LIB"/>
+		</Unit>
+		<Unit filename="/media/awtorode/storage/projects/git/Antonius-MIA/bin/terminal/MIATerminal.hpp">
+			<Option target="Terminal_LIB"/>
+		</Unit>
+		<Unit filename="/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/D3CMath.cpp">
+			<Option target="Utilities_LIB"/>
+		</Unit>
+		<Unit filename="/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/D3CMath.hpp">
+			<Option target="Utilities_LIB"/>
+		</Unit>
+		<Unit filename="/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/FileUtils.cpp">
+			<Option target="Utilities_LIB"/>
+		</Unit>
+		<Unit filename="/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/FileUtils.hpp">
+			<Option target="Utilities_LIB"/>
+		</Unit>
+		<Unit filename="/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/MIASequencer.cpp">
+			<Option target="Utilities_LIB"/>
+		</Unit>
+		<Unit filename="/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/MIASequencer.hpp">
+			<Option target="Utilities_LIB"/>
+		</Unit>
+		<Unit filename="/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/MIAWorkout.cpp">
+			<Option target="Utilities_LIB"/>
+		</Unit>
+		<Unit filename="/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/MIAWorkout.hpp">
+			<Option target="Utilities_LIB"/>
+		</Unit>
+		<Unit filename="/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/MathUtils.cpp">
+			<Option target="Utilities_LIB"/>
+		</Unit>
+		<Unit filename="/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/MathUtils.hpp">
+			<Option target="Utilities_LIB"/>
+		</Unit>
+		<Unit filename="/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/StringUtils.cpp">
+			<Option target="Utilities_LIB"/>
+		</Unit>
+		<Unit filename="/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/StringUtils.hpp">
+			<Option target="Utilities_LIB"/>
+		</Unit>
+		<Unit filename="/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/SystemUtils.cpp">
+			<Option target="Utilities_LIB"/>
+		</Unit>
+		<Unit filename="/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/SystemUtils.hpp">
+			<Option target="Utilities_LIB"/>
+		</Unit>
+		<Unit filename="/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/audio/SystemSounds.cpp">
+			<Option target="Audio_LIB"/>
+		</Unit>
+		<Unit filename="/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/audio/SystemSounds.hpp">
+			<Option target="Audio_LIB"/>
+		</Unit>
+		<Unit filename="/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/encryption/D3CEncrypt.cpp">
+			<Option target="Encryption_LIB"/>
+		</Unit>
+		<Unit filename="/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/encryption/D3CEncrypt.hpp">
+			<Option target="Encryption_LIB"/>
+		</Unit>
+		<Unit filename="/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/encryption/D3CEncryptPW.cpp">
+			<Option target="Encryption_LIB"/>
+		</Unit>
+		<Unit filename="/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/encryption/D3CEncryptPW.hpp">
+			<Option target="Encryption_LIB"/>
+		</Unit>
+		<Unit filename="/media/awtorode/storage/projects/git/Antonius-MIA/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/media/awtorode/storage/projects/git/Antonius-MIA/bin/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\bin\"/>
+		</Unit>
+		<Unit filename="/media/awtorode/storage/projects/git/Antonius-MIA/bin/libs/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\bin\libs\"/>
+		</Unit>
+		<Unit filename="/media/awtorode/storage/projects/git/Antonius-MIA/bin/program/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\bin\program\"/>
+		</Unit>
+		<Unit filename="/media/awtorode/storage/projects/git/Antonius-MIA/bin/resources/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\bin\resources\"/>
+		</Unit>
+		<Unit filename="/media/awtorode/storage/projects/git/Antonius-MIA/bin/terminal/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\bin\terminal\"/>
+		</Unit>
+		<Unit filename="/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\bin\utilities\"/>
+		</Unit>
+		<Unit filename="/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/audio/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\bin\utilities\audio\"/>
+		</Unit>
+		<Unit filename="/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/encryption/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\bin\utilities\encryption\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

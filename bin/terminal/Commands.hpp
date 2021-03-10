@@ -67,7 +67,8 @@ public:
         SEQUENCER,
         SEQUENCER_L,
         ERRORINFO,
-        ERRORINFO_A
+        ERRORINFO_A,
+        ALARM_R
     };
 
     /**
@@ -270,9 +271,9 @@ public:
      */
     void workoutRunner(bool weekly);
 
-protected:
+    static void runRepeatingAlarm();
 
-private:
+protected:
 
 };
 

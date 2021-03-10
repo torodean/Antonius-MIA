@@ -9,4 +9,3 @@ add_executable(MIA MIAMain.cpp)
 target_link_libraries(MIA Terminal_LIB)
 
 install(TARGETS MIA DESTINATION /usr/bin/)
-

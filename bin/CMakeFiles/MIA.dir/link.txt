@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/MIA.dir/MIAMain.cpp.o -o MIA  terminal/libTerminal_LIB.a program/libProgram_LIB.a utilities/libUtilities_LIB.a utilities/encryption/libEncryption_LIB.a utilities/audio/libAudio_LIB.a 

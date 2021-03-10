@@ -1,6 +1,0 @@
-/**
- * File: MIAMain.cpp
- * Author: Antonius Torode
- * Date: 03/01/2021
- * Description:
- */

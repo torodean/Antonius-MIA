@@ -1,0 +1,38 @@
+/**
+ * File: SystemSounds.hpp
+ * Author: Antonius Torode
+ * Date: 03/09/2021
+ * Description:
+ */
+
+#ifndef MIA2_SYSTEMSOUNDS_HPP
+#define MIA2_SYSTEMSOUNDS_HPP
+
+/**
+ * This class is for system sounds and methods related ot such.
+ */
+class SystemSounds
+{
+public:
+
+    /**
+     * Main default constructor for the SystemSounds class.
+     */
+    SystemSounds() = default;
+
+    /**
+     * Main destructor for the SystemSounds class.
+     */
+    ~SystemSounds() = default;
+
+    /**
+     * Sends a beep sound.
+     */
+    static void beep();
+
+protected:
+
+private:
+};
+
+#endif //MIA2_SYSTEMSOUNDS_HPP

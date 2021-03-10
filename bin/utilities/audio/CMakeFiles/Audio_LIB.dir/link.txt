@@ -1,0 +1,2 @@
+/usr/bin/ar qc libAudio_LIB.a CMakeFiles/Audio_LIB.dir/SystemSounds.cpp.o
+/usr/bin/ranlib libAudio_LIB.a

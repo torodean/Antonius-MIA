@@ -1,0 +1,2 @@
+/usr/bin/ar qc libProgram_LIB.a CMakeFiles/Program_LIB.dir/SubProgram.cpp.o CMakeFiles/Program_LIB.dir/Configurator.cpp.o CMakeFiles/Program_LIB.dir/Error.cpp.o
+/usr/bin/ranlib libProgram_LIB.a

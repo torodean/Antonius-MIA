@@ -54,6 +54,9 @@ int Error::returnError(int errorCode, const string& details)
         case INVALIDCHARACTERINPUT:
             cout << "...ERROR 31424: Invalid Character input: " << details << endl;
             break;
+        case LINUXONLYFUNCTIONALITY:
+            cout << "..Error 31425: This feature is currently only programmed for Linux. " << details << endl;
+            break;
         default:
             cout << "...ERROR: A catastrophic Failure Occurred." << endl;
             break;
@@ -149,6 +152,9 @@ void Error::errorInfo(int error)
         case INVALIDCHARACTERINPUT:
             cout << "...ERROR 31424: Invalid Character input. " << endl;
             break;
+        case LINUXONLYFUNCTIONALITY:
+            cout << "..Error 31425: This feature is currently only programmed for Linux. " << endl;
+            break;
         default:
             cout << "...Invalid or unknown error code entered." << endl;
             cout << "...Full List of programmed error codes follow." << endl;
@@ -178,6 +184,7 @@ void Error::errorInfo(int error)
             cout << "...31422: Invalid Option in MIASequences. " << endl;
             cout << "...31423: Error finding mapped value. " << endl;
             cout << "...31424: Invalid Character input. " << endl;
+            cout << "..Error 31425: This feature is currently only programmed for Linux. " << endl;
             break;
     }
 }
