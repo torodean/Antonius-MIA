@@ -13,7 +13,7 @@ For a list of commands see the MIA manual.
 
  ~~~~~~~~~~~~ Compiling Instructions on Linux ~~~~~~~~~~~~
 
-1) via terminal:  cd ../Antonius-MIA/bin
+1) via terminal:  cd ../Antonius-MIA/bin-old
 
 2) compile using 
 
@@ -33,7 +33,7 @@ http://preshing.com/20141108/how-to-install-the-latest-gcc-on-windows/
 	
 	Cygwin64/home/username/Antonius-MIA
 
-3) via cygwin terminal:  cd ../Antonius-MIA/bin
+3) via cygwin terminal:  cd ../Antonius-MIA/bin-old
 
 4) compile an exe using 
 
