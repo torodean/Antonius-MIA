@@ -167,6 +167,20 @@ bin/utilities/CMakeFiles/Utilities_LIB.dir/SystemUtils.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Utilities_LIB.dir/SystemUtils.cpp.s"
 	cd /media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/SystemUtils.cpp -o CMakeFiles/Utilities_LIB.dir/SystemUtils.cpp.s
 
+bin/utilities/CMakeFiles/Utilities_LIB.dir/VirtualKeyStrokes.cpp.o: bin/utilities/CMakeFiles/Utilities_LIB.dir/flags.make
+bin/utilities/CMakeFiles/Utilities_LIB.dir/VirtualKeyStrokes.cpp.o: bin/utilities/VirtualKeyStrokes.cpp
+bin/utilities/CMakeFiles/Utilities_LIB.dir/VirtualKeyStrokes.cpp.o: bin/utilities/CMakeFiles/Utilities_LIB.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/media/awtorode/storage/projects/git/Antonius-MIA/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object bin/utilities/CMakeFiles/Utilities_LIB.dir/VirtualKeyStrokes.cpp.o"
+	cd /media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT bin/utilities/CMakeFiles/Utilities_LIB.dir/VirtualKeyStrokes.cpp.o -MF CMakeFiles/Utilities_LIB.dir/VirtualKeyStrokes.cpp.o.d -o CMakeFiles/Utilities_LIB.dir/VirtualKeyStrokes.cpp.o -c /media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/VirtualKeyStrokes.cpp
+
+bin/utilities/CMakeFiles/Utilities_LIB.dir/VirtualKeyStrokes.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Utilities_LIB.dir/VirtualKeyStrokes.cpp.i"
+	cd /media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/VirtualKeyStrokes.cpp > CMakeFiles/Utilities_LIB.dir/VirtualKeyStrokes.cpp.i
+
+bin/utilities/CMakeFiles/Utilities_LIB.dir/VirtualKeyStrokes.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Utilities_LIB.dir/VirtualKeyStrokes.cpp.s"
+	cd /media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/VirtualKeyStrokes.cpp -o CMakeFiles/Utilities_LIB.dir/VirtualKeyStrokes.cpp.s
+
 # Object files for target Utilities_LIB
 Utilities_LIB_OBJECTS = \
 "CMakeFiles/Utilities_LIB.dir/StringUtils.cpp.o" \
@@ -175,7 +189,8 @@ Utilities_LIB_OBJECTS = \
 "CMakeFiles/Utilities_LIB.dir/MIASequencer.cpp.o" \
 "CMakeFiles/Utilities_LIB.dir/D3CMath.cpp.o" \
 "CMakeFiles/Utilities_LIB.dir/MIAWorkout.cpp.o" \
-"CMakeFiles/Utilities_LIB.dir/SystemUtils.cpp.o"
+"CMakeFiles/Utilities_LIB.dir/SystemUtils.cpp.o" \
+"CMakeFiles/Utilities_LIB.dir/VirtualKeyStrokes.cpp.o"
 
 # External object files for target Utilities_LIB
 Utilities_LIB_EXTERNAL_OBJECTS =
@@ -187,9 +202,10 @@ bin/utilities/libUtilities_LIB.a: bin/utilities/CMakeFiles/Utilities_LIB.dir/MIA
 bin/utilities/libUtilities_LIB.a: bin/utilities/CMakeFiles/Utilities_LIB.dir/D3CMath.cpp.o
 bin/utilities/libUtilities_LIB.a: bin/utilities/CMakeFiles/Utilities_LIB.dir/MIAWorkout.cpp.o
 bin/utilities/libUtilities_LIB.a: bin/utilities/CMakeFiles/Utilities_LIB.dir/SystemUtils.cpp.o
+bin/utilities/libUtilities_LIB.a: bin/utilities/CMakeFiles/Utilities_LIB.dir/VirtualKeyStrokes.cpp.o
 bin/utilities/libUtilities_LIB.a: bin/utilities/CMakeFiles/Utilities_LIB.dir/build.make
 bin/utilities/libUtilities_LIB.a: bin/utilities/CMakeFiles/Utilities_LIB.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/media/awtorode/storage/projects/git/Antonius-MIA/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX static library libUtilities_LIB.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/media/awtorode/storage/projects/git/Antonius-MIA/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX static library libUtilities_LIB.a"
 	cd /media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities && $(CMAKE_COMMAND) -P CMakeFiles/Utilities_LIB.dir/cmake_clean_target.cmake
 	cd /media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Utilities_LIB.dir/link.txt --verbose=$(VERBOSE)
 

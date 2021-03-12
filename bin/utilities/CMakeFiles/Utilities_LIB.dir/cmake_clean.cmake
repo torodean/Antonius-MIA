@@ -13,6 +13,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/Utilities_LIB.dir/StringUtils.cpp.o.d"
   "CMakeFiles/Utilities_LIB.dir/SystemUtils.cpp.o"
   "CMakeFiles/Utilities_LIB.dir/SystemUtils.cpp.o.d"
+  "CMakeFiles/Utilities_LIB.dir/VirtualKeyStrokes.cpp.o"
+  "CMakeFiles/Utilities_LIB.dir/VirtualKeyStrokes.cpp.o.d"
   "libUtilities_LIB.a"
   "libUtilities_LIB.pdb"
 )

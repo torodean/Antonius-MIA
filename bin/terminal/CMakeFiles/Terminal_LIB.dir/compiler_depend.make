@@ -235,7 +235,22 @@ bin/terminal/CMakeFiles/Terminal_LIB.dir/Commands.cpp.o: bin/terminal/Commands.c
   /usr/include/c++/9/bits/stl_multimap.h \
   /usr/include/c++/9/bits/erase_if.h \
   bin/utilities/MIAWorkout.hpp \
-  bin/program/Configurator.hpp
+  bin/program/Configurator.hpp \
+  bin/utilities/audio/SystemSounds.hpp \
+  bin/utilities/SystemUtils.hpp \
+  bin/utilities/VirtualKeyStrokes.hpp \
+  /usr/include/xdo.h \
+  /usr/include/X11/Xlib.h \
+  /usr/include/X11/X.h \
+  /usr/include/X11/Xfuncproto.h \
+  /usr/include/X11/Xosdefs.h \
+  /usr/include/unistd.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h
 
 bin/terminal/CMakeFiles/Terminal_LIB.dir/MIATerminal.cpp.o: bin/terminal/MIATerminal.cpp \
   /usr/include/stdc-predef.h \
@@ -464,6 +479,12 @@ bin/terminal/CMakeFiles/Terminal_LIB.dir/MIATerminal.cpp.o: bin/terminal/MIATerm
 
 bin/terminal/MIATerminal.cpp:
 
+/usr/include/x86_64-linux-gnu/bits/confname.h:
+
+/usr/include/x86_64-linux-gnu/bits/posix_opt.h:
+
+bin/utilities/SystemUtils.hpp:
+
 /usr/include/c++/9/bits/node_handle.h:
 
 /usr/include/c++/9/map:
@@ -502,6 +523,8 @@ bin/utilities/MathUtils.hpp:
 
 /usr/include/c++/9/memory:
 
+/usr/include/x86_64-linux-gnu/bits/unistd_ext.h:
+
 /usr/include/c++/9/bits/parse_numbers.h:
 
 /usr/include/c++/9/chrono:
@@ -519,6 +542,8 @@ bin/terminal/MIATerminal.hpp:
 bin/terminal/Commands.hpp:
 
 /usr/include/c++/9/istream:
+
+/usr/include/X11/Xosdefs.h:
 
 /usr/include/c++/9/bits/streambuf_iterator.h:
 
@@ -550,11 +575,17 @@ bin/terminal/Commands.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h:
 
+/usr/include/X11/Xfuncproto.h:
+
 /usr/include/stdio.h:
 
 /usr/include/c++/9/ext/string_conversions.h:
 
 /usr/include/c++/9/bits/uniform_int_dist.h:
+
+/usr/include/x86_64-linux-gnu/bits/environments.h:
+
+bin/utilities/VirtualKeyStrokes.hpp:
 
 /usr/include/c++/9/bits/alloc_traits.h:
 
@@ -616,11 +647,15 @@ bin/utilities/StringUtils.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/uintn-identity.h:
 
+/usr/include/xdo.h:
+
 /usr/include/c++/9/bits/exception.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/__FILE.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/clock_t.h:
+
+/usr/include/x86_64-linux-gnu/bits/getopt_core.h:
 
 /usr/include/c++/9/debug/debug.h:
 
@@ -704,6 +739,8 @@ bin/program/Configurator.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/timex.h:
 
+bin/utilities/audio/SystemSounds.hpp:
+
 /usr/include/c++/9/bits/atomic_base.h:
 
 /usr/include/c++/9/bits/allocator.h:
@@ -737,6 +774,8 @@ bin/terminal/Commands.cpp:
 /usr/include/c++/9/bits/basic_ios.tcc:
 
 /usr/include/c++/9/ios:
+
+/usr/include/X11/X.h:
 
 /usr/include/c++/9/bits/basic_string.h:
 
@@ -782,6 +821,8 @@ bin/terminal/Commands.cpp:
 
 /usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
 
+/usr/include/x86_64-linux-gnu/bits/getopt_posix.h:
+
 /usr/include/c++/9/bits/predefined_ops.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/9/include/stdint.h:
@@ -791,6 +832,8 @@ bin/terminal/Commands.cpp:
 /usr/include/x86_64-linux-gnu/gnu/stubs.h:
 
 /usr/include/x86_64-linux-gnu/bits/endian.h:
+
+/usr/include/X11/Xlib.h:
 
 /usr/include/stdint.h:
 
@@ -831,6 +874,8 @@ bin/terminal/Commands.cpp:
 /usr/include/c++/9/cwchar:
 
 /usr/include/c++/9/ext/atomicity.h:
+
+/usr/include/unistd.h:
 
 /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h:
 

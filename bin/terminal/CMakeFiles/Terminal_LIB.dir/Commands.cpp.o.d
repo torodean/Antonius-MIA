@@ -185,4 +185,13 @@ bin/terminal/CMakeFiles/Terminal_LIB.dir/Commands.cpp.o: \
  /media/awtorode/storage/projects/git/Antonius-MIA/bin/terminal/../utilities/MIAWorkout.hpp \
  /media/awtorode/storage/projects/git/Antonius-MIA/bin/terminal/../utilities/../program/Configurator.hpp \
  /media/awtorode/storage/projects/git/Antonius-MIA/bin/terminal/../utilities/audio/SystemSounds.hpp \
- /media/awtorode/storage/projects/git/Antonius-MIA/bin/terminal/../utilities/SystemUtils.hpp
+ /media/awtorode/storage/projects/git/Antonius-MIA/bin/terminal/../utilities/SystemUtils.hpp \
+ /media/awtorode/storage/projects/git/Antonius-MIA/bin/terminal/../utilities/VirtualKeyStrokes.hpp \
+ /usr/include/xdo.h /usr/include/X11/Xlib.h /usr/include/X11/X.h \
+ /usr/include/X11/Xfuncproto.h /usr/include/X11/Xosdefs.h \
+ /usr/include/unistd.h /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
+ /usr/include/x86_64-linux-gnu/bits/environments.h \
+ /usr/include/x86_64-linux-gnu/bits/confname.h \
+ /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
+ /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+ /usr/include/x86_64-linux-gnu/bits/unistd_ext.h

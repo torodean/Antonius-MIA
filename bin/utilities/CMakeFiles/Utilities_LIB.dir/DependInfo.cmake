@@ -15,6 +15,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/MathUtils.cpp" "bin/utilities/CMakeFiles/Utilities_LIB.dir/MathUtils.cpp.o" "gcc" "bin/utilities/CMakeFiles/Utilities_LIB.dir/MathUtils.cpp.o.d"
   "/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/StringUtils.cpp" "bin/utilities/CMakeFiles/Utilities_LIB.dir/StringUtils.cpp.o" "gcc" "bin/utilities/CMakeFiles/Utilities_LIB.dir/StringUtils.cpp.o.d"
   "/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/SystemUtils.cpp" "bin/utilities/CMakeFiles/Utilities_LIB.dir/SystemUtils.cpp.o" "gcc" "bin/utilities/CMakeFiles/Utilities_LIB.dir/SystemUtils.cpp.o.d"
+  "/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/VirtualKeyStrokes.cpp" "bin/utilities/CMakeFiles/Utilities_LIB.dir/VirtualKeyStrokes.cpp.o" "gcc" "bin/utilities/CMakeFiles/Utilities_LIB.dir/VirtualKeyStrokes.cpp.o.d"
   )
 
 # Targets to which this target links.

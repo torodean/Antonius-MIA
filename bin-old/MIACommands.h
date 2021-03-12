@@ -66,7 +66,8 @@ class Commands{
 		
 		//Misc functions
 		void pranjal();
-		void runTest();
+
+    [[noreturn]] void runTest();
 		void workoutRunner(bool weekly);
 		int rollDice(string input);
 		void runSequencer();

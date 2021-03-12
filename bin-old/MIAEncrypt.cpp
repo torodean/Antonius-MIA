@@ -10,6 +10,8 @@
 
 #include "MIAEncrypt.h"
 #include "MIAProgram.h"
+#include "../bin/utilities/encryption/MIAEncrypt.hpp"
+
 #include <iostream>
 #include <vector>
 #include <fstream>
@@ -494,7 +496,3 @@ vector< vector< vector<bool> > > MIAEncrypt::boolVecToBoolCube([[maybe_unused]] 
 	vector< vector< vector<bool> > > boolCube;
 	return boolCube;
 }
-
-
-
-

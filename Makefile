@@ -175,6 +175,19 @@ MIA/fast:
 .PHONY : MIA/fast
 
 #=============================================================================
+# Target rules for targets named Darabase_LIB
+
+# Build rule for target.
+Darabase_LIB: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Darabase_LIB
+.PHONY : Darabase_LIB
+
+# fast build rule for target.
+Darabase_LIB/fast:
+	$(MAKE) $(MAKESILENT) -f bin/libs/database/CMakeFiles/Darabase_LIB.dir/build.make bin/libs/database/CMakeFiles/Darabase_LIB.dir/build
+.PHONY : Darabase_LIB/fast
+
+#=============================================================================
 # Target rules for targets named Program_LIB
 
 # Build rule for target.
@@ -252,6 +265,7 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... Audio_LIB"
+	@echo "... Darabase_LIB"
 	@echo "... Encryption_LIB"
 	@echo "... MIA"
 	@echo "... Program_LIB"

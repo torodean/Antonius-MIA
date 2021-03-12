@@ -1033,18 +1033,18 @@ void Commands::loopSequencer(){
 
 //Function made for testing.
 //This should be placed at the end of the file for easy accessibility. 
-void Commands::runTest(){
+[[noreturn]] void Commands::runTest(){
 	//prog.returnError(31418); //Returns nothing set for testing.
 	
 	///* Uncomment this for testing things for Windows only.
 	#if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
-		Sequencer s;
-		s.activateSequence("test");
+//		Sequencer s;
+//		s.activateSequence("test");
 	#else
-		Music m;
-		m.playSong("test.mp3");
+//		Music m;
+//		m.playSong("test.mp3");
 		//prog.returnError(31416);
-	#endif
+    #endif
 	//*/
 }
 

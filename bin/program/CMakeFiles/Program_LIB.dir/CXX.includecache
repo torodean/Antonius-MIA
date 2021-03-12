@@ -6,6 +6,20 @@
 
 #IncludeRegexTransform: 
 
+/media/awtorode/storage/projects/git/Antonius-MIA/bin/program/Configurator.cpp
+iostream
+-
+fstream
+-
+vector
+-
+Configurator.hpp
+/media/awtorode/storage/projects/git/Antonius-MIA/bin/program/Configurator.hpp
+../utilities/StringUtils.hpp
+/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/StringUtils.hpp
+Error.hpp
+/media/awtorode/storage/projects/git/Antonius-MIA/bin/program/Error.hpp
+
 /media/awtorode/storage/projects/git/Antonius-MIA/bin/program/Configurator.hpp
 iostream
 -
@@ -23,6 +37,12 @@ Error.hpp
 /media/awtorode/storage/projects/git/Antonius-MIA/bin/terminal/MIATerminal.hpp
 
 /media/awtorode/storage/projects/git/Antonius-MIA/bin/program/Error.hpp
+
+/media/awtorode/storage/projects/git/Antonius-MIA/bin/program/SubProgram.cpp
+SubProgram.hpp
+/media/awtorode/storage/projects/git/Antonius-MIA/bin/program/SubProgram.hpp
+utility
+-
 
 /media/awtorode/storage/projects/git/Antonius-MIA/bin/program/SubProgram.hpp
 string
@@ -45,6 +65,12 @@ Commands.hpp
 /media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/encryption/D3CEncryptPW.hpp
 ../utilities/encryption/D3CEncrypt.hpp
 /media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/encryption/D3CEncrypt.hpp
+
+/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/StringUtils.hpp
+string
+-
+vector
+-
 
 /media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/encryption/D3CEncrypt.hpp
 vector

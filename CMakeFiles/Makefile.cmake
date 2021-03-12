@@ -13,6 +13,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeLists.txt"
   "bin/CMakeLists.txt"
   "bin/libs/CMakeLists.txt"
+  "bin/libs/database/CMakeLists.txt"
   "bin/program/CMakeLists.txt"
   "bin/resources/CMakeLists.txt"
   "bin/terminal/CMakeLists.txt"
@@ -49,6 +50,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   "bin/CMakeFiles/CMakeDirectoryInformation.cmake"
   "bin/libs/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "bin/libs/database/CMakeFiles/CMakeDirectoryInformation.cmake"
   "bin/program/CMakeFiles/CMakeDirectoryInformation.cmake"
   "bin/resources/CMakeFiles/CMakeDirectoryInformation.cmake"
   "bin/terminal/CMakeFiles/CMakeDirectoryInformation.cmake"
@@ -60,6 +62,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "bin/CMakeFiles/MIA.dir/DependInfo.cmake"
+  "bin/libs/database/CMakeFiles/Darabase_LIB.dir/DependInfo.cmake"
   "bin/program/CMakeFiles/Program_LIB.dir/DependInfo.cmake"
   "bin/terminal/CMakeFiles/Terminal_LIB.dir/DependInfo.cmake"
   "bin/utilities/CMakeFiles/Utilities_LIB.dir/DependInfo.cmake"

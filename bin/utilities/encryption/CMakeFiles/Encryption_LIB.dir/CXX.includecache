@@ -34,6 +34,8 @@ Commands.hpp
 ../utilities/encryption/D3CEncrypt.hpp
 /media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/encryption/D3CEncrypt.hpp
 
+/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/FileUtils.hpp
+
 /media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/encryption/D3CEncrypt.cpp
 iostream
 -
@@ -77,4 +79,16 @@ string
 -
 vector
 -
+
+/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/encryption/MIAEncrypt.cpp
+MIAEncrypt.hpp
+/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/encryption/MIAEncrypt.hpp
+
+/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/encryption/MIAEncrypt.hpp
+string
+-
+vector
+-
+../FileUtils.hpp
+/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/FileUtils.hpp
 

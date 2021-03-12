@@ -237,6 +237,21 @@ bin/terminal/CMakeFiles/Terminal_LIB.dir/Commands.cpp.o
  /usr/include/c++/9/bits/erase_if.h
  /media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/MIAWorkout.hpp
  /media/awtorode/storage/projects/git/Antonius-MIA/bin/program/Configurator.hpp
+ /media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/audio/SystemSounds.hpp
+ /media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/SystemUtils.hpp
+ /media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/VirtualKeyStrokes.hpp
+ /usr/include/xdo.h
+ /usr/include/X11/Xlib.h
+ /usr/include/X11/X.h
+ /usr/include/X11/Xfuncproto.h
+ /usr/include/X11/Xosdefs.h
+ /usr/include/unistd.h
+ /usr/include/x86_64-linux-gnu/bits/posix_opt.h
+ /usr/include/x86_64-linux-gnu/bits/environments.h
+ /usr/include/x86_64-linux-gnu/bits/confname.h
+ /usr/include/x86_64-linux-gnu/bits/getopt_posix.h
+ /usr/include/x86_64-linux-gnu/bits/getopt_core.h
+ /usr/include/x86_64-linux-gnu/bits/unistd_ext.h
 
 bin/terminal/CMakeFiles/Terminal_LIB.dir/MIATerminal.cpp.o
  /media/awtorode/storage/projects/git/Antonius-MIA/bin/terminal/MIATerminal.cpp

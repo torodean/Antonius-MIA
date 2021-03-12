@@ -223,6 +223,30 @@ D3CEncryptPW.cpp.s:
 	cd /media/awtorode/storage/projects/git/Antonius-MIA && $(MAKE) $(MAKESILENT) -f bin/utilities/encryption/CMakeFiles/Encryption_LIB.dir/build.make bin/utilities/encryption/CMakeFiles/Encryption_LIB.dir/D3CEncryptPW.cpp.s
 .PHONY : D3CEncryptPW.cpp.s
 
+MIAEncrypt.o: MIAEncrypt.cpp.o
+.PHONY : MIAEncrypt.o
+
+# target to build an object file
+MIAEncrypt.cpp.o:
+	cd /media/awtorode/storage/projects/git/Antonius-MIA && $(MAKE) $(MAKESILENT) -f bin/utilities/encryption/CMakeFiles/Encryption_LIB.dir/build.make bin/utilities/encryption/CMakeFiles/Encryption_LIB.dir/MIAEncrypt.cpp.o
+.PHONY : MIAEncrypt.cpp.o
+
+MIAEncrypt.i: MIAEncrypt.cpp.i
+.PHONY : MIAEncrypt.i
+
+# target to preprocess a source file
+MIAEncrypt.cpp.i:
+	cd /media/awtorode/storage/projects/git/Antonius-MIA && $(MAKE) $(MAKESILENT) -f bin/utilities/encryption/CMakeFiles/Encryption_LIB.dir/build.make bin/utilities/encryption/CMakeFiles/Encryption_LIB.dir/MIAEncrypt.cpp.i
+.PHONY : MIAEncrypt.cpp.i
+
+MIAEncrypt.s: MIAEncrypt.cpp.s
+.PHONY : MIAEncrypt.s
+
+# target to generate assembly for a file
+MIAEncrypt.cpp.s:
+	cd /media/awtorode/storage/projects/git/Antonius-MIA && $(MAKE) $(MAKESILENT) -f bin/utilities/encryption/CMakeFiles/Encryption_LIB.dir/build.make bin/utilities/encryption/CMakeFiles/Encryption_LIB.dir/MIAEncrypt.cpp.s
+.PHONY : MIAEncrypt.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -242,6 +266,9 @@ help:
 	@echo "... D3CEncryptPW.o"
 	@echo "... D3CEncryptPW.i"
 	@echo "... D3CEncryptPW.s"
+	@echo "... MIAEncrypt.o"
+	@echo "... MIAEncrypt.i"
+	@echo "... MIAEncrypt.s"
 .PHONY : help
 
 

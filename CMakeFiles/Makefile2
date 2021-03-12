@@ -107,16 +107,31 @@ bin/clean: bin/utilities/clean
 # Directory level rules for directory bin/libs
 
 # Recursive "all" directory target.
-bin/libs/all:
+bin/libs/all: bin/libs/database/all
 .PHONY : bin/libs/all
 
 # Recursive "preinstall" directory target.
-bin/libs/preinstall:
+bin/libs/preinstall: bin/libs/database/preinstall
 .PHONY : bin/libs/preinstall
 
 # Recursive "clean" directory target.
-bin/libs/clean:
+bin/libs/clean: bin/libs/database/clean
 .PHONY : bin/libs/clean
+
+#=============================================================================
+# Directory level rules for directory bin/libs/database
+
+# Recursive "all" directory target.
+bin/libs/database/all: bin/libs/database/CMakeFiles/Darabase_LIB.dir/all
+.PHONY : bin/libs/database/all
+
+# Recursive "preinstall" directory target.
+bin/libs/database/preinstall:
+.PHONY : bin/libs/database/preinstall
+
+# Recursive "clean" directory target.
+bin/libs/database/clean: bin/libs/database/CMakeFiles/Darabase_LIB.dir/clean
+.PHONY : bin/libs/database/clean
 
 #=============================================================================
 # Directory level rules for directory bin/program
@@ -224,12 +239,12 @@ bin/CMakeFiles/MIA.dir/all: bin/utilities/audio/CMakeFiles/Audio_LIB.dir/all
 bin/CMakeFiles/MIA.dir/all: bin/utilities/encryption/CMakeFiles/Encryption_LIB.dir/all
 	$(MAKE) $(MAKESILENT) -f bin/CMakeFiles/MIA.dir/build.make bin/CMakeFiles/MIA.dir/depend
 	$(MAKE) $(MAKESILENT) -f bin/CMakeFiles/MIA.dir/build.make bin/CMakeFiles/MIA.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/media/awtorode/storage/projects/git/Antonius-MIA/CMakeFiles --progress-num=6,7 "Built target MIA"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/media/awtorode/storage/projects/git/Antonius-MIA/CMakeFiles --progress-num=9,10 "Built target MIA"
 .PHONY : bin/CMakeFiles/MIA.dir/all
 
 # Build rule for subdir invocation for target.
 bin/CMakeFiles/MIA.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /media/awtorode/storage/projects/git/Antonius-MIA/CMakeFiles 22
+	$(CMAKE_COMMAND) -E cmake_progress_start /media/awtorode/storage/projects/git/Antonius-MIA/CMakeFiles 24
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bin/CMakeFiles/MIA.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /media/awtorode/storage/projects/git/Antonius-MIA/CMakeFiles 0
 .PHONY : bin/CMakeFiles/MIA.dir/rule
@@ -244,13 +259,39 @@ bin/CMakeFiles/MIA.dir/clean:
 .PHONY : bin/CMakeFiles/MIA.dir/clean
 
 #=============================================================================
+# Target rules for target bin/libs/database/CMakeFiles/Darabase_LIB.dir
+
+# All Build rule for target.
+bin/libs/database/CMakeFiles/Darabase_LIB.dir/all:
+	$(MAKE) $(MAKESILENT) -f bin/libs/database/CMakeFiles/Darabase_LIB.dir/build.make bin/libs/database/CMakeFiles/Darabase_LIB.dir/depend
+	$(MAKE) $(MAKESILENT) -f bin/libs/database/CMakeFiles/Darabase_LIB.dir/build.make bin/libs/database/CMakeFiles/Darabase_LIB.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/media/awtorode/storage/projects/git/Antonius-MIA/CMakeFiles --progress-num=3,4 "Built target Darabase_LIB"
+.PHONY : bin/libs/database/CMakeFiles/Darabase_LIB.dir/all
+
+# Build rule for subdir invocation for target.
+bin/libs/database/CMakeFiles/Darabase_LIB.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /media/awtorode/storage/projects/git/Antonius-MIA/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bin/libs/database/CMakeFiles/Darabase_LIB.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /media/awtorode/storage/projects/git/Antonius-MIA/CMakeFiles 0
+.PHONY : bin/libs/database/CMakeFiles/Darabase_LIB.dir/rule
+
+# Convenience name for target.
+Darabase_LIB: bin/libs/database/CMakeFiles/Darabase_LIB.dir/rule
+.PHONY : Darabase_LIB
+
+# clean rule for target.
+bin/libs/database/CMakeFiles/Darabase_LIB.dir/clean:
+	$(MAKE) $(MAKESILENT) -f bin/libs/database/CMakeFiles/Darabase_LIB.dir/build.make bin/libs/database/CMakeFiles/Darabase_LIB.dir/clean
+.PHONY : bin/libs/database/CMakeFiles/Darabase_LIB.dir/clean
+
+#=============================================================================
 # Target rules for target bin/program/CMakeFiles/Program_LIB.dir
 
 # All Build rule for target.
 bin/program/CMakeFiles/Program_LIB.dir/all:
 	$(MAKE) $(MAKESILENT) -f bin/program/CMakeFiles/Program_LIB.dir/build.make bin/program/CMakeFiles/Program_LIB.dir/depend
 	$(MAKE) $(MAKESILENT) -f bin/program/CMakeFiles/Program_LIB.dir/build.make bin/program/CMakeFiles/Program_LIB.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/media/awtorode/storage/projects/git/Antonius-MIA/CMakeFiles --progress-num=8,9,10,11 "Built target Program_LIB"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/media/awtorode/storage/projects/git/Antonius-MIA/CMakeFiles --progress-num=11,12,13,14 "Built target Program_LIB"
 .PHONY : bin/program/CMakeFiles/Program_LIB.dir/all
 
 # Build rule for subdir invocation for target.
@@ -279,12 +320,12 @@ bin/terminal/CMakeFiles/Terminal_LIB.dir/all: bin/utilities/audio/CMakeFiles/Aud
 bin/terminal/CMakeFiles/Terminal_LIB.dir/all: bin/utilities/encryption/CMakeFiles/Encryption_LIB.dir/all
 	$(MAKE) $(MAKESILENT) -f bin/terminal/CMakeFiles/Terminal_LIB.dir/build.make bin/terminal/CMakeFiles/Terminal_LIB.dir/depend
 	$(MAKE) $(MAKESILENT) -f bin/terminal/CMakeFiles/Terminal_LIB.dir/build.make bin/terminal/CMakeFiles/Terminal_LIB.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/media/awtorode/storage/projects/git/Antonius-MIA/CMakeFiles --progress-num=12,13,14 "Built target Terminal_LIB"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/media/awtorode/storage/projects/git/Antonius-MIA/CMakeFiles --progress-num=15,16,17 "Built target Terminal_LIB"
 .PHONY : bin/terminal/CMakeFiles/Terminal_LIB.dir/all
 
 # Build rule for subdir invocation for target.
 bin/terminal/CMakeFiles/Terminal_LIB.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /media/awtorode/storage/projects/git/Antonius-MIA/CMakeFiles 20
+	$(CMAKE_COMMAND) -E cmake_progress_start /media/awtorode/storage/projects/git/Antonius-MIA/CMakeFiles 22
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bin/terminal/CMakeFiles/Terminal_LIB.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /media/awtorode/storage/projects/git/Antonius-MIA/CMakeFiles 0
 .PHONY : bin/terminal/CMakeFiles/Terminal_LIB.dir/rule
@@ -305,12 +346,12 @@ bin/terminal/CMakeFiles/Terminal_LIB.dir/clean:
 bin/utilities/CMakeFiles/Utilities_LIB.dir/all:
 	$(MAKE) $(MAKESILENT) -f bin/utilities/CMakeFiles/Utilities_LIB.dir/build.make bin/utilities/CMakeFiles/Utilities_LIB.dir/depend
 	$(MAKE) $(MAKESILENT) -f bin/utilities/CMakeFiles/Utilities_LIB.dir/build.make bin/utilities/CMakeFiles/Utilities_LIB.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/media/awtorode/storage/projects/git/Antonius-MIA/CMakeFiles --progress-num=15,16,17,18,19,20,21,22 "Built target Utilities_LIB"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/media/awtorode/storage/projects/git/Antonius-MIA/CMakeFiles --progress-num=18,19,20,21,22,23,24,25,26 "Built target Utilities_LIB"
 .PHONY : bin/utilities/CMakeFiles/Utilities_LIB.dir/all
 
 # Build rule for subdir invocation for target.
 bin/utilities/CMakeFiles/Utilities_LIB.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /media/awtorode/storage/projects/git/Antonius-MIA/CMakeFiles 8
+	$(CMAKE_COMMAND) -E cmake_progress_start /media/awtorode/storage/projects/git/Antonius-MIA/CMakeFiles 9
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bin/utilities/CMakeFiles/Utilities_LIB.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /media/awtorode/storage/projects/git/Antonius-MIA/CMakeFiles 0
 .PHONY : bin/utilities/CMakeFiles/Utilities_LIB.dir/rule
@@ -357,12 +398,12 @@ bin/utilities/audio/CMakeFiles/Audio_LIB.dir/clean:
 bin/utilities/encryption/CMakeFiles/Encryption_LIB.dir/all:
 	$(MAKE) $(MAKESILENT) -f bin/utilities/encryption/CMakeFiles/Encryption_LIB.dir/build.make bin/utilities/encryption/CMakeFiles/Encryption_LIB.dir/depend
 	$(MAKE) $(MAKESILENT) -f bin/utilities/encryption/CMakeFiles/Encryption_LIB.dir/build.make bin/utilities/encryption/CMakeFiles/Encryption_LIB.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/media/awtorode/storage/projects/git/Antonius-MIA/CMakeFiles --progress-num=3,4,5 "Built target Encryption_LIB"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/media/awtorode/storage/projects/git/Antonius-MIA/CMakeFiles --progress-num=5,6,7,8 "Built target Encryption_LIB"
 .PHONY : bin/utilities/encryption/CMakeFiles/Encryption_LIB.dir/all
 
 # Build rule for subdir invocation for target.
 bin/utilities/encryption/CMakeFiles/Encryption_LIB.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /media/awtorode/storage/projects/git/Antonius-MIA/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /media/awtorode/storage/projects/git/Antonius-MIA/CMakeFiles 4
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bin/utilities/encryption/CMakeFiles/Encryption_LIB.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /media/awtorode/storage/projects/git/Antonius-MIA/CMakeFiles 0
 .PHONY : bin/utilities/encryption/CMakeFiles/Encryption_LIB.dir/rule

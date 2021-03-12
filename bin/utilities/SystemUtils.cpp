@@ -9,17 +9,17 @@
 #include <chrono>
 #include "SystemUtils.hpp"
 
-void SystemUtils::sleepMilliseconds(int time)
+void SystemUtils::sleepMilliseconds(int time = 500)
 {
     std::this_thread::sleep_for (std::chrono::milliseconds(time));
 }
 
-void SystemUtils::sleepMinutes(int time)
+void SystemUtils::sleepMinutes(int time = 1)
 {
     std::this_thread::sleep_for (std::chrono::minutes(time));
 }
 
-void SystemUtils::sleepSeconds(int time)
+void SystemUtils::sleepSeconds(int time = 1)
 {
     std::this_thread::sleep_for (std::chrono::seconds(time));
 }

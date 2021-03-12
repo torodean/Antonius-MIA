@@ -75,7 +75,7 @@ public:
      * A function used for testing
      * This should be placed at the end of the file for easy accessibility.
      */
-    static void runTest();
+    [[noreturn]] static void runTest();
 
     /**
      * Takes the user input as a string and converts it to a corresponding
@@ -271,7 +271,7 @@ public:
      */
     void workoutRunner(bool weekly);
 
-    static void runRepeatingAlarm();
+    [[noreturn]] static void runRepeatingAlarm();
 
 protected:
 

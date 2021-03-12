@@ -17,6 +17,7 @@
 #include "../utilities/MIAWorkout.hpp"
 #include "../utilities/audio/SystemSounds.hpp"
 #include "../utilities/SystemUtils.hpp"
+#include "../utilities/VirtualKeyStrokes.hpp"
 
 using std::cout;
 using std::endl;
@@ -410,8 +411,7 @@ void Commands::primeNumberNeraseRunner()
 
 void Commands::buttonSpamRunner(bool enableTab)
 {
-#if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
-    WinKeys key;
+    VirtualKeyStrokes key;
 	
 	string button;
 
@@ -438,14 +438,9 @@ void Commands::buttonSpamRunner(bool enableTab)
 	MIATerminalTools::blankLine();
 
 	if (enableTab)
-	{
 		key.buttonSpamTab(button, amount, pause);
-	} else {
+	else
 		key.buttonSpam(button, amount, pause);
-	}
-#else
-    Error::returnError(31416);
-#endif
 }
 
 void Commands::minecraftDigRunner()
@@ -1002,7 +997,7 @@ void Commands::loopSequencer()
     }
 }
 
-void Commands::runRepeatingAlarm()
+[[noreturn]] void Commands::runRepeatingAlarm()
 {
     std::string input;
     cout << "...WARNING: This feature requires sudo privileges." << endl;
@@ -1045,16 +1040,15 @@ void Commands::runRepeatingAlarm()
 //This should be placed at the end of the file for easy accessibility. 
 void Commands::runTest()
 {
-    Error::returnError(31418); //Returns nothing set for testing.
+    //Error::returnError(31418); //Returns nothing set for testing.
 
     ///* Uncomment this for testing things for Windows only.
 #if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
     Sequencer s;
 	s.activateSequence("test");
-#else
-    //Music m;
-    //m.playSong("test.mp3");
-    //Error::returnError(31416);
+#elif __linux__
+//    Music m;
+//    m.playSong("test.mp3");
+//    Error::returnError(31416);
 #endif
-    //*/
 }

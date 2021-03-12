@@ -343,6 +343,30 @@ SystemUtils.cpp.s:
 	cd /media/awtorode/storage/projects/git/Antonius-MIA && $(MAKE) $(MAKESILENT) -f bin/utilities/CMakeFiles/Utilities_LIB.dir/build.make bin/utilities/CMakeFiles/Utilities_LIB.dir/SystemUtils.cpp.s
 .PHONY : SystemUtils.cpp.s
 
+VirtualKeyStrokes.o: VirtualKeyStrokes.cpp.o
+.PHONY : VirtualKeyStrokes.o
+
+# target to build an object file
+VirtualKeyStrokes.cpp.o:
+	cd /media/awtorode/storage/projects/git/Antonius-MIA && $(MAKE) $(MAKESILENT) -f bin/utilities/CMakeFiles/Utilities_LIB.dir/build.make bin/utilities/CMakeFiles/Utilities_LIB.dir/VirtualKeyStrokes.cpp.o
+.PHONY : VirtualKeyStrokes.cpp.o
+
+VirtualKeyStrokes.i: VirtualKeyStrokes.cpp.i
+.PHONY : VirtualKeyStrokes.i
+
+# target to preprocess a source file
+VirtualKeyStrokes.cpp.i:
+	cd /media/awtorode/storage/projects/git/Antonius-MIA && $(MAKE) $(MAKESILENT) -f bin/utilities/CMakeFiles/Utilities_LIB.dir/build.make bin/utilities/CMakeFiles/Utilities_LIB.dir/VirtualKeyStrokes.cpp.i
+.PHONY : VirtualKeyStrokes.cpp.i
+
+VirtualKeyStrokes.s: VirtualKeyStrokes.cpp.s
+.PHONY : VirtualKeyStrokes.s
+
+# target to generate assembly for a file
+VirtualKeyStrokes.cpp.s:
+	cd /media/awtorode/storage/projects/git/Antonius-MIA && $(MAKE) $(MAKESILENT) -f bin/utilities/CMakeFiles/Utilities_LIB.dir/build.make bin/utilities/CMakeFiles/Utilities_LIB.dir/VirtualKeyStrokes.cpp.s
+.PHONY : VirtualKeyStrokes.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -377,6 +401,9 @@ help:
 	@echo "... SystemUtils.o"
 	@echo "... SystemUtils.i"
 	@echo "... SystemUtils.s"
+	@echo "... VirtualKeyStrokes.o"
+	@echo "... VirtualKeyStrokes.i"
+	@echo "... VirtualKeyStrokes.s"
 .PHONY : help
 
 

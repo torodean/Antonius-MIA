@@ -45,6 +45,14 @@ MIATerminal.hpp
 /media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/audio/SystemSounds.hpp
 ../utilities/SystemUtils.hpp
 /media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/SystemUtils.hpp
+cstdio
+-
+cstdlib
+-
+unistd.h
+-
+xdo.h
+-
 
 /media/awtorode/storage/projects/git/Antonius-MIA/bin/terminal/Commands.hpp
 string
