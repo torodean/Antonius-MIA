@@ -55,6 +55,7 @@ public:
     void type(std::string word);
 
 #if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__)
+
     void one(int holdTime = 0);
     void two(int holdTime = 0);
     void three(int holdTime = 0);
@@ -65,8 +66,6 @@ public:
     void eight(int holdTime = 0);
     void nine(int holdTime = 0);
     void zero(int holdTime = 0);
-    void dash();
-    void equal();
     void enter();
     void a(int holdTime = 0);
     void b(int holdTime = 0);
@@ -95,7 +94,6 @@ public:
     void y(int holdTime = 0);
     void z(int holdTime = 0);
     void numlock();
-    void space();
     void alt0248();
     void alt136();
     void shift(char character);
@@ -118,9 +116,13 @@ public:
     void getPixelColor();
     void getPixelColorAtMouse();
     void moveMouseTo(int x, int y);
+
 #endif
 
-    void tab();
+    void minus();       ///< Simulates press of the minus key.
+    void equal();       ///< Simulates press of the equal key.
+    void space();       ///< Simulates press of the space key.
+    void tab();         ///< Simulates press of the tab key.
 
     /// Sleeps for the default globalSleep time used by the VirtuakKeyStrokes class..
     void defaultSleep();

@@ -75,7 +75,7 @@ public:
      * A function used for testing
      * This should be placed at the end of the file for easy accessibility.
      */
-    [[noreturn]] static void runTest();
+    static void runTest();
 
     /**
      * Takes the user input as a string and converts it to a corresponding

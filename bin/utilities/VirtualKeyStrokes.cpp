@@ -248,12 +248,12 @@ void VirtualKeyStrokes::press(const char& character, int holdTime)
         xdo_send_keysequence_window(xdo, CURRENTWINDOW, "Y", 0);
     } else if (character == 'Z') {
         xdo_send_keysequence_window(xdo, CURRENTWINDOW, "Z", 0);
-//    } else if (character == ' ') {
-//        space();
-//    } else if (character == '-') {
-//        dash();
-//    } else if (character == '=') {
-//        equal();
+    } else if (character == ' ') {
+        space();
+    } else if (character == '-') {
+        minus();
+    } else if (character == '=') {
+        equal();
 //    } else if (character == 'L') {
 //        leftclick();
 //    } else if (character == 'R') {
@@ -262,12 +262,6 @@ void VirtualKeyStrokes::press(const char& character, int holdTime)
 //        backslash();
 //    } else if (character == '/') {
 //        slash();
-//    } else if (character == 'E') {
-//        enter();
-//    } else if (character == 'T') {
-//        tab();
-//    } else if (character == 'N') {
-//        numlock();
     } else {
         skipHold = true;
         Error::returnError(31424, std::to_string(character));
@@ -284,22 +278,6 @@ void VirtualKeyStrokes::defaultSleep(){
 }
 
 #if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__)
-
-void VirtualKeyStrokes::space(){
-    // Press the "space" key
-    ip.ki.wVk = VK_SPACE; // virtual-key code for the "space" key
-    ip.ki.dwFlags = 0; // 0 for key press
-    SendInput(1, &ip, sizeof(INPUT));
-
-    if(Configurator::getVerboseMode())
-        cout << "space" << endl;
-
-    // Release the "space" key
-    ip.ki.wVk = VK_SPACE; // virtual-key code for the "space" key
-    ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
-    SendInput(1, &ip, sizeof(INPUT));
-    defaultSleep();
-}
 
 void VirtualKeyStrokes::one(int holdTime){
     // Press the "1" key
@@ -459,45 +437,6 @@ void VirtualKeyStrokes::zero(int holdTime){
         cout << "0" << endl;
 
     // Release the "0" key
-    ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
-    SendInput(1, &ip, sizeof(INPUT));
-    defaultSleep();
-}
-
-void VirtualKeyStrokes::dash(){
-    // Press the "-" key
-    ip.ki.wVk = VK_OEM_MINUS; // virtual-key code for the "-" key
-    ip.ki.dwFlags = 0; // 0 for key press
-    SendInput(1, &ip, sizeof(INPUT));
-
-    // Release the "-" key
-    ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
-    SendInput(1, &ip, sizeof(INPUT));
-    defaultSleep();
-}
-
-void VirtualKeyStrokes::equal(){
-    // Press the "=" key
-    ip.ki.wVk = VK_OEM_PLUS; // virtual-key code for the "=" key
-    ip.ki.dwFlags = 0; // 0 for key press
-    SendInput(1, &ip, sizeof(INPUT));
-
-    // Release the "=" key
-    ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
-    SendInput(1, &ip, sizeof(INPUT));
-    defaultSleep();
-}
-
-void VirtualKeyStrokes::tab(){
-    // Press the "tab" key
-    ip.ki.wVk = VK_TAB; // virtual-key code for the "tab" key
-    ip.ki.dwFlags = 0; // 0 for key press
-    SendInput(1, &ip, sizeof(INPUT));
-
-    if(Configurator::getVerboseMode())
-        cout << "TAB" << endl;
-
-    // Release the "tab" key
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
     SendInput(1, &ip, sizeof(INPUT));
     defaultSleep();
@@ -1333,6 +1272,61 @@ void VirtualKeyStrokes::WoWFishBot(string fishButton, string lureButton){
     ReleaseDC(NULL,dc);
 }
 #endif
+
+void VirtualKeyStrokes::minus()
+{
+#if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__)
+    // Press the "-" key
+    ip.ki.wVk = VK_OEM_MINUS; // virtual-key code for the "-" key
+    ip.ki.dwFlags = 0; // 0 for key press
+    SendInput(1, &ip, sizeof(INPUT));
+
+    // Release the "-" key
+    ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
+    SendInput(1, &ip, sizeof(INPUT));
+    defaultSleep();
+#elif __linux__
+    xdo_send_keysequence_window(xdo, CURRENTWINDOW, "minus", 0);
+#endif
+}
+
+void VirtualKeyStrokes::equal()
+{
+    #if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__)
+    // Press the "=" key
+    ip.ki.wVk = VK_OEM_PLUS; // virtual-key code for the "=" key
+    ip.ki.dwFlags = 0; // 0 for key press
+    SendInput(1, &ip, sizeof(INPUT));
+
+    // Release the "=" key
+    ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
+    SendInput(1, &ip, sizeof(INPUT));
+    defaultSleep();
+#elif __linux__
+    xdo_send_keysequence_window(xdo, CURRENTWINDOW, "equal", 0);
+#endif
+}
+
+void VirtualKeyStrokes::space()
+{
+#if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__)
+    // Press the "space" key
+    ip.ki.wVk = VK_SPACE; // virtual-key code for the "space" key
+    ip.ki.dwFlags = 0; // 0 for key press
+    SendInput(1, &ip, sizeof(INPUT));
+
+    if(Configurator::getVerboseMode())
+        cout << "space" << endl;
+
+    // Release the "space" key
+    ip.ki.wVk = VK_SPACE; // virtual-key code for the "space" key
+    ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
+    SendInput(1, &ip, sizeof(INPUT));
+    defaultSleep();
+#elif __linux__
+    xdo_send_keysequence_window(xdo, CURRENTWINDOW, "space", 0);
+#endif
+}
 
 void VirtualKeyStrokes::tab()
 {
