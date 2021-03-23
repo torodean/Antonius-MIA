@@ -41,14 +41,14 @@ public:
      */
     struct ProgramFilePaths
     {
-        ProgramFilePaths() : MIAConfigFile("resources/MIAConfig.MIA"),
-                             inputFilePath("resources/InputFiles/"),
-                             cryptFilePath("resources/EncryptedFiles/"),
-                             decryptFilePath("resources/DecryptedFiles/"),
-                             excuseFilePath("resources/Excuses.MIA"),
-                             workoutsFilePath("resources/InputFiles/workouts.txt"),
-                             sequencesFilePath("resources/InputFiles/MIASequences.txt"),
-                             workoutOutputFilePath("resources/OutputFiles/workout.txt")
+        ProgramFilePaths() : MIAConfigFile("/etc/MIA/resources/MIAConfig.MIA"),
+                             inputFilePath("/etc/MIA/resources/InputFiles/"),
+                             cryptFilePath("/etc/MIA/resources/EncryptedFiles/"),
+                             decryptFilePath("/etc/MIA/resources/DecryptedFiles/"),
+                             excuseFilePath("/etc/MIA/resources/Excuses.MIA"),
+                             workoutsFilePath("/etc/MIA/resources/InputFiles/workouts.txt"),
+                             sequencesFilePath("/etc/MIA/resources/InputFiles/MIASequences.txt"),
+                             workoutOutputFilePath("/etc/MIA/resources/OutputFiles/workout.txt")
         {};
 
         /// An enumeration object containing various file types.

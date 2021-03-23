@@ -162,6 +162,20 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+bin/terminal/CMakeFiles/MIATerminal.dir/rule:
+	cd /media/awtorode/storage/projects/git/Antonius-MIA && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bin/terminal/CMakeFiles/MIATerminal.dir/rule
+.PHONY : bin/terminal/CMakeFiles/MIATerminal.dir/rule
+
+# Convenience name for target.
+MIATerminal: bin/terminal/CMakeFiles/MIATerminal.dir/rule
+.PHONY : MIATerminal
+
+# fast build rule for target.
+MIATerminal/fast:
+	cd /media/awtorode/storage/projects/git/Antonius-MIA && $(MAKE) $(MAKESILENT) -f bin/terminal/CMakeFiles/MIATerminal.dir/build.make bin/terminal/CMakeFiles/MIATerminal.dir/build
+.PHONY : MIATerminal/fast
+
+# Convenience name for target.
 bin/terminal/CMakeFiles/Terminal_LIB.dir/rule:
 	cd /media/awtorode/storage/projects/git/Antonius-MIA && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bin/terminal/CMakeFiles/Terminal_LIB.dir/rule
 .PHONY : bin/terminal/CMakeFiles/Terminal_LIB.dir/rule
@@ -204,6 +218,7 @@ MIATerminal.o: MIATerminal.cpp.o
 
 # target to build an object file
 MIATerminal.cpp.o:
+	cd /media/awtorode/storage/projects/git/Antonius-MIA && $(MAKE) $(MAKESILENT) -f bin/terminal/CMakeFiles/MIATerminal.dir/build.make bin/terminal/CMakeFiles/MIATerminal.dir/MIATerminal.cpp.o
 	cd /media/awtorode/storage/projects/git/Antonius-MIA && $(MAKE) $(MAKESILENT) -f bin/terminal/CMakeFiles/Terminal_LIB.dir/build.make bin/terminal/CMakeFiles/Terminal_LIB.dir/MIATerminal.cpp.o
 .PHONY : MIATerminal.cpp.o
 
@@ -212,6 +227,7 @@ MIATerminal.i: MIATerminal.cpp.i
 
 # target to preprocess a source file
 MIATerminal.cpp.i:
+	cd /media/awtorode/storage/projects/git/Antonius-MIA && $(MAKE) $(MAKESILENT) -f bin/terminal/CMakeFiles/MIATerminal.dir/build.make bin/terminal/CMakeFiles/MIATerminal.dir/MIATerminal.cpp.i
 	cd /media/awtorode/storage/projects/git/Antonius-MIA && $(MAKE) $(MAKESILENT) -f bin/terminal/CMakeFiles/Terminal_LIB.dir/build.make bin/terminal/CMakeFiles/Terminal_LIB.dir/MIATerminal.cpp.i
 .PHONY : MIATerminal.cpp.i
 
@@ -220,6 +236,7 @@ MIATerminal.s: MIATerminal.cpp.s
 
 # target to generate assembly for a file
 MIATerminal.cpp.s:
+	cd /media/awtorode/storage/projects/git/Antonius-MIA && $(MAKE) $(MAKESILENT) -f bin/terminal/CMakeFiles/MIATerminal.dir/build.make bin/terminal/CMakeFiles/MIATerminal.dir/MIATerminal.cpp.s
 	cd /media/awtorode/storage/projects/git/Antonius-MIA && $(MAKE) $(MAKESILENT) -f bin/terminal/CMakeFiles/Terminal_LIB.dir/build.make bin/terminal/CMakeFiles/Terminal_LIB.dir/MIATerminal.cpp.s
 .PHONY : MIATerminal.cpp.s
 
@@ -235,6 +252,7 @@ help:
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
+	@echo "... MIATerminal"
 	@echo "... Terminal_LIB"
 	@echo "... Commands.o"
 	@echo "... Commands.i"

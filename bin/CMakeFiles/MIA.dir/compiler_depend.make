@@ -181,90 +181,8 @@ bin/CMakeFiles/MIA.dir/MIAMain.cpp.o: bin/MIAMain.cpp \
   /usr/include/c++/9/bits/basic_ios.tcc \
   /usr/include/c++/9/bits/ostream.tcc \
   /usr/include/c++/9/istream \
-  /usr/include/c++/9/bits/istream.tcc \
-  bin/terminal/MIATerminal.hpp \
-  bin/program/SubProgram.hpp \
-  /usr/include/c++/9/thread \
-  /usr/include/c++/9/chrono \
-  /usr/include/c++/9/ratio \
-  /usr/include/c++/9/ctime \
-  /usr/include/c++/9/bits/parse_numbers.h \
-  /usr/include/c++/9/memory \
-  /usr/include/c++/9/bits/stl_uninitialized.h \
-  /usr/include/c++/9/utility \
-  /usr/include/c++/9/bits/stl_relops.h \
-  /usr/include/c++/9/bits/stl_raw_storage_iter.h \
-  /usr/include/c++/9/ext/concurrence.h \
-  /usr/include/c++/9/bits/uses_allocator.h \
-  /usr/include/c++/9/bits/unique_ptr.h \
-  /usr/include/c++/9/tuple \
-  /usr/include/c++/9/array \
-  /usr/include/c++/9/bits/invoke.h \
-  /usr/include/c++/9/bits/shared_ptr.h \
-  /usr/include/c++/9/bits/shared_ptr_base.h \
-  /usr/include/c++/9/bits/allocated_ptr.h \
-  /usr/include/c++/9/bits/refwrap.h \
-  /usr/include/c++/9/ext/aligned_buffer.h \
-  /usr/include/c++/9/bits/shared_ptr_atomic.h \
-  /usr/include/c++/9/bits/atomic_base.h \
-  /usr/include/c++/9/bits/atomic_lockfree_defines.h \
-  /usr/include/c++/9/backward/auto_ptr.h \
-  /usr/include/c++/9/bit \
-  /usr/include/c++/9/pstl/glue_memory_defs.h \
-  /usr/include/c++/9/pstl/execution_defs.h \
-  bin/program/Configurator.hpp \
-  /usr/include/c++/9/vector \
-  /usr/include/c++/9/bits/stl_vector.h \
-  /usr/include/c++/9/bits/stl_bvector.h \
-  /usr/include/c++/9/bits/vector.tcc \
-  bin/terminal/Commands.hpp \
-  bin/utilities/encryption/D3CEncryptPW.hpp \
-  bin/utilities/encryption/D3CEncrypt.hpp
+  /usr/include/c++/9/bits/istream.tcc
 
-
-bin/utilities/encryption/D3CEncryptPW.hpp:
-
-bin/terminal/Commands.hpp:
-
-/usr/include/c++/9/bits/stl_vector.h:
-
-/usr/include/c++/9/vector:
-
-/usr/include/c++/9/bit:
-
-/usr/include/c++/9/backward/auto_ptr.h:
-
-/usr/include/c++/9/bits/atomic_lockfree_defines.h:
-
-/usr/include/c++/9/ext/aligned_buffer.h:
-
-/usr/include/c++/9/bits/allocated_ptr.h:
-
-/usr/include/c++/9/bits/shared_ptr_base.h:
-
-/usr/include/c++/9/bits/shared_ptr.h:
-
-/usr/include/c++/9/array:
-
-/usr/include/c++/9/tuple:
-
-bin/utilities/encryption/D3CEncrypt.hpp:
-
-/usr/include/c++/9/bits/unique_ptr.h:
-
-/usr/include/c++/9/bits/stl_raw_storage_iter.h:
-
-/usr/include/c++/9/bits/stl_relops.h:
-
-/usr/include/c++/9/memory:
-
-/usr/include/c++/9/bits/parse_numbers.h:
-
-/usr/include/c++/9/chrono:
-
-bin/program/SubProgram.hpp:
-
-bin/terminal/MIATerminal.hpp:
 
 /usr/include/c++/9/istream:
 
@@ -281,8 +199,6 @@ bin/terminal/MIATerminal.hpp:
 /usr/include/c++/9/system_error:
 
 /usr/include/c++/9/bits/locale_classes.tcc:
-
-/usr/include/c++/9/utility:
 
 /usr/include/c++/9/bits/basic_string.tcc:
 
@@ -328,8 +244,6 @@ bin/terminal/MIATerminal.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/timex.h:
 
-/usr/include/c++/9/bits/atomic_base.h:
-
 /usr/include/c++/9/bits/allocator.h:
 
 /usr/include/c++/9/bits/streambuf.tcc:
@@ -372,8 +286,6 @@ bin/terminal/MIATerminal.hpp:
 
 /usr/include/c++/9/bits/stl_iterator_base_types.h:
 
-bin/program/Configurator.hpp:
-
 /usr/include/c++/9/bits/istream.tcc:
 
 /usr/include/wchar.h:
@@ -394,8 +306,6 @@ bin/program/Configurator.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h:
 
-/usr/include/c++/9/ctime:
-
 /usr/include/c++/9/bits/ptr_traits.h:
 
 /usr/include/c++/9/bits/stl_pair.h:
@@ -403,8 +313,6 @@ bin/program/Configurator.hpp:
 /usr/include/c++/9/bits/char_traits.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h:
-
-/usr/include/c++/9/thread:
 
 /usr/include/x86_64-linux-gnu/bits/stdio_lim.h:
 
@@ -429,8 +337,6 @@ bin/program/Configurator.hpp:
 /usr/include/x86_64-linux-gnu/bits/byteswap.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h:
-
-/usr/include/c++/9/ext/concurrence.h:
 
 /usr/include/stdc-predef.h:
 
@@ -457,8 +363,6 @@ bin/program/Configurator.hpp:
 /usr/include/x86_64-linux-gnu/bits/uintn-identity.h:
 
 bin/MIAMain.cpp:
-
-/usr/include/c++/9/bits/uses_allocator.h:
 
 /usr/include/wctype.h:
 
@@ -488,8 +392,6 @@ bin/MIAMain.cpp:
 
 /usr/include/c++/9/bits/stringfwd.h:
 
-/usr/include/c++/9/bits/vector.tcc:
-
 /usr/include/x86_64-linux-gnu/bits/sched.h:
 
 /usr/include/x86_64-linux-gnu/c++/9/bits/os_defines.h:
@@ -497,8 +399,6 @@ bin/MIAMain.cpp:
 /usr/include/x86_64-linux-gnu/bits/types/wint_t.h:
 
 /usr/include/x86_64-linux-gnu/bits/floatn-common.h:
-
-/usr/include/c++/9/bits/invoke.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/9/include/stddef.h:
 
@@ -535,10 +435,6 @@ bin/MIAMain.cpp:
 /usr/include/c++/9/cstdint:
 
 /usr/include/x86_64-linux-gnu/bits/time64.h:
-
-/usr/include/c++/9/bits/shared_ptr_atomic.h:
-
-/usr/include/c++/9/ratio:
 
 /usr/include/x86_64-linux-gnu/bits/types/sigset_t.h:
 
@@ -584,11 +480,7 @@ bin/MIAMain.cpp:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h:
 
-/usr/include/c++/9/pstl/glue_memory_defs.h:
-
 /usr/include/x86_64-linux-gnu/bits/cpu-set.h:
-
-/usr/include/c++/9/bits/refwrap.h:
 
 /usr/include/time.h:
 
@@ -601,8 +493,6 @@ bin/MIAMain.cpp:
 /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h:
 
 /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h:
-
-/usr/include/c++/9/pstl/execution_defs.h:
 
 /usr/include/c++/9/bits/locale_facets.tcc:
 
@@ -627,10 +517,6 @@ bin/MIAMain.cpp:
 /usr/include/x86_64-linux-gnu/bits/locale.h:
 
 /usr/include/c++/9/string:
-
-/usr/include/c++/9/bits/stl_bvector.h:
-
-/usr/include/c++/9/bits/stl_uninitialized.h:
 
 /usr/include/x86_64-linux-gnu/c++/9/bits/c++allocator.h:
 

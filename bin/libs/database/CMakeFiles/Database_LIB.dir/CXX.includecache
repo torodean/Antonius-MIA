@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/media/awtorode/storage/projects/git/Antonius-MIA/bin/libs/database/MIADatabase.cpp
+MIADatabase.hpp
+/media/awtorode/storage/projects/git/Antonius-MIA/bin/libs/database/MIADatabase.hpp
+iostream
+-
+
+/media/awtorode/storage/projects/git/Antonius-MIA/bin/libs/database/MIADatabase.hpp
+mysql_connection.h
+-
+cppconn/driver.h
+-
+cppconn/exception.h
+-
+cppconn/resultset.h
+-
+cppconn/statement.h
+-
+

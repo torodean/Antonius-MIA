@@ -15,17 +15,17 @@
 # This means, do not do 'variable= text' unless you intend to have " text" be the variable value.
 
 # MIA program variables.
-verboseMode=false
+verboseMode=true
 
 # MIA file location variables.
 # These are relative to the project directory.
-excuseFilePath=resources/Excuses.txt
-inputFilePath=resources/InputFiles/
-cryptFilePath=resources/EncryptedFiles/
-decryptFilePath=resources/EncryptedFiles/
-workoutsFilePath=resources/InputFiles/exercises.txt
-sequencesFilePath=resources/InputFiles/MIASequences.txt
-workoutOutputFilePath=resources/OutputFiles/workout.txt
+excuseFilePath=/etc/MIA/resources/Excuses.txt
+inputFilePath=/etc/MIA/resources/InputFiles/
+cryptFilePath=/etc/MIA/resources/EncryptedFiles/
+decryptFilePath=/etc/MIA/resources/EncryptedFiles/
+workoutsFilePath=/etc/MIA/resources/InputFiles/exercises.txt
+sequencesFilePath=/etc/MIA/resources/InputFiles/MIASequences.txt
+workoutOutputFilePath=/etc/MIA/resources/OutputFiles/workout.txt
 
 # MIA Sequencer variables.
 defaultButtonCombination=1234567T

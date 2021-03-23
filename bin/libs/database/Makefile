@@ -77,18 +77,6 @@ install/strip/fast: preinstall/fast
 	/usr/local/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/local/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
-
-# Special rule for the target install/local
-install/local/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/local/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local/fast
-
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
@@ -130,6 +118,18 @@ edit_cache:
 edit_cache/fast: edit_cache
 .PHONY : edit_cache/fast
 
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/local/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/local/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
 # The main all target
 all: cmake_check_build_system
 	cd /media/awtorode/storage/projects/git/Antonius-MIA && $(CMAKE_COMMAND) -E cmake_progress_start /media/awtorode/storage/projects/git/Antonius-MIA/CMakeFiles /media/awtorode/storage/projects/git/Antonius-MIA/bin/libs/database//CMakeFiles/progress.marks
@@ -162,25 +162,25 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-bin/libs/database/CMakeFiles/Darabase_LIB.dir/rule:
-	cd /media/awtorode/storage/projects/git/Antonius-MIA && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bin/libs/database/CMakeFiles/Darabase_LIB.dir/rule
-.PHONY : bin/libs/database/CMakeFiles/Darabase_LIB.dir/rule
+bin/libs/database/CMakeFiles/Database_LIB.dir/rule:
+	cd /media/awtorode/storage/projects/git/Antonius-MIA && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bin/libs/database/CMakeFiles/Database_LIB.dir/rule
+.PHONY : bin/libs/database/CMakeFiles/Database_LIB.dir/rule
 
 # Convenience name for target.
-Darabase_LIB: bin/libs/database/CMakeFiles/Darabase_LIB.dir/rule
-.PHONY : Darabase_LIB
+Database_LIB: bin/libs/database/CMakeFiles/Database_LIB.dir/rule
+.PHONY : Database_LIB
 
 # fast build rule for target.
-Darabase_LIB/fast:
-	cd /media/awtorode/storage/projects/git/Antonius-MIA && $(MAKE) $(MAKESILENT) -f bin/libs/database/CMakeFiles/Darabase_LIB.dir/build.make bin/libs/database/CMakeFiles/Darabase_LIB.dir/build
-.PHONY : Darabase_LIB/fast
+Database_LIB/fast:
+	cd /media/awtorode/storage/projects/git/Antonius-MIA && $(MAKE) $(MAKESILENT) -f bin/libs/database/CMakeFiles/Database_LIB.dir/build.make bin/libs/database/CMakeFiles/Database_LIB.dir/build
+.PHONY : Database_LIB/fast
 
 MIADatabase.o: MIADatabase.cpp.o
 .PHONY : MIADatabase.o
 
 # target to build an object file
 MIADatabase.cpp.o:
-	cd /media/awtorode/storage/projects/git/Antonius-MIA && $(MAKE) $(MAKESILENT) -f bin/libs/database/CMakeFiles/Darabase_LIB.dir/build.make bin/libs/database/CMakeFiles/Darabase_LIB.dir/MIADatabase.cpp.o
+	cd /media/awtorode/storage/projects/git/Antonius-MIA && $(MAKE) $(MAKESILENT) -f bin/libs/database/CMakeFiles/Database_LIB.dir/build.make bin/libs/database/CMakeFiles/Database_LIB.dir/MIADatabase.cpp.o
 .PHONY : MIADatabase.cpp.o
 
 MIADatabase.i: MIADatabase.cpp.i
@@ -188,7 +188,7 @@ MIADatabase.i: MIADatabase.cpp.i
 
 # target to preprocess a source file
 MIADatabase.cpp.i:
-	cd /media/awtorode/storage/projects/git/Antonius-MIA && $(MAKE) $(MAKESILENT) -f bin/libs/database/CMakeFiles/Darabase_LIB.dir/build.make bin/libs/database/CMakeFiles/Darabase_LIB.dir/MIADatabase.cpp.i
+	cd /media/awtorode/storage/projects/git/Antonius-MIA && $(MAKE) $(MAKESILENT) -f bin/libs/database/CMakeFiles/Database_LIB.dir/build.make bin/libs/database/CMakeFiles/Database_LIB.dir/MIADatabase.cpp.i
 .PHONY : MIADatabase.cpp.i
 
 MIADatabase.s: MIADatabase.cpp.s
@@ -196,7 +196,7 @@ MIADatabase.s: MIADatabase.cpp.s
 
 # target to generate assembly for a file
 MIADatabase.cpp.s:
-	cd /media/awtorode/storage/projects/git/Antonius-MIA && $(MAKE) $(MAKESILENT) -f bin/libs/database/CMakeFiles/Darabase_LIB.dir/build.make bin/libs/database/CMakeFiles/Darabase_LIB.dir/MIADatabase.cpp.s
+	cd /media/awtorode/storage/projects/git/Antonius-MIA && $(MAKE) $(MAKESILENT) -f bin/libs/database/CMakeFiles/Database_LIB.dir/build.make bin/libs/database/CMakeFiles/Database_LIB.dir/MIADatabase.cpp.s
 .PHONY : MIADatabase.cpp.s
 
 # Help Target
@@ -211,7 +211,7 @@ help:
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
-	@echo "... Darabase_LIB"
+	@echo "... Database_LIB"
 	@echo "... MIADatabase.o"
 	@echo "... MIADatabase.i"
 	@echo "... MIADatabase.s"

@@ -92,11 +92,6 @@ MIA_EXTERNAL_OBJECTS =
 
 bin/MIA: bin/CMakeFiles/MIA.dir/MIAMain.cpp.o
 bin/MIA: bin/CMakeFiles/MIA.dir/build.make
-bin/MIA: bin/terminal/libTerminal_LIB.a
-bin/MIA: bin/program/libProgram_LIB.a
-bin/MIA: bin/utilities/libUtilities_LIB.a
-bin/MIA: bin/utilities/encryption/libEncryption_LIB.a
-bin/MIA: bin/utilities/audio/libAudio_LIB.a
 bin/MIA: bin/CMakeFiles/MIA.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/media/awtorode/storage/projects/git/Antonius-MIA/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable MIA"
 	cd /media/awtorode/storage/projects/git/Antonius-MIA/bin && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/MIA.dir/link.txt --verbose=$(VERBOSE)

@@ -18,6 +18,7 @@
 #include "../utilities/audio/SystemSounds.hpp"
 #include "../utilities/SystemUtils.hpp"
 #include "../utilities/VirtualKeyStrokes.hpp"
+#include "../libs/database/MIADatabase.hpp"
 
 using std::cout;
 using std::endl;
@@ -1040,6 +1041,8 @@ void Commands::loopSequencer()
 //This should be placed at the end of the file for easy accessibility. 
 void Commands::runTest()
 {
+    MIADatabase db{};
+    db.testDatabase();
     //Error::returnError(31418); //Returns nothing set for testing.
 
     ///* Uncomment this for testing things for Windows only.

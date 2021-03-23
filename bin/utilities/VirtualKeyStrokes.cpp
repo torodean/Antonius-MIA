@@ -11,18 +11,25 @@
 
 VirtualKeyStrokes::VirtualKeyStrokes()
 {
+#if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__)
+
+#elif __linux__
     xdo = xdo_new(":1.0");
+#endif
 }
 
 VirtualKeyStrokes::~VirtualKeyStrokes()
 {
+#if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__)
+
+#elif __linux__
     delete xdo;
+#endif
 }
 
 void VirtualKeyStrokes::press(const char& character, int holdTime)
 {
 #if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__)
-
     if(character == '1'){
         one(holdTime);
     } else if(character == '2'){
@@ -120,9 +127,7 @@ void VirtualKeyStrokes::press(const char& character, int holdTime)
     } else{
         returnError(31424, character);
     }
-
 #elif __linux__
-
     bool skipHold = false;
     if (character == '1') {
         xdo_send_keysequence_window(xdo, CURRENTWINDOW, "1", 0);
@@ -268,9 +273,7 @@ void VirtualKeyStrokes::press(const char& character, int holdTime)
     }
     if(!skipHold)
         SystemUtils::sleepSeconds(holdTime);
-
 #endif
-
 }
 
 void VirtualKeyStrokes::defaultSleep(){
@@ -278,7 +281,6 @@ void VirtualKeyStrokes::defaultSleep(){
 }
 
 #if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__)
-
 void VirtualKeyStrokes::one(int holdTime){
     // Press the "1" key
     ip.ki.wVk = 0x31; // virtual-key code for the "1" key
@@ -1292,7 +1294,7 @@ void VirtualKeyStrokes::minus()
 
 void VirtualKeyStrokes::equal()
 {
-    #if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__)
+#if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__)
     // Press the "=" key
     ip.ki.wVk = VK_OEM_PLUS; // virtual-key code for the "=" key
     ip.ki.dwFlags = 0; // 0 for key press

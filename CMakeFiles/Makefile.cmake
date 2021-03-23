@@ -23,6 +23,8 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/usr/local/share/cmake-3.20/Modules/CMakeCInformation.cmake"
   "/usr/local/share/cmake-3.20/Modules/CMakeCXXInformation.cmake"
   "/usr/local/share/cmake-3.20/Modules/CMakeCommonLanguageInclude.cmake"
+  "/usr/local/share/cmake-3.20/Modules/CMakeExtraGeneratorDetermineCompilerMacrosAndIncludeDirs.cmake"
+  "/usr/local/share/cmake-3.20/Modules/CMakeFindCodeBlocks.cmake"
   "/usr/local/share/cmake-3.20/Modules/CMakeGenericSystem.cmake"
   "/usr/local/share/cmake-3.20/Modules/CMakeInitializeConfigs.cmake"
   "/usr/local/share/cmake-3.20/Modules/CMakeLanguageInformation.cmake"
@@ -37,6 +39,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/usr/local/share/cmake-3.20/Modules/Platform/Linux-GNU.cmake"
   "/usr/local/share/cmake-3.20/Modules/Platform/Linux.cmake"
   "/usr/local/share/cmake-3.20/Modules/Platform/UnixPaths.cmake"
+  "/usr/local/share/cmake-3.20/Modules/ProcessorCount.cmake"
   )
 
 # The corresponding makefile is:
@@ -62,8 +65,9 @@ set(CMAKE_MAKEFILE_PRODUCTS
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "bin/CMakeFiles/MIA.dir/DependInfo.cmake"
-  "bin/libs/database/CMakeFiles/Darabase_LIB.dir/DependInfo.cmake"
+  "bin/libs/database/CMakeFiles/Database_LIB.dir/DependInfo.cmake"
   "bin/program/CMakeFiles/Program_LIB.dir/DependInfo.cmake"
+  "bin/terminal/CMakeFiles/MIATerminal.dir/DependInfo.cmake"
   "bin/terminal/CMakeFiles/Terminal_LIB.dir/DependInfo.cmake"
   "bin/utilities/CMakeFiles/Utilities_LIB.dir/DependInfo.cmake"
   "bin/utilities/audio/CMakeFiles/Audio_LIB.dir/DependInfo.cmake"

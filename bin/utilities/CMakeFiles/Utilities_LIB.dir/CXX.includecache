@@ -192,6 +192,30 @@ SystemUtils.hpp
 
 /media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/SystemUtils.hpp
 
+/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/VirtualKeyStrokes.cpp
+VirtualKeyStrokes.hpp
+/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/VirtualKeyStrokes.hpp
+../program/Error.hpp
+/media/awtorode/storage/projects/git/Antonius-MIA/bin/program/Error.hpp
+SystemUtils.hpp
+/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/SystemUtils.hpp
+
+/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/VirtualKeyStrokes.hpp
+string
+-
+thread
+-
+chrono
+-
+iostream
+-
+cstdio
+-
+windows.h
+-
+xdo.h
+-
+
 /media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/encryption/D3CEncrypt.hpp
 vector
 -

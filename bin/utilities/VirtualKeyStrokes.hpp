@@ -156,6 +156,14 @@ private:
     void fishBotIntro();
     void getRGB(COLORREF& color, int& r, int& g, int& b);
 #elif __linux__
+
+    /**
+     * This pointer is used for the xdotool which can simulate key strokes on linux through X11.
+     * Useful docs of the library and related files can be found here"
+     * https://libxdo-d.dpldocs.info/xdo.xdo_send_keysequence_window.html
+     * A list of keysyms that can be used are here:
+     * https://wiki.linuxquestions.org/wiki/List_of_keysyms
+     */
     xdo_t *xdo;
 #endif
 

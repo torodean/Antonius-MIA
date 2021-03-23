@@ -11,70 +11,70 @@
 				<Option working_dir="/media/awtorode/storage/projects/git/Antonius-MIA"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="install/strip">
 				<Option working_dir="/media/awtorode/storage/projects/git/Antonius-MIA"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 install/strip"/>
-					<CompileFile command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 install/strip"/>
+					<CompileFile command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="install/local">
 				<Option working_dir="/media/awtorode/storage/projects/git/Antonius-MIA"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 install/local"/>
-					<CompileFile command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 install/local"/>
+					<CompileFile command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
 				<Option working_dir="/media/awtorode/storage/projects/git/Antonius-MIA"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
 				<Option working_dir="/media/awtorode/storage/projects/git/Antonius-MIA"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="list_install_components">
 				<Option working_dir="/media/awtorode/storage/projects/git/Antonius-MIA"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 list_install_components"/>
-					<CompileFile command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 list_install_components"/>
+					<CompileFile command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="install">
 				<Option working_dir="/media/awtorode/storage/projects/git/Antonius-MIA"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 install"/>
-					<CompileFile command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 install"/>
+					<CompileFile command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="MIA">
@@ -83,12 +83,20 @@
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
-				<Compiler/>
+				<Compiler>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/Makefile&quot;  VERBOSE=1 MIA"/>
-					<CompileFile command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/Makefile&quot;  VERBOSE=1 MIA"/>
+					<CompileFile command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="MIA/fast">
@@ -97,40 +105,64 @@
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
-				<Compiler/>
+				<Compiler>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/Makefile&quot;  VERBOSE=1 MIA/fast"/>
-					<CompileFile command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/Makefile&quot;  VERBOSE=1 MIA/fast"/>
+					<CompileFile command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="Darabase_LIB">
-				<Option output="/media/awtorode/storage/projects/git/Antonius-MIA/bin/libs/database/libDarabase_LIB.a" prefix_auto="0" extension_auto="0"/>
+			<Target title="Database_LIB">
+				<Option output="/media/awtorode/storage/projects/git/Antonius-MIA/bin/libs/database/libDatabase_LIB.a" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/media/awtorode/storage/projects/git/Antonius-MIA/bin/libs/database"/>
 				<Option object_output="./"/>
 				<Option type="2"/>
 				<Option compiler="gcc"/>
-				<Compiler/>
+				<Compiler>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/libs/database/Makefile&quot;  VERBOSE=1 Darabase_LIB"/>
-					<CompileFile command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/libs/database/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/libs/database/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/libs/database/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/libs/database/Makefile&quot;  VERBOSE=1 Database_LIB"/>
+					<CompileFile command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/libs/database/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/libs/database/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/libs/database/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="Darabase_LIB/fast">
-				<Option output="/media/awtorode/storage/projects/git/Antonius-MIA/bin/libs/database/libDarabase_LIB.a" prefix_auto="0" extension_auto="0"/>
+			<Target title="Database_LIB/fast">
+				<Option output="/media/awtorode/storage/projects/git/Antonius-MIA/bin/libs/database/libDatabase_LIB.a" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/media/awtorode/storage/projects/git/Antonius-MIA/bin/libs/database"/>
 				<Option object_output="./"/>
 				<Option type="2"/>
 				<Option compiler="gcc"/>
-				<Compiler/>
+				<Compiler>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/libs/database/Makefile&quot;  VERBOSE=1 Darabase_LIB/fast"/>
-					<CompileFile command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/libs/database/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/libs/database/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/libs/database/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/libs/database/Makefile&quot;  VERBOSE=1 Database_LIB/fast"/>
+					<CompileFile command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/libs/database/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/libs/database/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/libs/database/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Program_LIB">
@@ -139,12 +171,20 @@
 				<Option object_output="./"/>
 				<Option type="2"/>
 				<Option compiler="gcc"/>
-				<Compiler/>
+				<Compiler>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/program/Makefile&quot;  VERBOSE=1 Program_LIB"/>
-					<CompileFile command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/program/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/program/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/program/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/program/Makefile&quot;  VERBOSE=1 Program_LIB"/>
+					<CompileFile command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/program/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/program/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/program/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Program_LIB/fast">
@@ -153,12 +193,20 @@
 				<Option object_output="./"/>
 				<Option type="2"/>
 				<Option compiler="gcc"/>
-				<Compiler/>
+				<Compiler>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/program/Makefile&quot;  VERBOSE=1 Program_LIB/fast"/>
-					<CompileFile command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/program/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/program/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/program/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/program/Makefile&quot;  VERBOSE=1 Program_LIB/fast"/>
+					<CompileFile command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/program/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/program/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/program/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Terminal_LIB">
@@ -167,12 +215,20 @@
 				<Option object_output="./"/>
 				<Option type="2"/>
 				<Option compiler="gcc"/>
-				<Compiler/>
+				<Compiler>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/terminal/Makefile&quot;  VERBOSE=1 Terminal_LIB"/>
-					<CompileFile command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/terminal/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/terminal/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/terminal/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/terminal/Makefile&quot;  VERBOSE=1 Terminal_LIB"/>
+					<CompileFile command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/terminal/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/terminal/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/terminal/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Terminal_LIB/fast">
@@ -181,12 +237,64 @@
 				<Option object_output="./"/>
 				<Option type="2"/>
 				<Option compiler="gcc"/>
-				<Compiler/>
+				<Compiler>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/terminal/Makefile&quot;  VERBOSE=1 Terminal_LIB/fast"/>
-					<CompileFile command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/terminal/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/terminal/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/terminal/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/terminal/Makefile&quot;  VERBOSE=1 Terminal_LIB/fast"/>
+					<CompileFile command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/terminal/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/terminal/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/terminal/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="MIATerminal">
+				<Option output="/media/awtorode/storage/projects/git/Antonius-MIA/bin/terminal/MIATerminal" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/media/awtorode/storage/projects/git/Antonius-MIA/bin/terminal"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/terminal/Makefile&quot;  VERBOSE=1 MIATerminal"/>
+					<CompileFile command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/terminal/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/terminal/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/terminal/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="MIATerminal/fast">
+				<Option output="/media/awtorode/storage/projects/git/Antonius-MIA/bin/terminal/MIATerminal" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/media/awtorode/storage/projects/git/Antonius-MIA/bin/terminal"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/terminal/Makefile&quot;  VERBOSE=1 MIATerminal/fast"/>
+					<CompileFile command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/terminal/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/terminal/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/terminal/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Utilities_LIB">
@@ -195,12 +303,20 @@
 				<Option object_output="./"/>
 				<Option type="2"/>
 				<Option compiler="gcc"/>
-				<Compiler/>
+				<Compiler>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/Makefile&quot;  VERBOSE=1 Utilities_LIB"/>
-					<CompileFile command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/Makefile&quot;  VERBOSE=1 Utilities_LIB"/>
+					<CompileFile command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Utilities_LIB/fast">
@@ -209,12 +325,20 @@
 				<Option object_output="./"/>
 				<Option type="2"/>
 				<Option compiler="gcc"/>
-				<Compiler/>
+				<Compiler>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/Makefile&quot;  VERBOSE=1 Utilities_LIB/fast"/>
-					<CompileFile command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/Makefile&quot;  VERBOSE=1 Utilities_LIB/fast"/>
+					<CompileFile command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Audio_LIB">
@@ -223,12 +347,20 @@
 				<Option object_output="./"/>
 				<Option type="2"/>
 				<Option compiler="gcc"/>
-				<Compiler/>
+				<Compiler>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/audio/Makefile&quot;  VERBOSE=1 Audio_LIB"/>
-					<CompileFile command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/audio/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/audio/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/audio/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/audio/Makefile&quot;  VERBOSE=1 Audio_LIB"/>
+					<CompileFile command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/audio/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/audio/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/audio/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Audio_LIB/fast">
@@ -237,12 +369,20 @@
 				<Option object_output="./"/>
 				<Option type="2"/>
 				<Option compiler="gcc"/>
-				<Compiler/>
+				<Compiler>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/audio/Makefile&quot;  VERBOSE=1 Audio_LIB/fast"/>
-					<CompileFile command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/audio/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/audio/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/audio/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/audio/Makefile&quot;  VERBOSE=1 Audio_LIB/fast"/>
+					<CompileFile command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/audio/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/audio/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/audio/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Encryption_LIB">
@@ -251,12 +391,20 @@
 				<Option object_output="./"/>
 				<Option type="2"/>
 				<Option compiler="gcc"/>
-				<Compiler/>
+				<Compiler>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/encryption/Makefile&quot;  VERBOSE=1 Encryption_LIB"/>
-					<CompileFile command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/encryption/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/encryption/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/encryption/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/encryption/Makefile&quot;  VERBOSE=1 Encryption_LIB"/>
+					<CompileFile command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/encryption/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/encryption/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/encryption/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Encryption_LIB/fast">
@@ -265,12 +413,20 @@
 				<Option object_output="./"/>
 				<Option type="2"/>
 				<Option compiler="gcc"/>
-				<Compiler/>
+				<Compiler>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/encryption/Makefile&quot;  VERBOSE=1 Encryption_LIB/fast"/>
-					<CompileFile command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/encryption/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/encryption/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/encryption/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/encryption/Makefile&quot;  VERBOSE=1 Encryption_LIB/fast"/>
+					<CompileFile command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/encryption/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/encryption/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j16 -f &quot;/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/encryption/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
@@ -278,10 +434,10 @@
 			<Option target="MIA"/>
 		</Unit>
 		<Unit filename="/media/awtorode/storage/projects/git/Antonius-MIA/bin/libs/database/MIADatabase.cpp">
-			<Option target="Darabase_LIB"/>
+			<Option target="Database_LIB"/>
 		</Unit>
 		<Unit filename="/media/awtorode/storage/projects/git/Antonius-MIA/bin/libs/database/MIADatabase.hpp">
-			<Option target="Darabase_LIB"/>
+			<Option target="Database_LIB"/>
 		</Unit>
 		<Unit filename="/media/awtorode/storage/projects/git/Antonius-MIA/bin/program/Configurator.cpp">
 			<Option target="Program_LIB"/>
@@ -309,6 +465,7 @@
 		</Unit>
 		<Unit filename="/media/awtorode/storage/projects/git/Antonius-MIA/bin/terminal/MIATerminal.cpp">
 			<Option target="Terminal_LIB"/>
+			<Option target="MIATerminal"/>
 		</Unit>
 		<Unit filename="/media/awtorode/storage/projects/git/Antonius-MIA/bin/terminal/MIATerminal.hpp">
 			<Option target="Terminal_LIB"/>

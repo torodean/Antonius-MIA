@@ -7,20 +7,15 @@ usage()
   echo ""
   echo "  Options:"
   echo "    -h    Display this help message."
-  echo "    -v    Enable verbose mode."
-  echo "    -r    Builds a release version."
+  echo "    -i    Installs the executables to the program directory (/usr/bin/)"
 }
 
-
-while getopts "hvr" opt; do
+while getopts "hi" opt; do
   case $opt in
     h) usage
       ;;
-    v) verbose_mode=1
-      echo "VerboseMode: True"
-      ;;
-    r) build_release=1
-      echo "Release build: True"
+    i) install_binaries=1
+      echo "Install binaries: True"
       ;;
     \?)
       echo "Invalid option: -$OPTARG" >&2
@@ -39,3 +34,13 @@ cmake -G "Unix Makefiles"
 make -j16
 
 echo "...MIA Build done!"
+
+if (( install_binaries ))
+then
+  echo "Installing files."
+  sudo mkdir -vp /etc/MIA/resources/InputFiles
+  sudo cp -v bin/resources/*.MIA /etc/MIA/resources/
+  sudo cp -v bin/resources/InputFiles/* /etc/MIA/resources/InputFiles/
+  sudo cp -v bin/terminal/MIATerminal /usr/bin/
+  echo "Finished installing files."
+fi

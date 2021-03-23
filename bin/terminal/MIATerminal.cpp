@@ -376,3 +376,10 @@ void MIATerminal::runTest(){
 }
 
 
+int main()
+{
+    MIATerminal terminal("MIA Terminal");
+    terminal.run("");
+    return 0;
+}
+

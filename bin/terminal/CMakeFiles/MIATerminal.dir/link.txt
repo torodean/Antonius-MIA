@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/MIATerminal.dir/MIATerminal.cpp.o -o MIATerminal  libTerminal_LIB.a ../program/libProgram_LIB.a ../utilities/libUtilities_LIB.a ../utilities/encryption/libEncryption_LIB.a ../utilities/audio/libAudio_LIB.a -lxdo ../libs/database/libDatabase_LIB.a -lmysqlcppconn 

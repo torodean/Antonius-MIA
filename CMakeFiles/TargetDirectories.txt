@@ -18,12 +18,12 @@
 /media/awtorode/storage/projects/git/Antonius-MIA/bin/libs/CMakeFiles/rebuild_cache.dir
 /media/awtorode/storage/projects/git/Antonius-MIA/bin/libs/CMakeFiles/edit_cache.dir
 /media/awtorode/storage/projects/git/Antonius-MIA/bin/libs/database/CMakeFiles/install/strip.dir
-/media/awtorode/storage/projects/git/Antonius-MIA/bin/libs/database/CMakeFiles/install/local.dir
 /media/awtorode/storage/projects/git/Antonius-MIA/bin/libs/database/CMakeFiles/install.dir
 /media/awtorode/storage/projects/git/Antonius-MIA/bin/libs/database/CMakeFiles/list_install_components.dir
 /media/awtorode/storage/projects/git/Antonius-MIA/bin/libs/database/CMakeFiles/rebuild_cache.dir
 /media/awtorode/storage/projects/git/Antonius-MIA/bin/libs/database/CMakeFiles/edit_cache.dir
-/media/awtorode/storage/projects/git/Antonius-MIA/bin/libs/database/CMakeFiles/Darabase_LIB.dir
+/media/awtorode/storage/projects/git/Antonius-MIA/bin/libs/database/CMakeFiles/install/local.dir
+/media/awtorode/storage/projects/git/Antonius-MIA/bin/libs/database/CMakeFiles/Database_LIB.dir
 /media/awtorode/storage/projects/git/Antonius-MIA/bin/program/CMakeFiles/install/strip.dir
 /media/awtorode/storage/projects/git/Antonius-MIA/bin/program/CMakeFiles/install/local.dir
 /media/awtorode/storage/projects/git/Antonius-MIA/bin/program/CMakeFiles/install.dir
@@ -42,6 +42,7 @@
 /media/awtorode/storage/projects/git/Antonius-MIA/bin/terminal/CMakeFiles/install.dir
 /media/awtorode/storage/projects/git/Antonius-MIA/bin/terminal/CMakeFiles/list_install_components.dir
 /media/awtorode/storage/projects/git/Antonius-MIA/bin/terminal/CMakeFiles/rebuild_cache.dir
+/media/awtorode/storage/projects/git/Antonius-MIA/bin/terminal/CMakeFiles/MIATerminal.dir
 /media/awtorode/storage/projects/git/Antonius-MIA/bin/terminal/CMakeFiles/edit_cache.dir
 /media/awtorode/storage/projects/git/Antonius-MIA/bin/terminal/CMakeFiles/Terminal_LIB.dir
 /media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/CMakeFiles/install/strip.dir

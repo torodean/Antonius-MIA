@@ -175,17 +175,17 @@ MIA/fast:
 .PHONY : MIA/fast
 
 #=============================================================================
-# Target rules for targets named Darabase_LIB
+# Target rules for targets named Database_LIB
 
 # Build rule for target.
-Darabase_LIB: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Darabase_LIB
-.PHONY : Darabase_LIB
+Database_LIB: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Database_LIB
+.PHONY : Database_LIB
 
 # fast build rule for target.
-Darabase_LIB/fast:
-	$(MAKE) $(MAKESILENT) -f bin/libs/database/CMakeFiles/Darabase_LIB.dir/build.make bin/libs/database/CMakeFiles/Darabase_LIB.dir/build
-.PHONY : Darabase_LIB/fast
+Database_LIB/fast:
+	$(MAKE) $(MAKESILENT) -f bin/libs/database/CMakeFiles/Database_LIB.dir/build.make bin/libs/database/CMakeFiles/Database_LIB.dir/build
+.PHONY : Database_LIB/fast
 
 #=============================================================================
 # Target rules for targets named Program_LIB
@@ -199,6 +199,19 @@ Program_LIB: cmake_check_build_system
 Program_LIB/fast:
 	$(MAKE) $(MAKESILENT) -f bin/program/CMakeFiles/Program_LIB.dir/build.make bin/program/CMakeFiles/Program_LIB.dir/build
 .PHONY : Program_LIB/fast
+
+#=============================================================================
+# Target rules for targets named MIATerminal
+
+# Build rule for target.
+MIATerminal: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 MIATerminal
+.PHONY : MIATerminal
+
+# fast build rule for target.
+MIATerminal/fast:
+	$(MAKE) $(MAKESILENT) -f bin/terminal/CMakeFiles/MIATerminal.dir/build.make bin/terminal/CMakeFiles/MIATerminal.dir/build
+.PHONY : MIATerminal/fast
 
 #=============================================================================
 # Target rules for targets named Terminal_LIB
@@ -265,9 +278,10 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... Audio_LIB"
-	@echo "... Darabase_LIB"
+	@echo "... Database_LIB"
 	@echo "... Encryption_LIB"
 	@echo "... MIA"
+	@echo "... MIATerminal"
 	@echo "... Program_LIB"
 	@echo "... Terminal_LIB"
 	@echo "... Utilities_LIB"
