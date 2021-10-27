@@ -1,4 +1,4 @@
-# Install script for directory: /media/awtorode/storage/projects/git/Antonius-MIA/bin
+# Install script for directory: /cygdrive/s/projects/git/Antonius-MIA/bin
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -27,66 +27,50 @@ if(NOT CMAKE_INSTALL_COMPONENT)
   endif()
 endif()
 
-# Install shared libraries without execute permission?
-if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
-  set(CMAKE_INSTALL_SO_NO_EXE "1")
-endif()
-
 # Is this installation the result of a crosscompile?
 if(NOT DEFINED CMAKE_CROSSCOMPILING)
   set(CMAKE_CROSSCOMPILING "FALSE")
 endif()
 
-# Set default install directory permissions.
-if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "/usr/bin/objdump")
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/cygdrive/s/projects/git/Antonius-MIA/bin/libs/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/media/awtorode/storage/projects/git/Antonius-MIA/bin/libs/cmake_install.cmake")
+  include("/cygdrive/s/projects/git/Antonius-MIA/bin/program/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/media/awtorode/storage/projects/git/Antonius-MIA/bin/program/cmake_install.cmake")
+  include("/cygdrive/s/projects/git/Antonius-MIA/bin/resources/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/media/awtorode/storage/projects/git/Antonius-MIA/bin/resources/cmake_install.cmake")
+  include("/cygdrive/s/projects/git/Antonius-MIA/bin/terminal/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/media/awtorode/storage/projects/git/Antonius-MIA/bin/terminal/cmake_install.cmake")
-endif()
-
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for the subdirectory.
-  include("/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/cmake_install.cmake")
+  include("/cygdrive/s/projects/git/Antonius-MIA/bin/utilities/cmake_install.cmake")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  if(EXISTS "$ENV{DESTDIR}/usr/bin/MIA" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}/usr/bin/MIA")
-    file(RPATH_CHECK
-         FILE "$ENV{DESTDIR}/usr/bin/MIA"
-         RPATH "")
-  endif()
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/usr/bin/MIA")
+   "/usr/bin/MIA.exe")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/usr/bin" TYPE EXECUTABLE FILES "/media/awtorode/storage/projects/git/Antonius-MIA/bin/MIA")
-  if(EXISTS "$ENV{DESTDIR}/usr/bin/MIA" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}/usr/bin/MIA")
+file(INSTALL DESTINATION "/usr/bin" TYPE EXECUTABLE FILES "/cygdrive/s/projects/git/Antonius-MIA/bin/MIA.exe")
+  if(EXISTS "$ENV{DESTDIR}/usr/bin/MIA.exe" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}/usr/bin/MIA.exe")
     if(CMAKE_INSTALL_DO_STRIP)
-      execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}/usr/bin/MIA")
+      execute_process(COMMAND "/usr/bin/strip.exe" "$ENV{DESTDIR}/usr/bin/MIA.exe")
     endif()
   endif()
 endif()

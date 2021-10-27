@@ -1,8 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/MIATerminal.dir/MIATerminal.cpp.o"
-  "CMakeFiles/MIATerminal.dir/MIATerminal.cpp.o.d"
-  "MIATerminal"
+  "MIATerminal.exe"
   "MIATerminal.pdb"
+  "libMIATerminal.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.

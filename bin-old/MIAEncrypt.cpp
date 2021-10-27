@@ -10,7 +10,6 @@
 
 #include "MIAEncrypt.h"
 #include "MIAProgram.h"
-#include "../bin/utilities/encryption/MIAEncrypt.hpp"
 
 #include <iostream>
 #include <vector>

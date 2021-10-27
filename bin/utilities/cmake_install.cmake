@@ -1,4 +1,4 @@
-# Install script for directory: /media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities
+# Install script for directory: /cygdrive/s/projects/git/Antonius-MIA/bin/utilities
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -27,28 +27,18 @@ if(NOT CMAKE_INSTALL_COMPONENT)
   endif()
 endif()
 
-# Install shared libraries without execute permission?
-if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
-  set(CMAKE_INSTALL_SO_NO_EXE "1")
-endif()
-
 # Is this installation the result of a crosscompile?
 if(NOT DEFINED CMAKE_CROSSCOMPILING)
   set(CMAKE_CROSSCOMPILING "FALSE")
 endif()
 
-# Set default install directory permissions.
-if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "/usr/bin/objdump")
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/cygdrive/s/projects/git/Antonius-MIA/bin/utilities/audio/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/audio/cmake_install.cmake")
-endif()
-
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for the subdirectory.
-  include("/media/awtorode/storage/projects/git/Antonius-MIA/bin/utilities/encryption/cmake_install.cmake")
+  include("/cygdrive/s/projects/git/Antonius-MIA/bin/utilities/encryption/cmake_install.cmake")
 endif()
 

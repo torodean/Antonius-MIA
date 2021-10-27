@@ -1,6 +1,5 @@
 file(REMOVE_RECURSE
   "CMakeFiles/Database_LIB.dir/MIADatabase.cpp.o"
-  "CMakeFiles/Database_LIB.dir/MIADatabase.cpp.o.d"
   "libDatabase_LIB.a"
   "libDatabase_LIB.pdb"
 )

@@ -1,8 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/MIA.dir/MIAMain.cpp.o"
-  "CMakeFiles/MIA.dir/MIAMain.cpp.o.d"
-  "MIA"
+  "MIA.exe"
   "MIA.pdb"
+  "libMIA.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.

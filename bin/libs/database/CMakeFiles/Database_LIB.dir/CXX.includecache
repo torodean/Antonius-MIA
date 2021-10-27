@@ -6,13 +6,13 @@
 
 #IncludeRegexTransform: 
 
-/media/awtorode/storage/projects/git/Antonius-MIA/bin/libs/database/MIADatabase.cpp
+/cygdrive/s/projects/git/Antonius-MIA/bin/libs/database/MIADatabase.cpp
 MIADatabase.hpp
-/media/awtorode/storage/projects/git/Antonius-MIA/bin/libs/database/MIADatabase.hpp
+/cygdrive/s/projects/git/Antonius-MIA/bin/libs/database/MIADatabase.hpp
 iostream
 -
 
-/media/awtorode/storage/projects/git/Antonius-MIA/bin/libs/database/MIADatabase.hpp
+/cygdrive/s/projects/git/Antonius-MIA/bin/libs/database/MIADatabase.hpp
 mysql_connection.h
 -
 cppconn/driver.h

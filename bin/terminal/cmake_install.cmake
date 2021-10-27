@@ -1,4 +1,4 @@
-# Install script for directory: /media/awtorode/storage/projects/git/Antonius-MIA/bin/terminal
+# Install script for directory: /cygdrive/s/projects/git/Antonius-MIA/bin/terminal
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -27,41 +27,25 @@ if(NOT CMAKE_INSTALL_COMPONENT)
   endif()
 endif()
 
-# Install shared libraries without execute permission?
-if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
-  set(CMAKE_INSTALL_SO_NO_EXE "1")
-endif()
-
 # Is this installation the result of a crosscompile?
 if(NOT DEFINED CMAKE_CROSSCOMPILING)
   set(CMAKE_CROSSCOMPILING "FALSE")
 endif()
 
-# Set default install directory permissions.
-if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "/usr/bin/objdump")
-endif()
-
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  if(EXISTS "$ENV{DESTDIR}/usr/bin/MIATerminal" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}/usr/bin/MIATerminal")
-    file(RPATH_CHECK
-         FILE "$ENV{DESTDIR}/usr/bin/MIATerminal"
-         RPATH "")
-  endif()
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/usr/bin/MIATerminal")
+   "/usr/bin/MIATerminal.exe")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/usr/bin" TYPE EXECUTABLE FILES "/media/awtorode/storage/projects/git/Antonius-MIA/bin/terminal/MIATerminal")
-  if(EXISTS "$ENV{DESTDIR}/usr/bin/MIATerminal" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}/usr/bin/MIATerminal")
+file(INSTALL DESTINATION "/usr/bin" TYPE EXECUTABLE FILES "/cygdrive/s/projects/git/Antonius-MIA/bin/terminal/MIATerminal.exe")
+  if(EXISTS "$ENV{DESTDIR}/usr/bin/MIATerminal.exe" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}/usr/bin/MIATerminal.exe")
     if(CMAKE_INSTALL_DO_STRIP)
-      execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}/usr/bin/MIATerminal")
+      execute_process(COMMAND "/usr/bin/strip.exe" "$ENV{DESTDIR}/usr/bin/MIATerminal.exe")
     endif()
   endif()
 endif()

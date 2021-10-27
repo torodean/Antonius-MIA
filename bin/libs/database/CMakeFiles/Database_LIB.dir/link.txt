@@ -1,2 +1,2 @@
-/usr/bin/ar qc libDatabase_LIB.a CMakeFiles/Database_LIB.dir/MIADatabase.cpp.o
-/usr/bin/ranlib libDatabase_LIB.a
+/usr/bin/ar.exe qc libDatabase_LIB.a  CMakeFiles/Database_LIB.dir/MIADatabase.cpp.o
+/usr/bin/ranlib.exe libDatabase_LIB.a
