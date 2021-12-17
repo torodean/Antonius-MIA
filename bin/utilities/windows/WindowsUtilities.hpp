@@ -17,10 +17,6 @@ public:
 
     ~WindowsUtilities() = default;
 
-protected:
-
-private:
-
     /**
      * Runs a cmd terminal command.
      * @param command[std::string&] - A reference to the command to run.

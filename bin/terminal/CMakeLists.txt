@@ -8,7 +8,7 @@ if(WIN32 OR CYGWIN)
     target_link_libraries(Terminal_LIB Program_LIB Utilities_LIB Windows_LIB Encryption_LIB Audio_LIB)
 elseif(UNIX)
     target_link_libraries(Terminal_LIB Program_LIB Utilities_LIB Encryption_LIB Audio_LIB xdo)
-endif(WIN32 OR CYGWIN)
+endif()
 
 add_executable(MIATerminal MIATerminal.cpp)
 target_link_libraries(MIATerminal Terminal_LIB)

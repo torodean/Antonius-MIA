@@ -116,6 +116,8 @@ Commands::MIAInput Commands::commandToInputEnum(string& input)
         output = MIAInput::SPLASH;
     else if (input == "workout -w")
         output = MIAInput::WORKOUT_W;
+	else if (input == "net -help")
+		output = MIAInput::NETHELP;
     else if (input == "net session")
         output = MIAInput::NETSESSION;
     else if (input == "net server -w")

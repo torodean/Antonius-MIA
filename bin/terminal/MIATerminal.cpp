@@ -15,6 +15,10 @@
 #include <iostream>
 #include <utility>
 
+#if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__) || defined _WIN32 || defined _WIN64 || defined __CYGWIN__
+#include "../utilities/windows/WindowsUtilities.hpp"
+#endif
+
 using std::string;
 using std::remove;
 using std::stoi;
@@ -142,7 +146,7 @@ void MIATerminal::printHelp()
     cout << "... workout       | Generates a workout from the values defined in workouts.txt." << endl;
     cout << "... workout -w    | Generates a weekly workout and outputs it to a file." << endl;
     cout << "... exit          | Quits MIA. " << endl;
-#ifdef WINN32
+#if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__) || defined _WIN32 || defined _WIN64 || defined __CYGWIN__
     cout << "... button spam   | Spams a specified button (key press)." << endl;
     cout << "... button spam -t| Spams a specified button (key press) separated by tabs." << endl;
     cout << "... eyedropper    | Returns the RGB value of the pixel located at the cursor." << endl;
@@ -307,6 +311,9 @@ void MIATerminal::performMIACommand(string& input)
         case Commands::MIAInput::WORKOUT_W:
             cmd.workoutRunner(true);
             break;
+        case Commands::MIAInput::NETHELP:
+            helpNet();
+            break;
         case Commands::MIAInput::NETSESSION:
             cmd.runNetSessionEnum();
             break;
@@ -320,8 +327,8 @@ void MIATerminal::performMIACommand(string& input)
             cmd.unloadLetterRunner();
             break;
         case Commands::MIAInput::DATE:
-#ifdef WIN32
-            terminalCommand("DATE");
+#if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__) || defined _WIN32 || defined _WIN64 || defined __CYGWIN__
+            WindowsUtilities::terminalCommand("DATE");
 #else
             Error::returnError(Error::ErrorCode::Windows_Only_Feature);
 #endif

@@ -58,6 +58,7 @@ public:
         WORKOUT,
         SPLASH,
         WORKOUT_W,
+		NETHELP,
         NETSESSION,
         NETSERVER_W,
         NETSERVER_S,
