@@ -1,9 +1,9 @@
-This is makeindex, version 2.15 [MiKTeX 2.9.6300 64-bit] (kpathsea + Thai support).
+This is makeindex, version 2.15 [MiKTeX 21.2].
 Scanning input file MIAManual.idx....
 !! Input index error (file = MIAManual.idx, line = 7):
    -- Illegal null field.
-done (38 entries accepted, 1 rejected).
-Sorting entries....done (195 comparisons).
-Generating output file MIAManual.ind....done (82 lines written, 0 warnings).
+done (41 entries accepted, 1 rejected).
+Sorting entries....done (216 comparisons).
+Generating output file MIAManual.ind....done (87 lines written, 0 warnings).
 Output written in MIAManual.ind.
 Transcript written in MIAManual.ilg.

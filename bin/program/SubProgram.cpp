@@ -1,8 +1,8 @@
 /**
  * File: SubProgram.cpp
  * Author: Antonius Torode
- * Date: 03/01/2021
- * Description:
+ * Creation Date: 03/01/2021
+ * Description: This is the cpp code corresponsind to a MIA sub-program.
  */
 
 #include "SubProgram.hpp"

@@ -12,7 +12,7 @@
 #include "FileUtils.hpp"
 #include "MathUtils.hpp"
 #include "../program/Configurator.hpp"
-#include "../terminal/MIATerminal.hpp"
+#include "../terminal/TerminalTools.hpp"
 #include "../program/Error.hpp"
 
 using std::string;

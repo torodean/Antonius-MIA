@@ -5,8 +5,6 @@
  * Description:
  */
 
-#ifndef MIA2_MATHUTILS_HPP
-#define MIA2_MATHUTILS_HPP
 
 class MathUtils
 {
@@ -46,4 +44,3 @@ private:
     static int rolldXX(int xx, int seed);
 };
 
-#endif //MIA2_MATHUTILS_HPP

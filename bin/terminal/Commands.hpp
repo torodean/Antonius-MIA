@@ -1,22 +1,22 @@
 /**
  * File: Commands.cpp
  * Author: Antonius Torode
- * Date: 03/01/2021
- * Description:
+ * Creation Date: 03/01/2021
+ * Description: This file contains the Commands class, which defines the available terminal commands and their runner commands.
  */
-
-#ifndef MIA2_COMMANDS_HPP
-#define MIA2_COMMANDS_HPP
 
 #include <string>
 
 class Commands
 {
 public:
+	/// Main constructor for the Commands class.
     Commands() = default;
 
+	// Main destructor for the Commands class.
     ~Commands() = default;
 
+	// Valid MIA commands.
     enum MIAInput
     {
         EXCUSE,
@@ -73,7 +73,7 @@ public:
 
     /**
      * A function used for testing
-     * This should be placed at the end of the file for easy accessibility.
+     * This should be placed at the end of the cpp file for easy accessibility.
      */
     static void runTest();
 
@@ -81,8 +81,8 @@ public:
      * Takes the user input as a string and converts it to a corresponding
      * value of Program::MIAInput enum to be used in the switch case.
      * Replaced Program::commandToInputVar(string input) in versin 0.145.
-     * @param input
-     * @return
+     * @param input - the string input of a command.
+     * @return - the enum object correlating to the command text.
      */
     static MIAInput commandToInputEnum(std::string &input);
 
@@ -203,7 +203,7 @@ public:
     static void solveQuadraticFormulaRunner();
 
     /**
-     * A joke function I created to rearrange the letters in a friends name. For unspecified reasons.
+     * A joke function I created to rearrange the letters in a friends name. For unspecified reasons. Never deprecate.
      */
     static void pranjal();
 
@@ -271,10 +271,11 @@ public:
      */
     void workoutRunner(bool weekly);
 
+	/**
+	 * A method to repeat an alarm sound on a regular cadence.
+	 */
     [[noreturn]] static void runRepeatingAlarm();
 
 protected:
 
 };
-
-#endif //MIA2_COMMANDS_HPP

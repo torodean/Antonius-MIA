@@ -10,9 +10,6 @@
 #include <vector>
 #include <string>
 
-#ifndef D3CEncrypt_HPP
-#define D3CEncrypt_HPP
-
 using std::vector;
 using std::string;
 
@@ -82,4 +79,3 @@ private:
 
 };
 
-#endif /* D3CEncrypt_HPP */

@@ -10,8 +10,6 @@
 #ifndef WINKEYS_HPP
 #define WINKEYS_HPP
 
-#include "MIAProgram.h"
-
 #include <windows.h>
 #include <thread>
 #include <chrono>

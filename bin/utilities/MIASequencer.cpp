@@ -9,11 +9,8 @@
 #include "../program/Configurator.hpp"
 #include "StringUtils.hpp"
 #include "../program/Error.hpp"
+#include "SystemUtils.hpp"
 
-// Include the WinKeys.hpp file only on Windows builds.
-#ifdef WIN32
-#include "WinKeys.hpp"
-#endif
 
 #include <iostream>
 #include <vector>
@@ -243,7 +240,7 @@ void Sequencer::activateSequence(const string& sequence){
 	vector<string> actions = getSequenceActions(sequence);
 	
 	for(int i=0;i<size;i++){
-		keys.sleep(timing);
+		SystemUtils::sleepSeconds(timing);
 		if(XCoords[i] == 0 && YCoords[i] == 0){
 			if(Configurator::getVerboseMode()){
 				cout << "...Coordinates both zero, typing " << actions[i] << endl;
@@ -258,7 +255,7 @@ void Sequencer::activateSequence(const string& sequence){
 				if(Configurator::getVerboseMode()){
 					cout << "...Coordinates both zero, Hovering for " << hover << " seconds." << endl;
 				}
-				keys.sleep(hover);
+				SystemUtils::sleepSeconds(hover);
 			} else {
 				if(Configurator::getVerboseMode()){
 					cout << "...Coordinates not zero, performing action: " << actions[i] << endl;

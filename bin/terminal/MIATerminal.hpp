@@ -1,5 +1,5 @@
 /**
- * File: MIATerminal.cpp
+ * File: MIATerminal.hpp
  * Author: Antonius Torode
  * Date: 03/01/2021
  * Description:
@@ -15,28 +15,6 @@
 #include "../utilities/encryption/D3CEncrypt.hpp"
 
 using std::string;
-
-/**
- * These are tools used by the terminal class that also need called outside of the terminal class.
- */
-class MIATerminalTools
-{
-public:
-
-    MIATerminalTools() = default;
-
-    ~MIATerminalTools() = default;
-
-    /**
-     * Prints a blank line.
-     */
-    static void blankLine();
-
-    /**
-     * Displays a blank line surrounded by dots - used for formatting.
-     */
-    static void blankDots();
-};
 
 /**
  * Main class for running the Terminal sub-program.

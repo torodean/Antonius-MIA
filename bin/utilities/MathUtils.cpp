@@ -11,7 +11,7 @@
 #include "MathUtils.hpp"
 #include "../program/Configurator.hpp"
 #include "StringUtils.hpp"
-#include "../terminal/MIATerminal.hpp"
+#include "../terminal/TerminalTools.hpp"
 
 using std::cout;
 using std::endl;

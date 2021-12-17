@@ -5,9 +5,6 @@
  * Description:
  */
 
-#ifndef MIA2_STRINGUTILS_HPP
-#define MIA2_STRINGUTILS_HPP
-
 #include <string>
 #include <vector>
 
@@ -103,5 +100,3 @@ public:
     static std::string getBetweenEqualAndSemiColon(std::string line);
 
 };
-
-#endif //MIA2_STRINGUTILS_HPP

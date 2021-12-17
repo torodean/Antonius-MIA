@@ -30,7 +30,9 @@ done
 
 echo "...Beginning MIA Build!"
 
-cmake -G "Unix Makefiles"
+mkdir -p build
+cmake -G "Unix Makefiles" -Bbuild/
+cd build
 make -j16
 
 echo "...MIA Build done!"

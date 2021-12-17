@@ -1,2 +1,0 @@
-/usr/bin/ar qc libUtilities_LIB.a  CMakeFiles/Utilities_LIB.dir/StringUtils.cpp.o CMakeFiles/Utilities_LIB.dir/MathUtils.cpp.o CMakeFiles/Utilities_LIB.dir/FileUtils.cpp.o CMakeFiles/Utilities_LIB.dir/MIASequencer.cpp.o CMakeFiles/Utilities_LIB.dir/D3CMath.cpp.o CMakeFiles/Utilities_LIB.dir/MIAWorkout.cpp.o
-/usr/bin/ranlib libUtilities_LIB.a

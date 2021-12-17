@@ -11,15 +11,15 @@
 
 void SystemUtils::sleepMilliseconds(int time = 500)
 {
-    std::this_thread::sleep_for (std::chrono::milliseconds(time));
+    std::this_thread::sleep_for(std::chrono::milliseconds(time));
 }
 
 void SystemUtils::sleepMinutes(int time = 1)
 {
-    std::this_thread::sleep_for (std::chrono::minutes(time));
+    std::this_thread::sleep_for(std::chrono::minutes(time));
 }
 
 void SystemUtils::sleepSeconds(int time = 1)
 {
-    std::this_thread::sleep_for (std::chrono::seconds(time));
+    std::this_thread::sleep_for(std::chrono::seconds(time));
 }

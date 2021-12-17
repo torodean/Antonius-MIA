@@ -5,9 +5,6 @@
  * Description:
  */
 
-#ifndef MIA2_FILEUTILS_HPP
-#define MIA2_FILEUTILS_HPP
-
 class FileUtils
 {
 public:
@@ -39,5 +36,3 @@ public:
 protected:
 
 };
-
-#endif //MIA2_FILEUTILS_HPP

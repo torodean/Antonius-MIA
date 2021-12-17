@@ -1,14 +1,14 @@
 /**
  * File: Error.cpp
  * Author: Antonius Torode
- * Date: 03/01/2021
- * Description:
+ * Creation Date: 03/01/2021
+ * Description: This file contains the Error class code.
  */
 
 #include <iostream>
 #include <string>
 #include "Error.hpp"
-#include "../terminal/MIATerminal.hpp"
+#include "../terminal/TerminalTools.hpp"
 
 using std::cout;
 using std::endl;
@@ -17,44 +17,45 @@ using std::string;
 
 int Error::returnError(int errorCode, const string& details)
 {
-    switch(errorCode){
-        case MIACONFIGFILENOTFOUND:
+    switch(errorCode)
+	{
+        case MIAConfig_File_Not_Found:
             cout << "...ERROR 31403: MIAConfig.MIA file not found." << endl;
             break;
-        case FATALFILENOTFOUND:
+        case FATAL_File_Not_Found:
             cout << "...ERROR 31404: FATAL: File not found. " << details << endl;
             break;
-        case FUNCTIONINDEV:
-            cout << "...ERROR 31415: Function still in Development." << endl;
+        case Feature_In_Dev:
+            cout << "...ERROR 31415: Feature still in Development." << endl;
             break;
-        case WINDOWSONLYFUNCTIONALITY:
+        case Windows_Only_Feature:
             cout << "...ERROR 31416: This feature is currently only programmed for Windows." << endl;
             break;
-        case INVALIDMIACONFIGOPTION:
+        case Invalid_MIAConfig_Option:
             cout << "...ERROR 31417: Invalid Option in MIAConfig: " << details << ".  Using default value." << endl;
             break;
-        case NOTHINGSETFORTESTING:
+        case Nothing_set_For_Testing:
             cout << "...ERROR 31418: Nothing set for testing." << endl;
             break;
-        case ISSUESETTINGMIAVARIABLE:
+        case Issue_Setting_MIA_Variable:
             cout << "...ERROR 31419: Issue setting MIA variable: " << details << endl;
             break;
-        case ISSUEWITHSEQUENCEFILE:
+        case Issue_With_Sequence_File:
             cout << "...ERROR 31420: Issue with MIASequenceFile. " << endl;
             break;
-        case MIASEQUENCEFILENOTFOUND:
+        case MIA_Sequence_File_Not_Found:
             cout << "...ERROR 31421: MIASequences File not found! " << endl;
             break;
-        case INVALIDSEQUENCEOPTION:
+        case Invalid_Sequence_Option:
             cout << "...ERROR 31422: Invalid Option in MIASequences: " << details << endl;
             break;
-        case CANTFINDMAPPEDVALUE:
+        case Cannot_Find_Mapped_Value:
             cout << "...ERROR 31423: Error finding mapped value: " << details << endl;
             break;
-        case INVALIDCHARACTERINPUT:
+        case Invalid_Character_Input:
             cout << "...ERROR 31424: Invalid Character input: " << details << endl;
             break;
-        case LINUXONLYFUNCTIONALITY:
+        case Linux_Only_Feature:
             cout << "..Error 31425: This feature is currently only programmed for Linux. " << details << endl;
             break;
         default:
@@ -82,77 +83,77 @@ void Error::errorInfo(int error)
 {
     MIATerminalTools::blankDots();
     switch(error){
-        case ERROR_SUCCESS:
-            cout << "...0: ERROR_SUCCESS - The operation completed successfully." << endl;
+        case Success:
+            cout << "...0: Success - The operation completed successfully." << endl;
             break;
-        case ERROR_ACCESS_DENIED:
-            cout << "...5: ERROR_ACCESS_DENIED" << endl;
+        case Access_denied:
+            cout << "...5: Access_denied" << endl;
             break;
-        case ERROR_GEN_FAILURE:
-            cout << "...31: ERROR_GEN_FAILURE - A device attached to the system is not functioning." << endl;
+        case Gen_Failure:
+            cout << "...31: Gen_Failure - A device attached to the system is not functioning." << endl;
             break;
-        case ERROR_BAD_NETPATH:
-            cout << "...53: ERROR_BAD_NETPATH - The network path was not found." << endl;
+        case Bad_Net_Path:
+            cout << "...53: Bad_Net_Path - The network path was not found." << endl;
             break;
-        case ERROR_INVALID_PARAMETER:
-            cout << "...87: ERROR_INVALID_PARAMETER - The parameter is incorrect." << endl;
+        case Invalid_Parameter:
+            cout << "...87: Invalid_Parameter - The parameter is incorrect." << endl;
             break;
-        case ERROR_INVALID_LEVEL:
-            cout << "...124: ERROR_INVALID_LEVEL - The system call level is not correct." << endl;
+        case Invalid_Level:
+            cout << "...124: Invalid_Level - The system call level is not correct." << endl;
             break;
-        case FILENOTFOUND:
-            cout << "...404: FILENOTFOUND - File not found." << endl;
+        case File_Not_Found:
+            cout << "...404: File_Not_Found - File not found." << endl;
             break;
-        case ERROR_LOGON_FAILURE:
-            cout << "...1326: ERROR_LOGON_FAILURE - The user name or password is incorrect." << endl;
+        case Logon_Failure:
+            cout << "...1326: Logon_Failure - The user name or password is incorrect." << endl;
             break;
-        case RPC_S_SERVER_UNAVAILABLE:
-            cout << "...1722: RPC_S_SERVER_UNAVAILABLE - The RPC server is unavailable." << endl;
+        case RPC_S_Server_Unavailable:
+            cout << "...1722: RPC_S_Server_Unavailable - The RPC server is unavailable." << endl;
             break;
-        case NERR_USERNOTFOUND:
-            cout << "...2221: NERR_UserNotFound - The user name could not be found." << endl;
+        case NErr_User_Not_Found:
+            cout << "...2221: NErr_User_Not_Found - The user name could not be found." << endl;
             break;
-        case ERROR_NO_BROWSER_SERVERS_FOUND:
-            cout << "...6118: ERROR_NO_BROWSER_SERVERS_FOUND" << endl;
+        case No_Browser_Servers_Found:
+            cout << "...6118: No_Browser_Servers_Found" << endl;
             cout << "...    - The list of servers for this workgroup is not currently available." << endl;
             break;
-        case MIACONFIGFILENOTFOUND:
+        case MIAConfig_File_Not_Found:
             cout << "...31403: MIAsettings file not found." << endl;
             break;
-        case FATALFILENOTFOUND:
+        case FATAL_File_Not_Found:
             cout << "...31404: FATAL: File not found." << endl;
             break;
-        case FUNCTIONINDEV:
-            cout << "...31415: Function still in Development." << endl;
+        case Feature_In_Dev:
+            cout << "...31415: Feature still in Development." << endl;
             break;
-        case WINDOWSONLYFUNCTIONALITY:
+        case Windows_Only_Feature:
             cout << "...31416: This feature is currently only programmed for Windows." << endl;
             break;
-        case INVALIDMIACONFIGOPTION:
+        case Invalid_MIAConfig_Option:
             cout << "...31417: Invalid Option in MIAConfig: invalidVariable. Using default value." << endl;
             break;
-        case NOTHINGSETFORTESTING:
+        case Nothing_set_For_Testing:
             cout << "...31418: Nothing set for testing." << endl;
             break;
-        case ISSUESETTINGMIAVARIABLE:
+        case Issue_Setting_MIA_Variable:
             cout << "...ERROR 31419: Issue setting MIA variable. " << endl;
             break;
-        case ISSUEWITHSEQUENCEFILE:
+        case Issue_With_Sequence_File:
             cout << "...ERROR 31420: Issue with MIASequenceFile. " << endl;
             break;
-        case MIASEQUENCEFILENOTFOUND:
+        case MIA_Sequence_File_Not_Found:
             cout << "...ERROR 31421: MIASequences File not found! " << endl;
             break;
-        case INVALIDSEQUENCEOPTION:
+        case Invalid_Sequence_Option:
             cout << "...ERROR 31422: Invalid Option in MIASequences. " << endl;
             break;
-        case CANTFINDMAPPEDVALUE:
+        case Cannot_Find_Mapped_Value:
             cout << "...ERROR 31423: Error finding mapped value. " << endl;
             break;
-        case INVALIDCHARACTERINPUT:
+        case Invalid_Character_Input:
             cout << "...ERROR 31424: Invalid Character input. " << endl;
             break;
-        case LINUXONLYFUNCTIONALITY:
+        case Linux_Only_Feature:
             cout << "..Error 31425: This feature is currently only programmed for Linux. " << endl;
             break;
         default:
@@ -160,17 +161,17 @@ void Error::errorInfo(int error)
             cout << "...Full List of programmed error codes follow." << endl;
             MIATerminalTools::blankDots();
             cout << "...UNKNOWN: A catastrophic Failure Occurred." << endl;
-            cout << "...0: ERROR_SUCCESS - The operation completed successfully." << endl;
-            cout << "...5: ERROR_ACCESS_DENIED" << endl;
-            cout << "...31: ERROR_GEN_FAILURE - A device attached to the system is not functioning." << endl;
-            cout << "...53: ERROR_BAD_NETPATH - The network path was not found." << endl;
-            cout << "...87: ERROR_INVALID_PARAMETER - The parameter is incorrect." << endl;
-            cout << "...124: ERROR_INVALID_LEVEL - The system call level is not correct." << endl;
+            cout << "...0: Success - The operation completed Successfully." << endl;
+            cout << "...5: Access_denied" << endl;
+            cout << "...31: Gen_Failure - A device attached to the system is not functioning." << endl;
+            cout << "...53: Bad_Net_Path - The network path was not found." << endl;
+            cout << "...87: Invalid_Parameter - The parameter is incorrect." << endl;
+            cout << "...124: Invalid_Level - The system call level is not correct." << endl;
             cout << "...404: File not found." << endl;
-            cout << "...1326: ERROR_LOGON_FAILURE - The user name or password is incorrect." << endl;
-            cout << "...1722: RPC_S_SERVER_UNAVAILABLE - The RPC server is unavailable." << endl;
-            cout << "...2221: NERR_UserNotFound - The user name could not be found." << endl;
-            cout << "...6118: ERROR_NO_BROWSER_SERVERS_FOUND" << endl;
+            cout << "...1326: Logon_Failure - The user name or password is incorrect." << endl;
+            cout << "...1722: RPC_S_Server_Unavailable - The RPC server is unavailable." << endl;
+            cout << "...2221: NErr_User_Not_Found - The user name could not be found." << endl;
+            cout << "...6118: No_Browser_Servers_Found" << endl;
             cout << "...    - The list of servers for this workgroup is not currently available." << endl;
             cout << "...31403: MIAsettings file not found." << endl;
             cout << "...31404: FATAL: File not found." << endl;

@@ -1,8 +1,8 @@
 /**
  * File: Configurator.cpp
  * Author: Antonius Torode
- * Date: 03/01/2021
- * Description:
+ * Creation Date: 03/01/2021
+ * Description: The main code for hte Configurator.
  */
 
 #include <iostream>
@@ -18,15 +18,23 @@ using std::endl;
 
 bool Configurator::ProgramVariables::verboseMode = false;
 
+// Testing a better option of storing version value in top level CMakeList File.
+#ifdef MIAVERSION
+	#define MIA_VERSION_VALUE MIAVERSION
+#else
+	#define MIA_VERSION_VALUE "Unknown"
+#endif
+std::string Configurator::ProgramVariables::MIA_VERSION = MIA_VERSION_VALUE;
+
+
 Configurator::Configurator() : VERSION("0.200")
 {
     initialize();
-    initializeSettings(false);
 }
 
 void Configurator::initialize()
 {
-
+    initializeSettings(false);
 }
 
 void Configurator::setVerboseMode(string value)
@@ -65,24 +73,20 @@ void Configurator::initializeSettings(bool printSettings)
 
         //If true, print the configuration file settings.
         if (getVerboseMode())
-        {
             cout << endl << "...Config file output: " << endl;
-        }
+        
         while(getline(file,line))
         {
             if (line[0] != '#' && !line.empty() && line.size()>2)
             {
-                if(getVerboseMode())
-                {
-                    cout << line << endl;
-                }
+                if(getVerboseMode()) 
+					cout << line << endl;
                 lines.push_back(line);
             }
         }
-        if(getVerboseMode())
-        {
-            cout << endl;
-        }
+        if(getVerboseMode()) 
+			cout << endl;
+
         int size = lines.size();
         int equalSignLocation;
         string variable, value;
@@ -97,12 +101,12 @@ void Configurator::initializeSettings(bool printSettings)
             value.erase(remove(value.begin(), value.end(), '\r'), value.end());
 
             if(printSettings)
-            {
                 cout << "...Setting variable: " << variable << " to '" << value << "'" << endl;
-            }
             setMIAVariables(variable, value);
         }
-    } else {
+    } 
+	else 
+	{
         if (printSettings)
         {
             Error::returnError(31403);
@@ -324,18 +328,35 @@ std::string Configurator::getFilePath(Configurator::ProgramFilePaths::filePathTy
 {
     switch (filePath)
     {
-        case ProgramFilePaths::MIACONFIGFILEPATH: return programFilePaths.MIAConfigFile;
-        case ProgramFilePaths::EXCUSEFILEPATH: return programFilePaths.excuseFilePath;
-        case ProgramFilePaths::INPUTFILEPATH: return programFilePaths.inputFilePath;
-        case ProgramFilePaths::WORKOUTSFILEPATH: return programFilePaths.workoutsFilePath;
-        case ProgramFilePaths::WORKOUTOUTPUTFILEPATH: return programFilePaths.workoutOutputFilePath;
-        case ProgramFilePaths::CRYPTFILEPATH: return programFilePaths.cryptFilePath;
-        case ProgramFilePaths::DECRYPTFILEPATH: return programFilePaths.decryptFilePath;
-        case ProgramFilePaths::SEQUENCESFILEPATH: return programFilePaths.sequencesFilePath;
+        case ProgramFilePaths::MIACONFIGFILEPATH: 
+			return programFilePaths.MIAConfigFile; 
+			break;
+        case ProgramFilePaths::EXCUSEFILEPATH: 
+			return programFilePaths.excuseFilePath; 
+			break;
+        case ProgramFilePaths::INPUTFILEPATH: 
+			return programFilePaths.inputFilePath; 
+			break;
+        case ProgramFilePaths::WORKOUTSFILEPATH: 
+			return programFilePaths.workoutsFilePath; 
+			break;
+        case ProgramFilePaths::WORKOUTOUTPUTFILEPATH: 
+			return programFilePaths.workoutOutputFilePath; 
+			break;
+        case ProgramFilePaths::CRYPTFILEPATH: 
+			return programFilePaths.cryptFilePath; 
+			break;
+        case ProgramFilePaths::DECRYPTFILEPATH: 
+			return programFilePaths.decryptFilePath; 
+			break;
+        case ProgramFilePaths::SEQUENCESFILEPATH: 
+			return programFilePaths.sequencesFilePath; 
+			break;
         case ProgramFilePaths::UNKNOWNFILEPATH:
         default:
             Error::returnError(31419, Configurator::enumFilePathToStringFilePath(filePath));
             return "unknownFilePath";
+			break;
     }
 }
 
@@ -364,13 +385,19 @@ int Configurator::getWoWMailboxSendLetterLocation(char coord)
 }
 void Configurator::setWoWMailboxFirstLetterLocation(char coord, const string& value)
 {
-    if (StringUtils::is_digits(value)){
-        if(coord == 'x'){
+    if (StringUtils::is_digits(value))
+	{
+        if(coord == 'x')
+		{
             wowProgramVariables.WoWMailboxFirstLetterLocationX = stoi(value);
-        } else if (coord == 'y'){
+        } 
+		else if (coord == 'y')
+		{
             wowProgramVariables.WoWMailboxFirstLetterLocationY = stoi(value);
         }
-    } else {
+    } 
+	else 
+	{
         if(Configurator::getVerboseMode())
             Error::returnError(31417);
     }
@@ -489,6 +516,7 @@ string Configurator::getDefaultButtonCombination() const
 }
 
 //Returns the Version number of MIA.
-string Configurator::getMIAVersion(){
+string Configurator::getMIAVersion()
+{
     return VERSION;
 }

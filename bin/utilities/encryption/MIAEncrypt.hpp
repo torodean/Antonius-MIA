@@ -5,8 +5,6 @@
  * Description:
  */
 
-#ifndef MIA2_MIAENCRYPT_HPP
-#define MIA2_MIAENCRYPT_HPP
 
 #include <string>
 #include <vector>
@@ -76,5 +74,3 @@ protected:
 private:
 
 };
-
-#endif //MIA2_MIAENCRYPT_HPP

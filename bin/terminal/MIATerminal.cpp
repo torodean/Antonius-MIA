@@ -1,16 +1,15 @@
 /**
  * File: MIATerminal.cpp
  * Author: Antonius Torode
- * Date: 03/01/2021
- * Description:
+ * Creation Date: 03/01/2021
+ * Description:A class for terminal specific features.
  */
 
 #include "MIATerminal.hpp"
-#include "Commands.hpp"
+#include "TerminalTools.hpp"
 #include "../utilities/StringUtils.hpp"
 #include "../utilities/MathUtils.hpp"
 #include "../utilities/FileUtils.hpp"
-#include "../utilities/encryption/D3CEncrypt.hpp"
 #include "../program/Error.hpp"
 
 #include <iostream>
@@ -47,11 +46,6 @@ void MIATerminal::printSplash()
     cout << "....................     Programmer: Antonius Torode      ...................." << endl;
     cout << "....................      Compiled on: " << __DATE__ << "        ...................." << endl;
     cout << ".............................................................................." << endl;
-}
-
-void MIATerminalTools::blankDots()
-{
-    cout << "...                                                                        ..." << endl;
 }
 
 void MIATerminal::intro()
@@ -93,11 +87,6 @@ void MIATerminal::helpMessage()
     cout << "... Please enter a command.                                                ..." << endl;
     MIATerminalTools::blankDots();
     MIATerminalTools::blankLine();
-}
-
-void MIATerminalTools::blankLine()
-{
-    cout << endl;
 }
 
 bool MIATerminal::useExcuse()
@@ -169,7 +158,8 @@ void MIATerminal::printHelp()
 #endif
 }
 
-void MIATerminal::helpPrime(){
+void MIATerminal::helpPrime()
+{
     cout << "... A list of various valid commands and a brief summary.                  ..." << endl;
     cout << "... Commands are NOT case sensitive.                                       ..." << endl;
     MIATerminalTools::blankDots();
@@ -180,7 +170,8 @@ void MIATerminal::helpPrime(){
     cout << "... prime -n -c   | Clears the file created by 'prime -n -p'." << endl;
 }
 
-void MIATerminal::helpNet(){
+void MIATerminal::helpNet()
+{
     cout << "... A list of various valid commands and a brief summary.                  ..." << endl;
     cout << "... Commands are NOT case sensitive.                                       ..." << endl;
     MIATerminalTools::blankDots();
@@ -332,7 +323,7 @@ void MIATerminal::performMIACommand(string& input)
 #ifdef WIN32
             terminalCommand("DATE");
 #else
-            Error::returnError(Error::ErrorCode::WINDOWSONLYFUNCTIONALITY);
+            Error::returnError(Error::ErrorCode::Windows_Only_Feature);
 #endif
             break;
         case Commands::MIAInput::DICEROLL:

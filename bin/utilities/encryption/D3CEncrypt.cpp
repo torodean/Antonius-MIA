@@ -14,7 +14,7 @@
 #include <cstdlib>
 #include <cmath>
 #include "D3CEncrypt.hpp"
-#include "../../terminal/MIATerminal.hpp"
+#include "../../terminal/TerminalTools.hpp"
 
 using std::vector;
 using std::string;

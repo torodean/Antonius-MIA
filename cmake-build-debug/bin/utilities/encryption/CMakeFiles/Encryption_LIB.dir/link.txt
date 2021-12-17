@@ -1,2 +1,0 @@
-/usr/bin/ar qc libEncryption_LIB.a  CMakeFiles/Encryption_LIB.dir/D3CEncrypt.cpp.o CMakeFiles/Encryption_LIB.dir/D3CEncryptPW.cpp.o
-/usr/bin/ranlib libEncryption_LIB.a

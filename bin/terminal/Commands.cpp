@@ -1,14 +1,14 @@
 /**
  * File: Commands.cpp
  * Author: Antonius Torode
- * Date: 03/01/2021
+ * Creation Date: 03/01/2021
  * Description:
  */
 
 #include <iostream>
 #include "Commands.hpp"
 #include "../utilities/StringUtils.hpp"
-#include "MIATerminal.hpp"
+#include "TerminalTools.hpp"
 #include "../utilities/D3CMath.hpp"
 #include "../program/Error.hpp"
 #include "../utilities/FileUtils.hpp"
@@ -17,8 +17,16 @@
 #include "../utilities/MIAWorkout.hpp"
 #include "../utilities/audio/SystemSounds.hpp"
 #include "../utilities/SystemUtils.hpp"
-#include "../utilities/VirtualKeyStrokes.hpp"
-#include "../libs/database/MIADatabase.hpp"
+//#include "../libs/database/MIADatabase.hpp"
+
+// If windows, we want the LOLA application tools to be loaded and the windows features.
+#if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__) || defined _WIN32 || defined _WIN64 || defined __CYGWIN__
+#include "../utilities/windows/LOLANetUse.hpp"
+#include <Windows.h>
+#else
+#include <unistd.h>
+#endif
+
 
 using std::cout;
 using std::endl;
@@ -27,6 +35,8 @@ using std::string;
 
 Commands::MIAInput Commands::commandToInputEnum(string& input)
 {
+	// First, set the output to an excuse in case the valid one is not found.
+	// Doubles ans a MIAInput initialization.
     Commands::MIAInput output = MIAInput::EXCUSE;
 
     if(input == "help")
@@ -65,7 +75,8 @@ Commands::MIAInput Commands::commandToInputEnum(string& input)
         output = MIAInput::LATTICE;
     else if (input == "prime -n")
         output = MIAInput::PRIME_N;
-    else if (input == "prime -n -p" || input == "prime -p -n")
+	//@TODO Code in automation for parameter order swapping.
+    else if (input == "prime -n -p" || input == "prime -p -n") 
         output = MIAInput::PRIME_N_P;
     else if (input == "prime -n -c" || input == "prime -c -n")
         output = MIAInput::PRIME_N_C;
@@ -130,9 +141,9 @@ Commands::MIAInput Commands::commandToInputEnum(string& input)
     return output;
 }
 
+
 void Commands::collatzRunner()
 {
-
     D3CMath math;
     string input, output;
 
@@ -151,9 +162,9 @@ void Commands::collatzRunner()
     MIATerminalTools::blankLine();
 }
 
+
 void Commands::stringAdditionRunner()
 {
-
     D3CMath math;
     string intOne, intTwo, output;
 
@@ -176,7 +187,6 @@ void Commands::stringAdditionRunner()
 
 void Commands::stringMultiplyRunner()
 {
-
     D3CMath math;
     string intOne, intTwo, output;
 
@@ -196,9 +206,9 @@ void Commands::stringMultiplyRunner()
     MIATerminalTools::blankLine();
 }
 
+
 void Commands::stringSubtractionRunner()
 {
-
     D3CMath math;
     string intOne, intTwo, output;
 
@@ -218,9 +228,9 @@ void Commands::stringSubtractionRunner()
     MIATerminalTools::blankLine();
 }
 
+
 void Commands::isPrimeRunner()
 {
-
     D3CMath math;
     string input;
 
@@ -240,9 +250,9 @@ void Commands::isPrimeRunner()
     MIATerminalTools::blankLine();
 }
 
+
 void Commands::isPalindromeRunner()
 {
-
     D3CMath math;
     string input;
 
@@ -262,9 +272,9 @@ void Commands::isPalindromeRunner()
     MIATerminalTools::blankLine();
 }
 
+
 void Commands::sumOfDigitsRunner()
 {
-
     D3CMath math;
     string input;
 
@@ -279,9 +289,9 @@ void Commands::sumOfDigitsRunner()
     MIATerminalTools::blankLine();
 }
 
+
 void Commands::primeFactorsRunner()
 {
-
     D3CMath math;
     string input;
 
@@ -302,9 +312,9 @@ void Commands::primeFactorsRunner()
     MIATerminalTools::blankLine();
 }
 
+
 void Commands::numberOfFactorsRunner()
 {
-
     D3CMath math;
     string input;
 
@@ -321,9 +331,9 @@ void Commands::numberOfFactorsRunner()
     MIATerminalTools::blankLine();
 }
 
+
 void Commands::isTriangleNumberRunner()
 {
-
     D3CMath math;
     string input;
 
@@ -343,9 +353,9 @@ void Commands::isTriangleNumberRunner()
     MIATerminalTools::blankLine();
 }
 
+
 void Commands::latticePathsRunner()
 {
-
     D3CMath math;
     string n, m;
 
@@ -372,9 +382,9 @@ void Commands::latticePathsRunner()
     MIATerminalTools::blankLine();
 }
 
+
 void Commands::primeNRunner()
 {
-
     D3CMath math;
     string input;
 
@@ -390,9 +400,9 @@ void Commands::primeNRunner()
     MIATerminalTools::blankLine();
 }
 
+
 void Commands::primeNumberNpopulateRunner()
 {
-
     D3CMath math;
 
     MIATerminalTools::blankLine();
@@ -404,11 +414,13 @@ void Commands::primeNumberNpopulateRunner()
     math.primeNumberNpopulate();
 }
 
+
 void Commands::primeNumberNeraseRunner()
 {
     D3CMath math;
     math.primeNumberNerase();
 }
+
 
 void Commands::buttonSpamRunner(bool enableTab)
 {
@@ -444,10 +456,11 @@ void Commands::buttonSpamRunner(bool enableTab)
 		key.buttonSpam(button, amount, pause);
 }
 
+
 void Commands::minecraftDigRunner()
 {
-#if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
-    WinKeys key;
+#if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__) || defined _WIN32 || defined _WIN64 || defined __CYGWIN__
+    VirtualKeyStrokes key;
 	
 	string input;
 
@@ -459,16 +472,16 @@ void Commands::minecraftDigRunner()
 	
 	cout << "...Beginning in 5 seconds." << endl;
 	key.minecraftDig(time);
-
 #else
     Error::returnError(31416);
 #endif
 }
 
+
 void Commands::exploreMinecraft()
 {
-#if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
-    WinKeys key;
+#if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__) || defined _WIN32 || defined _WIN64 || defined __CYGWIN__
+    VirtualKeyStrokes key;
 	
 	int stepSize = 100, delayStartTime = 5000;
 	double percentComplete = 0.0,  counter = 0.0;
@@ -505,7 +518,7 @@ void Commands::exploreMinecraft()
 	cout << "...Beginning in " << delayStartTime << " milliseconds." << endl;
 	MIATerminalTools::blankLine();
 	
-	key.waitTime(delayStartTime);
+	Sleep(delayStartTime);
 	
 	cout << "...Sleeping between each loop for " << breakTime << " milliseconds." << endl;
 
@@ -518,20 +531,20 @@ void Commands::exploreMinecraft()
 			key.slash();
 			key.type("tp d0sag3 ");
 			
-			key.type(to_string(x));
+			key.type(std::to_string(x));
 			key.space();
 			
 			key.type("100");
 			key.space();
 			
-			key.type(to_string(z));
+			key.type(std::to_string(z));
 
 			key.enter();
 			
 			counter += 1.0;
 			percentComplete = counter*100.0/totalSteps;
 			cout << "...Percentage Complete: " << percentComplete << " %" << endl;
-			key.waitTime(breakTime);
+			Sleep(breakTime);
 			
 			z+=stepSize-1;
 		}		
@@ -542,10 +555,11 @@ void Commands::exploreMinecraft()
 #endif
 }
 
+
 void Commands::duplicateLetterRunner()
 {
-#if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
-    WinKeys keys;
+#if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__) || defined _WIN32 || defined _WIN64 || defined __CYGWIN__
+    VirtualKeyStrokes keys;
 	
 	cout << "...INSTRUCTIONS: Please have the contents of the letter copied to your clipboard." << endl;
 	cout << "...INSTRUCTIONS: After entering final parameters, move mouse curser to the WoW 'send' button." << endl;
@@ -573,10 +587,11 @@ void Commands::duplicateLetterRunner()
 #endif
 }
 
+
 void Commands::unloadLetterRunner()
 {
-#if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
-    WinKeys keys;
+#if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__) || defined _WIN32 || defined _WIN64 || defined __CYGWIN__
+    VirtualKeyStrokes keys;
 	
 	cout << "...INSTRUCTIONS: Please have your WoW inbox open." << endl;
 	cout << "...INSTRUCTIONS: Please set MIAConfig variables appropriately (see manual)." << endl;
@@ -599,13 +614,14 @@ void Commands::unloadLetterRunner()
 #endif
 }
 
+
 void Commands::d0s3CryptRunner()
 {
     /*
     MIAEncrypt crypt(3);
     string inputFile;
     */
-    Error::returnError(31415);
+    Error::returnError(31415); // Still in dev.
 
     /*
     cout << "...Please enter a file (using default file path) to be encrypted: " << endl;
@@ -619,9 +635,9 @@ void Commands::d0s3CryptRunner()
 
 void Commands::d0s3DeCryptRunner()
 {
-
     Error::returnError(31415);
 }
+
 
 void Commands::printRandomLinesFromFileRunner()
 {
@@ -644,6 +660,7 @@ void Commands::printRandomLinesFromFileRunner()
     }
 }
 
+
 void Commands::solveQuadraticFormulaRunner()
 {
     D3CMath math;
@@ -664,6 +681,7 @@ void Commands::solveQuadraticFormulaRunner()
     cout << "...The solution is: " << ans << endl;
 }
 
+
 void Commands::pranjal()
 {
     string output = StringUtils::shuffleString("pranjal");
@@ -672,14 +690,15 @@ void Commands::pranjal()
 
 void Commands::findMouse()
 {
-#if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
-    WinKeys keys;
+#if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__) || defined _WIN32 || defined _WIN64 || defined __CYGWIN__
+    VirtualKeyStrokes keys;
 	cout << "...Locating mouse in 2 seconds." << endl;
 	keys.findMouseCoords(2000);
 #else
     Error::returnError(31416);
 #endif
 }
+
 
 void Commands::workoutRunner(bool weekly)
 {
@@ -706,20 +725,22 @@ void Commands::workoutRunner(bool weekly)
     workout.generateWorkout(difficulty, weekly);
 }
 
+
 void Commands::eyedropper()
 {
-#if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
-    WinKeys keys;
+#if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__) || defined _WIN32 || defined _WIN64 || defined __CYGWIN__
+    VirtualKeyStrokes keys;
 	keys.getPixelColorAtMouse();
 #else
     Error::returnError(31416);
 #endif
 }
 
+
 void Commands::runFishbot()
 {
-#if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
-    WinKeys keys;
+#if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__) || defined _WIN32 || defined _WIN64 || defined __CYGWIN__
+    VirtualKeyStrokes keys;
 	
 	//Default values.
 	string fishButton = "3", lureButton = "8";
@@ -760,9 +781,10 @@ void Commands::runFishbot()
 #endif
 }
 
+
 void Commands::runNetSessionEnum()
 {
-#if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
+#if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__) || defined _WIN32 || defined _WIN64 || defined __CYGWIN__
     Error::returnError(31415);
 	LOLANetUse lola;
 	string server;
@@ -774,20 +796,13 @@ void Commands::runNetSessionEnum()
 	MIATerminalTools::blankLine();
 	
 	const size_t len = server.length() + 1;
-	if(prog.getVerboseMode())
+	if(Configurator::getVerboseMode())
 		cout << "len: " << len << endl;
     wchar_t w_server[len];
 
     swprintf(w_server, len, L"%s", server.c_str());
 	
 	cout << "...Loading NetSessionEnumRunner." << endl;
-	if(prog.getVerboseMode())
-	{
-		cout << "...w_server: " << w_server << endl;
-		cout << "...*w_server: " << *w_server << endl;
-		cout << "...&w_server: " << &w_server << endl;
-		cout << "...server.c_str(): " << server.c_str() << endl;
-	}
 	
 	wchar_t *argv[] = {NULL, w_server, NULL, NULL};
 	lola.NetSessionEnumRunner(argc, argv);
@@ -799,9 +814,10 @@ void Commands::runNetSessionEnum()
 #endif
 }
 
+
 void Commands::runNetServerEnum(char mode)
 {
-#if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
+#if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__) || defined _WIN32 || defined _WIN64 || defined __CYGWIN__
     Error::returnError(31415);
 	LOLANetUse lola;
 	string domain;
@@ -819,13 +835,6 @@ void Commands::runNetServerEnum(char mode)
 
 	wchar_t *argv[] = {NULL, w_domain};
 	cout << "...Loading NetServerEnum." << endl;
-	if(prog.getVerboseMode())
-	{
-		cout << "...w_domain: " << w_domain << endl;
-		cout << "...*w_domain: " << *w_domain << endl;
-		cout << "...&w_domain: " << &w_domain << endl;
-		cout << "...domain.c_str(): " << domain.c_str() << endl;
-	}
 	
 	if(mode == 'w')
 	{
@@ -843,9 +852,10 @@ void Commands::runNetServerEnum(char mode)
 #endif
 }
 
+
 void Commands::runNetWkstaGetInfo()
 {
-#if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
+#if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__) || defined _WIN32 || defined _WIN64 || defined __CYGWIN__
     Error::returnError(31415);
 	LOLANetUse lola;
 	string wkst;
@@ -862,13 +872,6 @@ void Commands::runNetWkstaGetInfo()
     swprintf(w_wkst, len, L"...%s", wkst.c_str());
 	
 	cout << "...Loading NetWkstaGetInfo." << endl;
-	if(prog.getVerboseMode())
-	{
-		cout << "...w_wkst: " << w_wkst << endl;
-		cout << "...*w_wkst: " << *w_wkst << endl;
-		cout << "...&w_wkst: " << &w_wkst << endl;
-		cout << "...wkst.c_str(): " << wkst.c_str() << endl;
-	}
 	
 	wchar_t *argv[] = {NULL, w_wkst};
 	lola.NetWkstaGetInfoRunner(argc, argv);
@@ -880,9 +883,10 @@ void Commands::runNetWkstaGetInfo()
 #endif
 }
 
+
 void Commands::runNetRemoteComputerSupports()
 {
-#if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
+#if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__) || defined _WIN32 || defined _WIN64 || defined __CYGWIN__
     Error::returnError(31415);
 	LOLANetUse lola;
 	string wkst;
@@ -899,13 +903,6 @@ void Commands::runNetRemoteComputerSupports()
     swprintf(w_wkst, len, L"...%s", wkst.c_str());
 	
 	cout << "...Loading NetRemoteComputerSupports." << endl;
-	if(prog.getVerboseMode())
-	{
-		cout << "...w_wkst: " << w_wkst << endl;
-		cout << "...*w_wkst: " << *w_wkst << endl;
-		cout << "...&w_wkst: " << &w_wkst << endl;
-		cout << "...wkst.c_str(): " << wkst.c_str() << endl;
-	}
 	
 	wchar_t *argv[] = {NULL, w_wkst};
 	lola.NetRemoteComputerSupportsRunner(argc, argv);
@@ -917,9 +914,10 @@ void Commands::runNetRemoteComputerSupports()
 #endif
 }
 
+
 void Commands::runNetUserEnum()
 {
-#if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
+#if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__) || defined _WIN32 || defined _WIN64 || defined __CYGWIN__
     Error::returnError(31415);
 	LOLANetUse lola;
 	string wkst;
@@ -936,13 +934,6 @@ void Commands::runNetUserEnum()
     swprintf(w_wkst, len, L"...%s", wkst.c_str());
 	
 	cout << "...Loading NetUserEnum." << endl;
-	if(prog.getVerboseMode())
-	{
-		cout << "...w_wkst: " << w_wkst << endl;
-		cout << "...*w_wkst: " << *w_wkst << endl;
-		cout << "...&w_wkst: " << &w_wkst << endl;
-		cout << "...wkst.c_str(): " << wkst.c_str() << endl;
-	}
 	
 	wchar_t *argv[] = {NULL, w_wkst};
 	lola.NetUserEnumRunner(argc, argv);
@@ -953,6 +944,7 @@ void Commands::runNetUserEnum()
     Error::returnError(31416);
 #endif
 }
+
 
 int Commands::rollDice(const string& input)
 {
@@ -977,6 +969,7 @@ void Commands::runSequencer()
     }
 }
 
+
 void Commands::loopSequencer()
 {
     cout << "...Beginning MIA Sequencer loop." << endl;
@@ -997,6 +990,7 @@ void Commands::loopSequencer()
         Error::returnError(31423, input);
     }
 }
+
 
 [[noreturn]] void Commands::runRepeatingAlarm()
 {
@@ -1037,18 +1031,23 @@ void Commands::loopSequencer()
     }
 }
 
+
+
+
+
+
 //Function made for testing.
 //This should be placed at the end of the file for easy accessibility. 
 void Commands::runTest()
 {
-    MIADatabase db{};
-    db.testDatabase();
+    //MIADatabase db{};
+    //db.testDatabase();
     //Error::returnError(31418); //Returns nothing set for testing.
 
     ///* Uncomment this for testing things for Windows only.
-#if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
-    Sequencer s;
-	s.activateSequence("test");
+#if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__) || defined _WIN32 || defined _WIN64 || defined __CYGWIN__
+    //Sequencer s;
+	//s.activateSequence("test");
 #elif __linux__
 //    Music m;
 //    m.playSong("test.mp3");

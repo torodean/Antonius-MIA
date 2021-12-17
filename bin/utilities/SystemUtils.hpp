@@ -5,9 +5,6 @@
  * Description:
  */
 
-#ifndef MIA2_SYSTEMUTILS_HPP
-#define MIA2_SYSTEMUTILS_HPP
-
 /**
  * This class contains system related functions.
  */
@@ -42,10 +39,4 @@ public:
      */
     static void sleepSeconds(int time);
 
-protected:
-
-private:
-
 };
-
-#endif //MIA2_SYSTEMUTILS_HPP

@@ -5,17 +5,11 @@
  * Description: MIA sequencer for processing the MIASequences file.
  */
 
-#ifndef __MIASEQUENCER_H__
-#define __MIASEQUENCER_H__
-
 #include <string>
 #include <vector>
 #include <map>
 
-// Include the WinKeys.hpp file only on Windows builds.
-#ifdef WIN32
-#include "WinKeys.hpp"
-#endif
+#include "VirtualKeyStrokes.hpp"
 
 using std::string;
 using std::vector;
@@ -40,9 +34,8 @@ class [[maybe_unused]] Sequencer
 		map<string, vector<int>> sequenceYCoords;
 		map<string, vector<string>> sequenceActions;
 
-#ifdef WIN32
-		WinKeys keys;
-#endif
+		VirtualKeyStrokes keys;
+
 	public: 
 		//Functions for initializing the sequencer and loading in variables from file.
 		Sequencer();
@@ -60,4 +53,3 @@ class [[maybe_unused]] Sequencer
 		//Functions for using the sequencer.
 		void activateSequence(const string& sequence);
 };
-#endif

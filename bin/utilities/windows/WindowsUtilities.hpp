@@ -5,8 +5,6 @@
  * Description:
  */
 
-#ifndef MIA2_WINDOWSUTILITIES_HPP
-#define MIA2_WINDOWSUTILITIES_HPP
 
 /**
  * This class is for utility features related to Windows.
@@ -29,5 +27,3 @@ private:
      */
     static void terminalCommand(const std::string& command);
 };
-
-#endif //MIA2_WINDOWSUTILITIES_HPP

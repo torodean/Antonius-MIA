@@ -11,7 +11,7 @@
 #include <fstream>
 #include <vector>
 #include "MIAWorkout.hpp"
-#include "../terminal/MIATerminal.hpp"
+#include "../terminal/TerminalTools.hpp"
 #include "StringUtils.hpp"
 #include "MathUtils.hpp"
 #include "../program/Error.hpp"

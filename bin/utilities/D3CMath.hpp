@@ -10,9 +10,6 @@
 #include <vector>
 #include <string>
 
-#ifndef D3CMath_HPP
-#define D3CMath_HPP
-
 using std::string;
 using std::vector;
 
@@ -68,4 +65,3 @@ public:
     static bool isPalindrome(long number);
 };
 
-#endif /* D3CMath_HPP */

@@ -7,9 +7,6 @@
 // Description : The header file for use with D3CEncryptPW.cpp
 //============================================================================
 
-#ifndef D3CENCRYPTPW_HPP
-#define D3CENCRYPTPW_HPP
-
 #include <string>
 #include <vector>
 
@@ -45,4 +42,3 @@ private:
 
 };
 
-#endif // D3CENCRYPTPW_HPP

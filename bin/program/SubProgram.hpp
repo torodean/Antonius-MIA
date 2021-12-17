@@ -1,12 +1,9 @@
 /**
- * File: SubProgram.cpp
+ * File: SubProgram.hpp
  * Author: Antonius Torode
- * Date: 03/01/2021
- * Description:
+ * Creation Date: 03/01/2021
+ * Description: This is the main sub-program class for MIA sub-programs.
  */
-
-#ifndef MIA2_SUBPROGRAM_HPP
-#define MIA2_SUBPROGRAM_HPP
 
 #include <string>
 #include <thread>
@@ -37,5 +34,3 @@ private:
     std::string subProgramName;
 
 };
-
-#endif //MIA2_SUBPROGRAM_HPP

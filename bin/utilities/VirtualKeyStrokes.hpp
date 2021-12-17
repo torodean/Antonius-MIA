@@ -1,12 +1,9 @@
 /**
  * File: VirtualKeyStrokes.hpp
  * Author: Antonius Torode
- * Date: 03/01/2021
+ * Creation Date: 03/01/2021
  * Description:
  */
-
-#ifndef MIA2_VIRTUALKEYSTROKES_HPP
-#define MIA2_VIRTUALKEYSTROKES_HPP
 
 #include <string>
 #include <thread>
@@ -14,7 +11,7 @@
 #include <iostream>
 #include <cstdio>
 
-#if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__)
+#if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__) || defined _WIN32 || defined _WIN64 || defined __CYGWIN__
 #include <windows.h>
 #elif __linux__
 extern "C" {
@@ -54,7 +51,7 @@ public:
      */
     void type(std::string word);
 
-#if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__)
+#if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__) || defined _WIN32 || defined _WIN64 || defined __CYGWIN__
 
     void one(int holdTime = 0);
     void two(int holdTime = 0);
@@ -107,9 +104,9 @@ public:
     void minecraftDig(int time);
 
     //functions relating to World of Warcraft
-    void duplicateLetter(int copies, string recipient);
+    void duplicateLetter(int copies, std::string recipient);
     void unloadLetters(int copies);
-    void WoWFishBot(string fishButton, string lureButton);
+    void WoWFishBot(std::string fishButton, std::string lureButton);
 
     //Other useful functions.
     void findMouseCoords(int waitTime);
@@ -126,6 +123,7 @@ public:
 
     /// Sleeps for the default globalSleep time used by the VirtuakKeyStrokes class..
     void defaultSleep();
+	void sleep(int time);
 
     /**
      * This will spam a key press a certain number of times with a pause between each press.
@@ -150,13 +148,12 @@ private:
     /// Global time to sleep between each key press (in ms).
     int globalSleep = 50;
 
-#if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__)
+#if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__) || defined _WIN32 || defined _WIN64 || defined __CYGWIN__
     INPUT ip;
 
     void fishBotIntro();
     void getRGB(COLORREF& color, int& r, int& g, int& b);
 #elif __linux__
-
     /**
      * This pointer is used for the xdotool which can simulate key strokes on linux through X11.
      * Useful docs of the library and related files can be found here"
@@ -168,5 +165,3 @@ private:
 #endif
 
 };
-
-#endif //MIA2_VIRTUALKEYSTROKES_HPP

@@ -20,6 +20,8 @@
 #include <stdexcept>
 #include "LOLANetUse.hpp"
 
+#pragma comment(lib, "netapi32.lib")        
+	
 using std::cout;
 using std::endl;
 
@@ -48,18 +50,12 @@ void LOLANetUse::NetSessionEnumRunner(int argc, wchar_t *argv[]){
 	}
 	if (argc >= 2){
 		pszServerName = argv[1];
-		if (prog.getVerboseMode())
-			cout << "...pszServerName: " << pszServerName << endl;
 	}
 	if (argc >= 3){
 		pszClientName = argv[2];
-		if (prog.getVerboseMode())
-			cout << "...pszClientName: " << pszClientName << endl;
 	}
 	if (argc == 4){
 		pszUserName = argv[3];
-		if (prog.getVerboseMode())
-			cout << "...pszUserName: " << pszUserName << endl;
 	}
 	
 	// Call the NetSessionEnum function, specifying level 10.

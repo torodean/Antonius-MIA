@@ -1,2 +1,0 @@
-/usr/bin/ar qc libDarabase_LIB.a CMakeFiles/Darabase_LIB.dir/MIADatabase.cpp.o
-/usr/bin/ranlib libDarabase_LIB.a

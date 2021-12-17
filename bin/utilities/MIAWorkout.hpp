@@ -5,9 +5,6 @@
  * Description:
  */
 
-#ifndef MIA2_MIAWORKOUT_HPP
-#define MIA2_MIAWORKOUT_HPP
-
 #include "../program/Configurator.hpp"
 
 class MIAWorkout
@@ -58,5 +55,3 @@ private:
      */
     static double minNumModifier(double min, double max, double difficulty);
 };
-
-#endif //MIA2_MIAWORKOUT_HPP

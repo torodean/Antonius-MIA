@@ -1,12 +1,9 @@
 /**
  * File: Configurator.hpp
  * Author: Antonius Torode
- * Date: 03/01/2021
- * Description:
+ * Creation Date: 03/01/2021
+ * Description: This file controls loading in the configuration file(s)
  */
-
-#ifndef MIA2_CONFIGURATOR_HPP
-#define MIA2_CONFIGURATOR_HPP
 
 #include <iostream>
 #include <vector>
@@ -41,14 +38,15 @@ public:
      */
     struct ProgramFilePaths
     {
-        ProgramFilePaths() : MIAConfigFile("/etc/MIA/resources/MIAConfig.MIA"),
-                             inputFilePath("/etc/MIA/resources/InputFiles/"),
-                             cryptFilePath("/etc/MIA/resources/EncryptedFiles/"),
-                             decryptFilePath("/etc/MIA/resources/DecryptedFiles/"),
-                             excuseFilePath("/etc/MIA/resources/Excuses.MIA"),
-                             workoutsFilePath("/etc/MIA/resources/InputFiles/workouts.txt"),
-                             sequencesFilePath("/etc/MIA/resources/InputFiles/MIASequences.txt"),
-                             workoutOutputFilePath("/etc/MIA/resources/OutputFiles/workout.txt")
+		// Linux file paths 
+        ProgramFilePaths() : MIAConfigFile("resources/MIAConfig.MIA"),
+                             inputFilePath("resources/inputFiles/"),
+                             cryptFilePath("resources/encryptedFiles/"),
+                             decryptFilePath("resources/decryptedFiles/"),
+                             excuseFilePath("resources/excuses.MIA"),
+                             workoutsFilePath("resources/inputFiles/workouts.txt"),
+                             sequencesFilePath("resources/inputFiles/MIASequences.txt"),
+                             workoutOutputFilePath("resources/outputFiles/workout.txt")
         {};
 
         /// An enumeration object containing various file types.
@@ -164,7 +162,24 @@ public:
     ProgramFilePaths programFilePaths{};
     WowProgramVariables wowProgramVariables{};
     SequencerVariables sequencerVariables{};
-
+	
+	/// Initializes and returns private WoW variables.
+    int getWoWMailboxDeleteLetterLocation(char coord);
+    void setWoWMailboxDeleteLetterLocation(char coord, const std::string &value);
+    int getWoWMailboxLootLetterLocation(char coord);
+    void setWoWMailboxLootLetterLocation(char coord, const std::string &value);
+    int getWoWMailboxSendLetterLocation(char coord);
+    void setWoWMailboxSendLetterLocation(char coord, const std::string &value);
+    int getWoWMailboxFirstLetterLocation(char coord);
+    void setWoWMailboxFirstLetterLocation(char coord, const std::string &value);
+	
+    /**
+     * Returns values relating to the WoWFishBotSpace.
+     * @param data
+     * @return
+     */
+    int getWoWFishBotSpace(const std::string &data);
+	
 protected:
 
 private:
@@ -190,6 +205,7 @@ private:
     struct ProgramVariables
     {
         static bool verboseMode;            ///< Enables extended program output.
+		static std::string MIA_VERSION;
     };
 
 
@@ -243,33 +259,14 @@ private:
     void setFilePath(ProgramFilePaths::filePathType filePath, const std::string& input);
 
     /**
-     * Returns values relating to the WoWFishBotSpace.
-     * @param data
-     * @return
-     */
-    int getWoWFishBotSpace(const std::string &data);
-
-    /**
      * Sets values relating to the WoWFishBotSpace.
      * @param data
      * @param value
      */
     void setWoWFishBotSpace(const std::string &data, const std::string &value);
 
-    /// Initializes and returns private WoW variables.
-    int getWoWMailboxDeleteLetterLocation(char coord);
-    void setWoWMailboxDeleteLetterLocation(char coord, const std::string &value);
-    int getWoWMailboxLootLetterLocation(char coord);
-    void setWoWMailboxLootLetterLocation(char coord, const std::string &value);
-    int getWoWMailboxSendLetterLocation(char coord);
-    void setWoWMailboxSendLetterLocation(char coord, const std::string &value);
-    int getWoWMailboxFirstLetterLocation(char coord);
-    void setWoWMailboxFirstLetterLocation(char coord, const std::string &value);
-
 
     void setDefaultButtonCombination(const std::string &input);
     std::string getDefaultButtonCombination() const;
 
 };
-
-#endif //MIA2_CONFIGURATOR_HPP
