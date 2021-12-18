@@ -514,3 +514,9 @@ string Configurator::getDefaultButtonCombination() const
 {
     return sequencerVariables.defaultButtonCombination;
 }
+
+//Returns the Version number of MIA.
+string Configurator::getMIAVersion()
+{
+    return MIA_VERSION_VALUE;
+}

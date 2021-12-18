@@ -150,7 +150,7 @@ public:
      * Returns the program version of MIA.
      * @return[std::string] - program version.
      */
-    static std::string getMIAVersion() { return MIA_VERSION_VALUE; };
+    static std::string getMIAVersion();
 
     /**
      * This function is for loading in the config file.
