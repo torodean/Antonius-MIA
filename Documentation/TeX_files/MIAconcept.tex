@@ -15,12 +15,11 @@ To set up MIA for development, simply git clone the project and begin working.
 git clone https://github.com/torodean/Antonius-MIA
 \end{lstlisting}
 
-To build the project, simply navigate to the bin directory and run
+To build the project, simply navigate to the main MIA directory and run the build script.
 
 \begin{lstlisting}
 cd Antonius-MIA/bin
-make clean && make         # For Windows users using Cygwin.
-make clean && make linux   # For Linux and Mac users
+./build.sh
 \end{lstlisting}
 
 \section{Creating an Updated Release Package}
@@ -30,22 +29,26 @@ To create an updated release package, you can run the updateRelease.sh script fo
 \begin{lstlisting}
 #!/bin/sh
 echo "Removing old release download."
-rm -vf MIA\ Release.tar.gz
+rm -vf MIA\ release.tar.gz
 echo "...done!"
-echo "Updating executable."
-rm -vf Release/MIA.exe
-cp bin/MIA.exe Release/MIA.exe
+echo "Updating executable(s)."
+rm -vf release/MIA*
+cp -uv build/bin/MIA.exe release/MIA.exe
+cp -uv build/bin/MIA release/MIA
+cp -uv build/bin/terminal/MIATerminal.exe release/MIATerminal.exe
+cp -uv build/bin/terminal/MIATerminal release/MIATerminal
 echo "...done!"
 echo "Updating manual."
-rm -vf Release/MIAManual.pdf
-cp Documentation/MIAManual.pdf Release/MIAManual.pdf
+rm -vf release/MIAManual.pdf
+cp documentation/MIAManual.pdf release/MIAManual.pdf
 echo "...done!"
 echo "Updating dependencies."
-rm -vrf Release/Resources
-cp -vr bin/Resources Release/Resources
+rm -vrf release/resources
+cp -vr bin/resources release/resources
+cp -vr dlls/* release/
 echo "...done!"
 echo "Creating compressed release file."
-tar czvf MIA\ Release.tar.gz Release/
+tar -czvf MIA-release.tar.gz release/
 echo "...done!"
 \end{lstlisting}
 
@@ -82,7 +85,7 @@ echo "...done!"
 		\caption{The release folder.} \label{setup03}
 	\end{figure}
 
-	\item If done properly, a folder will have been created in your downloads folder called ``Antonius-MIA-master." You can move this folder to wherever yo uwant the MIA program to be stored on your computer. Then, you can delete all items in the ``Antonius-MIA-master" folder EXCEPT the ``Release" folder, the ``README.md" file, and the ``Antonius’ General Purpose License (AGPL)" file. After doing so, you should be able to run and use MIA simple by opening the Release folder and clicking the ``MIA.exe" file as shown in figure \ref{setup04}.
+	\item If done properly, a folder will have been created in your downloads folder called ``Antonius-MIA-master." You can move this folder to wherever you want the MIA program to be stored on your computer. Then, you can delete all items in the ``Antonius-MIA-master" folder EXCEPT the ``Release" folder, the ``README.md" file, and the ``Antonius’ General Purpose License (AGPL)" file. After doing so, you should be able to run and use MIA simple by opening the Release folder and clicking the ``MIA.exe" file as shown in figure \ref{setup04}.
 	
 	\begin{figure}[h]
 		\centering

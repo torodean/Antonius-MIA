@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2) (preloaded format=pdflatex 2021.11.14)  17 DEC 2021 10:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2) (preloaded format=pdflatex 2021.11.14)  17 DEC 2021 22:25
 entering extended mode
 **./MIAManual.tex
 (MIAManual.tex
@@ -760,12 +760,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 28--32
  (TeX_files/MIAconcept.tex
 Chapter 1.
 LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 3
-3.
+2.
 (C:\Users\awtorode\AppData\Local\Programs\MiKTeX\tex/latex/base\omscmr.fd
 File: omscmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <8> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 33.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 32.
 
 [1
 
@@ -774,27 +774,23 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <8> not available
 <images/setup01.png, id=278, 749.80125pt x 216.05719pt>
 File: images/setup01.png Graphic file (type png)
 <use images/setup01.png>
-Package pdftex.def Info: images/setup01.png  used on input line 65.
+Package pdftex.def Info: images/setup01.png  used on input line 68.
 (pdftex.def)             Requested size: 407.66833pt x 117.47025pt.
 <images/setup02.png, id=280, 341.02406pt x 256.70906pt>
 File: images/setup02.png Graphic file (type png)
 <use images/setup02.png>
-Package pdftex.def Info: images/setup02.png  used on input line 73.
+Package pdftex.def Info: images/setup02.png  used on input line 76.
 (pdftex.def)             Requested size: 181.18439pt x 136.38809pt.
 <images/setup03.png, id=283, 955.31906pt x 368.1253pt>
 File: images/setup03.png Graphic file (type png)
 <use images/setup03.png>
-Package pdftex.def Info: images/setup03.png  used on input line 81.
+Package pdftex.def Info: images/setup03.png  used on input line 84.
 (pdftex.def)             Requested size: 407.66833pt x 157.08873pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[2 <./images/setup01.png> <./images/setup02.png>]
-<images/setup04.png, id=311, 692.5875pt x 219.06844pt>
+ [2 <./images/setup01.png> <./images/setup02.png>]
+<images/setup04.png, id=313, 692.5875pt x 219.06844pt>
 File: images/setup04.png Graphic file (type png)
 <use images/setup04.png>
-Package pdftex.def Info: images/setup04.png  used on input line 89.
+Package pdftex.def Info: images/setup04.png  used on input line 92.
 (pdftex.def)             Requested size: 407.66833pt x 128.9484pt.
 ) [3 <./images/setup03.png> <./images/setup04.png>]
 \openout2 = `./TeX_files/MIAConfig.aux'.
@@ -854,34 +850,34 @@ LaTeX Warning: Reference `MIAConfig' on page 14 undefined on input line 14.
 
 
 ] [15]
-<images/Svd.png, id=649, 462.528pt x 346.896pt>
+<images/Svd.png, id=652, 462.528pt x 346.896pt>
 File: images/Svd.png Graphic file (type png)
 <use images/Svd.png>
 Package pdftex.def Info: images/Svd.png  used on input line 110.
 (pdftex.def)             Requested size: 226.48395pt x 169.86406pt.
-<images/Evd.png, id=650, 462.528pt x 346.896pt>
+<images/Evd.png, id=653, 462.528pt x 346.896pt>
 File: images/Evd.png Graphic file (type png)
 <use images/Evd.png>
 Package pdftex.def Info: images/Evd.png  used on input line 110.
 (pdftex.def)             Requested size: 226.48395pt x 169.86406pt.
  [16 <./images/Svd.png> <./images/Evd.png>]
-<images/Rvd1.png, id=668, 462.528pt x 346.896pt>
+<images/Rvd1.png, id=671, 462.528pt x 346.896pt>
 File: images/Rvd1.png Graphic file (type png)
 <use images/Rvd1.png>
 Package pdftex.def Info: images/Rvd1.png  used on input line 140.
 (pdftex.def)             Requested size: 226.48395pt x 169.86406pt.
-<images/Rvd5.png, id=669, 462.528pt x 346.896pt>
+<images/Rvd5.png, id=672, 462.528pt x 346.896pt>
 File: images/Rvd5.png Graphic file (type png)
 <use images/Rvd5.png>
 Package pdftex.def Info: images/Rvd5.png  used on input line 140.
 (pdftex.def)             Requested size: 226.48395pt x 169.86406pt.
  [17 <./images/Rvd1.png> <./images/Rvd5.png>]
-<images/Dvd.png, id=693, 462.528pt x 346.896pt>
+<images/Dvd.png, id=696, 462.528pt x 346.896pt>
 File: images/Dvd.png Graphic file (type png)
 <use images/Dvd.png>
 Package pdftex.def Info: images/Dvd.png  used on input line 194.
 (pdftex.def)             Requested size: 226.48395pt x 169.86406pt.
-<images/Dvdc.png, id=694, 462.528pt x 346.896pt>
+<images/Dvdc.png, id=697, 462.528pt x 346.896pt>
 File: images/Dvdc.png Graphic file (type png)
 <use images/Dvdc.png>
 Package pdftex.def Info: images/Dvdc.png  used on input line 194.
@@ -902,7 +898,7 @@ File: omlcmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <8> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 17.
-<images/WoWScrnShot_040118_234154.jpg, id=722, 1445.4pt x 766.36313pt>
+<images/WoWScrnShot_040118_234154.jpg, id=725, 1445.4pt x 766.36313pt>
 File: images/WoWScrnShot_040118_234154.jpg Graphic file (type jpg)
 <use images/WoWScrnShot_040118_234154.jpg>
 Package pdftex.def Info: images/WoWScrnShot_040118_234154.jpg  used on input li
@@ -915,13 +911,13 @@ ne 22.
 
 
  <./images/WoWScrnShot_040118_234154.jpg>]
-<images/WoWScrnShot_040118_234212.jpg, id=732, 1445.4pt x 276.28218pt>
+<images/WoWScrnShot_040118_234212.jpg, id=735, 1445.4pt x 276.28218pt>
 File: images/WoWScrnShot_040118_234212.jpg Graphic file (type jpg)
 <use images/WoWScrnShot_040118_234212.jpg>
 Package pdftex.def Info: images/WoWScrnShot_040118_234212.jpg  used on input li
 ne 30.
 (pdftex.def)             Requested size: 407.66833pt x 77.92339pt.
-<images/WoWScrnShot_040118_234212b.jpg, id=733, 718.93594pt x 188.95593pt>
+<images/WoWScrnShot_040118_234212b.jpg, id=736, 718.93594pt x 188.95593pt>
 File: images/WoWScrnShot_040118_234212b.jpg Graphic file (type jpg)
 <use images/WoWScrnShot_040118_234212b.jpg>
 Package pdftex.def Info: images/WoWScrnShot_040118_234212b.jpg  used on input l
@@ -941,13 +937,13 @@ he sec-ond two pa-ram-e-ters, [][][][][][]
 
 [21 <./images/WoWScrnShot_040118_234212.jpg> <./images/WoWScrnShot_040118_23421
 2b.jpg>]
-<images/WoWScrnShot_040118_234227b.jpg, id=756, 604.50844pt x 306.39468pt>
+<images/WoWScrnShot_040118_234227b.jpg, id=759, 604.50844pt x 306.39468pt>
 File: images/WoWScrnShot_040118_234227b.jpg Graphic file (type jpg)
 <use images/WoWScrnShot_040118_234227b.jpg>
 Package pdftex.def Info: images/WoWScrnShot_040118_234227b.jpg  used on input l
 ine 67.
 (pdftex.def)             Requested size: 362.37569pt x 183.66992pt.
-<images/fishbot_MIA.png, id=759, 432.86719pt x 228.10219pt>
+<images/fishbot_MIA.png, id=762, 432.86719pt x 228.10219pt>
 File: images/fishbot_MIA.png Graphic file (type png)
 <use images/fishbot_MIA.png>
 Package pdftex.def Info: images/fishbot_MIA.png  used on input line 73.
@@ -958,13 +954,13 @@ Overfull \hbox (23.60562pt too wide) in paragraph at lines 99--100
 t-ter [][][][][][]
  []
 
-<images/WoWScrnShot_040518_181350b.jpg, id=772, 1311.90125pt x 574.145pt>
+<images/WoWScrnShot_040518_181350b.jpg, id=775, 1311.90125pt x 574.145pt>
 File: images/WoWScrnShot_040518_181350b.jpg Graphic file (type jpg)
 <use images/WoWScrnShot_040518_181350b.jpg>
 Package pdftex.def Info: images/WoWScrnShot_040518_181350b.jpg  used on input l
 ine 103.
 (pdftex.def)             Requested size: 407.66833pt x 178.41238pt.
-<images/WoWScrnShot_040518_115947b.jpg, id=773, 1231.60126pt x 627.34375pt>
+<images/WoWScrnShot_040518_115947b.jpg, id=776, 1231.60126pt x 627.34375pt>
 File: images/WoWScrnShot_040518_115947b.jpg Graphic file (type jpg)
 <use images/WoWScrnShot_040518_115947b.jpg>
 Package pdftex.def Info: images/WoWScrnShot_040518_115947b.jpg  used on input l
@@ -995,9 +991,9 @@ Package rerunfilecheck Info: File `MIAManual.out' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  13843 strings out of 479334
- 204843 string characters out of 2855658
- 989916 words of memory out of 3000000
- 30565 multiletter control sequences out of 15000+200000
+ 204850 string characters out of 2855658
+ 989910 words of memory out of 3000000
+ 30562 multiletter control sequences out of 15000+200000
  413547 words of font info for 65 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  88i,12n,94p,1221b,1852s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1021,9 +1017,9 @@ orode/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:
 sy10.pfb><C:/Users/awtorode/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
 sfonts/cm/cmsy8.pfb><C:/Users/awtorode/AppData/Local/Programs/MiKTeX/fonts/type
 1/public/amsfonts/cm/cmti10.pfb>
-Output written on MIAManual.pdf (31 pages, 2073698 bytes).
+Output written on MIAManual.pdf (31 pages, 2074180 bytes).
 PDF statistics:
- 991 PDF objects out of 1000 (max. 8388607)
- 443 named destinations out of 1000 (max. 500000)
+ 996 PDF objects out of 1000 (max. 8388607)
+ 446 named destinations out of 1000 (max. 500000)
  435 words of extra memory for PDF output out of 10000 (max. 10000000)
 
