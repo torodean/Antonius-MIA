@@ -7,15 +7,11 @@ usage()
   echo ""
   echo "  Options:"
   echo "    -h    Display this help message."
-  echo "    -i    Installs the executables to the program directory (/usr/bin/)"
 }
 
-while getopts "hi" opt; do
+while getopts "h" opt; do
   case $opt in
     h) usage
-      ;;
-    i) install_binaries=1
-      echo "Install binaries: True"
       ;;
     \?)
       echo "Invalid option: -$OPTARG" >&2
@@ -36,13 +32,3 @@ cd build
 make -j16
 
 echo "...MIA Build done!"
-
-if (( install_binaries ))
-then
-  echo "Installing files."
-  sudo mkdir -vp /etc/MIA/resources/InputFiles
-  sudo cp -v bin/resources/*.MIA /etc/MIA/resources/
-  sudo cp -v bin/resources/InputFiles/* /etc/MIA/resources/InputFiles/
-  sudo cp -v bin/terminal/MIATerminal /usr/bin/
-  echo "Finished installing files."
-fi
