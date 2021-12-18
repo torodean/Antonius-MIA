@@ -10,7 +10,7 @@
 
 #include "D3CEncryptPW.hpp"
 #include "D3CEncrypt.hpp"
-#include "../../terminal/TerminalTools.hpp"
+#include "TerminalTools.hpp"
 #include <string>
 #include <cmath>
 #include <iostream>

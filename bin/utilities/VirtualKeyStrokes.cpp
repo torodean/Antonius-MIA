@@ -6,10 +6,10 @@
  */
 
 #include "VirtualKeyStrokes.hpp"
-#include "../program/Error.hpp"
+#include "Error.hpp"
 #include "SystemUtils.hpp"
-#include "../program/Configurator.hpp"
-#include "../terminal/TerminalTools.hpp"
+#include "Configurator.hpp"
+#include "TerminalTools.hpp"
 
 #if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__) || defined _WIN32 || defined _WIN64 || defined __CYGWIN__
 #pragma comment (lib, "gdi32.lib")

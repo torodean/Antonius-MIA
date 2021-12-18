@@ -7,8 +7,8 @@
 
 #include <string>
 #include "WindowsUtilities.hpp"
-#include "../../program/Error.hpp"
-#include "../../terminal/TerminalTools.hpp"
+#include "Error.hpp"
+#include "TerminalTools.hpp"
 
 
 void WindowsUtilities::terminalCommand(const std::string& command)

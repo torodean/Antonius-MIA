@@ -11,10 +11,10 @@
 #include <fstream>
 #include <vector>
 #include "MIAWorkout.hpp"
-#include "../terminal/TerminalTools.hpp"
+#include "TerminalTools.hpp"
 #include "StringUtils.hpp"
 #include "MathUtils.hpp"
-#include "../program/Error.hpp"
+#include "Error.hpp"
 
 using std::string;
 using std::cout;

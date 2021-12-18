@@ -9,7 +9,7 @@
 #include <unistd.h>
 #include <iostream>
 #include <fcntl.h>
-#include "../../program/Error.hpp"
+#include "Error.hpp"
 #include "SystemSounds.hpp"
 
 void SystemSounds::beep()

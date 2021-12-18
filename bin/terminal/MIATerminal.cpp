@@ -7,16 +7,16 @@
 
 #include "MIATerminal.hpp"
 #include "TerminalTools.hpp"
-#include "../utilities/StringUtils.hpp"
-#include "../utilities/MathUtils.hpp"
-#include "../utilities/FileUtils.hpp"
-#include "../program/Error.hpp"
+#include "StringUtils.hpp"
+#include "MathUtils.hpp"
+#include "FileUtils.hpp"
+#include "Error.hpp"
 
 #include <iostream>
 #include <utility>
 
 #if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__) || defined _WIN32 || defined _WIN64 || defined __CYGWIN__
-#include "../utilities/windows/WindowsUtilities.hpp"
+#include "windows/WindowsUtilities.hpp"
 #endif
 
 using std::string;

@@ -14,7 +14,7 @@
 #include <cstdlib>
 #include <cmath>
 #include "D3CEncrypt.hpp"
-#include "../../terminal/TerminalTools.hpp"
+#include "TerminalTools.hpp"
 
 using std::vector;
 using std::string;
@@ -25,17 +25,20 @@ using std::endl;
 
 //Constructor for the D3CEncrypt class.
 D3CEncrypt::D3CEncrypt() : stringLength (0), vectorSize (0), digit (0), powerofDigit (0), 
-		powerofTen (0), devise (0), random7bitNum (0), random7bitbinary (0), encodedVec (0){
+		powerofTen (0), devise (0), random7bitNum (0), random7bitbinary (0), encodedVec (0)
+{
     //Chuck Norris doesn’t use web standards as the web will conform to him.
 }
 
 //Deconstructor for D3CEncrypt class.
-D3CEncrypt::~D3CEncrypt() {
+D3CEncrypt::~D3CEncrypt() 
+{
     //Chuck Norris finished World of Warcraft.
 }
 
 //Converts a string to a vector.
-vector<int> D3CEncrypt::stringToVector(string a) { 
+vector<int> D3CEncrypt::stringToVector(string a) 
+{ 
     stringLength = a.size();
     vector<int> vector(stringLength);
 	
@@ -47,16 +50,20 @@ vector<int> D3CEncrypt::stringToVector(string a) {
 }
 
 //Converts each term in the vector array to a binary representation of that term.
-vector<int> D3CEncrypt::binaryVector(vector<int> inputVector){ 
+vector<int> D3CEncrypt::binaryVector(vector<int> inputVector)
+{ 
     vectorSize = inputVector.size();
-    for(int i=0;i<vectorSize;i++){
+    for(int i=0;i<vectorSize;i++)
+	{
         digit = inputVector[i];
         inputVector[i]=0;
-        for(int x=6;x>=0;x--){
+        for(int x=6;x>=0;x--)
+		{
             powerofDigit = pow(2,x);
             powerofTen = pow(10, x);
             devise=digit/powerofDigit;
-            if(devise == 1){
+            if(devise == 1)
+			{
                 inputVector[i]+=powerofTen;
                 digit-=powerofDigit;
             }
@@ -67,20 +74,24 @@ vector<int> D3CEncrypt::binaryVector(vector<int> inputVector){
 }
 
 //Creates a random number between 0-127.
-int D3CEncrypt::random7bit(){ 
+int D3CEncrypt::random7bit()
+{	
     random7bitNum = rand()% 128;
     return random7bitNum;
 }
 
 //Changes a number from base 10 format to a binary look but still in base 
 //10 so that addition in base ten can be used on the binary number.
-int D3CEncrypt::numberToBinary(int num) { 
+int D3CEncrypt::numberToBinary(int num) 
+{ 
     random7bitbinary=0;
-    for (int x = 6; x >= 0; x--) {
+    for (int x = 6; x >= 0; x--) 
+	{
         powerofDigit = pow(2, x);
         powerofTen = pow(10, x);
         devise = num / powerofDigit;
-        if (devise == 1) {
+        if (devise == 1) 
+		{
             random7bitbinary += powerofTen;
             num -= powerofDigit;
         }
@@ -90,7 +101,8 @@ int D3CEncrypt::numberToBinary(int num) {
 
 //Converts an integer to a custom a11b12 formatted number. 
 //the first digit is in base 11 and the second in base 12.
-string D3CEncrypt::a11b12(int x){ 
+string D3CEncrypt::a11b12(int x)
+{	
     int remaind, num;
     string ones, tens, a11b12string;
     ostringstream convertA, convertB;
@@ -102,24 +114,34 @@ string D3CEncrypt::a11b12(int x){
         a11b12string.replace(1,1,ones);
         goto ending;
     }
-    if(x/12<=9){
+    if(x/12<=9)
+	{
         num = (x/12);
         convertA << num;
         tens = convertA.str();
         //tens = (x/12);
-    }else if(x/12 == 10){
+    }
+	else if(x/12 == 10)
+	{
         tens = "A";
-    }else if(x/12 == 11){
+    }
+	else if(x/12 == 11)
+	{
         tens = "B";
     }
     remaind = (x-(x/12)*12)%12;
-    if(remaind <= 9){
+    if(remaind <= 9)
+	{
         num = remaind;
         convertB << num;
         ones = convertB.str();
-    }else if(remaind == 10){
+    }
+	else if(remaind == 10)
+	{
         ones = "A";
-    }else if(remaind == 11){
+    }
+	else if(remaind == 11)
+	{
         ones = "B";
     }
     a11b12string.replace(0,1,tens);
@@ -129,8 +151,8 @@ string D3CEncrypt::a11b12(int x){
 }
 
 //Converts a vector<string> (each position holding a string of length 9) to one combined string.
-string D3CEncrypt::stringVectorToString(vector<string> a){ 
-
+string D3CEncrypt::stringVectorToString(vector<string> a)
+{	
 	//sets the integet of size to the size of the inputted vector.
     int size = a.size(); 
 	
@@ -152,7 +174,8 @@ string D3CEncrypt::stringVectorToString(vector<string> a){
 	//resizes the tempText string to 9 because it will be used to hold a single character as it's encrypted value.
     tempText.resize(9); 
 
-    for(int i=0;i<size;i++){
+    for(int i=0;i<size;i++)
+	{
 		
 		//Sets the tempText variable to the first part of the vector a.
         tempText=a[i]; 
@@ -168,7 +191,8 @@ string D3CEncrypt::stringVectorToString(vector<string> a){
 }
 
 //Encrypts the characters of a vector array with a random number.
-string D3CEncrypt::cryptCharsNoRand(vector<int> inputVector){ 
+string D3CEncrypt::cryptCharsNoRand(vector<int> inputVector)
+{ 
     bool fix=false;
 	
 	//sets the Int of vectorSize to the size of the input.
@@ -184,7 +208,8 @@ string D3CEncrypt::cryptCharsNoRand(vector<int> inputVector){
 	//random valiues to be combined with the string vector encoded later.
     randomVector.reserve(vectorSize); 
 
-    for(int i=0;i<vectorSize; i++){
+    for(int i=0;i<vectorSize; i++)
+	{
 		//in this variation, the random number is instead set to just 49.
         randomNum = 49; 
 
@@ -202,14 +227,14 @@ string D3CEncrypt::cryptCharsNoRand(vector<int> inputVector){
     string encodedPart, encode = "000000000";
     encodedPart.reserve(2);
     encoded.reserve(vectorSize+2);
-    for(int i=0;i<vectorSize; i++){
+    for(int i=0;i<vectorSize; i++)
+	{
         encodedPart = a11b12(randomVector[i]);
 
         encodedVec = inputVector[i];
 
-        if(encodedVec < 1000000){
+        if(encodedVec < 1000000)
             fix = true;
-        }
 
         stringstream ss;
         ss << encodedVec;
@@ -220,8 +245,10 @@ string D3CEncrypt::cryptCharsNoRand(vector<int> inputVector){
         //In some cases, the anscii code generates a binary vector without the proper length 
 		//of 6 (100000) which causes errors when trying to set the 7'th and 8th position. 
 		//The below code will fix that by setting the first digit in the string to 0.
-        if(fix){
-            for(int y=6;y>0;y--){
+        if(fix)
+		{
+            for(int y=6;y>0;y--)
+			{
                 encode[y]=encode[y-1];
             }
             encode[0]='0';
@@ -229,7 +256,8 @@ string D3CEncrypt::cryptCharsNoRand(vector<int> inputVector){
         }
 
 		//set's the last 2 digits in encode equal to the a11b12 form of the random number generated for the specific character being coded.
-        for(int x=7;x<9;x++){ 
+        for(int x=7;x<9;x++)
+		{ 
             encode[x] = encodedPart[x-7];
         }
 
@@ -258,7 +286,8 @@ string D3CEncrypt::cryptChars(vector<int> inputVector){
 	//random valiues to be combined with the string vector encoded later.
     randomVector.reserve(vectorSize); 
 
-    for(int i=0;i<vectorSize; i++){
+    for(int i=0;i<vectorSize; i++)
+	{
 		//creates a random number from 0-127 and stores it in the variable randomNum;
         randomNum=random7bit(); 
 		
@@ -277,14 +306,14 @@ string D3CEncrypt::cryptChars(vector<int> inputVector){
     string encodedPart, encode = "000000000";
     encodedPart.reserve(2);
     encoded.reserve(vectorSize+2);
-    for(int i=0;i<vectorSize; i++){
+    for(int i=0;i<vectorSize; i++)
+	{
         encodedPart = a11b12(randomVector[i]);
 
         encodedVec = inputVector[i];
 
-        if(encodedVec < 1000000){
+        if(encodedVec < 1000000)
             fix = true;
-        }
 
         stringstream ss;
         ss << encodedVec;
@@ -295,8 +324,10 @@ string D3CEncrypt::cryptChars(vector<int> inputVector){
         //In some cases, the anscii code generates a binary vector without the proper length 
 		//of 6 (100000) which causes errors when trying to set the 7'th and 8th position. 
 		//The below code will fix that by setting the first digit in the string to 0.
-        if(fix){
-            for(int y=6;y>0;y--){
+        if(fix)
+		{
+            for(int y=6;y>0;y--)
+			{
                 encode[y]=encode[y-1];
             }
             encode[0]='0';
@@ -317,7 +348,8 @@ string D3CEncrypt::cryptChars(vector<int> inputVector){
 }
 
 //Encrypts a string.
-string D3CEncrypt::CryptNoRand(string input, bool toSquish){ 
+string D3CEncrypt::CryptNoRand(string input, bool toSquish)
+{	
     string cryptedVector;
     vector<int> baseTwoVector, inputVector;
 
@@ -325,7 +357,8 @@ string D3CEncrypt::CryptNoRand(string input, bool toSquish){
     baseTwoVector = binaryVector(inputVector);
     cryptedVector = cryptCharsNoRand(baseTwoVector);
 
-	if(toSquish){
+	if(toSquish)
+	{
 		//cryptedVector = squish(cryptedVector);
 	}
 	
@@ -333,7 +366,8 @@ string D3CEncrypt::CryptNoRand(string input, bool toSquish){
 }
 
 //Encrypts a string.
-string D3CEncrypt::Crypt(const string& input, bool toSquish){
+string D3CEncrypt::Crypt(const string& input, bool toSquish)
+{
     string cryptedVector;
     vector<int> baseTwoVector, inputVector;
     inputVector = stringToVector(std::move(input));
@@ -342,7 +376,8 @@ string D3CEncrypt::Crypt(const string& input, bool toSquish){
 	
 	cout << cryptedVector << endl << endl;
 	
-	if(toSquish){
+	if(toSquish)
+	{
 		//cryptedVector = squish(cryptedVector);
 	}
 	
@@ -356,9 +391,11 @@ vector<string> D3CEncrypt::cryptedStringToVector(string a) {
     string temp;
     temp.resize(9);
     vector<string> vector(stringLength);
-    for(int i=0;i<stringLength;i++){
+    for(int i=0;i<stringLength;i++)
+	{
         fact = i*9;
-        for(int x=0;x<9;x++){
+        for(int x=0;x<9;x++)
+		{
             temp[x] = a[x+fact];
         }
         vector[i] = temp;
@@ -366,7 +403,8 @@ vector<string> D3CEncrypt::cryptedStringToVector(string a) {
     return vector;
 }
 
-vector<string> D3CEncrypt::seperateRandom(vector<string> input){
+vector<string> D3CEncrypt::seperateRandom(vector<string> input)
+{
     vector<string> seperatedRandoms;
     vectorSize = input.size();
     string temp="00", temp2, tempchar1, tempchar2;
@@ -374,7 +412,8 @@ vector<string> D3CEncrypt::seperateRandom(vector<string> input){
     temp2.resize(9);
     seperatedRandoms.resize(vectorSize);
 
-    for(int i=0;i<vectorSize;i++){
+    for(int i=0;i<vectorSize;i++)
+	{
         temp2=input[i];
         tempchar1 = temp2[7];
         tempchar2 = temp2[8];
@@ -385,15 +424,18 @@ vector<string> D3CEncrypt::seperateRandom(vector<string> input){
     return seperatedRandoms;
 }
 
-vector<int> D3CEncrypt::vectorStringToInt(vector<string> a){
+vector<int> D3CEncrypt::vectorStringToInt(vector<string> a)
+{
     vectorSize = a.size();
     vector<int> intVec (vectorSize);
     int tempInt;
     string tempString;
 
-    for(int i=0;i<vectorSize;i++){
+    for(int i=0;i<vectorSize;i++)
+	{
         tempString = a[i];
-        for(int x=0;x<7;x++){
+        for(int x=0;x<7;x++)
+		{
             tempInt = atoi(tempString.c_str());
         }
         intVec[i] = tempInt;
@@ -401,13 +443,15 @@ vector<int> D3CEncrypt::vectorStringToInt(vector<string> a){
     return intVec;
 }
 
-vector<int> D3CEncrypt::seperateBinary(vector<string> input){
+vector<int> D3CEncrypt::seperateBinary(vector<string> input)
+{
     vectorSize = input.size();
     vector<string> trimmed (vectorSize);
     vector<int> seperatedChars (vectorSize);
     string temp;
 
-    for(int i=0;i<vectorSize;i++){
+    for(int i=0;i<vectorSize;i++)
+	{
         temp=input[i];
         temp.resize(7);
         trimmed[i] = temp;
@@ -417,24 +461,33 @@ vector<int> D3CEncrypt::seperateBinary(vector<string> input){
     return seperatedChars;
 }
 
-int D3CEncrypt::a11b12toReg(string a11b12){
+int D3CEncrypt::a11b12toReg(string a11b12)
+{
     string charOne, charTwo;
     int intOne, intTwo, reg=0;
 
     charOne = a11b12[0];
     charTwo = a11b12[1];
 
-    if(charOne == "A"){
+    if(charOne == "A")
+	{
         reg+=120;
-    } else {
+    } 
+	else 
+	{
         intOne = atoi(charOne.c_str());
         reg+=12*intOne;
     }
-    if(charTwo == "A"){
+    if(charTwo == "A")
+	{
         reg+=10;
-    }else if(charTwo == "B"){
+    }
+	else if(charTwo == "B")
+	{
         reg+=11;
-    }else{
+    }
+	else
+	{
         intTwo = atoi(charTwo.c_str());
         reg+=intTwo;
     }
@@ -442,13 +495,15 @@ int D3CEncrypt::a11b12toReg(string a11b12){
     return reg;
 }
 
-vector<int> D3CEncrypt::converta11b12vecToReg(vector<string> a){
+vector<int> D3CEncrypt::converta11b12vecToReg(vector<string> a)
+{
     vectorSize = a.size();
     vector<int> randomVector (vectorSize);
     string temp;
     int randomNum;
 
-    for(int i=0;i<vectorSize;i++){
+    for(int i=0;i<vectorSize;i++)
+{
         temp = a[i];
         randomNum = a11b12toReg(temp);
         randomVector[i] = randomNum;
@@ -456,36 +511,42 @@ vector<int> D3CEncrypt::converta11b12vecToReg(vector<string> a){
     return randomVector;
 }
 
-vector<int> D3CEncrypt::numberVectorToBinaryVector(vector<int> a){
+vector<int> D3CEncrypt::numberVectorToBinaryVector(vector<int> a)
+{
     vectorSize=a.size();
     vector<int> binaryRandomVector (vectorSize);
     int temp;
 
-    for(int i=0;i<vectorSize;i++){
+    for(int i=0;i<vectorSize;i++)
+	{
         temp = a[i];
         binaryRandomVector[i] = numberToBinary(temp);
     }
     return binaryRandomVector;
 }
 
-vector<int> D3CEncrypt::DeCryptChars(vector<int> a, vector<int> b){
+vector<int> D3CEncrypt::DeCryptChars(vector<int> a, vector<int> b)
+{
     vectorSize = a.size();
     vector<int> deCryptedBinaryVector (vectorSize);
 
-    for(int i=0;i<vectorSize;i++){
+    for(int i=0;i<vectorSize;i++)
+	{
         deCryptedBinaryVector[i] = a[i] - b[i];
     }
     return deCryptedBinaryVector;
 }
 
-vector<int> D3CEncrypt::binaryVectorToASCII(vector<int> a){
+vector<int> D3CEncrypt::binaryVectorToASCII(vector<int> a)
+{
     vectorSize = a.size();
     vector<int> deCryptedIntVector (vectorSize);
     int val, character, power, twoPower;
     for(int i=0;i<vectorSize;i++){
         character = 0;
         val = a[i];
-        for(int x=6;x>=0;x--){
+        for(int x=6;x>=0;x--)
+		{
             power = pow(10,x);
             twoPower = pow(2, x);
             character += ((val/power)%10)*(twoPower);
@@ -495,12 +556,14 @@ vector<int> D3CEncrypt::binaryVectorToASCII(vector<int> a){
     return deCryptedIntVector;
 }
 
-string D3CEncrypt::intVectorToString(vector<int> a){
+string D3CEncrypt::intVectorToString(vector<int> a)
+{
     vectorSize = a.size();
     string deCryptedVector;
     deCryptedVector.resize(vectorSize);
     int character;
-    for(int i=0;i<vectorSize;i++){
+    for(int i=0;i<vectorSize;i++)
+	{
         character = a[i];
         deCryptedVector[i] = character;
     }
@@ -508,12 +571,12 @@ string D3CEncrypt::intVectorToString(vector<int> a){
 }
 
 //Decrypts a string encrypted with D3Crypt.
-string D3CEncrypt::DeCrypt(string input, bool squish){
+string D3CEncrypt::DeCrypt(string input, bool squish)
+{
     string deCryptedVector;
 	
-	if(squish){
+	if(squish)
 		input = expand(input);
-	}
 	
     vector<string> inputVector, seperatedRandomVector;
     vector<int> seperatedcharacterVector, baseTenRandomVector, randomVector, randomBinaryVector,deCryptedBinaryVector, deCryptedIntVector;
@@ -531,12 +594,14 @@ string D3CEncrypt::DeCrypt(string input, bool squish){
 }
 
 //Shortens the encrypted message created by the d0s1 encryption.
-string D3CEncrypt::squish(string input){
+string D3CEncrypt::squish(string input)
+{
 	string output;
 	long size = input.size();
 	string loopString;
 	
-	for (long i=0; i<size ; i++){
+	for (long i=0; i<size ; i++)
+	{
 		for(int j=0;j<3;j++){
 			loopString += input[i+j];
 			//cout << i << "(" << j << ")" << ": " << loopString << endl; //for troubleshooting.

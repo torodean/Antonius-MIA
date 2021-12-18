@@ -5,9 +5,6 @@
  * Description:
  */
 
-#ifndef MIA2_SYSTEMSOUNDS_HPP
-#define MIA2_SYSTEMSOUNDS_HPP
-
 /**
  * This class is for system sounds and methods related ot such.
  */
@@ -35,4 +32,3 @@ protected:
 private:
 };
 
-#endif //MIA2_SYSTEMSOUNDS_HPP

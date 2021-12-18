@@ -1,4 +1,6 @@
 
+include_directories(../../program)
+
 set(Audio_SRC SystemSounds.cpp)
 set(Audio_INC SystemSounds.hpp)
 

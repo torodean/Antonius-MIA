@@ -11,9 +11,9 @@
 #include <vector>
 #include "FileUtils.hpp"
 #include "MathUtils.hpp"
-#include "../program/Configurator.hpp"
-#include "../terminal/TerminalTools.hpp"
-#include "../program/Error.hpp"
+#include "Configurator.hpp"
+#include "TerminalTools.hpp"
+#include "Error.hpp"
 
 using std::string;
 using std::cout;

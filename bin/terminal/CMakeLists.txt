@@ -1,4 +1,9 @@
 
+
+include_directories(../utilities)
+include_directories(../program)
+include_directories(../libs/math)
+
 set(Terminal_SRC MIATerminal.cpp TerminalTools.cpp Commands.cpp)
 set(Terminal_INC MIATerminal.hpp TerminalTools.hpp Commands.hpp)
 

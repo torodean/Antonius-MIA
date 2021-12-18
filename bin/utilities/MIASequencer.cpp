@@ -6,9 +6,9 @@
  */
 
 #include "MIASequencer.hpp"
-#include "../program/Configurator.hpp"
+#include "Configurator.hpp"
 #include "StringUtils.hpp"
-#include "../program/Error.hpp"
+#include "Error.hpp"
 #include "SystemUtils.hpp"
 
 

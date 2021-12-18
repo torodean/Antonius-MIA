@@ -8,11 +8,11 @@
 #ifndef MIA2_MIATERMINAL_HPP
 #define MIA2_MIATERMINAL_HPP
 
-#include "../program/SubProgram.hpp"
-#include "../program/Configurator.hpp"
+#include "SubProgram.hpp"
+#include "Configurator.hpp"
 #include "Commands.hpp"
-#include "../utilities/encryption/D3CEncryptPW.hpp"
-#include "../utilities/encryption/D3CEncrypt.hpp"
+#include "encryption/D3CEncryptPW.hpp"
+#include "encryption/D3CEncrypt.hpp"
 
 using std::string;
 

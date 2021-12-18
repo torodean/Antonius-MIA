@@ -7,8 +7,6 @@
 // Description : This file is for the music integration within MIA.
 //============================================================================
 
-#ifndef __MUSIC_H__
-#define __MUSIC_H__
 
 #include<string>
 
@@ -22,4 +20,3 @@ class Music{
 		~Music(){};
 		void playSong(string fileName);
 };
-#endif

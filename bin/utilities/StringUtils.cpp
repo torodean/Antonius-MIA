@@ -11,7 +11,7 @@
 #include <vector>
 #include <ctime>
 #include "StringUtils.hpp"
-#include "../program/Configurator.hpp"
+#include "Configurator.hpp"
 
 using std::string;
 using std::cout;

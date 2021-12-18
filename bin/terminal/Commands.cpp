@@ -7,21 +7,21 @@
 
 #include <iostream>
 #include "Commands.hpp"
-#include "../utilities/StringUtils.hpp"
+#include "StringUtils.hpp"
 #include "TerminalTools.hpp"
-#include "../utilities/D3CMath.hpp"
-#include "../program/Error.hpp"
-#include "../utilities/FileUtils.hpp"
-#include "../utilities/MathUtils.hpp"
-#include "../utilities/MIASequencer.hpp"
-#include "../utilities/MIAWorkout.hpp"
-#include "../utilities/audio/SystemSounds.hpp"
-#include "../utilities/SystemUtils.hpp"
+#include "D3CMath.hpp"
+#include "Error.hpp"
+#include "FileUtils.hpp"
+#include "MathUtils.hpp"
+#include "MIASequencer.hpp"
+#include "MIAWorkout.hpp"
+#include "audio/SystemSounds.hpp"
+#include "SystemUtils.hpp"
 //#include "../libs/database/MIADatabase.hpp"
 
 // If windows, we want the LOLA application tools to be loaded and the windows features.
 #if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__) || defined _WIN32 || defined _WIN64 || defined __CYGWIN__
-#include "../utilities/windows/LOLANetUse.hpp"
+#include "windows/LOLANetUse.hpp"
 #include <Windows.h>
 #else
 #include <unistd.h>

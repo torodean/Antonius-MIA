@@ -15,7 +15,8 @@
 
 using namespace std;
 
-void Music::playSong(string fileName){
+void Music::playSong(string fileName)
+{
 	cout << "Welcome to VLC launcher program!" << endl;
     string comm = "vlc \"";
     comm += fileName + "\"";

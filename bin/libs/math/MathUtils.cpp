@@ -9,9 +9,9 @@
 #include <cmath>
 #include <limits>
 #include "MathUtils.hpp"
-#include "../program/Configurator.hpp"
-#include "StringUtils.hpp"
-#include "../terminal/TerminalTools.hpp"
+#include "../../program/Configurator.hpp"
+#include "../../utilities/StringUtils.hpp"
+#include "../../terminal/TerminalTools.hpp"
 
 using std::cout;
 using std::endl;
