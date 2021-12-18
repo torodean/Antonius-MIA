@@ -46,7 +46,7 @@ void MIATerminal::printSplash()
     cout << "... //  ~~          ||   ||   ||  ||||||||||  ||        ||          ~~  \\\\ ..." << endl;
     cout << ".............................................................................." << endl;
     cout << "............................. TERMINAL INTERFACE ............................." << endl;
-    cout << "............. Multiple Integrated Applications -- Version: " + config.getMIAVersion() + " ............." << endl;
+    cout << "............. Multiple Integrated Applications -- Version: " + Configurator::getMIAVersion() + " ............." << endl;
     cout << "....................     Programmer: Antonius Torode      ...................." << endl;
     cout << "....................      Compiled on: " << __DATE__ << "        ...................." << endl;
     cout << ".............................................................................." << endl;

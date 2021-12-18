@@ -150,7 +150,7 @@ public:
      * Returns the program version of MIA.
      * @return[std::string] - program version.
      */
-    std::string getMIAVersion();
+    static std::string getMIAVersion() { return MIA_VERSION_VALUE; };
 
     /**
      * This function is for loading in the config file.
@@ -185,7 +185,7 @@ protected:
 private:
 
     /// Program version of MIA.
-    std::string VERSION;
+    static std::string VERSION;
 
     /**
      * Enables or disables verbose mode.

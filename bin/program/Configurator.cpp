@@ -27,7 +27,7 @@ bool Configurator::ProgramVariables::verboseMode = false;
 std::string Configurator::ProgramVariables::MIA_VERSION = MIA_VERSION_VALUE;
 
 
-Configurator::Configurator() : VERSION("0.200")
+Configurator::Configurator()
 {
     initialize();
 }
@@ -513,10 +513,4 @@ void Configurator::setDefaultButtonCombination(const string& input)
 string Configurator::getDefaultButtonCombination() const
 {
     return sequencerVariables.defaultButtonCombination;
-}
-
-//Returns the Version number of MIA.
-string Configurator::getMIAVersion()
-{
-    return VERSION;
 }
