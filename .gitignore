@@ -51,9 +51,11 @@
 
 ## Local 
 
+.idea
 .idea/*.xml
 
 build/**/*
+cmake-build-debug/**/*
 
 bin/Makefile
 bin/**/Makefile

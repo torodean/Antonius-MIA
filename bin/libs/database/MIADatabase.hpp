@@ -2,11 +2,9 @@
  * File: MIADatabase.hpp
  * Author: Antonius Torode
  * Date: 03/11/2021
- * Description:
+ * Description: This is the class designed for connection and use with databases.
+ *              The MIA database uses SQL.
  */
-
-#ifndef MIA2_MIADATABASE_HPP
-#define MIA2_MIADATABASE_HPP
 
 #include <mysql_connection.h>
 #include <cppconn/driver.h>
@@ -39,5 +37,3 @@ private:
     sql::ResultSet *res;
 
 };
-
-#endif //MIA2_MIADATABASE_HPP

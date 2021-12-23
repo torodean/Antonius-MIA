@@ -6,6 +6,7 @@
  */
 
 #include "MIADatabase.hpp"
+#include "Credentials.hpp"
 #include <iostream>
 
 using std::cout;
@@ -25,7 +26,7 @@ void MIADatabase::connect()
     {
         /* Create a connection */
         driver = get_driver_instance();
-        sql::SQLString hostname("tcp://192.168.1.4:3306");
+        sql::SQLString hostname("tcp://127.0.0.1:3306");
         con = driver->connect(hostname, "testUser", "testPW");
         /* Connect to the MySQL test database */
         con->setSchema("testDB");
