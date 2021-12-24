@@ -122,7 +122,7 @@ public:
     void tab();         ///< Simulates press of the tab key.
 
     /// Sleeps for the default globalSleep time used by the VirtuakKeyStrokes class..
-    void defaultSleep();
+    void defaultSleep() const;
 	void sleep(int time);
 
     /**

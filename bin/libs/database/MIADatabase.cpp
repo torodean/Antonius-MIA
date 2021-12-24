@@ -2,7 +2,7 @@
  * File: MIADatabase.hpp
  * Author: Antonius Torode
  * Date: 03/11/2021
- * Description:
+ * Description: This class defines database connections.
  */
 
 #include "MIADatabase.hpp"
@@ -14,14 +14,13 @@ using std::endl;
 
 MIADatabase::~MIADatabase()
 {
-        delete res;
-        delete stmt;
-        delete con;
+    delete res;
+    delete stmt;
+    delete con;
 }
 
 void MIADatabase::connect()
 {
-
     try
     {
         /* Create a connection */
@@ -46,7 +45,7 @@ void MIADatabase::initialize()
 
 }
 
-void MIADatabase::testDatabase()
+int MIADatabase::testDatabase()
 {
     std::cout << "Starting database test." << std::endl;
     connect();
@@ -70,8 +69,11 @@ void MIADatabase::testDatabase()
         cout << "# ERR: " << e.what();
         cout << " (MySQL error code: " << e.getErrorCode();
         cout << ", SQLState: " << e.getSQLState() << " )" << endl;
+
+        return EXIT_FAILURE;
     }
 
     std::cout << "Finished database test." << std::endl;
+    return EXIT_SUCCESS;
 }
 

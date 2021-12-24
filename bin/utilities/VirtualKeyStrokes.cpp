@@ -291,7 +291,8 @@ void VirtualKeyStrokes::press(const char& character, int holdTime)
 #endif
 }
 
-void VirtualKeyStrokes::defaultSleep(){
+void VirtualKeyStrokes::defaultSleep() const
+{
     SystemUtils::sleepMilliseconds(globalSleep);
 }
 

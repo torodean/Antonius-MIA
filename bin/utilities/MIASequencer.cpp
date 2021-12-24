@@ -265,7 +265,7 @@ void Sequencer::activateSequence(const string& sequence){
 		}
 	}
 #else
-	Error::returnError(Error::ErrorCode::WINDOWSONLYFUNCTIONALITY);
+	Error::returnError(Error::ErrorCode::Windows_Only_Feature);
 #endif
 }
 

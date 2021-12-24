@@ -58,6 +58,9 @@ int Error::returnError(int errorCode, const string& details)
         case Linux_Only_Feature:
             cout << "..Error 31425: This feature is currently only programmed for Linux. " << details << endl;
             break;
+	    case Catastrophic_Failure:
+            cout << "..Error 9001: A catastrophic failure occurred. " << details << endl;
+            break;
         default:
             cout << "...ERROR: A catastrophic Failure Occurred." << endl;
             break;
