@@ -1171,10 +1171,10 @@ void VirtualKeyStrokes::fishBotIntro()
     cout << "...Saved keys found!" << endl;
     cout << "...Decrypting password hash values." << endl;
     SystemUtils::sleepSeconds(drama);
-    cout << "...Success!." << endl;
+    cout << "...MIA_Success!." << endl;
     cout << "...Sending security information to host." << endl;
     SystemUtils::sleepSeconds(2*drama);
-    cout << "...Success!." << endl;
+    cout << "...MIA_Success!." << endl;
     cout << "...Disabling daemon ninja process." << endl;
     SystemUtils::sleepSeconds(drama);
     MIATerminalTools::blankDots();

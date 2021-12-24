@@ -16,7 +16,7 @@ public:
 	// These cannot be the same name as some other pre-defined value.
     enum ErrorCode
     {
-		Success = 0,
+		MIA_Success = 0,
         Access_denied = 5,
         Gen_Failure = 31,
         Bad_Net_Path = 53,

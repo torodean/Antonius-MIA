@@ -230,8 +230,8 @@ vector<string> Sequencer::getSequenceActions(const string& sequence){
 
 //Activates and performs a sequence.
 void Sequencer::activateSequence(const string& sequence){
-#ifdef WIN32
-	cout << "...Activating Sequence: " << sequence << endl;
+#if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__) || defined _WIN32 || defined _WIN64 || defined __CYGWIN__
+    cout << "...Activating Sequence: " << sequence << endl;
 	int timing = sequenceTimings.find(sequence)->second;
 	int hover = sequenceHoverTimes.find(sequence)->second;
 	int size = getSequenceSize(sequence);

@@ -86,8 +86,8 @@ void Error::errorInfo(int error)
 {
     MIATerminalTools::blankDots();
     switch(error){
-        case Success:
-            cout << "...0: Success - The operation completed successfully." << endl;
+        case MIA_Success:
+            cout << "...0: MIA_Success - The operation completed successfully." << endl;
             break;
         case Access_denied:
             cout << "...5: Access_denied" << endl;
@@ -164,7 +164,7 @@ void Error::errorInfo(int error)
             cout << "...Full List of programmed error codes follow." << endl;
             MIATerminalTools::blankDots();
             cout << "...UNKNOWN: A catastrophic Failure Occurred." << endl;
-            cout << "...0: Success - The operation completed Successfully." << endl;
+            cout << "...0: MIA_Success - The operation completed Successfully." << endl;
             cout << "...5: Access_denied" << endl;
             cout << "...31: Gen_Failure - A device attached to the system is not functioning." << endl;
             cout << "...53: Bad_Net_Path - The network path was not found." << endl;
