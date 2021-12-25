@@ -1046,8 +1046,10 @@ void Commands::loopSequencer()
 //This should be placed at the end of the file for easy accessibility. 
 void Commands::runTest()
 {
+#ifdef USING_DB
     MIADatabase db{};
     db.testDatabase();
+#endif
     //Error::returnError(31418); //Returns nothing set for testing.
 
     ///* Uncomment this for testing things for Windows only.
