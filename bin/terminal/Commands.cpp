@@ -17,7 +17,7 @@
 #include "MIAWorkout.hpp"
 #include "audio/SystemSounds.hpp"
 #include "SystemUtils.hpp"
-//#include "../libs/database/MIADatabase.hpp"
+#include "../libs/database/MIADatabase.hpp"
 
 // If windows, we want the LOLA application tools to be loaded and the windows features.
 #if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__) || defined _WIN32 || defined _WIN64 || defined __CYGWIN__
@@ -1042,8 +1042,8 @@ void Commands::loopSequencer()
 //This should be placed at the end of the file for easy accessibility. 
 void Commands::runTest()
 {
-    //MIADatabase db{};
-    //db.testDatabase();
+    MIADatabase db{};
+    db.testDatabase();
     //Error::returnError(31418); //Returns nothing set for testing.
 
     ///* Uncomment this for testing things for Windows only.

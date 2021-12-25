@@ -7,7 +7,6 @@
 
 #include "MIADatabase.hpp"
 #include "Credentials.hpp"
-#include <iostream>
 
 using std::cout;
 using std::endl;
@@ -19,7 +18,7 @@ MIADatabase::~MIADatabase()
     delete con;
 }
 
-void MIADatabase::connect()
+int MIADatabase::connect()
 {
     try
     {
@@ -37,7 +36,10 @@ void MIADatabase::connect()
         cout << "# ERR: " << e.what();
         cout << " (MySQL error code: " << e.getErrorCode();
         cout << ", SQLState: " << e.getSQLState() << " )" << endl;
+
+        return EXIT_FAILURE;
     }
+    return EXIT_SUCCESS;
 }
 
 void MIADatabase::initialize()
@@ -48,9 +50,10 @@ void MIADatabase::initialize()
 int MIADatabase::testDatabase()
 {
     std::cout << "Starting database test." << std::endl;
-    connect();
     try
     {
+        if(connect() != EXIT_SUCCESS)
+            return EXIT_FAILURE;
         stmt = con->createStatement();
         res = stmt->executeQuery("SELECT 'Hello World!' AS _message");
         while (res->next()) {

@@ -377,7 +377,7 @@ void MIATerminal::runTest(){
 int main()
 {
     MIATerminal terminal("MIA Terminal");
-    terminal.run("");
+    terminal.run("test");
     return 0;
 }
 

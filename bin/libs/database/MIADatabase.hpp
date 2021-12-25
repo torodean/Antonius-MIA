@@ -23,7 +23,7 @@ public:
 
     void initialize();
 
-    void connect();
+    int connect();
 
     int testDatabase();
 
