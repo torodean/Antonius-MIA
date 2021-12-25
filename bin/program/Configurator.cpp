@@ -517,5 +517,5 @@ string Configurator::getDefaultButtonCombination() const
 //Returns the Version number of MIA.
 string Configurator::getMIAVersion()
 {
-    return MIA_VERSION_VALUE;
+    return ProgramVariables::MIA_VERSION;
 }

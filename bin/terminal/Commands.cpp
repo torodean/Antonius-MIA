@@ -18,7 +18,7 @@
 #include "audio/SystemSounds.hpp"
 #include "SystemUtils.hpp"
 
-#ifdef USING_DB
+#ifdef USE_Database_LIB
 #include "../libs/database/MIADatabase.hpp"
 #endif
 
@@ -1046,7 +1046,8 @@ void Commands::loopSequencer()
 //This should be placed at the end of the file for easy accessibility. 
 void Commands::runTest()
 {
-#ifdef USING_DB
+#ifdef USE_Database_LIB
+    std::cout << "Database Testing" << std::endl;
     MIADatabase db{};
     db.testDatabase();
 #endif

@@ -12,7 +12,11 @@ add_library(Terminal_LIB ${Terminal_SRC} ${Terminal_INC})
 if(WIN32 OR CYGWIN)
     target_link_libraries(Terminal_LIB Program_LIB Utilities_LIB Encryption_LIB Audio_LIB Windows_LIB)
 elseif(UNIX)
-    target_link_libraries(Terminal_LIB Program_LIB Utilities_LIB Encryption_LIB Audio_LIB xdo Database_LIB)
+    target_link_libraries(Terminal_LIB Program_LIB Utilities_LIB Encryption_LIB Audio_LIB xdo)
+endif()
+
+if (${USE_Database_LIB})
+    target_link_libraries(Terminal_LIB Database_LIB)
 endif()
 
 add_executable(MIATerminal MIATerminal.cpp)

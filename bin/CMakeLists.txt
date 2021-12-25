@@ -1,10 +1,10 @@
 
 # Add the sub-directories for the program files.
 add_subdirectory(libs)
-add_subdirectory(program)
-add_subdirectory(resources)
-add_subdirectory(terminal)
 add_subdirectory(utilities)
+add_subdirectory(resources)
+add_subdirectory(program)
+add_subdirectory(terminal)
 
 # Add the main MIA executable
 add_executable(MIA MIAMain.cpp)
