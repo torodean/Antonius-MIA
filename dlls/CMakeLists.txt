@@ -3,7 +3,7 @@ if (WIN32 OR CYGWIN)
 	SET(CMAKE_FIND_LIBRARY_PREFIXES "")
 	SET(CMAKE_FIND_LIBRARY_SUFFIXES ".lib" ".dll")
 	
-	message("-- Linking Netapi32")
+	message("-- Linking netapi32")
 	find_library(netapi32 ${CMAKE_CURRENT_BINARY_DIR})
 
 	message("-- Linking gdi32")

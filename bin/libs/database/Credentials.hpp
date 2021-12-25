@@ -53,7 +53,6 @@ public:
     void clear()
     {
         username.clear();
-        password.clear();
         hash.clear();
     };
 

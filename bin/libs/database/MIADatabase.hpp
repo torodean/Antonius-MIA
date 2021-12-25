@@ -6,7 +6,8 @@
  *              The MIA database uses SQL.
  */
 
-#include <mysql_connection.h>
+#include "mysql_connection.h"
+
 #include <cppconn/driver.h>
 #include <cppconn/exception.h>
 #include <cppconn/resultset.h>
@@ -24,7 +25,7 @@ public:
 
     void connect();
 
-    void testDatabase();
+    int testDatabase();
 
 
 protected:
