@@ -1,6 +1,4 @@
 
-
-
 set(Database_SRC MIADatabase.cpp)
 set(Database_INC MIADatabase.hpp Credentials.hpp)
 

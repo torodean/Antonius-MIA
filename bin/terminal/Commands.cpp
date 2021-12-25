@@ -17,7 +17,11 @@
 #include "MIAWorkout.hpp"
 #include "audio/SystemSounds.hpp"
 #include "SystemUtils.hpp"
+
+#ifdef USING_DB
 #include "../libs/database/MIADatabase.hpp"
+#endif
+
 
 // If windows, we want the LOLA application tools to be loaded and the windows features.
 #if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__) || defined _WIN32 || defined _WIN64 || defined __CYGWIN__

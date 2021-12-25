@@ -5,9 +5,6 @@
  * Description:
  */
 
-#ifndef MIA2_MIATERMINAL_HPP
-#define MIA2_MIATERMINAL_HPP
-
 #include "SubProgram.hpp"
 #include "Configurator.hpp"
 #include "Commands.hpp"
@@ -108,5 +105,3 @@ private:
      */
     static void runTest();
 };
-
-#endif //MIA2_MIATERMINAL_HPP

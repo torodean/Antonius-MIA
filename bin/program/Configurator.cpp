@@ -18,7 +18,6 @@ using std::endl;
 
 bool Configurator::ProgramVariables::verboseMode = false;
 
-// Testing a better option of storing version value in top level CMakeList File.
 #ifdef MIAVERSION
 	#define MIA_VERSION_VALUE MIAVERSION
 #else
