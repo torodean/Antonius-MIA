@@ -13,3 +13,5 @@ elseif(UNIX)
 	SET(CMAKE_FIND_LIBRARY_SUFFIXES ".so" ".a")
 endif()
 
+message("-- Linking mysqlcppconn")
+find_library(mysqlcppconn ${CMAKE_CURRENT_BINARY_DIR})

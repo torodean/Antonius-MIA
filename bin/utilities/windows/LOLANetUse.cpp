@@ -12,35 +12,32 @@
 #endif
 
 #include <windows.h>
-#include <stdio.h>
-#include <assert.h>
-#include <iostream>
+#include <cstdio>
+#include <cassert>
 #include <lm.h>
 #include "Sddl.h"
 #include <stdexcept>
 #include "LOLANetUse.hpp"
 
-#pragma comment(lib, "netapi32.lib")        
-	
-using std::cout;
-using std::endl;
-
 //Main constructor for the LOLANetUse class.
-LOLANetUse::LOLANetUse(){
+LOLANetUse::LOLANetUse()
+{
 	//Chuck Norris can divide by 0.
 }
 
 //Main deconstructor for the LOLANetUse class.
-LOLANetUse::~LOLANetUse(){
+LOLANetUse::~LOLANetUse()
+{
 	//There is no Esc key on Chuck Norris’ keyboard, because no one escapes Chuck Norris.
 }
 
 //The NetSessionEnum function Provides information about sessions established on a server.
 //Taken from https://msdn.microsoft.com/en-us/library/windows/desktop/bb525382(v=vs.85).aspx
-void LOLANetUse::NetSessionEnumRunner(int argc, wchar_t *argv[]){
-	LPSESSION_INFO_10 pBuf = NULL, pTmpBuf;
+void LOLANetUse::NetSessionEnumRunner(int argc, wchar_t *argv[])
+{
+	LPSESSION_INFO_10 pBuf = nullptr, pTmpBuf;
 	DWORD dwLevel = 10, dwPrefMaxLen = MAX_PREFERRED_LENGTH, dwEntriesRead = 0, dwTotalEntries = 0, dwResumeHandle = 0, i, dwTotalCount = 0;
-	LPTSTR pszServerName = NULL, pszClientName = NULL, pszUserName = NULL;
+	LPTSTR pszServerName = nullptr, pszClientName = nullptr, pszUserName = nullptr;
 	NET_API_STATUS nStatus;
 
 	// Check command line arguments.
@@ -64,12 +61,12 @@ void LOLANetUse::NetSessionEnumRunner(int argc, wchar_t *argv[]){
 
 		// If the call succeeds,
 		if ((nStatus == NERR_Success) || (nStatus == ERROR_MORE_DATA)){
-			if ((pTmpBuf = pBuf) != NULL){ 
+			if ((pTmpBuf = pBuf) != nullptr){ 
 				// Loop through the entries.
 				for (i = 0; i < dwEntriesRead; i++){
-					assert(pTmpBuf != NULL);
+					assert(pTmpBuf != nullptr);
 
-					if (pTmpBuf == NULL){
+					if (pTmpBuf == nullptr){
 						fprintf(stderr, "...An access violation has occurred\n");
 						break;
 					}
@@ -88,9 +85,9 @@ void LOLANetUse::NetSessionEnumRunner(int argc, wchar_t *argv[]){
 		}
 		
 		// Free the allocated memory.
-		if (pBuf != NULL){
+		if (pBuf != nullptr){
 			NetApiBufferFree(pBuf);
-			pBuf = NULL;
+			pBuf = nullptr;
 		}
 	}
 
@@ -98,7 +95,7 @@ void LOLANetUse::NetSessionEnumRunner(int argc, wchar_t *argv[]){
 	while (nStatus == ERROR_MORE_DATA); // end do
 
 	// Check again for an allocated buffer.
-	if (pBuf != NULL){
+	if (pBuf != nullptr){
 		NetApiBufferFree(pBuf);
 	}
 	
@@ -107,8 +104,9 @@ void LOLANetUse::NetSessionEnumRunner(int argc, wchar_t *argv[]){
 }
 
 //The NetServerEnum function lists all workstations that are visible in a domain. 
-void LOLANetUse::NetServerEnumRunner_WKST(int argc, wchar_t *argv[]){
-	LPSERVER_INFO_101 pBuf = NULL;
+void LOLANetUse::NetServerEnumRunner_WKST(int argc, wchar_t *argv[])
+{
+	LPSERVER_INFO_101 pBuf = nullptr;
 	LPSERVER_INFO_101 pTmpBuf;
 	DWORD dwLevel = 101;
 	DWORD dwPrefMaxLen = MAX_PREFERRED_LENGTH;
@@ -118,8 +116,8 @@ void LOLANetUse::NetServerEnumRunner_WKST(int argc, wchar_t *argv[]){
 	DWORD dwServerType = SV_TYPE_WORKSTATION;        // all workstations
 	DWORD dwResumeHandle = 0;
 	NET_API_STATUS nStatus;
-	LPWSTR pszServerName = NULL;
-	LPWSTR pszDomainName = NULL;
+	LPWSTR pszServerName = nullptr;
+	LPWSTR pszDomainName = nullptr;
 	DWORD i;
 
 	if (argc > 2){
@@ -138,12 +136,12 @@ void LOLANetUse::NetServerEnumRunner_WKST(int argc, wchar_t *argv[]){
 
 	// If the call succeeds,
 	if ((nStatus == NERR_Success) || (nStatus == ERROR_MORE_DATA)) {
-		if ((pTmpBuf = pBuf) != NULL) {
+		if ((pTmpBuf = pBuf) != nullptr) {
 			// Loop through the entries and print the data for all server types.
 			for (i = 0; i < dwEntriesRead; i++) {
-				assert(pTmpBuf != NULL);
+				assert(pTmpBuf != nullptr);
 
-				if (pTmpBuf == NULL) {
+				if (pTmpBuf == nullptr) {
 					fprintf(stderr, "...An access violation has occurred\n");
 					break;
 				}
@@ -181,7 +179,7 @@ void LOLANetUse::NetServerEnumRunner_WKST(int argc, wchar_t *argv[]){
 
 		} else {
 			printf("...No servers were found\n");
-			printf("...The buffer (bufptr) returned was NULL\n");
+			printf("...The buffer (bufptr) returned was nullptr\n");
 			printf("...entriesread: %d\n", dwEntriesRead);
 			printf("...totalentries: %d\n", dwEntriesRead);
 		}
@@ -190,14 +188,15 @@ void LOLANetUse::NetServerEnumRunner_WKST(int argc, wchar_t *argv[]){
 		fprintf(stderr, "...NetServerEnum failed with error: %d\n", nStatus);
 	}
 	// Free the allocated buffer.
-	if (pBuf != NULL){
+	if (pBuf != nullptr){
 		NetApiBufferFree(pBuf);
 	}
 }
 
 //The NetServerEnum function lists all servers that are visible in a domain. 
-void LOLANetUse::NetServerEnumRunner_SERV(int argc, wchar_t *argv[]){
-	LPSERVER_INFO_101 pBuf = NULL;
+void LOLANetUse::NetServerEnumRunner_SERV(int argc, wchar_t *argv[])
+{
+	LPSERVER_INFO_101 pBuf = nullptr;
 	LPSERVER_INFO_101 pTmpBuf;
 	DWORD dwLevel = 101;
 	DWORD dwPrefMaxLen = MAX_PREFERRED_LENGTH;
@@ -207,8 +206,8 @@ void LOLANetUse::NetServerEnumRunner_SERV(int argc, wchar_t *argv[]){
 	DWORD dwServerType = SV_TYPE_SERVER; // all servers
 	DWORD dwResumeHandle = 0;
 	NET_API_STATUS nStatus;
-	LPWSTR pszServerName = NULL;
-	LPWSTR pszDomainName = NULL;
+	LPWSTR pszServerName = nullptr;
+	LPWSTR pszDomainName = nullptr;
 	DWORD i;
 
 	if (argc > 2){
@@ -226,12 +225,12 @@ void LOLANetUse::NetServerEnumRunner_SERV(int argc, wchar_t *argv[]){
 
 	// If the call succeeds,
 	if ((nStatus == NERR_Success) || (nStatus == ERROR_MORE_DATA)) {
-		if ((pTmpBuf = pBuf) != NULL) {
+		if ((pTmpBuf = pBuf) != nullptr) {
 			// Loop through the entries and print the data for all server types.
 			for (i = 0; i < dwEntriesRead; i++){
-				assert(pTmpBuf != NULL);
+				assert(pTmpBuf != nullptr);
 
-				if (pTmpBuf == NULL){
+				if (pTmpBuf == nullptr){
 					fprintf(stderr, "...An access violation has occurred\n");
 					break;
 				}
@@ -270,7 +269,7 @@ void LOLANetUse::NetServerEnumRunner_SERV(int argc, wchar_t *argv[]){
 
 		} else {
 			printf("...No servers were found\n");
-			printf("...The buffer (bufptr) returned was NULL\n");
+			printf("...The buffer (bufptr) returned was nullptr\n");
 			printf("...entriesread: %d\n", dwEntriesRead);
 			printf("...totalentries: %d\n", dwEntriesRead);
 		}
@@ -280,17 +279,18 @@ void LOLANetUse::NetServerEnumRunner_SERV(int argc, wchar_t *argv[]){
 	}
 	
 	// Free the allocated buffer.
-	if (pBuf != NULL){
+	if (pBuf != nullptr){
 		NetApiBufferFree(pBuf);
 	}
 }
 
 //The NetWkstaGetInfo function returns information about the configuration of a workstation.
-void LOLANetUse::NetWkstaGetInfoRunner(int argc, wchar_t *argv[]){
+void LOLANetUse::NetWkstaGetInfoRunner(int argc, wchar_t *argv[])
+{
 	DWORD dwLevel = 102;
-	LPWKSTA_INFO_102 pBuf = NULL;
+	LPWKSTA_INFO_102 pBuf = nullptr;
 	NET_API_STATUS nStatus;
-	LPWSTR pszServerName = NULL;
+	LPWSTR pszServerName = nullptr;
 
 	// Check command line arguments.
 	if (argc > 2) {
@@ -316,7 +316,7 @@ void LOLANetUse::NetWkstaGetInfoRunner(int argc, wchar_t *argv[]){
 		fprintf(stderr, "...A system error has occurred: %d\n", nStatus);
 	}
 	// Free the allocated memory.
-	if (pBuf != NULL){
+	if (pBuf != nullptr){
 		NetApiBufferFree(pBuf);
 	}
 }
@@ -324,11 +324,12 @@ void LOLANetUse::NetWkstaGetInfoRunner(int argc, wchar_t *argv[]){
 //The NetRemoteComputerSupports function queries the redirector to retrieve the optional features the remote system supports. 
 //Features include Unicode, Remote Procedure Call (RPC), and Remote Administration Protocol support. 
 //The function establishes a network connection if one does not exist.
-void LOLANetUse::NetRemoteComputerSupportsRunner(int argc, wchar_t *argv[]){
+void LOLANetUse::NetRemoteComputerSupportsRunner(int argc, wchar_t *argv[])
+{
 	NET_API_STATUS nStatus;
-	LPCWSTR UncServerName = NULL;
+	LPCWSTR UncServerName = nullptr;
 	DWORD OptionsWanted = SUPPORTS_LOCAL;
-	LPDWORD OptionsSupported = NULL;
+	LPDWORD OptionsSupported = nullptr;
 
 	// Check command line arguments.
 	if (argc > 2){
@@ -342,23 +343,24 @@ void LOLANetUse::NetRemoteComputerSupportsRunner(int argc, wchar_t *argv[]){
 
 	nStatus = NetRemoteComputerSupports(UncServerName, OptionsWanted, (DWORD *)&OptionsSupported);
 	if (nStatus == NERR_Success){
-		if (OptionsSupported == NULL){ 
-			printf("~~~Options supported is set to NULL"); 
+		if (OptionsSupported == nullptr){ 
+			printf("~~~Options supported is set to nullptr"); 
 		}
 		printf("\n\tOptions Supported: %d\n", *	OptionsSupported);
 	} else {
 		fprintf(stderr, "...A system error has occurred: %d\n", nStatus);
 	}
 	// Free the allocated memory.
-	if (OptionsSupported != NULL){
+	if (OptionsSupported != nullptr){
 		NetApiBufferFree(OptionsSupported);
 	}
 
 }
 
 //The NetUserEnum function retrieves information about all user accounts on a server.
-int LOLANetUse::NetUserEnumRunner(int argc, wchar_t *argv[]){
-	LPUSER_INFO_0 pBuf = NULL;
+int LOLANetUse::NetUserEnumRunner(int argc, wchar_t *argv[])
+{
+	LPUSER_INFO_0 pBuf = nullptr;
 	LPUSER_INFO_0 pTmpBuf;
 	DWORD dwLevel = 0;
 	DWORD dwPrefMaxLen = MAX_PREFERRED_LENGTH;
@@ -368,7 +370,7 @@ int LOLANetUse::NetUserEnumRunner(int argc, wchar_t *argv[]){
 	DWORD i;
 	DWORD dwTotalCount = 0;
 	NET_API_STATUS nStatus;
-	LPTSTR pszServerName = NULL;
+	LPTSTR pszServerName = nullptr;
 
 	if (argc > 2){
 		fwprintf(stderr, L"...Usage: %s [\\\\ServerName]\n", argv[0]);
@@ -391,12 +393,12 @@ int LOLANetUse::NetUserEnumRunner(int argc, wchar_t *argv[]){
 		&dwResumeHandle);
 		//If the call succeeds,
 		if ((nStatus == NERR_Success) || (nStatus == ERROR_MORE_DATA)){
-			if ((pTmpBuf = pBuf) != NULL){
+			if ((pTmpBuf = pBuf) != nullptr){
 				//Loop through the entries.
 				for (i = 0; (i < dwEntriesRead); i++){
-					assert(pTmpBuf != NULL);
+					assert(pTmpBuf != nullptr);
 
-					if (pTmpBuf == NULL){
+					if (pTmpBuf == nullptr){
 						fprintf(stderr, "...An access violation has occurred\n");
 						break;
 					}
@@ -412,15 +414,15 @@ int LOLANetUse::NetUserEnumRunner(int argc, wchar_t *argv[]){
 			fprintf(stderr, "...A system error has occurred: %d\n", nStatus);
 		}
 		//Free the allocated buffer.
-		if (pBuf != NULL){
+		if (pBuf != nullptr){
 			NetApiBufferFree(pBuf);
-			pBuf = NULL;
+			pBuf = nullptr;
 		}
 	}
 	//Continue to call NetUserEnum while there are more entries. 
 	while (nStatus == ERROR_MORE_DATA); // end do
 	//Check again for allocated memory.
-	if (pBuf != NULL){
+	if (pBuf != nullptr){
 		NetApiBufferFree(pBuf);
 	}
 	//Print the final count of users enumerated.
@@ -430,22 +432,23 @@ int LOLANetUse::NetUserEnumRunner(int argc, wchar_t *argv[]){
 }
 
 //The NetUserGetInfo function retrieves information about a particular user account on a server.
-int LOLANetUse::NetUserGetInfoRunner(int argc, wchar_t *argv[]){
+int LOLANetUse::NetUserGetInfoRunner(int argc, wchar_t *argv[])
+{
 	DWORD dwLevel = 0;
 
-	LPUSER_INFO_0 pBuf = NULL;
-	LPUSER_INFO_1 pBuf1 = NULL;
-	LPUSER_INFO_2 pBuf2 = NULL;
-	//LPUSER_INFO_3 pBuf3 = NULL;
-	LPUSER_INFO_4 pBuf4 = NULL;
-	LPUSER_INFO_10 pBuf10 = NULL;
-	LPUSER_INFO_11 pBuf11 = NULL;
-	LPUSER_INFO_20 pBuf20 = NULL;
-	LPUSER_INFO_23 pBuf23 = NULL;
+	LPUSER_INFO_0 pBuf = nullptr;
+	LPUSER_INFO_1 pBuf1 = nullptr;
+	LPUSER_INFO_2 pBuf2 = nullptr;
+	//LPUSER_INFO_3 pBuf3 = nullptr;
+	LPUSER_INFO_4 pBuf4 = nullptr;
+	LPUSER_INFO_10 pBuf10 = nullptr;
+	LPUSER_INFO_11 pBuf11 = nullptr;
+	LPUSER_INFO_20 pBuf20 = nullptr;
+	LPUSER_INFO_23 pBuf23 = nullptr;
 
 	NET_API_STATUS nStatus;
 
-	LPTSTR sStringSid = NULL;
+	LPTSTR sStringSid = nullptr;
 
 	int i = 0;
 	int j = 0;
@@ -463,7 +466,7 @@ int LOLANetUse::NetUserGetInfoRunner(int argc, wchar_t *argv[]){
 		nStatus = NetUserGetInfo(argv[1], argv[2], dwLevel, (LPBYTE *)& pBuf);
 		// If the call succeeds, print the user information.
 		if (nStatus == NERR_Success){
-			if (pBuf != NULL){
+			if (pBuf != nullptr){
 				switch (i){
 					case 0:
 						wprintf(L"\tUser account name: %s\n", pBuf->usri0_name);
@@ -631,7 +634,7 @@ int LOLANetUse::NetUserGetInfoRunner(int argc, wchar_t *argv[]){
 			fprintf(stderr, "...NetUserGetinfo failed with error: %d\n", nStatus);
 		}
 		// Free the allocated memory.
-		if (pBuf != NULL){
+		if (pBuf != nullptr){
 			NetApiBufferFree(pBuf);
 		}
 		switch (i){
@@ -662,11 +665,12 @@ int LOLANetUse::NetUserGetInfoRunner(int argc, wchar_t *argv[]){
 
 //The NetUserModalsGet function retrieves global information for all users and global groups in the security database, 
 //which is the security accounts manager(SAM) database or, in the case of domain controllers, the Active Directory.
-int LOLANetUse::NetUserModalsGetRunner(int argc, wchar_t *argv[]){
+int LOLANetUse::NetUserModalsGetRunner(int argc, wchar_t *argv[])
+{
 	DWORD dwLevel = 0;
-	USER_MODALS_INFO_0 *pBuf = NULL;
+	USER_MODALS_INFO_0 *pBuf = nullptr;
 	NET_API_STATUS nStatus;
-	LPTSTR pszServerName = NULL;
+	LPTSTR pszServerName = nullptr;
 
 	if (argc > 2){
 		fwprintf(stderr, L"...Usage: %s [\\\\ServerName]\n", argv[0]);
@@ -680,7 +684,7 @@ int LOLANetUse::NetUserModalsGetRunner(int argc, wchar_t *argv[]){
 	nStatus = NetUserModalsGet((LPCWSTR)pszServerName,dwLevel,(LPBYTE *)&pBuf);
 	// If the call succeeds, print the global information.
 	if (nStatus == NERR_Success){
-		if (pBuf != NULL){
+		if (pBuf != nullptr){
 			printf("\tMinimum password length:  %d\n", pBuf->usrmod0_min_passwd_len);
 			printf("\tMaximum password age (d): %d\n", pBuf->usrmod0_max_passwd_age / 86400);
 			printf("\tMinimum password age (d): %d\n", pBuf->usrmod0_min_passwd_age / 86400);
@@ -691,14 +695,15 @@ int LOLANetUse::NetUserModalsGetRunner(int argc, wchar_t *argv[]){
 		fprintf(stderr, "...A system error has occurred: %d\n", nStatus);
 	}
 	// Free the allocated memory.
-	if (pBuf != NULL){
+	if (pBuf != nullptr){
 		NetApiBufferFree(pBuf);
 	}
 	return 0;
 }
 
 //The NetQueryDisplayInformation function returns user account, computer, or group account information.
-int LOLANetUse::NetQueryDisplayInformationRunner(wchar_t *argv[], int level){
+int LOLANetUse::NetQueryDisplayInformationRunner(wchar_t *argv[], int level)
+{
 	PNET_DISPLAY_GROUP pBuff, p;
 	DWORD res, dwRec, i = 0;
 

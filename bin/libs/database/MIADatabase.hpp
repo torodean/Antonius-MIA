@@ -31,9 +31,9 @@ protected:
 
 private:
 
-    sql::Driver *driver;
-    sql::Connection *con;
-    sql::Statement *stmt;
-    sql::ResultSet *res;
+    sql::Driver *driver{};
+    sql::Connection *con{};
+    sql::Statement *stmt{};
+    sql::ResultSet *res{};
 
 };

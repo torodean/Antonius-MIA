@@ -7,6 +7,7 @@ project(MIA VERSION ${MIA_VERSION_VAL})
 add_definitions ( -DMIAVERSION=\"${MIA_VERSION_VAL}\" )
 
 set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_FLAGS "-Wall")
 set(MIA_PROJECT_DIR "${CMAKE_CURRENT_BINARY_DIR}")
 
 add_subdirectory(bin)

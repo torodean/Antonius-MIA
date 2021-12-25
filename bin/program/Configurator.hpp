@@ -40,13 +40,13 @@ public:
     {
 		// Linux file paths 
         ProgramFilePaths() : MIAConfigFile("resources/MIAConfig.MIA"),
+                             excuseFilePath("resources/excuses.MIA"),
                              inputFilePath("resources/inputFiles/"),
+                             workoutsFilePath("resources/inputFiles/workouts.txt"),
+                             workoutOutputFilePath("resources/outputFiles/workout.txt"),
                              cryptFilePath("resources/encryptedFiles/"),
                              decryptFilePath("resources/decryptedFiles/"),
-                             excuseFilePath("resources/excuses.MIA"),
-                             workoutsFilePath("resources/inputFiles/workouts.txt"),
-                             sequencesFilePath("resources/inputFiles/MIASequences.txt"),
-                             workoutOutputFilePath("resources/outputFiles/workout.txt")
+                             sequencesFilePath("resources/inputFiles/MIASequences.txt")
         {};
 
         /// An enumeration object containing various file types.
