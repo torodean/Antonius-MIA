@@ -1,1 +1,0 @@
-Mersenne primes from http://www.bigprimes.net/downloads/
