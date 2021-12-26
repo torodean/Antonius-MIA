@@ -6,6 +6,11 @@
  */
 
 #include <string>
+#include <utility>
+#include <iostream>
+
+using std::cout;
+using std::cin;
 
 /**
  * This is a class for storing credentials for a user.
@@ -22,8 +27,8 @@ public:
 
     Credentials(std::string user, std::string pw)
     {
-        username = user;
-        hash = hashPassword(pw);
+        username = std::move(user);
+        hash = hashPassword(std::move(pw));
     };
 
     /**
@@ -31,21 +36,54 @@ public:
      * @param user std::string username to set.
      */
     void setUsername(std::string user)
-    { username = user; }
+    { username = std::move(user); }
+
+    /**
+     * Get's the username of this object.
+     * @return user std::string username to return.
+     */
+    std::string getUsername()
+    { return username; }
 
     /**
      * This will set the hash value from a possword.
      * @param pw std::string password to set the hash value from.
      */
     void setPassword(std::string pw)
-    { hash = hashPassword(pw); }
+    { hash = hashPassword(std::move(pw)); }
 
     /**
      * This will set the hash value to a hash that was already hashed from a password.
      * @param hashedPW
      */
     void setHash(std::string hashedPW)
-    { hash = hashedPW; }
+    { hash = std::move(hashedPW); }
+
+    /// Returns the hash of the password for this user's crednetials.
+    std::string getHash()
+    { return hash; }
+
+    /**
+     * The port value to set for this object.
+     * @param p unsigned short& port value.
+     */
+    void setPort(unsigned short& p)
+    { port = p; }
+
+    /// Returns the port value.
+    unsigned short getPort()
+    { return port; }
+
+    /**
+     * Set's the hostname for this object.
+     * @param host std::string hostname to set.
+     */
+    void setHostname(std::string& host)
+    { hostname = host; }
+
+    /// Returns the hostname for this credentials object.
+    std::string getHostname()
+    { return hostname; }
 
     /**
      * Clears the current user credential values.
@@ -56,25 +94,35 @@ public:
         hash.clear();
     };
 
-    /// Returns the hash of the password for this user's crednetials.
-    std::string getHash()
-    { return hash; }
-
     /**
      * Checks a password to see if it matches the user's hashed credentials.
      * @param in std::string of the password to check against.
      * @return true if hash matches, false otherwise.
      */
     bool checkPassword(std::string pw)
-    { return hashPassword(pw) == hash; }
+    { return hashPassword(std::move(pw)) == hash; }
 
     /**
      * Checks a hash to see if it matches the user's credentials.
-     * @param in std::string of the hash to check against.
+     * @param hashedPW std::string of the hash to check against.
      * @return true if hash matches, false otherwise.
      */
-    bool checkHash(std::string hashedPW)
+    bool checkHash(const std::string& hashedPW)
     { return hashedPW == hash; }
+
+    /**
+     * In some cases, an actually password string is needed.
+     * This method will query the user for their password to use.
+     * @param passwordUsage std::string describing what the password is needed for.
+     * @return Returns the user password.
+     */
+    static std::string getPasswordFromUser(const std::string& passwordUsage = "login")
+    {
+        std::string password;
+        cout << "Enter password for " << passwordUsage << ": ";
+        cin >> password;
+        return password;
+    }
 
 private:
     /**
@@ -88,6 +136,8 @@ private:
         return pw;
     }
 
+    unsigned short port{};        ///< Port number for connection using these credentials.
+    std::string hostname;       ///< Hostname number for connection using these credentials.
     std::string username;       ///< The username of the credentials.
     std::string hash;           ///< The hash associated with the password for the user.
 };

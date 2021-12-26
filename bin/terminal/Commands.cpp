@@ -1047,6 +1047,14 @@ void Commands::loopSequencer()
 void Commands::runTest()
 {
 #ifdef USE_Database_LIB
+    /*
+     * This should return the following if working/setup properly:
+        Starting database test.
+            ... MySQL reply: 1, val01
+            ... MySQL reply: 2, val02
+            ... MySQL reply: 3, val03
+        Finished database test.
+     */
     std::cout << "Database Testing" << std::endl;
     MIADatabase db{};
     db.testDatabase();

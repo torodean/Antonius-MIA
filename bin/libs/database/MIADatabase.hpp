@@ -6,6 +6,7 @@
  *              The MIA database uses SQL.
  */
 
+#include "Credentials.hpp"
 #include "mysql_connection.h"
 
 #include <cppconn/driver.h>
@@ -29,6 +30,7 @@ public:
 
     /**
      * Initializes the database variables from the MIAConfig.MIA file.
+     * This will setup the credentials and database to use.
      */
     void initialize();
 
@@ -57,11 +59,18 @@ public:
      */
     int testDatabase();
 
+    /**
+     * This will set which database to use.
+     */
+    void setDatabase(std::string& db);
+
 
 protected:
 
 private:
 
+    Credentials credentials;
+    std::string database;
     sql::Driver *driver{};
     sql::Connection *con{};
     sql::Statement *stmt{};

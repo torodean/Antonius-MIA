@@ -6,7 +6,7 @@
  */
 
 #include "MIADatabase.hpp"
-#include "Credentials.hpp"
+#include "Configurator.hpp"
 
 using std::cout;
 using std::endl;
@@ -88,7 +88,33 @@ int MIADatabase::testDatabase()
 
 int MIADatabase::connect()
 {
-    // @TODO
+    try
+    {
+        /* Create a connection */
+        driver = get_driver_instance();
+        sql::SQLString hostname("tcp://" + credentials.getHostname() + ":" + std::to_string(credentials.getPort()));
+        if (Configurator::getVerboseMode())
+            cout << "MySQL hostname value being set as: " << hostname << endl;
+        std::string password = Credentials::getPasswordFromUser("MySQL Database Login for user " + credentials.getUsername());
+        con = driver->connect(hostname, credentials.getUsername(), password);
+        /* Connect to the MySQL test database */
+        con->setSchema(database);
+    }
+    catch (sql::SQLException &e)
+    {
+        cout << "# ERR: SQLException in " << __FILE__;
+        cout << "(" << __FUNCTION__ << ") on line " << __LINE__ << endl;
+        cout << "# ERR: " << e.what();
+        cout << " (MySQL error code: " << e.getErrorCode();
+        cout << ", SQLState: " << e.getSQLState() << " )" << endl;
+
+        return EXIT_FAILURE;
+    }
     return EXIT_SUCCESS;
+}
+
+void MIADatabase::setDatabase(std::string& db)
+{
+    database = db;
 }
 
