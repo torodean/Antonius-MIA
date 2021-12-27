@@ -7,9 +7,9 @@ The MIA acronym was created by the original author for the sole purpose of this 
 
 As MIA is continually under development, this document is also. Due to this, it may fall behind and become slightly outdated as I implement and test new features into MIA. I will attempt to keep this document up to date with all of the features MIA contains but I can only do so if time permits.
 
-\section{Setting up the MIA Environment for Developers}
+\section{Setting up the MIA Environment for Developers - Linux}
 
-To set up MIA for development, simply git clone the project and begin working.
+To set up MIA for development, simply git clone the project and begin working. Install dependencies as needed.
 
 \begin{lstlisting}
 git clone https://github.com/torodean/Antonius-MIA
@@ -21,6 +21,57 @@ To build the project, simply navigate to the main MIA directory and run the buil
 cd Antonius-MIA/bin
 ./build.sh
 \end{lstlisting}
+
+Dependencies that may be needed follow
+\begin{enumerate}
+	\item xdo: Needed for VirtualKeyCodes - sudo apt-get install libxdo-dev
+	\item mysql: Needed for Database features - sudo apt-get install libmysqlcppconn-dev 
+\end{enumerate}
+
+\section{Setting up the MIA Environment for Developers - Windows}
+
+\begin{enumerate}
+\item Start by installing dependencies.
+
+\begin{itemize}
+	\item Install git: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
+	\item Install Cygwin using the tutorial here: http://preshing.com/20141108/how-to-install-the-latest-gcc-on-windows/
+	\item Clone MIA code: git clone https://github.com/torodean/Antonius-MIA.git
+	\item Install CMake 17 or later
+\end{itemize}
+
+\item Via cygwin terminal, build the code:  
+
+\begin{lstlisting}
+cd path/to/Antonius-MIA/
+./build.sh
+\end{lstlisting}
+
+\item Update the release files within the MIA directory.
+
+\begin{lstlisting}
+cd path/to/Antonius-MIA/
+./updateRelease.sh
+\end{lstlisting}
+
+\item Navigate to the release folder and run the MIA program(s).
+
+\begin{lstlisting}
+cd path/to/Antonius-MIA/release
+./MIA
+./MIATerminal
+\end{lstlisting}
+
+\item Potentially useful notes from old install instructions:
+
+To see what dll's are required by the program for making it portable, execute 
+\begin{lstlisting}
+objdump -p MIA.exe | grep "DLL Name"
+\end{lstlisting}
+while in the ../Antonius-MIA/bin and then copy those dll's to the folder with the .exe
+
+With the correct cygwin dll's in the exe folder, the program can be ran as standalone by clicking the executable file.
+\end{enumerate}
 
 \section{Creating an Updated Release Package}
 
@@ -57,9 +108,9 @@ echo "...done!"
 \begin{enumerate}
 	\item First, head to the below link. You may have to type it by hand if copy-paste does not work properly\footnote{Sometimes the ``-" is compiled through \LaTeX as different ascii characters that different pdf readers or browsers do not understand as a generic minus.}.
 
-	\begin{lstlisting}
-	https://github.com/torodean/Antonius-MIA
-	\end{lstlisting}
+\begin{lstlisting}
+https://github.com/torodean/Antonius-MIA
+\end{lstlisting}
 	
 	\item Select the ``Clone or Download" button then ``Download ZIP" as shown in Fig. \ref{setup01}.
 	
