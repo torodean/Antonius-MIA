@@ -63,4 +63,7 @@ cmake -G "Unix Makefiles" -Bbuild/
 cd build || exit
 make -j16
 
+# Copy needed files for running MIA from build directory.
+cp -ruv "$(pwd)/../bin/resources/"*".MIA" "$(pwd)/bin/resources/"
+
 echo "...MIA Build done!"

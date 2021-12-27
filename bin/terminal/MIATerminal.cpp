@@ -279,16 +279,16 @@ void MIATerminal::performMIACommand(string& input)
             cmd.buttonSpamRunner(true);
             break;
         case Commands::MIAInput::RANDFROMFILE:
-            cmd.printRandomLinesFromFileRunner();
+            Commands::printRandomLinesFromFileRunner();
             break;
         case Commands::MIAInput::WOWDUPLETTER:
             cmd.duplicateLetterRunner();
             break;
         case Commands::MIAInput::QUADRATICFORM:
-            cmd.solveQuadraticFormulaRunner();
+            Commands::solveQuadraticFormulaRunner();
             break;
         case Commands::MIAInput::PRANJAL:
-            cmd.pranjal();
+            Commands::pranjal();
             break;
         case Commands::MIAInput::FINDMOUSE:
             cmd.findMouse();
@@ -377,7 +377,7 @@ void MIATerminal::runTest(){
 int main()
 {
     MIATerminal terminal("MIA Terminal");
-    terminal.run("test");
+    terminal.run("");
     return 0;
 }
 

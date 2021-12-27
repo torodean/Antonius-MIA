@@ -113,7 +113,9 @@ bool StringUtils::formOfYes(string& input)
         toLower(input) == "sure" ||
         toLower(input) == "indeed" ||
         toLower(input) == "ok" ||
-        toLower(input) == "okay")
+        toLower(input) == "okay" ||
+        toLower(input) == "true" ||
+        toLower(input) == "on")
     {
         return true;
     } else {

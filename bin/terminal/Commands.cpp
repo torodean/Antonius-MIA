@@ -1055,9 +1055,15 @@ void Commands::runTest()
             ... MySQL reply: 3, val03
         Finished database test.
      */
-    std::cout << "Database Testing" << std::endl;
-    MIADatabase db{};
+    std::cout << "Testing default Database settings." << std::endl;
+    MIADatabase db;
     db.testDatabase();
+    std::cout << "Testing config specific Database settings." << std::endl;
+    MIADatabase db2;
+    db2.initialize();
+    db2.connect();
+    db2.testDatabase();
+    std::cout << "Finished Database testing." << std::endl;
 #endif
     //Error::returnError(31418); //Returns nothing set for testing.
 

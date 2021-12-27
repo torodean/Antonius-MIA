@@ -49,8 +49,22 @@ public:
      * This will set the hash value from a possword.
      * @param pw std::string password to set the hash value from.
      */
-    void setPassword(std::string pw)
+    void setPasswordHash(std::string pw)
     { hash = hashPassword(std::move(pw)); }
+
+    /**
+     * This will set the possword.
+     * @param pw std::string password to store.
+     */
+    void setPassword(std::string pw)
+    { password = std::move(pw); }
+
+    /**
+     * This will return the possword.
+     * @return std::string password value;
+     */
+    std::string getPassword()
+    { return password; }
 
     /**
      * This will set the hash value to a hash that was already hashed from a password.
@@ -136,8 +150,9 @@ private:
         return pw;
     }
 
-    unsigned short port{};        ///< Port number for connection using these credentials.
+    unsigned short port{};      ///< Port number for connection using these credentials.
     std::string hostname;       ///< Hostname number for connection using these credentials.
     std::string username;       ///< The username of the credentials.
+    std::string password;       ///< Used in some cases. For security, store hash instead.
     std::string hash;           ///< The hash associated with the password for the user.
 };

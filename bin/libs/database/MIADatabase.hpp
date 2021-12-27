@@ -36,6 +36,7 @@ public:
 
     /**
      * Connects to the database.
+     * Initialize should be ran first to gather database settings from config.
      */
      int connect();
 
@@ -69,8 +70,9 @@ protected:
 
 private:
 
-    Credentials credentials;
-    std::string database;
+    Credentials credentials;    ///< Credentials used to login to a database.
+    std::string database;       ///< The database name to login to.
+    /// MySQL values for the connection.
     sql::Driver *driver{};
     sql::Connection *con{};
     sql::Statement *stmt{};

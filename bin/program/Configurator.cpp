@@ -39,7 +39,7 @@ void Configurator::initialize()
 void Configurator::setVerboseMode(string value)
 {
     value = StringUtils::removeCharInString(value, ' ');
-    if (value == "true" || value == "1")
+    if (StringUtils::formOfYes(value))
         ProgramVariables::verboseMode = true;
     else
         ProgramVariables::verboseMode  = false;
@@ -73,7 +73,8 @@ void Configurator::initializeSettings(bool printSettings)
         //If true, print the configuration file settings.
         if (getVerboseMode())
             cout << endl << "...Config file output: " << endl;
-        
+
+        // Get all non-comment lines in the MIAConfig file.
         while(getline(file,line))
         {
             if (line[0] != '#' && !line.empty() && line.size()>2)
@@ -152,6 +153,16 @@ void Configurator::setMIAVariables(const string& variable, const string& value)
         setWoWMailboxDeleteLetterLocation('y',value);
     } else if (variable == "verboseMode"){
         setVerboseMode(value);
+    } else if (variable == "username"){
+        setUsername(value);
+    } else if (variable == "password"){
+        setPassword(value);
+    } else if (variable == "database"){
+        setDatabase(value);
+    } else if (variable == "hostname"){
+        setHostname(value);
+    }  else if (variable == "port"){
+        setPort(value);
     } else if (variable == "defaultButtonCombination"){
         setDefaultButtonCombination(value);
     } else {
@@ -518,4 +529,30 @@ string Configurator::getDefaultButtonCombination() const
 string Configurator::getMIAVersion()
 {
     return ProgramVariables::MIA_VERSION;
+}
+
+void Configurator::setUsername(const string &input)
+{
+    databaseVariables.username = input;
+}
+
+void Configurator::setDatabase(const string &input)
+{
+    databaseVariables.database = input;
+}
+
+void Configurator::setPassword(const string &input)
+{
+    databaseVariables.password = input;
+}
+
+void Configurator::setHostname(const string &input)
+{
+    databaseVariables.hostname = input;
+}
+
+void Configurator::setPort(const string &input)
+{
+    int value = std::stoi(input);
+    databaseVariables.port = (short)value;
 }

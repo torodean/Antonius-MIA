@@ -44,7 +44,23 @@ int MIADatabase::testConnect()
 
 void MIADatabase::initialize()
 {
-    // @TODO
+    Configurator config;
+    config.initializeSettings(false);
+    credentials.setUsername(config.databaseVariables.username);
+    if (!config.databaseVariables.password.empty())
+        credentials.setPassword(config.databaseVariables.password);
+    credentials.setHostname(config.databaseVariables.hostname);
+    credentials.setPort(config.databaseVariables.port);
+    database = config.databaseVariables.database;
+    if (Configurator::getVerboseMode())
+    {
+        cout << "Username: " << credentials.getUsername();
+        cout << ", password: " << credentials.getPassword();
+        cout << ", hostname: " << credentials.getHostname();
+        cout << ", port: " << credentials.getPort();
+        cout << ", database: " << database;
+        cout << endl;
+    }
 }
 
 int MIADatabase::testDatabase()
@@ -95,7 +111,11 @@ int MIADatabase::connect()
         sql::SQLString hostname("tcp://" + credentials.getHostname() + ":" + std::to_string(credentials.getPort()));
         if (Configurator::getVerboseMode())
             cout << "MySQL hostname value being set as: " << hostname << endl;
-        std::string password = Credentials::getPasswordFromUser("MySQL Database Login for user " + credentials.getUsername());
+        std::string password;
+        if (credentials.getPassword().empty())
+            password = Credentials::getPasswordFromUser("MySQL Database Login for user " + credentials.getUsername());
+        else
+            password = credentials.getPassword();
         con = driver->connect(hostname, credentials.getUsername(), password);
         /* Connect to the MySQL test database */
         con->setSchema(database);

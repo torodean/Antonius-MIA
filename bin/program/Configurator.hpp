@@ -115,9 +115,11 @@ public:
         int WoWFishBotDelay;
     };
 
+    /**
+     * Variables used by the sequencer/
+     */
     struct SequencerVariables
     {
-
         SequencerVariables()
         {
             // Set some default values.
@@ -129,6 +131,16 @@ public:
         std::string defaultButtonCombination;
         std::vector<int> buttonCombinationCoordsX;
         std::vector<int> buttonCombinationCoordsY;
+    };
+
+    struct DatabaseVariables
+    {
+        DatabaseVariables() = default;
+        std::string username;
+        std::string database;
+        std::string password;
+        std::string hostname;
+        unsigned short port{};
     };
 
     /**
@@ -162,6 +174,7 @@ public:
     ProgramFilePaths programFilePaths{};
     WowProgramVariables wowProgramVariables{};
     SequencerVariables sequencerVariables{};
+    DatabaseVariables databaseVariables{};
 	
 	/// Initializes and returns private WoW variables.
     int getWoWMailboxDeleteLetterLocation(char coord);
@@ -269,4 +282,10 @@ private:
     void setDefaultButtonCombination(const std::string &input);
     std::string getDefaultButtonCombination() const;
 
+    /// Methods for setting database variables.
+    void setUsername(const std::string &input);
+    void setDatabase(const std::string &input);
+    void setPassword(const std::string &input);
+    void setHostname(const std::string &input);
+    void setPort(const std::string &input);
 };
