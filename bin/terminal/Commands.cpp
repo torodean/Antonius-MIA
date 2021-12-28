@@ -1068,10 +1068,10 @@ void Commands::runTest()
     db2.initialize();
     db2.connect();
     db2.deleteTable("timeTable");
-    std::vector<std::string> elements =  {"id INT", "value VARCHAR(25)", "time TIME"};
-    std::vector<std::string> element =  {"id", "value", "time"};
-    std::vector<std::string> value0 =  {"0", "'Value0'", "'11:12:13'"};
-    std::vector<std::string> value1 =  {"1", "'Value1'", "'12:13:14'"};
+    std::vector<std::string> elements = {"id INT", "value VARCHAR(25)", "time TIME"};
+    std::vector<std::string> element = {"id", "value", "time"};
+    std::vector<std::string> value0 = {"0", "'Value0'", "'11:12:13'"};
+    std::vector<std::string> value1 = {"1", "'Value1'", "'12:13:14'"};
     db2.addTable("timeTable", elements);
     db2.addElementToTable("timeTable", element, value0);
     db2.addElementToTable("timeTable", element, value1);

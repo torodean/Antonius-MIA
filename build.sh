@@ -1,5 +1,10 @@
 #!/bin/bash
 
+scriptLocation=$(readlink -f "$0")
+rootDirectory=$(dirname "$scriptLocation")
+echo "$rootDirectory"
+cd $rootDirectory || exit
+
 usage()
 {
   echo "build: build.sh [options...]"
@@ -40,16 +45,16 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
   echo "Installing dependencies not coded yet."
   # Mac OSX
 elif [[ "$OSTYPE" == "cygwin" ]]; then
-  echo "Installing dependencies not coded yet."
+  echo "Installing dependencies for cygwin not coded yet."
   # POSIX compatibility layer and Linux environment emulation for Windows
 elif [[ "$OSTYPE" == "msys" ]]; then
-  echo "Installing dependencies not coded yet."
+  echo "Installing dependencies for msys not coded yet."
   # Lightweight shell and GNU utilities compiled for Windows (part of MinGW)
 elif [[ "$OSTYPE" == "win32" ]]; then
-  echo "Installing dependencies not coded yet."
+  echo "Installing dependencies for win32 not coded yet."
   # I'm not sure this can happen.
 elif [[ "$OSTYPE" == "freebsd"* ]]; then
-  echo "Installing dependencies not coded yet."
+  echo "Installing dependencies for freebsd not coded yet."
   # ...
 else
   echo "Undetected OS - install dependencies manually."
@@ -58,12 +63,12 @@ fi
 
 echo "...Beginning MIA Build!"
 
-mkdir -p build
-cmake -G "Unix Makefiles" -Bbuild/
-cd build || exit
+mkdir -p "$rootDirectory"/build
+cmake -G "Unix Makefiles" -B"$rootDirectory"/build
+cd "$rootDirectory"/build || exit
 make -j16
 
 # Copy needed files for running MIA from build directory.
-cp -ruv "$(pwd)/../bin/resources/"*".MIA" "$(pwd)/bin/resources/"
+cp -ruv "$rootDirectory/bin/resources/"*".MIA" "$rootDirectory/build/bin/resources/"
 
 echo "...MIA Build done!"
