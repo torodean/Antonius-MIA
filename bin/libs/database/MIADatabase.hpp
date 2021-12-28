@@ -14,6 +14,9 @@
 #include <cppconn/resultset.h>
 #include <cppconn/statement.h>
 
+using std::string;
+using std::vector;
+
 /**
  * This is the class designed for connection and use with databases.
  * The MIA database uses MYSQL.
@@ -63,16 +66,63 @@ public:
     /**
      * This will set which database to use.
      */
-    void setDatabase(std::string& db);
+    void setDatabase(string& db);
 
     void databaseInterface();
+
+    /**
+     * This will add a table to a database.
+     * CREATE TABLE tableName (elements[0], elements[1], ...);
+     * @param tableName The name of the table to use
+     * @param elements a vector of elements that represent the various table values.
+     * @example
+     *      std::vector<std::string> elements =  {"id INT", "value VARCHAR(25)", "time TIME"};
+     *      db2.addTable("timeTable", elements);
+     */
+    void addTable(const string& tableName, const vector<string>& elements);
+
+    /**
+     * This will add an element to a table.
+     * INSERT INTO tableName (elements[0], elements[1], ...) VALUES (values[0], values[1], ...);
+     * @param tableName The name of the table to use
+     * @param elements a vector of elements that represent the various table values.
+     * @param values a vector of values that matches the various elements.
+     * @example
+     *      std::vector<std::string> element =  {"id", "value", "time"};
+     *      std::vector<std::string> value0 =  {"0", "'Value0'", "'11:12:13'"};
+     *      db2.addElementToTable("timeTable", element, value0);
+
+     */
+    void addElementToTable(const string& tableName, const vector<string>& elements, vector<string> values);
+
+    /**
+     * This will display the elements of the table.
+     * SELECT * FROM tableName
+     * @param tableName
+     * @example
+     *      db2.viewTable("timeTable");
+     */
+    void viewTable(const string& tableName);
+
+    /**
+     * This will delete a table from the database.
+     * DROP TABLE tableName;
+     * @param tableName the table to delete
+     */
+    void deleteTable(const string& tableName);
 
 protected:
 
 private:
 
+    /**
+     * This will print out the SQLException information for a thrown exception.
+     * @param e the sql::SQLException& to print info about.
+     */
+    static void printExceptionInfo(sql::SQLException &e);
+
     Credentials credentials;    ///< Credentials used to login to a database.
-    std::string database;       ///< The database name to login to.
+    string database;            ///< The database name to login to.
     /// MySQL values for the connection.
     sql::Driver *driver{};
     sql::Connection *con{};

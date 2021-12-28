@@ -1037,36 +1037,6 @@ void Commands::loopSequencer()
     }
 }
 
-
-
-
-
-
-//Function made for testing.
-//This should be placed at the end of the file for easy accessibility. 
-void Commands::runTest()
-{
-#ifdef USE_Database_LIB
-    std::cout << "Testing config specific Database settings." << std::endl;
-    MIADatabase db2;
-    db2.initialize();
-    db2.connect();
-    db2.testDatabase();
-    std::cout << "Finished Database testing." << std::endl;
-#endif
-    //Error::returnError(31418); //Returns nothing set for testing.
-
-    ///* Uncomment this for testing things for Windows only.
-#if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__) || defined _WIN32 || defined _WIN64 || defined __CYGWIN__
-    //Sequencer s;
-	//s.activateSequence("test");
-#elif __linux__
-//    Music m;
-//    m.playSong("test.mp3");
-    Error::returnError(31416);
-#endif
-}
-
 void Commands::runDatabaseInterface()
 {
 #ifdef USE_Database_LIB
@@ -1082,5 +1052,42 @@ void Commands::runDatabaseInterface()
     }
 #elif __linux__
     Error::returnError(Error::ErrorCode::Database_Features_Not_Built);
+#endif
+}
+
+
+
+
+//Function made for testing.
+//This should be placed at the end of the file for easy accessibility. 
+void Commands::runTest()
+{
+#ifdef USE_Database_LIB
+    std::cout << "Testing config specific Database settings." << std::endl;
+    MIADatabase db2;
+    db2.initialize();
+    db2.connect();
+    db2.deleteTable("timeTable");
+    std::vector<std::string> elements =  {"id INT", "value VARCHAR(25)", "time TIME"};
+    std::vector<std::string> element =  {"id", "value", "time"};
+    std::vector<std::string> value0 =  {"0", "'Value0'", "'11:12:13'"};
+    std::vector<std::string> value1 =  {"1", "'Value1'", "'12:13:14'"};
+    db2.addTable("timeTable", elements);
+    db2.addElementToTable("timeTable", element, value0);
+    db2.addElementToTable("timeTable", element, value1);
+    //db2.testDatabase();
+    db2.viewTable("timeTable");
+    std::cout << "Finished Database testing." << std::endl;
+#endif
+    //Error::returnError(31418); //Returns nothing set for testing.
+
+    ///* Uncomment this for testing things for Windows only.
+#if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__) || defined _WIN32 || defined _WIN64 || defined __CYGWIN__
+    //Sequencer s;
+	//s.activateSequence("test");
+#elif __linux__
+//    Music m;
+//    m.playSong("test.mp3");
+//    Error::returnError(31416);
 #endif
 }

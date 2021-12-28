@@ -88,8 +88,8 @@ public:
 
     /**
      * Returns a shuffled string.
-     * @param input
-     * @return
+     * @param input the string to shuffle.
+     * @return std::string that has been shuffled.
      */
     static std::string shuffleString(std::string input);
 

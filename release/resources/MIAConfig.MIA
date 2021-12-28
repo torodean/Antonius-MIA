@@ -32,7 +32,7 @@ username=testUser
 # Leave password empty to be prompted for it.
 # This is recommended. Value here mainly for testing
 # purposes or cases where security is not needed.
-password=
+password=password
 database=testDB
 hostname=localhost
 port=3306
