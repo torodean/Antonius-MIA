@@ -40,6 +40,8 @@ public:
         Cannot_Find_Mapped_Value = 31423,
         Invalid_Character_Input = 31424,
         Linux_Only_Feature = 31425,
+        Database_Features_Not_Built = 31426,
+        Database_Connection_Failure = 31427,
         Catastrophic_Failure = 9001
     };
 
@@ -48,7 +50,7 @@ public:
      * @param errorCode[int] - The integer error code to return.
      * @param details[std::string&] - A string with optional descriptive error info (default = "").
      */
-    static int returnError(int errorCode, const std::string& details = "");
+    static int returnError(int errorCode = 9001, const std::string& details = "");
 
     /**
      * Returns information about a specified known error or all of the known errors.

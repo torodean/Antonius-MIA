@@ -58,6 +58,12 @@ int Error::returnError(int errorCode, const string& details)
         case Linux_Only_Feature:
             cout << "..Error 31425: This feature is currently only programmed for Linux. " << details << endl;
             break;
+        case Database_Features_Not_Built:
+            cout << "..Error 31426: Database features have not been setup. " << details << endl;
+            break;
+        case Database_Connection_Failure:
+            cout << "..Error 31427: Database connection failure. " << details << endl;
+            break;
 	    case Catastrophic_Failure:
             cout << "..Error 9001: A catastrophic failure occurred. " << details << endl;
             break;
@@ -159,6 +165,12 @@ void Error::errorInfo(int error)
         case Linux_Only_Feature:
             cout << "..Error 31425: This feature is currently only programmed for Linux. " << endl;
             break;
+        case Database_Features_Not_Built:
+            cout << "..Error 31426: Database Features have not been setup. " << endl;
+            break;
+        case Database_Connection_Failure:
+            cout << "..Error 31427: Database connection failure. " << endl;
+            break;
         default:
             cout << "...Invalid or unknown error code entered." << endl;
             cout << "...Full List of programmed error codes follow." << endl;
@@ -188,7 +200,9 @@ void Error::errorInfo(int error)
             cout << "...31422: Invalid Option in MIASequences. " << endl;
             cout << "...31423: Error finding mapped value. " << endl;
             cout << "...31424: Invalid Character input. " << endl;
-            cout << "..Error 31425: This feature is currently only programmed for Linux. " << endl;
+            cout << "...31425: This feature is currently only programmed for Linux. " << endl;
+            cout << "...31426: Database Features have not been setup. " << endl;
+            cout << "...31427: Database connection failure. " << endl;
             break;
     }
 }

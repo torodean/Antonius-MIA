@@ -8,6 +8,8 @@
 #include <string>
 #include <utility>
 #include <iostream>
+#include <termios.h>
+#include <unistd.h>
 
 using std::cout;
 using std::cin;
@@ -126,7 +128,7 @@ public:
 
     /**
      * In some cases, an actually password string is needed.
-     * This method will query the user for their password to use.
+     * This method will query the user for their password to use. 
      * @param passwordUsage std::string describing what the password is needed for.
      * @return Returns the user password.
      */
@@ -134,7 +136,25 @@ public:
     {
         std::string password;
         cout << "Enter password for " << passwordUsage << ": ";
-        cin >> password;
+#if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__) || defined _WIN32 || defined _WIN64 || defined __CYGWIN__
+        // @TODO - make the password hidden in windows.
+        /* Here's some test code from codedirect.com to test.
+          HANDLE hStdin = GetStdHandle(STD_INPUT_HANDLE);
+          DWORD mode = 0;
+          GetConsoleMode(hStdin, &mode);
+          SetConsoleMode(hStdin, mode & (~ENABLE_ECHO_INPUT));
+         */
+        getline(std::cin, password);
+        // SetConsoleMode(hStdin, mode); //restore console to normal
+#elif __linux__
+        termios oldt{};
+        tcgetattr(STDIN_FILENO, &oldt);
+        termios newt = oldt;
+        newt.c_lflag &= ~ECHO;
+        tcsetattr(STDIN_FILENO, TCSANOW, &newt);
+        getline(std::cin, password);
+        tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
+#endif
         return password;
     }
 

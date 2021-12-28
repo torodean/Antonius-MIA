@@ -24,13 +24,15 @@ workoutOutputFilePath=resources/outputFiles/workout.txt
 excuseFilePath=resources/excuses.txt
 
 # MIA program variables.
-verboseMode=true
+verboseMode=false
 # MIATerminalMode=true
 
 # MySQL Variables.
 username=testUser
-# Leave password empty to be prompted for it. This is recommended.
-password=password
+# Leave password empty to be prompted for it.
+# This is recommended. Value here mainly for testing
+# purposes or cases where security is not needed.
+password=
 database=testDB
 hostname=localhost
 port=3306

@@ -1047,17 +1047,6 @@ void Commands::loopSequencer()
 void Commands::runTest()
 {
 #ifdef USE_Database_LIB
-    /*
-     * This should return the following if working/setup properly:
-        Starting database test.
-            ... MySQL reply: 1, val01
-            ... MySQL reply: 2, val02
-            ... MySQL reply: 3, val03
-        Finished database test.
-     */
-    std::cout << "Testing default Database settings." << std::endl;
-    MIADatabase db;
-    db.testDatabase();
     std::cout << "Testing config specific Database settings." << std::endl;
     MIADatabase db2;
     db2.initialize();
@@ -1074,6 +1063,24 @@ void Commands::runTest()
 #elif __linux__
 //    Music m;
 //    m.playSong("test.mp3");
-//    Error::returnError(31416);
+    Error::returnError(31416);
+#endif
+}
+
+void Commands::runDatabaseInterface()
+{
+#ifdef USE_Database_LIB
+    MIADatabase database;
+    database.initialize();
+    if(database.connect())
+    {
+
+    }
+    else
+    {
+        Error::returnError(Error::ErrorCode::Database_Connection_Failure);
+    }
+#elif __linux__
+    Error::returnError(Error::ErrorCode::Database_Features_Not_Built);
 #endif
 }

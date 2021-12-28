@@ -51,10 +51,10 @@ void MIADatabase::initialize()
         credentials.setPassword(config.databaseVariables.password);
     credentials.setHostname(config.databaseVariables.hostname);
     credentials.setPort(config.databaseVariables.port);
-    database = config.databaseVariables.database;
+    setDatabase(config.databaseVariables.database);
     if (Configurator::getVerboseMode())
     {
-        cout << "Username: " << credentials.getUsername();
+        cout << "Database Variables Set -- Username: " << credentials.getUsername();
         cout << ", password: " << credentials.getPassword();
         cout << ", hostname: " << credentials.getHostname();
         cout << ", port: " << credentials.getPort();
@@ -137,4 +137,11 @@ void MIADatabase::setDatabase(std::string& db)
 {
     database = db;
 }
+
+void MIADatabase::databaseInterface()
+{
+
+}
+
+
 

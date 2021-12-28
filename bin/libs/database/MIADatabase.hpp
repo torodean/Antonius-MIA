@@ -65,6 +65,7 @@ public:
      */
     void setDatabase(std::string& db);
 
+    void databaseInterface();
 
 protected:
 
