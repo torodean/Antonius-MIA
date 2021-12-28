@@ -2,7 +2,7 @@
  * File: MIAEncrypt.hpp
  * Author: Antonius Torode
  * Date: 03/11/2021
- * Description:
+ * Description: This file contains the code pertaining to MIA Encryption.
  */
 
 
@@ -10,7 +10,15 @@
 #include <vector>
 #include "../FileUtils.hpp"
 
+using std::string;
+using std::vector;
 
+/**
+ * This is the main class for the Etaoin character set. This character set has
+ * translations for each character where they can be rotated or mirrored to
+ * produce other characters. These transformations can be used to modify an
+ * Etaoin string which can be used for encryption.
+ */
 class Etaoin
 {
     /**
@@ -19,35 +27,51 @@ class Etaoin
      */
     typedef uint8_t etaoinChar;
 
+    /// Main default constructor.
     Etaoin() = default;
 
-    explicit Etaoin(std::string input);
+    /// This is the main constructor for an Etaoin object from a string input.
+    explicit Etaoin(const string& input);
 
+    /// The main default destructor.
     ~Etaoin() = default;
 
-    etaoinChar mirrorVertically(etaoinChar input);
-
-    etaoinChar mirrorHorizontally(etaoinChar input);
+    /**
+     * This will vertically mirror an etaoin character and return it's mirrored counterpart.
+     * @param input the etaoin character to mirror.
+     * @return etaoinChar.
+     */
+    static etaoinChar mirrorVertically(etaoinChar input);
 
     /**
-     *
+     * This will horizontally mirror an etaoin character and return it's mirrored counterpart.
+     * @param input the etaoin character to mirror.
+     * @return etaoinChar.
      */
-     static char toEtaoin(const char& input);
+    static etaoinChar mirrorHorizontally(etaoinChar input);
 
     /**
-     * This will take any english string and convert it to Etaoin.
+     * This will take any english string and convert it to a modified Etaoin string.
      */
-    static std::string toEtaoin(const std::string& input);
+    static string toModifiedEtaoin(const string& input);
 
+    /**
+     * This will take any english string and convert it to an Etaoin vector.
+     */
+    static vector<etaoinChar> toEtaoin(const string& input);
 
 private:
+
     /**
      * This is the main container for the data contained by the Etaoin content.
      */
-    std::vector<etaoinChar> data;
+    vector<etaoinChar> data;
 
 };
 
+/**
+ * This is the main class for MIA encryption.
+ */
 class MIAEncrypt
 {
 public:
@@ -64,13 +88,16 @@ public:
 
     /**
      * This method will take a string and perform simple encryption on it.
-     * @param input[std::string&] - A reference to a string to encrypt.
-     * @return [std::string] - returns an encrypted string.
+     * @param input[string&] - A reference to a string to encrypt.
+     * @return [string] - returns an encrypted string.
      */
-    std::string encryptedString(const std::string& input);
+    static string encryptedString(const string& input);
 
 protected:
 
 private:
+
+    /// The main container for the data to be encrypted.
+    Etaoin data;
 
 };

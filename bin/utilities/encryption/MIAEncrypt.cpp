@@ -2,13 +2,38 @@
  * File: MIAEncrypt.cpp
  * Author: Antonius Torode
  * Date: 03/11/2021
- * Description:
+ * Description: The code for the MIAEncrypt class.
  */
 
 #include "MIAEncrypt.hpp"
 
 
-std::string MIAEncrypt::encryptedString(const std::string& input)
+Etaoin::Etaoin(const string& input)
 {
-    return std::string();
+    data = toEtaoin(input);
+}
+
+Etaoin::etaoinChar Etaoin::mirrorVertically(Etaoin::etaoinChar input)
+{
+    return 0;
+}
+
+Etaoin::etaoinChar Etaoin::mirrorHorizontally(Etaoin::etaoinChar input)
+{
+    return 0;
+}
+
+string Etaoin::toModifiedEtaoin(const string &input)
+{
+    return {};
+}
+
+vector<string> Etaoin::toEtaoin(const string &input)
+{
+    return {};
+}
+
+string MIAEncrypt::encryptedString(const string &input)
+{
+    return {};
 }
