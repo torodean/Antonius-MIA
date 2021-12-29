@@ -2,7 +2,7 @@
  * File: MIADatabase.hpp
  * Author: Antonius Torode
  * Date: 03/11/2021
- * Description: This class defines database connections.
+ * Description: This file contains the database connections source code.
  */
 
 #include "MIADatabase.hpp"

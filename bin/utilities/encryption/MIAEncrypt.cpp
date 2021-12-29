@@ -28,7 +28,7 @@ string Etaoin::toModifiedEtaoin(const string &input)
     return {};
 }
 
-vector<string> Etaoin::toEtaoin(const string &input)
+vector<Etaoin::etaoinChar> Etaoin::toEtaoin(const string &input)
 {
     return {};
 }

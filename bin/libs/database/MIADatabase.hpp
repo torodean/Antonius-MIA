@@ -2,7 +2,7 @@
  * File: MIADatabase.hpp
  * Author: Antonius Torode
  * Date: 03/11/2021
- * Description: This is the class designed for connection and use with databases.
+ * Description: This is the file designed for connection and use with databases.
  *              The MIA database uses SQL.
  */
 
