@@ -217,6 +217,7 @@ void MIATerminal::performMIACommand(string& input)
             break;
         case Commands::MIAInput::ENTANGLETEXT:
             Commands::entangleTextRunner();
+            break;
         case Commands::MIAInput::COLLATZ:
             cmd.collatzRunner();
             break;
