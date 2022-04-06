@@ -35,10 +35,11 @@ public:
         DECRYPT_D0S3,
         DICEROLL,
         DIGITSUM,
-        EXCUSE,
+        ENTANGLETEXT,
         ERRORINFO,
         ERRORINFO_A,
         EYEDROPPER,
+        EXCUSE,
         FACTORS,
         FINDMOUSE,
         FISHBOT,
@@ -212,17 +213,17 @@ public:
     /**
      * Finds and returns the coordinates of the mouse pointer after 5 seconds.
      */
-    void findMouse();
+    static void findMouse();
 
     /**
      * Runs the eyedropper command which determines the color of the pixel at the mouse location.
      */
-    void eyedropper();
+    static void eyedropper();
 
     /**
      * Runs a fishbot for World of Warcraft.
      */
-    void runFishbot();
+    static void runFishbot();
 
     /**
      * Runs the NetSessionEnumRunner from the LOLANetUse.cpp file.
@@ -271,7 +272,7 @@ public:
      * Function made for generating a workout via the Misc class.
      * @param weekly
      */
-    void workoutRunner(bool weekly);
+    static void workoutRunner(bool weekly);
 
 	/**
 	 * A method to repeat an alarm sound on a regular cadence.
@@ -279,5 +280,9 @@ public:
     [[noreturn]] static void runRepeatingAlarm();
 
     void runDatabaseInterface();
+
+    static std::string entangleText(const std::string& input, bool half = true);
+
+    static void entangleTextRunner();
 
 };

@@ -65,7 +65,7 @@ private:
     /**
      * Prints the splash screen for MIA.
      */
-    void printSplash();
+    static void printSplash();
 
     /**
      * Displays an introductory greeting to the user.

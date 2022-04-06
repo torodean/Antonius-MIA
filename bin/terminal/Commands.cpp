@@ -55,6 +55,8 @@ Commands::MIAInput Commands::commandToInputEnum(string& input)
         output = MIAInput::DECRYPT_D0S2;
     else if (input == "collatz")
         output = MIAInput::COLLATZ;
+    else if (input == "entangle text")
+        output = MIAInput::ENTANGLETEXT;
     else if (input == "add")
         output = MIAInput::ADD;
     else if (input == "alarm -r")
@@ -682,7 +684,7 @@ void Commands::solveQuadraticFormulaRunner()
     std::cin.ignore();
     MIATerminalTools::blankLine();
 
-    string ans = math.solveQuadraticFormula(a,b,c);
+    string ans = D3CMath::solveQuadraticFormula(a,b,c);
     MIATerminalTools::blankLine();
     cout << "...The solution is: " << ans << endl;
 }
@@ -772,11 +774,11 @@ void Commands::runFishbot()
 	MIATerminalTools::blankLine();
 	
 	//Arbitrary default values based on my preferred setup.
-	if(fishButton == "" || fishButton == "\n" || fishButton == "\r")
+	if(fishButton.empty() || fishButton == "\n" || fishButton == "\r")
 	{
 		fishButton = "3";
 	}
-	if(lureButton == "" || lureButton == "\n" || lureButton == "\r")
+	if(lureButton.empty() || lureButton == "\n" || lureButton == "\r")
 	{
 		lureButton = "8";
 	}
@@ -810,7 +812,7 @@ void Commands::runNetSessionEnum()
 	
 	cout << "...Loading NetSessionEnumRunner." << endl;
 	
-	wchar_t *argv[] = {NULL, w_server, NULL, NULL};
+	wchar_t *argv[] = {nullptr, w_server, nullptr, nullptr};
 	lola.NetSessionEnumRunner(argc, argv);
 	
 	MIATerminalTools::blankDots();
@@ -839,7 +841,7 @@ void Commands::runNetServerEnum(char mode)
 
     swprintf(w_domain, len, L"...%s", domain.c_str());
 
-	wchar_t *argv[] = {NULL, w_domain};
+	wchar_t *argv[] = {nullptr, w_domain};
 	cout << "...Loading NetServerEnum." << endl;
 	
 	if(mode == 'w')
@@ -1090,4 +1092,42 @@ void Commands::runTest()
 //    m.playSong("test.mp3");
 //    Error::returnError(31416);
 #endif
+}
+
+std::string Commands::entangleText(const string &input, bool half)
+{
+    int counter = 0;
+    std::string output;
+    for (char c : input)
+    {
+        if (half) // Even case.
+        {
+            if (counter % 2 == 0)
+                output += c;
+            else
+                output += ' ';
+        }
+        if (!half) // Odd case
+        {
+            if (counter % 2 == 1)
+                output += c;
+            else
+                output += ' ';
+        }
+        counter++;
+    }
+    return output;
+}
+
+void Commands::entangleTextRunner()
+{
+    string input;
+    cout << "...Loading Text Entangler. " << endl;
+    MIATerminalTools::blankDots();
+    cout << "...Enter text to entangle: " << endl;
+    getline(std::cin,input);
+    string output = entangleText(input, true);
+    cout << "First half: " << output << endl;
+    output = entangleText(input, false);
+    cout << "second half: " << output << endl;
 }

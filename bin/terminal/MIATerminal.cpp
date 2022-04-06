@@ -215,6 +215,8 @@ void MIATerminal::performMIACommand(string& input)
         case Commands::MIAInput::DECRYPT_D0S2:
             d0s2.d0s2DeCryptRunner();
             break;
+        case Commands::MIAInput::ENTANGLETEXT:
+            Commands::entangleTextRunner();
         case Commands::MIAInput::COLLATZ:
             cmd.collatzRunner();
             break;
@@ -291,25 +293,25 @@ void MIATerminal::performMIACommand(string& input)
             Commands::pranjal();
             break;
         case Commands::MIAInput::FINDMOUSE:
-            cmd.findMouse();
+            Commands::findMouse();
             break;
         case Commands::MIAInput::EYEDROPPER:
-            cmd.eyedropper();
+            Commands::eyedropper();
             break;
         case Commands::MIAInput::CONFIG:
             config.initializeSettings(true);
             break;
         case Commands::MIAInput::FISHBOT:
-            cmd.runFishbot();
+            Commands::runFishbot();
             break;
         case Commands::MIAInput::WORKOUT:
-            cmd.workoutRunner(false);
+            Commands::workoutRunner(false);
             break;
         case Commands::MIAInput::SPLASH:
             printSplash();
             break;
         case Commands::MIAInput::WORKOUT_W:
-            cmd.workoutRunner(true);
+            Commands::workoutRunner(true);
             break;
         case Commands::MIAInput::NETHELP:
             helpNet();
