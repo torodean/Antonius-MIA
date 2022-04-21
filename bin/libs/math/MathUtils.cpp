@@ -41,8 +41,8 @@ int MathUtils::randomInt(int min, int max, int seed, bool useTime)
 
 int MathUtils::roll(const std::string& input)
 {
-    int numOfDice = stoi(Shengli::getBeforeChar(input, 'd'));
-    int sizeOfDice = stoi(Shengli::getAfterChar(input, 'd'));
+    int numOfDice = stoi(StringUtils::getBeforeChar(input, 'd'));
+    int sizeOfDice = stoi(StringUtils::getAfterChar(input, 'd'));
     int totalRolled = 0;
 
     MIATerminalTools::blankLine();

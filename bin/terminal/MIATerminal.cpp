@@ -72,7 +72,7 @@ void MIATerminal::standby(string defaultCommand){
     while(true){
         getline(cin,input);
         MIATerminalTools::blankLine();
-        if(Shengli::toLower(input) == "exit" || Shengli::toLower(input) == "quit")
+        if(StringUtils::toLower(input) == "exit" || StringUtils::toLower(input) == "quit")
         {
             break;
         }
@@ -193,7 +193,7 @@ void MIATerminal::helpNet()
 
 void MIATerminal::performMIACommand(string& input)
 {
-    std::string cmdInput = Shengli::toLower(input);
+    std::string cmdInput = StringUtils::toLower(input);
     Commands::MIAInput in = Commands::commandToInputEnum(cmdInput);
 
     switch( in ){

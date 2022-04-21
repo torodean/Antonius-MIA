@@ -11,13 +11,13 @@
 /**
  * This is a class for any string manipulation and related functions.
  */
-class Shengli
+class StringUtils
 {
 public:
 
-    Shengli() = default;
+    StringUtils() = default;
 
-    ~Shengli() = default;
+    ~StringUtils() = default;
 
     /**
      * Converts a string to lower case.

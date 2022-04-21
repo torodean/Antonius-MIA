@@ -7,7 +7,6 @@
 
 #include <iostream>
 #include <random>
-#include <utility>
 #include <vector>
 #include <ctime>
 #include "StringUtils.hpp"
@@ -19,7 +18,7 @@ using std::endl;
 using std::vector;
 using std::to_string;
 
-std::string Shengli::toLower(std::string &input)
+std::string StringUtils::toLower(std::string &input)
 {
     std::string output = input;
     for(int i=0; input[i]; i++)
@@ -29,13 +28,13 @@ std::string Shengli::toLower(std::string &input)
     return output;
 }
 
-std::string Shengli::removeCharInString(string str, char c)
+std::string StringUtils::removeCharInString(string str, char c)
 {
     str.erase(remove(str.begin(), str.end(), c), str.end());
     return str;
 }
 
-int Shengli::findCharInString(string& input, char c)
+int StringUtils::findCharInString(string& input, char c)
 {
     int length = input.size();
     for (int i=0; i<length; i++)
@@ -48,14 +47,14 @@ int Shengli::findCharInString(string& input, char c)
     return 0;
 }
 
-bool Shengli::stringContainsChar(string& input, char c)
+bool StringUtils::stringContainsChar(string& input, char c)
 {
     if(findCharInString(input, c) == 0)
         return false;
     return true;
 }
 
-vector<string> Shengli::delimiterString(string& input, const string& delimiter, bool verboseMode)
+vector<string> StringUtils::delimiterString(string& input, const string& delimiter, bool verboseMode)
 {
     if(verboseMode)
         cout << "input string: " << input << endl;
@@ -88,14 +87,14 @@ vector<string> Shengli::delimiterString(string& input, const string& delimiter, 
     return output;
 }
 
-bool Shengli::is_digits(const string& input)
+bool StringUtils::is_digits(const string& input)
 {
     if(input.find_first_not_of("0123456789") == string::npos)
         return true;
     return false;
 }
 
-bool Shengli::inputRoll(string& input)
+bool StringUtils::inputRoll(string& input)
 {
     if(input.size() <= 6 && input.find('d') != string::npos &&
        input.find_first_not_of("1234567890d") == string::npos &&
@@ -106,7 +105,7 @@ bool Shengli::inputRoll(string& input)
     return false;
 }
 
-bool Shengli::formOfYes(string& input)
+bool StringUtils::formOfYes(string& input)
 {
     if (toLower(input) == "y" ||
         toLower(input) == "yes" ||
@@ -123,7 +122,7 @@ bool Shengli::formOfYes(string& input)
     }
 }
 
-string Shengli::today()
+string StringUtils::today()
 {
     std::time_t t = std::time(nullptr);   // get time now
     std::tm* now = std::localtime(&t);
@@ -134,7 +133,7 @@ string Shengli::today()
     return todaysDate;
 }
 
-string Shengli::shuffleString(string input)
+string StringUtils::shuffleString(string input)
 {
     string output = std::move(input);
     shuffle(output.begin(), output.end(), std::mt19937(std::random_device()()));
@@ -142,7 +141,7 @@ string Shengli::shuffleString(string input)
 }
 
 
-string Shengli::getBeforeChar(string line, char c){
+string StringUtils::getBeforeChar(string line, char c){
     int equalSignLocation = findCharInString(line, c);
 
     if(Configurator::getVerboseMode())
@@ -151,7 +150,7 @@ string Shengli::getBeforeChar(string line, char c){
     return line.substr(0, equalSignLocation);
 }
 
-string Shengli::getBetweenEqualAndSemiColon(string line){
+string StringUtils::getBetweenEqualAndSemiColon(string line){
     int equalSignLocation = findCharInString(line, '=');
     int semiColonLocation = findCharInString(line, ';');
 
@@ -165,7 +164,7 @@ string Shengli::getBetweenEqualAndSemiColon(string line){
     return line;
 }
 
-string Shengli::getAfterChar(string line, char c){
+string StringUtils::getAfterChar(string line, char c){
     int semiColonLocation = findCharInString(line, c);
 
     if(Configurator::getVerboseMode())
@@ -174,7 +173,7 @@ string Shengli::getAfterChar(string line, char c){
     return line.substr(semiColonLocation+1,line.size()-1);
 }
 
-std::vector<std::string> Shengli::entangleText(const string &input)
+std::vector<std::string> StringUtils::entangleText(const string &input)
 {
     int counter = 0;
 

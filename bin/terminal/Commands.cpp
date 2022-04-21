@@ -138,7 +138,7 @@ Commands::MIAInput Commands::commandToInputEnum(string& input)
         output = MIAInput::SEQUENCER;
     else if (input == "sequencer -l")
         output = MIAInput::SEQUENCER_L;
-    else if (Shengli::inputRoll(input))
+    else if (StringUtils::inputRoll(input))
         output = MIAInput::DICEROLL;
     else if (input == "error info")
         output = MIAInput::ERRORINFO;
@@ -660,7 +660,7 @@ void Commands::printRandomLinesFromFileRunner()
     getline(std::cin, answer);
     MIATerminalTools::blankLine();
 
-    if(Shengli::formOfYes(answer))
+    if(StringUtils::formOfYes(answer))
     {
         FileUtils::printRandomLinesFromFile(true, lines);
     } else {
@@ -692,7 +692,7 @@ void Commands::solveQuadraticFormulaRunner()
 
 void Commands::pranjal()
 {
-    string output = Shengli::shuffleString("pranjal");
+    string output = StringUtils::shuffleString("pranjal");
     cout << "...Did you mean " << output << "?" << endl;
 }
 
@@ -1101,7 +1101,7 @@ void Commands::entangleTextRunner()
     MIATerminalTools::blankDots();
     cout << "...Enter text to entangle: " << endl;
     getline(std::cin,input);
-    std::vector<std::string> output = Shengli::entangleText(input);
+    std::vector<std::string> output = StringUtils::entangleText(input);
     cout << " First half: " << output[0] << endl;
     cout << "second half: " << output[1] << endl;
 }
