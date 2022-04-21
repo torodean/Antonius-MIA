@@ -38,8 +38,8 @@ void Configurator::initialize()
 
 void Configurator::setVerboseMode(string value)
 {
-    value = StringUtils::removeCharInString(value, ' ');
-    if (StringUtils::formOfYes(value))
+    value = Shengli::removeCharInString(value, ' ');
+    if (Shengli::formOfYes(value))
         ProgramVariables::verboseMode = true;
     else
         ProgramVariables::verboseMode  = false;
@@ -92,7 +92,7 @@ void Configurator::initializeSettings(bool printSettings)
         string variable, value;
         for (int i=0; i<size;i++)
         {
-            equalSignLocation = StringUtils::findCharInString(lines[i], '=');
+            equalSignLocation = Shengli::findCharInString(lines[i], '=');
             variable = lines[i].substr(0, equalSignLocation);
             value = lines[i].substr(equalSignLocation+1,lines[i].size()-1);
 
@@ -372,7 +372,7 @@ std::string Configurator::getFilePath(Configurator::ProgramFilePaths::filePathTy
 
 void Configurator::setWoWMailboxSendLetterLocation(char coord, const string& value)
 {
-    if (StringUtils::is_digits(value))
+    if (Shengli::is_digits(value))
     {
         if(coord == 'x')
             wowProgramVariables.WoWMailboxSendLetterLocationX = stoi(value);
@@ -395,7 +395,7 @@ int Configurator::getWoWMailboxSendLetterLocation(char coord)
 }
 void Configurator::setWoWMailboxFirstLetterLocation(char coord, const string& value)
 {
-    if (StringUtils::is_digits(value))
+    if (Shengli::is_digits(value))
 	{
         if(coord == 'x')
 		{
@@ -422,7 +422,7 @@ int Configurator::getWoWMailboxFirstLetterLocation(char coord)
 }
 void Configurator::setWoWMailboxLootLetterLocation(char coord, const string& value)
 {
-    if (StringUtils::is_digits(value))
+    if (Shengli::is_digits(value))
     {
         if(coord == 'x')
             wowProgramVariables.WoWMailboxLootLetterLocationX = stoi(value);
@@ -446,7 +446,7 @@ int Configurator::getWoWMailboxLootLetterLocation(char coord)
 
 void Configurator::setWoWMailboxDeleteLetterLocation(char coord, const string& value)
 {
-    if (StringUtils::is_digits(value))
+    if (Shengli::is_digits(value))
     {
         if(coord == 'x')
             wowProgramVariables.WoWMailboxDeleteLetterLocationX = stoi(value);
@@ -471,7 +471,7 @@ int Configurator::getWoWMailboxDeleteLetterLocation(char coord)
 
 void Configurator::setWoWFishBotSpace(const string& data, const string& value)
 {
-    if (StringUtils::is_digits(value))
+    if (Shengli::is_digits(value))
     {
         if(data == "startX")
             wowProgramVariables.WoWFishBotStartX = stoi(value);

@@ -122,7 +122,7 @@ Commands::MIAInput Commands::commandToInputEnum(string& input)
         output = MIAInput::SPLASH;
     else if (input == "workout -w")
         output = MIAInput::WORKOUT_W;
-	else if (input == "net -help")
+    else if (input == "net -help")
 		output = MIAInput::NETHELP;
     else if (input == "net session")
         output = MIAInput::NETSESSION;
@@ -138,7 +138,7 @@ Commands::MIAInput Commands::commandToInputEnum(string& input)
         output = MIAInput::SEQUENCER;
     else if (input == "sequencer -l")
         output = MIAInput::SEQUENCER_L;
-    else if (StringUtils::inputRoll(input))
+    else if (Shengli::inputRoll(input))
         output = MIAInput::DICEROLL;
     else if (input == "error info")
         output = MIAInput::ERRORINFO;
@@ -660,7 +660,7 @@ void Commands::printRandomLinesFromFileRunner()
     getline(std::cin, answer);
     MIATerminalTools::blankLine();
 
-    if(StringUtils::formOfYes(answer))
+    if(Shengli::formOfYes(answer))
     {
         FileUtils::printRandomLinesFromFile(true, lines);
     } else {
@@ -692,7 +692,7 @@ void Commands::solveQuadraticFormulaRunner()
 
 void Commands::pranjal()
 {
-    string output = StringUtils::shuffleString("pranjal");
+    string output = Shengli::shuffleString("pranjal");
     cout << "...Did you mean " << output << "?" << endl;
 }
 
@@ -881,7 +881,7 @@ void Commands::runNetWkstaGetInfo()
 	
 	cout << "...Loading NetWkstaGetInfo." << endl;
 	
-	wchar_t *argv[] = {NULL, w_wkst};
+	wchar_t *argv[] = {nullptr, w_wkst};
 	lola.NetWkstaGetInfoRunner(argc, argv);
 	
 	MIATerminalTools::blankDots();
@@ -943,7 +943,7 @@ void Commands::runNetUserEnum()
 	
 	cout << "...Loading NetUserEnum." << endl;
 	
-	wchar_t *argv[] = {NULL, w_wkst};
+	wchar_t *argv[] = {nullptr, w_wkst};
 	lola.NetUserEnumRunner(argc, argv);
 	
 	MIATerminalTools::blankDots();
@@ -1094,31 +1094,6 @@ void Commands::runTest()
 #endif
 }
 
-std::string Commands::entangleText(const string &input, bool half)
-{
-    int counter = 0;
-    std::string output;
-    for (char c : input)
-    {
-        if (half) // Even case.
-        {
-            if (counter % 2 == 0)
-                output += c;
-            else
-                output += ' ';
-        }
-        if (!half) // Odd case
-        {
-            if (counter % 2 == 1)
-                output += c;
-            else
-                output += ' ';
-        }
-        counter++;
-    }
-    return output;
-}
-
 void Commands::entangleTextRunner()
 {
     string input;
@@ -1126,8 +1101,7 @@ void Commands::entangleTextRunner()
     MIATerminalTools::blankDots();
     cout << "...Enter text to entangle: " << endl;
     getline(std::cin,input);
-    string output = entangleText(input, true);
-    cout << "First half: " << output << endl;
-    output = entangleText(input, false);
-    cout << "second half: " << output << endl;
+    std::vector<std::string> output = Shengli::entangleText(input);
+    cout << " First half: " << output[0] << endl;
+    cout << "second half: " << output[1] << endl;
 }

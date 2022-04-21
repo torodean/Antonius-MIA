@@ -10,7 +10,7 @@ if(WIN32 OR CYGWIN)
     add_subdirectory(windows)
 endif()
 
-set(Utilities_SRC StringUtils.cpp FileUtils.cpp MIASequencer.cpp MIAWorkout.cpp SystemUtils.cpp VirtualKeyStrokes.cpp)
+set(Utilities_SRC Shengli.cpp FileUtils.cpp MIASequencer.cpp MIAWorkout.cpp SystemUtils.cpp VirtualKeyStrokes.cpp)
 set(Utilities_INC StringUtils.hpp FileUtils.hpp MIASequencer.hpp MIAWorkout.hpp SystemUtils.hpp VirtualKeyStrokes.hpp)
 
 add_library(Utilities_LIB ${Utilities_SRC} ${Utilities_INC})

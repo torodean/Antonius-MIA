@@ -63,7 +63,7 @@ void MIAWorkout::generateWorkout(double difficulty, bool weekly) const
         string outputFileText = "//============================================================================\n"
                                 "// Name        : workout.txt                                                  \n"
                                 "// Author      : MIA                                                          \n"
-                                "// Created on  : " + StringUtils::today() + "                                         \n"
+                                "// Created on  : " + Shengli::today() + "                                         \n"
                                 "// Description : A daily generated workout via the MIA program (for one week).\n"
                                 "// Difficulty  : " + std::to_string(difficulty) + "                           \n"
                                 "//============================================================================\n\n";
@@ -138,14 +138,14 @@ void MIAWorkout::generateWorkout(double difficulty, bool weekly) const
         for(int i=0; i<numOfVariables; i++)
         {
             //Finds what the variable input is if one exists.
-            variable = StringUtils::getBeforeChar(lines[i], '=');
+            variable = Shengli::getBeforeChar(lines[i], '=');
 
             //Sets the toughness variable.
             if(variable == "toughness"){
                 if(Configurator::getVerboseMode())
                     cout << "...toughness variable discovered. " << endl;
 
-                equalSignLocation = StringUtils::findCharInString(lines[i], '=');
+                equalSignLocation = Shengli::findCharInString(lines[i], '=');
                 toughness = stod(lines[i].substr(equalSignLocation+1,lines[i].size()-1));
 
                 if(Configurator::getVerboseMode())
@@ -158,7 +158,7 @@ void MIAWorkout::generateWorkout(double difficulty, bool weekly) const
                 if(Configurator::getVerboseMode())
                     cout << "...minNumOfExercises variable discovered. " << endl;
 
-                equalSignLocation = StringUtils::findCharInString(lines[i], '=');
+                equalSignLocation = Shengli::findCharInString(lines[i], '=');
                 minNumOfExercises = stod(lines[i].substr(equalSignLocation+1,lines[i].size()-1));
 
                 if(Configurator::getVerboseMode())
@@ -171,7 +171,7 @@ void MIAWorkout::generateWorkout(double difficulty, bool weekly) const
                 if(Configurator::getVerboseMode())
                     cout << "...maxNumOfExercises variable discovered. " << endl;
 
-                equalSignLocation = StringUtils::findCharInString(lines[i], '=');
+                equalSignLocation = Shengli::findCharInString(lines[i], '=');
                 if(lines[i].substr(equalSignLocation+1,lines[i].size()-1) != "inf"){
                     maxNumOfExercises = stod(lines[i].substr(equalSignLocation+1,lines[i].size()-1));
                 }
@@ -186,7 +186,7 @@ void MIAWorkout::generateWorkout(double difficulty, bool weekly) const
                 if(Configurator::getVerboseMode())
                     cout << "...minNumOfSets variable discovered. " << endl;
 
-                equalSignLocation = StringUtils::findCharInString(lines[i], '=');
+                equalSignLocation = Shengli::findCharInString(lines[i], '=');
                 minNumOfSets = stod(lines[i].substr(equalSignLocation+1,lines[i].size()-1));
 
                 if(Configurator::getVerboseMode())
@@ -199,7 +199,7 @@ void MIAWorkout::generateWorkout(double difficulty, bool weekly) const
                 if(Configurator::getVerboseMode())
                     cout << "...maxNumOfSets variable discovered. " << endl;
 
-                equalSignLocation = StringUtils::findCharInString(lines[i], '=');
+                equalSignLocation = Shengli::findCharInString(lines[i], '=');
                 if(lines[i].substr(equalSignLocation+1,lines[i].size()-1) != "inf")
                 {
                     maxNumOfSets = stod(lines[i].substr(equalSignLocation+1,lines[i].size()-1));
@@ -224,9 +224,9 @@ void MIAWorkout::generateWorkout(double difficulty, bool weekly) const
         //Sets the workout file variables and the weighted value.
         for(int i=0; i < size-numOfVariables; i++)
         {
-            workoutName.push_back( StringUtils::getBeforeChar(lines[i], '=') );
-            workoutWeight.push_back( convertWorkoutWeight( StringUtils::getBetweenEqualAndSemiColon(lines[i]) ) );
-            workoutUnit.push_back( StringUtils::getAfterChar(lines[i], ';') );
+            workoutName.push_back(Shengli::getBeforeChar(lines[i], '=') );
+            workoutWeight.push_back( convertWorkoutWeight(Shengli::getBetweenEqualAndSemiColon(lines[i]) ) );
+            workoutUnit.push_back(Shengli::getAfterChar(lines[i], ';') );
 
             if(Configurator::getVerboseMode())
             {

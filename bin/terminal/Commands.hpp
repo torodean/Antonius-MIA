@@ -92,98 +92,98 @@ public:
     /**
      * Main UI runner for the D3CMath productCollatzSequence() function.
      */
-    void collatzRunner();
+    static void collatzRunner();
 
     /**
      * Main UI runner for the D3CMath addTwoStrings() function.
      */
-    void stringAdditionRunner();
+    static void stringAdditionRunner();
 
     /**
      * Main UI runner for the D3CMath multiplyTwoStrings() function.
      */
-    void stringMultiplyRunner();
+    static void stringMultiplyRunner();
 
     /**
      * Main UI runner for the D3CMath subtractTwoStrings() function.
      */
-    void stringSubtractionRunner();
+    static void stringSubtractionRunner();
 
     /**
      * Main UI runner for the D3CMath isPrime() function.
      */
-    void isPrimeRunner();
+    static void isPrimeRunner();
 
     /**
      * Main UI runner for the D3CMath isPalindrome() function.
      */
-    void isPalindromeRunner();
+    static void isPalindromeRunner();
 
     /**
      * Main UI runner for the D3CMath sumOfDigits() function.
      */
-    void sumOfDigitsRunner();
+    static void sumOfDigitsRunner();
 
     /**
      * Main UI runner for the D3CMath primeFactors() function.
      */
-    void primeFactorsRunner();
+    static void primeFactorsRunner();
 
     /**
      * Main UI runner for the D3CMath numberOfFactors() function.
      */
-    void numberOfFactorsRunner();
+    static void numberOfFactorsRunner();
 
     /**
      * Main UI runner for the D3CMath isTriangleNumber() function.
      */
-    void isTriangleNumberRunner();
+    static void isTriangleNumberRunner();
 
     /**
      * Main UI runner for the D3CMath latticePaths() function.
      */
-    void latticePathsRunner();
+    static void latticePathsRunner();
 
     /**
      * Main UI runner for the D3CMath primeN() function.
      */
-    void primeNRunner();
+    static void primeNRunner();
 
     /**
      * Main UI runner for the D3CMath primeNPopulate() function.
      */
-    void primeNumberNpopulateRunner();
+    static void primeNumberNpopulateRunner();
 
     /**
      * Main UI runner for the D3CMath primeNerase() function.
      */
-    void primeNumberNeraseRunner();
+    static void primeNumberNeraseRunner();
 
     /**
      * Spams a button a specific number of times.
      * @param enableTab[bool] - option to tab between each button press.
      */
-    void buttonSpamRunner(bool enableTab);
+    static void buttonSpamRunner(bool enableTab);
 
     /**
      * performs a sequence to perpetually dig as you would in minecraft.
      */
-    void minecraftDigRunner();
+    static void minecraftDigRunner();
 
     /**
      * used to explore a minecraft map given that the user is gamemode=1.
      */
-    void exploreMinecraft();
+    static void exploreMinecraft();
 
     /**
      * Runs the duplicate letter function which is useful for World of Warcraft.
      */
-    void duplicateLetterRunner();
+    static void duplicateLetterRunner();
 
     /**
      * Runs the duplicate letter function which is useful for World of Warcraft.
      */
-    void unloadLetterRunner();
+    static void unloadLetterRunner();
 
     /**
      * Runs d0s3 encryption
@@ -280,8 +280,6 @@ public:
     [[noreturn]] static void runRepeatingAlarm();
 
     void runDatabaseInterface();
-
-    static std::string entangleText(const std::string& input, bool half = true);
 
     static void entangleTextRunner();
 

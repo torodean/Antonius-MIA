@@ -85,11 +85,11 @@ void Sequencer::setSequenceVariables(string variable, string value){
 		sequenceSize++;
 		
 	//Sets the variables when a coordinate is entered.
-	} else if(StringUtils::stringContainsChar(variable, ',')){
+	} else if(Shengli::stringContainsChar(variable, ',')){
 		//removes end of line characters from variable name and value. Fixes a bug.
 		variable.erase(remove(variable.begin(), variable.end(), '\r'), variable.end()); 
 		
-		commaLocation = StringUtils::findCharInString(variable, ',');
+		commaLocation = Shengli::findCharInString(variable, ',');
 		
 		coordx = variable.substr(0, commaLocation);
 		coordy = variable.substr(commaLocation+1,variable.size()-1);
@@ -168,7 +168,7 @@ void Sequencer::initializeSequences(){
 		int equalSignLocation;
 		string variable, value;
 		for (int i=0; i<size;i++){
-			equalSignLocation = StringUtils::findCharInString(lines[i], '=');
+			equalSignLocation = Shengli::findCharInString(lines[i], '=');
 			variable = lines[i].substr(0, equalSignLocation);
 			value = lines[i].substr(equalSignLocation+1,lines[i].size()-1);
 			

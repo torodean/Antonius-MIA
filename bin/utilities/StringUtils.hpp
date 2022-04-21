@@ -11,13 +11,13 @@
 /**
  * This is a class for any string manipulation and related functions.
  */
-class StringUtils
+class Shengli
 {
 public:
 
-    StringUtils() = default;
+    Shengli() = default;
 
-    ~StringUtils() = default;
+    ~Shengli() = default;
 
     /**
      * Converts a string to lower case.
@@ -93,10 +93,37 @@ public:
      */
     static std::string shuffleString(std::string input);
 
+    /**
+     *
+     * @param line
+     * @param c
+     * @return
+     */
     static std::string getBeforeChar(std::string line, char c);
 
+    /**
+     *
+     * @param line
+     * @param c
+     * @return
+     */
     static std::string getAfterChar(std::string line, char c);
 
+    /**
+     *
+     * @param line
+     * @return
+     */
     static std::string getBetweenEqualAndSemiColon(std::string line);
+
+    /**
+     * This will create two strings of 'entangled' text. The first string contains every other character
+     * of the input string and the second string contains the opposite characters. Spaces are added
+     * in place of the characters not shown in each output string so that they can be easily matched.
+     * @param input the input string to entangle.
+     * @return std::vector<std::string>, the first element is the first half,
+     *                                   and second element the second half.
+     */
+    static std::vector<std::string> entangleText(const std::string& input);
 
 };
