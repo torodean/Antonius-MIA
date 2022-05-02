@@ -10,3 +10,4 @@ else()
 endif()
 
 add_subdirectory(math)
+add_subdirectory(language)

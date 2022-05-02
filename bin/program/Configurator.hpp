@@ -46,7 +46,8 @@ public:
                              workoutOutputFilePath("resources/outputFiles/workout.txt"),
                              cryptFilePath("resources/encryptedFiles/"),
                              decryptFilePath("resources/decryptedFiles/"),
-                             sequencesFilePath("resources/inputFiles/MIASequences.txt")
+                             sequencesFilePath("resources/inputFiles/MIASequences.txt"),
+                             shengliDatabaseFilePath("resources/shengli.MIA")
         {};
 
         /// An enumeration object containing various file types.
@@ -60,7 +61,8 @@ public:
             WORKOUTOUTPUTFILEPATH,
             CRYPTFILEPATH,
             DECRYPTFILEPATH,
-            SEQUENCESFILEPATH
+            SEQUENCESFILEPATH,
+            SHENGLIDATABASEFILEPATH
         };
 
         std::string MIAConfigFile;           ///< File path to the MIAConfig.MIA file.
@@ -71,6 +73,7 @@ public:
         std::string cryptFilePath;           ///< File path for input encryption files.
         std::string decryptFilePath;         ///< File path to output decryption files to.
         std::string sequencesFilePath;       ///< File path for input sequencer files.
+        std::string shengliDatabaseFilePath; ///< File path for the shengli database file.
     };
 
     /**
@@ -148,14 +151,14 @@ public:
      * @param filePath[std::string&] - Reference to file path to return.
      * @return Returns the string value of the file path requested.
      */
-    std::string getFilePath(ProgramFilePaths::filePathType filePath);
+    std::string getFilePath(ProgramFilePaths::filePathType filePath) const;
 
     /**
      * Returns the appropriate variables for file paths.
      * @param filePath[std::string&] - Reference to file path to return.
      * @return Returns the string value of the file path requested.
      */
-    std::string getFilePath(const std::string& filePath);
+    std::string getFilePath(const std::string& filePath) const;
 
 
     /**
@@ -177,13 +180,13 @@ public:
     DatabaseVariables databaseVariables{};
 	
 	/// Initializes and returns private WoW variables.
-    int getWoWMailboxDeleteLetterLocation(char coord);
+    int getWoWMailboxDeleteLetterLocation(char coord) const;
     void setWoWMailboxDeleteLetterLocation(char coord, const std::string &value);
-    int getWoWMailboxLootLetterLocation(char coord);
+    int getWoWMailboxLootLetterLocation(char coord) const;
     void setWoWMailboxLootLetterLocation(char coord, const std::string &value);
-    int getWoWMailboxSendLetterLocation(char coord);
+    int getWoWMailboxSendLetterLocation(char coord) const;
     void setWoWMailboxSendLetterLocation(char coord, const std::string &value);
-    int getWoWMailboxFirstLetterLocation(char coord);
+    int getWoWMailboxFirstLetterLocation(char coord) const;
     void setWoWMailboxFirstLetterLocation(char coord, const std::string &value);
 	
     /**
@@ -191,7 +194,7 @@ public:
      * @param data
      * @return
      */
-    int getWoWFishBotSpace(const std::string &data);
+    int getWoWFishBotSpace(const std::string &data) const;
 	
 protected:
 
@@ -204,13 +207,13 @@ private:
      * Enables or disables verbose mode.
      * @param value[std::string] - "1" or "true" for enable, otherwise disabled.
      */
-    void setVerboseMode(std::string value);
+    static void setVerboseMode(std::string value);
 
     /**
      * Enables or disables verbose mode.
      * @param value[std::string] - true for enable, otherwise disabled.
      */
-    void setVerboseMode(bool value);
+    static void setVerboseMode(bool value);
 
     /**
      * Variables related to main program functions.
@@ -234,28 +237,28 @@ private:
      * @param variable[std::string&] - Reference to fileType string.
      * @return Returns true if the file type is valid.
      */
-    bool variableIsFilePath(const std::string &variable);
+    static bool variableIsFilePath(const std::string &variable);
 
     /**
      * Converts a string file path name to a ProgramFilePaths::filePathType value.
      * @param filePath[std::string&] - String reference to a file path type.
      * @return [ProgramFilePaths::filePathTypes] the corresponding filePathType
      */
-    ProgramFilePaths::filePathType stringFilePathToEnumFilePath(const std::string& filePath);
+    static ProgramFilePaths::filePathType stringFilePathToEnumFilePath(const std::string& filePath);
 
     /**
      * Converts a ProgramFilePaths::filePathType file path name to a string value.
      * @param filePath[std::string&] - String reference to a file path type.
      * @return [ProgramFilePaths::filePathTypes] the corresponding filePathType
      */
-    std::string enumFilePathToStringFilePath(ProgramFilePaths::filePathType filePath);
+    static std::string enumFilePathToStringFilePath(ProgramFilePaths::filePathType filePath);
 
     /**
      * Determines if a ProgramFilePaths::filePathTypes is valid.
      * @param variable[ProgramFilePaths::filePathTypes] The file type to check.
      * @return [pbool] Returns false if unknown file path type.
      */
-    bool variableIsFilePath(ProgramFilePaths::filePathType variable);
+    static bool variableIsFilePath(ProgramFilePaths::filePathType variable);
 
     /**
      * Sets the appropriate variables for file paths.

@@ -105,7 +105,7 @@ void Configurator::initializeSettings(bool printSettings)
             setMIAVariables(variable, value);
         }
     } 
-	else 
+    else
 	{
         if (printSettings)
         {
@@ -183,12 +183,14 @@ Configurator::ProgramFilePaths::filePathType Configurator::stringFilePathToEnumF
         return ProgramFilePaths::filePathType::DECRYPTFILEPATH;
     if (filePath == "workoutsFilePath")
         return ProgramFilePaths::filePathType::WORKOUTSFILEPATH;
-    if (filePath == "sequencesFilePath")
-        return ProgramFilePaths::filePathType::SEQUENCESFILEPATH;
     if (filePath == "workoutOutputFilePath")
         return ProgramFilePaths::filePathType::WORKOUTOUTPUTFILEPATH;
+    if (filePath == "sequencesFilePath")
+        return ProgramFilePaths::filePathType::SEQUENCESFILEPATH;
     if (filePath == "excuseFilePath")
         return ProgramFilePaths::filePathType::EXCUSEFILEPATH;
+    if (filePath == "shengliDatabaseFilePath")
+        return ProgramFilePaths::filePathType::SHENGLIDATABASEFILEPATH;
 
     return ProgramFilePaths::filePathType::UNKNOWNFILEPATH;
 }
@@ -309,7 +311,7 @@ void Configurator::setFilePath(ProgramFilePaths::filePathType filePath, const st
 }
 
 
-string Configurator::getFilePath(const string& filePath)
+string Configurator::getFilePath(const string& filePath) const
 {
     if(filePath == "MIAConfigFile")
         return programFilePaths.MIAConfigFile;
@@ -334,7 +336,7 @@ string Configurator::getFilePath(const string& filePath)
     }
 }
 
-std::string Configurator::getFilePath(Configurator::ProgramFilePaths::filePathType filePath)
+std::string Configurator::getFilePath(Configurator::ProgramFilePaths::filePathType filePath) const
 {
     switch (filePath)
     {
@@ -385,7 +387,7 @@ void Configurator::setWoWMailboxSendLetterLocation(char coord, const string& val
             Error::returnError(31417);
     }
 }
-int Configurator::getWoWMailboxSendLetterLocation(char coord)
+int Configurator::getWoWMailboxSendLetterLocation(char coord) const
 {
     if(coord == 'x')
         return wowProgramVariables.WoWMailboxSendLetterLocationX;
@@ -401,18 +403,18 @@ void Configurator::setWoWMailboxFirstLetterLocation(char coord, const string& va
 		{
             wowProgramVariables.WoWMailboxFirstLetterLocationX = stoi(value);
         } 
-		else if (coord == 'y')
+        else if (coord == 'y')
 		{
             wowProgramVariables.WoWMailboxFirstLetterLocationY = stoi(value);
         }
     } 
-	else 
+    else
 	{
         if(Configurator::getVerboseMode())
             Error::returnError(31417);
     }
 }
-int Configurator::getWoWMailboxFirstLetterLocation(char coord)
+int Configurator::getWoWMailboxFirstLetterLocation(char coord) const
 {
     if(coord == 'x')
         return wowProgramVariables.WoWMailboxFirstLetterLocationX;
@@ -435,7 +437,7 @@ void Configurator::setWoWMailboxLootLetterLocation(char coord, const string& val
             Error::returnError(31417);
     }
 }
-int Configurator::getWoWMailboxLootLetterLocation(char coord)
+int Configurator::getWoWMailboxLootLetterLocation(char coord) const
 {
     if(coord == 'x')
         return wowProgramVariables.WoWMailboxLootLetterLocationX;
@@ -460,7 +462,7 @@ void Configurator::setWoWMailboxDeleteLetterLocation(char coord, const string& v
     }
 }
 
-int Configurator::getWoWMailboxDeleteLetterLocation(char coord)
+int Configurator::getWoWMailboxDeleteLetterLocation(char coord) const
 {
     if(coord == 'x')
         return wowProgramVariables.WoWMailboxDeleteLetterLocationX;
@@ -496,7 +498,7 @@ void Configurator::setWoWFishBotSpace(const string& data, const string& value)
 }
 
 
-int Configurator::getWoWFishBotSpace(const string& data)
+int Configurator::getWoWFishBotSpace(const string& data) const
 {
     if(data == "startX")
         return wowProgramVariables.WoWFishBotStartX;

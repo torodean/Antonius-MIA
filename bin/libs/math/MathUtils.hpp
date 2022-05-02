@@ -1,8 +1,8 @@
 /**
- * File: MathUtils.cpp
+ * File: MathUtils.hpp
  * Author: Antonius Torode
  * Date: 03/01/2021
- * Description:
+ * Description: This class is for mathematical utilities.
  */
 
 

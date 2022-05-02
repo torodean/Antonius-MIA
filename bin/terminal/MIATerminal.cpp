@@ -219,55 +219,55 @@ void MIATerminal::performMIACommand(string& input)
             Commands::entangleTextRunner();
             break;
         case Commands::MIAInput::COLLATZ:
-            cmd.collatzRunner();
+            Commands::collatzRunner();
             break;
         case Commands::MIAInput::ADD:
-            cmd.stringAdditionRunner();
+            Commands::stringAdditionRunner();
             break;
         case Commands::MIAInput::MULTIPLY:
-            cmd.stringMultiplyRunner();
+            Commands::stringMultiplyRunner();
             break;
         case Commands::MIAInput::SUBTRACT:
-            cmd.stringSubtractionRunner();
+            Commands::stringSubtractionRunner();
             break;
         case Commands::MIAInput::PRIME:
-            cmd.isPrimeRunner();
+            Commands::isPrimeRunner();
             break;
         case Commands::MIAInput::PALINDROME:
-            cmd.isPalindromeRunner();
+            Commands::isPalindromeRunner();
             break;
         case Commands::MIAInput::DIGITSUM:
-            cmd.sumOfDigitsRunner();
+            Commands::sumOfDigitsRunner();
             break;
         case Commands::MIAInput::PRIME_F:
-            cmd.primeFactorsRunner();
+            Commands::primeFactorsRunner();
             break;
         case Commands::MIAInput::FACTORS:
-            cmd.numberOfFactorsRunner();
+            Commands::numberOfFactorsRunner();
             break;
         case Commands::MIAInput::TRIANGLE:
-            cmd.isTriangleNumberRunner();
+            Commands::isTriangleNumberRunner();
             break;
         case Commands::MIAInput::LATTICE:
-            cmd.latticePathsRunner();
+            Commands::latticePathsRunner();
             break;
         case Commands::MIAInput::PRIME_N:
-            cmd.primeNRunner();
+            Commands::primeNRunner();
             break;
         case Commands::MIAInput::PRIME_N_P:
-            cmd.primeNumberNpopulateRunner();
+            Commands::primeNumberNpopulateRunner();
             break;
         case Commands::MIAInput::PRIME_N_C:
-            cmd.primeNumberNeraseRunner();
+            Commands::primeNumberNeraseRunner();
             break;
         case Commands::MIAInput::MCDIG:
-            cmd.minecraftDigRunner();
+            Commands::minecraftDigRunner();
             break;
         case Commands::MIAInput::BUTTONSPAM:
-            cmd.buttonSpamRunner(false);
+            Commands::buttonSpamRunner(false);
             break;
         case Commands::MIAInput::MCEXPLORE:
-            cmd.exploreMinecraft();
+            Commands::exploreMinecraft();
             break;
         case Commands::MIAInput::PRIME_HELP:
             helpPrime();
@@ -279,13 +279,13 @@ void MIATerminal::performMIACommand(string& input)
             cmd.d0s3DeCryptRunner();
             break;
         case Commands::MIAInput::BUTTONSPAM_T:
-            cmd.buttonSpamRunner(true);
+            Commands::buttonSpamRunner(true);
             break;
         case Commands::MIAInput::RANDFROMFILE:
             Commands::printRandomLinesFromFileRunner();
             break;
         case Commands::MIAInput::WOWDUPLETTER:
-            cmd.duplicateLetterRunner();
+            Commands::duplicateLetterRunner();
             break;
         case Commands::MIAInput::QUADRATICFORM:
             Commands::solveQuadraticFormulaRunner();
@@ -327,7 +327,7 @@ void MIATerminal::performMIACommand(string& input)
             cmd.runNetServerEnum('s');
             break;
         case Commands::MIAInput::WOWUNLOAD:
-            cmd.unloadLetterRunner();
+            Commands::unloadLetterRunner();
             break;
         case Commands::MIAInput::DATE:
 #if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__) || defined _WIN32 || defined _WIN64 || defined __CYGWIN__

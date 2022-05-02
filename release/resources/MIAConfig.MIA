@@ -22,6 +22,7 @@ workoutsFilePath=resources/inputFiles/exercises.txt
 sequencesFilePath=resources/inputFiles/MIASequences.txt
 workoutOutputFilePath=resources/outputFiles/workout.txt
 excuseFilePath=resources/excuses.txt
+shengliDatabaseFilePath=resources/shengli.MIA
 
 # MIA program variables.
 verboseMode=false
