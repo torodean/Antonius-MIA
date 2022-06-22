@@ -12,6 +12,7 @@ set(MIA_PROJECT_DIR "${CMAKE_CURRENT_BINARY_DIR}")
 
 if(WIN32 OR CYGWIN)
     message(STATUS "Creating Windows only variables.")
+    #set(USE_Database_LIB ON)
 elseif(UNIX)
     message(STATUS "Creating Linux only variables.")
     set(USE_Database_LIB ON)
