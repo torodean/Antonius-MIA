@@ -228,6 +228,3 @@ void MIADatabase::deleteTable(const string &tableName)
         printExceptionInfo(e);
     }
 }
-
-
-
