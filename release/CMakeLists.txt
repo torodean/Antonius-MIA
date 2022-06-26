@@ -15,3 +15,5 @@ endif()
 
 message("-- Linking mysqlcppconn")
 find_library(mysqlcppconn ${CMAKE_CURRENT_BINARY_DIR})
+#add_library(mysqlcppconn mysqlcppconn.dll)
+#set_target_properties(mysqlcppconn PROPERTIES LINKER_LANGUAGE C)

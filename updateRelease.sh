@@ -1,5 +1,9 @@
 #!/bin/sh
 
+scriptLocation=$(readlink -f "$0")
+rootDirectory=$(dirname "$scriptLocation")
+echo "rootDirectory: $rootDirectory"
+
 usage()
 {
   echo "updateRelease: updateRelease.sh [options...]"
@@ -32,34 +36,34 @@ done
 
 
 echo "Removing old release download."
-rm -vf MIA\ release.tar.gz
+rm -vf $rootDirectory/MIA\ release.tar.gz
 echo "...done!"
 echo "Updating executable(s)."
 if [[ $usingWindows ]]; then
   # Don't remove the built Linux executables.
-  rm -vf release/MIA*.exe
+  rm -vf $rootDirectory/release/MIA*.exe
 elif [[ $usingLinux ]]; then
   # Don't remove the built Windows executables.
-  rm -vf release/MIA
-  rm -vf release/MIATerminal
+  rm -vf $rootDirectory/release/MIA
+  rm -vf $rootDirectory/release/MIATerminal
 else
-  rm -vf release/MIA*
+  rm -vf $rootDirectory/release/MIA*
 fi
-rm -vf release/MIAManual.pdf
-cp -uv build/bin/MIA.exe release/MIA.exe
-cp -uv build/bin/MIA release/MIA
-cp -uv build/bin/terminal/MIATerminal.exe release/MIATerminal.exe
-cp -uv build/bin/terminal/MIATerminal release/MIATerminal
+rm -vf $rootDirectory/release/MIAManual.pdf
+cp -uv $rootDirectory/build/bin/MIA.exe $rootDirectory/release/MIA.exe
+cp -uv $rootDirectory/build/bin/MIA $rootDirectory/release/MIA
+cp -uv $rootDirectory/build/bin/terminal/MIATerminal.exe $rootDirectory/release/MIATerminal.exe
+cp -uv $rootDirectory/build/bin/terminal/MIATerminal $rootDirectory/release/MIATerminal
 echo "...done!"
 echo "Updating manual."
-rm -vf release/MIAManual.pdf
-cp documentation/MIAManual.pdf release/MIAManual.pdf
+rm -vf $rootDirectory/release/MIAManual.pdf
+cp $rootDirectory/documentation/MIAManual.pdf $rootDirectory/release/MIAManual.pdf
 echo "...done!"
 echo "Updating dependencies."
-rm -vrf release/resources
-cp -vr bin/resources release/resources
-cp -vr dlls/* release/
+rm -vrf $rootDirectory/release/resources
+cp -vr $rootDirectory/bin/resources $rootDirectory/release/resources
+cp -vr $rootDirectory/dlls/* $rootDirectory/release/
 echo "...done!"
 echo "Creating compressed release file."
-tar -czvf MIA-release.tar.gz release/
+tar -czvf $rootDirectory/MIA-release.tar.gz $rootDirectory/release/
 echo "...done!"

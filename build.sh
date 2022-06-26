@@ -2,7 +2,7 @@
 
 scriptLocation=$(readlink -f "$0")
 rootDirectory=$(dirname "$scriptLocation")
-echo "$rootDirectory"
+echo "rootDirectory: $rootDirectory"
 cd $rootDirectory || exit
 
 usage()
@@ -13,13 +13,17 @@ usage()
   echo "  Options:"
   echo "    -h    Display this help message."
   echo "    -I    Attempt to Install dependencies."
+  echo "    -u    Update release files on successful build."
 }
 
-while getopts "hI" opt; do
+while getopts "hIu" opt; do
   case $opt in
     h) usage
+      exit 1
       ;;
     I) installDependencies=1
+      ;;
+    u) updateReleaseFiles=1
       ;;
     \?)
       echo "Invalid option: -$OPTARG" >&2
@@ -66,9 +70,12 @@ echo "...Beginning MIA Build!"
 mkdir -p "$rootDirectory"/build
 cmake -G "Unix Makefiles" -B"$rootDirectory"/build
 cd "$rootDirectory"/build || exit
-make -j16
+make -j16 || exit
 
 # Copy needed files for running MIA from build directory.
 cp -ruv "$rootDirectory/bin/resources/"*".MIA" "$rootDirectory/build/bin/resources/"
 
+if [[ $updateReleaseFiles ]]; then
+  $rootDirectory/updateRelease.sh
+fi
 echo "...MIA Build done!"
