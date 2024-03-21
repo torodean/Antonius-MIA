@@ -287,7 +287,7 @@ void VirtualKeyStrokes::press(const char& character, int holdTime)
         Error::returnError(31424, std::to_string(character));
     }
     if(!skipHold)
-        SystemUtils::sleepSeconds(holdTime);
+        SystemUtils::sleepMilliseconds(holdTime);
 #endif
 }
 
@@ -303,7 +303,7 @@ void VirtualKeyStrokes::one(int holdTime){
     ip.ki.dwFlags = 0; // 0 for key press
     SendInput(1, &ip, sizeof(INPUT));
 
-    SystemUtils::sleepSeconds(holdTime);
+    SystemUtils::sleepMilliseconds(holdTime);
     if(Configurator::getVerboseMode())
         cout << "1" << endl;
 
@@ -320,7 +320,7 @@ void VirtualKeyStrokes::two(int holdTime){
     ip.ki.dwFlags = 0; // 0 for key press
     SendInput(1, &ip, sizeof(INPUT));
 
-    SystemUtils::sleepSeconds(holdTime);
+    SystemUtils::sleepMilliseconds(holdTime);
     if(Configurator::getVerboseMode())
         cout << "2" << endl;
 
@@ -336,7 +336,7 @@ void VirtualKeyStrokes::three(int holdTime){
     ip.ki.dwFlags = 0; // 0 for key press
     SendInput(1, &ip, sizeof(INPUT));
 
-    SystemUtils::sleepSeconds(holdTime);
+    SystemUtils::sleepMilliseconds(holdTime);
     if(Configurator::getVerboseMode())
         cout << "3" << endl;
 
@@ -353,7 +353,7 @@ void VirtualKeyStrokes::four(int holdTime){
     ip.ki.dwFlags = 0; // 0 for key press
     SendInput(1, &ip, sizeof(INPUT));
 
-    SystemUtils::sleepSeconds(holdTime);
+    SystemUtils::sleepMilliseconds(holdTime);
     if(Configurator::getVerboseMode())
         cout << "4" << endl;
 
@@ -369,7 +369,7 @@ void VirtualKeyStrokes::five(int holdTime){
     ip.ki.dwFlags = 0; // 0 for key press
     SendInput(1, &ip, sizeof(INPUT));
 
-    SystemUtils::sleepSeconds(holdTime);
+    SystemUtils::sleepMilliseconds(holdTime);
     if(Configurator::getVerboseMode())
         cout << "5" << endl;
 
@@ -385,7 +385,7 @@ void VirtualKeyStrokes::six(int holdTime){
     ip.ki.dwFlags = 0; // 0 for key press
     SendInput(1, &ip, sizeof(INPUT));
 
-    SystemUtils::sleepSeconds(holdTime);
+    SystemUtils::sleepMilliseconds(holdTime);
     if(Configurator::getVerboseMode())
         cout << "6" << endl;
 
@@ -402,7 +402,7 @@ void VirtualKeyStrokes::seven(int holdTime){
     ip.ki.dwFlags = 0; // 0 for key press
     SendInput(1, &ip, sizeof(INPUT));
 
-    SystemUtils::sleepSeconds(holdTime);
+    SystemUtils::sleepMilliseconds(holdTime);
     if(Configurator::getVerboseMode())
         cout << "7" << endl;
 
@@ -418,7 +418,7 @@ void VirtualKeyStrokes::eight(int holdTime){
     ip.ki.dwFlags = 0; // 0 for key press
     SendInput(1, &ip, sizeof(INPUT));
 
-    SystemUtils::sleepSeconds(holdTime);
+    SystemUtils::sleepMilliseconds(holdTime);
     if(Configurator::getVerboseMode())
         cout << "8" << endl;
 
@@ -434,7 +434,7 @@ void VirtualKeyStrokes::nine(int holdTime){
     ip.ki.dwFlags = 0; // 0 for key press
     SendInput(1, &ip, sizeof(INPUT));
 
-    SystemUtils::sleepSeconds(holdTime);
+    SystemUtils::sleepMilliseconds(holdTime);
     if(Configurator::getVerboseMode())
         cout << "9" << endl;
 
@@ -450,7 +450,7 @@ void VirtualKeyStrokes::zero(int holdTime){
     ip.ki.dwFlags = 0; // 0 for key press
     SendInput(1, &ip, sizeof(INPUT));
 
-    SystemUtils::sleepSeconds(holdTime);
+    SystemUtils::sleepMilliseconds(holdTime);
     if(Configurator::getVerboseMode())
         cout << "0" << endl;
 
@@ -466,7 +466,7 @@ void VirtualKeyStrokes::a(int holdTime){
     ip.ki.dwFlags = 0; // 0 for key press
     SendInput(1, &ip, sizeof(INPUT));
 
-    SystemUtils::sleepSeconds(holdTime);
+    SystemUtils::sleepMilliseconds(holdTime);
 
     // Release the "a" key
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
@@ -481,7 +481,7 @@ void VirtualKeyStrokes::b(int holdTime){
     ip.ki.dwFlags = 0; // 0 for key press
     SendInput(1, &ip, sizeof(INPUT));
 
-    SystemUtils::sleepSeconds(holdTime);
+    SystemUtils::sleepMilliseconds(holdTime);
 
     // Release the "b" key
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
@@ -496,7 +496,7 @@ void VirtualKeyStrokes::c(int holdTime){
     ip.ki.dwFlags = 0; // 0 for key press
     SendInput(1, &ip, sizeof(INPUT));
 
-    SystemUtils::sleepSeconds(holdTime);
+    SystemUtils::sleepMilliseconds(holdTime);
 
     // Release the "c" key
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
@@ -511,7 +511,7 @@ void VirtualKeyStrokes::d(int holdTime){
     ip.ki.dwFlags = 0; // 0 for key press
     SendInput(1, &ip, sizeof(INPUT));
 
-    SystemUtils::sleepSeconds(holdTime);
+    SystemUtils::sleepMilliseconds(holdTime);
 
     // Release the "d" key
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
@@ -526,7 +526,7 @@ void VirtualKeyStrokes::e(int holdTime){
     ip.ki.dwFlags = 0; // 0 for key press
     SendInput(1, &ip, sizeof(INPUT));
 
-    SystemUtils::sleepSeconds(holdTime);
+    SystemUtils::sleepMilliseconds(holdTime);
 
     // Release the "e" key
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
@@ -541,7 +541,7 @@ void VirtualKeyStrokes::f(int holdTime){
     ip.ki.dwFlags = 0; // 0 for key press
     SendInput(1, &ip, sizeof(INPUT));
 
-    SystemUtils::sleepSeconds(holdTime);
+    SystemUtils::sleepMilliseconds(holdTime);
 
     // Release the "f" key
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
@@ -556,7 +556,7 @@ void VirtualKeyStrokes::g(int holdTime){
     ip.ki.dwFlags = 0; // 0 for key press
     SendInput(1, &ip, sizeof(INPUT));
 
-    SystemUtils::sleepSeconds(holdTime);
+    SystemUtils::sleepMilliseconds(holdTime);
 
     // Release the "g" key
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
@@ -571,7 +571,7 @@ void VirtualKeyStrokes::h(int holdTime){
     ip.ki.dwFlags = 0; // 0 for key press
     SendInput(1, &ip, sizeof(INPUT));
 
-    SystemUtils::sleepSeconds(holdTime);
+    SystemUtils::sleepMilliseconds(holdTime);
 
     // Release the "h" key
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
@@ -586,7 +586,7 @@ void VirtualKeyStrokes::i(int holdTime){
     ip.ki.dwFlags = 0; // 0 for key press
     SendInput(1, &ip, sizeof(INPUT));
 
-    SystemUtils::sleepSeconds(holdTime);
+    SystemUtils::sleepMilliseconds(holdTime);
 
     // Release the "i" key
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
@@ -601,7 +601,7 @@ void VirtualKeyStrokes::j(int holdTime){
     ip.ki.dwFlags = 0; // 0 for key press
     SendInput(1, &ip, sizeof(INPUT));
 
-    SystemUtils::sleepSeconds(holdTime);
+    SystemUtils::sleepMilliseconds(holdTime);
 
     // Release the "j" key
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
@@ -616,7 +616,7 @@ void VirtualKeyStrokes::k(int holdTime){
     ip.ki.dwFlags = 0; // 0 for key press
     SendInput(1, &ip, sizeof(INPUT));
 
-    SystemUtils::sleepSeconds(holdTime);
+    SystemUtils::sleepMilliseconds(holdTime);
 
     // Release the "k" key
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
@@ -631,7 +631,7 @@ void VirtualKeyStrokes::l(int holdTime){
     ip.ki.dwFlags = 0; // 0 for key press
     SendInput(1, &ip, sizeof(INPUT));
 
-    SystemUtils::sleepSeconds(holdTime);
+    SystemUtils::sleepMilliseconds(holdTime);
 
     // Release the "l" key
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
@@ -646,7 +646,7 @@ void VirtualKeyStrokes::m(int holdTime){
     ip.ki.dwFlags = 0; // 0 for key press
     SendInput(1, &ip, sizeof(INPUT));
 
-    SystemUtils::sleepSeconds(holdTime);
+    SystemUtils::sleepMilliseconds(holdTime);
 
     // Release the "m" key
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
@@ -661,7 +661,7 @@ void VirtualKeyStrokes::n(int holdTime){
     ip.ki.dwFlags = 0; // 0 for key press
     SendInput(1, &ip, sizeof(INPUT));
 
-    SystemUtils::sleepSeconds(holdTime);
+    SystemUtils::sleepMilliseconds(holdTime);
 
     // Release the "n" key
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
@@ -676,7 +676,7 @@ void VirtualKeyStrokes::o(int holdTime){
     ip.ki.dwFlags = 0; // 0 for key press
     SendInput(1, &ip, sizeof(INPUT));
 
-    SystemUtils::sleepSeconds(holdTime);
+    SystemUtils::sleepMilliseconds(holdTime);
 
     // Release the "o" key
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
@@ -691,7 +691,7 @@ void VirtualKeyStrokes::p(int holdTime){
     ip.ki.dwFlags = 0; // 0 for key press
     SendInput(1, &ip, sizeof(INPUT));
 
-    SystemUtils::sleepSeconds(holdTime);
+    SystemUtils::sleepMilliseconds(holdTime);
 
     // Release the "p" key
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
@@ -706,7 +706,7 @@ void VirtualKeyStrokes::q(int holdTime){
     ip.ki.dwFlags = 0; // 0 for key press
     SendInput(1, &ip, sizeof(INPUT));
 
-    SystemUtils::sleepSeconds(holdTime);
+    SystemUtils::sleepMilliseconds(holdTime);
 
     // Release the "q" key
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
@@ -721,7 +721,7 @@ void VirtualKeyStrokes::r(int holdTime){
     ip.ki.dwFlags = 0; // 0 for key press
     SendInput(1, &ip, sizeof(INPUT));
 
-    SystemUtils::sleepSeconds(holdTime);
+    SystemUtils::sleepMilliseconds(holdTime);
 
     // Release the "r" key
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
@@ -736,7 +736,7 @@ void VirtualKeyStrokes::s(int holdTime){
     ip.ki.dwFlags = 0; // 0 for key press
     SendInput(1, &ip, sizeof(INPUT));
 
-    SystemUtils::sleepSeconds(holdTime);
+    SystemUtils::sleepMilliseconds(holdTime);
 
     // Release the "s" key
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
@@ -751,7 +751,7 @@ void VirtualKeyStrokes::t(int holdTime){
     ip.ki.dwFlags = 0; // 0 for key press
     SendInput(1, &ip, sizeof(INPUT));
 
-    SystemUtils::sleepSeconds(holdTime);
+    SystemUtils::sleepMilliseconds(holdTime);
 
     // Release the "t" key
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
@@ -766,7 +766,7 @@ void VirtualKeyStrokes::u(int holdTime){
     ip.ki.dwFlags = 0; // 0 for key press
     SendInput(1, &ip, sizeof(INPUT));
 
-    SystemUtils::sleepSeconds(holdTime);
+    SystemUtils::sleepMilliseconds(holdTime);
 
     // Release the "u" key
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
@@ -781,7 +781,7 @@ void VirtualKeyStrokes::v(int holdTime){
     ip.ki.dwFlags = 0; // 0 for key press
     SendInput(1, &ip, sizeof(INPUT));
 
-    SystemUtils::sleepSeconds(holdTime);
+    SystemUtils::sleepMilliseconds(holdTime);
 
     // Release the "v" key
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
@@ -796,7 +796,7 @@ void VirtualKeyStrokes::w(int holdTime){
     ip.ki.dwFlags = 0; // 0 for key press
     SendInput(1, &ip, sizeof(INPUT));
 
-    SystemUtils::sleepSeconds(holdTime);
+    SystemUtils::sleepMilliseconds(holdTime);
 
     // Release the "w" key
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
@@ -811,7 +811,7 @@ void VirtualKeyStrokes::x(int holdTime){
     ip.ki.dwFlags = 0; // 0 for key press
     SendInput(1, &ip, sizeof(INPUT));
 
-    SystemUtils::sleepSeconds(holdTime);
+    SystemUtils::sleepMilliseconds(holdTime);
 
     // Release the "x" key
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
@@ -826,7 +826,7 @@ void VirtualKeyStrokes::y(int holdTime){
     ip.ki.dwFlags = 0; // 0 for key press
     SendInput(1, &ip, sizeof(INPUT));
 
-    SystemUtils::sleepSeconds(holdTime);
+    SystemUtils::sleepMilliseconds(holdTime);
 
     // Release the "y" key
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
@@ -841,7 +841,7 @@ void VirtualKeyStrokes::z(int holdTime){
     ip.ki.dwFlags = 0; // 0 for key press
     SendInput(1, &ip, sizeof(INPUT));
 
-    SystemUtils::sleepSeconds(holdTime);
+    SystemUtils::sleepMilliseconds(holdTime);
 
     // Release the "z" key
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
@@ -1040,19 +1040,19 @@ void VirtualKeyStrokes::duplicateLetter(int copies, string recipient)
     std::this_thread::sleep_for(std::chrono::milliseconds(5000));
     for(int i=0;i<copies;i++){
         type(recipient);
-        SystemUtils::sleepSeconds(200);
+        SystemUtils::sleepMilliseconds(200);
         tab();
-        SystemUtils::sleepSeconds(200);
+        SystemUtils::sleepMilliseconds(200);
         type("subject");
-        SystemUtils::sleepSeconds(200);
+        SystemUtils::sleepMilliseconds(200);
         tab();
-        SystemUtils::sleepSeconds(200);
+        SystemUtils::sleepMilliseconds(200);
         paste();
-        SystemUtils::sleepSeconds(400);
+        SystemUtils::sleepMilliseconds(400);
         SetCursorPos(x, y);
-        SystemUtils::sleepSeconds(300);
+        SystemUtils::sleepMilliseconds(300);
         leftclick();
-        SystemUtils::sleepSeconds(2500);
+        SystemUtils::sleepMilliseconds(2500);
     }
 }
 
@@ -1073,17 +1073,17 @@ void VirtualKeyStrokes::unloadLetters(int copies)
 
     for(int i=0;i<copies;i++){
         SetCursorPos(x0, y0);
-        SystemUtils::sleepSeconds(300);
+        SystemUtils::sleepMilliseconds(300);
         leftclick();
-        SystemUtils::sleepSeconds(300);
+        SystemUtils::sleepMilliseconds(300);
         SetCursorPos(x1, y1);
-        SystemUtils::sleepSeconds(300);
+        SystemUtils::sleepMilliseconds(300);
         leftclick();
-        SystemUtils::sleepSeconds(300);
+        SystemUtils::sleepMilliseconds(300);
         SetCursorPos(x2, y2);
-        SystemUtils::sleepSeconds(300);
+        SystemUtils::sleepMilliseconds(300);
         leftclick();
-        SystemUtils::sleepSeconds(300);
+        SystemUtils::sleepMilliseconds(300);
     }
 }
 
@@ -1092,7 +1092,7 @@ void VirtualKeyStrokes::findMouseCoords(int wait){
 
     POINT cursor;
 
-    SystemUtils::sleepSeconds(wait);
+    SystemUtils::sleepMilliseconds(wait);
     GetCursorPos(&cursor);
 
     MIATerminalTools::blankDots();
@@ -1152,7 +1152,7 @@ void VirtualKeyStrokes::getPixelColorAtMouse(){
 
 void VirtualKeyStrokes::moveMouseTo(int x, int y){
     SetCursorPos(x,y);
-    SystemUtils::sleepSeconds(40);
+    SystemUtils::sleepMilliseconds(40);
 }
 
 void VirtualKeyStrokes::fishBotIntro()
@@ -1163,25 +1163,25 @@ void VirtualKeyStrokes::fishBotIntro()
     //Some gibberish for dramatic effect.
     //Also serves as a brief load time before bot starts.
     cout << "...Loading Fishbot Modules." << endl;
-    SystemUtils::sleepSeconds(drama);
+    SystemUtils::sleepMilliseconds(drama);
     cout << "...Calculating response functions." << endl;
-    SystemUtils::sleepSeconds(drama);
+    SystemUtils::sleepMilliseconds(drama);
     cout << "...Detecting saved crypto-keys." << endl;
-    SystemUtils::sleepSeconds(2*drama);
+    SystemUtils::sleepMilliseconds(2*drama);
     cout << "...Saved keys found!" << endl;
     cout << "...Decrypting password hash values." << endl;
-    SystemUtils::sleepSeconds(drama);
+    SystemUtils::sleepMilliseconds(drama);
     cout << "...MIA_Success!." << endl;
     cout << "...Sending security information to host." << endl;
-    SystemUtils::sleepSeconds(2*drama);
+    SystemUtils::sleepMilliseconds(2*drama);
     cout << "...MIA_Success!." << endl;
     cout << "...Disabling daemon ninja process." << endl;
-    SystemUtils::sleepSeconds(drama);
+    SystemUtils::sleepMilliseconds(drama);
     MIATerminalTools::blankDots();
     cout << "...Number of casts set to: " << cfg.getWoWFishBotSpace("casts") << endl;
-    SystemUtils::sleepSeconds(drama);
+    SystemUtils::sleepMilliseconds(drama);
     cout << "...Starting fishbot!" << endl;
-    SystemUtils::sleepSeconds(drama);
+    SystemUtils::sleepMilliseconds(drama);
     MIATerminalTools::blankDots();
 }
 
@@ -1239,20 +1239,20 @@ void VirtualKeyStrokes::WoWFishBot(string fishButton, string lureButton)
         if (useLure && counter % 100 == 0){
             cout << "...Applying lure." << endl;
             type(lureButton);
-            SystemUtils::sleepSeconds(3000);
+            SystemUtils::sleepMilliseconds(3000);
         }
 
         //Casts.
         cout << "...Casting." << endl;
         type(fishButton);
-        SystemUtils::sleepSeconds(1500);
+        SystemUtils::sleepMilliseconds(1500);
         cout << "...Scanning." << endl;
 
         //Finds bobber.
         for (int j=startY;j<endY;j+=increment){
             for (int i=startX;i<endX;i+=increment){
                 SetCursorPos(i,j);
-                SystemUtils::sleepSeconds(2);
+                SystemUtils::sleepMilliseconds(2);
                 color = GetPixel(dc, i, j);
                 //color = GetPixel(dc, cursor.x, cursor.y);
 
@@ -1284,10 +1284,10 @@ void VirtualKeyStrokes::WoWFishBot(string fishButton, string lureButton)
 
         //Waits a delay time and then clocks the bobber if it was found.
         if(bobberFound){
-            SystemUtils::sleepSeconds(catchDelay);
+            SystemUtils::sleepMilliseconds(catchDelay);
             leftclick();
         }
-        SystemUtils::sleepSeconds(1000);
+        SystemUtils::sleepMilliseconds(1000);
 
         //Determines elapsed time and progress information.
         end = std::chrono::steady_clock::now();
@@ -1384,7 +1384,7 @@ void VirtualKeyStrokes::tab()
 
 void VirtualKeyStrokes::buttonSpam(const std::string& button, int amount, int pause)
 {
-    SystemUtils::sleepSeconds(5); //Waits 5 seconds before beginning.
+    SystemUtils::sleepMilliseconds(5); //Waits 5 seconds before beginning.
 
     for (int i=0;i<amount;i++){
         type(button);
@@ -1394,7 +1394,7 @@ void VirtualKeyStrokes::buttonSpam(const std::string& button, int amount, int pa
 
 void VirtualKeyStrokes::buttonSpamTab(const std::string& button, int amount, int pause)
 {
-    SystemUtils::sleepSeconds(5); //Waits 5 seconds before beginning.
+    SystemUtils::sleepMilliseconds(5); //Waits 5 seconds before beginning.
 
     for (int i=0;i<amount;i++){
         type(button);

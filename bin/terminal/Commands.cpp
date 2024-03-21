@@ -701,7 +701,7 @@ void Commands::findMouse()
 #if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__) || defined _WIN32 || defined _WIN64 || defined __CYGWIN__
     VirtualKeyStrokes keys;
 	cout << "...Locating mouse in 2 seconds." << endl;
-	keys.findMouseCoords(2000);
+	keys.findMouseCoords(2);
 #else
     Error::returnError(31416);
 #endif
