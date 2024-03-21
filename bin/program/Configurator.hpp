@@ -39,16 +39,20 @@ public:
     struct ProgramFilePaths
     {
 		// Linux file paths 
-        ProgramFilePaths() : MIAConfigFile("resources/MIAConfig.MIA"),
-                             excuseFilePath("resources/excuses.MIA"),
-                             inputFilePath("resources/inputFiles/"),
-                             workoutsFilePath("resources/inputFiles/workouts.txt"),
-                             workoutOutputFilePath("resources/outputFiles/workout.txt"),
-                             cryptFilePath("resources/encryptedFiles/"),
-                             decryptFilePath("resources/decryptedFiles/"),
-                             sequencesFilePath("resources/inputFiles/MIASequences.txt"),
-                             shengliDatabaseFilePath("resources/shengli.MIA")
-        {};
+        ProgramFilePaths()
+        {
+			std::string resourcesFolder = findResourcesFolder(__FILE__);
+			std::cout << "Detected resources folder: " << resourcesFolder << std::endl;
+			MIAConfigFile = resourcesFolder + "/MIAConfig.MIA";
+			excuseFilePath = resourcesFolder + "/excuses.MIA";
+			inputFilePath = resourcesFolder + "/inputFiles/";
+			workoutsFilePath = resourcesFolder + "/inputFiles/workouts.txt";
+			workoutOutputFilePath = resourcesFolder + "/outputFiles/workout.txt";
+			cryptFilePath = resourcesFolder + "/encryptedFiles/";
+			decryptFilePath = resourcesFolder + "/decryptedFiles/";
+			sequencesFilePath = resourcesFolder + "/inputFiles/MIASequences.txt";
+			shengliDatabaseFilePath = resourcesFolder + "/shengli.MIA";
+		};
 
         /// An enumeration object containing various file types.
         enum filePathType
@@ -195,6 +199,8 @@ public:
      * @return
      */
     int getWoWFishBotSpace(const std::string &data) const;
+	
+	static std::string findResourcesFolder(const std::string& currentDirectory);
 	
 protected:
 

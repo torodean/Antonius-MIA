@@ -8,6 +8,7 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include <filesystem>
 #include "Configurator.hpp"
 #include "../utilities/StringUtils.hpp"
 #include "Error.hpp"
@@ -15,6 +16,8 @@
 using std::string;
 using std::cout;
 using std::endl;
+
+namespace fs = std::filesystem;
 
 bool Configurator::ProgramVariables::verboseMode = false;
 
@@ -557,4 +560,29 @@ void Configurator::setPort(const string &input)
 {
     int value = std::stoi(input);
     databaseVariables.port = (short)value;
+}
+
+string Configurator::findResourcesFolder(const std::string& currentDirectory) {
+    fs::path currentPath = fs::absolute(currentDirectory);
+
+    // Check if current directory contains "resources" folder
+    fs::path resourcesPath = currentPath / "resources";
+    if (fs::exists(resourcesPath) && fs::is_directory(resourcesPath)) {
+        return resourcesPath.string();
+    }
+
+    // Check if parent directory contains "resources" folder
+    fs::path parentPath = currentPath.parent_path();
+    resourcesPath = parentPath / "resources";
+    if (fs::exists(resourcesPath) && fs::is_directory(resourcesPath)) {
+        return resourcesPath.string();
+    }
+
+    // Recursively check parent directories
+    if (parentPath != currentPath) {
+        return findResourcesFolder(parentPath.string());
+    }
+
+    // Reached root directory, "resources" folder not found
+    return "";
 }

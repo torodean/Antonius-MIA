@@ -13,6 +13,10 @@
 using std::string;
 using std::vector;
 
+/**
+ * This class contains old math methods that were copied from old programs.
+ * @ TODO - comment and organize this class.
+ */
 class D3CMath
 {
 private:
