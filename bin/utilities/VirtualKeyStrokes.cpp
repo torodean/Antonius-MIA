@@ -1384,7 +1384,7 @@ void VirtualKeyStrokes::tab()
 
 void VirtualKeyStrokes::buttonSpam(const std::string& button, int amount, int pause)
 {
-    SystemUtils::sleepMilliseconds(5); //Waits 5 seconds before beginning.
+    SystemUtils::sleepMilliseconds(5000); //Waits 5 seconds before beginning.
 
     for (int i=0;i<amount;i++){
         type(button);
@@ -1394,7 +1394,7 @@ void VirtualKeyStrokes::buttonSpam(const std::string& button, int amount, int pa
 
 void VirtualKeyStrokes::buttonSpamTab(const std::string& button, int amount, int pause)
 {
-    SystemUtils::sleepMilliseconds(5); //Waits 5 seconds before beginning.
+    SystemUtils::sleepMilliseconds(5000); //Waits 5 seconds before beginning.
 
     for (int i=0;i<amount;i++){
         type(button);
