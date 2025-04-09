@@ -9,6 +9,7 @@
 #include <random>
 #include <vector>
 #include <ctime>
+#include <algorithm>
 #include "StringUtils.hpp"
 #include "Configurator.hpp"
 
@@ -30,7 +31,7 @@ std::string StringUtils::toLower(std::string &input)
 
 std::string StringUtils::removeCharInString(string str, char c)
 {
-    str.erase(remove(str.begin(), str.end(), c), str.end());
+    str.erase(std::remove(str.begin(), str.end(), c), str.end());
     return str;
 }
 

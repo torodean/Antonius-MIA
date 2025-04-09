@@ -10,6 +10,7 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include <algorithm>
 #include "MIAWorkout.hpp"
 #include "TerminalTools.hpp"
 #include "StringUtils.hpp"
@@ -101,10 +102,10 @@ void MIAWorkout::generateWorkout(double difficulty, bool weekly) const
                 }
 
                 //remove spaces from each line for processing
-                line.erase(remove(line.begin(), line.end(), ' '), line.end());
+                line.erase(std::remove(line.begin(), line.end(), ' '), line.end());
                 //removes end of line characters from variable name and value. Fixes a bug.
-                line.erase(remove(line.begin(), line.end(), '\r'), line.end());
-                line.erase(remove(line.begin(), line.end(), '\n'), line.end());
+                line.erase(std::remove(line.begin(), line.end(), '\r'), line.end());
+                line.erase(std::remove(line.begin(), line.end(), '\n'), line.end());
 
                 lines.push_back(line);
             }

@@ -9,6 +9,7 @@
 #include <fstream>
 #include <vector>
 #include <filesystem>
+#include <algorithm>
 #include "Configurator.hpp"
 #include "../utilities/StringUtils.hpp"
 #include "Error.hpp"
@@ -100,8 +101,8 @@ void Configurator::initializeSettings(bool printSettings)
             value = lines[i].substr(equalSignLocation+1,lines[i].size()-1);
 
             //removes end of line characters from variable name and value. Fixes a bug.
-            variable.erase(remove(variable.begin(), variable.end(), '\r'), variable.end());
-            value.erase(remove(value.begin(), value.end(), '\r'), value.end());
+            variable.erase(std::remove(variable.begin(), variable.end(), '\r'), variable.end());
+            value.erase(std::remove(value.begin(), value.end(), '\r'), value.end());
 
             if(printSettings)
                 cout << "...Setting variable: " << variable << " to '" << value << "'" << endl;

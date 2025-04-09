@@ -6,6 +6,7 @@
  */
 
 #include <iostream>
+#include <algorithm>
 #include "Commands.hpp"
 #include "StringUtils.hpp"
 #include "TerminalTools.hpp"
@@ -719,7 +720,7 @@ void Commands::workoutRunner(bool weekly)
     cout << "...Please enter a difficulty: ";
     getline(std::cin,input);
 
-    transform(input.begin(), input.end(), input.begin(), ::tolower);
+    std::transform(input.begin(), input.end(), input.begin(), ::tolower);
     double difficulty;
 
     //The pranjal input for a difficulty is a joke reference to a friend.
@@ -969,7 +970,7 @@ void Commands::runSequencer()
     MIATerminalTools::blankLine();
     getline(std::cin, input);
     vector<string> names = seq.getSequenceNames();
-    if (find(names.begin(), names.end(), input) != names.end())
+    if (std::find(names.begin(), names.end(), input) != names.end())
     {
         seq.activateSequence(input);
     } else {
@@ -988,7 +989,7 @@ void Commands::loopSequencer()
     MIATerminalTools::blankLine();
     getline(std::cin, input);
     vector<string> names = seq.getSequenceNames();
-    if (find(names.begin(), names.end(), input) != names.end())
+    if (std::find(names.begin(), names.end(), input) != names.end())
     {
         while(true)
         {
