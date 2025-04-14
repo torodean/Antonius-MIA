@@ -8,6 +8,8 @@
 
 MIA (Multiple Integrated Applications) is a program where I can store useful coding functions and apps I've created in one place for easy accessibility.
 
+IMPORTANT: This project was made far before I took on professional/actual programming job(s) and in no way reflects my current understanding or skills. I hopefully plan to re-make this project from the ground up one day. 
+
 For a list of commands and features see the MIA manual.
 
 
